@@ -1,0 +1,41 @@
+        int VMHL_N=5;//Размер массива (число строк)
+        int *a;
+        a=new int[VMHL_N];
+        int *b;
+        b=new int[VMHL_N];
+
+        int x=MHL_RandomUniformInt(0,2);//заполнитель для вектора a
+        int y=MHL_RandomUniformInt(0,2);//заполнитель для вектора b
+        TMHL_FillVector (a, VMHL_N, x);
+        TMHL_FillVector (b, VMHL_N, y);
+
+
+        //Вызов функции
+        int Q=TMHL_EqualityOfVectors(a,b,VMHL_N);
+
+        //Используем полученный результат
+        MHL_ShowVector (a,VMHL_N,"Вектор", "a");
+        //Вектор:
+        //a =
+        //1
+        //1
+        //1
+        //1
+        //1
+
+        MHL_ShowVector (b,VMHL_N,"Вектор", "b");
+        //Вектор:
+        //b =
+        //0
+        //0
+        //0
+        //0
+        //0
+
+        MHL_ShowNumber (Q,"Равны ли вектора", "Q");
+        // Равны ли вектора:
+        //Q=0
+
+
+        delete [] a;
+        delete [] b;

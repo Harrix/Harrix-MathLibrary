@@ -1,0 +1,1 @@
+double MHL_RadToDeg(double VMHL_X);

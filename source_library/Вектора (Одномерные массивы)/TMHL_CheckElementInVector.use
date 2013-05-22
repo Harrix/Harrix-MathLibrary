@@ -1,0 +1,35 @@
+        int i;
+        int VMHL_N=10;//Размер массива (число строк)
+        int *a;
+        a=new int[VMHL_N];
+        //Заполним случайными числами
+        for (i=0;i<VMHL_N;i++)
+         a[i]=MHL_RandomUniformInt(0,5);
+        int k=MHL_RandomUniformInt(0,5);//искомое число
+
+        //Вызов функции
+        int Search=TMHL_CheckElementInVector(a,VMHL_N,k);
+
+        //Используем полученный результат
+        MHL_ShowVector (a,VMHL_N,"Вектор", "a");
+        //Вектор:
+        //a =
+        //2
+        //1
+        //2
+        //1
+        //0
+        //1
+        //0
+        //3
+        //0
+        //0
+
+        MHL_ShowNumber (k,"Искомое число", "k");
+        //Искомое число:
+        //k=3
+
+        MHL_ShowNumber (Search,"находится в векторе a под номером", "Search");
+        //находится в векторе a под номером:
+        //Search=7
+        delete [] a;

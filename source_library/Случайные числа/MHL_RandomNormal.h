@@ -1,0 +1,1 @@
+double MHL_RandomNormal(double Mean, double StdDev);

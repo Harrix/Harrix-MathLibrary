@@ -1,0 +1,1 @@
+template <class T> bool TMHL_EqualityOfVectors(T *a, T *b, int VMHL_N);

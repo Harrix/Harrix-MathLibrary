@@ -1,0 +1,25 @@
+        int VMHL_N=MHL_RandomUniformInt(5,15);//Размер массива
+        double *x;
+        x=new double[VMHL_N];
+
+        //Вызов функции
+        TMHL_FibonacciNumbersVector(x,VMHL_N);
+
+        //Используем полученный результат
+        MHL_ShowVector (x,VMHL_N,"Вектор, заполненый числами Фибоначи", "x");
+        //Вектор, заполненый числами Фибоначи:
+        //x =	
+        //1
+        //1
+        //2
+        //3
+        //5
+        //8
+        //13
+        //21
+        //34
+        //55
+        //89
+        //144
+        
+        delete [] x;

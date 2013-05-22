@@ -1,0 +1,1 @@
+double MHL_RandomUniform(double a, double b);

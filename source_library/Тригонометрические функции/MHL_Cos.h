@@ -1,0 +1,1 @@
+double MHL_Cos(double x);

@@ -1,0 +1,1 @@
+template <class T> int TMHL_NumberOfMinimumOfVector(T *a, int VMHL_N);

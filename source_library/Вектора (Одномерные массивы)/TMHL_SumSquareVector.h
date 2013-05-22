@@ -1,0 +1,1 @@
+template <class T> T TMHL_SumSquareVector(T *VMHL_Vector,int VMHL_N);

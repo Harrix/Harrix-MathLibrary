@@ -1,0 +1,70 @@
+        int i;
+        int VMHL_N=10;//Размер массива (число строк)
+        int *a;
+        a=new int[VMHL_N];
+        int *b;
+        b=new int[VMHL_N];
+        int *c;
+        c=new int[VMHL_N];
+        //Заполним случайными числами
+        for (i=0;i<VMHL_N;i++)
+         a[i]=MHL_RandomUniformInt(0,10);
+        for (i=0;i<VMHL_N;i++)
+         b[i]=MHL_RandomUniformInt(0,10);
+
+        //Вызов функции
+        TMHL_VectorMinusVector(a,b,c,VMHL_N);
+
+        //Используем полученный результат
+        MHL_ShowVectorT (a,VMHL_N,"Случайный вектор", "a");
+        //Случайный вектор:
+        //a =
+        //0	7	0	0	8	5	0	4	8	2
+
+        MHL_ShowVectorT (b,VMHL_N,"Случайный вектор", "b");
+        //Случайный вектор:
+        //b =
+        //6	1	3	1	2	7	2	6	1	4
+
+        MHL_ShowVectorT (c,VMHL_N,"Их разница", "c");
+        //Их разница:
+        //c =
+        //-6	6	-3	-1	6	-2	-2	-2	7	-2
+
+        delete [] a;
+        delete [] b;
+        delete [] c;
+		
+		
+		
+		//Для  переопределенной функции
+        VMHL_N=10;//Размер массива (число строк)
+        a=new int[VMHL_N];
+        b=new int[VMHL_N];
+        //Заполним случайными числами
+        for (i=0;i<VMHL_N;i++)
+         a[i]=MHL_RandomUniformInt(0,10);
+        for (i=0;i<VMHL_N;i++)
+         b[i]=MHL_RandomUniformInt(0,10);
+
+        MHL_ShowVectorT (a,VMHL_N,"Случайный вектор", "a");
+        //Случайный вектор:
+        //a =	
+        //6	9	3	0	2	9	4	2	3	7
+
+        //Вызов функции
+        TMHL_VectorMinusVector(a,b,VMHL_N);
+
+        //Используем полученный результат
+        MHL_ShowVectorT (b,VMHL_N,"Случайный вектор", "b");
+        //Случайный вектор:
+        //b =	
+        //5	6	3	8	5	0	7	6	4	4
+        
+        MHL_ShowVectorT (a,VMHL_N,"Из первого вычли второй", "a");
+        //Из первого вычли второй:
+        //a =	
+        //1	3	0	-8	-3	9	-3	-4	-1	3         
+        
+        delete [] a;
+        delete [] b;

@@ -1,7 +1,7 @@
 //БИБЛИОТЕКА MATH HARRIX LIBRARY
 
 //Сборник различных математических функций с открытым кодом на языке C++
-//Страница проекта: https://github.com/Harrix/Math-Harrix-Library
+//Страница проекта: https://github.com/Harrix/MathHarrixLibrary
 //Распространяется по лицензии Apache License, Version 2.0
 
 //   Copyright 2007-2013 Harrix

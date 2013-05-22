@@ -1,0 +1,1 @@
+double MHL_CotanDeg(double x);
