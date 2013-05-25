@@ -1,0 +1,1 @@
+double MHL_ExpMSxD2(double x);

@@ -1,0 +1,9 @@
+        double a=MHL_RandomUniform(-5,5);
+        int Degree=MHL_RandomUniformInt(0,20);
+
+        double Result=TMHL_PowerOf(a,Degree);
+
+        //Используем полученный результат
+        MHL_ShowNumber(Result,"Число "+MHL_NumberToText(a)+" в степени "+MHL_NumberToText(Degree),"равно");
+        //Число 3.9624 в степени 4:
+        //равно=246.51

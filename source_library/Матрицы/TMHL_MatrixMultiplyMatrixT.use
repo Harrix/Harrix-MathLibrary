@@ -1,0 +1,48 @@
+        int i;
+        int VMHL_N=3;
+        int VMHL_M=5;
+        int VMHL_S=4;
+        int **a;
+        a=new int*[VMHL_N];
+        for (i=0;i<VMHL_N;i++) a[i]=new int[VMHL_M];
+        int **b;
+        b=new int*[VMHL_S];
+        for (i=0;i<VMHL_S;i++) b[i]=new int[VMHL_M];
+        int **c;
+        c=new int*[VMHL_N];
+        for (i=0;i<VMHL_N;i++) c[i]=new int[VMHL_S];
+        TMHL_RandomIntMatrix(a,0,10,VMHL_N,VMHL_M);
+        TMHL_RandomIntMatrix(b,0,10,VMHL_S,VMHL_M);
+
+        //Вызов функции
+        TMHL_MatrixMultiplyMatrixT (a, b, c, VMHL_N, VMHL_M, VMHL_S);
+
+        //Используем полученный результат
+        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Случайная матрица", "a");
+        //Случайная матрица:
+        //a =
+        //9	8	5	2	1
+        //1	9	3	4	8
+        //9	9	3	0	3
+
+        MHL_ShowMatrix (b,VMHL_S,VMHL_M,"Случайная матрица", "b");
+        // Случайная матрица:
+        //b =
+        //3	7	3	0	8
+        //9	8	0	6	9
+        //0	2	5	6	5
+        //8	7	9	2	3
+
+        MHL_ShowMatrix (c,VMHL_N,VMHL_S,"Произведение", "c");
+        // Произведение:
+        //c =
+        //106	166	58	180
+        //139	177	97	130
+        //123	180	48	171
+
+        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        delete [] a;
+        for (i=0;i<VMHL_S;i++) delete [] b[i];
+        delete [] b;
+        for (i=0;i<VMHL_N;i++) delete [] c[i];
+        delete [] c;

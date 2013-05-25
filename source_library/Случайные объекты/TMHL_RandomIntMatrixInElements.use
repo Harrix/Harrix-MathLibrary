@@ -1,0 +1,53 @@
+        int i,j;
+        int VMHL_N=3;//Размер массива (число строк)
+        int VMHL_M=3;//Размер массива (число столбцов)
+        int **a;
+        a=new int*[VMHL_N];
+        for (i=0;i<VMHL_N;i++) a[i]=new int[VMHL_M];
+        int **n;
+        n=new int*[VMHL_N];
+        for (i=0;i<VMHL_N;i++) n[i]=new int[VMHL_M];
+        int **m;
+        m=new int*[VMHL_N];
+        for (i=0;i<VMHL_N;i++) m[i]=new int[VMHL_M];
+
+        //Заполним границы изменения каждого элемента
+        for (i=0;i<VMHL_N;i++)
+         for (j=0;j<VMHL_M;j++)
+          {
+          n[i][j]=i*VMHL_N+j-10;
+          m[i][j]=n[i][j]+20;
+          }
+
+        //Вызов функции
+        TMHL_RandomIntMatrixInElements(a,n,m,VMHL_N,VMHL_M);
+
+        //Используем полученный результат
+
+        MHL_ShowMatrix (n,VMHL_N,VMHL_M,"Матрица левых границ", "n");
+        //Матрица левых границ:
+        //n =
+        //-10	-9	-8
+        //-7	-6	-5
+        //-4	-3	-2
+
+        MHL_ShowMatrix (m,VMHL_N,VMHL_M,"Матрица правых границ", "m");
+        // Матрица правых границ:
+        //m =
+        //10	11	12
+        //13	14	15
+        //16	17	18
+
+        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Случайная матрица", "a");
+        // Случайная матрица:
+        //a =
+        //-4	6	-8
+        //-1	1	1
+        //-3	16	4
+
+        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        delete [] a;
+        for (i=0;i<VMHL_N;i++) delete [] n[i];
+        delete [] n;
+        for (i=0;i<VMHL_N;i++) delete [] m[i];
+        delete [] m;

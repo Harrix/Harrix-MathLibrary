@@ -1,0 +1,37 @@
+        int VMHL_N=10;//Размер массива
+        int *x;
+        x=new int[VMHL_N];
+        int *y;
+        y=new int[VMHL_N];
+        //Заполним массив номерами от 1
+        TMHL_OrdinalVector(x,VMHL_N);
+        //А сопряженный заполним номерами с нуля
+        TMHL_OrdinalVectorZero(y,VMHL_N);
+        MHL_ShowVectorT (x,VMHL_N,"Вектор", "x");
+        //Вектор:
+        //x =
+        //1	2	3	4	5	6	7	8	9	10
+
+        MHL_ShowVectorT (y,VMHL_N,"Вектор", "y");
+        //Вектор:
+        //y =
+        //0	1	2	3	4	5	6	7	8	9
+
+        double P=0.4;//Вероятность перемешивания
+
+        //Вызов функции
+        TMHL_MixingVectorWithConjugateVector(x,y,P,VMHL_N);//Перемешаем массив
+
+        //Используем полученный результат
+        MHL_ShowVectorT (x,VMHL_N,"Перемешанный вектор", "x");
+        // Перемешанный вектор:
+        //x =
+        //9	1	4	8	10	5	7	3	6	2
+
+        MHL_ShowVectorT (y,VMHL_N,"Сопряженный перемешанный вектор", "y");
+        //Сопряженный перемешанный вектор:
+        //y =
+        //8	0	3	7	9	4	6	2	5	1
+
+        delete [] x;
+        delete [] y;

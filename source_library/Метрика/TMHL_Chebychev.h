@@ -1,0 +1,1 @@
+template <class T> T TMHL_Chebychev(T *x, T *y, int VMHL_N);

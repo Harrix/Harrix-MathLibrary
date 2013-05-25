@@ -1,5 +1,7 @@
 #ifndef MATHHARRIXLIBRARY_H
 #define MATHHARRIXLIBRARY_H
+#include <math.h>
+
 // КОНСТАНТЫ
 const double MHL_TAU=0.61803398874989484820;
 const double MHL_E=2.71828182845904523536;
@@ -24,19 +26,25 @@ void MHL_SeedRandom(void);//Инициализатор генератора сл
 double MHL_RandomNumber(void);//Генерирует вещественное случайное число из интервала (0;1)
 
 //ПЕРЕМЕННЫЕ ПЕРЕЧИСЛЯЕМОГО ТИПА
-enum EMHL_TypeSort {BubbleSort};
+
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // ОБЪЯВЛЕНИЯ ФУНКЦИЙ
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 //Вектора (Одномерные массивы)
+double MHL_EuclidNorma(double *a,int VMHL_N);
+void MHL_NoiseInVector(double *VMHL_ResultVector, double percent, int VMHL_N);
+template <class T> void TMHL_AcceptanceLimits(T *VMHL_ResultVector, T *Left, T *Right, int VMHL_N);
 template <class T> int TMHL_CheckElementInVector(T *x, int VMHL_N, T a);
 template <class T> bool TMHL_EqualityOfVectors(T *a, T *b, int VMHL_N);
 template <class T> void TMHL_FibonacciNumbersVector(T *VMHL_ResultVector, int VMHL_N);
 template <class T> void TMHL_FillVector(T *VMHL_ResultVector, int VMHL_N, T x);
 template <class T> T TMHL_MaximumOfVector(T *VMHL_Vector, int VMHL_N);
 template <class T> T TMHL_MinimumOfVector(T *VMHL_Vector, int VMHL_N);
+template <class T> void TMHL_MixingVector(T *VMHL_ResultVector, double P, int VMHL_N);
+template <class T, class T2> void TMHL_MixingVectorWithConjugateVector(T *VMHL_ResultVector, T2 *VMHL_ResultVector2, double P, int VMHL_N);
+template <class T> int TMHL_NumberOfDifferentValuesInVector(T *a, int VMHL_N);
 template <class T> int TMHL_NumberOfMaximumOfVector(T *a, int VMHL_N);
 template <class T> int TMHL_NumberOfMinimumOfVector(T *a, int VMHL_N);
 template <class T> int TMHL_NumberOfNegativeValues(T *a, int VMHL_N);
@@ -44,6 +52,7 @@ template <class T> int TMHL_NumberOfPositiveValues(T *a, int VMHL_N);
 template <class T> int TMHL_NumberOfZeroValues(T *a, int VMHL_N);
 template <class T> void TMHL_OrdinalVector(T *VMHL_ResultVector, int VMHL_N);
 template <class T> void TMHL_OrdinalVectorZero(T *VMHL_ResultVector, int VMHL_N);
+template <class T> void TMHL_ReverseVector(T *VMHL_ResultVector, int VMHL_N);
 template <class T> int TMHL_SearchFirstNotZero(T *x, int VMHL_N);
 template <class T> int TMHL_SearchFirstZero(T *x, int VMHL_N);
 template <class T> T TMHL_SumSquareVector(T *VMHL_Vector,int VMHL_N);
@@ -56,6 +65,9 @@ template <class T> void TMHL_VectorPlusVector(T *VMHL_ResultVector, T *b, int VM
 template <class T> void TMHL_VectorToVector(T *VMHL_Vector, T *VMHL_ResultVector, int VMHL_N);
 template <class T> void TMHL_ZeroVector(T *VMHL_ResultVector,int VMHL_N);
 
+//Геометрия
+template <class T> int TMHL_BoolCrossingTwoSegment(T b1,T c1,T b2,T c2);
+
 //Гиперболические функции
 double MHL_Cosech(double x);
 double MHL_Cosh(double x);
@@ -63,6 +75,75 @@ double MHL_Cotanh(double x);
 double MHL_Sech(double x);
 double MHL_Sinh(double x);
 double MHL_Tanh(double x);
+
+//Дифференцирование
+double MHL_CenterDerivative(double x, double h, double (*Function)(double));
+double MHL_LeftDerivative(double x, double h, double (*Function)(double));
+double MHL_RightDerivative(double x, double h, double (*Function)(double));
+
+//Интегрирование
+double MHL_IntegralOfRectangle(double a, double b, double Epsilon,double (*Function)(double));
+double MHL_IntegralOfSimpson(double a, double b, double Epsilon,double (*Function)(double));
+double MHL_IntegralOfTrapezium(double a, double b, double Epsilon,double (*Function)(double));
+
+//Математические функции
+double MHL_ArithmeticalProgression(double a1,double d,int n);
+double MHL_ExpMSxD2(double x);
+double MHL_GeometricSeries(double u1,double q,int n);
+int MHL_GreatestCommonDivisorEuclid(int A,int B);
+int MHL_HowManyPowersOfTwo(int x);
+double MHL_InverseNormalizationNumberAll(double x);
+int MHL_LeastCommonMultipleEuclid(int A,int B);
+double MHL_NormalizationNumberAll(double x);
+int MHL_Parity(int a);
+double MHL_SumGeometricSeries(double u1,double q,int n);
+double MHL_SumOfArithmeticalProgression(double a1,double d,int n);
+int MHL_SumOfDigits(int a);
+template <class T> T TMHL_Abs(T x);
+template <class T> T TMHL_FibonacciNumber(T n);
+template <class T> T TMHL_HeavisideFunction(T x);
+template <class T> T TMHL_Max(T a, T b);
+template <class T> T TMHL_Min(T a, T b);
+template <class T> void TMHL_NumberInterchange(T *a, T *b);
+template <class T> T TMHL_PowerOf(T x, int n);
+template <class T> int TMHL_Sign(T a);
+template <class T> int TMHL_SignNull(T a);
+
+//Матрицы
+template <class T> void TMHL_ColInterchange(T **VMHL_ResultMatrix, int VMHL_N, int k, int l);
+template <class T> void TMHL_ColToMatrix(T **VMHL_ResultMatrix, T *b, int VMHL_N, int k);
+template <class T> void TMHL_DeleteColInMatrix(T **VMHL_ResultMatrix, int k, int VMHL_N, int VMHL_M);
+template <class T> void TMHL_DeleteRowInMatrix(T **VMHL_ResultMatrix, int k, int VMHL_N, int VMHL_M);
+template <class T> void TMHL_FillMatrix(T **VMHL_ResultMatrix, int VMHL_N, int VMHL_M, T x);
+template <class T> void TMHL_IdentityMatrix(T **VMHL_ResultMatrix,int VMHL_N);
+template <class T> void TMHL_MatrixMinusMatrix(T **a, T **b, T **VMHL_ResultMatrix, int VMHL_N, int VMHL_M);
+template <class T> void TMHL_MatrixMinusMatrix(T **VMHL_ResultMatrix, T **b, int VMHL_N, int VMHL_M);
+template <class T> void TMHL_MatrixMultiplyMatrix(T **a, T **b, T **VMHL_ResultMatrix, int VMHL_N, int VMHL_M, int VMHL_S);
+template <class T> void TMHL_MatrixMultiplyMatrixT(T **a, T **b, T **VMHL_ResultMatrix, int VMHL_N, int VMHL_M, int VMHL_S);
+template <class T> void TMHL_MatrixMultiplyNumber(T **VMHL_ResultMatrix, int VMHL_N, int VMHL_M, T Number);
+template <class T> void TMHL_MatrixPlusMatrix(T **a, T **b, T **VMHL_ResultMatrix, int VMHL_N, int VMHL_M);
+template <class T> void TMHL_MatrixPlusMatrix(T **VMHL_ResultMatrix, T **b, int VMHL_N, int VMHL_M);
+template <class T> void TMHL_MatrixT(T **a, T **VMHL_ResultMatrix, int VMHL_N, int VMHL_M);
+template <class T> void TMHL_MatrixTMultiplyMatrix(T **a, T **b, T **VMHL_ResultMatrix, int VMHL_N, int VMHL_M, int VMHL_S);
+template <class T> void TMHL_MatrixToCol(T **a, T *VMHL_ResultVector, int VMHL_N, int k);
+template <class T> void TMHL_MatrixToMatrix(T **a, T **VMHL_ResultMatrix, int VMHL_N, int VMHL_M);
+template <class T> void TMHL_MatrixToRow(T **a, T *VMHL_ResultVector, int k, int VMHL_M);
+template <class T> T TMHL_MaximumOfMatrix(T **a, int VMHL_N, int VMHL_M);
+template <class T> T TMHL_MinimumOfMatrix(T **a, int VMHL_N, int VMHL_M);
+template <class T> void TMHL_MixingRowsInOrder(T **VMHL_ResultMatrix, int *b, int VMHL_N, int VMHL_M);
+template <class T> int TMHL_NumberOfDifferentValuesInMatrix(T **a, int VMHL_N, int VMHL_M);
+template <class T> void TMHL_MatrixToRow(T **a, T *VMHL_ResultVector, int k, int VMHL_M);
+template <class T> void TMHL_RowToMatrix(T **VMHL_ResultMatrix, T *b, int k, int VMHL_M);
+template <class T> T TMHL_SumMatrix(T **a,int VMHL_N,int VMHL_M);
+template <class T> void TMHL_ZeroMatrix(T **VMHL_ResultMatrix,int VMHL_N,int VMHL_M);
+
+//Метрика
+template <class T> T TMHL_Chebychev(T *x, T *y, int VMHL_N);
+template <class T> T TMHL_CityBlock(T *x, T *y, int VMHL_N);
+template <class T> T TMHL_Euclid(T *x, T *y, int VMHL_N);
+
+//Оптимизация
+int MHL_BinaryMonteCarloAlgorithm(int *Parameters, double (*FitnessFunction)(int*,int), int *VMHL_ResultVector, double *VMHL_Result);
 
 //Перевод единиц измерений
 double MHL_DegToRad(double VMHL_X);
@@ -78,11 +159,38 @@ void MHL_RandomRealMatrixInRows(double **VMHL_ResultMatrix, double *Left, double
 void MHL_RandomRealVector(double *VMHL_ResultVector, double Left, double Right, int VMHL_N);
 void MHL_RandomRealVectorInElements(double *VMHL_ResultVector, double *Left, double *Right, int VMHL_N);
 void MHL_RandomVectorOfProbability(double *VMHL_ResultVector, int VMHL_N);
+template <class T> void TMHL_BernulliVector(T *VMHL_ResultVector, int VMHL_N);
+template <class T> void TMHL_RandomArrangingObjectsIntoBaskets(T *VMHL_ResultVector, int N, int VMHL_N);
+template <class T> void TMHL_RandomBinaryMatrix(T **VMHL_ResultMatrix,int VMHL_N,int VMHL_M);
+template <class T> void TMHL_RandomBinaryVector(T *VMHL_ResultVector,int VMHL_N);
+template <class T> void TMHL_RandomIntMatrix(T **VMHL_ResultMatrix, T n, T m, int VMHL_N, int VMHL_M);
+template <class T> void TMHL_RandomIntMatrixInCols(T **VMHL_ResultMatrix, T *n, T *m, int VMHL_N, int VMHL_M);
+template <class T> void TMHL_RandomIntMatrixInElements(T **VMHL_ResultMatrix, T **n, T **m, int VMHL_N, int VMHL_M);
+template <class T> void TMHL_RandomIntMatrixInRows(T **VMHL_ResultMatrix, T *n, T *m, int VMHL_N, int VMHL_M);
+template <class T> void TMHL_RandomIntVector(T *VMHL_ResultVector, T n, T m, int VMHL_N);
+template <class T> void TMHL_RandomIntVectorInElements(T *VMHL_ResultVector, T *n, T *m, int VMHL_N);
 
 //Случайные числа
 double MHL_RandomNormal(double Mean, double StdDev);
 double MHL_RandomUniform(double a, double b);
 int MHL_RandomUniformInt(int n, int m);
+
+//Сортировка
+template <class T> void TMHL_BubbleDescendingSort(T *VMHL_ResultVector, int VMHL_N);
+template <class T> void TMHL_BubbleSort(T *VMHL_ResultVector, int VMHL_N);
+template <class T> void TMHL_BubbleSortInGroups(T *VMHL_ResultVector, int VMHL_N, int m);
+template <class T, class T2> void TMHL_BubbleSortWithConjugateVector(T *VMHL_ResultVector, T2 *VMHL_ResultVector2, int VMHL_N);
+template <class T, class T2, class T3> void TMHL_BubbleSortWithTwoConjugateVectors(T *VMHL_ResultVector, T2 *VMHL_ResultVector2, T3 *VMHL_ResultVector3, int VMHL_N);
+
+//Статистика и теория вероятности
+double MHL_DensityOfDistributionOfNormalDistribution(double x);
+double MHL_DistributionFunctionOfNormalDistribution(double x, double Epsilon);
+double MHL_StdDevToVariance(double StdDev);
+double MHL_VarianceToStdDev(double Variance);
+template <class T> T TMHL_Mean(T *x, int VMHL_N);
+template <class T> T TMHL_Median(T *x, int VMHL_N);
+template <class T> T TMHL_SampleCovariance(T *x, T *y, int VMHL_N);
+template <class T> T TMHL_Variance(T *x, int VMHL_N);
 
 //Тригонометрические функции
 double MHL_Cos(double x);
@@ -105,6 +213,27 @@ double MHL_TanDeg(double x);
 //*****************************************************************
 //Вектора (Одномерные массивы)
 //*****************************************************************
+template <class T> void TMHL_AcceptanceLimits(T *VMHL_ResultVector, T *Left, T *Right, int VMHL_N)
+{
+/*
+Функция вмещает вектор VMHL_ResultVector в прямоугольную многомерной области,
+определяемой левыми границами и правыми границами. Если какая-то координата
+вектора выходит за границу, то значение этой координаты принимает граничное значение.
+Входные параметры:
+ VMHL_ResultVector - указатель на вектор (в него же записывается "исправленный вектор");
+ Left - вектор левых границ;
+ Right - вектор правых границ;
+ VMHL_N - размерность вектора.
+Возвращаемое значение:
+ Отсутствует.
+*/
+for (int i=0;i<VMHL_N;i++)
+ {
+ if (VMHL_ResultVector[i]<Left[i]) VMHL_ResultVector[i]=Left[i];//принятие граничного левого условия
+ if (VMHL_ResultVector[i]>Right[i]) VMHL_ResultVector[i]=Right[i];//принятие граничного правого условия
+ }
+}
+//---------------------------------------------------------------------------
 template <class T> int TMHL_CheckElementInVector(T *x, int VMHL_N, T a)
 {
 /*
@@ -213,6 +342,86 @@ for (int i=1;i<VMHL_N;i++)
     if (VMHL_Vector[i]<VMHL_Result)
         VMHL_Result=VMHL_Vector[i];
 
+return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_MixingVector(T *VMHL_ResultVector, double P, int VMHL_N)
+{
+/*
+Функция перемешивает массив. Поочередно рассматриваются номера элементов массивов.
+С некоторой вероятностью рассматриваемый элемент массива меняется местами со
+случайным элементом массива.
+Входные параметры:
+ VMHL_ResultVector - указатель на исходный массив;
+ P - вероятность того, что элемент массива под рассматриваемым номером поменяется
+ местами с каким-нибудь другим элементов (не включая самого себя);
+ VMHL_N - размер массива.
+Возвращаемое значение:
+ Отсутствует.
+*/
+int i,j;
+for (i=0;i<VMHL_N;i++)
+ {
+ if (MHL_RandomNumber()<=P)
+  {
+  j=MHL_RandomUniformInt(0,VMHL_N-1);
+  if (j>=i) j++;
+  TMHL_NumberInterchange (&VMHL_ResultVector[i],&VMHL_ResultVector[j]); //меняем местами элементы массива
+  }
+ }
+}
+//---------------------------------------------------------------------------
+template <class T, class T2> void TMHL_MixingVectorWithConjugateVector(T *VMHL_ResultVector, T2 *VMHL_ResultVector2, double P, int VMHL_N)
+{
+/*
+Функция перемешивает массив вместе со сопряженным массивом. Поочередно
+рассматриваются номера элементов массивов. С некоторой вероятностью
+рассматриваемый элемент массива меняется местами со случайным элементом массива.
+Пары элементов первого массива и сопряженного остаются без изменения.
+Входные параметры:
+ VMHL_ResultVector - указатель на исходный массив;
+ VMHL_ResultVector2 - указатель на сопряженный массив;
+ P - вероятность того, что элемент массива под рассматриваемым номером поменяется
+ местами с каким-нибудь другим элементов (не включая самого себя);
+ VMHL_N - количество элементов в массивах.
+Возвращаемое значение:
+ Отсутствует.
+*/
+int i,j;
+for (i=0;i<VMHL_N;i++)
+ {
+ if (MHL_RandomNumber()<P)
+  {
+  j=MHL_RandomUniformInt(0,VMHL_N-1);
+  if (j>=i) j++;
+  TMHL_NumberInterchange (&VMHL_ResultVector[i],&VMHL_ResultVector[j]);//меняем местами элементы массива
+  TMHL_NumberInterchange (&VMHL_ResultVector2[i],&VMHL_ResultVector2[j]);//меняем местами элементы сопряженного массива
+  }
+ }
+}
+//---------------------------------------------------------------------------
+template <class T> int TMHL_NumberOfDifferentValuesInVector(T *a, int VMHL_N)
+{
+/*
+Функция подсчитывает число различных значений в векторе (одномерном массиве).
+Входные параметры:
+ a - указатель на вектор;
+ VMHL_N - размер массива a.
+Возвращаемое значение:
+ Число различных значений в векторе.
+Примечание:
+ Алгоритм очень топорный и медленный.
+*/
+T *b;
+b=new T[VMHL_N];
+int VMHL_Result=0;
+for (int i=0;i<VMHL_N;i++)
+ if (TMHL_CheckElementInVector(b,VMHL_Result,a[i])==-1)
+  {
+  b[VMHL_Result]=a[i];
+  VMHL_Result++;
+  }
+delete [] b;
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
@@ -340,6 +549,20 @@ template <class T> void TMHL_OrdinalVectorZero(T *VMHL_ResultVector, int VMHL_N)
 */
 for (int i=0;i<VMHL_N;i++) 
     VMHL_ResultVector[i]=i;
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_ReverseVector(T *VMHL_ResultVector, int VMHL_N)
+{
+/*
+Функция меняет порядок элементов в массиве на обратный. Преобразуется подаваемый массив.
+Входные параметры:
+ VMHL_ResultVector - указатель на преобразуемый массив;
+ VMHL_N - размер массива.
+Возвращаемое значение:
+ Отсутствует.
+*/
+for (int i=0;i<VMHL_N/2;i++)
+ TMHL_NumberInterchange(&(VMHL_ResultVector[i]),&(VMHL_ResultVector[VMHL_N-i-1]));
 }
 //---------------------------------------------------------------------------
 template <class T> int TMHL_SearchFirstNotZero(T *x, int VMHL_N)
@@ -523,7 +746,773 @@ for (int i=0;i<VMHL_N;i++)
 }
 //---------------------------------------------------------------------------
 //*****************************************************************
+//Геометрия
+//*****************************************************************
+template <class T> int TMHL_BoolCrossingTwoSegment(T b1,T c1,T b2,T c2)
+{
+/*
+Функция определяет наличие пересечения двух отрезков. Координаты отрезков могут быть перепутаны по порядку в каждом отрезке.
+Входные параметры:
+ b1 - левый конец первого отрезка;
+ c1 - правый конец первого отрезка;
+ b2 - левый конец второго отрезка;
+ с2 - правый конец второго отрезка.
+Возвращаемое значение:
+ 1 - отрезки пересекаются;
+ 0 - отрезки не пересекаются.
+*/
+//Запишем во временные переменные
+T B1=b1,B2=b2,C1=c1,C2=c2;
+if (B1>C1) TMHL_NumberInterchange (&B1,&C1);
+if (B2>C2) TMHL_NumberInterchange (&B2,&C2);
+if (B1>C2)
+ {
+ TMHL_NumberInterchange (&B1,&B2);
+ TMHL_NumberInterchange (&C1,&C2);
+ }
+if (C1<B2)
+ return 0;
+else
+ return 1;
+}
+//---------------------------------------------------------------------------
+//*****************************************************************
 //Гиперболические функции
+//*****************************************************************
+//*****************************************************************
+//Дифференцирование
+//*****************************************************************
+//*****************************************************************
+//Интегрирование
+//*****************************************************************
+//*****************************************************************
+//Математические функции
+//*****************************************************************
+template <class T> T TMHL_Abs(T x)
+{
+/*
+Функция возвращает модуль числа.
+Входные параметры:
+ x - число.
+Возвращаемое значение:
+ Модуль числа.
+*/
+T VMHL_Result;
+T MinusOne=-1;
+if (x>=0) VMHL_Result=x;
+else VMHL_Result=x*MinusOne;
+return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+template <class T> T TMHL_FibonacciNumber(T n)
+{
+/*
+Функция вычисляет число Фибоначчи, заданного номера.
+Входные параметры:
+ n - номер числа Фибоначчи.
+Возвращаемое значение:
+ Число Фибоначчи, заданного номера.
+*/
+T F1,F2,VMHL_Result;
+
+if (n==0) return 0;
+
+if (n>=1)//иницилизация
+ {
+ VMHL_Result=1;
+ F1=1;
+ }
+
+if (n>=2) F2=1;
+
+if (n>2)
+ {
+ for (int i=2;i<n;i++)
+  {
+  VMHL_Result=F1+F2;//итерационное складывание
+  F1=F2;
+  F2=VMHL_Result;
+  }
+ }
+
+return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+template <class T> T TMHL_HeavisideFunction(T x)
+{
+/*
+Функция Хевисайда (функция одной переменной).
+Входные параметры:
+ x - переменная.
+Возвращаемое значение:
+ Значение функции Хевисайда.
+*/
+if (x<0)
+ return 0;
+else
+ return 1;
+}
+//---------------------------------------------------------------------------
+template <class T> T TMHL_Max(T a, T b)
+{
+/*
+Функция возвращает максимальный элемент из двух.
+Входные параметры:
+ a - первый элемент;
+ b - первый элемент.
+Возвращаемое значение:
+ Максимальный элемент.
+*/
+if (a>b)
+ return a;
+else
+ return b;
+}
+//---------------------------------------------------------------------------
+template <class T> T TMHL_Min(T a, T b)
+{
+/*
+Функция возвращает минимальный элемент из двух.
+Входные параметры:
+ a - первый элемент;
+ b - первый элемент.
+Возвращаемое значение:
+ Минимальный элемент.
+*/
+if (a<b)
+ return a;
+else
+ return b;
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_NumberInterchange(T *a, T *b)
+{
+/*
+Функция меняет местами значения двух чисел.
+Входные параметры:
+ a - первое число;
+ b - второе число.
+Возвращаемое значение:
+ Отсутствует.
+*/
+T x;
+x=*b;
+*b=*a;
+*a=x;
+}
+//---------------------------------------------------------------------------
+template <class T> T TMHL_PowerOf(T x, int n)
+{
+/*
+Функция возводит произвольное число в целую степень.
+Входные параметры:
+ x - основание степени;
+ n - показатель степени.
+Возвращаемое значение:
+ Cтепень числа.
+*/
+T VMHL_Result=1;
+if (n>0)
+ for (int i=0;i<n;i++) VMHL_Result*=x;
+if (n<0)
+ for (int i=0;i<n;i++) VMHL_Result/=x;
+return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+template <class T> int TMHL_Sign(T a)
+{
+/*
+Функция вычисляет знака числа.
+Входные параметры:
+ a - исходное число.
+Возвращаемое значение:
+ 0 - если a==0;
+ 1 - если число положительное;
+ -1 - если число отрицательное.
+*/
+if (a==0) return 0;
+if (a>0)
+ return 1;
+else
+ return -1;
+}
+//---------------------------------------------------------------------------
+template <class T> int TMHL_SignNull(T a)
+{
+/*
+Функция вычисляет знака числа.
+Входные параметры:
+ a - исходное число.
+Возвращаемое значение:
+ 1 - если число неотрицательное;
+ -1 - если число отрицательное.
+*/
+if (a>=0)
+ return 1;
+else
+ return -1;
+}
+//---------------------------------------------------------------------------
+//*****************************************************************
+//Матрицы
+//*****************************************************************
+template <class T> void TMHL_ColInterchange(T **VMHL_ResultMatrix, int VMHL_N, int k, int l)
+{
+/*
+Функция переставляет столбцы матрицы.
+Входные параметры:
+ VMHL_ResultMatrix - указатель на исходную матрицу (в ней и сохраняется результат);
+ VMHL_N - размер массива (число строки);
+ k,l - номера переставляемых столбцов (нумерация с нуля).
+Возвращаемое значение:
+ Отсутствует.
+*/
+for (int i=0;i<VMHL_N;i++)
+ TMHL_NumberInterchange (&(VMHL_ResultMatrix[i][k]),&(VMHL_ResultMatrix[i][l]));
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_ColToMatrix(T **VMHL_ResultMatrix, T *b, int VMHL_N, int k)
+{
+/*
+Функция копирует в матрицу (двумерный массив) из вектора столбец.
+Входные параметры:
+ VMHL_ResultMatrix - указатель на матрицу;
+ b - указатель на вектор;
+ VMHL_N - количество строк в матрице и одновременно размер массива b;
+ k - номер столбца, в который будет происходить копирование (начиная с 0).
+Возвращаемое значение:
+ Отсутствует.
+*/
+for (int i=0;i<VMHL_N;i++) VMHL_ResultMatrix[i][k]=b[i];
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_DeleteColInMatrix(T **VMHL_ResultMatrix, int k, int VMHL_N, int VMHL_M)
+{
+/*
+Функция удаляет k столбец из матрицы (начиная с нуля). Все правостоящие столбцы
+сдвигаются влево  на единицу. Последний столбец зануляется.
+Входные параметры:
+ VMHL_ResultMatrix - указатель на преобразуемый массив;
+ k - номер удаляемого столбца;
+ VMHL_N - размер массива VMHL_ResultMatrix (число строк);
+ VMHL_M - размер массива VMHL_ResultMatrix (число столбцов).
+Возвращаемое значение:
+ Отсутствует.
+*/
+int i,j;
+for (i=0;i<VMHL_N;i++)
+ for (j=k;j<VMHL_M-1;j++)
+  VMHL_ResultMatrix[i][j]=VMHL_ResultMatrix[i][j+1];
+for (i=0;i<VMHL_N;i++)
+ VMHL_ResultMatrix[i][VMHL_M-1]=0;//зануляем
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_DeleteRowInMatrix(T **VMHL_ResultMatrix, int k, int VMHL_N, int VMHL_M)
+{
+/*
+Функция удаляет k строку из матрицы (начиная с нуля). Все нижестоящие строки поднимаются на единицу.
+Последняя строка зануляется.
+Входные параметры:
+ VMHL_ResultMatrix - указатель на преобразуемый массив;
+ k - номер удаляемой строки;
+ VMHL_N - размер массива VMHL_ResultMatrix (число строк);
+ VMHL_M - размер массива VMHL_ResultMatrix (число столбцов).
+Возвращаемое значение:
+ Отсутствует.
+*/
+int i,j;
+for (i=k;i<VMHL_N-1;i++)
+ for (j=0;j<VMHL_M;j++)
+  VMHL_ResultMatrix[i][j]=VMHL_ResultMatrix[i+1][j];
+for (j=0;j<VMHL_M;j++)
+ VMHL_ResultMatrix[VMHL_N-1][j]=0;//зануляем
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_FillMatrix(T **VMHL_ResultMatrix, int VMHL_N, int VMHL_M, T x)
+{
+/*
+Функция заполняет матрицу значениями, равных x.
+Входные параметры:
+ VMHL_ResultMatrix - указатель на преобразуемый массив;
+ VMHL_N - размер массива VMHL_ResultMatrix (число строк);
+ VMHL_M - размер массива VMHL_ResultMatrix (число столбцов);
+ x - число, которым заполняется вектор.
+Возвращаемое значение:
+ Отсутствует.
+*/
+for (int i=0;i<VMHL_N;i++)
+ for (int j=0;j<VMHL_M;j++)
+  VMHL_ResultMatrix[i][j]=x;
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_IdentityMatrix(T **VMHL_ResultMatrix,int VMHL_N)
+{
+/*
+Функция формирует единичную квадратную матрицу.
+Входные параметры:
+ VMHL_ResultMatrix - исходная матрица (в ней и сохраняется результат);
+ VMHL_N - размер матрицы (число строк и столбцов).
+Возвращаемое значение:
+ Отсутствует.
+*/
+for (int i=0;i<VMHL_N;i++)
+ for (int j=0;j<VMHL_N;j++)
+  {
+  if (i==j)
+   VMHL_ResultMatrix[i][j]=1;
+  else
+   VMHL_ResultMatrix[i][j]=0;
+  }
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_MatrixMinusMatrix(T **a, T **b, T **VMHL_ResultMatrix, int VMHL_N, int VMHL_M)
+{
+/*
+Функция вычитает две матрицы.
+Входные параметры:
+ a - первая матрица;
+ b - вторая матрица;
+ VMHL_ResultMatrix - разница матриц;
+ VMHL_N - размер матриц (число строк);
+ VMHL_M - размер матриц (число столбцов).
+Возвращаемое значение:
+ Отсутствует.
+*/
+for (int i=0;i<VMHL_N;i++)
+ for (int j=0;j<VMHL_M;j++)
+  VMHL_ResultMatrix[i][j]=a[i][j]-b[i][j];
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_MatrixMinusMatrix(T **VMHL_ResultMatrix, T **b, int VMHL_N, int VMHL_M)
+{
+/*
+Функция вычитает два матрицы и результат записывает в первую матрицу.
+Входные параметры:
+ VMHL_ResultMatrix - первая матрица (в ней и сохраняется разница);
+ b - вторая матрица;
+ VMHL_N - размер матриц (число строк);
+ VMHL_M - размер матриц (число столбцов).
+Возвращаемое значение:
+ Отсутствует.
+*/
+for (int i=0;i<VMHL_N;i++)
+ for (int j=0;j<VMHL_M;j++)
+  VMHL_ResultMatrix[i][j]-=b[i][j];
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_MatrixMultiplyMatrix(T **a, T **b, T **VMHL_ResultMatrix, int VMHL_N, int VMHL_M, int VMHL_S)
+{
+/*
+Функция перемножает матрицы.
+Входные параметры:
+ a - первый сомножитель, VMHL_N x VMHL_M;
+ b - второй сомножитель, VMHL_M x VMHL_S;
+ VMHL_ResultMatrix - произведение матриц (сюда записывается результат), VMHL_N x VMHL_S;
+ VMHL_N - число строк в матрице a;
+ VMHL_M - число столбцов в матрице a и строк в матрице b;
+ VMHL_S - число столбцов в матрице b.
+Возвращаемое значение:
+ Отсутствует.
+*/
+T w;
+int i,j,k;
+for (i=0;i<VMHL_N;i++)
+ for (k=0;k<VMHL_S;k++)
+  {
+  w=0;
+  for (j=0;j<VMHL_M;j++) w+=a[i][j]*b[j][k];
+  VMHL_ResultMatrix[i][k]=w;
+  }
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_MatrixMultiplyMatrixT(T **a, T **b, T **VMHL_ResultMatrix, int VMHL_N, int VMHL_M, int VMHL_S)
+{
+/*
+Функция умножает матрицу на транспонированную матрицу.
+Входные параметры:
+ a - первый сомножитель, VMHL_N x VMHL_M;
+ b - второй сомножитель (матрица, которую мы транспонируем), VMHL_S x VMHL_M;
+ VMHL_ResultMatrix - произведение матриц (сюда записывается результат), VMHL_N x VMHL_S;
+ VMHL_N - число строк в матрице a;
+ VMHL_M - число столбцов в матрице a и столбцов в матрице b;
+ VMHL_S - число строк в матрице b.
+Возвращаемое значение:
+ Отсутствует.
+*/
+T w;
+int i,j,k;
+for (i=0;i<VMHL_N;i++)
+ for (k=0;k<VMHL_S;k++)
+  {
+  w=0;
+  for (j=0;j<VMHL_M;j++) w=w+a[i][j]*b[k][j];
+  VMHL_ResultMatrix[i][k]=w;
+  }
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_MatrixMultiplyNumber(T **VMHL_ResultMatrix, int VMHL_N, int VMHL_M, T Number)
+{
+/*
+Функция умножает матрицу на число.
+Входные параметры:
+ VMHL_ResultMatrix - указатель на исходную матрицу (в ней и сохраняется результат);
+ VMHL_N - размер матрицы (число строк);
+ VMHL_M - размер матрицы (число столбцов);
+ Number - число, на которое умножается матрица.
+Возвращаемое значение:
+ Отсутствует.
+*/
+for (int i=0;i<VMHL_N;i++)
+ for (int j=0;j<VMHL_M;j++)
+  VMHL_ResultMatrix[i][j]*=Number;
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_MatrixPlusMatrix(T **a, T **b, T **VMHL_ResultMatrix, int VMHL_N, int VMHL_M)
+{
+/*
+Функция суммирует две матрицы.
+Входные параметры:
+ a - первая матрица;
+ b - вторая матрица;
+ VMHL_ResultMatrix - сумма матриц;
+ VMHL_N - размер матриц (число строк);
+ VMHL_M - размер матриц (число столбцов).
+Возвращаемое значение:
+ Отсутствует.
+*/
+for (int i=0;i<VMHL_N;i++)
+ for (int j=0;j<VMHL_M;j++)
+  VMHL_ResultMatrix[i][j]=a[i][j]+b[i][j];
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_MatrixPlusMatrix(T **VMHL_ResultMatrix, T **b, int VMHL_N, int VMHL_M)
+{
+/*
+Функция суммирует два матрицы и результат записывает в первую матрицу.
+Входные параметры:
+ VMHL_ResultMatrix - первая матрица (в ней и сохраняется сумма);
+ b - вторая матрица;
+ VMHL_N - размер матриц (число строк);
+ VMHL_M - размер матриц (число столбцов).
+Возвращаемое значение:
+ Отсутствует.
+*/
+for (int i=0;i<VMHL_N;i++)
+ for (int j=0;j<VMHL_M;j++)
+  VMHL_ResultMatrix[i][j]+=b[i][j];
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_MatrixT(T **a, T **VMHL_ResultMatrix, int VMHL_N, int VMHL_M)
+{
+/*
+Функция транспонирует матрицу.
+Входные параметры:
+ a - исходная матрица, (VMHL_N x VMHL_M);
+ VMHL_ResultMatrix - транспонированная матрица, (VMHL_M x VMHL_N);
+ VMHL_N - размер матрицы (число строк) в матрице a;
+ VMHL_M - размер матрицы (число столбцов) в матрице a.
+Возвращаемое значение:
+ Отсутствует.
+*/
+for (int i=0;i<VMHL_N;i++)
+ for (int j=0;j<VMHL_M;j++)
+  VMHL_ResultMatrix[j][i]=a[i][j];
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_MatrixTMultiplyMatrix(T **a, T **b, T **VMHL_ResultMatrix, int VMHL_N, int VMHL_M, int VMHL_S)
+{
+/*
+Функция умножает транспонированную матрицу на матрицу.
+Входные параметры:
+ a - первый сомножитель (матрица, которую мы транспонируем), VMHL_M x VMHL_N;
+ b - второй сомножитель, VMHL_M x VMHL_S;
+ VMHL_ResultMatrix - произведение матриц (сюда записывается результат), VMHL_N x VMHL_S;
+ VMHL_N - число столбцов в матрице a;
+ VMHL_M - число строк в матрице a и строк в матрице b;
+ VMHL_S - число столбцов в матрице b.
+Возвращаемое значение:
+ Отсутствует.
+*/
+T w;
+int i,j,k;
+for (i=0;i<VMHL_N;i++)
+ for (k=0;k<VMHL_S;k++)
+  {
+  w=0;
+  for (j=0;j<VMHL_M;j++) w=w+a[j][i]*b[j][k];
+  VMHL_ResultMatrix[i][k]=w;
+  }
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_MatrixToCol(T **a, T *VMHL_ResultVector, int VMHL_N, int k)
+{
+/*
+Функция копирует из матрицы (двумерного массива) в вектор столбец.
+Входные параметры:
+ a - указатель на матрицу;
+ VMHL_ResultVector - указатель на вектор;
+ VMHL_N - количество строк в матрице и одновременно размер массива b;
+ k - номер копируемого столбца (начиная с 0).
+Возвращаемое значение:
+ Отсутствует.
+*/
+for (int i=0;i<VMHL_N;i++) VMHL_ResultVector[i]=a[i][k];
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_MatrixToMatrix(T **a, T **VMHL_ResultMatrix, int VMHL_N, int VMHL_M)
+{
+/*
+Функция копирует содержимое матрицы (двумерного массива) a в массив VMHL_ResultMatrix.
+Входные параметры:
+ a - указатель на исходный массив;
+ VMHL_ResultMatrix - указатель на массив в который производится запись;
+ VMHL_N - размер массива (число строк);
+ VMHL_M - размер массива (число столбцов).
+Возвращаемое значение:
+ Отсутствует.
+*/
+for (int i=0;i<VMHL_N;i++)
+ for (int j=0;j<VMHL_M;j++)
+  VMHL_ResultMatrix[i][j]=a[i][j];
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_MatrixToRow(T **a, T *VMHL_ResultVector, int k, int VMHL_M)
+{
+/*
+Функция копирует из матрицы (двумерного массива) в вектор строку.
+Входные параметры:
+ a - указатель на матрицу;
+ VMHL_ResultVector - указатель на вектор;
+ k - номер копируемой строки (начиная с 0);
+ VMHL_M - количество столбцов в матрице и одновременно размер массива VMHL_ResultVector.
+Возвращаемое значение:
+ Отсутствует.
+*/
+for (int i=0;i<VMHL_M;i++) VMHL_ResultVector[i]=a[k][i];
+}
+//---------------------------------------------------------------------------
+template <class T> T TMHL_MaximumOfMatrix(T **a, int VMHL_N, int VMHL_M)
+{
+/*
+Функция ищет максимальный элемент в матрице (двумерном массиве).
+Входные параметры:
+ a - указатель на матрицу;
+ VMHL_N - размер массива (число строк);
+ VMHL_M - размер массива (число столбцов).
+Возвращаемое значение:
+ Максимальный элемент.
+*/
+T VMHL_Result;
+VMHL_Result=a[0][0];
+for (int i=1;i<VMHL_N;i++)
+ for (int j=1;j<VMHL_M;j++)
+  if (a[i][j]>VMHL_Result) VMHL_Result=a[i][j];
+  
+return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+template <class T> T TMHL_MinimumOfMatrix(T **a, int VMHL_N, int VMHL_M)
+{
+/*
+Функция ищет минимальный элемент в матрице (двумерном массиве).
+Входные параметры:
+ a - указатель на матрицу;
+ VMHL_N - размер массива (число строк);
+ VMHL_M - размер массива (число столбцов).
+Возвращаемое значение:
+ Минимальный элемент.
+*/
+T VMHL_Result;
+VMHL_Result=a[0][0];
+for (int i=1;i<VMHL_N;i++)
+ for (int j=1;j<VMHL_M;j++)
+  if (a[i][j]<VMHL_Result) VMHL_Result=a[i][j];
+  
+return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_MixingRowsInOrder(T **VMHL_ResultMatrix, int *b, int VMHL_N, int VMHL_M)
+{
+/*
+Функция меняет строки матрицы в порядке, указанным в массиве b.
+Входные параметры:
+ VMHL_ResultMatrix - указатель на матрицу, в которой меняем порядок строк;
+ b - вектор, в котором записаны номера, под которыми должны стать строки в матрице (от 0 до VMHL_N-1);
+ VMHL_N - размер массива (число строк);
+ VMHL_M - размер массива (число столбцов).
+Возвращаемое значение:
+ Отсутствует.
+*/
+int i,j;
+T **c;//Временный массив
+c=new T*[VMHL_N];
+for (i=0;i<VMHL_N;i++) c[i]=new T[VMHL_M];
+
+//Записываем в массив c в новом порядке
+for (i=0;i<VMHL_N;i++)
+ for (j=0;j<VMHL_M;j++)
+  c[b[i]][j]=VMHL_ResultMatrix[i][j];
+
+//Заменяем основной массив промежуточным
+TMHL_MatrixToMatrix(c,VMHL_ResultMatrix,VMHL_N,VMHL_M);
+
+for (i=0;i<VMHL_N;i++) delete[] c[i];
+delete[] c;
+}
+//---------------------------------------------------------------------------
+template <class T> int TMHL_NumberOfDifferentValuesInMatrix(T **a, int VMHL_N, int VMHL_M)
+{
+/*
+Функция подсчитывает число различных значений в матрице.
+Входные параметры:
+ a - указатель на матрица;
+ VMHL_N - размер массива a (строки);
+ VMHL_M - размер массива a (столбцы).
+Возвращаемое значение:
+ Число различных значений в матрице.
+Примечание:
+ Алгоритм очень топорный и медленный.
+*/
+T *b;
+b=new T[VMHL_N*VMHL_M];
+int VMHL_Result=0;
+for (int i=0;i<VMHL_N;i++)
+ for (int j=0;j<VMHL_M;j++)
+  if (TMHL_CheckElementInVector(b,VMHL_Result,a[i][j])==-1)
+   {
+   b[VMHL_Result]=a[i][j];
+   VMHL_Result++;
+   }
+delete [] b;
+return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_RowInterchange(T **VMHL_ResultMatrix, int VMHL_M, int k, int l)
+{
+/*
+Функция переставляет строки матрицы.
+Входные параметры:
+ VMHL_ResultMatrix - указатель на исходную матрицу (в ней и сохраняется результат);
+ VMHL_M - размер массива (число столбцов);
+ k,l - номера переставляемых строк (нумерация с нуля).
+Возвращаемое значение:
+ Отсутствует.
+*/
+for (int i=0;i<VMHL_M;i++)
+ TMHL_NumberInterchange (&(VMHL_ResultMatrix[k][i]),&(VMHL_ResultMatrix[l][i]));
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_RowToMatrix(T **VMHL_ResultMatrix, T *b, int k, int VMHL_M)
+{
+/*
+Функция копирует в матрицу (двумерный массив) из вектора строку.
+Входные параметры:
+ VMHL_ResultMatrix - указатель на матрицу;
+ b - указатель на вектор;
+ k - номер строки, в которую будет происходить копирование (начиная с 0);
+ VMHL_M - количество столбцов в матрице и одновременно размер массива b.
+Возвращаемое значение:
+ Отсутствует.
+*/
+for (int i=0;i<VMHL_M;i++) VMHL_ResultMatrix[k][i]=b[i];
+}
+//---------------------------------------------------------------------------
+template <class T> T TMHL_SumMatrix(T **a,int VMHL_N,int VMHL_M)
+{
+/*
+Функция вычисляет сумму элементов матрицы.
+Входные параметры:
+ a - указатель на исходный массив;
+ VMHL_N - размер массива a (число строк);
+ VMHL_M - размер массива a (число столбцов).
+Возвращаемое значение:
+ Сумма элементов матрицы.
+*/
+T VMHL_Result=0;
+for (int i=0;i<VMHL_N;i++)
+ for (int j=0;j<VMHL_M;j++)
+  VMHL_Result+=a[i][j];
+  
+return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_ZeroMatrix(T **VMHL_ResultMatrix,int VMHL_N,int VMHL_M)
+{
+/*
+Функция зануляет матрицу.
+Входные параметры:
+ VMHL_ResultMatrix - указатель на преобразуемый массив;
+ VMHL_N - размер массива VMHL_ResultMatrix (число строк);
+ VMHL_M - размер массива VMHL_ResultMatrix (число столбцов).
+Возвращаемое значение:
+ Отсутствует.
+*/
+for (int i=0;i<VMHL_N;i++)
+ for (int j=0;j<VMHL_M;j++)
+  VMHL_ResultMatrix[i][j]=0;//зануляем
+}
+//---------------------------------------------------------------------------
+//*****************************************************************
+//Метрика
+//*****************************************************************
+template <class T> T TMHL_Chebychev(T *x, T *y, int VMHL_N)
+{
+/*
+Функция вычисляет расстояние Чебышева.
+Входные параметры:
+ x - указатель на первый вектор;
+ y - указатель на второй вектор;
+ VMHL_N - размер массивов.
+Возвращаемое значение:
+ Значение метрики расстояние Чебышева.
+*/
+T VMHL_Result=0;
+T Temp;
+for (int i=0;i<VMHL_N;i++)
+ {
+ Temp=TMHL_Abs(x[i]-y[i]);
+ if (Temp>VMHL_Result) VMHL_Result=Temp;
+}
+return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+template <class T> T TMHL_CityBlock(T *x, T *y, int VMHL_N)
+{
+/*
+Функция вычисляет манхэттенское расстояние между двумя массивами.
+Входные параметры:
+ x - указатель на первый вектор;
+ y - указатель на второй вектор;
+ VMHL_N - размер массивов.
+Возвращаемое значение:
+ Значение метрики манхэттенское расстояние.
+*/
+T VMHL_Result=0;
+for (int i=0;i<VMHL_N;i++)
+ VMHL_Result+=TMHL_Abs(x[i]-y[i]);
+return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+template <class T> T TMHL_Euclid(T *x, T *y, int VMHL_N)
+{
+/*
+Функция вычисляет евклидово расстояние.
+Входные параметры:
+ x - указатель на первый вектор;
+ y - указатель на второй вектор;
+ VMHL_N - размер массивов.
+Возвращаемое значение:
+ Значение метрики евклидово расстояние.
+*/
+T VMHL_Result=0;
+for (int i=0;i<VMHL_N;i++)
+ VMHL_Result+=(x[i]-y[i])*(x[i]-y[i]);
+VMHL_Result=sqrt(VMHL_Result);
+return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+//*****************************************************************
+//Оптимизация
 //*****************************************************************
 //*****************************************************************
 //Перевод единиц измерений
@@ -531,9 +1520,424 @@ for (int i=0;i<VMHL_N;i++)
 //*****************************************************************
 //Случайные объекты
 //*****************************************************************
+template <class T> void TMHL_BernulliVector(T *VMHL_ResultVector, int VMHL_N)
+{
+/*
+Функция формирует случайный вектор Бернулли.
+Входные параметры:
+ VMHL_ResultVector - указатель на вектор (одномерный массив);
+ VMHL_N - размер массива.
+Возвращаемое значение:
+ Отсутствует.
+*/
+for(int i=0;i<VMHL_N;i++)
+ {
+ if (MHL_RandomNumber()<0.5)
+  VMHL_ResultVector[i]=-1.;
+ else
+  VMHL_ResultVector[i]=1.;
+ }
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_RandomArrangingObjectsIntoBaskets(T *VMHL_ResultVector, int N, int VMHL_N)
+{
+/*
+Функция предлагает случайный способ расставить N объектов в VMHL_N корзин при условии, что
+в каждой корзине может располагаться только один предмет.
+Входные параметры:
+ VMHL_ResultVector - массив, в который записывается результат;
+ N - число предметов;
+ VMHL_N - размер массива (и число корзин).
+Возвращаемое значение:
+ Отсутствует.
+Примечание:
+ В VMHL_ResultVector 0 удет означать отсутствие предмета, 1 - наличие.
+*/
+if (N<0) N=0;// должен быть хотя бы один предмет
+if (N>VMHL_N) N=VMHL_N;
+
+int j;//Счетчик
+int p;//Текущее число свободнных участников
+int r;//случайное число для определения победителя
+int g=0;//Номер выбранного участника
+
+TMHL_ZeroVector(VMHL_ResultVector,VMHL_N);// Пока никого
+
+if (N>0)
+ {//Если есть хотя бы один предмет
+ r=MHL_RandomUniformInt(0,VMHL_N);
+ VMHL_ResultVector[r]=1;//отметили первую корзину
+
+ for (int i=1;i<N;i++)
+  {//выбор еще одной корзины
+  r=MHL_RandomUniformInt(0,VMHL_N-i);//на один меньше можно выбрать, чем в предыдущий раз
+  p=0;//Текущее число свободных корзин
+  j=0;//Счетчик
+
+  while (p!=r+1)
+   {
+   //Ищем нашу корзину
+   if (VMHL_ResultVector[j]==0)
+    {
+    //Нашли свободную корзину. Возможно это наша.
+    p++;
+    g=j;
+    }
+   j++;
+   }
+
+  //Теперь g - номер нашей корзины
+  VMHL_ResultVector[g]=1;//Поместим предмет
+  }//выбор еще одной корзины
+ }//Если есть хотя бы один предмет
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_RandomBinaryMatrix(T **VMHL_ResultMatrix,int VMHL_N,int VMHL_M)
+{
+/*
+Функция заполняет матрицу случайно нулями и единицами.
+Входные параметры:
+ VMHL_ResultMatrix - указатель на преобразуемый массив;
+ VMHL_N - размер массива VMHL_ResultMatrix (число строк);
+ VMHL_M - размер массива VMHL_ResultMatrix (число столбцов).
+Возвращаемое значение:
+ Отсутствует.
+*/
+for(int i=0;i<VMHL_N;i++)
+ for(int j=0;j<VMHL_M;j++)
+  {
+  if (MHL_RandomNumber()<0.5)
+   VMHL_ResultMatrix[i][j]=0;
+  else
+   VMHL_ResultMatrix[i][j]=1;
+  }
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_RandomBinaryVector(T *VMHL_ResultVector,int VMHL_N)
+{
+/*
+Функция заполняет вектор (одномерный массив) случайно нулями и единицами.
+Входные параметры:
+ VMHL_ResultVector - указатель на преобразуемый массив;
+ VMHL_N - размер массива VMHL_ResultMatrix (число строк).
+Возвращаемое значение:
+ Отсутствует.
+*/
+for(int i=0;i<VMHL_N;i++)
+ {
+ if (MHL_RandomNumber()<0.5)
+  VMHL_ResultVector[i]=0;
+ else
+  VMHL_ResultVector[i]=1;
+ }
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_RandomIntMatrix(T **VMHL_ResultMatrix, T n, T m, int VMHL_N, int VMHL_M)
+{
+/*
+Функция заполняет матрицу случайными целыми числами из определенного интервала [n;m).
+Входные параметры:
+ VMHL_ResultMatrix - указатель на матрицу;
+ n - левая граница интервала;
+ m - правая граница интервала;
+ VMHL_N - размер массива (число строк);
+ VMHL_M - размер массива (число столбцов).
+Возвращаемое значение:
+ Отсутствует.
+*/
+for (int i=0;i<VMHL_N;i++)
+ for (int j=0;j<VMHL_M;j++)
+  VMHL_ResultMatrix[i][j]=MHL_RandomUniformInt(n,m);
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_RandomIntMatrixInCols(T **VMHL_ResultMatrix, T *n, T *m, int VMHL_N, int VMHL_M)
+{
+/*
+Функция заполняет матрицу случайными целыми числами из определенного интервала [n;m).
+При этом элементы каждого столбца изменяются в своих пределах.
+Входные параметры:
+ VMHL_ResultMatrix - указатель на матрицу;
+ n - левые границы интервала изменения элементов столбцов (размер VMHL_M);
+ m - правые границы интервала изменения элементов столбцов (размер VMHL_M);
+ VMHL_N - размер массива (число строк);
+ VMHL_M - размер массива (число столбцов).
+Возвращаемое значение:
+ Отсутствует.
+*/
+for (int i=0;i<VMHL_N;i++)
+ for (int j=0;j<VMHL_M;j++)
+  VMHL_ResultMatrix[i][j]=MHL_RandomUniformInt(n[j],m[j]);
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_RandomIntMatrixInElements(T **VMHL_ResultMatrix, T **n, T **m, int VMHL_N, int VMHL_M)
+{
+/*
+Функция заполняет матрицу случайными целыми числами из определенного интервала [n;m).
+При этом каждый элемент изменяется в своих пределах.
+Входные параметры:
+ VMHL_ResultMatrix - указатель на матрицу;
+ n - левые границы интервала изменения каждого элемента (размер VMHL_N x VMHL_M);
+ m - правые границы интервала изменения каждого элемента (размер VMHL_N x VMHL_M);
+ VMHL_N - размер массива (число строк);
+ VMHL_M - размер массива (число столбцов).
+Возвращаемое значение:
+ Отсутствует.
+*/
+for (int i=0;i<VMHL_N;i++)
+ for (int j=0;j<VMHL_M;j++)
+  VMHL_ResultMatrix[i][j]=MHL_RandomUniformInt(n[i][j],m[i][j]);
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_RandomIntMatrixInRows(T **VMHL_ResultMatrix, T *n, T *m, int VMHL_N, int VMHL_M)
+{
+/*
+Функция заполняет матрицу случайными целыми числами из определенного интервала [n;m).
+При этом элементы каждой строки изменяются в своих пределах.
+Входные параметры:
+ VMHL_ResultMatrix - указатель на матрицу;
+ n - левые границы интервала изменения элементов строки (размер VMHL_N);
+ m - правые границы интервала изменения элементов строки (размер VMHL_N);
+ VMHL_N - размер массива (число строк);
+ VMHL_M - размер массива (число столбцов).
+Возвращаемое значение:
+ Отсутствует.
+*/
+for (int i=0;i<VMHL_N;i++)
+ for (int j=0;j<VMHL_M;j++)
+  VMHL_ResultMatrix[i][j]=MHL_RandomUniformInt(n[i],m[i]);
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_RandomIntVector(T *VMHL_ResultVector, T n, T m, int VMHL_N)
+{
+/*
+Функция заполняет массив случайными целыми числами из определенного интервала [n,m).
+Входные параметры:
+ VMHL_ResultVector - указатель на массив;
+ n - левая граница интервала;
+ m - правая граница интервала;
+ VMHL_N - размер массива.
+Возвращаемое значение:
+ Отсутствует.
+*/
+for (int i=0;i<VMHL_N;i++)
+ VMHL_ResultVector[i]=MHL_RandomUniformInt(int(n),int(m));
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_RandomIntVectorInElements(T *VMHL_ResultVector, T *n, T *m, int VMHL_N)
+{
+/*
+Функция заполняет массив случайными целыми  числами из определенного интервала [n_i,m_i). При этом для каждого элемента массива свой интервал изменения.
+Входные параметры:
+ VMHL_ResultVector - указатель на массив;
+ n - указатель на массив левых границ интервала;
+ m - указатель на массив правых границ интервала;
+ VMHL_N - размер массива.
+Возвращаемое значение:
+ Отсутствует.
+*/
+for (int i=0;i<VMHL_N;i++)
+ VMHL_ResultVector[i]=MHL_RandomUniform(int(n[i]),int(m[i]));
+}
+//---------------------------------------------------------------------------
 //*****************************************************************
 //Случайные числа
 //*****************************************************************
+//*****************************************************************
+//Сортировка
+//*****************************************************************
+template <class T> void TMHL_BubbleDescendingSort(T *VMHL_ResultVector, int VMHL_N)
+{
+/*
+Функция сортирует массив в порядке убывания методом "Сортировка пузырьком".
+Входные параметры:
+ VMHL_ResultVector - указатель на исходный массив;
+ VMHL_N - количество элементов в массиве.
+Выходной параметр:
+ Отсутствует.
+*/
+int i,j;
+for(i=VMHL_N-1;i>0;i--)
+ for(j=0;j<i;j++)
+  if(VMHL_ResultVector[j]<VMHL_ResultVector[j+1])
+   TMHL_NumberInterchange(&(VMHL_ResultVector[j]),&(VMHL_ResultVector[j+1]));
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_BubbleSort(T *VMHL_ResultVector, int VMHL_N)
+{
+/*
+Функция сортирует массив в порядке возрастания методом "Сортировка пузырьком".
+Входные параметры:
+ VMHL_ResultVector - указатель на исходный массив;
+ VMHL_N - количество элементов в массиве.
+Выходной параметр:
+ Отсутствует.
+*/
+int i,j;
+for(i=VMHL_N-1;i>0;i--)
+ for(j=0;j<i;j++)
+  if(VMHL_ResultVector[j]>VMHL_ResultVector[j+1])
+   TMHL_NumberInterchange(&(VMHL_ResultVector[j]),&(VMHL_ResultVector[j+1]));
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_BubbleSortInGroups(T *VMHL_ResultVector, int VMHL_N, int m)
+{
+/*
+Функция сортирует массив в порядке возрастания методом "Сортировка пузырьком" в группах данного массива.
+Имеется массив. Он делится на группы элементов по m элементов. Первые m
+элементов принадлежат первой группе, следующие m элементов - следующей и т.д.
+(Разумеется, в последней группе может и не оказаться m элементов).
+Потом в каждой группе элементы сортируются по возрастанию.
+Входные параметры:
+ VMHL_ResultVector - указатель на исходный массив;
+ VMHL_N - количество элементов в массиве;
+ m - количество элементов в группе.
+*/
+int i,j,k,N,M;
+N=int(VMHL_N/m);//число групп
+for (k=0;k<N;k++)
+ {
+ for(i=m-1;i>0;i--)
+  for(j=0;j<i;j++)
+   if(VMHL_ResultVector[k*m+j]>VMHL_ResultVector[k*m+j+1])
+    TMHL_NumberInterchange(&(VMHL_ResultVector[k*m+j]),&(VMHL_ResultVector[k*m+j+1]));
+ }
+M=VMHL_N%m;
+if (M!=0)//если есть последняя неполная группа
+ {
+ for(i=M-1;i>0;i--)
+  for(j=0;j<i;j++)
+   if(VMHL_ResultVector[N*m+j]>VMHL_ResultVector[N*m+j+1])
+    TMHL_NumberInterchange(&(VMHL_ResultVector[N*m+j]),&(VMHL_ResultVector[N*m+j+1]));
+ }
+}
+//---------------------------------------------------------------------------
+template <class T, class T2> void TMHL_BubbleSortWithConjugateVector(T *VMHL_ResultVector, T2 *VMHL_ResultVector2, int VMHL_N)
+{
+/*
+Функция сортирует массив вместе с сопряженный массивом в порядке возрастания методом "Сортировка пузырьком".
+Пары элементов первого массива и сопряженного остаются без изменения.
+Входные параметры:
+ VMHL_ResultVector - указатель на исходный массив;
+ VMHL_ResultVector2 - указатель на сопряженный массив;
+ VMHL_N - количество элементов в массиве.
+Выходной параметр:
+ Отсутствует.
+*/
+int i,j;
+for(i=VMHL_N-1;i>0;i--)
+ for(j=0;j<i;j++)
+  if(VMHL_ResultVector[j]>VMHL_ResultVector[j+1])
+   {
+   TMHL_NumberInterchange(&(VMHL_ResultVector[j]),&(VMHL_ResultVector[j+1]));
+   TMHL_NumberInterchange(&(VMHL_ResultVector2[j]),&(VMHL_ResultVector2[j+1]));
+   }
+}
+//---------------------------------------------------------------------------
+template <class T, class T2, class T3> void TMHL_BubbleSortWithTwoConjugateVectors(T *VMHL_ResultVector, T2 *VMHL_ResultVector2, T3 *VMHL_ResultVector3, int VMHL_N)
+{
+/*
+Функция сортирует массив вместе с двумя сопряженными массивами в порядке возрастания методом "Сортировка пузырьком".
+Пары элементов первого массива и сопряженного остаются без изменения.
+Входные параметры:
+ VMHL_ResultVector - указатель на исходный массив;
+ VMHL_ResultVector2 - указатель на сопряженный массив;
+ VMHL_ResultVector3 - указатель на второй сопряженный массив;
+ VMHL_N - количество элементов в массивах.
+Выходной параметр:
+ Отсутствует.
+*/
+int i,j;
+for(i=VMHL_N-1;i>0;i--)
+ for(j=0;j<i;j++)
+  if(VMHL_ResultVector[j]>VMHL_ResultVector[j+1])
+   {
+   TMHL_NumberInterchange(&(VMHL_ResultVector[j]),&(VMHL_ResultVector[j+1]));
+   TMHL_NumberInterchange(&(VMHL_ResultVector2[j]),&(VMHL_ResultVector2[j+1]));
+   TMHL_NumberInterchange(&(VMHL_ResultVector3[j]),&(VMHL_ResultVector3[j+1]));
+   }
+}
+//---------------------------------------------------------------------------
+//*****************************************************************
+//Статистика и теория вероятности
+//*****************************************************************
+template <class T> T TMHL_Mean(T *x, int VMHL_N)
+{
+/*
+Функция вычисляет среднее арифметическое массива.
+Входные параметры:
+ x - массив;
+ VMHL_N - размер массива.
+Возвращаемое значение:
+ Среднее арифметическое массива.
+*/
+return TMHL_SumVector(x,VMHL_N)/double(VMHL_N);
+}
+//---------------------------------------------------------------------------
+template <class T> T TMHL_Median(T *x, int VMHL_N)
+{
+/*
+Функция вычисляет медиану выборки.
+Входные параметры:
+ x - указатель на исходную выборку;
+ VMHL_N - размер массива.
+Возвращаемое значение:
+ Медиана массива.
+*/
+T VMHL_Result;
+T *SortVector;
+T Two=2;
+SortVector=new T[VMHL_N];//Нам нужно отсортировать массив, но не трогая этот
+TMHL_VectorToVector(x,SortVector,VMHL_N);
+
+TMHL_BubbleSort(SortVector,VMHL_N);//отсортируем массив
+
+if (MHL_Parity(VMHL_N)==0)//Если число элементов нечетно
+ VMHL_Result=SortVector[VMHL_N/2];
+else//Если число элементов четно
+ VMHL_Result=(SortVector[VMHL_N/2-1]+SortVector[VMHL_N/2])/Two;
+delete [] SortVector;
+
+return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+template <class T> T TMHL_SampleCovariance(T *x, T *y, int VMHL_N)
+{
+/*
+Функция вычисляет выборочную ковариацию выборки.
+Входные параметры:
+ x - указатель на первую сравниваемую выборки;
+ y - указатель на вторую сравниваемую выборки;
+ VMHL_N - размер массивов.
+Выходной параметр:
+ Значение выборочной ковариации.
+*/
+T xn,yn;
+T VMHL_Result=0;
+
+//Найдем среднее арифметические двух выборок
+xn=TMHL_Mean(x,VMHL_N);
+yn=TMHL_Mean(x,VMHL_N);
+
+for(int i=0;i<VMHL_N;i++)
+ VMHL_Result+=(x[i]-xn)*(y[i]-yn);
+
+VMHL_Result/=VMHL_N-1;
+return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+template <class T> T TMHL_Variance(T *x, int VMHL_N)
+{
+/*
+Функция вычисляет выборочную дисперсию выборки.
+Входные параметры:
+ x - указатель на исходную выборку;
+ VMHL_N - размер массива.
+Возвращаемое значение:
+ Выборочная дисперсия выборки.
+*/
+return TMHL_SampleCovariance(x,x,VMHL_N);
+}
+//---------------------------------------------------------------------------
 //*****************************************************************
 //Тригонометрические функции
 //*****************************************************************

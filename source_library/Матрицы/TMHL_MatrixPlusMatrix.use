@@ -1,0 +1,108 @@
+        int i,j;
+        int VMHL_N=5;//Размер массива (число строк)
+        int VMHL_M=3;//Размер массива (число столбцов)
+        int **a;
+        a=new int*[VMHL_N];
+        for (i=0;i<VMHL_N;i++) a[i]=new int[VMHL_M];
+        int **b;
+        b=new int*[VMHL_N];
+        for (i=0;i<VMHL_N;i++) b[i]=new int[VMHL_M];
+        int **c;
+        c=new int*[VMHL_N];
+        for (i=0;i<VMHL_N;i++) c[i]=new int[VMHL_M];
+        //Заполним случайными числами
+        for (i=0;i<VMHL_N;i++)
+         for (j=0;j<VMHL_M;j++)
+          {
+          a[i][j]=MHL_RandomUniformInt(10,20);
+          b[i][j]=MHL_RandomUniformInt(10,20);
+          }
+
+        //Вызов функции
+        TMHL_MatrixPlusMatrix(a,b,c,VMHL_N,VMHL_M);
+
+        //Используем полученный результат
+        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Матрица", "a");
+        //Матрица:
+        //a =
+        //18	15	15
+        //15	11	17
+        //19	14	10
+        //17	18	18
+        //19	15	16
+
+        MHL_ShowMatrix (b,VMHL_N,VMHL_M,"Матрица", "b");
+        //Матрица:
+        //b =
+        //17	15	15
+        //16	18	10
+        //17	12	15
+        //12	16	13
+        //15	14	10
+
+        MHL_ShowMatrix (c,VMHL_N,VMHL_M,"Их сумма", "c");
+        //Их сумма:
+        //c =
+        //35	30	30
+        //31	29	27
+        //36	26	25
+        //29	34	31
+        //34	29	26
+
+        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        delete [] a;
+        for (i=0;i<VMHL_N;i++) delete [] b[i];
+        delete [] b;
+        for (i=0;i<VMHL_N;i++) delete [] c[i];
+        delete [] c;
+
+        //Для переопределенной функции
+        VMHL_N=5;//Размер массива (число строк)
+        VMHL_M=3;//Размер массива (число столбцов)
+        a=new int*[VMHL_N];
+        for (i=0;i<VMHL_N;i++) a[i]=new int[VMHL_M];
+        b=new int*[VMHL_N];
+        for (i=0;i<VMHL_N;i++) b[i]=new int[VMHL_M];
+        //Заполним случайными числами
+        for (i=0;i<VMHL_N;i++)
+         for (j=0;j<VMHL_M;j++)
+          {
+          a[i][j]=MHL_RandomUniformInt(10,20);
+          b[i][j]=MHL_RandomUniformInt(10,20);
+          }
+
+        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Матрица", "a");
+        //Матрица:
+        //a =
+        //18	12	12
+        //19	17	12
+        //19	17	17
+        //11	10	17
+        //11	19	10
+
+        //Вызов функции
+        TMHL_MatrixPlusMatrix(a,b,VMHL_N,VMHL_M);
+
+        //Используем полученный результат
+        MHL_ShowMatrix (b,VMHL_N,VMHL_M,"Матрица", "b");
+        //Матрица:
+        //b =
+        //10	10	16
+        //10	18	18
+        //15	13	17
+        //13	11	14
+        //16	13	11
+
+        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Теперь матрица a", "a");
+        //Теперь матрица a:
+        //a =
+        //28	22	28
+        //29	35	30
+        //34	30	34
+        //24	21	31
+        //27	32	21
+
+        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        delete [] a;
+        for (i=0;i<VMHL_N;i++) delete [] b[i];
+        delete [] b;

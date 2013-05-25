@@ -1,0 +1,1 @@
+double MHL_SumOfArithmeticalProgression(double a1,double d,int n);

@@ -1,0 +1,16 @@
+\textbf{Входные параметры:}
+ 
+x --- указатель на первую сравниваемую выборки;
+ 
+y --- указатель на вторую сравниваемую выборки;
+ 
+VMHL\_N --- размер массивов.
+
+\textbf{Возвращаемое значение:}
+ 
+Значение выборочной ковариации.
+
+\textbf{Формула:}
+\begin{equation*}
+Cov\left(\bar{x},\bar{y} \right)= \dfrac{1}{n-1}\sum_{i=1}^{n} \left( x_i-\dfrac{\sum_{j=1}^{n}x_j}{n}\right)\left( y_i-\dfrac{\sum_{j=1}^{n}y_j}{n}\right) .
+\end{equation*}

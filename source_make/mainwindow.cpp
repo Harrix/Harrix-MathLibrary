@@ -14,6 +14,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->textEdit->setReadOnly(true);
 }
 
 MainWindow::~MainWindow()
@@ -91,8 +92,8 @@ void MainWindow::on_pushButton_clicked()
 
     Temp = HQt_ReadFile(path+"Random.h")+"\n\n";//две основные функции по случайнм числам
     ResultH += Temp;
-    if (!(Temp.trimmed().isEmpty())) ui->textEdit->insertHtml("Загрузили файл <b>Random.cpp</b><br>");
-    else {ui->textEdit->insertHtml("<font color=\"red\">Ошибка с файлом <b>Random.cpp</b><\font><br>");countoferrors++;}
+    if (!(Temp.trimmed().isEmpty())) ui->textEdit->insertHtml("Загрузили файл <b>Random.h</b><br>");
+    else {ui->textEdit->insertHtml("<font color=\"red\">Ошибка с файлом <b>Random.h</b><\font><br>");countoferrors++;}
 
     Temp = HQt_ReadFile(path+"Enum.h")+"\n\n";//переменные перечисляемого типа
     ResultH += Temp;
@@ -314,6 +315,12 @@ void MainWindow::on_pushButton_clicked()
                 if (HQt_FileExists(path2+F+".desc")==false) {ui->textEdit->insertHtml("<font color=\"red\">Не обнаружен <b>"+F+".desc</b> файл<\font><br>");countoferrors++;}
 
             }
+
+            QGuiApplication::processEvents();
+
+            QTextCursor c =  ui->textEdit->textCursor();
+            c.movePosition(QTextCursor::End);
+            ui->textEdit->setTextCursor(c);
         }
 
         ui->textEdit->insertHtml("Из <b>"+QString::number(m)+"</b> файлов нужными нам оказалось <b>"+QString::number(countneed)+"</b> файлов в папке<br>");
@@ -376,6 +383,10 @@ void MainWindow::on_pushButton_clicked()
     else ui->textEdit->insertHtml("<br><font color=\"red\">Ошибок <b>"+QString::number(countoferrors)+"</b> штук<\font><br>");
 
     ui->textEdit->insertHtml("<font color=\"#858585\">Конец формирования файлов библиотеки.<\font><br>");
+
+    QTextCursor c =  ui->textEdit->textCursor();
+    c.movePosition(QTextCursor::End);
+    ui->textEdit->setTextCursor(c);
 
     //открытие папки с собранными файлами
     QDesktopServices::openUrl(QUrl::fromLocalFile(temp_library_path));

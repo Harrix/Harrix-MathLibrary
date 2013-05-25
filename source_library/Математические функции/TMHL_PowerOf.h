@@ -1,0 +1,1 @@
+template <class T> T TMHL_PowerOf(T x, int n);

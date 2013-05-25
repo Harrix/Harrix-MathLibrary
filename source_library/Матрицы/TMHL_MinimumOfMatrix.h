@@ -1,0 +1,1 @@
+template <class T> T TMHL_MinimumOfMatrix(T **a, int VMHL_N, int VMHL_M);

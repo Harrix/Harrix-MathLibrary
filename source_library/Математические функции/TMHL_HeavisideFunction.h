@@ -1,0 +1,1 @@
+template <class T> T TMHL_HeavisideFunction(T x);

@@ -1,0 +1,1 @@
+template <class T> int TMHL_Sign(T a);

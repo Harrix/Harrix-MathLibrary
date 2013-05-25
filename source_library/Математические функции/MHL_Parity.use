@@ -1,0 +1,8 @@
+        int a=MHL_RandomUniformInt(-50,50);
+
+        double Result=MHL_Parity(a);
+
+        //Используем полученный результат
+        MHL_ShowNumber(Result,"Четность числа "+MHL_NumberToText(a),"равна");
+        //Четность числа 2:
+        //равна=1

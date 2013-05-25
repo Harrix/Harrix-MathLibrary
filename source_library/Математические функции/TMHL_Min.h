@@ -1,0 +1,1 @@
+template <class T> T TMHL_Min(T a, T b);

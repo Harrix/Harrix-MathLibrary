@@ -1,0 +1,29 @@
+        int i,j;
+        int VMHL_N=5;//Размер массива (число строк)
+        int VMHL_M=3;//Размер массива (число столбцов)
+        int **a;
+        a=new int*[VMHL_N];
+        for (i=0;i<VMHL_N;i++) a[i]=new int[VMHL_M];
+        //Заполним случайными числами
+        for (i=0;i<VMHL_N;i++)
+         for (j=0;j<VMHL_M;j++)
+          a[i][j]=MHL_RandomUniformInt(0,50);
+
+        //Вызов функции
+        int NumberOfDifferent=TMHL_NumberOfDifferentValuesInMatrix(a,VMHL_N,VMHL_M);
+
+        //Используем полученный результат
+        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Случайная матрица", "a");
+        //Случайная матрица:
+        //a =
+        //7	3	27
+        //31	30	10
+        //37	34	49
+        //45	26	12
+        //26	28	0
+
+        MHL_ShowNumber (NumberOfDifferent,"Число различных значений в матрице", "NumberOfDifferent");
+        //Число различных значений в матрице:
+        //NumberOfDifferent=14
+        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        delete [] a;

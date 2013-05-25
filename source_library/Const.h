@@ -1,3 +1,5 @@
+#include <math.h>
+
 // КОНСТАНТЫ
 const double MHL_TAU=0.61803398874989484820;
 const double MHL_E=2.71828182845904523536;

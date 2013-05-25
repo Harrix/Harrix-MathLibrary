@@ -1,7 +1,7 @@
 MathHarrixLibrary
 ===================
 
-Версия v.3.1.0.
+Версия v.3.2.0.
 
 https://github.com/Harrix/MathHarrixLibrary
 
@@ -39,7 +39,15 @@ https://github.com/Harrix/MathHarrixLibrary
 
 **[+]** добавление
 
-**[*]** разное 
+**[*]** разное
+
+**3.2.0**
+
+**[+]** добавлено 86 функций (итого 139). Это без учета переопределенных фунций и двух функций со случайными числами.
+
+**[*]** В MathHarrixLibrary.h теперь подключается также #include <math.h>
+
+**[*]** Улучшен интерфейс MakeMathHarrixLibrary.exe
 
 **3.1.0**
 

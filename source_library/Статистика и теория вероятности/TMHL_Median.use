@@ -1,0 +1,25 @@
+        int i;
+        int VMHL_N=MHL_RandomUniformInt(3,10);//Размер массива
+        double *a;
+        a=new double[VMHL_N];
+        //Заполним случайными числами
+        for (i=0;i<VMHL_N;i++)
+         a[i]=MHL_RandomUniform(0,10);
+
+        //Вызов функции
+        double Median=TMHL_Median(a,VMHL_N);
+
+        //Используем полученный результат
+        MHL_ShowVector (a,VMHL_N,"Массив", "a");
+        //Массив:
+        //a =
+        //8.77167
+        //5.89142
+        //6.45966
+        //3.94775
+
+        MHL_ShowNumber (Median,"Медиана", "Median");
+        // Медиана:
+        //Median=6.17554
+
+        delete [] a;

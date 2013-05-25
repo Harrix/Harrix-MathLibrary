@@ -1,0 +1,1 @@
+int MHL_GreatestCommonDivisorEuclid(int A,int B);

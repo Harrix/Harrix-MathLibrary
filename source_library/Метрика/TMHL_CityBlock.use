@@ -1,0 +1,41 @@
+        int i;
+        int VMHL_N=5;//Размер массива
+        int *x;
+        x=new int[VMHL_N];
+        int *y;
+        y=new int[VMHL_N];
+        //Заполним случайными числами
+        for (i=0;i<VMHL_N;i++)
+         {
+         x[i]=MHL_RandomUniformInt(0,5);
+         y[i]=MHL_RandomUniformInt(0,5);
+         }
+
+        //Вызов функции
+        int metric=TMHL_CityBlock(x,y,VMHL_N);
+
+        //Используем полученный результат
+        MHL_ShowVector (x,VMHL_N,"Первый массив", "x");
+        //Первый массив:
+        //x =	 
+        //4
+        //1
+        //3
+        //3
+        //0
+
+        MHL_ShowVector (y,VMHL_N,"Второй массив", "y");
+        //Второй массив:
+        //y =	 
+        //3
+        //4
+        //1
+        //4
+        //1
+
+        MHL_ShowNumber (metric,"Значение метрики манхэттенское расстояние", "metric");
+        // Значение метрики манхэттенское расстояние:
+        //metric=8
+
+        delete [] x;
+        delete [] y;

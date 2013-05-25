@@ -1,0 +1,10 @@
+        int a=MHL_RandomUniformInt(10,100);
+        int b=MHL_RandomUniformInt(10,100);
+
+        //Вызов функции
+        int Max=TMHL_Min(a,b);
+
+        //Используем полученный результат
+        MHL_ShowNumber(Max,"Минимальное среди "+MHL_NumberToText(a)+" и "+MHL_NumberToText(b),"равно");
+        //Минимальное среди 79 и 18:
+        //равно=18

@@ -1,0 +1,1 @@
+double MHL_IntegralOfTrapezium(double a, double b, double Epsilon,double (*Function)(double));

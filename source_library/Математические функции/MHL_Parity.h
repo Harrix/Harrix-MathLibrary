@@ -1,0 +1,1 @@
+int MHL_Parity(int a);

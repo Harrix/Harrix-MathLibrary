@@ -1,0 +1,1 @@
+int MHL_LeastCommonMultipleEuclid(int A,int B);

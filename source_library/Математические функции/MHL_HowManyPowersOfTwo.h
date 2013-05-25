@@ -1,0 +1,1 @@
+int MHL_HowManyPowersOfTwo(int x);

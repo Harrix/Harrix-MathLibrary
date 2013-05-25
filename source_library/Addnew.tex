@@ -283,7 +283,7 @@ Form1->Memo1->Lines->Add("");
 Как видим, вид функций по внешнему виду однотипен --- различается только тип строк, который используется.
 
 \item \textbf{MHL\_NumberToText} --- выводит число в строку. 
-\begin{lstlisting}[label=examplefunction16, caption=Синтаксис функции MHL\_NumberToText]
+\begin{lstlisting}[label=examplefunction16_2, caption=Синтаксис функции MHL\_NumberToText]
 template <class T> QString MainWindow::MHL_NumberToText (T VMHL_X);
 \end{lstlisting}
 Входные параметры: 
@@ -309,7 +309,7 @@ template <class T> void MHL_ShowVector (T *VMHL_Vector, int VMHL_N, QString Titl
      \item NameVector --- обозначение вектора.
 \end{itemize}
 Пример использования функции:
-\begin{lstlisting}[label=examplefunction15, caption=Пример использования MHL\_ShowVector]
+\begin{lstlisting}[label=examplefunction15_2, caption=Пример использования MHL\_ShowVector]
 MHL_ShowVector (a,VMHL_N,"Заполненный вектор", "a");
 //Заполненный вектор:
 //a =	
@@ -327,7 +327,7 @@ MHL_ShowVector (a,VMHL_N,"Заполненный вектор", "a");
 \end{lstlisting}
 
 \item \textbf{MHL\_ShowVectorT} --- функция вывода вектора (одномерного массива) в транспонированном виде, то есть в одну строку. 
-\begin{lstlisting}[label=examplefunction14, caption=Синтаксис функции MHL\_ShowVectorT]
+\begin{lstlisting}[label=examplefunction14_2, caption=Синтаксис функции MHL\_ShowVectorT]
 template <class T> void MHL_ShowVectorT (T *VMHL_Vector, int VMHL_N, QString TitleVector, QString NameVector);
 \end{lstlisting}
 Входные параметры: 
@@ -357,7 +357,7 @@ template <class T> void MHL_ShowMatrix (T **VMHL_Matrix, int VMHL_N, int VMHL_M,
      \item NameMatrix --- обозначение матрицы.
 \end{itemize}
 Пример использования функции:
-\begin{lstlisting}[label=examplefunction17, caption=Пример использования MHL\_ShowMatrix]
+\begin{lstlisting}[label=examplefunction17_2, caption=Пример использования MHL\_ShowMatrix]
         MHL_ShowMatrix (Matrix,VMHL_N,VMHL_M,"Матрица", "x");
         //Матрица:
         //x =            

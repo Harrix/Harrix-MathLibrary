@@ -37,4 +37,7 @@ private:
     Ui::MainWindow *ui;
 };
 
+double Func3(double x);
+double Func(int *x,int VMHL_N);
+
 #endif // MAINWINDOW_H
