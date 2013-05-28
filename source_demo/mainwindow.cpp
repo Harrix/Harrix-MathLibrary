@@ -6,6 +6,7 @@
 #include <QUrl>
 #include <QDir>
 #include <QStandardItemModel>
+#include <QSortFilterProxyModel>
 
 #include "MathHarrixLibrary.h"
 
@@ -22,7 +23,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
     MHL_SeedRandom();//Инициализация датчика случайных чисел
 
-    QStandardItemModel *model = new QStandardItemModel;//новая модель списка
+    model = new QStandardItemModel(this);
+    model->setObjectName(QString::fromUtf8("model"));
+
     QStandardItem *item;//элемент списка
 
     //добавление новых элементов
@@ -443,11 +446,117 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("TMHL_Variance"));
     model->appendRow(item);
 
+    item = new QStandardItem(QString("TMHL_SinglepointCrossover"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("TMHL_TwopointCrossover"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("TMHL_UniformCrossover"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("TMHL_BinaryToDecimalFromPart"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("TMHL_BinaryToDecimal"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_BinaryVectorToRealVector"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("TMHL_GrayCodeToBinaryFromPart"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("TMHL_GrayCodeToBinary"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_BinaryGrayVectorToRealVector"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("TMHL_RandomVectorOfPermutation"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("TMHL_RandomMatrixOfPermutation"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("TMHL_MutationBinaryMatrix"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_TournamentSelectionWithReturn"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_TournamentSelection"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_MakeVectorOfRankForRankSelection"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_NormalizationVectorOne"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_NormalizationVectorMaxMin"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_NormalizationVectorAll"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_MakeVectorOfProbabilityForProportionalSelectionV2"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_SelectItemOnProbability"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_ProportionalSelection"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_ProportionalSelectionV2"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_ProportionalSelectionV3"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_RankSelection"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_StandartBinaryGeneticAlgorithm"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_StandartRealGeneticAlgorithm"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_StandartGeneticAlgorithm"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_TestFuction_Ackley"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_TestFuction_ParaboloidOfRevolution"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_TestFuction_Rastrigin"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_TestFuction_Rosenbrock"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_TestFuction_SumVector"));
+    model->appendRow(item);
+
 
     model->sort(0);
 
     //соединение модели списка с конкретным списком
-    ui->listView->setModel(model);
+
+    proxyModelView = new QSortFilterProxyModel(this);
+    proxyModelView->setSourceModel(model);
+    proxyModelView->setObjectName(QString::fromUtf8("proxyModelView"));
+
+    ui->listView->setModel(proxyModelView);
+
+
+    //////
+    //proxyModel->setSourceModel(model);
+    //ui->listView->setModel(proxyModel);
 
     ui->listView->setEditTriggers(QAbstractItemView::NoEditTriggers);
 }
@@ -462,6 +571,23 @@ double Func(int *x,int VMHL_N)
 {
 //Сумма всех элементов массива
 return TMHL_SumVector(x,VMHL_N);
+}
+//---------------------------------------------------------------------------
+double Func2(double *x,int VMHL_N)
+{
+//Сумма всех элементов массива
+return -((x[0]-2)*(x[0]-2)+(x[1]-2)*(x[1]-2));
+//return (exp(-x[0]*x[0])+0.01*cos(200*x[0]));
+//return (1.-0.5*cos(1.5*(10.*x[0]-0.3))*cos(31.4*x[0])+0.5*cos(sqrt(5.)*10.*x[0])*cos(35.*x[0]));
+
+//double X=x[0];
+//double Y=x[1];
+
+//double S,Z1,Z2;
+//Z1=-(1./((X-1.)*(X-1.)+0.2))-(1./(2.*(X-2.)*(X-2.)+0.15))-(1./(3.*(X-3.)*(X-3.)+0.3));
+//Z2=-(1./((Y-1.)*(Y-1.)+0.2))-(1./(2.*(Y-2.)*(Y-2.)+0.15))-(1./(3.*(Y-3.)*(Y-3.)+0.3));
+//S=-Z1*Z2;
+//return -S;
 }
 //---------------------------------------------------------------------------
 double Func3(double x)
@@ -5071,9 +5197,1401 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] x;
     }
 
+    if (NameFunction=="TMHL_SinglepointCrossover")
+    {
+        int VMHL_N=10; //Размер массива (число строк)
+        int *Parent1;
+        Parent1=new int[VMHL_N];
+        int *Parent2;
+        Parent2=new int[VMHL_N];
+        int *Child;
+        Child=new int[VMHL_N];
+        TMHL_RandomBinaryVector(Parent1,VMHL_N);
+        TMHL_RandomBinaryVector(Parent2,VMHL_N);
+
+        //Получим потомка Child
+        TMHL_SinglepointCrossover(Parent1,Parent2,Child,VMHL_N);
+
+        //Используем полученный результат
+        MHL_ShowVectorT (Parent1,VMHL_N,"Первый родитель", "Parent1");
+        //Первый родитель:
+        //Parent1 =
+        //0	1	1	0	0	1	0	1	1	1
+
+        MHL_ShowVectorT (Parent2,VMHL_N,"Второй родитель", "Parent2");
+        //Второй родитель:
+        //Parent2 =
+        //0	0	0	1	0	1	0	0	0	0
+
+        MHL_ShowVectorT (Child,VMHL_N,"Полученный потомок", "Child");
+        //Полученный потомок:
+        //Child =
+        //0	1	1	0	0	1	0	1	1	1
+
+        delete [] Parent2;
+        delete [] Parent1;
+        delete [] Child;
+    }
+
+    if (NameFunction=="TMHL_TwopointCrossover")
+    {
+        int VMHL_N=10; //Размер массива (число строк)
+        int *Parent1;
+        Parent1=new int[VMHL_N];
+        int *Parent2;
+        Parent2=new int[VMHL_N];
+        int *Child;
+        Child=new int[VMHL_N];
+        TMHL_RandomBinaryVector(Parent1,VMHL_N);
+        TMHL_RandomBinaryVector(Parent2,VMHL_N);
+
+        //Получим потомка Child
+        TMHL_TwopointCrossover(Parent1,Parent2,Child,VMHL_N);
+
+        //Используем полученный результат
+        MHL_ShowVectorT (Parent1,VMHL_N,"Первый родитель", "Parent1");
+        //Первый родитель:
+        //Parent1 =
+        //1	1	0	0	1	1	0	0	0	0
+
+        MHL_ShowVectorT (Parent2,VMHL_N,"Второй родитель", "Parent2");
+        //Второй родитель:
+        //Parent2 =
+        //0	1	1	0	0	1	0	0	1	0
+
+        MHL_ShowVectorT (Child,VMHL_N,"Полученный потомок", "Child");
+        //Полученный потомок:
+        //Child =
+        //0	1	1	0	0	1	0	0	1	0
+
+        delete [] Parent2;
+        delete [] Parent1;
+        delete [] Child;
+    }
+
+    if (NameFunction=="TMHL_UniformCrossover")
+    {
+        int VMHL_N=10; //Размер массива (число строк)
+        int *Parent1;
+        Parent1=new int[VMHL_N];
+        int *Parent2;
+        Parent2=new int[VMHL_N];
+        int *Child;
+        Child=new int[VMHL_N];
+        TMHL_RandomBinaryVector(Parent1,VMHL_N);
+        TMHL_RandomBinaryVector(Parent2,VMHL_N);
+
+        //Получим потомка Child
+        TMHL_UniformCrossover(Parent1,Parent2,Child,VMHL_N);
+
+        //Используем полученный результат
+        MHL_ShowVectorT (Parent1,VMHL_N,"Первый родитель", "Parent1");
+        //Первый родитель:
+        //Parent1 =
+        //1	1	0	1	1	1	1	1	1	0
+
+        MHL_ShowVectorT (Parent2,VMHL_N,"Второй родитель", "Parent2");
+        //Второй родитель:
+        //Parent2 =
+        //0	0	0	0	1	0	1	1	0	0
+
+        MHL_ShowVectorT (Child,VMHL_N,"Полученный потомок", "Child");
+        //Полученный потомок:
+        //Child =
+        //1	1	0	0	1	0	1	1	1	0
+
+        delete [] Parent2;
+        delete [] Parent1;
+        delete [] Child;
+    }
+
+    if (NameFunction=="TMHL_BinaryToDecimalFromPart")
+    {
+        int VMHL_N=8;//Размер массива
+        int *a;
+        a=new int[VMHL_N];
+        TMHL_RandomBinaryVector(a,VMHL_N);
+
+        int Begin=2;
+
+        //Вызов функции
+        int x=TMHL_BinaryToDecimalFromPart(a,Begin,5);
+
+        //Используем полученный результат
+        MHL_ShowVectorT (a,VMHL_N,"Бинарная строка", "a");
+        //Бинарная строка:
+        //a =
+        //0	0	1	0	1	0	0	0
+
+        MHL_ShowNumber (Begin,"Двоичное число состоит из 5 символов начиная с", "номера");
+        //Двоичное число состоит из 5 символов начиная с:
+        //номера=2
+
+        MHL_ShowNumber (x,"Было закодировано", "x");
+        //Было закодировано:
+        //x=20
+
+        delete [] a;
+    }
+
+    if (NameFunction=="TMHL_BinaryToDecimal")
+    {
+        int VMHL_N=8;//Размер массива
+        int *a;
+        a=new int[VMHL_N];
+        TMHL_RandomBinaryVector(a,VMHL_N);
+
+        //Вызов функции
+        int x=TMHL_BinaryToDecimal(a,VMHL_N);
+
+        //Используем полученный результат
+        MHL_ShowVectorT (a,VMHL_N,"Двоичное число", "a");
+        //Двоичное число:
+        //a =
+        //0	1	1	1	1	0	1	0
+
+        MHL_ShowNumber (x,"Было закодировано", "x");
+        //Было закодировано:
+        //x=122
+
+        delete [] a;
+    }
+
+    if (NameFunction=="MHL_BinaryVectorToRealVector")
+    {
+        int n=10;//Размер массива
+        int *BinaryVector;
+        BinaryVector=new int[n];
+        //Заполним случайно
+        TMHL_RandomBinaryVector(BinaryVector,n);
+
+        int VMHL_N=2;//Пусть был закодирован двумерный вектор
+        double *RealVector;//Вещественный вектор
+        RealVector=new double[VMHL_N];
+        double *Left;//массив левых границ изменения каждой вещественной координаты
+        Left=new double[VMHL_N];
+        double *Right;//массив правых границ изменения каждой вещественной координаты
+        Right=new double[VMHL_N];
+        int *Lengthi;//массив значений, сколько на каждую координату отводится бит в бинраной строке;
+        Lengthi=new int[VMHL_N];
+
+        //Заполним массивы
+        //Причем по каждой коодинтате одинаковые значения выставим
+        TMHL_FillVector(Left,VMHL_N,0.);//Пусть будет интервал [0;1]
+        TMHL_FillVector(Right,VMHL_N,1.);
+        TMHL_FillVector(Lengthi,VMHL_N,5);//По сумме элементов вектор должен равен n (длине бинарной строки)
+
+        //Вызов функции
+        MHL_BinaryVectorToRealVector(BinaryVector,RealVector,Left,Right,Lengthi,VMHL_N);
+
+        //Используем полученный результат
+        MHL_ShowVectorT (BinaryVector,n,"Бинарная строка", "BinaryVector");
+        //Бинарная строка:
+        //BinaryVector =
+        //0	1	0	1	1	1	0	1	0	1
+
+        MHL_ShowVectorT (RealVector,VMHL_N,"Был закодирован вектор", "RealVector");
+        //Был закодирован вектор:
+        //RealVector =
+        //0.34375	0.65625
+
+        delete [] BinaryVector;
+        delete [] RealVector;
+        delete [] Left;
+        delete [] Right;
+        delete [] Lengthi;
+    }
+
+    if (NameFunction=="TMHL_GrayCodeToBinaryFromPart")
+    {
+        int VMHL_N=8;//Размер массива
+        int *VectorWithGrayCode;
+        VectorWithGrayCode=new int[VMHL_N];
+        //Заполним случайно нулями и единицами
+        TMHL_RandomBinaryVector(VectorWithGrayCode,VMHL_N);
+
+        int *VectorWithBinaryCode;
+        VectorWithBinaryCode=new int[VMHL_N];
+        TMHL_FillVector(VectorWithBinaryCode,VMHL_N,-1);
+
+        int Begin=2;
+
+        //Вызов функции
+        TMHL_GrayCodeToBinaryFromPart(VectorWithGrayCode,VectorWithBinaryCode,Begin,5);
+
+        //Используем полученный результат
+        MHL_ShowVectorT (VectorWithGrayCode,VMHL_N,"Строка, содержащая код Грея", "a");
+        //Строка, содержащая код Грея:
+        //a =
+        //1	0	0	1	1	1	0	0
+
+        MHL_ShowNumber (Begin,"Двоичное число состоит из 5 символов начиная с", "номера");
+        //Двоичное число состоит из 5 символов начиная с:
+        //номера=2
+
+        MHL_ShowVectorT (VectorWithBinaryCode,VMHL_N,"Строка, содержащая бинарный код, полученый из кода Грея", "a");
+        //Строка, содержащая бинарный код, полученый из кода Грея:
+        //a =
+        //-1	-1	0	1	0	1	1	-1
+
+        delete [] VectorWithGrayCode;
+        delete [] VectorWithBinaryCode;
+    }
+
+    if (NameFunction=="TMHL_GrayCodeToBinary")
+    {
+        int VMHL_N=5;//Размер массива
+        int *GrayCode;
+        GrayCode=new int[VMHL_N];
+        //Получим случайный Грей код
+        TMHL_RandomBinaryVector(GrayCode,VMHL_N);
+
+        int *BinaryCode;
+        BinaryCode=new int[VMHL_N];
+
+        //Вызов функции
+        TMHL_GrayCodeToBinary(GrayCode,BinaryCode,VMHL_N);
+
+        //Используем полученный результат
+        MHL_ShowVectorT (GrayCode,VMHL_N,"Грей код", "a");
+        //Грей код:
+        //a =
+        //1	1	0	1	1
+
+        MHL_ShowVectorT (BinaryCode,VMHL_N,"Бинарный код, полученый из кода Грея", "a");
+        //Бинарный код, полученый из кода Грея:
+        //a =
+        //1	0	0	1	0
+
+        delete [] GrayCode;
+        delete [] BinaryCode;
+    }
+
+    if (NameFunction=="MHL_BinaryGrayVectorToRealVector")
+    {
+        int n=10;//Размер массива
+        int *BinaryGrayVector;
+        BinaryGrayVector=new int[n];
+        //Заполним случайно
+        TMHL_RandomBinaryVector(BinaryGrayVector,n);
+
+        int VMHL_N=2;//Пусть был закодирован двумерный вектор
+        double *RealVector;//Вещественный вектор
+        RealVector=new double[VMHL_N];
+        double *Left;//массив левых границ изменения каждой вещественной координаты
+        Left=new double[VMHL_N];
+        double *Right;//массив правых границ изменения каждой вещественной координаты
+        Right=new double[VMHL_N];
+        int *Lengthi;//массив значений, сколько на каждую координату отводится бит в бинраной строке;
+        Lengthi=new int[VMHL_N];
+
+        //Заполним массивы
+        //Причем по каждой коодинтате одинаковые значения выставим
+        TMHL_FillVector(Left,VMHL_N,0.);//Пусть будет интервал [0;1]
+        TMHL_FillVector(Right,VMHL_N,1.);
+        TMHL_FillVector(Lengthi,VMHL_N,5);//По сумме элементов вектор должен равен n (длине бинарной строки)
+
+        //Вызов функции
+        MHL_BinaryGrayVectorToRealVector(BinaryGrayVector,n,RealVector,Left,Right,Lengthi,VMHL_N);
+
+        //Используем полученный результат
+
+        MHL_ShowVectorT (BinaryGrayVector,n,"Бинарная строка Грея кода", "BinaryVector");
+        //Бинарная строка Грея кода:
+        //BinaryVector =
+        //1	0	1	0	1	0	0	0	1	0
+
+        MHL_ShowVectorT (RealVector,VMHL_N,"Был закодирован вектор", "RealVector");
+        //Был закодирован вектор:
+        //RealVector =
+        //0.78125	0.09375
+
+        delete [] BinaryGrayVector;
+        delete [] RealVector;
+        delete [] Left;
+        delete [] Right;
+        delete [] Lengthi;
+
+        //Для перегруженной функции
+        n=10;//Размер массива
+        BinaryGrayVector=new int[n];
+        //Заполним случайно
+        TMHL_RandomBinaryVector(BinaryGrayVector,n);
+
+        VMHL_N=2;//Пусть был закодирован двумерный вектор
+        RealVector=new double[VMHL_N];
+        Left=new double[VMHL_N];
+        Right=new double[VMHL_N];
+        Lengthi=new int[VMHL_N];
+
+        int *TempBinaryVector;
+        TempBinaryVector=new int[n];
+
+        //Заполним массивы
+        //Причем по каждой коодинтате одинаковые значения выставим
+        TMHL_FillVector(Left,VMHL_N,0.);//Пусть будет интервал [0;1]
+        TMHL_FillVector(Right,VMHL_N,1.);
+        TMHL_FillVector(Lengthi,VMHL_N,5);//По сумме элементов вектор должен равен n (длине бинарной строки)
+
+        //Вызов функции
+        MHL_BinaryGrayVectorToRealVector(BinaryGrayVector,RealVector,TempBinaryVector,Left,Right,Lengthi,VMHL_N);
+
+        //Используем полученный результат
+
+        MHL_ShowVectorT (BinaryGrayVector,n,"Бинарная строка Грея кода", "BinaryVector");
+        // Бинарная строка Грея кода:
+        //BinaryVector =
+        //0	0	1	0	0	1	1	1	0	1
+
+        MHL_ShowVectorT (RealVector,VMHL_N,"Был закодирован вектор", "RealVector");
+        //Был закодирован вектор:
+        //RealVector =
+        //0.21875	0.6875
+
+        delete [] BinaryGrayVector;
+        delete [] RealVector;
+        delete [] Left;
+        delete [] Right;
+        delete [] Lengthi;
+        delete [] TempBinaryVector;
+    }
+
+    if (NameFunction=="TMHL_RandomVectorOfPermutation")
+    {
+        int VMHL_N=10;//Размер массива (число строк)
+        double *a;
+        a=new double[VMHL_N];
+
+        //Вызов функции
+        TMHL_RandomVectorOfPermutation(a,VMHL_N);
+
+        //Используем полученный результат
+        MHL_ShowVector (a,VMHL_N,"Строка-перестановка", "a");
+        //Строка-перестановка:
+        //a =
+        //1
+        //4
+        //8
+        //7
+        //9
+        //10
+        //5
+        //3
+        //2
+        //6
+
+        delete [] a;
+    }
+
+    if (NameFunction=="TMHL_RandomMatrixOfPermutation")
+    {
+        int i;
+        int VMHL_N=10;//Размер массива (число строк)
+        int VMHL_M=5;//Размер массива (число строк)
+        int **a;
+        a=new int*[VMHL_N];
+        for (i=0;i<VMHL_N;i++) a[i]=new int[VMHL_M];
+
+        //Вызов функции
+        TMHL_RandomMatrixOfPermutation(a,VMHL_N,VMHL_M);
+
+        //Используем полученный результат
+        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Матрица строк-перестановок", "a");
+        //Матрица строк-перестановок:
+        //a =
+        //3	2	1	4	5
+        //4	1	3	2	5
+        //5	2	3	4	1
+        //5	3	4	2	1
+        //5	4	2	1	3
+        //1	4	3	5	2
+        //5	4	1	3	2
+        //1	4	2	5	3
+        //3	1	2	4	5
+        //5	3	4	2	1
+
+        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        delete [] a;
+    }
+
+    if (NameFunction=="TMHL_MutationBinaryMatrix")
+    {
+        int i;
+        int VMHL_N=10;//Размер массива (число строк)
+        int VMHL_M=3;//Размер массива (число столбцов)
+        int **a;
+        a=new int*[VMHL_N];
+        for (i=0;i<VMHL_N;i++) a[i]=new int[VMHL_M];
+        TMHL_RandomBinaryMatrix(a,VMHL_N,VMHL_M);//Случайная бинарная матрица
+        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Случайная бинарная матрица", "a");
+        // Случайная бинарная матрица:
+        //a =
+        //1	0	1
+        //0	0	0
+        //0	1	1
+        //1	0	1
+        //1	0	1
+        //1	0	1
+        //0	0	1
+        //1	1	0
+        //1	0	1
+        //1	1	0
+
+        double ProbabilityOfMutation=0.1;//Вероятность мутации
+
+        //Вызов функции
+        TMHL_MutationBinaryMatrix(a,ProbabilityOfMutation,VMHL_N,VMHL_M);
+
+        //Используем полученный результат
+        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Мутированная бинарная матрица", "a");
+        //Мутированная бинарная матрица:
+        //a =
+        //1	1	1
+        //1	0	0
+        //0	1	1
+        //1	0	1
+        //1	0	1
+        //1	0	1
+        //0	0	1
+        //1	1	0
+        //1	0	1
+        //1	1	1
+
+        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        delete [] a;
+    }
+
+    if (NameFunction=="MHL_TournamentSelectionWithReturn")
+    {
+        int i;
+        int VMHL_N=7;//Размер массива
+        double *Fitness;
+        Fitness=new double[VMHL_N];
+        for (i=0;i<VMHL_N;i++)
+         Fitness[i]=MHL_RandomNumber();
+
+        int SizeTournament=3;// Размер турнира
+
+        //Вызов функции
+        int Number=MHL_TournamentSelectionWithReturn(Fitness,SizeTournament,VMHL_N);
+
+        //Используем полученный результат
+
+        MHL_ShowVector (Fitness,VMHL_N,"Массив пригодностей", "Fitness");
+        //Массив пригодностей:
+        //Fitness =
+        //0.883148
+        //0.370209
+        //0.0719604
+        //0.311371
+        //0.558594
+        //0.42215
+        //0.011322
+
+        MHL_ShowNumber (Number,"Номер выбранного индивида", "Number");
+        //Номер выбранного индивида:
+        //Number=4
+
+        delete [] Fitness;
+    }
+
+    if (NameFunction=="MHL_TournamentSelection")
+    {
+        int i;
+        int VMHL_N=7;//Размер массива
+        double *Fitness;
+        Fitness=new double[VMHL_N];
+        for (i=0;i<VMHL_N;i++)
+         Fitness[i]=MHL_RandomNumber();
+
+        int SizeTournament=3;// Размер турнира
+
+        //Вызов функции
+        int Number=MHL_TournamentSelection(Fitness,SizeTournament,VMHL_N);
+
+        //Используем полученный результат
+
+        MHL_ShowVector (Fitness,VMHL_N,"Массив пригодностей", "Fitness");
+        //Массив пригодностей:
+        //Fitness =
+        //0.858643
+        //0.460541
+        //0.469696
+        //0.454315
+        //0.594543
+        //0.000457764
+        //0.476135
+
+
+        MHL_ShowNumber (SizeTournament,"Размер турнираа", "SizeTournament");
+        // Размер турнираа:
+        //SizeTournament=3
+
+        MHL_ShowNumber (Number,"Номер выбранного индивида", "Number");
+        //Номер выбранного индивида:
+        //Number=6
+
+        delete [] Fitness;
+
+        //Для переопределенной функции
+        VMHL_N=7;//Размер массива
+        Fitness=new double[VMHL_N];
+        for (i=0;i<VMHL_N;i++)
+         Fitness[i]=MHL_RandomNumber();
+
+        int *Taken;//Информация о том, в турнире или нет индивид (Служебный массив)
+        Taken=new int[VMHL_N];
+
+        SizeTournament=3;// Размер турнира
+
+        //Вызов функции
+        Number=MHL_TournamentSelection(Fitness,SizeTournament,Taken,VMHL_N);
+
+        //Используем полученный результат
+
+        MHL_ShowVector (Fitness,VMHL_N,"Массив пригодностей", "Fitness");
+        //Массив пригодностей:
+        //Fitness =
+        //0.598633
+        //0.396423
+        //0.756683
+        //0.123505
+        //0.0546875
+        //0.542511
+        //0.605499
+
+        MHL_ShowNumber (SizeTournament,"Размер турнира", "SizeTournament");
+        //Размер турнира:
+        //SizeTournament=3
+
+        MHL_ShowNumber (Number,"Номер выбранного индивида", "Number");
+        //Номер выбранного индивида:
+        //Number=2
+
+        delete [] Fitness;
+        delete [] Taken;
+    }
+
+    if (NameFunction=="MHL_MakeVectorOfRankForRankSelection")
+    {
+        int i;
+        int VMHL_N=7;//Размер массива (число строк)
+        double *Fitness;
+        Fitness=new double[VMHL_N];
+        for (i=0;i<VMHL_N;i++)
+         Fitness[i]=MHL_RandomUniformInt(1,10)/10.;
+
+        double *Rank;
+        Rank=new double[VMHL_N];
+
+        //Вызов функции
+        MHL_MakeVectorOfRankForRankSelection(Fitness,Rank,VMHL_N);
+
+        //Используем полученный результат
+
+        MHL_ShowVector (Fitness,VMHL_N,"Массив пригодностей", "Fitness");
+        //Массив пригодностей:
+        //Fitness =
+        //0.3
+        //0.5
+        //0.7
+        //0.5
+        //0.8
+        //0.1
+        //0.6
+
+        MHL_ShowVector (Rank,VMHL_N,"Массив рангов", "Rank");
+        //Массив рангов:
+        //Rank =
+        //2
+        //3.5
+        //6
+        //3.5
+        //7
+        //1
+        //5
+
+        delete [] Fitness;
+        delete [] Rank;
+    }
+
+    if (NameFunction=="MHL_NormalizationVectorOne")
+    {
+        int i;
+        int VMHL_N=10;//Размер массива (число строк)
+        double *a;
+        a=new double[VMHL_N];
+        //Заполним случайными числами
+        for (i=0;i<VMHL_N;i++)
+         a[i]=MHL_RandomUniformInt(-100,100);
+
+        MHL_ShowVector (a,VMHL_N,"Случайный вектор", "a");
+        //Случайный вектор:
+        //a =
+        //-76
+        //-100
+        //-2
+        //97
+        //99
+        //49
+        //87
+        //-49
+        //-13
+        //7
+
+        //Вызов функции
+        MHL_NormalizationVectorOne(a,VMHL_N);
+
+        //Используем полученный результат
+        MHL_ShowVector (a,VMHL_N,"Нормализованный вектор", "a");
+        //Нормализованный вектор:
+        //a =
+        //0.021838
+        //0
+        //0.089172
+        //0.179254
+        //0.181074
+        //0.135578
+        //0.170155
+        //0.0464058
+        //0.0791629
+        //0.0973612
+
+        MHL_ShowNumber (TMHL_SumVector(a,VMHL_N),"Его сумма", "Sum");
+        //Его сумма:
+        //Sum=1
+
+        delete [] a;
+    }
+
+    if (NameFunction=="MHL_NormalizationVectorMaxMin")
+    {
+        int i;
+        int VMHL_N=10;//Размер массива (число строк)
+        double *a;
+        a=new double[VMHL_N];
+        //Заполним случайными числами
+        for (i=0;i<VMHL_N;i++)
+         a[i]=MHL_RandomUniformInt(-100,100);
+
+        MHL_ShowVector (a,VMHL_N,"Случайный вектор", "a");
+        //Случайный вектор:
+        //a =
+        //38
+        //-35
+        //-59
+        //-15
+        //-98
+        //24
+        //83
+        //-16
+        //73
+        //45
+
+        //Вызов функции
+        MHL_NormalizationVectorMaxMin(a,VMHL_N);
+
+        //Используем полученный результат
+        MHL_ShowVector (a,VMHL_N,"Нормализованный вектор", "a");
+        //Нормализованный вектор:
+        //a =
+        //0.751381
+        //0.348066
+        //0.21547
+        //0.458564
+        //0
+        //0.674033
+        //1
+        //0.453039
+        //0.944751
+        //0.790055
+
+        delete [] a;
+    }
+
+    if (NameFunction=="MHL_NormalizationVectorAll")
+    {
+        int VMHL_N=10;//Размер массива (число строк)
+        double *a;
+        a=new double[VMHL_N];
+        //Заполним случайными числами
+        MHL_RandomRealVector(a,-100,100,VMHL_N);
+
+        MHL_ShowVector (a,VMHL_N,"Случайный вектор", "a");
+        //Случайный вектор:
+        //a =
+        //-41.1987
+        //81.2317
+        //-64.386
+        //58.4839
+        //78.5706
+        //11.8958
+        //52.179
+        //47.5952
+        //-98.4924
+        //-47.6013
+
+        //Вызов функции
+        MHL_NormalizationVectorAll(a,VMHL_N);
+
+        //Используем полученный результат
+        MHL_ShowVector (a,VMHL_N,"Нормализованный вектор", "a");
+        // Нормализованный вектор:
+        //a =
+        //0.0118487
+        //0.99392
+        //0.0076469
+        //0.991594
+        //0.993716
+        //0.961228
+        //0.990598
+        //0.989711
+        //0.00502551
+        //0.0102878
+
+        delete [] a;
+    }
+
+    if (NameFunction=="MHL_MakeVectorOfProbabilityForProportionalSelectionV2")
+    {
+        int i;
+        int VMHL_N=10;//Размер массива (число строк)
+        double *Fitness;
+        Fitness=new double[VMHL_N];
+        //Заполним вектор случайными значениями пригодностей индивидов
+        //на практике, конечно, пригодности вычисляются, например, в
+        //процессе работы ГА
+        for (i=0;i<VMHL_N;i++) Fitness[i]=MHL_RandomNumber();
+
+        //Для работы этого варианта пропорциональной селекции нужен
+        //массив вероятностей выбора индивидов для порпоциональной селекции;
+        double *VectorProbability;
+        VectorProbability=new double[VMHL_N];
+
+        //Вызов функции
+        MHL_MakeVectorOfProbabilityForProportionalSelectionV2(Fitness,VectorProbability,VMHL_N);
+
+        //Используем полученный результат
+        MHL_ShowVector (Fitness,VMHL_N,"Вектор пригодностей индивидов", "a");
+        //Вектор пригодностей индивидов:
+        //a =
+        //0.902191
+        //0.804932
+        //0.0402527
+        //0.344849
+        //0.375427
+        //0.0223999
+        //0.650024
+        //0.207642
+        //0.275391
+        //0.164215
+
+        MHL_ShowVector (VectorProbability,VMHL_N,"Вектор вероятностей выбора индивидов", "VectorProbability");
+        // Вектор вероятностей выбора индивидов:
+        //VectorProbability =
+        //0.246902
+        //0.219607
+        //0.00501015
+        //0.090491
+        //0.0990725
+        //0
+        //0.176135
+        //0.0519856
+        //0.0709985
+        //0.0397986
+
+        MHL_ShowNumber (TMHL_SumVector(VectorProbability,VMHL_N),"Его сумма", "Sum");
+        //Его сумма:
+        //Sum=1
+
+        delete [] Fitness;
+        delete [] VectorProbability;
+    }
+
+    if (NameFunction=="MHL_SelectItemOnProbability")
+    {
+        int VMHL_N=10;//Размер массива (число строк)
+        double *a;
+        a=new double[VMHL_N];
+        //Заполним вектор случайными значениями вероятностей
+        MHL_RandomVectorOfProbability(a, VMHL_N);
+
+        //Вызов функции
+        int Number=MHL_SelectItemOnProbability(a,VMHL_N);
+
+        //Используем полученный результат
+        MHL_ShowVector (a,VMHL_N,"Вектор вероятностей выбора", "a");
+        // Вектор вероятностей выбора:
+        //Вектор вероятностей выбора:
+        //a =
+        //0.0701006
+        //0.190423
+        //0.0231631
+        //0.160255
+        //0.0983935
+        //0.038739
+        //0.166252
+        //0.105259
+        //0.0621408
+        //0.0852747
+
+        MHL_ShowNumber (Number,"Номер выбранного элемента", "Number");
+        // Номер выбранного элемента:
+        //Number=6
+
+        delete [] a;
+    }
+
+    if (NameFunction=="MHL_ProportionalSelection")
+    {
+        int i;
+        int VMHL_N=10;//Размер массива (число строк)
+        double *Fitness;
+        Fitness=new double[VMHL_N];
+        //Заполним вектор случайными значениями пригодностей индивидов
+        //на практике, конечно, пригодности вычисляются, например, в
+        //процессе работы ГА
+        for (i=0;i<VMHL_N;i++) Fitness[i]=MHL_RandomNumber();
+
+        //Вызов функции
+        int Number=MHL_ProportionalSelection(Fitness,VMHL_N);
+
+        //Используем полученный результат
+
+        //Например:
+        MHL_ShowVector (Fitness,VMHL_N,"Вектор пригодностей индивидов", "a");
+        // Вектор пригодностей индивидов:
+        //a =
+        //0.368073
+        //0.474609
+        //0.297089
+        //0.373474
+        //0.102203
+        //0.774292
+        //0.487335
+        //0.747742
+        //0.505646
+        //0.901184
+
+        MHL_ShowNumber (Number,"Номер выбранного индивида", "Number");
+        //Номер выбранного индивида:
+        //Number=5
+
+        delete [] Fitness;
+    }
+
+    if (NameFunction=="MHL_ProportionalSelectionV2")
+    {
+        int i;
+        int VMHL_N=10;//Размер массива (число строк)
+        double *Fitness;
+        Fitness=new double[VMHL_N];
+        //Заполним вектор случайными значениями пригодностей индивидов
+        //на практике, конечно, пригодности вычисляются, например, в
+        //процессе работы ГА
+        for (i=0;i<VMHL_N;i++) Fitness[i]=MHL_RandomNumber();
+
+        //Для работы этого варианта пропорциональной селекции нужен
+        //массив вероятностей выбора индивидов для порпоциональной селекции;
+        double *VectorProbability;
+        VectorProbability=new double[VMHL_N];
+        //Сформируем этот массив
+        MHL_MakeVectorOfProbabilityForProportionalSelectionV2(Fitness,VectorProbability,VMHL_N);
+
+        //Вызов функции
+        int Number=MHL_ProportionalSelectionV2(VectorProbability,VMHL_N);
+
+        //Используем полученный результат
+        MHL_ShowVector (Fitness,VMHL_N,"Вектор пригодностей индивидов", "a");
+        // Вектор пригодностей индивидов:
+        //a =
+        //0.681061
+        //0.629517
+        //0.697021
+        //0.140045
+        //0.221649
+        //0.203461
+        //0.702576
+        //0.998077
+        //0.853607
+        //0.19928
+
+        MHL_ShowVector (VectorProbability,VMHL_N,"Вектор вероятностей выбора индивидов", "VectorProbability");
+        // Вектор вероятностей выбора индивидов:
+        //VectorProbability =
+        //0.137809
+        //0.124679
+        //0.141874
+        //0
+        //0.0207864
+        //0.0161534
+        //0.143289
+        //0.21856
+        //0.18176
+        //0.0150884
+
+        MHL_ShowNumber (TMHL_SumVector(VectorProbability,VMHL_N),"Его сумма", "Sum");
+        // Его сумма:
+        //Sum=1
+
+        MHL_ShowNumber (Number,"Номер выбранного индивида", "Number");
+
+        // Номер выбранного индивида:
+        //Number=6
+
+        delete [] Fitness;
+        delete [] VectorProbability;
+    }
+
+    if (NameFunction=="MHL_ProportionalSelectionV3")
+    {
+        int i;
+        int VMHL_N=10;//Размер массива (число строк)
+        double *Fitness;
+        Fitness=new double[VMHL_N];
+        //Заполним вектор случайными значениями пригодностей индивидов
+        //на практике, конечно, пригодности вычисляются, например, в
+        //процессе работы ГА
+        for (i=0;i<VMHL_N;i++) Fitness[i]=MHL_RandomNumber();
+
+        //Вызов функции
+        int Number=MHL_ProportionalSelectionV3(Fitness,VMHL_N);
+
+        //Используем полученный результат
+        MHL_ShowVector (Fitness,VMHL_N,"Вектор пригодностей индивидов", "a");
+        // Вектор пригодностей индивидов:
+        //a =
+        //0.774231
+        //0.15918
+        //0.671448
+        //0.0546265
+        //0.881012
+        //0.766541
+        //0.638275
+        //0.0705261
+        //0.234528
+        //0.0510559
+
+        MHL_ShowNumber (Number,"Номер выбранного индивида", "Number");
+        // Номер выбранного индивида:
+        //Number=0
+
+        delete [] Fitness;
+    }
+
+    if (NameFunction=="MHL_RankSelection")
+    {
+        int i;
+        int VMHL_N=7;//Размер массива
+        double *Fitness;
+        Fitness=new double[VMHL_N];
+        for (i=0;i<VMHL_N;i++)
+         Fitness[i]=MHL_RandomUniformInt(1,10)/10.;
+
+        double *Rank;
+        Rank=new double[VMHL_N];
+
+        double *VectorProbability;
+        VectorProbability=new double[VMHL_N];
+
+        //Сформируем вектор рангов
+        MHL_MakeVectorOfRankForRankSelection(Fitness,Rank,VMHL_N);
+        //Из вектора рангов получим вектор вероятностей выбора
+        MHL_MakeVectorOfProbabilityForProportionalSelectionV2(Rank,VectorProbability,VMHL_N);
+
+        //Вызов функции
+        int Number=MHL_RankSelection(VectorProbability,VMHL_N);
+
+        //Используем полученный результат
+
+        MHL_ShowVector (Fitness,VMHL_N,"Массив пригодностей", "Fitness");
+        // Массив пригодностей:
+        //Fitness =
+        //0.2
+        //0.2
+        //0.6
+        //0.8
+        //0.4
+        //0.3
+        //0.2
+
+        MHL_ShowVector (Rank,VMHL_N,"Массив рангов", "Rank");
+        // Массив рангов:
+        //Rank =
+        //2
+        //2
+        //6
+        //7
+        //5
+        //4
+        //2
+
+        MHL_ShowVector (VectorProbability,VMHL_N,"Массив вероятностей выбора", "VectorProbability");
+        //Массив вероятностей выбора:
+        //VectorProbability =
+        //0
+        //0
+        //0.285714
+        //0.357143
+        //0.214286
+        //0.142857
+        //0
+
+        MHL_ShowNumber (Number,"Номер выбранного индивида", "Number");
+        // Номер выбранного индивида:
+        //Number=3
+
+        delete [] Fitness;
+        delete [] Rank;
+        delete [] VectorProbability;
+    }
+
+    if (NameFunction=="MHL_StandartBinaryGeneticAlgorithm")
+    {
+        int ChromosomeLength=50;//Длина хромосомы
+        int CountOfFitness=50*50;//Число вычислений целевой функции
+        int TypeOfSel=1;//Тип селекции
+        int TypeOfCros=0;//Тип скрещивания
+        int TypeOfMutation=1;//Тип мутации
+        int TypeOfForm=0;//Тип формирования нового поколения
+
+        int *ParametersOfStandartBinaryGeneticAlgorithm;
+        ParametersOfStandartBinaryGeneticAlgorithm=new int[6];
+        ParametersOfStandartBinaryGeneticAlgorithm[0]=ChromosomeLength;//Длина хромосомы
+        ParametersOfStandartBinaryGeneticAlgorithm[1]=CountOfFitness;//Число вычислений целевой функции
+        ParametersOfStandartBinaryGeneticAlgorithm[2]=TypeOfSel;//Тип селекции
+        ParametersOfStandartBinaryGeneticAlgorithm[3]=TypeOfCros;//Тип скрещивания
+        ParametersOfStandartBinaryGeneticAlgorithm[4]=TypeOfMutation;//Тип мутации
+        ParametersOfStandartBinaryGeneticAlgorithm[5]=TypeOfForm;//Тип формирования нового поколения
+
+        int *Decision;//бинарное решение
+        Decision=new int[ChromosomeLength];
+        double ValueOfFitnessFunction;//значение функции пригодности в точке Decision
+        int VMHL_Success=0;//Успешен ли будет запуск cГА
+
+        //Запуск алгоритма
+        VMHL_Success=MHL_StandartBinaryGeneticAlgorithm (ParametersOfStandartBinaryGeneticAlgorithm,Func, Decision, &ValueOfFitnessFunction);
+
+        //Используем полученный результат
+        MHL_ShowNumber(VMHL_Success,"Как прошел запуск","VMHL_Success");
+        //Как прошел запуск:
+        //VMHL_Success=1
+
+        if (VMHL_Success==1)
+         {
+         MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
+         //Найденное решение:
+         //Decision =
+         //1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1
+
+         MHL_ShowNumber(ValueOfFitnessFunction,"Значение функции пригодности","ValueOfFitnessFunction");
+         // Значение функции пригодности:
+         //ValueOfFitnessFunction=50
+         }
+
+        delete [] ParametersOfStandartBinaryGeneticAlgorithm;
+        delete [] Decision;
+    }
+
+    if (NameFunction=="MHL_StandartRealGeneticAlgorithm")
+    {
+        int ChromosomeLength=2;//Длина хромосомы
+        int CountOfFitness=50*50;//Число вычислений целевой функции
+        int TypeOfSel=1;//Тип селекции
+        int TypeOfCros=0;//Тип скрещивания
+        int TypeOfMutation=1;//Тип мутации
+        int TypeOfForm=0;//Тип формирования нового поколения
+
+        int *ParametersOfStandartRealGeneticAlgorithm;
+        ParametersOfStandartRealGeneticAlgorithm=new int[7];
+        ParametersOfStandartRealGeneticAlgorithm[0]=ChromosomeLength;//Длина хромосомы
+        ParametersOfStandartRealGeneticAlgorithm[1]=CountOfFitness;//Число вычислений целевой функции
+        ParametersOfStandartRealGeneticAlgorithm[2]=TypeOfSel;//Тип селекции
+        ParametersOfStandartRealGeneticAlgorithm[3]=TypeOfCros;//Тип скрещивания
+        ParametersOfStandartRealGeneticAlgorithm[4]=TypeOfMutation;//Тип мутации
+        ParametersOfStandartRealGeneticAlgorithm[5]=TypeOfForm;//Тип формирования нового поколения
+        ParametersOfStandartRealGeneticAlgorithm[6]=0;//Тип формирования нового поколения
+
+        double *Left;//массив левых границ изменения каждой вещественной координаты
+        Left=new double[ChromosomeLength];
+        double *Right;//массив правых границ изменения каждой вещественной координаты
+        Right=new double[ChromosomeLength];
+        int *NumberOfParts;//на сколько делить каждую координату
+        NumberOfParts=new int[ChromosomeLength];
+
+        //Заполним массивы
+        //Причем по каждой коодинтате одинаковые значения выставим
+        TMHL_FillVector(Left,ChromosomeLength,-5.);//Пусть будет интервал [-3;3]
+        TMHL_FillVector(Right,ChromosomeLength,5.);
+        TMHL_FillVector(NumberOfParts,ChromosomeLength,TMHL_PowerOf(2,15)-1);//Делим на 32768-1 частей каждую вещественную координату
+
+        double *Decision;//вещественное решение
+        Decision=new double[ChromosomeLength];
+        double ValueOfFitnessFunction;//значение целевой функции в точке Decision
+        int VMHL_Success=0;//Успешен ли будет запуск cГА
+
+        //Запуск алгоритма
+        VMHL_Success=MHL_StandartRealGeneticAlgorithm (ParametersOfStandartRealGeneticAlgorithm,NumberOfParts,Left,Right,Func2, Decision, &ValueOfFitnessFunction);
+
+        //Используем полученный результат
+        MHL_ShowNumber(VMHL_Success,"Как прошел запуск","VMHL_Success");
+        if (VMHL_Success==1)
+         {
+         MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
+         //Найденное решение:
+         //Decision = 1.99530029296875
+         MHL_ShowNumber(ValueOfFitnessFunction,"Значение целовой функции","ValueOfFitnessFunction");
+         //Значение целовой функции:
+         //ValueOfFitnessFunction = 7.74778987033769
+         }
+
+        delete [] ParametersOfStandartRealGeneticAlgorithm;
+        delete [] Decision;
+        delete [] Left;
+        delete [] Right;
+        delete [] NumberOfParts;
+    }
+
+    if (NameFunction=="MHL_StandartGeneticAlgorithm")
+    {
+        int ChromosomeLength=50;//Длина хромосомы
+        int CountOfFitness=50*50;//Число вычислений целевой функции
+        int TypeOfSel=1;//Тип селекции
+        int TypeOfCros=0;//Тип скрещивания
+        int TypeOfMutation=1;//Тип мутации
+        int TypeOfForm=0;//Тип формирования нового поколения
+
+        int *ParametersOfStandartBinaryGeneticAlgorithm;
+        ParametersOfStandartBinaryGeneticAlgorithm=new int[6];
+        ParametersOfStandartBinaryGeneticAlgorithm[0]=ChromosomeLength;//Длина хромосомы
+        ParametersOfStandartBinaryGeneticAlgorithm[1]=CountOfFitness;//Число вычислений целевой функции
+        ParametersOfStandartBinaryGeneticAlgorithm[2]=TypeOfSel;//Тип селекции
+        ParametersOfStandartBinaryGeneticAlgorithm[3]=TypeOfCros;//Тип скрещивания
+        ParametersOfStandartBinaryGeneticAlgorithm[4]=TypeOfMutation;//Тип мутации
+        ParametersOfStandartBinaryGeneticAlgorithm[5]=TypeOfForm;//Тип формирования нового поколения
+
+        int *Decision;//бинарное решение
+        Decision=new int[ChromosomeLength];
+        double ValueOfFitnessFunction;//значение функции пригодности в точке Decision
+        int VMHL_Success=0;//Успешен ли будет запуск cГА
+
+        //Запуск алгоритма
+        VMHL_Success=MHL_StandartGeneticAlgorithm (ParametersOfStandartBinaryGeneticAlgorithm,Func, Decision, &ValueOfFitnessFunction);
+
+        //Используем полученный результат
+        MHL_ShowNumber(VMHL_Success,"Как прошел запуск","VMHL_Success");
+        //Как прошел запуск:
+        //VMHL_Success=1
+
+        if (VMHL_Success==1)
+         {
+         MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
+         //Найденное решение:
+         //Decision =
+         //1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1
+
+         MHL_ShowNumber(ValueOfFitnessFunction,"Значение функции пригодности","ValueOfFitnessFunction");
+         // Значение функции пригодности:
+         //ValueOfFitnessFunction=50
+         }
+
+        delete [] ParametersOfStandartBinaryGeneticAlgorithm;
+        delete [] Decision;
+
+        //Для переопределенной функции
+        {//чтобы не удалять объявления переменных, заключим в скобки
+            int ChromosomeLength=2;//Длина хромосомы
+            int CountOfFitness=50*50;//Число вычислений целевой функции
+            int TypeOfSel=1;//Тип селекции
+            int TypeOfCros=0;//Тип скрещивания
+            int TypeOfMutation=1;//Тип мутации
+            int TypeOfForm=0;//Тип формирования нового поколения
+
+            int *ParametersOfStandartRealGeneticAlgorithm;
+            ParametersOfStandartRealGeneticAlgorithm=new int[7];
+            ParametersOfStandartRealGeneticAlgorithm[0]=ChromosomeLength;//Длина хромосомы
+            ParametersOfStandartRealGeneticAlgorithm[1]=CountOfFitness;//Число вычислений целевой функции
+            ParametersOfStandartRealGeneticAlgorithm[2]=TypeOfSel;//Тип селекции
+            ParametersOfStandartRealGeneticAlgorithm[3]=TypeOfCros;//Тип скрещивания
+            ParametersOfStandartRealGeneticAlgorithm[4]=TypeOfMutation;//Тип мутации
+            ParametersOfStandartRealGeneticAlgorithm[5]=TypeOfForm;//Тип формирования нового поколения
+            ParametersOfStandartRealGeneticAlgorithm[6]=0;//Тип формирования нового поколения
+
+            double *Left;//массив левых границ изменения каждой вещественной координаты
+            Left=new double[ChromosomeLength];
+            double *Right;//массив правых границ изменения каждой вещественной координаты
+            Right=new double[ChromosomeLength];
+            int *NumberOfParts;//на сколько делить каждую координату
+            NumberOfParts=new int[ChromosomeLength];
+
+            //Заполним массивы
+            //Причем по каждой коодинтате одинаковые значения выставим
+            TMHL_FillVector(Left,ChromosomeLength,-5.);//Пусть будет интервал [-3;3]
+            TMHL_FillVector(Right,ChromosomeLength,5.);
+            TMHL_FillVector(NumberOfParts,ChromosomeLength,TMHL_PowerOf(2,15)-1);//Делим на 32768-1 частей каждую вещественную координату
+
+            double *Decision;//вещественное решение
+            Decision=new double[ChromosomeLength];
+            double ValueOfFitnessFunction;//значение целевой функции в точке Decision
+            int VMHL_Success=0;//Успешен ли будет запуск cГА
+
+            //Запуск алгоритма
+            VMHL_Success=MHL_StandartGeneticAlgorithm (ParametersOfStandartRealGeneticAlgorithm,NumberOfParts,Left,Right,Func2, Decision, &ValueOfFitnessFunction);
+
+            //Используем полученный результат
+            MHL_ShowNumber(VMHL_Success,"Как прошел запуск","VMHL_Success");
+            if (VMHL_Success==1)
+             {
+             MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
+             //Найденное решение:
+             //Decision = 1.99530029296875
+             MHL_ShowNumber(ValueOfFitnessFunction,"Значение целовой функции","ValueOfFitnessFunction");
+             //Значение целовой функции:
+             //ValueOfFitnessFunction = 7.74778987033769
+             }
+
+            delete [] ParametersOfStandartRealGeneticAlgorithm;
+            delete [] Decision;
+            delete [] Left;
+            delete [] Right;
+            delete [] NumberOfParts;
+        }//чтобы не удалять объявления переменных, заключим в скобки
+    }
+
+    if (NameFunction=="MHL_TestFuction_Ackley")
+    {
+        double *x;
+        double f;
+        int VMHL_N=2;
+        x=new double[VMHL_N];
+        for (int i=0;i<VMHL_N;i++) x[i]=MHL_RandomUniform(-5,5);
+        f=MHL_TestFuction_Ackley(x,VMHL_N);
+
+        MHL_ShowVector (x,VMHL_N,"Входной вектор", "x");
+        //Входной вектор:
+        //x =
+        //4.51813
+        //-4.19861
+
+        MHL_ShowNumber (f,"Значение функции", "f");
+        //Значение функции:
+        //f=13.645
+
+        delete[] x;
+    }
+
+    if (NameFunction=="MHL_TestFuction_ParaboloidOfRevolution")
+    {
+        double *x;
+        double f;
+        int VMHL_N=2;
+        x=new double[VMHL_N];
+        for (int i=0;i<VMHL_N;i++) x[i]=MHL_RandomUniform(-2,2);
+        f=MHL_TestFuction_ParaboloidOfRevolution(x,VMHL_N);
+
+        MHL_ShowVector (x,VMHL_N,"Входной вектор", "x");
+        // Входной вектор:
+        //x =
+        //0.0842285
+        //-1.04395
+
+        MHL_ShowNumber (f,"Значение функции", "f");
+        //Значение функции:
+        //f=1.09692
+
+        delete[] x;
+    }
+
+    if (NameFunction=="MHL_TestFuction_Rastrigin")
+    {
+        double *x;
+        double f;
+        int VMHL_N=2;
+        x=new double[VMHL_N];
+        for (int i=0;i<VMHL_N;i++) x[i]=MHL_RandomUniform(-5,5);
+        f=MHL_TestFuction_Rastrigin(x,VMHL_N);
+
+        MHL_ShowVector (x,VMHL_N,"Входной вектор", "x");
+        // Входной вектор:
+        //x =
+        //2.62268
+        //3.52692
+
+        MHL_ShowNumber (f,"Значение функции", "f");
+        //Значение функции:
+        //f=56.3483
+
+        delete[] x;
+    }
+
+    if (NameFunction=="MHL_TestFuction_Rosenbrock")
+    {
+        double *x;
+        double f;
+        int VMHL_N=2;
+        x=new double[VMHL_N];
+        for (int i=0;i<VMHL_N;i++) x[i]=MHL_RandomUniform(-2,2);
+        f=MHL_TestFuction_Rosenbrock(x,VMHL_N);
+
+        MHL_ShowVector (x,VMHL_N,"Входной вектор", "x");
+        // Входной вектор:
+        //x =
+        //-1.28491
+        //0.342896
+
+
+        MHL_ShowNumber (f,"Значение функции", "f");
+        //Значение функции:
+        //f=176.334
+
+        delete[] x;
+    }
+
+    if (NameFunction=="MHL_TestFuction_SumVector")
+    {
+        int VMHL_N=10;//Размер массива (число строк)
+        int *x;
+        x=new int[VMHL_N];
+        //Получим случайный бинарный вектор
+        TMHL_RandomBinaryVector(x,VMHL_N);
+
+        //Вызов функции
+        double f=MHL_TestFuction_SumVector(x,VMHL_N);
+
+        //Используем полученный результат
+        MHL_ShowVector (x,VMHL_N,"Вектор", "x");
+        //Вектор:
+        //x =
+        //0
+        //0
+        //1
+        //0
+        //0
+        //1
+        //1
+        //1
+        //0
+        //1
+
+        MHL_ShowNumber (f,"Значение функции в точке", "f");
+        //Значение функции в точке:
+        //f=5
+
+        delete [] x;
+    }
+
+
+
     //Показ итогового результата
     Html+="</body></html>";
     HQt_SaveFile(Html, path+"temp.html");
     ui->webView->setUrl(QUrl::fromLocalFile(path+"temp.html"));
 }
 //---------------------------------------------------------------------------
+
+void MainWindow::on_lineEdit_4_textChanged(const QString &arg1)
+{
+    QRegExp regExp(QString("*%1*").arg(arg1), Qt::CaseInsensitive,
+                   QRegExp::Wildcard);
+    proxyModelView->setFilterRegExp(regExp);
+}

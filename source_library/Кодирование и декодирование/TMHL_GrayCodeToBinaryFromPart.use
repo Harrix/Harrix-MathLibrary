@@ -1,0 +1,32 @@
+        int VMHL_N=8;//Размер массива
+        int *VectorWithGrayCode;
+        VectorWithGrayCode=new int[VMHL_N];
+        //Заполним случайно нулями и единицами
+        TMHL_RandomBinaryVector(VectorWithGrayCode,VMHL_N);
+
+        int *VectorWithBinaryCode;
+        VectorWithBinaryCode=new int[VMHL_N];
+        TMHL_FillVector(VectorWithBinaryCode,VMHL_N,-1);
+
+        int Begin=2;
+
+        //Вызов функции
+        TMHL_GrayCodeToBinaryFromPart(VectorWithGrayCode,VectorWithBinaryCode,Begin,5);
+
+        //Используем полученный результат
+        MHL_ShowVectorT (VectorWithGrayCode,VMHL_N,"Строка, содержащая код Грея", "a");
+        //Строка, содержащая код Грея:
+        //a =	
+        //1	0	0	1	1	1	0	0
+
+        MHL_ShowNumber (Begin,"Двоичное число состоит из 5 символов начиная с", "номера");
+        //Двоичное число состоит из 5 символов начиная с:
+        //номера=2
+        
+        MHL_ShowVectorT (VectorWithBinaryCode,VMHL_N,"Строка, содержащая бинарный код, полученый из кода Грея", "a");
+        //Строка, содержащая бинарный код, полученый из кода Грея:
+        //a =	
+        //-1	-1	0	1	0	1	1	-1
+
+        delete [] VectorWithGrayCode;
+        delete [] VectorWithBinaryCode;

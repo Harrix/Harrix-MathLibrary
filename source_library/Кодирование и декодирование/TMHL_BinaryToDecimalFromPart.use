@@ -1,0 +1,25 @@
+        int VMHL_N=8;//Размер массива
+        int *a;
+        a=new int[VMHL_N];
+        TMHL_RandomBinaryVector(a,VMHL_N);
+
+        int Begin=2;
+
+        //Вызов функции
+        int x=TMHL_BinaryToDecimalFromPart(a,Begin,5);
+
+        //Используем полученный результат
+        MHL_ShowVectorT (a,VMHL_N,"Бинарная строка", "a");
+        //Бинарная строка:
+        //a =	
+        //0	0	1	0	1	0	0	0
+        
+        MHL_ShowNumber (Begin,"Двоичное число состоит из 5 символов начиная с", "номера");
+        //Двоичное число состоит из 5 символов начиная с:
+        //номера=2
+        
+        MHL_ShowNumber (x,"Было закодировано", "x");
+        //Было закодировано:
+        //x=20
+                
+        delete [] a;

@@ -1,0 +1,238 @@
+Функция и функция перегрузка вызывают функции MHL\_StandartBinaryGeneticAlgorithm и  MHL\_StandartRealGeneticAlgorithm.
+
+\textbf{Принцип работы:}
+
+\begin{figure} [h]
+  \center
+  \includegraphics [scale=0.5] {MHL_StandartGeneticAlgorithm_Sheme}
+  \caption{Механизм работы генетического алгоритма} 
+\end{figure}
+
+\textbf{Входные параметры:}
+ 
+Parameters --- Вектор параметров генетического алгоритма. Каждый элемент обозначает свой параметр:
+ 
+ \begin{itemize}
+ \item [0] --- длина бинарной хромосомы (определяется задачей оптимизации, что мы решаем);
+ 
+ \item [1] --- число вычислений целевой функции (CountOfFitness);
+ 
+ \item [2] --- тип селекции (TypeOfSel):
+ 
+ \begin{itemize}
+       \item 0 --- ProportionalSelection (Пропорциональная селекция);
+ 
+       \item 1 --- RankSelection (Ранговая селекция);
+ 
+       \item 2 --- TournamentSelection (Турнирная селекция).
+	    \end{itemize}
+ 
+ \item [3] --- тип скрещивания (TypeOfCros):
+  \begin{itemize}
+       \item 0 --- SinglepointCrossover (Одноточечное скрещивание);
+ 
+       \item 1 --- TwopointCrossover (Двуточечное скрещивание);
+ 
+       \item 2 --- UniformCrossover (Равномерное скрещивание).
+	    \end{itemize}
+ 
+ \item [4] --- тип мутации (TypeOfMutation):
+  \begin{itemize}
+       \item 0 --- Weak (Слабая мутация);
+ 
+       \item 1 --- Average (Средняя мутация);
+ 
+       \item 2 --- Strong (Сильная мутация).
+	    \end{itemize}
+ 
+ \item [5] --- тип формирования нового поколения (TypeOfForm):
+  \begin{itemize}
+       \item 0 --- OnlyOffspringGenerationForming (Только потомки);
+ 
+       \item 1 --- OnlyOffspringWithBestGenerationForming (Только потомки и копия лучшего индивида).
+	    \end{itemize}
+ \end{itemize}
+ 
+FitnessFunction --- указатель на целевую функцию (если решается задача условной оптимизации, то учет ограничений должен быть включен в эту функцию);
+ 
+VMHL\_ResultVector --- найденное решение (бинарный вектор);
+ 
+VMHL\_Result --- значение целевой функции в точке, определенной вектором VMHL\_ResultVector.
+
+\textbf{Возвращаемое значение:} 
+
+ 1 --- завершил работу без ошибок. Всё хорошо.
+ 
+ 0 --- возникли при работе ошибки. Скорее всего в этом случае в VMHL\_ResultVector и в VMHL\_Result не содержится решение задачи.
+
+ \textbf{Принцип работы} смотрите ниже на рисунке \ref{img:MHL_StandartBinaryGeneticAlgorithm_Sheme} на странице \pageref{img:MHL_StandartBinaryGeneticAlgorithm_Sheme}.
+
+\begin{figure} [h]
+  \center
+  \includegraphics [scale=0.5] {MHL_StandartBinaryGeneticAlgorithm_Sheme}
+  \caption{Механизм работы генетического алгоритма} 
+\end{figure}
+
+\textbf{О функции:}
+
+Реализация алгоритма из документа <<Генетический алгоритм. Стандарт. v.3.0>>.
+
+\href{https://github.com/Harrix/Standard-Genetic-Algorithm}{https://github.com/Harrix/Standard-Genetic-Algorithm}
+
+Алгоритм бинарной оптимизации. Ищет максимум целевой функции FitnessFunction.
+
+Решением является бинарная строка, то есть вектор, состоящий из 0 и 1.
+
+\textbf{Примерный настройки} (для примера Вы можете поставить такие рабочие настройки):
+
+ Parameters[0]=50;
+ 
+Parameters[1]=100*100;
+
+Parameters[2]=2;
+
+Parameters[3]=2;
+
+Parameters[4]=1;
+
+Parameters[5]=1;
+
+
+\textbf{Примечание:}
+
+ На рисунке блок-схемы сГА на бинарных строках число поколений обозначено буквой \textbf{M}, в коде функции же обозначается переменной \textbf{NumberOfGenerations}.
+
+
+\textbf{Примечание:}
+
+ В сГА на бинарных строках не нужно задавать в параметрах число поколений и размер популяции, а только число вычислений целевой функции. Почему? Алгоритм сам определит число поколений и размер популяции, исходя из принципа, что число поколений и размер популяции должны быть примерно равны. Поэтому выбирайте значение Parameters[1] в виде:
+
+int K=100;
+
+Parameters[1]=K*K;
+
+То есть в виде квадрата целого числа. В противном случае реальное число вычислений целевой функции и значение Parameters[1] будут не совпадать.
+
+Код целевой функции:
+\begin{lstlisting}[caption=Оптимизируемая функция]
+double Func(int *x,int VMHL_N)
+{
+//Сумма всех элементов массива
+return TMHL_SumVector(x,VMHL_N);
+}
+//---------------------------------------------------------------------------
+\end{lstlisting}
+
+\textbf{Для переопределенной функции.}
+
+\textbf{Входные параметры:}
+ 
+Parameters --- Вектор параметров генетического алгоритма. Каждый элемент обозначает свой параметр:
+ 
+ \begin{itemize}
+ \item   [0] --- длина вещественной хромосомы (определяется задачей оптимизации, что мы решаем);
+  \item   [1] --- число вычислений целевой функции (CountOfFitness);
+  \item    [2] --- тип селекции (TypeOfSel):
+ \begin{itemize}
+       \item 0 --- ProportionalSelection (Пропорциональная селекция);
+ 
+       \item 1 --- RankSelection (Ранговая селекция);
+ 
+       \item 2 --- TournamentSelection (Турнирная селекция).
+	    \end{itemize}
+ 
+ \item [3] --- тип скрещивания (TypeOfCros):
+  \begin{itemize}
+       \item 0 --- SinglepointCrossover (Одноточечное скрещивание);
+ 
+       \item 1 --- TwopointCrossover (Двуточечное скрещивание);
+ 
+       \item 2 --- UniformCrossover (Равномерное скрещивание).
+	    \end{itemize}
+ 
+ \item [4] --- тип мутации (TypeOfMutation):
+  \begin{itemize}
+       \item 0 --- Weak (Слабая мутация);
+ 
+       \item 1 --- Average (Средняя мутация);
+ 
+       \item 2 --- Strong (Сильная мутация).
+	    \end{itemize}
+ 
+ \item [5] --- тип формирования нового поколения (TypeOfForm):
+  \begin{itemize}
+       \item 0 --- OnlyOffspringGenerationForming (Только потомки);
+ 
+       \item 1 --- OnlyOffspringWithBestGenerationForming (Только потомки и копия лучшего индивида).
+	    \end{itemize}
+ \item [6] --- тип преобразования задачи вещественной оптимизации в задачу бинарной оптимизации (TypOfConverting);
+   \begin{itemize}
+        \item 0 --- IntConverting (Стандартное представление целого числа –-- номер узла в сетке дискретизации);
+        \item 1 --- GrayСodeConverting (Стандартный рефлексивный Грей-код).
+			    \end{itemize}
+ \end{itemize}
+ 
+ NumberOfParts --- указатель на массив: на сколько частей делить каждую вещественную координату при дискретизации (размерность Parameters[0]);
+ 
+  Желательно брать по формуле $NumberOfParts[i]=2^k-1$, где $k$ --- натуральное число, например, 12.
+  
+ Left --- массив левых границ изменения каждой вещественной координаты (размерность Parameters[0]);
+ 
+ Right --- массив правых границ изменения каждой вещественной координаты (размерность Parameters[0]);
+ 
+ FitnessFunction --- указатель на целевую функцию (если решается задача условной оптимизации, то учет ограничений должен быть включен в эту функцию);
+ 
+ VMHL\_ResultVector --- найденное решение (вещественный вектор);
+ 
+ VMHL\_Result --- значение целевой функции в точке, определенной вектором VMHL\_ResultVector.
+
+\textbf{Возвращаемое значение:} 
+
+ 1 --- завершил работу без ошибок. Всё хорошо.
+ 
+ 0 --- возникли при работе ошибки. Скорее всего в этом случае в VMHL\_ResultVector и в VMHL\_Result не содержится решение задачи.
+
+\textbf{О функции:}
+
+Реализация алгоритма из документа <<Генетический алгоритм. Стандарт. v.3.0>>.
+
+\href{https://github.com/Harrix/Standard-Genetic-Algorithm}{https://github.com/Harrix/Standard-Genetic-Algorithm}
+
+Алгоритм вещественной оптимизации. Ищет максимум целевой функции FitnessFunction.
+
+Решением является бинарная строка, то есть вектор, состоящий из 0 и 1.
+
+\textbf{Примерный настройки} (для примера Вы можете поставить такие рабочие настройки):
+
+ Parameters[0]=50;
+ 
+Parameters[1]=100*100;
+
+Parameters[2]=2;
+
+Parameters[3]=2;
+
+Parameters[4]=1;
+
+Parameters[5]=1;
+
+Parameters[5]=0;
+
+
+\textbf{Примечание:}
+
+ В сГА на вещественных строках не нужно задавать в параметрах число поколений и размер популяции, а только число вычислений целевой функции. Почему? Алгоритм сам определит число поколений и размер популяции, исходя из принципа, что число поколений и размер популяции должны быть примерно равны. Поэтому выбирайте значение Parameters[1] в виде:
+
+int K=100;
+
+Parameters[1]=K*K;
+
+То есть в виде квадрата целого числа. В противном случае реальное число вычислений целевой функции и значение Parameters[1] будут не совпадать.
+
+Код целевой функции:
+\begin{lstlisting}[caption=Оптимизируемая функция]
+double Func2(double *x,int VMHL_N)
+{
+return -((x[0]-2)*(x[0]-2)+(x[1]-2)*(x[1]-2));
+}
+\end{lstlisting}

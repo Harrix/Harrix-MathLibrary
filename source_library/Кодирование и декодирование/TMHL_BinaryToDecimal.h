@@ -1,0 +1,1 @@
+template <class T> T TMHL_BinaryToDecimal(T *a, int VMHL_N);

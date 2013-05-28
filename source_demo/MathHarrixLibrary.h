@@ -65,6 +65,30 @@ template <class T> void TMHL_VectorPlusVector(T *VMHL_ResultVector, T *b, int VM
 template <class T> void TMHL_VectorToVector(T *VMHL_Vector, T *VMHL_ResultVector, int VMHL_N);
 template <class T> void TMHL_ZeroVector(T *VMHL_ResultVector,int VMHL_N);
 
+//Генетические алгоритмы
+double MHL_BinaryFitnessFunction(int*x, int VMHL_N);
+void MHL_MakeVectorOfProbabilityForProportionalSelectionV2(double *Fitness, double *VMHL_ResultVector, int VMHL_N);
+void MHL_MakeVectorOfRankForRankSelection(double *Fitness, double *VMHL_ResultVector, int VMHL_N);
+void MHL_NormalizationVectorAll(double *x,int VMHL_N);
+void MHL_NormalizationVectorMaxMin(double *VMHL_ResultVector,int VMHL_N);
+void MHL_NormalizationVectorOne(double *VMHL_ResultVector,int VMHL_N);
+int MHL_ProportionalSelection(double *Fitness, int VMHL_N);
+int MHL_ProportionalSelectionV2(double *VectorOfProbability, int VMHL_N);
+int MHL_ProportionalSelectionV3(double *Fitness, int VMHL_N);
+int MHL_RankSelection(double *VectorOfProbability, int VMHL_N);
+int MHL_SelectItemOnProbability(double *P, int VMHL_N);
+int MHL_StandartBinaryGeneticAlgorithm(int *Parameters, double (*FitnessFunction)(int*,int), int *VMHL_ResultVector, double *VMHL_Result);
+int MHL_StandartGeneticAlgorithm(int *Parameters, int *NumberOfParts, double *Left, double *Right, double (*FitnessFunction)(double*,int), double *VMHL_ResultVector, double *VMHL_Result);
+int MHL_StandartGeneticAlgorithm(int *Parameters, double (*FitnessFunction)(int*,int), int *VMHL_ResultVector, double *VMHL_Result);
+int MHL_StandartRealGeneticAlgorithm(int *Parameters, int *NumberOfParts, double *Left, double *Right, double (*FitnessFunction)(double*,int), double *VMHL_ResultVector, double *VMHL_Result);
+int MHL_TournamentSelection(double *Fitness, int SizeTournament, int VMHL_N);
+int MHL_TournamentSelection(double *Fitness, int SizeTournament, int *Taken, int VMHL_N);
+int MHL_TournamentSelectionWithReturn(double *Fitness, int SizeTournament, int VMHL_N);
+template <class T> void TMHL_MutationBinaryMatrix(T **VMHL_ResultMatrix, double ProbabilityOfMutation, int VMHL_N,int VMHL_M);
+template <class T> void TMHL_SinglepointCrossover(T *Parent1, T *Parent2, T *VMHL_ResultVector, int VMHL_N);
+template <class T> void TMHL_TwopointCrossover(T *Parent1, T *Parent2, T *VMHL_ResultVector, int VMHL_N);
+template <class T> void TMHL_UniformCrossover(T *Parent1, T *Parent2, T *VMHL_ResultVector, int VMHL_N);
+
 //Геометрия
 template <class T> int TMHL_BoolCrossingTwoSegment(T b1,T c1,T b2,T c2);
 
@@ -85,6 +109,15 @@ double MHL_RightDerivative(double x, double h, double (*Function)(double));
 double MHL_IntegralOfRectangle(double a, double b, double Epsilon,double (*Function)(double));
 double MHL_IntegralOfSimpson(double a, double b, double Epsilon,double (*Function)(double));
 double MHL_IntegralOfTrapezium(double a, double b, double Epsilon,double (*Function)(double));
+
+//Кодирование и декодирование
+void MHL_BinaryGrayVectorToRealVector(int *x, int n, double *VMHL_ResultVector, double *Left, double *Right, int *Lengthi, int VMHL_N);
+void MHL_BinaryGrayVectorToRealVector(int *x, double *VMHL_ResultVector,int *TempBinaryVector, double *Left, double *Right, int *Lengthi, int VMHL_N);
+void MHL_BinaryVectorToRealVector(int *x, double *VMHL_ResultVector, double *Left, double *Right, int *Lengthi, int VMHL_N);
+template <class T> T TMHL_BinaryToDecimal(T *a, int VMHL_N);
+template <class T> T TMHL_BinaryToDecimalFromPart(T *a, int Begin, int n);
+template <class T> void TMHL_GrayCodeToBinary(T *a,int *VMHL_ResultVector, int VMHL_N);
+template <class T> void TMHL_GrayCodeToBinaryFromPart(T *a, T *VMHL_ResultVector, int Begin, int n);
 
 //Математические функции
 double MHL_ArithmeticalProgression(double a1,double d,int n);
@@ -169,6 +202,8 @@ template <class T> void TMHL_RandomIntMatrixInElements(T **VMHL_ResultMatrix, T 
 template <class T> void TMHL_RandomIntMatrixInRows(T **VMHL_ResultMatrix, T *n, T *m, int VMHL_N, int VMHL_M);
 template <class T> void TMHL_RandomIntVector(T *VMHL_ResultVector, T n, T m, int VMHL_N);
 template <class T> void TMHL_RandomIntVectorInElements(T *VMHL_ResultVector, T *n, T *m, int VMHL_N);
+template <class T> void TMHL_RandomMatrixOfPermutation(T **VMHL_ResultMatrix, int VMHL_N, int VMHL_M);
+template <class T> void TMHL_RandomVectorOfPermutation(T *VMHL_ResultVector, int VMHL_N);
 
 //Случайные числа
 double MHL_RandomNormal(double Mean, double StdDev);
@@ -191,6 +226,13 @@ template <class T> T TMHL_Mean(T *x, int VMHL_N);
 template <class T> T TMHL_Median(T *x, int VMHL_N);
 template <class T> T TMHL_SampleCovariance(T *x, T *y, int VMHL_N);
 template <class T> T TMHL_Variance(T *x, int VMHL_N);
+
+//Тестовые функции для оптимизации
+double MHL_TestFuction_Ackley(double *x, int VMHL_N);
+double MHL_TestFuction_ParaboloidOfRevolution(double *x, int VMHL_N);
+double MHL_TestFuction_Rastrigin(double *x, int VMHL_N);
+double MHL_TestFuction_Rosenbrock(double *x, int VMHL_N);
+double MHL_TestFuction_SumVector(int *x, int VMHL_N);
 
 //Тригонометрические функции
 double MHL_Cos(double x);
@@ -746,6 +788,122 @@ for (int i=0;i<VMHL_N;i++)
 }
 //---------------------------------------------------------------------------
 //*****************************************************************
+//Генетические алгоритмы
+//*****************************************************************
+template <class T> void TMHL_MutationBinaryMatrix(T **VMHL_ResultMatrix, double ProbabilityOfMutation, int VMHL_N,int VMHL_M)
+{
+/*
+Мутация для бинарной матрицы. Оператор генетического алгоритма.
+Входные параметры:
+ VMHL_ResultMatrix - указатель на преобразуемый массив;
+ ProbabilityOfMutation - вероятность мутации;
+ VMHL_N - размер массива VMHL_ResultMatrix (число строк);
+ VMHL_M - размер массива VMHL_ResultMatrix (число столбцов).
+Возвращаемое значение:
+ Отсутствует.
+*/
+if (ProbabilityOfMutation>1) ProbabilityOfMutation=1;
+if (ProbabilityOfMutation<0) ProbabilityOfMutation=0;
+
+for(int i=0;i<VMHL_N;i++)
+ for(int j=0;j<VMHL_M;j++)
+ if (MHL_RandomNumber()<ProbabilityOfMutation)
+  {
+  //Инвертируем ген
+  if (VMHL_ResultMatrix[i][j]==0) VMHL_ResultMatrix[i][j]=1; else VMHL_ResultMatrix[i][j]=0;
+  }
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_SinglepointCrossover(T *Parent1, T *Parent2, T *VMHL_ResultVector, int VMHL_N)
+{
+/*
+Одноточечное скрещивание. Оператор генетического алгоритма.
+Входные параметры:
+ Parent1 - первый родитель;
+ Parent2 - второй родитель;
+ VMHL_ResultVector - потомок;
+ VMHL_N - размер векторов Parent1, Parent2 и VMHL_ResultVector.
+Возвращаемое значение:
+ Отсутствует.
+Примечание:
+ Потомок выбирается случайно.
+*/
+int i;
+int k=MHL_RandomUniformInt(0,2);//0 или 1
+int point=MHL_RandomUniformInt(1,VMHL_N);//точка разрыва хромосомы
+if (k==0)//какой потомок "выживет": первый вариант или второй
+ {
+ for (i=0;i<point;i++) VMHL_ResultVector[i]=Parent1[i];//копируем гены из 1 родителя
+ for (i=point;i<VMHL_N;i++) VMHL_ResultVector[i]=Parent2[i];//копируем гены из 2 родителя
+ }
+else
+ {
+ for (i=0;i<point;i++) VMHL_ResultVector[i]=Parent2[i];//копируем гены из 2 родителя
+ for (i=point;i<VMHL_N;i++) VMHL_ResultVector[i]=Parent1[i];//копируем гены из 1 родителя
+ }
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_TwopointCrossover(T *Parent1, T *Parent2, T *VMHL_ResultVector, int VMHL_N)
+{
+/*
+Двуточечное скрещивание. Оператор генетического алгоритма.
+Входные параметры:
+ Parent1 - первый родитель;
+ Parent2 - второй родитель;
+ VMHL_ResultVector - потомок;
+ VMHL_N - размер векторов Parent1, Parent2 и VMHL_ResultVector.
+Возвращаемое значение:
+ Отсутствует.
+Примечание:
+ Потомок выбирается случайно.
+*/
+int i;
+int k=MHL_RandomUniformInt(0,2);//0 или 1
+//проводим скрещивание
+int point1=MHL_RandomUniformInt(1,VMHL_N);//1 точка разрыва хромосомы
+int point2=MHL_RandomUniformInt(1,VMHL_N);//2 точка разрыва хромосомы
+//1-ая точка разрыва должна следовать за 2-ой. Поэтому, если это не так,
+//то переставляем точки местами функцией TMHL_NumberInterchangeInt
+if (point2<point1) TMHL_NumberInterchange(&point1,&point2);
+if (k==0)//какой потомок "выживет": первый вариант или второй (зависит от порядка следования родителей)
+ {
+ for (i=0;i<point1;i++) VMHL_ResultVector[i]=Parent1[i];//копируем гены из 1 родителя
+ for (i=point1;i<point2;i++) VMHL_ResultVector[i]=Parent2[i];//копируем гены из 2 родителя
+ for (i=point2;i<VMHL_N;i++) VMHL_ResultVector[i]=Parent1[i];//копируем гены из 1 родителя
+ }
+else
+ {
+ for (i=0;i<point1;i++) VMHL_ResultVector[i]=Parent2[i];//копируем гены из 2 родителя
+ for (i=point1;i<point2;i++) VMHL_ResultVector[i]=Parent1[i];//копируем гены из 1 родителя
+ for (i=point2;i<VMHL_N;i++) VMHL_ResultVector[i]=Parent2[i];//копируем гены из 2 родителя
+ }
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_UniformCrossover(T *Parent1, T *Parent2, T *VMHL_ResultVector, int VMHL_N)
+{
+/*
+Равномерное скрещивание. Оператор генетического алгоритма.
+Входные параметры:
+ Parent1 - первый родитель;
+ Parent2 - второй родитель;
+ VMHL_ResultVector - потомок;
+ VMHL_N - размер векторов Parent1, Parent2 и VMHL_ResultVector.
+Возвращаемое значение:
+ Отсутствует.
+*/
+int i;
+int k;
+//проводим скрещивание
+for (i=0;i<VMHL_N;i++)
+ {
+ //копируем гены из родителей по порядку с равной вероятностью
+ k=MHL_RandomUniformInt(0,2);
+ if (k==0) VMHL_ResultVector[i]=Parent1[i];//копируем гены из 1 родителя
+ if (k==1) VMHL_ResultVector[i]=Parent2[i];//копируем гены из 2 родителя
+ }
+}
+//---------------------------------------------------------------------------
+//*****************************************************************
 //Геометрия
 //*****************************************************************
 template <class T> int TMHL_BoolCrossingTwoSegment(T b1,T c1,T b2,T c2)
@@ -785,6 +943,93 @@ else
 //*****************************************************************
 //Интегрирование
 //*****************************************************************
+//*****************************************************************
+//Кодирование и декодирование
+//*****************************************************************
+template <class T> T TMHL_BinaryToDecimal(T *a, int VMHL_N)
+{
+/*
+Функция декодирует двоичное число в десятичное целое неотрицательное.
+Входные параметры:
+ a - двоичное число;
+ VMHL_N - длина двоичного числа.
+Возвращаемое значение:
+ Число в десятичной системе исчисления.
+*/
+T VMHL_Result;
+VMHL_Result=TMHL_BinaryToDecimalFromPart(a,0,VMHL_N);
+return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+template <class T> T TMHL_BinaryToDecimalFromPart(T *a, int Begin, int n)
+{
+/*
+Функция декодирует двоичное число в десятичное целое неотрицательное.
+При этом двоичное число длины  берется как часть некой бинарной строки a.
+Входные параметры:
+ a - бинарная строка;
+ Begin - номер элемента массива a как начало двоичного числа (начиная с нуля);
+ n - длина двоичного числа (это не длина вектора a).
+Возвращаемое значение:
+ Число в десятичной системе исчисления.
+*/
+T VMHL_Result=0;
+try
+ {
+ int i=0;
+ while (i<=n-1)
+  {
+  VMHL_Result+=+a[i+Begin]*TMHL_PowerOf(2,n-i-1);
+  i++;
+  }
+ }
+catch (...)
+ {
+ return -1;//Возможно произошло переполнение. Вообщем, ошибка.
+ }
+return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_GrayCodeToBinary(T *a,int *VMHL_ResultVector, int VMHL_N)
+{
+/*
+Функция переводит бинарный код Грея в бинарный код.
+Входные параметры:
+ a - код Грея (массив заполнен 0 и 1);
+ VMHL_N - длина массива a.
+Возвращаемое значение:
+ Отсутствует.
+*/
+TMHL_GrayCodeToBinaryFromPart(a,VMHL_ResultVector,0,VMHL_N);
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_GrayCodeToBinaryFromPart(T *a, T *VMHL_ResultVector, int Begin, int n)
+{
+/*
+Функция переводит бинарный код Грея в бинарный код.
+При этом бинарный код Грея берется как часть некой строки a, заполненной 0 и 1.
+Входные параметры:
+ a - строка, заполненная 0 и 1;
+ VMHL_ResultVector - сюда записывается вектор бинарного числа. Причем запись происходит в те же элементы по номерам, что брались из вектора a, то есть в номера элементов от Begin до Begin+n. Остальные элементы в VMHL_ResultVector не трогаются.
+ Begin - номер элемента массива a как начало числа в виде кода Грея (начиная с нуля);
+ n - длина числа в виде кода Грея (это не длина вектора a).
+Возвращаемое значение:
+ Отсутствует.
+*/
+for (int j=0;j<n;j++)
+ {
+ if (j==0)
+  VMHL_ResultVector[j+Begin]=a[j+Begin];//Первый бит остается прежним
+ else
+  {
+  if (VMHL_ResultVector[j+Begin-1]==0)
+   VMHL_ResultVector[j+Begin]=a[j+Begin];//оставляем без изменения
+  else
+   VMHL_ResultVector[j+Begin]=1-a[j+Begin];//инвертируем
+  }
+ }
+}
+//---------------------------------------------------------------------------
 //*****************************************************************
 //Математические функции
 //*****************************************************************
@@ -1739,6 +1984,64 @@ for (int i=0;i<VMHL_N;i++)
  VMHL_ResultVector[i]=MHL_RandomUniform(int(n[i]),int(m[i]));
 }
 //---------------------------------------------------------------------------
+template <class T> void TMHL_RandomMatrixOfPermutation(T **VMHL_ResultMatrix, int VMHL_N, int VMHL_M)
+{
+/*
+Функция создает случайный массив строк-перестановок чисел от 1 до VMHL_M.
+Входные параметры:
+ VMHL_ResultMatrix - указатель на матрицу;
+ VMHL_N - размер массива (число строк);
+ VMHL_M - размер массива (число столбцов).
+Возвращаемое значение:
+ Отсутствует.
+*/
+T MOne=-1;
+int i, j, b1, b2, randomall;
+TMHL_FillMatrix (VMHL_ResultMatrix,VMHL_N,VMHL_M,MOne);
+for (j=0;j<VMHL_N;j++)
+ {
+ for (i=0;i<VMHL_M;i++)
+  {//начало заполнения цифрами
+  randomall=MHL_RandomUniformInt(0,VMHL_M-i)+1;
+  b1=0;
+  b2=0;
+  while (b1<randomall)
+   {
+   if (VMHL_ResultMatrix[j][b2]==-1) b1=b1+1;
+   b2=b2+1;
+   }
+  VMHL_ResultMatrix[j][b2-1]=i+1;
+  }//конец заполнения цифрами
+ }
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_RandomVectorOfPermutation(T *VMHL_ResultVector, int VMHL_N)
+{
+/*
+Функция создает случайную строку-перестановку чисел от 1 до VMHL_N (включительно).
+Входные параметры:
+ VMHL_ResultVector - указатель на массив;
+ VMHL_N - размер массива.
+Возвращаемое значение:
+ Отсутствует.
+*/
+T MOne=-1;
+int i, b1, b2, randomall;
+TMHL_FillVector (VMHL_ResultVector,VMHL_N,MOne);
+for (i=0;i<VMHL_N;i++)
+ {//начало заполнения цифрами
+ randomall=MHL_RandomUniformInt(0,VMHL_N-i)+1;
+ b1=0;
+ b2=0;
+ while (b1<randomall)
+  {
+  if (VMHL_ResultVector[b2]==-1) b1=b1+1;
+  b2=b2+1;
+  }
+ VMHL_ResultVector[b2-1]=i+1;
+ }//конец заполнения цифрами
+}
+//---------------------------------------------------------------------------
 //*****************************************************************
 //Случайные числа
 //*****************************************************************
@@ -1938,6 +2241,9 @@ template <class T> T TMHL_Variance(T *x, int VMHL_N)
 return TMHL_SampleCovariance(x,x,VMHL_N);
 }
 //---------------------------------------------------------------------------
+//*****************************************************************
+//Тестовые функции для оптимизации
+//*****************************************************************
 //*****************************************************************
 //Тригонометрические функции
 //*****************************************************************

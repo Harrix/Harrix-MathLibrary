@@ -1,0 +1,1 @@
+int MHL_TournamentSelectionWithReturn(double *Fitness, int SizeTournament, int VMHL_N);

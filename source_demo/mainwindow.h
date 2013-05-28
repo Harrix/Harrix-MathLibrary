@@ -7,6 +7,8 @@
 #include <QDesktopServices>
 #include <QUrl>
 #include <QDir>
+#include <QSortFilterProxyModel>
+#include <QStandardItemModel>
 
 namespace Ui {
 class MainWindow;
@@ -33,11 +35,17 @@ private slots:
 
     void on_listView_clicked(const QModelIndex &index);
 
+    void on_lineEdit_4_textChanged(const QString &arg1);
+
 private:
     Ui::MainWindow *ui;
+
+    QStandardItemModel *model;
+    QSortFilterProxyModel *proxyModelView;
 };
 
 double Func3(double x);
 double Func(int *x,int VMHL_N);
+double Func2(double *x,int VMHL_N);
 
 #endif // MAINWINDOW_H

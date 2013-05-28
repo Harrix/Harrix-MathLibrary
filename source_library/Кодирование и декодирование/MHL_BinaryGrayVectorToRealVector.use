@@ -1,0 +1,85 @@
+        int n=10;//Размер массива
+        int *BinaryGrayVector;
+        BinaryGrayVector=new int[n];
+        //Заполним случайно
+        TMHL_RandomBinaryVector(BinaryGrayVector,n);
+
+        int VMHL_N=2;//Пусть был закодирован двумерный вектор
+        double *RealVector;//Вещественный вектор
+        RealVector=new double[VMHL_N];
+        double *Left;//массив левых границ изменения каждой вещественной координаты
+        Left=new double[VMHL_N];
+        double *Right;//массив правых границ изменения каждой вещественной координаты
+        Right=new double[VMHL_N];
+        int *Lengthi;//массив значений, сколько на каждую координату отводится бит в бинраной строке;
+        Lengthi=new int[VMHL_N];
+
+        //Заполним массивы
+        //Причем по каждой коодинтате одинаковые значения выставим
+        TMHL_FillVector(Left,VMHL_N,0.);//Пусть будет интервал [0;1]
+        TMHL_FillVector(Right,VMHL_N,1.);
+        TMHL_FillVector(Lengthi,VMHL_N,5);//По сумме элементов вектор должен равен n (длине бинарной строки)
+
+        //Вызов функции
+        MHL_BinaryGrayVectorToRealVector(BinaryGrayVector,n,RealVector,Left,Right,Lengthi,VMHL_N);
+
+        //Используем полученный результат
+
+        MHL_ShowVectorT (BinaryGrayVector,n,"Бинарная строка Грея кода", "BinaryVector");
+        //Бинарная строка Грея кода:
+        //BinaryVector =
+        //1	0	1	0	1	0	0	0	1	0
+
+        MHL_ShowVectorT (RealVector,VMHL_N,"Был закодирован вектор", "RealVector");
+        //Был закодирован вектор:
+        //RealVector =
+        //0.78125	0.09375
+
+        delete [] BinaryGrayVector;
+        delete [] RealVector;
+        delete [] Left;
+        delete [] Right;
+        delete [] Lengthi;
+
+        //Для перегруженной функции
+        n=10;//Размер массива
+        BinaryGrayVector=new int[n];
+        //Заполним случайно
+        TMHL_RandomBinaryVector(BinaryGrayVector,n);
+
+        VMHL_N=2;//Пусть был закодирован двумерный вектор
+        RealVector=new double[VMHL_N];
+        Left=new double[VMHL_N];
+        Right=new double[VMHL_N];
+        Lengthi=new int[VMHL_N];
+
+        int *TempBinaryVector;
+        TempBinaryVector=new int[n];
+
+        //Заполним массивы
+        //Причем по каждой коодинтате одинаковые значения выставим
+        TMHL_FillVector(Left,VMHL_N,0.);//Пусть будет интервал [0;1]
+        TMHL_FillVector(Right,VMHL_N,1.);
+        TMHL_FillVector(Lengthi,VMHL_N,5);//По сумме элементов вектор должен равен n (длине бинарной строки)
+
+        //Вызов функции
+        MHL_BinaryGrayVectorToRealVector(BinaryGrayVector,RealVector,TempBinaryVector,Left,Right,Lengthi,VMHL_N);
+
+        //Используем полученный результат
+
+        MHL_ShowVectorT (BinaryGrayVector,n,"Бинарная строка Грея кода", "BinaryVector");
+        // Бинарная строка Грея кода:
+        //BinaryVector =
+        //0	0	1	0	0	1	1	1	0	1
+
+        MHL_ShowVectorT (RealVector,VMHL_N,"Был закодирован вектор", "RealVector");
+        //Был закодирован вектор:
+        //RealVector =
+        //0.21875	0.6875
+
+        delete [] BinaryGrayVector;
+        delete [] RealVector;
+        delete [] Left;
+        delete [] Right;
+        delete [] Lengthi;
+        delete [] TempBinaryVector;

@@ -113,6 +113,1015 @@ for (i=0;i<VMHL_N;i++)
 //---------------------------------------------------------------------------
 
 //*****************************************************************
+//Генетические алгоритмы
+//*****************************************************************
+double MHL_BinaryFitnessFunction(int*x, int VMHL_N)
+{
+/*
+Служебная функция. Функция вычисляет целевую функцию бинарного вектора, в котором
+закодирован вещественный вектор. Использует внутренние служебные переменные.
+Функция для MHL_StandartRealGeneticAlgorithm. Использовать для своих целей не рекомендуется.
+Входные параметры:
+ x - бинарный вектор;
+ VMHL_N - количество элементов в векторе.
+Возвращаемое значение:
+ Значение целевой функции бинарного вектора.
+Примечание. Используемые переменные, переодеваемые из MHL_StandartRealGeneticAlgorithm:
+ VMHL_TempFunction - указатель на целевая функция для вещественного решения;
+ VMHL_TempInt1 - указатель на массив, сколько бит приходится в бинарной хромосоме на кодирование ;
+ VMHL_TempDouble1 - указатель на массив левых границ изменения вещественной переменной;
+ VMHL_TempDouble2 - указатель на массив правых границ изменения вещественной переменной;
+ VMHL_TempDouble3 - указатель на массив, в котором можно сохранить вещественный индивид при его раскодировании из бинарной строки;
+ VMHL_TempInt2 - указатель на размерность вещественного вектора;
+ VMHL_TempInt3 - указатель на тип преобразования вещественной задачи оптимизации в бинарное.
+*/
+double VMHL_Result;
+int RealLength=*VMHL_TempInt2;//Размерность вещественного вектора
+int TypOfConverting=*VMHL_TempInt3;//Тип преобразования
+
+if (VMHL_N>0) VMHL_Result=0;//строчка только для того, чтобы компилятор не говорил, что VMHL_N не используется
+
+//Переведем вектор из бинарного в вещественный
+if (TypOfConverting==0)//IntConverting (Стандартное представление целого числа – номер узла в сетке дискретизации)
+ MHL_BinaryVectorToRealVector(x,VMHL_TempDouble3,VMHL_TempDouble1,VMHL_TempDouble2,VMHL_TempInt1,RealLength);
+
+if (TypOfConverting==1)//GrayСodeConverting (Стандартный рефлексивный Грей-код)
+ MHL_BinaryGrayVectorToRealVector(x,VMHL_TempDouble3,VMHL_TempInt4,VMHL_TempDouble1,VMHL_TempDouble2,VMHL_TempInt1,RealLength);
+
+//Посчитаем значение целевой функции вещественного вектора
+VMHL_Result=VMHL_TempFunction(VMHL_TempDouble3,RealLength);
+
+return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+void MHL_MakeVectorOfProbabilityForProportionalSelectionV2(double *Fitness, double *VMHL_ResultVector, int VMHL_N)
+{
+/*
+Функция формирует вектор вероятностей выбора индивидов из вектора значений функции пригодности.
+Формирование вектора происходит согласно правилам пропорционально селекции из ГА.
+Это служебная функция для использования функции пропорциональной селекции MHL_ProportionalSelectionV2.
+Входные параметры:
+ Fitness - массив пригодностей (можно подавать не массив пригодностей, а массив значений целевой функции, но только для задач безусловной оптимизации);
+ VMHL_ResultVector - вектор вероятностей выбора индивидов из популяции, который мы и формируем;
+ VMHL_N - размер массива пригодностей.
+Возвращаемое значение:
+ Отстутствет.
+*/
+//Вектор Fitness мы не меняем. Поэтому проводим копирование.
+TMHL_VectorToVector(Fitness,VMHL_ResultVector,VMHL_N);
+
+//Проводим нормировку вектора, с целью получения вектора вероятностей.
+//Нормировка вектора чисел такая, чтобы максимальный элемент имел значение 1, а минимальный 0.
+//После данный нормализованный вектор сжимается так чтобы сумма всех элементов стала равна 1.
+MHL_NormalizationVectorOne (VMHL_ResultVector,VMHL_N);
+}
+//---------------------------------------------------------------------------
+void MHL_MakeVectorOfRankForRankSelection(double *Fitness, double *VMHL_ResultVector, int VMHL_N)
+{
+/*
+Проставляет ранги для элементов не сортированного массива, то есть номера,
+начиная с 1, в отсортированном массиве.  Если в массиве есть несколько одинаковых
+элементов, то ранги им присуждаются как среднеарифметические.
+Это служебная функция для функции MHL_RankSelection.
+Входные параметры:
+ Fitness - массив пригодностей (можно подавать не массив пригодностей, а массив значений целевой функции, но только для задач безусловной оптимизации);
+ VMHL_ResultVector - массив рангов, который мы и формируем;
+ VMHL_N - размер массива пригодностей.
+Возвращаемое значение:
+ Отсутствует.
+*/
+int j,i,k;
+double Sn;
+double *F;
+int *N;
+F=new double[VMHL_N];
+N=new int[VMHL_N];
+
+TMHL_VectorToVector(Fitness,F,VMHL_N);
+
+//Заполним номерами
+TMHL_OrdinalVectorZero(N,VMHL_N);
+
+//сортируем массив пригодностей со сопряженным массивом номеров индивидов
+TMHL_BubbleSortWithConjugateVector (F,N,VMHL_N);
+
+//расставляем ранги
+for (i=0;i<VMHL_N;i++)
+ VMHL_ResultVector[N[i]]=i+1;
+
+//для одинаковых элементов ранги делаем одинаковыми как среднее арифметическое
+for (i=0;i<VMHL_N-1;i++)
+ {
+ if (F[i]==F[i+1])
+  {
+  j=i+1;
+  while ((F[i]==F[j])&&(j<VMHL_N)) j++;
+  Sn=MHL_SumOfArithmeticalProgression(i+1,1,j-i);
+  Sn/=double(j-i);
+  for (k=0;k<VMHL_N;k++)
+   if (Fitness[k]==F[i]) VMHL_ResultVector[k]=Sn;
+  i=j-1;
+  }
+ }
+delete[] N;
+delete[] F;
+}
+//---------------------------------------------------------------------------
+//---------------------------------------------------------------------------
+void MHL_NormalizationVectorAll(double *x,int VMHL_N)
+{
+/*
+Нормировка вектора чисел в отрезок [0;1] посредством функции MHL_NormalizationNumberAll.
+Входные параметры:
+ VMHL_ResultVector - указатель на вектор (одномерный массив);
+ VMHL_N - размер массива.
+Возвращаемое значение:
+ Отсутствует.
+*/
+for (int i=0;i<VMHL_N;i++)
+ x[i]=MHL_NormalizationNumberAll(x[i]);
+}
+//---------------------------------------------------------------------------
+void MHL_NormalizationVectorMaxMin(double *VMHL_ResultVector,int VMHL_N)
+{
+/*
+Нормировка вектора чисел так, чтобы максимальный элемент имел значение 1, а минимальный 0.
+Входные параметры:
+ VMHL_ResultVector - указатель на вектор (одномерный массив);
+ VMHL_N - размер массива.
+Возвращаемое значение:
+ Отсутствует.
+*/
+double max=TMHL_MaximumOfVector(VMHL_ResultVector,VMHL_N);//максимальное значение
+double min=TMHL_MinimumOfVector(VMHL_ResultVector,VMHL_N);//минимальное значение
+int vbool=0;
+if (max<MHL_MINFINITY)
+ {
+ //Если все числа очень маленькие
+ for (int i=0;i<VMHL_N;i++) VMHL_ResultVector[i]=1.0;
+ vbool=1;
+ }
+if ((min>MHL_INFINITY)&&(vbool==0))
+ {
+ //Если все числа очень большие
+ for (int i=0;i<VMHL_N;i++) VMHL_ResultVector[i]=1.0;
+ vbool=1;
+ }
+if ((min==max)&&(vbool==0))
+ {
+ //Если все числа равны
+ for (int i=0;i<VMHL_N;i++) VMHL_ResultVector[i]=1.0;
+ vbool=1;
+ }
+if (vbool==0)
+ {
+ double d=max-min;
+ for (int i=0;i<VMHL_N;i++)
+  VMHL_ResultVector[i]=(VMHL_ResultVector[i]-min)/d;
+ }
+}
+//---------------------------------------------------------------------------
+void MHL_NormalizationVectorOne(double *VMHL_ResultVector,int VMHL_N)
+{
+/*
+Нормировка вектора чисел в отрезок [0,1] так, чтобы сумма всех элементов была равна 1.
+Входные параметры:
+ VMHL_ResultVector - указатель на вектор (одномерный массив), который и будет преобразовываться;
+ VMHL_N - размер массива.
+Возвращаемое значение:
+ Отсутствует.
+*/
+//вначале отнормируем в интервал
+MHL_NormalizationVectorMaxMin (VMHL_ResultVector,VMHL_N);
+//Вычислим сумму вектора
+double sum=TMHL_SumVector(VMHL_ResultVector,VMHL_N);
+if (sum==0)
+ {
+ //Если сумма равна нулю
+ for (int i=0;i<VMHL_N;i++) VMHL_ResultVector[i]=1./double(VMHL_N);
+ }
+else
+ {
+ for (int i=0;i<VMHL_N;i++) VMHL_ResultVector[i]/=sum;
+ }
+}
+//---------------------------------------------------------------------------
+int MHL_ProportionalSelection(double *Fitness, int VMHL_N)
+{
+/*
+Пропорциональная селекция. Оператор генетического алгоритма. Работает с массивом пригодностей.
+Входные параметры:
+ Fitness - массив пригодностей (можно подавать не массив пригодностей, а массив значений целевой функции, но только для задач безусловной оптимизации);
+ VMHL_N - размер массива пригодностей.
+Возвращаемое значение:
+ Номер выбранной пригодности, а, соответственно, номер индивида популяции.
+Примечание:
+ Использовать реализацию оператора ГА в виде этой функции нецелесообразно ввиду того, что при каждом запуске
+ создается дополнительный массив.
+ Данная функция аналогична по действию (результат действия аналогичен):
+ 1. Связке функций MHL_MakeVectorOfProbabilityForProportionalSelectionV2 и MHL_ProportionalSelectionV2
+ 2. Функции MHL_ProportionalSelectionV3
+ Различия по временным затратам на выполнение. У этой реализации самое большое время выполнения.
+*/
+//Выбор в пропорциональной селекции производится согласно вектору вероятностей выбора индивидов.
+//Создадим этот вектор
+double *VectorOfProbability;
+VectorOfProbability=new double[VMHL_N];
+
+//Вектор Fitness мы не меняем. Поэтому проводим копирование.
+TMHL_VectorToVector(Fitness,VectorOfProbability,VMHL_N);
+
+//Проводим нормировку вектора, с целью получения вектора вероятностей.
+//Нормировка вектора чисел такая, чтобы максимальный элемент имел значение 1, а минимальный 0.
+//После данный нормализованный вектор сжимается так чтобы сумма всех элементов стала равна 1.
+MHL_NormalizationVectorOne (VectorOfProbability,VMHL_N);
+
+//Зная теперь вероятность выбора каждого индивида, проводим случайный выбор индивида.
+int VMHL_Result=MHL_SelectItemOnProbability(VectorOfProbability,VMHL_N);
+
+delete [] VectorOfProbability;
+
+//Возвращаем номер выбранного индивида
+return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+int MHL_ProportionalSelectionV2(double *VectorOfProbability, int VMHL_N)
+{
+/*
+Пропорциональная селекция. Оператор генетического алгоритма. Работает с вектором вероятностей выбора индивидов,
+который можно получить из вектора пригодностей индивидов посредством функции MHL_MakeVectorOfProbabilityForProportionalSelectionV2.
+Входные параметры:
+ VectorOfProbability - массив вероятностей выбора индивидов для порпоциональной селекции;
+ VMHL_N - размер массива пригодностей.
+Возвращаемое значение:
+ Номер выбранной пригодности, а, соответственно, номер индивида популяции.
+Примечание:
+ Связка данной функции и MHL_MakeVectorOfProbabilityForProportionalSelectionV2 аналогична по действию (результат действия аналогичен):
+ 1. Функции MHL_ProportionalSelection
+ 2. Функции MHL_ProportionalSelectionV3
+ Различия по временным затратам на выполнение. У этой связки выполнение быстрее, чем у MHL_ProportionalSelection.
+*/
+int VMHL_Result=MHL_SelectItemOnProbability(VectorOfProbability,VMHL_N);
+return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+int MHL_ProportionalSelectionV3(double *Fitness, int VMHL_N)
+{
+/*
+Пропорциональная селекция. Оператор генетического алгоритма. Работает с массивом пригодностей (обязательно не отрицательными).
+Входные параметры:
+ Fitness - массив пригодностей (В отличии от MHL_ProportionalSelection вектор пригодностей должен быть именно вектором пригодностей, то есть все элементы Fitness должны быть больше нуля);
+ VMHL_N - размер массива пригодностей.
+Возвращаемое значение:
+ Номер выбранной пригодности, а, соответственно, номер индивида популяции.
+Примечание:
+ Данная функция аналогична по действию (результат действия аналогичен):
+ 1. Связке функций MHL_MakeVectorOfProbabilityForProportionalSelectionV2 и MHL_ProportionalSelectionV2
+ 2. Функции MHL_ProportionalSelection
+ Различия по временным затратам на выполнение. Эта реализация быстрее, чем MHL_SelectionProportional
+ и почти равна связке функций MHL_MakeVectorOfProbabilityForProportionalSelectionV2 и MHL_ProportionalSelectionV2,
+ но реализация отличается от формульной записи в угоду более простой записи в программировании, но ей тождественна.
+*/
+int VMHL_Result=-1;//номер выбранного родителя
+double Sum,r,s=0;
+int i;
+//получим сумму всех значений пригодностей
+Sum=TMHL_SumVector(Fitness,VMHL_N);
+r=MHL_RandomUniform(0,Sum);//случайное число по сумме
+i=0;
+while ((VMHL_Result==-1)&&(i<VMHL_N))
+ {
+ //определяем выбранного индивида
+ s+=Fitness[i];
+ if (s>=r) VMHL_Result=i;
+ i++;
+ }
+return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+int MHL_RankSelection(double *VectorOfProbability, int VMHL_N)
+{
+/*
+Ранговая селекция. Оператор генетического алгоритма. Работает с вектором вероятностей выбора индивидов,
+который можно получить из вектора пригодностей индивидов посредством функции MHL_MakeVectorOfRankForRankSelection
+(для получения массива рангов) и потом функции MHL_MakeVectorOfProbabilityForProportionalSelectionV2
+(для получения массива вероятностей выбора индивидов по рангам).
+Входные параметры:
+ VectorOfProbability - массив вероятностей выбора индивидов для ранговой селекции;
+ VMHL_N - размер массива VectorProbability.
+Возвращаемое значение:
+ Номер выбранного индивида популяции.
+*/
+int VMHL_Result=MHL_SelectItemOnProbability(VectorOfProbability,VMHL_N);
+return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+int MHL_SelectItemOnProbability(double *P, int VMHL_N)
+{
+/*
+Функция выбирает случайно номер элемента из вектора, где вероятность выбора каждого элемента
+определяется значением в векторе P.
+Входные параметры:
+ P - вектор вероятностей выбора каждого элемента, то есть его компоненты должны быть из отрезка [0;1], а сумма их равна 1;
+ VMHL_N - размер вектора.
+Возвращаемое значение:
+ Номер выбранного элемента.
+Примечание:
+ Проверка на правильность вектора P не проводится, так как функция обычно вызывается
+ многократно, а проводить постоянно проверку накладно. Всё на Вашей совести.
+*/
+int i=0;
+int VMHL_Result=-1;//номер выбранного элемента
+double s=0;
+double r;
+r=MHL_RandomNumber();//случайное число
+while ((VMHL_Result==-1)&&(i<VMHL_N))
+ {
+ //определяем выбранный элемент
+ s+=P[i];
+ if (s>r) VMHL_Result=i;
+ i++;
+ }
+return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+int MHL_StandartBinaryGeneticAlgorithm(int *Parameters, double (*FitnessFunction)(int*,int), int *VMHL_ResultVector, double *VMHL_Result)
+{
+/*
+Стандартный генетический алгоритм на бинарных строках. Реализация алгоритма из документа "Генетический алгоритм. Стандарт. v.3.0".
+https://github.com/Harrix/Standard-Genetic-Algorithm
+Алгоритм оптимизации. Ищет максимум целевой функции FitnessFunction.
+Входные параметры:
+ Parameters - Вектор параметров генетического алгоритма. Каждый элемент обозначает свой параметр:
+  [0] - длина бинарной хромосомы (определяется задачей оптимизации, что мы решаем);
+  [1] - число вычислений целевой функции (CountOfFitness);
+  [2] - тип селекции (TypeOfSel):
+        0 - ProportionalSelection (Пропорциональная селекция);
+        1 - RankSelection (Ранговая селекция);
+        2 - TournamentSelection (Турнирная селекция).
+  [3] - тип скрещивания (TypeOfCros):
+        0 - SinglepointCrossover (Одноточечное скрещивание);
+        1 - TwopointCrossover (Двуточечное скрещивание);
+        2 - UniformCrossover (Равномерное скрещивание).
+  [4] - тип мутации (TypeOfMutation):
+        0 - Weak (Слабая мутация);
+        1 - Averagen (Средняя мутация);
+        2 - Strong (Сильная мутация).
+  [5] - тип формирования нового поколения (TypeOfForm):
+        0 - OnlyOffspringGenerationForming (Только потомки);
+        1 - OnlyOffspringWithBestGenerationForming (Только потомки и копия лучшего индивида).
+ FitnessFunction - указатель на целевую функцию (если решается задача условной оптимизации, то учет ограничений должен быть включен в эту функцию);
+ VMHL_ResultVector - найденное решение (бинарный вектор);
+ VMHL_Result - значение целевой функции в точке, определенной вектором VMHL_ResultVector.
+Возвращаемое значение:
+ 1 - завершил работу без ошибок. Всё хорошо.
+ 0 - возникли при работе ошибки. Скорее всего в этом случае в VMHL_ResultVector и в VMHL_Result не содержится решение задачи.
+Пример значений рабочего вектора Parameters:
+ Parameters[0]=50;
+ Parameters[1]=100*100;
+ Parameters[2]=2;
+ Parameters[3]=2;
+ Parameters[4]=1;
+ Parameters[5]=1;
+*/
+//Считываем из Parameters параметры алгоритма
+int ChromosomeLength=Parameters[0];//Длина хромосомы
+int CountOfFitness=Parameters[1];//Число вычислений целевой функции
+int TypeOfSel=Parameters[2];//Тип селекции
+int TypeOfCros=Parameters[3];//Тип скрещивания
+int TypeOfMutation=Parameters[4];//Тип мутации
+int TypeOfForm=Parameters[5];//Тип формирования нового поколения
+
+//Проверим данные
+if (ChromosomeLength<1)	return 0;//Слишком маленькая длина хромосомы
+if (CountOfFitness<1)	return 0;//Слишком маленькое число вычислений целевой функции
+if (!((TypeOfSel==0)||(TypeOfSel==1)||(TypeOfSel==2))) return 0;//Тип селекции указан не верно
+if (!((TypeOfCros==0)||(TypeOfCros==1)||(TypeOfCros==2))) return 0;//Тип скрещивания указан не верно
+if (!((TypeOfMutation==0)||(TypeOfMutation==1)||(TypeOfMutation==2))) return 0;//Тип мутации указан не верно
+if (!((TypeOfForm==0)||(TypeOfForm==1))) return 0;//Тип формирования нового поколения указан не верно
+
+//Теперь определим остальные параметры алгоритма, исходя из полученной информации
+//Размер популяции и число поколений должны быть приблизительно равны (насколько это возможно)
+int NumberOfGenerations=int(sqrt(double(CountOfFitness)));//Число поколений
+int PopulationSize=int(CountOfFitness/NumberOfGenerations);//Размер популяции
+int SizeOfTournament=2;//В стандартном генетическом алгоритме на бинарных строках размер турнира равен 2
+
+//Переменные
+int I,i,j;//Счетчики
+int NumberOfMaximumFitness;//Номер лучшего индивида в текущей популяции
+double MaximumFitness;//Значение целевой функции лучшего индивида в текущей популяции
+double BestFitness;//Значение целевой функции лучшего индивида за всё время работы алгоритма
+int NumberOfParent1;//Номер первого выбранного родителя
+int NumberOfParent2;//Номер второго выбранного родителя
+double ProbabilityOfMutation;//Вероятность мутации
+
+//Для выполнения алгоритма требуются некоторые дополнительные массивы. Создадим их.
+//Популяция индивидов
+int **Population;
+Population=new int*[PopulationSize];
+for (i=0;i<PopulationSize;i++) Population[i]=new int[ChromosomeLength];
+//Популяция потомков
+int **ChildrenPopulation;
+ChildrenPopulation=new int*[PopulationSize];
+for (i=0;i<PopulationSize;i++) ChildrenPopulation[i]=new int[ChromosomeLength];
+//Массив значений целевой функции индивидов
+double *Fitness;
+Fitness=new double[PopulationSize];
+//Массив значений целевой функции потомков
+double *ChildrenFitness;
+ChildrenFitness=new double[PopulationSize];
+//Массив для хранения произвольного индивида
+int *TempIndividual;
+TempIndividual=new int[ChromosomeLength];
+//Массив для хранения лучшего индивида за всё время работы алгоритма
+int *BestIndividual;
+BestIndividual=new int[ChromosomeLength];
+//Для пропорциональной и ранговой селекции нужен массив вероятностей выбора индивидов
+double *VectorOfProbability;
+if ((TypeOfSel==0)||(TypeOfSel==1)) VectorOfProbability=new double[PopulationSize];
+//Для ранговой селекции нужен массив рангов индивидов
+double *Rank;
+if (TypeOfSel==1) Rank=new double[PopulationSize];
+//Для турнирной селекции нужен служебный массив, содержащий информация о том, в турнире или нет индивид;
+int *Taken;
+if (TypeOfSel==2) Taken=new int[PopulationSize];
+//Массив для хранения первого родителя
+int *Parent1;
+Parent1=new int[ChromosomeLength];
+//Массив для хранения второго родителя
+int *Parent2;
+Parent2=new int[ChromosomeLength];
+//Массив для хранения потомка от скрещивания двух родителей
+int *Child;
+Child=new int[ChromosomeLength];
+
+//Инициализация начальной популяции
+TMHL_RandomBinaryMatrix(Population,PopulationSize,ChromosomeLength);
+
+//Вычислим значение целевой функции для каждого индивида
+for (i=0;i<PopulationSize;i++)
+ {
+ //Копируем индивида во временного индивида, так как целевая функция работает с вектором, а не матрицей
+ TMHL_MatrixToRow(Population,TempIndividual,i,ChromosomeLength);
+ try
+  {
+  Fitness[i]=FitnessFunction(TempIndividual,ChromosomeLength);
+  }
+ catch(...)
+  {
+  return 0;//Генетический алгоритм не смог посчитать значение целевая функции индивида
+  }
+ }
+
+//Определим наилучшего индивида и запомним его
+NumberOfMaximumFitness=TMHL_NumberOfMaximumOfVector(Fitness,PopulationSize);
+MaximumFitness=TMHL_MaximumOfVector(Fitness,PopulationSize);
+TMHL_MatrixToRow(Population,BestIndividual,NumberOfMaximumFitness,ChromosomeLength);//Запоминаем индивида
+BestFitness=MaximumFitness;//Запоминаем его значение целевой функции
+
+for (I=1;I<NumberOfGenerations;I++)
+ {//////////////////// ГЛАВНЫЙ ЦИКЛ ///////////////////////
+
+ //Подготовка массивов для оператора селекции
+ if (TypeOfSel==1)
+  {
+  //Для ранговой селекции нужен массив рангов индивидов
+  MHL_MakeVectorOfRankForRankSelection(Fitness,Rank,PopulationSize);
+  //Для ранговой селекции нужен массив вероятностей выбора индивидов из рангов
+  MHL_MakeVectorOfProbabilityForProportionalSelectionV2(Rank,VectorOfProbability,PopulationSize);
+  }
+ if (TypeOfSel==0)//Для пропорциональной нужен массив вероятностей выбора индивидов
+  MHL_MakeVectorOfProbabilityForProportionalSelectionV2(Fitness,VectorOfProbability,PopulationSize);
+
+ for (j=0;j<PopulationSize;j++)
+  {//Формирование популяции потомков
+  if (TypeOfSel==0)//Пропорциональная селекция
+   {
+   //Выбираем двух родителей (точнее их номера)
+   NumberOfParent1=MHL_ProportionalSelectionV2(VectorOfProbability,PopulationSize);
+   NumberOfParent2=MHL_ProportionalSelectionV2(VectorOfProbability,PopulationSize);
+   }
+  if (TypeOfSel==1)//Ранговая селекция
+   {
+   //Выбираем двух родителей (точнее их номера)
+   NumberOfParent1=MHL_RankSelection(VectorOfProbability,PopulationSize);
+   NumberOfParent2=MHL_RankSelection(VectorOfProbability,PopulationSize);
+   }
+  if (TypeOfSel==2)//Турнирная селекция
+   {
+   //Выбираем двух родителей (точнее их номера)
+   NumberOfParent1=MHL_TournamentSelection(Fitness,SizeOfTournament,Taken,PopulationSize);
+   NumberOfParent2=MHL_TournamentSelection(Fitness,SizeOfTournament,Taken,PopulationSize);
+   }
+
+  //Копируем родителей из популяции
+  TMHL_MatrixToRow(Population,Parent1,NumberOfParent1,ChromosomeLength);//Первого родителя
+  TMHL_MatrixToRow(Population,Parent2,NumberOfParent2,ChromosomeLength);//Второго родителя
+
+  //Теперь путем скрещивания получаем потомка
+  if (TypeOfCros==0)//Одноточечное скрещивание
+   TMHL_SinglepointCrossover(Parent1,Parent2,Child,ChromosomeLength);
+  if (TypeOfCros==1)//Двухточечное скрещивание
+   TMHL_TwopointCrossover(Parent1,Parent2,Child,ChromosomeLength);
+  if (TypeOfCros==2)//Равномерное скрещивание
+   TMHL_UniformCrossover(Parent1,Parent2,Child,ChromosomeLength);
+
+  //Переместим потомка в массив потомков
+  TMHL_RowToMatrix(ChildrenPopulation,Child,j,ChromosomeLength);
+  }//Формирование популяции потомков
+
+ //Мутируем получившуюся популяцию потомков
+ //Но вначале определим вероятность мутации
+ if (TypeOfMutation==0)//Слабая
+  ProbabilityOfMutation=1./(3.*double(ChromosomeLength));
+ if (TypeOfMutation==1)//Средняя
+  ProbabilityOfMutation=1./double(ChromosomeLength);
+ if (TypeOfMutation==2)//Сильняя
+  ProbabilityOfMutation=TMHL_Min(3./double(ChromosomeLength),1.);
+ TMHL_MutationBinaryMatrix(ChildrenPopulation,ProbabilityOfMutation,PopulationSize,ChromosomeLength);//Мутируем
+
+ //Вычислим значение целевой функции для каждого потомка
+ for (i=0;i<PopulationSize;i++)
+  {
+  //Копируем потомка во временного индивида, так как целевой функция работает с вектором, а не матрицей
+  TMHL_MatrixToRow(ChildrenPopulation,TempIndividual,i,ChromosomeLength);
+  try
+   {
+   ChildrenFitness[i]=FitnessFunction(TempIndividual,ChromosomeLength);
+   }
+  catch(...)
+   {
+   return 0;//Генетический алгоритм не смог посчитать значение целевой функции потомка
+   }
+  }
+
+ //Определим наилучшего потомка и запомним его
+ MaximumFitness=TMHL_MaximumOfVector(ChildrenFitness,PopulationSize);
+
+ //Является ли лучшее решение на данном поколении лучше лучшего решения за всё время работы алгоритма
+ if (MaximumFitness>BestFitness)
+  {
+  //Если всё-таки лучше
+  NumberOfMaximumFitness=TMHL_NumberOfMaximumOfVector(ChildrenFitness,PopulationSize);
+  TMHL_MatrixToRow(ChildrenPopulation,BestIndividual,NumberOfMaximumFitness,ChromosomeLength);//Запоминаем индивида
+  BestFitness=MaximumFitness;//Запоминаем его значение целевой функции
+  }
+
+ //Теперь сформируем новое поколение
+ if (TypeOfForm==0)//Только потомки
+  {
+  TMHL_MatrixToMatrix(ChildrenPopulation,Population,PopulationSize,ChromosomeLength);
+  TMHL_VectorToVector(ChildrenFitness,Fitness,PopulationSize);
+  }
+ if (TypeOfForm==1)//Только потомки и копия лучшего индивида
+  {
+  TMHL_MatrixToMatrix(ChildrenPopulation,Population,PopulationSize,ChromosomeLength);
+  TMHL_RowToMatrix(Population,BestIndividual,0,ChromosomeLength);
+  TMHL_VectorToVector(ChildrenFitness,Fitness,PopulationSize);
+  Fitness[0]=BestFitness;
+  }
+
+ }//////////////////// ГЛАВНЫЙ ЦИКЛ ///////////////////////
+
+//Генетический алгоритм закончил свою работу
+//Выдадим найденное лучшее решение за время запуска алгоритма и его значение целевой функции
+TMHL_VectorToVector(BestIndividual,VMHL_ResultVector,ChromosomeLength);
+*VMHL_Result=BestFitness;
+
+//Удалим все дополнительные массивы
+for (i=0;i<PopulationSize;i++) delete [] Population[i];
+ delete [] Population;
+for (i=0;i<PopulationSize;i++) delete [] ChildrenPopulation[i];
+ delete [] ChildrenPopulation;
+delete [] Fitness;
+delete [] ChildrenFitness;
+delete [] TempIndividual;
+delete [] BestIndividual;
+if ((TypeOfSel==0)||(TypeOfSel==1)) delete [] VectorOfProbability;
+if (TypeOfSel==1) delete [] Rank;
+if (TypeOfSel==2) delete [] Taken;
+delete [] Parent1;
+delete [] Parent2;
+delete [] Child;
+
+return 1;//Всё успешно
+}
+//---------------------------------------------------------------------------
+int MHL_StandartGeneticAlgorithm(int *Parameters, double (*FitnessFunction)(int*,int), int *VMHL_ResultVector, double *VMHL_Result)
+{
+/*
+Стандартный генетический алгоритм на бинарных строках. Реализация алгоритма из документа "Генетический алгоритм. Стандарт. v.3.0".
+https://github.com/Harrix/Standard-Genetic-Algorithm
+Алгоритм оптимизации. Ищет максимум целевой функции FitnessFunction.
+Входные параметры:
+ Parameters - Вектор параметров генетического алгоритма. Каждый элемент обозначает свой параметр:
+  [0] - длина бинарной хромосомы (определяется задачей оптимизации, что мы решаем);
+  [1] - число вычислений целевой функции (CountOfFitness);
+  [2] - тип селекции (TypeOfSel):
+        0 - ProportionalSelection (Пропорциональная селекция);
+        1 - RankSelection (Ранговая селекция);
+        2 - TournamentSelection (Турнирная селекция).
+  [3] - тип скрещивания (TypeOfCros):
+        0 - SinglepointCrossover (Одноточечное скрещивание);
+        1 - TwopointCrossover (Двуточечное скрещивание);
+        2 - UniformCrossover (Равномерное скрещивание).
+  [4] - тип мутации (TypeOfMutation):
+        0 - Weak (Слабая мутация);
+        1 - Averagen (Средняя мутация);
+        2 - Strong (Сильная мутация).
+  [5] - тип формирования нового поколения (TypeOfForm):
+        0 - OnlyOffspringGenerationForming (Только потомки);
+        1 - OnlyOffspringWithBestGenerationForming (Только потомки и копия лучшего индивида).
+ FitnessFunction - указатель на целевую функцию (если решается задача условной оптимизации, то учет ограничений должен быть включен в эту функцию);
+ VMHL_ResultVector - найденное решение (бинарный вектор);
+ VMHL_Result - значение целевой функции в точке, определенной вектором VMHL_ResultVector.
+Возвращаемое значение:
+ 1 - завершил работу без ошибок. Всё хорошо.
+ 0 - возникли при работе ошибки. Скорее всего в этом случае в VMHL_ResultVector и в VMHL_Result не содержится решение задачи.
+Пример значений рабочего вектора Parameters:
+ Parameters[0]=50;
+ Parameters[1]=100*100;
+ Parameters[2]=2;
+ Parameters[3]=2;
+ Parameters[4]=1;
+ Parameters[5]=1;
+*/
+int VMHL_Success;//Успешен ли будет запуск cГА
+
+VMHL_Success=MHL_StandartBinaryGeneticAlgorithm(Parameters, FitnessFunction, VMHL_ResultVector, VMHL_Result);
+
+return VMHL_Success;
+}
+//---------------------------------------------------------------------------
+int MHL_StandartGeneticAlgorithm(int *Parameters, int *NumberOfParts, double *Left, double *Right, double (*FitnessFunction)(double*,int), double *VMHL_ResultVector, double *VMHL_Result)
+{
+/*
+Стандартный генетический алгоритм на вещественных строках.
+Реализация алгоритма из документа "Генетический алгоритм. Стандарт. v.3.0".
+https://github.com/Harrix/Standard-Genetic-Algorithm
+Алгоритм оптимизации. Ищет максимум целевой функции FitnessFunction.
+Входные параметры:
+ Parameters - Вектор параметров генетического алгоритма. Каждый элемент обозначает свой параметр:
+  [0] - длина вещественной хромосомы (определяется задачей оптимизации, что мы решаем);
+  [1] - число вычислений целевой функции (CountOfFitness);
+  [2] - тип селекции (TypeOfSel):
+        0 - ProportionalSelection (Пропорциональная селекция);
+        1 - RankSelection (Ранговая селекция);
+        2 - TournamentSelection (Турнирная селекция).
+  [3] - тип скрещивания (TypeOfCros):
+        0 - SinglepointCrossover (Одноточечное скрещивание);
+        1 - TwopointCrossover (Двуточечное скрещивание);
+        2 - UniformCrossover (Равномерное скрещивание).
+  [4] - тип мутации (TypeOfMutation):
+        0 - Weak (Слабая мутация);
+        1 - Average (Средняя мутация);
+        2 - Strong (Сильная мутация).
+  [5] - тип формирования нового поколения (TypeOfForm):
+        0 - OnlyOffspringGenerationForming (Только потомки);
+        1 - OnlyOffspringWithBestGenerationForming (Только потомки и копия лучшего индивида)
+  [6] - тип преобразования задачи вещественной оптимизации в задачу бинарной оптимизации (TypOfConverting);
+        0 - IntConverting (Стандартное представление целого числа – номер узла в сетке дискретизации);
+        1 - GrayСodeConverting (Стандартный рефлексивный Грей-код).
+ NumberOfParts - указатель на массив: на сколько частей делить каждую вещественную координату при дискретизации (размерность Parameters[0]);
+  Желательно брать по формуле NumberOfParts[i]=(2^k)-1, где k - натуральное число, например, 12.
+ Left - массив левых границ изменения каждой вещественной координаты (размерность Parameters[0]);
+ Right - массив правых границ изменения каждой вещественной координаты (размерность Parameters[0]);
+ FitnessFunction - указатель на целевую функцию (если решается задача условной оптимизации, то учет ограничений должен быть включен в эту функцию);
+ VMHL_ResultVector - найденное решение (вещественный вектор);
+ VMHL_Result - значение целевой функции в точке, определенной вектором VMHL_ResultVector.
+Возвращаемое значение:
+ 1 - завершил работу без ошибок. Всё хорошо.
+ 0 - возникли при работе ошибки. Скорее всего в этом случае в VMHL_ResultVector и в VMHL_Result не содержится решение задачи.
+Пример значений рабочего вектора Parameters:
+ Parameters[0]=2;
+ Parameters[1]=100*100;
+ Parameters[2]=2;
+ Parameters[3]=2;
+ Parameters[4]=1;
+ Parameters[5]=1;
+ Parameters[6]=0;
+*/
+int VMHL_Success;//Успешен ли будет запуск cГА
+
+VMHL_Success=MHL_StandartRealGeneticAlgorithm(Parameters, NumberOfParts, Left, Right, FitnessFunction, VMHL_ResultVector, VMHL_Result);
+
+return VMHL_Success;
+}
+//---------------------------------------------------------------------------
+int MHL_StandartRealGeneticAlgorithm(int *Parameters, int *NumberOfParts, double *Left, double *Right, double (*FitnessFunction)(double*,int), double *VMHL_ResultVector, double *VMHL_Result)
+{
+/*
+Стандартный генетический алгоритм на вещественных строках.
+Реализация алгоритма из документа "Генетический алгоритм. Стандарт. v.3.0".
+https://github.com/Harrix/Standard-Genetic-Algorithm
+Алгоритм оптимизации. Ищет максимум целевой функции FitnessFunction.
+Входные параметры:
+ Parameters - Вектор параметров генетического алгоритма. Каждый элемент обозначает свой параметр:
+  [0] - длина вещественной хромосомы (определяется задачей оптимизации, что мы решаем);
+  [1] - число вычислений целевой функции (CountOfFitness);
+  [2] - тип селекции (TypeOfSel):
+        0 - ProportionalSelection (Пропорциональная селекция);
+        1 - RankSelection (Ранговая селекция);
+        2 - TournamentSelection (Турнирная селекция).
+  [3] - тип скрещивания (TypeOfCros):
+        0 - SinglepointCrossover (Одноточечное скрещивание);
+        1 - TwopointCrossover (Двуточечное скрещивание);
+        2 - UniformCrossover (Равномерное скрещивание).
+  [4] - тип мутации (TypeOfMutation):
+        0 - Weak (Слабая мутация);
+        1 - Average (Средняя мутация);
+        2 - Strong (Сильная мутация).
+  [5] - тип формирования нового поколения (TypeOfForm):
+        0 - OnlyOffspringGenerationForming (Только потомки);
+        1 - OnlyOffspringWithBestGenerationForming (Только потомки и копия лучшего индивида)
+  [6] - тип преобразования задачи вещественной оптимизации в задачу бинарной оптимизации (TypOfConverting);
+        0 - IntConverting (Стандартное представление целого числа – номер узла в сетке дискретизации);
+        1 - GrayСodeConverting (Стандартный рефлексивный Грей-код).
+ NumberOfParts - указатель на массив: на сколько частей делить каждую вещественную координату при дискретизации (размерность Parameters[0]);
+  Желательно брать по формуле NumberOfParts[i]=(2^k)-1, где k - натуральное число, например, 12.
+ Left - массив левых границ изменения каждой вещественной координаты (размерность Parameters[0]);
+ Right - массив правых границ изменения каждой вещественной координаты (размерность Parameters[0]);
+ FitnessFunction - указатель на целевую функцию (если решается задача условной оптимизации, то учет ограничений должен быть включен в эту функцию);
+ VMHL_ResultVector - найденное решение (вещественный вектор);
+ VMHL_Result - значение целевой функции в точке, определенной вектором VMHL_ResultVector.
+Возвращаемое значение:
+ 1 - завершил работу без ошибок. Всё хорошо.
+ 0 - возникли при работе ошибки. Скорее всего в этом случае в VMHL_ResultVector и в VMHL_Result не содержится решение задачи.
+Пример значений рабочего вектора Parameters:
+ Parameters[0]=2;
+ Parameters[1]=100*100;
+ Parameters[2]=2;
+ Parameters[3]=2;
+ Parameters[4]=1;
+ Parameters[5]=1;
+ Parameters[6]=0;
+*/
+//Переменные
+int i;//Счетчик
+int ChromosomeLength;//Длина бинарной строки
+int VMHL_Success;//Успешен ли будет запуск cГА на бинарных строках
+
+//Считываем из Parameters необходимые параметры алгоритма
+int RealLength=Parameters[0];//Размерность вещественного вектора
+int TypOfConverting=Parameters[6];//Тип преобразования задачи в бинарную задачу оптимизацию
+
+//Проверим данные
+for (i=0;i<RealLength;i++) if (Left[i]>Right[i]) return 0;//Левая граница не может быть больше правой
+for (i=0;i<RealLength;i++) if (NumberOfParts[i]<1) return 0;//На слишком мало частей предложено делить каждую координату
+if (!((TypOfConverting==0)||(TypOfConverting==1))) return 0;//Тип преобразования указан не верно
+
+//Для выполнения алгоритма требуются некоторые дополнительные массивы. Создадим их.
+//Массив значений, сколько бит приходится в бинарной хромосоме на кодирование
+//каждой вещественной координаты
+int *Lengthi;
+Lengthi=new int[RealLength];
+//Параметры стандартного генетического алгоритма на бинарных строках
+int *ParametersOfStandartBinaryGeneticAlgorithm;
+//Указатель на массив, в который записываются решения при вычислении целевой функции
+double *RealVector;
+RealVector=new double[RealLength];
+
+//Процесс преобразования задачи вещественной оптимизации в задачу бинарной оптимизации
+//Определим длину бинарной хромосомы. При этом число точек для кодирования на одну больше, чем интервалов,
+//на которые мы хотим разбить каждую вещественную координату.
+for (int i=0;i<RealLength;i++)
+ Lengthi[i]=MHL_HowManyPowersOfTwo(NumberOfParts[i]+1);
+
+ChromosomeLength=TMHL_SumVector(Lengthi,RealLength);//Просуммируем элементы вектора
+
+//Бинарное решение бинарной задачи оптимизации
+int *BinaryDecision;
+BinaryDecision=new int[ChromosomeLength];
+
+//Создадим еще один массив для хранения бинарного массива для преобразования строки Грей-кода в бинарную
+int *TempBinaryVector;
+if (TypOfConverting==1)//GrayСodeConverting (Стандартный рефлексивный Грей-код)
+ TempBinaryVector=new int[ChromosomeLength];
+
+//Определим параметры стандартного генетического алгоритма на бинарных строках
+ParametersOfStandartBinaryGeneticAlgorithm=new int[6];
+ParametersOfStandartBinaryGeneticAlgorithm[0]=ChromosomeLength;//Длина хромосомы
+ParametersOfStandartBinaryGeneticAlgorithm[1]=Parameters[1];//Число вычислений целевой функции
+ParametersOfStandartBinaryGeneticAlgorithm[2]=Parameters[2];//Тип селекции
+ParametersOfStandartBinaryGeneticAlgorithm[3]=Parameters[3];//Тип скрещивания
+ParametersOfStandartBinaryGeneticAlgorithm[4]=Parameters[4];//Тип мутации
+ParametersOfStandartBinaryGeneticAlgorithm[5]=Parameters[5];//Тип формирования нового поколения
+
+//сГА на бинарных строках работает с функцией типа double (*)(int*,int)
+//то есть в качестве входных параметров только решение и его размерность
+//но для вычисления значения целевой функции еще требуются дополнительные переменные
+//целевая функция для вещественного решения и так далее.
+//Делаем их доступными, используя служебные дополнительные указатели библиотеки
+VMHL_TempFunction=FitnessFunction;//указатель на целевая функция для вещественного решения
+VMHL_TempInt1=Lengthi;//указатель на массив, сколько бит приходится в бинарной хромосоме на кодирование
+VMHL_TempDouble1=Left;//указатель на массив левых границ изменения вещественной переменной
+VMHL_TempDouble2=Right;//указатель на массив правых границ изменения вещественной переменной
+VMHL_TempDouble3=RealVector;//указатель на массив, в котором можно сохранить вещественный индивид
+//при его раскодировании из бинарной строки
+VMHL_TempInt2=&RealLength;//указатель на размерность вещественного вектора
+VMHL_TempInt3=&TypOfConverting;//указатель на тип преобразования
+if (TypOfConverting==1)//GrayСodeConverting (Стандартный рефлексивный Грей-код)
+ VMHL_TempInt4=TempBinaryVector;//массив для хранения бинарного массива для преобразования строки Грей-кода в бинарную
+
+//Выполнение стандартного генетического алгоритма на бинарных строках
+try
+ {
+ //Выполнение стандартного генетического алгоритма на бинарных строках
+ VMHL_Success=MHL_StandartBinaryGeneticAlgorithm(ParametersOfStandartBinaryGeneticAlgorithm,MHL_BinaryFitnessFunction,BinaryDecision,VMHL_Result);
+ }
+catch(...)
+ {
+ return 0;//Генетический алгоритм на бинарных строках завершился с ошибками
+ }
+
+if (VMHL_Success==1)
+ {
+ //VMHL_Result уже записан и определен, а вот VMHL_ResultVector (конечное решение) еще нет
+ //так как есть только бинарное решение, а не вещественное, которое нам и нужно
+
+ //Преобразование бинарного решения в вещественное
+ if (TypOfConverting==0)//IntConverting (Стандартное представление целого числа – номер узла в сетке дискретизации)
+  MHL_BinaryVectorToRealVector(BinaryDecision,VMHL_ResultVector,VMHL_TempDouble1,VMHL_TempDouble2,VMHL_TempInt1,RealLength);
+ if (TypOfConverting==1)//GrayСodeConverting (Стандартный рефлексивный Грей-код)
+  MHL_BinaryGrayVectorToRealVector(BinaryDecision,ChromosomeLength,VMHL_ResultVector,VMHL_TempDouble1,VMHL_TempDouble2,VMHL_TempInt1,RealLength);
+ }
+else
+ return 0;//Генетический алгоритм на бинарных строках завершился с ошибками, но не в результате генерирования исключений
+
+//Удалим массивы для запуска стандартного генетического алгоритма на бинарных строках
+delete [] ParametersOfStandartBinaryGeneticAlgorithm;
+delete [] Lengthi;
+delete [] BinaryDecision;
+delete [] RealVector;
+if (TypOfConverting==1)//GrayСodeConverting (Стандартный рефлексивный Грей-код)
+ delete [] TempBinaryVector;
+
+//Обнулим дополнительные указатели
+VMHL_TempFunction=NULL;
+VMHL_TempInt1=NULL;
+VMHL_TempDouble1=NULL;
+VMHL_TempDouble2=NULL;
+VMHL_TempInt2=NULL;
+VMHL_TempDouble3=NULL;
+VMHL_TempInt3=NULL;
+if (TypOfConverting==1)//GrayСodeConverting (Стандартный рефлексивный Грей-код)
+ VMHL_TempInt4=NULL;
+
+return 1;//Всё успешно
+}
+//---------------------------------------------------------------------------
+int MHL_TournamentSelection(double *Fitness, int SizeTournament, int VMHL_N)
+{
+/*
+Турнирная селекция. Оператор генетического алгоритма. Работает с массивом пригодностей индивидов.
+Входные параметры:
+ Fitness - массив пригодностей индивидов;
+ SizeTournament - размер турнира;
+ VMHL_N - размер массива.
+Возвращаемое значение:
+ Номер выбранного индивида популяции.
+Примечание:
+ Является стандартной реализацией турнирной селекции. Это турнирная селекция без возвращения.
+*/
+if (SizeTournament<2) SizeTournament=2;
+if (SizeTournament>VMHL_N) SizeTournament=VMHL_N;
+
+int j;//Счетчик
+int p;//Текущее число свободнных участников
+int r;//случайное число для определения победителя
+int g=0;//Номер выбранного участника
+
+int *Taken;//Информация о том, в турнире или нет индивид
+Taken=new int[VMHL_N];
+TMHL_ZeroVector(Taken,VMHL_N);// Пока никого
+
+int VMHL_Result;//победитель (номер) для турнирной селекции
+VMHL_Result=MHL_RandomUniformInt(0,VMHL_N);//первый участник
+Taken[VMHL_Result]=1;//отметили первого участника
+
+for (int i=1;i<SizeTournament;i++)
+ {//выбор еще одного участника турнира
+ r=MHL_RandomUniformInt(0,VMHL_N-i);//на один меньше можно выбрать, чем в предыдущий раз
+ p=0;//Текущее число свободнных участников
+ j=0;//Счетчик
+
+ while (p!=r+1)
+  {
+  //Ищем нашего участника
+  if (Taken[j]==0)
+   {
+   //Нашли свободного участника. Возможно это наш.
+   p++;
+   g=j;
+   }
+  j++;
+  }
+
+ //Теперь g - номер нашего участника
+ Taken[g]=1;//Отметим
+
+ // Выйграл ли новый участник лучшего представителя турнира
+ if (Fitness[g]>Fitness[VMHL_Result]) VMHL_Result=g;
+ }//выбор еще одного участника турнира
+
+delete [] Taken;
+
+return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+int MHL_TournamentSelection(double *Fitness, int SizeTournament, int *Taken, int VMHL_N)
+{
+/*
+Турнирная селекция. Оператор генетического алгоритма. Работает с массивом пригодностей индивидов.
+Входные параметры:
+ Fitness - массив пригодностей индивидов;
+ SizeTournament - размер турнира
+ Taken - Информация о том, в турнире или нет индивид (служебный массив);
+ VMHL_N - размер массива.
+Возвращаемое значение:
+ Номер выбранного индивида популяции.
+Примечание:
+ Является стандартной реализацией турнирной селекции. Это турнирная селекция без возвращения.
+Примечание:
+ В работе функции используется вспомогательный массив Taken. Так как функция вызывается часто, то
+каждый раз создавать массив затратно. Поэтому можно в перегруженной функции передать этот массив
+в качестве параметра.
+*/
+if (SizeTournament<2) SizeTournament=2;
+if (SizeTournament>VMHL_N) SizeTournament=VMHL_N;
+
+int j;//Счетчик
+int p;//Текущее число свободнных участников
+int r;//случайное число для определения победителя
+int g=0;//Номер выбранного участника
+
+TMHL_ZeroVector(Taken,VMHL_N);// Пока никого
+
+int VMHL_Result;//победитель (номер) для турнирной селекции
+VMHL_Result=MHL_RandomUniformInt(0,VMHL_N);//первый участник
+Taken[VMHL_Result]=1;//отметили первого участника
+
+for (int i=1;i<SizeTournament;i++)
+ {//выбор еще одного участника турнира
+ r=MHL_RandomUniformInt(0,VMHL_N-i);//на один меньше можно выбрать, чем в предыдущий раз
+ p=0;//Текущее число свободнных участников
+ j=0;//Счетчик
+
+ while (p!=r+1)
+  {
+  //Ищем нашего участника
+  if (Taken[j]==0)
+   {
+   //Нашли свободного участника. Возможно это наш.
+   p++;
+   g=j;
+   }
+  j++;
+  }
+
+ //Теперь g - номер нашего участника
+ Taken[g]=1;//Отметим
+
+ // Выйграл ли новый участник лучшего представителя турнира
+ if (Fitness[g]>Fitness[VMHL_Result]) VMHL_Result=g;
+ }//выбор еще одного участника турнира
+
+return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+int MHL_TournamentSelectionWithReturn(double *Fitness, int SizeTournament, int VMHL_N)
+{
+/*
+Турнирная селекция с возвращением. Оператор генетического алгоритма. Работает с массивом пригодностей индивидов.
+Входные параметры:
+ Fitness - массив пригодностей индивидов;
+ VMHL_N - размер массива VectorProbability;
+ SizeTournament - размер турнира.
+Возвращаемое значение:
+ Номер выбранного индивида популяции.
+Примечание:
+ Не является стандартной реализацией турнирной селекции, так как в классичсекой турнирной селекции
+в один туринир один и тот же индивид может попасть только один раз.
+*/
+if (SizeTournament<2) SizeTournament=2;
+if (SizeTournament>VMHL_N) SizeTournament=VMHL_N;
+int VMHL_Result;//победитель (номер) для турнирной селекции
+int r; //случайное число для определения победителя
+
+//турнирная  селекция с возвращением.
+VMHL_Result=MHL_RandomUniformInt(0,VMHL_N);//первый участник
+
+for (int i=1;i<SizeTournament;i++)
+ {//выбор еще одного участника турнира
+ r=MHL_RandomUniformInt(0,VMHL_N);
+ if (Fitness[r]>Fitness[VMHL_Result]) VMHL_Result=r;
+ }//выбор еще одного участника турнира
+
+return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+
+//*****************************************************************
 //Геометрия
 //*****************************************************************
 
@@ -366,6 +1375,116 @@ do
  }
 while (fabs(VMHL_Result-s1)>3.*Epsilon);
 return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+
+//*****************************************************************
+//Кодирование и декодирование
+//*****************************************************************
+void MHL_BinaryGrayVectorToRealVector(int *x, int n, double *VMHL_ResultVector, double *Left, double *Right, int *Lengthi, int VMHL_N)
+{
+/*
+Функция декодирует бинарную строку в действительный вектор, который и был закодирован
+методом "Стандартный рефлексивный Грей-код" (без использования временного массива).
+Входные параметры:
+ a - бинарная строка представляющая собой Грей-код нескольких закодированных вещественных координат;
+ n - длина бинарной строки;
+ VMHL_ResultVector - вещественный вектор, в который мы и записываем результат, размера n;
+ Left - массив левых границ изменения каждой вещественной координаты (размер VMHL_N);
+ Right - массив правых границ изменения каждой вещественной координаты (размер VMHL_N);
+ Lengthi - массив значений, сколько на каждую координату отводится бит в бинарной строке (размер массива Lengthi VMHL_N);
+ VMHL_N - длина вещественного вектора.
+Возвращаемое значение:
+ Отсутствует.
+Примечание:
+ К криптографии данная функция не имеет отношения.
+*/
+int len;//Сколько на текущую координату отводится бит в бинарной строке
+int Begin=0;//Номер бита в бинарной строке, с которой начинается текущая закодированная вещественная координата
+int *TempBinaryVector;
+TempBinaryVector=new int[n];
+
+//Вначале нужно перевести бинарную строку кода Грея в бинарную строку
+for (int i=0;i<VMHL_N;i++)
+ {
+ len=Lengthi[i];
+ TMHL_GrayCodeToBinaryFromPart(x,TempBinaryVector,Begin,len);
+ Begin+=len;
+ }
+
+//Переводим наш полученный бинарный код в вещественный вектор
+MHL_BinaryVectorToRealVector(TempBinaryVector,VMHL_ResultVector,Left,Right,Lengthi,VMHL_N);
+
+delete [] TempBinaryVector;
+}
+//---------------------------------------------------------------------------
+void MHL_BinaryGrayVectorToRealVector(int *x, double *VMHL_ResultVector,int *TempBinaryVector, double *Left, double *Right, int *Lengthi, int VMHL_N)
+{
+/*
+Функция декодирует бинарную строку в действительный вектор, который и был закодирован
+методом "Стандартный рефлексивный Грей-код".
+Входные параметры:
+ a - бинарная строка представляющая собой Грей-код нескольких закодированных вещественных координат;
+ VMHL_ResultVector - вещественный вектор, в который мы и записываем результат;
+ TempBinaryVector - указатель на временный массив  размера n;
+ Left - массив левых границ изменения каждой вещественной координаты размера VMHL_N;
+ Right - массив правых границ изменения каждой вещественной координаты размера VMHL_N;
+ Lengthi - массив значений, сколько на каждую координату отводится бит в бинарной строке. Размер массива VMHL_N;
+ VMHL_N - длина вещественного вектора.
+Возвращаемое значение:
+ Отсутствует.
+Примечание:
+ К криптографии данная функция не имеет отношения.
+*/
+int len;//Сколько на текущую координату отводится бит в бинарной строке
+int Begin=0;//Номер бита в бинарной строке, с которой начинается текущая закодированная вещественная координата
+
+//Вначале нужно перевести бинарную строку кода Грея в бинарную строку
+for (int i=0;i<VMHL_N;i++)
+ {
+ len=Lengthi[i];
+ TMHL_GrayCodeToBinaryFromPart(x,TempBinaryVector,Begin,len);
+ Begin+=len;
+ }
+
+//Переводим наш полученный бинарный код в вещественный вектор
+MHL_BinaryVectorToRealVector(TempBinaryVector,VMHL_ResultVector,Left,Right,Lengthi,VMHL_N);
+}
+//---------------------------------------------------------------------------
+void MHL_BinaryVectorToRealVector(int *x, double *VMHL_ResultVector, double *Left, double *Right, int *Lengthi, int VMHL_N)
+{
+/*
+Функция декодирует бинарную строку в действительный вектор, который и был закодирован
+методом "Стандартное представление целого числа – номер узла в сетке дискретизации".
+Входные параметры:
+ a - бинарная строка;
+ VMHL_ResultVector - вещественный вектор, в который мы и записываем результат;
+ Left - массив левых границ изменения каждой вещественной координаты;
+ Right - массив правых границ изменения каждой вещественной координаты;
+ Lengthi - массив значений, сколько на каждую координату отводится бит в бинарной строке;
+ VMHL_N - длина вещественного вектора.
+Возвращаемое значение:
+ Отсутствует.
+Примечание:
+ К криптографии данная функция не имеет отношения.
+Примечание:
+ Вектор входный параметров действительно избыточен, но каждый раз пересчитывать затратно, так как функция вызывается в ГА часто.
+*/
+int len;//Сколько на текущую координату отводится бит в бинарной строке
+double l;//Левая граница текущей координаты вещественного вектора
+double r;//Правая граница текущей координаты вещественного вектора
+double count;//Сколько может быть закодировано целых чисел двоичным числом длины len
+int Begin=0;//Номер бита в бинарной строке, с которой начинается текущая закодированная вещественная координата
+
+for (int i=0;i<VMHL_N;i++)
+ {
+ len=Lengthi[i];
+ count=double(TMHL_PowerOf(2,len));
+ l=Left[i];
+ r=Right[i];
+ VMHL_ResultVector[i]=l+(r-l)*double(TMHL_BinaryToDecimalFromPart(x,Begin,len))/count;
+ Begin+=len;
+ }
 }
 //---------------------------------------------------------------------------
 
@@ -1026,6 +2145,96 @@ double MHL_VarianceToStdDev(double Variance)
 */
 return Variance*Variance;
 }
+//---------------------------------------------------------------------------
+
+//*****************************************************************
+//Тестовые функции для оптимизации
+//*****************************************************************
+double MHL_TestFuction_Ackley(double *x, int VMHL_N)
+{
+/*
+Функция многих переменных: Ackley.
+Тестовая функция вещественной оптимизации.
+Входные параметры:
+ x - указатель на исходный массив;
+ VMHL_N - размер массива x.
+Возвращаемое значение:
+ Значение тестовой функции в точке x.
+*/
+double VMHL_Result;
+double f1,f2=0;
+f1=exp(-0.2*sqrt(TMHL_SumSquareVector(x,VMHL_N)/double(VMHL_N)));
+for (int i=0;i<VMHL_N;i++) f2=f2+cos(2.*MHL_PI*x[i]);
+f2=exp(f2/double(VMHL_N));
+VMHL_Result=20.+exp(1)-20.*f1-f2;
+return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+double MHL_TestFuction_ParaboloidOfRevolution(double *x, int VMHL_N)
+{
+/*
+Функция многих переменных: Эллиптический параболоид.
+Тестовая функция вещественной оптимизации.
+Входные параметры:
+ x - указатель на исходный массив;
+ VMHL_N - размер массива x.
+Возвращаемое значение:
+ Значение тестовой функции в точке x.
+*/
+double VMHL_Result=0;
+for (int i=0;i<VMHL_N;i++) VMHL_Result+=x[i]*x[i];
+return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+double MHL_TestFuction_Rastrigin(double *x, int VMHL_N)
+{
+/*
+Функция многих переменных: функция Растригина.
+Тестовая функция вещественной оптимизации.
+Входные параметры:
+ x - указатель на исходный массив;
+ VMHL_N - размер массива x.
+Возвращаемое значение:
+ Значение тестовой функции в точке x.
+*/
+double VMHL_Result=0;
+for (int i=0;i<VMHL_N;i++) VMHL_Result+=x[i]*x[i]-10.*cos(2.*MHL_PI*x[i]);
+VMHL_Result+=10*VMHL_N;
+return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+double MHL_TestFuction_Rosenbrock(double *x, int VMHL_N)
+{
+/*
+Функция многих переменных: функция Розенброка.
+Тестовая функция вещественной оптимизации.
+Входные параметры:
+ x - указатель на исходный массив;
+ VMHL_N - размер массива x.
+Возвращаемое значение:
+ Значение тестовой функции в точке x.
+*/
+double VMHL_Result=0;
+for (int i=0;i<VMHL_N-1;i++) VMHL_Result+=100.*(x[i+1]-x[i]*x[i])*(x[i+1]-x[i]*x[i])+(1.-x[i])*(1.-x[i]);
+return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+double MHL_TestFuction_SumVector(int *x, int VMHL_N)
+{
+/*
+Сумма всех элементов бинарного вектора.
+Тестовая функция бинарной оптимизации.
+Входные параметры:
+ x - указатель на исходный массив;
+ VMHL_N - размер массива x.
+Возвращаемое значение:
+ Значение тестовой функции в точке x.
+*/
+double VMHL_Result=0;
+for (int i=0;i<VMHL_N;i++) VMHL_Result+=x[i];
+return VMHL_Result;
+}
+
 //---------------------------------------------------------------------------
 
 //*****************************************************************

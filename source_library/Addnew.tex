@@ -111,7 +111,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
     MHL_SeedRandom();//Инициализация датчика случайных чисел
 
-    QStandardItemModel *model = new QStandardItemModel;//новая модель списка
+    model = new QStandardItemModel(this);
+    model->setObjectName(QString::fromUtf8("model"));
+
     QStandardItem *item;//элемент списка
 
     //добавление новых элементов

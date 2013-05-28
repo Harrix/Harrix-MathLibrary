@@ -1,0 +1,1 @@
+double MHL_TestFuction_Rastrigin(double *x, int VMHL_N);

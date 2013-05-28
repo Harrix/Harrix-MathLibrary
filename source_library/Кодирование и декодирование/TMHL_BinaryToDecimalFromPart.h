@@ -1,0 +1,1 @@
+template <class T> T TMHL_BinaryToDecimalFromPart(T *a, int Begin, int n);

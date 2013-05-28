@@ -1,0 +1,73 @@
+        int i;
+        int VMHL_N=7;//Размер массива
+        double *Fitness;
+        Fitness=new double[VMHL_N];
+        for (i=0;i<VMHL_N;i++)
+         Fitness[i]=MHL_RandomNumber();
+
+        int SizeTournament=3;// Размер турнира
+
+        //Вызов функции
+        int Number=MHL_TournamentSelection(Fitness,SizeTournament,VMHL_N);
+
+        //Используем полученный результат
+
+        MHL_ShowVector (Fitness,VMHL_N,"Массив пригодностей", "Fitness");
+        //Массив пригодностей:
+        //Fitness =
+        //0.858643
+        //0.460541
+        //0.469696
+        //0.454315
+        //0.594543
+        //0.000457764
+        //0.476135
+
+
+        MHL_ShowNumber (SizeTournament,"Размер турнираа", "SizeTournament");
+        // Размер турнираа:
+        //SizeTournament=3
+
+        MHL_ShowNumber (Number,"Номер выбранного индивида", "Number");
+        //Номер выбранного индивида:
+        //Number=6
+
+        delete [] Fitness;
+
+        //Для переопределенной функции
+        VMHL_N=7;//Размер массива
+        Fitness=new double[VMHL_N];
+        for (i=0;i<VMHL_N;i++)
+         Fitness[i]=MHL_RandomNumber();
+
+        int *Taken;//Информация о том, в турнире или нет индивид (Служебный массив)
+        Taken=new int[VMHL_N];
+
+        SizeTournament=3;// Размер турнира
+
+        //Вызов функции
+        Number=MHL_TournamentSelection(Fitness,SizeTournament,Taken,VMHL_N);
+
+        //Используем полученный результат
+
+        MHL_ShowVector (Fitness,VMHL_N,"Массив пригодностей", "Fitness");
+        //Массив пригодностей:
+        //Fitness =
+        //0.598633
+        //0.396423
+        //0.756683
+        //0.123505
+        //0.0546875
+        //0.542511
+        //0.605499
+
+        MHL_ShowNumber (SizeTournament,"Размер турнира", "SizeTournament");
+        //Размер турнира:
+        //SizeTournament=3
+
+        MHL_ShowNumber (Number,"Номер выбранного индивида", "Number");
+        //Номер выбранного индивида:
+        //Number=2
+
+        delete [] Fitness;
+        delete [] Taken;

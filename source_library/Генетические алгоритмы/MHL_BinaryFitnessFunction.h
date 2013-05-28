@@ -1,0 +1,1 @@
+double MHL_BinaryFitnessFunction(int*x, int VMHL_N);

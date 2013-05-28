@@ -1,0 +1,1 @@
+void MHL_NormalizationVectorAll(double *x,int VMHL_N);
