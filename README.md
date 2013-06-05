@@ -1,7 +1,7 @@
 MathHarrixLibrary
 ===================
 
-Версия v.3.3.0.
+Версия v.3.4.0.
 
 https://github.com/Harrix/MathHarrixLibrary
 
@@ -40,6 +40,14 @@ https://github.com/Harrix/MathHarrixLibrary
 **[+]** добавление
 
 **[*]** разное
+
+**3.4.0**
+
+**[*]** В тестовых функциях появилась подробная справка из проекта HarrixTestFunctions.
+
+**[+]** В MakeMathHarrixLibrary.exe теперь выводится время, потраченное на сборку.
+
+**[*]** Теперь число функций определяется по числу знаков ; в h файлах + две функции void MHL_SeedRandom(void) и double MHL_RandomNumber(void).
 
 **3.3.0**
 

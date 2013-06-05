@@ -6,6 +6,7 @@
 #include <QUrl>
 #include <QDir>
 #include <QStandardItemModel>
+#include <QTime>
 
 #include "QtHarrixLibrary.h"
 
@@ -25,6 +26,8 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButton_clicked()
 {
     //Сборка проекта Harrix Math Library
+    QTime myTimer;
+    myTimer.start();//запуск таймера работы сборки библиотеки
 
     ui->textEdit->clear();
 
@@ -59,6 +62,9 @@ void MainWindow::on_pushButton_clicked()
     int countpng=0;//количество функций в виде png файлов
     int countpdf=0;//количество функций в виде pdf файлов
     int countuse=0;//количество функций в виде use файлов
+
+    int countfunction=0;//количество функций
+
     bool b;
     ui->textEdit->insertHtml("<font color=\"#858585\">Начало формирования файлов библиотеки...<\font><br>");
 
@@ -240,6 +246,8 @@ void MainWindow::on_pushButton_clicked()
                 if (!(Temp.trimmed().isEmpty())) ui->textEdit->insertHtml("Загрузили файл <b>"+filename+"</b><br>");
                 else {ui->textEdit->insertHtml("<font color=\"red\">Ошибка с файлом <b>"+filename+"</b><\font><br>");countoferrors++;}
 
+                countfunction+=Temp.count(";");//количество функций считаем по количеству знаков ; в h файлах
+
                 ResultTexFunctions+="\\begin{lstlisting}[label=code_syntax_"+nameof_func+",caption=Синтаксис]\n";
                 ResultTexFunctions+=Temp;
                 ResultTexFunctions+="\\end{lstlisting}\n\n";
@@ -344,7 +352,9 @@ void MainWindow::on_pushButton_clicked()
     if (!(Temp.trimmed().isEmpty())) ui->textEdit->insertHtml("<br>Загрузили файл <b>Description_part2.tex</b><br>");
     else {ui->textEdit->insertHtml("<br><font color=\"red\">Ошибка с файлом <b>Description_part2.tex</b><\font><br>");countoferrors++;}
 
-    ResultTex=QString::number(countcpp)+ResultTex;
+    countfunction+=2;//Две случайные функции в самом начале cpp файла
+
+    ResultTex=QString::number(countfunction)+ResultTex;
 
     Temp = HQt_ReadFile(path+"Description_part1.tex");//описание библиотеки
     ResultTex = Temp+ResultTex;
@@ -384,10 +394,14 @@ void MainWindow::on_pushButton_clicked()
 
     ui->textEdit->insertHtml("<font color=\"#858585\">Конец формирования файлов библиотеки.<\font><br>");
 
+    int nMilliseconds = myTimer.elapsed();
+    ui->textEdit->insertHtml("<font color=\"#858585\">Потребовалось времени: "+HQt_WriteTime(nMilliseconds)+"<\font><br>");
+
     QTextCursor c =  ui->textEdit->textCursor();
     c.movePosition(QTextCursor::End);
     ui->textEdit->setTextCursor(c);
 
     //открытие папки с собранными файлами
     QDesktopServices::openUrl(QUrl::fromLocalFile(temp_library_path));
+
 }
