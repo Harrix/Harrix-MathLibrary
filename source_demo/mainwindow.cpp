@@ -542,6 +542,24 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("MHL_TestFuction_SumVector"));
     model->appendRow(item);
 
+    item = new QStandardItem(QString("TMHL_Factorial"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("TMHL_KCombinations"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_ProbabilityOfTournamentSelection"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_MakeVectorOfProbabilityForRanklSelection"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_MakeVectorOfRankZeroForRankSelection"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_RandomUniformIntIncluding"));
+    model->appendRow(item);
+
 
     model->sort(0);
 
@@ -593,6 +611,20 @@ return -((x[0]-2)*(x[0]-2)+(x[1]-2)*(x[1]-2));
 double Func3(double x)
 {
 return x*x;
+}
+//---------------------------------------------------------------------------
+void MainWindow::MHL_ShowText (QString TitleX)
+{
+    /*
+    Функция выводит число строку в textEdit.
+    Входные параметры:
+     TitleX - непосредственно строка сама.
+    Возвращаемое значение:
+     Отсутствует.
+    */
+    QString VMHL_Result;
+    VMHL_Result=HQt_ShowText (TitleX);// из QtHarrixLibrary.h
+    Html+=VMHL_Result;
 }
 //---------------------------------------------------------------------------
 template <class T> void MainWindow::MHL_ShowNumber (T VMHL_X, QString TitleX, QString NameX)
@@ -6578,6 +6610,220 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //f=5
 
         delete [] x;
+    }
+
+    if (NameFunction=="TMHL_Factorial")
+    {
+        int a=MHL_RandomUniformInt(0,10);
+
+        double Result=TMHL_Factorial(a);
+
+        //Используем полученный результат
+        MHL_ShowNumber(Result,"Факториал числа "+MHL_NumberToText(a),"a!");
+        //Факториал числа 3:
+        //a!=6
+    }
+
+    if (NameFunction=="TMHL_KCombinations")
+    {
+        int n=10;
+        int k=MHL_RandomUniformInt(0,10);
+
+        int C=TMHL_KCombinations(k,n);
+
+        //Используем полученный результат
+        MHL_ShowNumber(C,"Число сочетаний по "+MHL_NumberToText(k)+" элементов из " +MHL_NumberToText(n),"C");
+        //Число сочетаний по 8 элементов из 10:
+        //C=45
+
+    }
+
+    if (NameFunction=="MHL_ProbabilityOfTournamentSelection")
+    {
+        int i;
+        int VMHL_N=10;//размер популяции
+        double *f=new double[VMHL_N];//массив значений целевой функции
+        double *p=new double[VMHL_N];//массив значений веротяностей выбора индивидов
+        int T=3; // размер турнира
+
+        for (i=0;i<VMHL_N;i++) f[i]=MHL_RandomUniformInt(0,11)/10.;//заполним случайными значениями целевой функции
+
+        MHL_ShowVector (f,VMHL_N,"Вектор значений целевой функции", "f");
+        //Вектор значений целевой функции:
+        //f =
+        //0.9
+        //0.4
+        //0.4
+        //0.5
+        //1
+        //0.8
+        //0.5
+        //0.8
+        //0.8
+        //0.4
+
+        //Вызов функции
+        double sum = MHL_ProbabilityOfTournamentSelection(f,p,T,VMHL_N);
+
+        //Используем результат
+        MHL_ShowVector (p,VMHL_N,"Вектор значений вероятностей выбора", "p");
+        //Вектор значений вероятностей выбора:
+        //p =
+        //0.233333
+        //0.00277778
+        //0.00277778
+        //0.0375
+        //0.3
+        //0.127778
+        //0.0375
+        //0.127778
+        //0.127778
+        //0.00277778
+
+        MHL_ShowNumber(sum,"Сумма вектора значений вероятностей выбора","sum");
+        //Сумма вектора значений вероятностей выбора:
+        //sum=1
+
+        delete[] f;
+        delete[] p;
+    }
+
+    if (NameFunction=="MHL_MakeVectorOfProbabilityForRanklSelection")
+    {
+        int i;
+        int VMHL_N=7;//Размер массива (число строк)
+        double *Fitness;
+        Fitness=new double[VMHL_N];
+        for (i=0;i<VMHL_N;i++)
+         Fitness[i]=MHL_RandomUniformInt(1,10)/10.;
+
+        double *Rank;
+        Rank=new double[VMHL_N];
+
+        double *VectorProbability;
+        VectorProbability=new double[VMHL_N];
+
+        //Получаем массив рангов
+        MHL_MakeVectorOfRankForRankSelection(Fitness,Rank,VMHL_N);
+
+        //Вызов функции
+        MHL_MakeVectorOfProbabilityForRanklSelection(Rank,VectorProbability,VMHL_N);
+
+        //Используем полученный результат
+
+        MHL_ShowVector (Fitness,VMHL_N,"Массив пригодностей", "Fitness");
+        //Массив пригодностей:
+        //Fitness =
+        //0.5
+        //0.7
+        //0.3
+        //0.9
+        //0.8
+        //0.7
+        //0.9
+
+        MHL_ShowVector (Rank,VMHL_N,"Массив рангов", "Rank");
+        //Массив рангов:
+        //Rank =
+        //2
+        //3.5
+        //1
+        //6.5
+        //5
+        //3.5
+        //6.5
+
+        MHL_ShowVector (VectorProbability,VMHL_N,"Вектор вероятностей выбора", "VectorProbability");
+        //Вектор вероятностей выбора:
+        //VectorProbability =
+        //0.0714286
+        //0.125
+        //0.0357143
+        //0.232143
+        //0.178571
+        //0.125
+        //0.232143
+
+        delete [] Fitness;
+        delete [] Rank;
+        delete [] VectorProbability;
+    }
+
+    if (NameFunction=="MHL_MakeVectorOfRankZeroForRankSelection")
+    {
+        int i;
+        int VMHL_N=7;//Размер массива (число строк)
+        double *Fitness;
+        Fitness=new double[VMHL_N];
+        for (i=0;i<VMHL_N;i++)
+         Fitness[i]=MHL_RandomUniformInt(1,10)/10.;
+
+        double *Rank;
+        Rank=new double[VMHL_N];
+
+        //Вызов функции
+        MHL_MakeVectorOfRankZeroForRankSelection(Fitness,Rank,VMHL_N);
+
+        //Используем полученный результат
+
+        MHL_ShowVector (Fitness,VMHL_N,"Массив пригодностей", "Fitness");
+        //Массив пригодностей:
+        //Fitness =
+        //0.3
+        //0.8
+        //0.2
+        //0.9
+        //0.1
+        //0.9
+        //0.4
+
+        MHL_ShowVector (Rank,VMHL_N,"Массив рангов", "Rank");
+        //Массив рангов:
+        //Rank =
+        //2
+        //4
+        //1
+        //5.5
+        //0
+        //5.5
+        //3
+
+        delete [] Fitness;
+        delete [] Rank;
+    }
+
+    if (NameFunction=="MHL_RandomUniformIntIncluding")
+    {
+        double x;
+        int s0=0,s1=0,s2=0,s3=0;
+
+        //Вызов функции
+        for (int i=0;i<1000;i++)
+        {
+        x=MHL_RandomUniformIntIncluding(0,3);
+        if (x==0) s0++;
+        if (x==1) s1++;
+        if (x==2) s2++;
+        if (x==3) s3++;
+        }
+
+        //Используем полученный результат
+        MHL_ShowNumber(x,"Случайное целое число из интервала [0;3]","x");
+        MHL_ShowNumber(s0,"Число выпадений 0","s0");
+        MHL_ShowNumber(s1,"Число выпадений 1","s0");
+        MHL_ShowNumber(s2,"Число выпадений 2","s0");
+        MHL_ShowNumber(s3,"Число выпадений 3","s0");
+        //Случайное целое число из интервала [0;3):
+        //x=1
+        //Число выпадений 0:
+        //s0=324
+        //Число выпадений 1:
+        //s0=374
+        //Число выпадений 2:
+        //s0=302
+        //Число выпадений 3:
+        //s0=0
+
     }
 
 

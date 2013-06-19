@@ -26,6 +26,7 @@ public:
     QString path;
     QString Html;
 
+    void MHL_ShowText (QString TitleX);
     template <class T> void MHL_ShowVector (T *VMHL_Vector, int VMHL_N, QString TitleVector, QString NameVector);
     template <class T> void MHL_ShowNumber (T VMHL_X, QString TitleX, QString NameX);
     template <class T> QString MHL_NumberToText (T VMHL_X);

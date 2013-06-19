@@ -68,10 +68,13 @@ template <class T> void TMHL_ZeroVector(T *VMHL_ResultVector,int VMHL_N);
 //Генетические алгоритмы
 double MHL_BinaryFitnessFunction(int*x, int VMHL_N);
 void MHL_MakeVectorOfProbabilityForProportionalSelectionV2(double *Fitness, double *VMHL_ResultVector, int VMHL_N);
+void MHL_MakeVectorOfProbabilityForRanklSelection(double *Rank, double *VMHL_ResultVector, int VMHL_N);
 void MHL_MakeVectorOfRankForRankSelection(double *Fitness, double *VMHL_ResultVector, int VMHL_N);
+void MHL_MakeVectorOfRankZeroForRankSelection(double *Fitness, double *VMHL_ResultVector, int VMHL_N);
 void MHL_NormalizationVectorAll(double *x,int VMHL_N);
 void MHL_NormalizationVectorMaxMin(double *VMHL_ResultVector,int VMHL_N);
 void MHL_NormalizationVectorOne(double *VMHL_ResultVector,int VMHL_N);
+double MHL_ProbabilityOfTournamentSelection(double *Fitness, double *VMHL_ResultVector_Probability, int T, int VMHL_N);
 int MHL_ProportionalSelection(double *Fitness, int VMHL_N);
 int MHL_ProportionalSelectionV2(double *VectorOfProbability, int VMHL_N);
 int MHL_ProportionalSelectionV3(double *Fitness, int VMHL_N);
@@ -119,6 +122,9 @@ template <class T> T TMHL_BinaryToDecimalFromPart(T *a, int Begin, int n);
 template <class T> void TMHL_GrayCodeToBinary(T *a,int *VMHL_ResultVector, int VMHL_N);
 template <class T> void TMHL_GrayCodeToBinaryFromPart(T *a, T *VMHL_ResultVector, int Begin, int n);
 
+//Комбинаторика
+template <class T> T TMHL_KCombinations(T k, T n);
+
 //Математические функции
 double MHL_ArithmeticalProgression(double a1,double d,int n);
 double MHL_ExpMSxD2(double x);
@@ -133,6 +139,7 @@ double MHL_SumGeometricSeries(double u1,double q,int n);
 double MHL_SumOfArithmeticalProgression(double a1,double d,int n);
 int MHL_SumOfDigits(int a);
 template <class T> T TMHL_Abs(T x);
+template <class T> T TMHL_Factorial(T x);
 template <class T> T TMHL_FibonacciNumber(T n);
 template <class T> T TMHL_HeavisideFunction(T x);
 template <class T> T TMHL_Max(T a, T b);
@@ -209,6 +216,7 @@ template <class T> void TMHL_RandomVectorOfPermutation(T *VMHL_ResultVector, int
 double MHL_RandomNormal(double Mean, double StdDev);
 double MHL_RandomUniform(double a, double b);
 int MHL_RandomUniformInt(int n, int m);
+int MHL_RandomUniformIntIncluding(int n, int m);
 
 //Сортировка
 template <class T> void TMHL_BubbleDescendingSort(T *VMHL_ResultVector, int VMHL_N);
@@ -1031,6 +1039,25 @@ for (int j=0;j<n;j++)
 }
 //---------------------------------------------------------------------------
 //*****************************************************************
+//Комбинаторика
+//*****************************************************************
+template <class T> T TMHL_KCombinations(T k, T n)
+{
+/*
+Функция возвращает число сочетаний из n по m (без возвращения).
+Выходные параметры:
+ k - по сколько элементов надо брать в группу;
+ n - общее число элементов.
+Возвращаемое значение:
+ Число сочетаний из n по k.
+*/
+    if ((k == 0) || (n == k)) return 1;
+    if (k>n)  TMHL_NumberInterchange(&n,&k);//n должен быть больше m
+
+    return TMHL_KCombinations(k, n - 1) + TMHL_KCombinations(k - 1, n - 1);
+}
+//---------------------------------------------------------------------------
+//*****************************************************************
 //Математические функции
 //*****************************************************************
 template <class T> T TMHL_Abs(T x)
@@ -1047,6 +1074,23 @@ T MinusOne=-1;
 if (x>=0) VMHL_Result=x;
 else VMHL_Result=x*MinusOne;
 return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+template <class T> T TMHL_Factorial(T x)
+{
+/*
+Функция вычисляет факториал числа.
+Входные параметры:
+ x - число.
+Возвращаемое значение:
+ Факториал числа.
+*/
+    if (x<1) x=1;
+    T S=1;
+    for (int i=0; i<x; i++)
+        S*=i+1;
+
+    return S;
 }
 //---------------------------------------------------------------------------
 template <class T> T TMHL_FibonacciNumber(T n)

@@ -176,6 +176,34 @@ TMHL_VectorToVector(Fitness,VMHL_ResultVector,VMHL_N);
 MHL_NormalizationVectorOne (VMHL_ResultVector,VMHL_N);
 }
 //---------------------------------------------------------------------------
+void MHL_MakeVectorOfProbabilityForRanklSelection(double *Rank, double *VMHL_ResultVector, int VMHL_N)
+{
+/*
+Функция формирует вектор вероятностей выбора индивидов из вектора рангов для ранговой селекции.
+Это служебная функция для использования функции ранговой селекции MHL_RankSelection.
+Входные параметры:
+ Rank - массив рангов, которые были посчитаны функцией MHL_MakeVectorOfRankForRankSelection;
+ VMHL_ResultVector - вектор вероятностей выбора индивидов из популяции, который мы и формируем;
+ VMHL_N - размер массива пригодностей.
+Возвращаемое значение:
+ Отсутствует.
+*/
+//Вектор Fitness мы не меняем. Поэтому проводим копирование.
+TMHL_VectorToVector(Rank,VMHL_ResultVector,VMHL_N);
+
+//Проводим нормировку вектора, с целью получения вектора вероятностей.
+double sum=TMHL_SumVector(VMHL_ResultVector,VMHL_N);
+if (sum==0)
+ {
+ //Если сумма равна нулю
+ for (int i=0;i<VMHL_N;i++) VMHL_ResultVector[i]=1./double(VMHL_N);
+ }
+else
+ {
+ for (int i=0;i<VMHL_N;i++) VMHL_ResultVector[i]/=sum;
+ }
+}
+//---------------------------------------------------------------------------
 void MHL_MakeVectorOfRankForRankSelection(double *Fitness, double *VMHL_ResultVector, int VMHL_N)
 {
 /*
@@ -227,6 +255,57 @@ delete[] N;
 delete[] F;
 }
 //---------------------------------------------------------------------------
+//---------------------------------------------------------------------------
+void MHL_MakeVectorOfRankZeroForRankSelection(double *Fitness, double *VMHL_ResultVector, int VMHL_N)
+{
+/*
+Проставляет ранги для элементов не сортированного массива, то есть номера,
+начиная с 0 (а не 1), в отсортированном массиве.  Если в массиве есть несколько одинаковых
+элементов, то ранги им присуждаются как среднеарифметические.
+Это модифицированная функция. Оригинальная функция MHL_MakeVectorOfRankForRankSelectionпроставляет ранги с 1.
+Входные параметры:
+ Fitness - массив пригодностей (можно подавать не массив пригодностей, а массив значений целевой функции, но только для задач безусловной оптимизации);
+ VMHL_ResultVector - массив рангов, который мы и формируем;
+ VMHL_N - размер массива пригодностей.
+Возвращаемое значение:
+ Отсутствует.
+*/
+int j,i,k;
+double Sn;
+double *F;
+int *N;
+F=new double[VMHL_N];
+N=new int[VMHL_N];
+
+TMHL_VectorToVector(Fitness,F,VMHL_N);
+
+//Заполним номерами
+TMHL_OrdinalVectorZero(N,VMHL_N);
+
+//сортируем массив пригодностей со сопряженным массивом номеров индивидов
+TMHL_BubbleSortWithConjugateVector (F,N,VMHL_N);
+
+//расставляем ранги
+for (i=0;i<VMHL_N;i++)
+ VMHL_ResultVector[N[i]]=i;//VMHL_ResultVector[N[i]]=i+1;
+
+//для одинаковых элементов ранги делаем одинаковыми как среднее арифметическое
+for (i=0;i<VMHL_N-1;i++)
+ {
+ if (F[i]==F[i+1])
+  {
+  j=i+1;
+  while ((F[i]==F[j])&&(j<VMHL_N)) j++;
+  Sn=MHL_SumOfArithmeticalProgression(i,1,j-i);
+  Sn/=double(j-i);
+  for (k=0;k<VMHL_N;k++)
+   if (Fitness[k]==F[i]) VMHL_ResultVector[k]=Sn;
+  i=j-1;
+  }
+ }
+delete[] N;
+delete[] F;
+}
 //---------------------------------------------------------------------------
 void MHL_NormalizationVectorAll(double *x,int VMHL_N)
 {
@@ -304,6 +383,55 @@ else
  {
  for (int i=0;i<VMHL_N;i++) VMHL_ResultVector[i]/=sum;
  }
+}
+//---------------------------------------------------------------------------
+double MHL_ProbabilityOfTournamentSelection(double *Fitness, double *VMHL_ResultVector_Probability, int T, int VMHL_N)
+{
+/*
+Функция вычисляет вероятности выбора индивидов из популяции с помощью турнирной селекции.
+Входные параметры:
+ Fitness - указатель на вектор значений целевой функции (не пригодности) индивидов;
+ VMHL_ResultVector_Probability - указатель на вектор, в который будет проводиться запись;
+ T - размер турнира;
+ VMHL_N -  размер массивов.
+Возвращаемое значение:
+ Сумму вектора вероятностей Probability.
+Примечание:
+ Данная функция не нужна для работы турнирной селекции через функцию MHL_TournamentSelection
+ в генетическом алгоритме. Функция предназначена для научных изысканий по исследованию работы
+ различных видов селекций.
+*/
+    int i,j,minTn1,j0;
+    double n1,n0,s,KC1,KC2,VMHL_Result;
+
+    //пробегаем по всем индивидам
+    for (i=0;i<VMHL_N;i++)
+    {
+        n0=0;//количество индивидов, которые выигрывают данный индивид
+        n1=0;//количество индивидов, которые равны данному индивиду
+        //Далее посчитаем их
+        for (j=0;j<VMHL_N;j++) if (Fitness[j]>Fitness[i]) n0++;
+        for (j=0;j<VMHL_N;j++) if (Fitness[j]==Fitness[i]) n1++;
+
+
+        j0=TMHL_Max(1,int(T-(VMHL_N-n1-n0)));
+        minTn1=TMHL_Min(T,int(n1));
+        s=0;
+        //пробегаем по всем допустимым сочетаниям
+        //точная формула в справке
+        for (j=j0-1;j<minTn1;j++)
+        {
+                KC1=TMHL_KCombinations(j+1,int(n1));// число возможных сочетаний
+                KC2=TMHL_KCombinations(T-(j+1),int(VMHL_N-n1-n0));// число возможных сочетаний
+                s+=KC1*KC2;
+        }
+
+        VMHL_ResultVector_Probability[i]=s/(n1*TMHL_KCombinations(T,VMHL_N));
+    }
+
+
+    VMHL_Result=TMHL_SumVector(VMHL_ResultVector_Probability,VMHL_N);
+    return VMHL_Result;
 }
 //---------------------------------------------------------------------------
 int MHL_ProportionalSelection(double *Fitness, int VMHL_N)
@@ -538,13 +666,13 @@ int *BestIndividual;
 BestIndividual=new int[ChromosomeLength];
 //Для пропорциональной и ранговой селекции нужен массив вероятностей выбора индивидов
 double *VectorOfProbability;
-if ((TypeOfSel==0)||(TypeOfSel==1)) VectorOfProbability=new double[PopulationSize];
+VectorOfProbability=new double[PopulationSize];
 //Для ранговой селекции нужен массив рангов индивидов
 double *Rank;
-if (TypeOfSel==1) Rank=new double[PopulationSize];
+Rank=new double[PopulationSize];
 //Для турнирной селекции нужен служебный массив, содержащий информация о том, в турнире или нет индивид;
 int *Taken;
-if (TypeOfSel==2) Taken=new int[PopulationSize];
+Taken=new int[PopulationSize];
 //Массив для хранения первого родителя
 int *Parent1;
 Parent1=new int[ChromosomeLength];
@@ -588,7 +716,7 @@ for (I=1;I<NumberOfGenerations;I++)
   //Для ранговой селекции нужен массив рангов индивидов
   MHL_MakeVectorOfRankForRankSelection(Fitness,Rank,PopulationSize);
   //Для ранговой селекции нужен массив вероятностей выбора индивидов из рангов
-  MHL_MakeVectorOfProbabilityForProportionalSelectionV2(Rank,VectorOfProbability,PopulationSize);
+  MHL_MakeVectorOfProbabilityForRanklSelection(Rank,VectorOfProbability,PopulationSize);
   }
  if (TypeOfSel==0)//Для пропорциональной нужен массив вероятностей выбора индивидов
   MHL_MakeVectorOfProbabilityForProportionalSelectionV2(Fitness,VectorOfProbability,PopulationSize);
@@ -697,9 +825,9 @@ delete [] Fitness;
 delete [] ChildrenFitness;
 delete [] TempIndividual;
 delete [] BestIndividual;
-if ((TypeOfSel==0)||(TypeOfSel==1)) delete [] VectorOfProbability;
-if (TypeOfSel==1) delete [] Rank;
-if (TypeOfSel==2) delete [] Taken;
+delete [] VectorOfProbability;
+delete [] Rank;
+delete [] Taken;
 delete [] Parent1;
 delete [] Parent2;
 delete [] Child;
@@ -895,8 +1023,7 @@ BinaryDecision=new int[ChromosomeLength];
 
 //Создадим еще один массив для хранения бинарного массива для преобразования строки Грей-кода в бинарную
 int *TempBinaryVector;
-if (TypOfConverting==1)//GrayСodeConverting (Стандартный рефлексивный Грей-код)
- TempBinaryVector=new int[ChromosomeLength];
+TempBinaryVector=new int[ChromosomeLength];//GrayСodeConverting (Стандартный рефлексивный Грей-код)
 
 //Определим параметры стандартного генетического алгоритма на бинарных строках
 ParametersOfStandartBinaryGeneticAlgorithm=new int[6];
@@ -953,8 +1080,7 @@ delete [] ParametersOfStandartBinaryGeneticAlgorithm;
 delete [] Lengthi;
 delete [] BinaryDecision;
 delete [] RealVector;
-if (TypOfConverting==1)//GrayСodeConverting (Стандартный рефлексивный Грей-код)
- delete [] TempBinaryVector;
+delete [] TempBinaryVector;
 
 //Обнулим дополнительные указатели
 VMHL_TempFunction=NULL;
@@ -1487,6 +1613,10 @@ for (int i=0;i<VMHL_N;i++)
  }
 }
 //---------------------------------------------------------------------------
+
+//*****************************************************************
+//Комбинаторика
+//*****************************************************************
 
 //*****************************************************************
 //Математические функции
@@ -2086,6 +2216,24 @@ int MHL_RandomUniformInt(int n, int m)
 int VMHL_Result;
 VMHL_Result=n+int(MHL_RandomNumber()*(m-n));
 if (VMHL_Result==m) VMHL_Result=m-1;
+return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+int MHL_RandomUniformIntIncluding(int n, int m)
+{
+/*
+Случайное целое число в интервале [n,m] по равномерному закону распределения.
+Входные параметры:
+ n - левая граница;
+ m - правая граница.
+Возвращаемое значение:
+ Случайное целое число от n до m включительно.
+Примечание:
+ В отличии от функции MHL_RandomUniformInt правая граница тоже включается, то есть может сгенерироваться m, а не m-1.
+*/
+int VMHL_Result;
+VMHL_Result=n+int(MHL_RandomNumber()*(m+1-n));
+if (VMHL_Result==m+1) VMHL_Result=m+1-1;
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------

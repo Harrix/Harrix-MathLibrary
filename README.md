@@ -1,7 +1,7 @@
 MathHarrixLibrary
 ===================
 
-Версия v.3.4.0.
+Версия v.3.5.
 
 https://github.com/Harrix/MathHarrixLibrary
 
@@ -40,6 +40,14 @@ https://github.com/Harrix/MathHarrixLibrary
 **[+]** добавление
 
 **[*]** разное
+
+**3.5.**
+
+**[+]** Добавлены различные функции, так что теперь теперь в библиотеке 188 функций.
+
+**[*]** Добавлена функция void MHL_ShowText (QString TitleX) в DemoMathHarrixLibrary.exe.
+
+**[*]** В MakeMathHarrixLibrary.exe небольшие изменения по интерфейсу.
 
 **3.4.0**
 

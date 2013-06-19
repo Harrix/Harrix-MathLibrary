@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MakeMathHarrixLibrary v.1.2.0 - Сборка библиотеки</string>
+   <string>MakeMathHarrixLibrary v.1.2.1 - Сборка библиотеки</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -30,6 +30,9 @@
        <enum>QFrame::Raised</enum>
       </property>
       <widget class="QPushButton" name="pushButton">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -43,6 +46,9 @@
        </property>
        <property name="text">
         <string>Собрать библиотеку</string>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
        </property>
       </widget>
      </widget>

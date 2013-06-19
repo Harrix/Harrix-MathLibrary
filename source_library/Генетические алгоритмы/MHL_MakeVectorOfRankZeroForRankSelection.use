@@ -1,0 +1,39 @@
+        int i;
+        int VMHL_N=7;//Размер массива (число строк)
+        double *Fitness;
+        Fitness=new double[VMHL_N];
+        for (i=0;i<VMHL_N;i++)
+         Fitness[i]=MHL_RandomUniformInt(1,10)/10.;
+
+        double *Rank;
+        Rank=new double[VMHL_N];
+
+        //Вызов функции
+        MHL_MakeVectorOfRankZeroForRankSelection(Fitness,Rank,VMHL_N);
+
+        //Используем полученный результат
+
+        MHL_ShowVector (Fitness,VMHL_N,"Массив пригодностей", "Fitness");
+        //Массив пригодностей:
+        //Fitness =
+        //0.3
+        //0.8
+        //0.2
+        //0.9
+        //0.1
+        //0.9
+        //0.4
+
+        MHL_ShowVector (Rank,VMHL_N,"Массив рангов", "Rank");
+        //Массив рангов:
+        //Rank =
+        //2
+        //4
+        //1
+        //5.5
+        //0
+        //5.5
+        //3
+
+        delete [] Fitness;
+        delete [] Rank;

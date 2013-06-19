@@ -1,0 +1,9 @@
+        int n=10;
+        int k=MHL_RandomUniformInt(0,10);
+
+        int C=TMHL_KCombinations(k,n);
+
+        //Используем полученный результат
+        MHL_ShowNumber(C,"Число сочетаний по "+MHL_NumberToText(k)+" элементов из " +MHL_NumberToText(n),"C");
+        //Число сочетаний по 8 элементов из 10:
+        //C=45

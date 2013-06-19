@@ -1,4 +1,4 @@
-//Сборник функций для Qt. Версия v.2.0.
+//Сборник функций для Qt. Версия v.2.6.
 //https://github.com/Harrix/QtHarrixLibrary
 //Библиотека распространяется по лицензии Apache License, Version 2.0.
 
@@ -25,6 +25,21 @@ QString HQt_ReadFile(QString filename)
         line=file.readAll();
     file.close();
     return line;
+}
+//---------------------------------------------------------------------------
+
+QStringList HQt_ReadFileToQStringList(QString filename)
+{
+    /*
+    Функция считывает текстовой файл в QStringList.
+    Входные параметры:
+     filename - имя файла.
+    Возвращаемое значение:
+     QStringList со всем содержимым текстового файла.
+    */
+    QString Temp=HQt_ReadFile(filename);
+
+    return HQt_QStringToQStringList(Temp);
 }
 //---------------------------------------------------------------------------
 
@@ -309,5 +324,285 @@ QString HQt_WriteTime(int t)
     if (Millisec!=0) A+=QString::number(Millisec)+" миллисек.";
 
     return A;
+}
+//---------------------------------------------------------------------------
+
+QString HQt_UniqueName ()
+{
+    /*
+    Функция возвращает уникальную строку, которую можно использовать как некий идентификатор.
+    Собирается из "HQt_" + текущее время.
+    Входные параметры:
+     Отсутствуют.
+    Возвращаемое значение:
+     Уникальная строка.
+    */
+    return "HQt_"+QDateTime::currentDateTime().toString("ddMMyyyyhhmmss");
+}
+//---------------------------------------------------------------------------
+
+QString HQt_UniqueName (QString BeginString)
+{
+    /*
+    Функция возвращает уникальную строку, которую можно использовать как некий идентификатор.
+    Собирается из BeginString+"_" + текущее время.
+    Входные параметры:
+     BeginString - Приставка вначале строки.
+    Возвращаемое значение:
+     Уникальная строка.
+    */
+    return BeginString+"_"+QDateTime::currentDateTime().toString("ddMMyyyyhhmmss");
+}
+//---------------------------------------------------------------------------
+QString HQt_UniqueNameOnlyNumbers ()
+{
+    /*
+    Функция возвращает уникальную строку, которую можно использовать как некий идентификатор. В строке только цифры.
+    Собирается из текущего времени.
+    Входные параметры:
+     Отсутствуют.
+    Возвращаемое значение:
+     Уникальная строка.
+    */
+    return QDateTime::currentDateTime().toString("ddMMyyyyhhmmss");
+}
+//---------------------------------------------------------------------------
+void HQt_Delay(int MSecs)
+{
+    /*
+    Функция делает задержку в MSecs миллисекунд.
+    Входные параметры:
+     MSecs - миллисекунды, сколько надо подержать работу Qt. Не меньше пяти миллисекунд должно быть.
+    Возвращаемое значение:
+     Отсутствуют.
+    */
+    QTime dieTime= QTime::currentTime().addMSecs(MSecs);
+    while( QTime::currentTime() < dieTime )
+    QGuiApplication::processEvents(QEventLoop::AllEvents, 100);
+}
+//---------------------------------------------------------------------------
+
+QString HQt_RandomString(int Length)
+{
+    /*
+    Функция генерирует случайную строку из английских больших и малых букв.
+    Входные параметры:
+     Length - длина строки, которую надо сгенерировать.
+    Возвращаемое значение:
+     Случайная строка.
+    Примечание:
+     Используются случайные числа, так что рекомендуется вызвать в программе иницилизатор случайных чисел qsrand.
+     Рекомендую так:
+     qsrand(QDateTime::currentMSecsSinceEpoch () % 1000000);
+    */
+    QString VMHL_Result;
+    static const char alphanum[] =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        "abcdefghijklmnopqrstuvwxyz";
+
+    char *s=new char[Length];
+
+    for (int i=0; i<Length; ++i)
+    {
+        s[i] = alphanum[qrand() % (sizeof(alphanum) - 1)];
+    }
+
+    s[Length] = 0;
+
+    VMHL_Result = QString(s);
+
+    delete [] s;
+
+    return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+int HQt_DaysBetweenDates(QDate BeginDate, QDate EndDate)
+{
+    /*
+    Функция определяет сколько дней между двумя датами.
+    Входные параметры:
+     BeginDate - первая дата.
+     EndDate - вторая дата.
+    Возвращаемое значение:
+     Число дней между датами.
+    */
+    return abs(BeginDate.daysTo(EndDate));
+}
+//---------------------------------------------------------------------------
+int HQt_DaysBetweenDates(QString BeginDate, QString EndDate)
+{
+    /*
+    Функция определяет сколько дней между двумя датами.
+    Входные параметры:
+     BeginDate - первая дата в виде строки в формате 2013.06.16.
+     EndDate - вторая дата в виде строки в формате 2012.06.16.
+    Возвращаемое значение:
+     Число дней между датами.
+    */
+    QDate DBeginDate(QDate::fromString(BeginDate, "yyyy.MM.dd"));
+    QDate DEndDate(QDate::fromString(EndDate, "yyyy.MM.dd"));
+    return abs(DBeginDate.daysTo(DEndDate));
+}
+//---------------------------------------------------------------------------
+
+int HQt_SizeMatrixOrVectorFromQStringList(QStringList QStringListFromFile, int* VMHL_Result_M)
+{
+    /*
+    Функция подсчитывает сколько строк и столбцов в текстовом файле, который скопировали в QStringListFromFile.
+    Считается, что файл правильный, ошибки не проверяются. в строке числа разделяются через табуляцию \t,
+    а десятичные числа используют точку, а не запятую.
+    Входные параметры:
+     QStringListFromFile - непосредственно сам файл;
+     VMHL_Result_M - сюда будем записывать число столбцов в матрице (число знаков табуляции + 1).
+    Возвращаемое значение:
+     Число строк.
+    Пример содержимого QStringListFromFile:
+1	2.2
+2.8	9
+    */
+    int VMHL_Result_N=QStringListFromFile.count();
+
+    QString A=QStringListFromFile.at(0);
+
+    *VMHL_Result_M=A.count("\t")+1;
+
+    return VMHL_Result_N;
+}
+//---------------------------------------------------------------------------
+int HQt_SizeMatrixOrVectorFromQStringList(QStringList QStringListFromFile)
+{
+    /*
+    Функция подсчитывает сколько строк в текстовом файле, который скопировали в QStringListFromFile.
+    Считается, что файл правильный, ошибки не проверяются. в строке числа разделяются через табуляцию \t,
+    а десятичные числа используют точку, а не запятую.
+    Входные параметры:
+     QStringListFromFile - непосредственно сам файл.
+    Возвращаемое значение:
+     Число строк.
+    Пример содержимого QStringListFromFile:
+1
+2.8
+    */
+    int VMHL_Result_N=QStringListFromFile.count();
+
+    return VMHL_Result_N;
+}
+//---------------------------------------------------------------------------
+
+void THQt_ReadColFromQStringList(QStringList QStringListFromFile, int k, QDate *VMHL_VectorResult)
+{
+    /*
+    Функция считывает данные какого-то k столбца с датами из QStringList в виде матрицы.
+    Входные параметры:
+     QStringListFromFile - отсюда берем информацию;
+     k - номер столбца, начиная с нуля, который считываем;
+     VMHL_VectorResult - сюда будем записывать результат считывания столбца из матрицы.
+    Возвращаемое значение:
+     Отсуствует.
+    Пример содержимого VMHL_VectorResult.
+1	2013.04.05	6
+52	2013.02.25	96
+6.4	2013.01.15	4
+    */
+    int i,j;
+    int N,M;
+    N = HQt_SizeMatrixOrVectorFromQStringList(QStringListFromFile,&M);
+    QString A,X;
+
+    for (i=0;i<N;i++)
+    {
+        A=QStringListFromFile.at(i);
+        A=A.trimmed();
+        for (j=0;j<k;j++)
+        {
+            A=A.mid(A.indexOf("\t")+1);
+            A=A.trimmed();
+        }
+            X=A.mid(0,A.indexOf("\t"));
+
+            int p1=X.lastIndexOf(".");
+            int p2=X.indexOf(".");
+
+            QDate DBeginDate;
+            if ((p1==2)&&(p2==5))
+                DBeginDate=QDate::fromString(X, "yyyy.MM.dd");
+            else
+                DBeginDate=QDate::fromString(X, "dd.MM.yyyy");
+            VMHL_VectorResult[i]=DBeginDate;
+    }
+}
+//---------------------------------------------------------------------------
+
+//Функции для получения HTML кода для вывода в webView
+
+QString HQt_ShowText (QString TitleX)
+{
+    /*
+    Функция возвращает строку с выводом некотороq строки с HTML кодами. Для добавление в html файл.
+    Входные параметры:
+     TitleX - непосредственно выводимая строка.
+    Возвращаемое значение:
+     Строка с HTML кодами с выводимым числом.
+    */
+    QString VMHL_Result;
+
+    VMHL_Result="<p><b>"+TitleX+":</b><br>";
+
+    return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+
+QString HQt_BeginHtml ()
+{
+    /*
+    Функция возвращает строку с началом HTML файла, в который другими функциями
+    добавляются иные данные. Для добавление в html файл.
+    Входные параметры:
+     Отсутствуют.
+    Возвращаемое значение:
+     Строка с началом HTML файла.
+    */
+    QString VMHL_Result;
+
+    VMHL_Result+="<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n";
+    VMHL_Result+="<html>\n";
+    VMHL_Result+="<head>\n";
+    VMHL_Result+="<meta name=\"qrichtext\" content=\"1\" />\n";
+    VMHL_Result+="<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\n\n";
+    VMHL_Result+="<style type=\"text/css\">\n";
+    VMHL_Result+="p, li { white-space: pre-wrap; }\n";
+    VMHL_Result+="h1 { font-size:140% }\n";
+    VMHL_Result+="h2 { font-size:120% }\n";
+    VMHL_Result+="h3,h4,h5,h6 { font-size:110% }\n";
+    VMHL_Result+="body { font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal; }\n";
+    VMHL_Result+="</style>\n\n";
+
+    //Подключение двух файлов для отображения графиков
+    //https://github.com/jsxgraph/jsxgraph
+    VMHL_Result+="<link rel=\"stylesheet\" type=\"text/css\" href=\"jsxgraph.css\" />\n";
+    VMHL_Result+="<script type=\"text/javascript\" src=\"jsxgraphcore.js\"></script>";
+
+    VMHL_Result+="</head>\n\n";
+    VMHL_Result+="<body>\n";
+
+
+    return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+QString HQt_EndHtml ()
+{
+    /*
+    Функция возвращает строку с концовкой HTML файла, в который другими функциями
+    добавляются иные данные. Для добавление в html файл.
+    Входные параметры:
+     Отсутствуют.
+    Возвращаемое значение:
+     Строка с концовкой HTML файла.
+    */
+    QString VMHL_Result;
+
+    VMHL_Result="</body>\n</html>";
+
+    return VMHL_Result;
 }
 //---------------------------------------------------------------------------

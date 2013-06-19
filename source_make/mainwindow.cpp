@@ -29,6 +29,8 @@ void MainWindow::on_pushButton_clicked()
     QTime myTimer;
     myTimer.start();//запуск таймера работы сборки библиотеки
 
+    ui->pushButton->setEnabled(false);
+
     ui->textEdit->clear();
 
     QString DS=QDir::separator();
@@ -394,12 +396,16 @@ void MainWindow::on_pushButton_clicked()
 
     ui->textEdit->insertHtml("<font color=\"#858585\">Конец формирования файлов библиотеки.<\font><br>");
 
+    ui->textEdit->insertHtml("<font color=\"#858585\">Было обнаружено "+QString::number(countfunction)+" функций.<\font><br>");
+
     int nMilliseconds = myTimer.elapsed();
     ui->textEdit->insertHtml("<font color=\"#858585\">Потребовалось времени: "+HQt_WriteTime(nMilliseconds)+"<\font><br>");
 
     QTextCursor c =  ui->textEdit->textCursor();
     c.movePosition(QTextCursor::End);
     ui->textEdit->setTextCursor(c);
+
+    ui->pushButton->setEnabled(true);
 
     //открытие папки с собранными файлами
     QDesktopServices::openUrl(QUrl::fromLocalFile(temp_library_path));

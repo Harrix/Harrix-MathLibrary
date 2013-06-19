@@ -85,8 +85,7 @@ BinaryDecision=new int[ChromosomeLength];
 
 //Создадим еще один массив для хранения бинарного массива для преобразования строки Грей-кода в бинарную
 int *TempBinaryVector;
-if (TypOfConverting==1)//GrayСodeConverting (Стандартный рефлексивный Грей-код)
- TempBinaryVector=new int[ChromosomeLength];
+TempBinaryVector=new int[ChromosomeLength];//GrayСodeConverting (Стандартный рефлексивный Грей-код)
 
 //Определим параметры стандартного генетического алгоритма на бинарных строках
 ParametersOfStandartBinaryGeneticAlgorithm=new int[6];
@@ -143,8 +142,7 @@ delete [] ParametersOfStandartBinaryGeneticAlgorithm;
 delete [] Lengthi;
 delete [] BinaryDecision;
 delete [] RealVector;
-if (TypOfConverting==1)//GrayСodeConverting (Стандартный рефлексивный Грей-код)
- delete [] TempBinaryVector;
+delete [] TempBinaryVector;
 
 //Обнулим дополнительные указатели
 VMHL_TempFunction=NULL;

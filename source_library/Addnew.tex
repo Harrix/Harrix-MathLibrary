@@ -207,6 +207,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
 \item \textbf{MHL\_ShowVector} --- функция вывода вектора (одномерного массива);
 \item \textbf{MHL\_ShowVectorT} --- функция вывода вектора (одномерного массива) в строку одну, то есть это транспонированный вектор;
 \item \textbf{MHL\_ShowMatrix} --- функция вывода матрицы.
+\item \textbf{MHL\_ShowText} --- функция вывода просто текста.
 \end{itemize}
 
 Далее функции рассмотрены подробнее.
@@ -370,6 +371,21 @@ template <class T> void MHL_ShowMatrix (T **VMHL_Matrix, int VMHL_N, int VMHL_M,
         //4	5	6	7	8
         //5	6	7	8	9
         //6	7	8	9	10  
+\end{lstlisting}
+
+\item \textbf{MHL\_ShowText} --- функция вывода просто текста. 
+\begin{lstlisting}[label=examplefunction14855, caption=Синтаксис функции MHL\_ShowText]
+void MHL_ShowText (QString TitleX);
+\end{lstlisting}
+Входные параметры: 
+\begin{itemize}   
+     \item TitleX - непосредственно выводимая строка.
+\end{itemize}
+Пример использования функции:
+\begin{lstlisting}[label=examplefunction14855, caption=Пример использования MHL\_ShowText]
+MHL_ShowText ("Выводимый текст");
+//Выводимый текст
+
 \end{lstlisting}
 
 

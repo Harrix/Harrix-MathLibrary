@@ -91,13 +91,13 @@ int *BestIndividual;
 BestIndividual=new int[ChromosomeLength];
 //Для пропорциональной и ранговой селекции нужен массив вероятностей выбора индивидов
 double *VectorOfProbability;
-if ((TypeOfSel==0)||(TypeOfSel==1)) VectorOfProbability=new double[PopulationSize];
+VectorOfProbability=new double[PopulationSize];
 //Для ранговой селекции нужен массив рангов индивидов
 double *Rank;
-if (TypeOfSel==1) Rank=new double[PopulationSize];
+Rank=new double[PopulationSize];
 //Для турнирной селекции нужен служебный массив, содержащий информация о том, в турнире или нет индивид;
 int *Taken;
-if (TypeOfSel==2) Taken=new int[PopulationSize];
+Taken=new int[PopulationSize];
 //Массив для хранения первого родителя
 int *Parent1;
 Parent1=new int[ChromosomeLength];
@@ -141,7 +141,7 @@ for (I=1;I<NumberOfGenerations;I++)
   //Для ранговой селекции нужен массив рангов индивидов
   MHL_MakeVectorOfRankForRankSelection(Fitness,Rank,PopulationSize);
   //Для ранговой селекции нужен массив вероятностей выбора индивидов из рангов
-  MHL_MakeVectorOfProbabilityForProportionalSelectionV2(Rank,VectorOfProbability,PopulationSize);
+  MHL_MakeVectorOfProbabilityForRanklSelection(Rank,VectorOfProbability,PopulationSize);
   }
  if (TypeOfSel==0)//Для пропорциональной нужен массив вероятностей выбора индивидов
   MHL_MakeVectorOfProbabilityForProportionalSelectionV2(Fitness,VectorOfProbability,PopulationSize);
@@ -250,9 +250,9 @@ delete [] Fitness;
 delete [] ChildrenFitness;
 delete [] TempIndividual;
 delete [] BestIndividual;
-if ((TypeOfSel==0)||(TypeOfSel==1)) delete [] VectorOfProbability;
-if (TypeOfSel==1) delete [] Rank;
-if (TypeOfSel==2) delete [] Taken;
+delete [] VectorOfProbability;
+delete [] Rank;
+delete [] Taken;
 delete [] Parent1;
 delete [] Parent2;
 delete [] Child;

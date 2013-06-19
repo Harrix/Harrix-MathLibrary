@@ -1,0 +1,29 @@
+\textbf{Входные параметры:}  
+ 
+ Fitness --- указатель на вектор значений целевой функции (не пригодности) индивидов;
+ 
+ VMHL\_ResultVector\_Probability --- указатель на вектор, в который будет проводиться запись;
+ 
+ T --- размер турнира;
+ 
+ VMHL\_N ---  размер массивов.
+
+\textbf{Возвращаемое значение:}
+
+ Сумму вектора вероятностей Probability.
+ 
+  \textbf{Примечание:}
+  
+   Данная функция не нужна для работы турнирной селекции через функцию MHL\_TournamentSelection в генетическом алгоритме. Функция предназначена для научных изысканий по исследованию работы  различных видов селекций.
+ 
+ \textbf{Формула:}
+ 
+\begin{equation*}
+P\left( X_j\right) = \dfrac{\sum_{j=\max \left(1, T-\left( N-n_1-n_0\right)  \right) }^{\min \left( T, n_1\right) }C_{n_1}^j\cdot C_{ N-n_1-n_0}^{T-j}}{n_1\cdot C_N^T}, \text{ где}
+\end{equation*}
+\begin{equation*}
+n_0=\sum_{j=1}^{N} S_0\left( X_j\right), S_0\left( X_j\right)=\left\lbrace \begin{aligned} 1, \text{ если } f\left( X_j\right)> f\left( X_i\right); \\ 0, \text{ если } f\left( X_j\right)\leq f\left( X_i\right). \end{aligned}\right.
+\end{equation*}
+\begin{equation*}
+n_1=\sum_{j=1}^{N} S_1\left( X_j\right), S_1\left( X_j\right)=\left\lbrace \begin{aligned} 1, \text{ если } f\left( X_j\right)= f\left( X_i\right); \\ 0, \text{ если } f\left( X_j\right)\neq f\left( X_i\right). \end{aligned}\right.
+\end{equation*}
