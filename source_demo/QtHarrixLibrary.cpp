@@ -1,4 +1,4 @@
-//Сборник функций для Qt. Версия v.2.15.
+//Сборник функций для Qt. Версия v.2.16.
 //https://github.com/Harrix/QtHarrixLibrary
 //Библиотека распространяется по лицензии Apache License, Version 2.0.
 
