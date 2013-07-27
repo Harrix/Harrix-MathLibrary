@@ -1422,7 +1422,7 @@ template <class T> QString THQt_ShowTwoChartsOfLine (T *VMHL_VectorX,T *VMHL_Vec
             VMHL_Result+=NameChart1Legend+"[0].setProperty('strokeColor:"+Color+"','highlightStrokeColor:"+HighlightColor+"','strokeWidth:2');\n";
             VMHL_Result+="for(var i=0; i<"+QString::number(2)+";i++) \n";
             VMHL_Result+="    {\n";
-            VMHL_Result+="    "+NameChart1Legend+"[1][i].setProperty({strokeColor:'"+Color+"',highlightStrokeColor:'"+HighlightColor+"',fillColor:'white',highlightFillColor:'white',face:'[]', size:3, strokeWidth:'2pt'});\n";
+            VMHL_Result+="    "+NameChart1Legend+"[1][i].setProperty({strokeColor:'"+Color+"',highlightStrokeColor:'"+HighlightColor+"',fillColor:'white',highlightFillColor:'white',face:'o', size:2, strokeWidth:'2pt'});\n";
             VMHL_Result+="    }\n";
 
             //Нарисуем график2
@@ -1430,7 +1430,7 @@ template <class T> QString THQt_ShowTwoChartsOfLine (T *VMHL_VectorX,T *VMHL_Vec
             VMHL_Result+=NameChart2Legend+"[0].setProperty('strokeColor:"+Color2+"','highlightStrokeColor:"+HighlightColor2+"','strokeWidth:2');\n";
             VMHL_Result+="for(var i=0; i<"+QString::number(2)+";i++) \n";
             VMHL_Result+="    {\n";
-            VMHL_Result+="    "+NameChart2Legend+"[1][i].setProperty({strokeColor:'"+Color2+"',highlightStrokeColor:'"+HighlightColor2+"',fillColor:'white',highlightFillColor:'white',face:'o', size:2, strokeWidth:'2pt'});\n";
+            VMHL_Result+="    "+NameChart2Legend+"[1][i].setProperty({strokeColor:'"+Color2+"',highlightStrokeColor:'"+HighlightColor2+"',fillColor:'white',highlightFillColor:'white',face:'[]', size:3, strokeWidth:'2pt'});\n";
             VMHL_Result+="    }\n";
         }
         if ((ShowPoints)&&(!ShowLine))
@@ -1440,7 +1440,7 @@ template <class T> QString THQt_ShowTwoChartsOfLine (T *VMHL_VectorX,T *VMHL_Vec
             VMHL_Result+=NameChart1Legend+"[0].setProperty('strokeColor:"+Color+"','highlightStrokeColor:"+HighlightColor+"','strokeWidth:0');\n";
             VMHL_Result+="for(var i=0; i<"+QString::number(3)+";i++) \n";
             VMHL_Result+="    {\n";
-            VMHL_Result+="    "+NameChart1Legend+"[1][i].setProperty({strokeColor:'"+Color+"',highlightStrokeColor:'"+HighlightColor+"',fillColor:'white',highlightFillColor:'white',face:'[]', size:3, strokeWidth:'2pt'});\n";
+            VMHL_Result+="    "+NameChart1Legend+"[1][i].setProperty({strokeColor:'"+Color+"',highlightStrokeColor:'"+HighlightColor+"',fillColor:'white',highlightFillColor:'white',face:'o', size:2, strokeWidth:'2pt'});\n";
             VMHL_Result+="    }\n";
 
             //Нарисуем точки2
@@ -1448,7 +1448,7 @@ template <class T> QString THQt_ShowTwoChartsOfLine (T *VMHL_VectorX,T *VMHL_Vec
             VMHL_Result+=NameChart2Legend+"[0].setProperty('strokeColor:"+Color2+"','highlightStrokeColor:"+HighlightColor2+"','strokeWidth:0');\n";
             VMHL_Result+="for(var i=0; i<"+QString::number(3)+";i++) \n";
             VMHL_Result+="    {\n";
-            VMHL_Result+="    "+NameChart2Legend+"[1][i].setProperty({strokeColor:'"+Color2+"',highlightStrokeColor:'"+HighlightColor2+"',fillColor:'white',highlightFillColor:'white',face:'o', size:2, strokeWidth:'2pt'});\n";
+            VMHL_Result+="    "+NameChart2Legend+"[1][i].setProperty({strokeColor:'"+Color2+"',highlightStrokeColor:'"+HighlightColor2+"',fillColor:'white',highlightFillColor:'white',face:'[]', size:3, strokeWidth:'2pt'});\n";
             VMHL_Result+="    }\n";
         }
         if (((!ShowPoints)&&(ShowLine))||((!ShowPoints)&&(!ShowLine)))
@@ -2053,7 +2053,7 @@ template <class T> QString THQt_ShowTwoIndependentChartsOfLine (T *VMHL_VectorX1
             VMHL_Result+=NameChart1Legend+"[0].setProperty('strokeColor:"+Color+"','highlightStrokeColor:"+HighlightColor+"','strokeWidth:2');\n";
             VMHL_Result+="for(var i=0; i<"+QString::number(2)+";i++) \n";
             VMHL_Result+="    {\n";
-            VMHL_Result+="    "+NameChart1Legend+"[1][i].setProperty({strokeColor:'"+Color+"',highlightStrokeColor:'"+HighlightColor+"',fillColor:'white',highlightFillColor:'white',face:'[]', size:3, strokeWidth:'2pt'});\n";
+            VMHL_Result+="    "+NameChart1Legend+"[1][i].setProperty({strokeColor:'"+Color+"',highlightStrokeColor:'"+HighlightColor+"',fillColor:'white',highlightFillColor:'white',face:'o', size:2, strokeWidth:'2pt'});\n";
             VMHL_Result+="    }\n";
 
             //Нарисуем график2
@@ -2061,7 +2061,7 @@ template <class T> QString THQt_ShowTwoIndependentChartsOfLine (T *VMHL_VectorX1
             VMHL_Result+=NameChart2Legend+"[0].setProperty('strokeColor:"+Color2+"','highlightStrokeColor:"+HighlightColor2+"','strokeWidth:2');\n";
             VMHL_Result+="for(var i=0; i<"+QString::number(2)+";i++) \n";
             VMHL_Result+="    {\n";
-            VMHL_Result+="    "+NameChart2Legend+"[1][i].setProperty({strokeColor:'"+Color2+"',highlightStrokeColor:'"+HighlightColor2+"',fillColor:'white',highlightFillColor:'white',face:'o', size:2, strokeWidth:'2pt'});\n";
+            VMHL_Result+="    "+NameChart2Legend+"[1][i].setProperty({strokeColor:'"+Color2+"',highlightStrokeColor:'"+HighlightColor2+"',fillColor:'white',highlightFillColor:'white',face:'[]', size:3, strokeWidth:'2pt'});\n";
             VMHL_Result+="    }\n";
         }
         if ((ShowPoints)&&(!ShowLine))
@@ -2071,7 +2071,7 @@ template <class T> QString THQt_ShowTwoIndependentChartsOfLine (T *VMHL_VectorX1
             VMHL_Result+=NameChart1Legend+"[0].setProperty('strokeColor:"+Color+"','highlightStrokeColor:"+HighlightColor+"','strokeWidth:0');\n";
             VMHL_Result+="for(var i=0; i<"+QString::number(3)+";i++) \n";
             VMHL_Result+="    {\n";
-            VMHL_Result+="    "+NameChart1Legend+"[1][i].setProperty({strokeColor:'"+Color+"',highlightStrokeColor:'"+HighlightColor+"',fillColor:'white',highlightFillColor:'white',face:'[]', size:3, strokeWidth:'2pt'});\n";
+            VMHL_Result+="    "+NameChart1Legend+"[1][i].setProperty({strokeColor:'"+Color+"',highlightStrokeColor:'"+HighlightColor+"',fillColor:'white',highlightFillColor:'white',face:'o', size:2, strokeWidth:'2pt'});\n";
             VMHL_Result+="    }\n";
 
             //Нарисуем точки2
@@ -2079,7 +2079,7 @@ template <class T> QString THQt_ShowTwoIndependentChartsOfLine (T *VMHL_VectorX1
             VMHL_Result+=NameChart2Legend+"[0].setProperty('strokeColor:"+Color2+"','highlightStrokeColor:"+HighlightColor2+"','strokeWidth:0');\n";
             VMHL_Result+="for(var i=0; i<"+QString::number(3)+";i++) \n";
             VMHL_Result+="    {\n";
-            VMHL_Result+="    "+NameChart2Legend+"[1][i].setProperty({strokeColor:'"+Color2+"',highlightStrokeColor:'"+HighlightColor2+"',fillColor:'white',highlightFillColor:'white',face:'o', size:2, strokeWidth:'2pt'});\n";
+            VMHL_Result+="    "+NameChart2Legend+"[1][i].setProperty({strokeColor:'"+Color2+"',highlightStrokeColor:'"+HighlightColor2+"',fillColor:'white',highlightFillColor:'white',face:'[]', size:3, strokeWidth:'2pt'});\n";
             VMHL_Result+="    }\n";
         }
         if (((!ShowPoints)&&(ShowLine))||((!ShowPoints)&&(!ShowLine)))
