@@ -560,6 +560,18 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("MHL_RandomUniformIntIncluding"));
     model->appendRow(item);
 
+    item = new QStandardItem(QString("TMHL_BubbleSortRowWithOtherConjugateRowsInMatrix"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("TMHL_BubbleSortEveryRowInMatrix"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("TMHL_BubbleSortColWithOtherConjugateColsInMatrix"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("TMHL_BubbleSortEveryColInMatrix"));
+    model->appendRow(item);
+
 
     model->sort(0);
 
@@ -715,7 +727,7 @@ template <class T> void MainWindow::MHL_ShowMatrix (T **VMHL_Matrix, int VMHL_N,
 
 void MainWindow::on_listView_clicked(const QModelIndex &index)
 {
-    Html="<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n<html><head><meta name=\"qrichtext\" content=\"1\" />\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\n<style type=\"text/css\">\np, li { white-space: pre-wrap; }\n</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n";
+    Html=HQt_BeginHtml ();
 
     QString NameFunction;//Какая функция вызывается
 
@@ -6826,10 +6838,166 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
 
     }
 
+    if (NameFunction=="TMHL_BubbleSortRowWithOtherConjugateRowsInMatrix")
+    {
+        int i;
+        int VMHL_N=5;//Размер массива (число строк)
+        int VMHL_M=3;//Размер массива (число столбцов)
+        int **a;
+        a=new int*[VMHL_N];
+        for (i=0;i<VMHL_N;i++) a[i]=new int[VMHL_M];
+
+        TMHL_RandomIntMatrix(a,0,5,VMHL_N,VMHL_M);
+
+        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Случайная матрица", "a");
+        //Случайная матрица:
+        //a =
+        //0	0	1	2	3
+        //1	2	1	4	1
+        //3	1	2	0	1
+        //3	4	1	0	0
+        //4	4	1	0	2
+
+        int Row=2;//Будем сортировать строку под номером 2
+
+        //Вызов функции
+
+        TMHL_BubbleSortRowWithOtherConjugateRowsInMatrix(a, Row, VMHL_N, VMHL_M);
+
+        //Используем полученный результат
+        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Случайная матрица отсортированная по строке с номером "+MHL_NumberToText(Row), "a");
+        //Случайная матрица отсортированная по строке с номером 2:
+        //a =
+        //2	0	3	1	0
+        //4	2	1	1	1
+        //0	1	1	2	3
+        //0	4	0	1	3
+        //0	4	2	1	4
+
+        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        delete [] a;
+    }
+
+    if (NameFunction=="TMHL_BubbleSortEveryRowInMatrix")
+    {
+        int i;
+        int VMHL_N=5;//Размер массива (число строк)
+        int VMHL_M=6;//Размер массива (число столбцов)
+        int **a;
+        a=new int*[VMHL_N];
+        for (i=0;i<VMHL_N;i++) a[i]=new int[VMHL_M];
+
+        TMHL_RandomIntMatrix(a,0,5,VMHL_N,VMHL_M);
+
+        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Случайная матрица", "a");
+        //Случайная матрица:
+        //Случайная матрица:
+        //a =
+        //3	1	2	1	1	2
+        //0	1	4	0	2	1
+        //4	4	4	3	2	1
+        //1	3	0	3	4	0
+        //2	3	1	1	2	3
+
+
+        //Вызов функции
+        TMHL_BubbleSortEveryRowInMatrix(a, VMHL_N, VMHL_M);
+
+        //Используем полученный результат
+        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Случайная матрица, где каждая строка отсортировна независимо", "a");
+        //Случайная матрица, где каждая отсортировна независимо:
+        //a =
+        //1	1	1	2	2	3
+        //0	0	1	1	2	4
+        //1	2	3	4	4	4
+        //0	0	1	3	3	4
+        //1	1	2	2	3	3
+
+        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        delete [] a;
+    }
+
+    if (NameFunction=="TMHL_BubbleSortColWithOtherConjugateColsInMatrix")
+    {
+        int i;
+        int VMHL_N=5;//Размер массива (число строк)
+        int VMHL_M=3;//Размер массива (число столбцов)
+        int **a;
+        a=new int*[VMHL_N];
+        for (i=0;i<VMHL_N;i++) a[i]=new int[VMHL_M];
+
+        TMHL_RandomIntMatrix(a,0,5,VMHL_N,VMHL_M);
+
+        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Случайная матрица", "a");
+        //Случайная матрица:
+        //a =
+        //4	0	1
+        //4	0	4
+        //2	2	0
+        //2	3	1
+        //1	3	1
+
+        int Col=0;//Будем сортировать столбец под номером 2
+
+        //Вызов функции
+
+        TMHL_BubbleSortColWithOtherConjugateColsInMatrix(a, Col, VMHL_N, VMHL_M);
+
+        //Используем полученный результат
+        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Случайная матрица отсортированная по столбцу с номером "+MHL_NumberToText(Col), "a");
+        //Случайная матрица отсортированная по столбцу с номером 0:
+        //a =
+        //1	3	1
+        //2	2	0
+        //2	3	1
+        //4	0	1
+        //4	0	4
+
+        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        delete [] a;
+    }
+
+    if (NameFunction=="TMHL_BubbleSortEveryColInMatrix")
+    {
+        int i;
+        int VMHL_N=5;//Размер массива (число строк)
+        int VMHL_M=6;//Размер массива (число столбцов)
+        int **a;
+        a=new int*[VMHL_N];
+        for (i=0;i<VMHL_N;i++) a[i]=new int[VMHL_M];
+
+        TMHL_RandomIntMatrix(a,0,5,VMHL_N,VMHL_M);
+
+        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Случайная матрица", "a");
+        //Случайная матрица:
+        //a =
+        //4	1	4	3	0	4
+        //2	1	1	1	0	3
+        //0	4	2	2	0	3
+        //1	2	2	2	4	0
+        //3	0	2	4	1	4
+
+        //Вызов функции
+        TMHL_BubbleSortEveryColInMatrix(a, VMHL_N, VMHL_M);
+
+        //Используем полученный результат
+        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Случайная матрица, где каждый столбец отсортирован независимо", "a");
+        //Случайная матрица, где каждый столбец отсортирован независимо:
+        //a =
+        //0	0	1	1	0	0
+        //1	1	2	2	0	3
+        //2	1	2	2	0	3
+        //3	2	2	3	1	4
+        //4	4	4	4	4	4
+
+        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        delete [] a;
+    }
+
 
 
     //Показ итогового результата
-    Html+="</body></html>";
+    Html+=HQt_EndHtml ();
     HQt_SaveFile(Html, path+"temp.html");
     ui->webView->setUrl(QUrl::fromLocalFile(path+"temp.html"));
 }
