@@ -1,0 +1,1 @@
+double MHL_BellShapedKernelRectangle(double z);

@@ -182,6 +182,19 @@ template <class T> T TMHL_Chebychev(T *x, T *y, int VMHL_N);
 template <class T> T TMHL_CityBlock(T *x, T *y, int VMHL_N);
 template <class T> T TMHL_Euclid(T *x, T *y, int VMHL_N);
 
+//Непараметрика
+double MHL_BellShapedKernelExp(double z);
+double MHL_BellShapedKernelParabola(double z);
+double MHL_BellShapedKernelRectangle(double z);
+double MHL_BellShapedKernelTriangle(double z);
+double MHL_DerivativeOfBellShapedKernelExp(double z);
+double MHL_DerivativeOfBellShapedKernelParabola(double z);
+double MHL_DerivativeOfBellShapedKernelRectangle(double z);
+double MHL_DerivativeOfBellShapedKernelTriangle(double z);
+
+//Нечеткие системы
+double MHL_TrapeziformFuzzyNumber(double x,double a,double b,double c,double d);
+
 //Оптимизация
 int MHL_BinaryMonteCarloAlgorithm(int *Parameters, double (*FitnessFunction)(int*,int), int *VMHL_ResultVector, double *VMHL_Result);
 
@@ -259,6 +272,9 @@ double MHL_Sin(double x);
 double MHL_SinDeg(double x);
 double MHL_Tan(double x);
 double MHL_TanDeg(double x);
+
+//Уравнения
+int MHL_QuadraticEquation(double a, double b, double c, double *x1, double *x2);
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // РЕАЛИЗАЦИЯ ШАБЛОНОВ
@@ -1805,6 +1821,12 @@ return VMHL_Result;
 }
 //---------------------------------------------------------------------------
 //*****************************************************************
+//Непараметрика
+//*****************************************************************
+//*****************************************************************
+//Нечеткие системы
+//*****************************************************************
+//*****************************************************************
 //Оптимизация
 //*****************************************************************
 //*****************************************************************
@@ -2388,6 +2410,9 @@ return TMHL_SampleCovariance(x,x,VMHL_N);
 //*****************************************************************
 //*****************************************************************
 //Тригонометрические функции
+//*****************************************************************
+//*****************************************************************
+//Уравнения
 //*****************************************************************
 
 #endif // MATHHARRIXLIBRARY_H

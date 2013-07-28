@@ -572,6 +572,36 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("TMHL_BubbleSortEveryColInMatrix"));
     model->appendRow(item);
 
+    item = new QStandardItem(QString("MHL_QuadraticEquation"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_BellShapedKernelExp"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_BellShapedKernelParabola"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_BellShapedKernelRectangle"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_BellShapedKernelTriangle"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_DerivativeOfBellShapedKernelExp"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_DerivativeOfBellShapedKernelParabola"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_DerivativeOfBellShapedKernelRectangle"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_DerivativeOfBellShapedKernelTriangle"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_TrapeziformFuzzyNumber"));
+    model->appendRow(item);
+
 
     model->sort(0);
 
@@ -6994,7 +7024,193 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] a;
     }
 
+    if (NameFunction=="MHL_QuadraticEquation")
+    {
+        double a=MHL_RandomUniformInt(1,10);
+        double b=MHL_RandomUniformInt(1,10);
+        double c=MHL_RandomUniformInt(1,10);
+        double x1;
+        double x2;
 
+        int Result=MHL_QuadraticEquation(a,b,c,&x1,&x2);;
+
+        //Используем полученный результат
+        MHL_ShowText("Квадратное уравнение: "+MHL_NumberToText(a)+"x^2+"+MHL_NumberToText(b)+"x+"+MHL_NumberToText(c)+"=0");
+        //Квадратное уравнение: 1x^2+8x+5:
+        MHL_ShowNumber(Result,"Найдено ли решение","Result");
+        //Найдено ли решение:
+        //Result=1
+        if (Result==1)
+        {
+        MHL_ShowNumber(x1,"Первый корень квадратного уравнения","x1");
+        //Первый корень квадратного уравнения:
+        //x1=-0.683375
+        MHL_ShowNumber(x2,"Первый корень квадратного уравнения","x2");
+        //Первый корень квадратного уравнения:
+        //x2=-7.31662
+        }
+    }
+
+    if (NameFunction=="MHL_BellShapedKernelExp")
+    {
+        double z=MHL_RandomUniform(-5,5);
+
+        //Вызов функции
+        double f=MHL_BellShapedKernelExp(z);
+
+        //Используем полученный результат
+        MHL_ShowNumber(z,"Значение параметра","z");
+        //Значение параметра:
+        //z=0.721436
+        MHL_ShowNumber(f,"Значение колоколообразного экспоненциального ядра","f");
+        //Значение колоколообразного экспоненциального ядра:
+        //f=0.302588
+    }
+
+    if (NameFunction=="MHL_BellShapedKernelParabola")
+    {
+        double z=MHL_RandomUniform(-5,5);
+
+        //Вызов функции
+        double f=MHL_BellShapedKernelParabola(z);
+
+        //Используем полученный результат
+        MHL_ShowNumber(z,"Значение параметра","z");
+        //Значение параметра:
+        //z=0.33905
+        MHL_ShowNumber(f,"Значение колоколообразного параболического ядра","f");
+        //Значение колоколообразного параболического ядра:
+        //f=0.327298
+    }
+
+    if (NameFunction=="MHL_BellShapedKernelRectangle")
+    {
+        double z=MHL_RandomUniform(-5,5);
+
+        //Вызов функции
+        double f=MHL_BellShapedKernelRectangle(z);
+
+        //Используем полученный результат
+        MHL_ShowNumber(z,"Значение параметра","z");
+        //Значение параметра:
+        //z=0.669556
+        MHL_ShowNumber(f,"Значение колоколообразного прямоугольного ядра","f");
+        //Значение колоколообразного прямоугольного ядра:
+        //f=0.5
+    }
+
+    if (NameFunction=="MHL_BellShapedKernelTriangle")
+    {
+        double z=MHL_RandomUniform(-5,5);
+
+        //Вызов функции
+        double f=MHL_BellShapedKernelTriangle(z);
+
+        //Используем полученный результат
+        MHL_ShowNumber(z,"Значение параметра","z");
+        //Значение параметра:
+        //z=0.362854
+        MHL_ShowNumber(f,"Значение колоколообразного треугольного ядра","f");
+        //Значение колоколообразного треугольного ядра:
+        //f=0.637146
+    }
+
+    if (NameFunction=="MHL_DerivativeOfBellShapedKernelExp")
+    {
+        double z=MHL_RandomUniform(-4,4);
+
+        //Вызов функции
+        double f=MHL_DerivativeOfBellShapedKernelExp(z);
+
+        //Используем полученный результат
+        MHL_ShowNumber(z,"Значение параметра","z");
+        //Значение параметра:
+        //z=-1.93701
+        MHL_ShowNumber(f,"Значение производной колоколообразного экспоненциального ядра","f");
+        //Значение производной колоколообразного экспоненциального ядра:
+        //f=0.192278
+    }
+
+    if (NameFunction=="MHL_DerivativeOfBellShapedKernelParabola")
+    {
+        double z=MHL_RandomUniform(-4,4);
+
+        //Вызов функции
+        double f=MHL_DerivativeOfBellShapedKernelParabola(z);
+
+        //Используем полученный результат
+        MHL_ShowNumber(z,"Значение параметра","z");
+        //Значение параметра:
+        //z=1.28394
+        MHL_ShowNumber(f,"Значение производной колоколообразного параболического ядра","f");
+        //Значение производной колоколообразного параболического ядра:
+        //f=-0.172047
+    }
+
+    if (NameFunction=="MHL_DerivativeOfBellShapedKernelRectangle")
+    {
+        double z=MHL_RandomUniform(-4,4);
+
+        //Вызов функции
+        double f=MHL_DerivativeOfBellShapedKernelRectangle(z);
+
+        //Используем полученный результат
+        MHL_ShowNumber(z,"Значение параметра","z");
+        //Значение параметра:
+        //z=3.146
+        MHL_ShowNumber(f,"Значение производной колоколообразного прямоугольного ядра","f");
+        //Значение производной колоколообразного прямоугольного ядра:
+        //f=0
+    }
+
+    if (NameFunction=="MHL_DerivativeOfBellShapedKernelTriangle")
+    {
+        double z=MHL_RandomUniform(-4,4);
+
+        //Вызов функции
+        double f=MHL_DerivativeOfBellShapedKernelTriangle(z);
+
+        //Используем полученный результат
+        MHL_ShowNumber(z,"Значение параметра","z");
+        //Значение параметра:
+        //z=0.365479
+        MHL_ShowNumber(f,"Значение производной колоколообразного треугольного ядра","f");
+        //Значение производной колоколообразного треугольного ядра:
+        //f=-1
+    }
+
+    if (NameFunction=="MHL_TrapeziformFuzzyNumber")
+    {
+        double a=MHL_RandomUniform(-4,4);
+        double b=a+MHL_RandomUniform(0,2);
+        double c=b+MHL_RandomUniform(0,2);
+        double d=c+MHL_RandomUniform(0,2);
+
+        double x=MHL_RandomUniform(a-1,d+1);
+
+        //Вызов функции
+        double f=MHL_TrapeziformFuzzyNumber (x,a,b,c,d);
+
+        //Используем полученный результат
+        MHL_ShowNumber(x,"Значение параметра","x");
+        //Значение параметра:
+        //x=-0.932339
+        MHL_ShowNumber(a,"Значение первого параметра трапецевидного нечеткого числа","a");
+        //Значение первого параметра трапецевидного нечеткого числа:
+        //a=-1.71997
+        MHL_ShowNumber(b,"Значение второго параметра трапецевидного нечеткого числа","b");
+        //Значение второго параметра трапецевидного нечеткого числа:
+        //b=-0.446045
+        MHL_ShowNumber(c,"Значение третьего параметра трапецевидного нечеткого числа","c");
+        //Значение третьего параметра трапецевидного нечеткого числа:
+        //c=-0.0568848
+        MHL_ShowNumber(d,"Значение последнего параметра трапецевидного нечеткого числа","d");
+        //Значение последнего параметра трапецевидного нечеткого числа:
+        //d=0.253784
+        MHL_ShowNumber(f,"Значение функция принадлежности трапециевидного нечеткого числа","f");
+        //Значение функция принадлежности трапециевидного нечеткого числа:
+        //f=0.618271
+    }
 
     //Показ итогового результата
     Html+=HQt_EndHtml ();

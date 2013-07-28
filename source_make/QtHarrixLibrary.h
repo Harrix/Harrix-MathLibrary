@@ -96,6 +96,10 @@ template <class T> QString THQt_ShowTwoIndependentChartsOfPointsAndLine (T *VMHL
 template <class T> QString THQt_ShowTwoIndependentChartsOfPointsAndLine (T *VMHL_VectorX1,T *VMHL_VectorY1,int VMHL_N1,T *VMHL_VectorX2,T *VMHL_VectorY2, int VMHL_N2, QString TitleChart, QString NameVectorX, QString NameVectorY,QString NameLine1, QString NameLine2);//Функция возвращает строку с выводом некоторого двух независимых графиков по точкам с HTML кодами. Один график выводится в виде точек, а второй в виде линии. Удобно для отображения регрессий. Отличается от основной функции отсутствием булевых параметров - все по умолчанию.
 template <class T> QString THQt_ShowTwoIndependentChartsOfPointsAndLine (T *VMHL_VectorX1,T *VMHL_VectorY1,int VMHL_N1,T *VMHL_VectorX2,T *VMHL_VectorY2, int VMHL_N2);//Функция возвращает строку с выводом некоторого двух независимых графиков по точкам с HTML кодами. Один график выводится в виде точек, а второй в виде линии. Удобно для отображения регрессий. Отличается от основной функции отсутствием булевых параметров и подписей - все по умолчанию.
 QString HQt_ReadHdataToHtmlChart (QString filename);//Функция возвращает строку с HTML кодом графика в результате считывания информации из *.hdata. Для добавление в html файл.
+QString HQt_DrawLine (double Left, double Right, double h, double (*Function)(double), QString TitleChart, QString NameVectorX, QString NameVectorY, QString NameLine, bool ShowLine, bool ShowPoints, bool ShowArea, bool ShowSpecPoints, bool RedLine);//Функция возвращает строку с HTML кодом отрисовки линии по функции Function. Для добавление в html файл.
+QString HQt_DrawLine (double Left, double Right, double h, double (*Function)(double), QString TitleChart, QString NameVectorX, QString NameVectorY, bool ShowLine, bool ShowPoints, bool ShowArea, bool ShowSpecPoints, bool RedLine);//Функция возвращает строку с HTML кодом отрисовки линии по функции Function. Для добавление в html файл. Отличается от основной функцией отсутствием параметра NameLine(название графика (для легенды)).
+QString HQt_DrawLine (double Left, double Right, double h, double (*Function)(double), QString TitleChart, QString NameVectorX, QString NameVectorY, QString NameLine);//Функция возвращает строку с HTML кодом отрисовки линии по функции Function. Для добавление в html файл. Отличается от основной функцией отсутствием булевских параметров в конце - все по умолчанию делается.
+QString HQt_DrawLine (double Left, double Right, double h, double (*Function)(double));//Функция возвращает строку с HTML кодом отрисовки линии по функции Function. Для добавление в html файл. Отличается от основной функцией отсутствием булевских параметров в конце и названий осей и графиков - для быстрого отображения графика без лишних телодвижений.
 
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -577,7 +581,7 @@ template <class T> QString THQt_ShowMatrix (T *VMHL_Matrix, int VMHL_N, int VMHL
 }
 //---------------------------------------------------------------------------
 
-template <class T> QString THQt_ShowChartOfLine (T *VMHL_VectorX,T *VMHL_VectorY, int VMHL_N, QString TitleChart, QString NameVectorX, QString NameVectorY, QString NameLine, bool ShowLine=true, bool ShowPoints, bool ShowArea, bool ShowSpecPoints, bool RedLine)
+template <class T> QString THQt_ShowChartOfLine (T *VMHL_VectorX,T *VMHL_VectorY, int VMHL_N, QString TitleChart, QString NameVectorX, QString NameVectorY, QString NameLine, bool ShowLine, bool ShowPoints, bool ShowArea, bool ShowSpecPoints, bool RedLine)
 {
     /*
     Функция возвращает строку с выводом некоторого графика по точкам с HTML кодами. Для добавление в html файл.
@@ -592,9 +596,9 @@ template <class T> QString THQt_ShowChartOfLine (T *VMHL_VectorX,T *VMHL_VectorY
      NameLine - название первого графика (для легенды);
      ShowLine - показывать ли линию;
      ShowPoints - показывать ли точки;
-     ShowArea - показывать ли закрашенную ошбласть под кривой;
+     ShowArea - показывать ли закрашенную область под кривой;
      ShowSpecPoints - показывать ли специальные точки;
-     RedLine - рисовать ли красную линию, или синию.
+     RedLine - рисовать ли красную линию, или синюю.
     Возвращаемое значение:
      Строка с HTML кодами с выводимым графиком.
     Примечание:

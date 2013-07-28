@@ -1,0 +1,23 @@
+        double a=MHL_RandomUniformInt(1,10);
+        double b=MHL_RandomUniformInt(1,10);
+        double c=MHL_RandomUniformInt(1,10);
+        double x1;
+        double x2;
+
+        int Result=MHL_QuadraticEquation(a,b,c,&x1,&x2);;
+
+        //Используем полученный результат
+        MHL_ShowText("Квадратное уравнение: "+MHL_NumberToText(a)+"x^2+"+MHL_NumberToText(b)+"x+"+MHL_NumberToText(c)+"=0");
+        //Квадратное уравнение: 1x^2+8x+5:
+        MHL_ShowNumber(Result,"Найдено ли решение","Result");
+        //Найдено ли решение:
+        //Result=1
+        if (Result==1)
+        {
+        MHL_ShowNumber(x1,"Первый корень квадратного уравнения","x1");
+        //Первый корень квадратного уравнения:
+        //x1=-0.683375
+        MHL_ShowNumber(x2,"Первый корень квадратного уравнения","x2");
+        //Первый корень квадратного уравнения:
+        //x2=-7.31662
+        }
