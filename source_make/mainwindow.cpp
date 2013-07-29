@@ -399,7 +399,7 @@ void MainWindow::on_pushButton_clicked()
     ui->textEdit->insertHtml("<font color=\"#858585\">Было обнаружено "+QString::number(countfunction)+" функций.<\font><br>");
 
     int nMilliseconds = myTimer.elapsed();
-    ui->textEdit->insertHtml("<font color=\"#858585\">Потребовалось времени: "+HQt_WriteTime(nMilliseconds)+"<\font><br>");
+    ui->textEdit->insertHtml("<font color=\"#858585\">Потребовалось времени: "+HQt_WriteTime(nMilliseconds)+"</font><br>");
 
     QTextCursor c =  ui->textEdit->textCursor();
     c.movePosition(QTextCursor::End);
