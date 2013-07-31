@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="style.css" />
+
+<script src="jquery.js"></script>
+<script type="text/javascript" src="jsxgraphcore.js"></script></head>
+
+<body>
+<div id="content"></div>
+    <script>  
+	var result='';
+	var resultnew='';
+	var scroll=false;
+	
+	function show()  
+	{  
+		$.ajax({  
+		url: "marker.html",  
+		cache: false,  
+		success: function(html)
+			{  			
+				resultnew = html; 
+				if ((resultnew!=result)||(resultnew==''))
+				{				
+					$.ajax({  
+					url: "temp.html",  
+					cache: false,  
+					success: function(html)
+						{  
+							$("#content").html(html);  
+						}  
+					});
+					scroll_to_bottom(500);
+					result=resultnew;
+					scroll=false;
+				}
+			}  
+		});	
+	}
+	
+	function show2()  
+	{  
+		if ((resultnew==result)&&(resultnew!='')&&(scroll==false))
+		{
+			scroll_to_bottom(500);
+			scroll=true;
+		}
+	}
+
+	function scroll_to_bottom(speed) {
+		var height= $("body").height(); 
+		$("html,body").animate({"scrollTop":height},speed); 
+	}		
+	
+	$(document).ready(function(){  
+		show();  
+		setInterval('show()',1000);  
+		show2();  
+		setInterval('show2()',2000); 
+	});  
+    </script>
+</body>
+</html>

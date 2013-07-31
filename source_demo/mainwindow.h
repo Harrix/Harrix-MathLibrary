@@ -23,7 +23,7 @@ public:
     ~MainWindow();
 
     QString DS;
-    QString path;
+    QString Path;
     QString Html;
 
     void MHL_ShowText (QString TitleX);

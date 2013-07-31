@@ -15,11 +15,13 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     MathHarrixLibrary.cpp \
-    QtHarrixLibrary.cpp
+    QtHarrixLibrary.cpp \
+    QtHarrixLibraryForQWebView.cpp
 
 HEADERS  += mainwindow.h \
     MathHarrixLibrary.h \
-    QtHarrixLibrary.h
+    QtHarrixLibrary.h \
+    QtHarrixLibraryForQWebView.h
 
 FORMS    += mainwindow.ui
 

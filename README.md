@@ -1,7 +1,7 @@
 MathHarrixLibrary
 ===================
 
-Версия v.3.7.
+Версия v.3.8.
 
 https://github.com/Harrix/MathHarrixLibrary
 
@@ -40,6 +40,14 @@ https://github.com/Harrix/MathHarrixLibrary
 **[+]** добавление
 
 **[*]** разное
+
+**3.8.**
+
+**[*]** В DemoMathHarrixLibrary.exe теперь используется jquery.
+
+**[*]** Обновлены модуль QtHarrixLibrary.
+
+**[*]** Теперь используется библиотека QtHarrixLibraryForQWebView.
 
 **3.7.**
 

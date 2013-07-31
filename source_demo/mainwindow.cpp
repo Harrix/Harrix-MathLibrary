@@ -9,7 +9,7 @@
 #include <QSortFilterProxyModel>
 
 #include "MathHarrixLibrary.h"
-
+#include "QtHarrixLibraryForQWebView.h"
 #include "QtHarrixLibrary.h"
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -18,8 +18,10 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    DS=QDir::separator();
-    path=QGuiApplication::applicationDirPath()+DS;//путь к папке
+    DS=QDir::separator();//какой разделитель используется в пути между папками
+    Path=QGuiApplication::applicationDirPath()+DS;//путь к папке, где находится приложение
+    HQt_BeginHtml(Path);
+    ui->webView->setUrl(QUrl::fromLocalFile(Path+"index.html"));// и в webViewотображаем index.html (его вообще не трогаем)
 
     MHL_SeedRandom();//Инициализация датчика случайных чисел
 
@@ -666,7 +668,8 @@ void MainWindow::MHL_ShowText (QString TitleX)
     */
     QString VMHL_Result;
     VMHL_Result=HQt_ShowText (TitleX);// из QtHarrixLibrary.h
-    Html+=VMHL_Result;
+    Html=VMHL_Result;
+    HQt_AddHtml(Html);
 }
 //---------------------------------------------------------------------------
 template <class T> void MainWindow::MHL_ShowNumber (T VMHL_X, QString TitleX, QString NameX)
@@ -682,7 +685,8 @@ template <class T> void MainWindow::MHL_ShowNumber (T VMHL_X, QString TitleX, QS
     */
     QString VMHL_Result;
     VMHL_Result=THQt_ShowNumber (VMHL_X, TitleX, NameX);// из QtHarrixLibrary.h
-    Html+=VMHL_Result;
+    Html=VMHL_Result;
+    HQt_AddHtml(Html);
 }
 //---------------------------------------------------------------------------
 template <class T> QString MainWindow::MHL_NumberToText (T VMHL_X)
@@ -714,7 +718,8 @@ template <class T> void MainWindow::MHL_ShowVector (T *VMHL_Vector, int VMHL_N, 
     */
     QString VMHL_Result;
     VMHL_Result=THQt_ShowVector (VMHL_Vector,VMHL_N, TitleVector, NameVector);// из QtHarrixLibrary.h
-    Html+=VMHL_Result;
+    Html=VMHL_Result;
+    HQt_AddHtml(Html);
 }
 //---------------------------------------------------------------------------
 
@@ -732,7 +737,8 @@ template <class T> void MainWindow::MHL_ShowVectorT (T *VMHL_Vector, int VMHL_N,
     */
     QString VMHL_Result;
     VMHL_Result=THQt_ShowVectorT (VMHL_Vector,VMHL_N, TitleVector, NameVector);// из QtHarrixLibrary.h
-    Html+=VMHL_Result;
+    Html=VMHL_Result;
+    HQt_AddHtml(Html);
 }
 //---------------------------------------------------------------------------
 
@@ -751,13 +757,14 @@ template <class T> void MainWindow::MHL_ShowMatrix (T **VMHL_Matrix, int VMHL_N,
     */
     QString VMHL_Result;
     VMHL_Result=THQt_ShowMatrix (VMHL_Matrix, VMHL_N ,VMHL_M, TitleMatrix, NameMatrix);// из QtHarrixLibrary.h
-    Html+=VMHL_Result;
+    Html=VMHL_Result;
+    HQt_AddHtml(Html);
 }
 //---------------------------------------------------------------------------
 
 void MainWindow::on_listView_clicked(const QModelIndex &index)
 {
-    Html=HQt_BeginHtml ();
+    HQt_BeginHtml (Path);
 
     QString NameFunction;//Какая функция вызывается
 
@@ -7211,11 +7218,6 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //Значение функция принадлежности трапециевидного нечеткого числа:
         //f=0.618271
     }
-
-    //Показ итогового результата
-    Html+=HQt_EndHtml ();
-    HQt_SaveFile(Html, path+"temp.html");
-    ui->webView->setUrl(QUrl::fromLocalFile(path+"temp.html"));
 }
 //---------------------------------------------------------------------------
 
