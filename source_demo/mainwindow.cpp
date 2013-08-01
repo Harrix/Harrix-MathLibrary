@@ -529,19 +529,19 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("MHL_StandartGeneticAlgorithm"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_TestFuction_Ackley"));
+    item = new QStandardItem(QString("MHL_TestFunction_Ackley"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_TestFuction_ParaboloidOfRevolution"));
+    item = new QStandardItem(QString("MHL_TestFunction_ParaboloidOfRevolution"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_TestFuction_Rastrigin"));
+    item = new QStandardItem(QString("MHL_TestFunction_Rastrigin"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_TestFuction_Rosenbrock"));
+    item = new QStandardItem(QString("MHL_TestFunction_Rosenbrock"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_TestFuction_SumVector"));
+    item = new QStandardItem(QString("MHL_TestFunction_SumVector"));
     model->appendRow(item);
 
     item = new QStandardItem(QString("TMHL_Factorial"));
@@ -604,6 +604,32 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("MHL_TrapeziformFuzzyNumber"));
     model->appendRow(item);
 
+    item = new QStandardItem(QString("MHL_DefineTestFunction"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_TestFunction_Binary"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_OptimumOfTestFunction_Binary"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_FitnessOfOptimumOfTestFunction_Binary"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_ErrorExOfTestFunction_Binary"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_ErrorEyOfTestFunction_Binary"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_ErrorROfTestFunction_Binary"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_GetCountOfFitness"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_SetToZeroCountOfFitness"));
+    model->appendRow(item);
 
     model->sort(0);
 
@@ -6539,14 +6565,14 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         }//чтобы не удалять объявления переменных, заключим в скобки
     }
 
-    if (NameFunction=="MHL_TestFuction_Ackley")
+    if (NameFunction=="MHL_TestFunction_Ackley")
     {
         double *x;
         double f;
         int VMHL_N=2;
         x=new double[VMHL_N];
         for (int i=0;i<VMHL_N;i++) x[i]=MHL_RandomUniform(-5,5);
-        f=MHL_TestFuction_Ackley(x,VMHL_N);
+        f=MHL_TestFunction_Ackley(x,VMHL_N);
 
         MHL_ShowVector (x,VMHL_N,"Входной вектор", "x");
         //Входной вектор:
@@ -6561,14 +6587,14 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete[] x;
     }
 
-    if (NameFunction=="MHL_TestFuction_ParaboloidOfRevolution")
+    if (NameFunction=="MHL_TestFunction_ParaboloidOfRevolution")
     {
         double *x;
         double f;
         int VMHL_N=2;
         x=new double[VMHL_N];
         for (int i=0;i<VMHL_N;i++) x[i]=MHL_RandomUniform(-2,2);
-        f=MHL_TestFuction_ParaboloidOfRevolution(x,VMHL_N);
+        f=MHL_TestFunction_ParaboloidOfRevolution(x,VMHL_N);
 
         MHL_ShowVector (x,VMHL_N,"Входной вектор", "x");
         // Входной вектор:
@@ -6583,14 +6609,14 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete[] x;
     }
 
-    if (NameFunction=="MHL_TestFuction_Rastrigin")
+    if (NameFunction=="MHL_TestFunction_Rastrigin")
     {
         double *x;
         double f;
         int VMHL_N=2;
         x=new double[VMHL_N];
         for (int i=0;i<VMHL_N;i++) x[i]=MHL_RandomUniform(-5,5);
-        f=MHL_TestFuction_Rastrigin(x,VMHL_N);
+        f=MHL_TestFunction_Rastrigin(x,VMHL_N);
 
         MHL_ShowVector (x,VMHL_N,"Входной вектор", "x");
         // Входной вектор:
@@ -6605,14 +6631,14 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete[] x;
     }
 
-    if (NameFunction=="MHL_TestFuction_Rosenbrock")
+    if (NameFunction=="MHL_TestFunction_Rosenbrock")
     {
         double *x;
         double f;
         int VMHL_N=2;
         x=new double[VMHL_N];
         for (int i=0;i<VMHL_N;i++) x[i]=MHL_RandomUniform(-2,2);
-        f=MHL_TestFuction_Rosenbrock(x,VMHL_N);
+        f=MHL_TestFunction_Rosenbrock(x,VMHL_N);
 
         MHL_ShowVector (x,VMHL_N,"Входной вектор", "x");
         // Входной вектор:
@@ -6628,7 +6654,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete[] x;
     }
 
-    if (NameFunction=="MHL_TestFuction_SumVector")
+    if (NameFunction=="MHL_TestFunction_SumVector")
     {
         int VMHL_N=10;//Размер массива (число строк)
         int *x;
@@ -6637,7 +6663,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         TMHL_RandomBinaryVector(x,VMHL_N);
 
         //Вызов функции
-        double f=MHL_TestFuction_SumVector(x,VMHL_N);
+        double f=MHL_TestFunction_SumVector(x,VMHL_N);
 
         //Используем полученный результат
         MHL_ShowVector (x,VMHL_N,"Вектор", "x");
@@ -7217,6 +7243,213 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         MHL_ShowNumber(f,"Значение функция принадлежности трапециевидного нечеткого числа","f");
         //Значение функция принадлежности трапециевидного нечеткого числа:
         //f=0.618271
+    }
+
+    if (NameFunction=="MHL_DefineTestFunction")
+    {
+    //Вызов функции
+    MHL_DefineTestFunction(TestFunction_SumVector);
+
+    //Использование результата
+    int N=5;
+    int *x=new int[N];
+    TMHL_RandomBinaryVector(x,N);
+    double f=MHL_TestFunction_Binary(x,N);
+
+    MHL_ShowVectorT(x,N,"Решение","x");
+    //Решение:
+    //x =
+    //1	1	1	1	0
+
+    MHL_ShowNumber(f,"Значение целевой функции","f");
+    //Значение целевой функции:
+    //f=4
+    }
+
+    if (NameFunction=="MHL_TestFunction_Binary")
+    {
+        MHL_DefineTestFunction(TestFunction_SumVector);
+
+        int N=5;
+        int *x=new int[N];
+        TMHL_RandomBinaryVector(x,N);
+
+        //Вызов функции
+        double f=MHL_TestFunction_Binary(x,N);
+
+        //Использование результата
+        MHL_ShowVectorT(x,N,"Решение","x");
+        //Решение:
+        //x =
+        //1	1	1	1	0
+
+        MHL_ShowNumber(f,"Значение целевой функции","f");
+        //Значение целевой функции:
+        //f=4
+    }
+
+    if (NameFunction=="MHL_OptimumOfTestFunction_Binary")
+    {
+        MHL_DefineTestFunction(TestFunction_SumVector);
+
+        int N=5;
+        int *x=new int[N];
+
+        //Вызов функции
+        double f=MHL_OptimumOfTestFunction_Binary(x,N);
+
+        //Использование результата
+        MHL_ShowVectorT(x,N,"Оптимальное решение тестовой функции TestFunction_SumVector","x");
+        //Оптимальное решение тестовой функции TestFunction_SumVector:
+        //x =
+        //1	1	1	1	1
+
+        MHL_ShowNumber(f,"Значение целевой функции оптимального решения","f");
+        //Значение целевой функции оптимального решения:
+        //f=5
+    }
+
+    if (NameFunction=="MHL_FitnessOfOptimumOfTestFunction_Binary")
+    {
+        MHL_DefineTestFunction(TestFunction_SumVector);
+
+        int N=5;
+
+        //Вызов функции
+        double f=MHL_FitnessOfOptimumOfTestFunction_Binary(N);
+
+        //Использование результата
+        MHL_ShowNumber(f,"Значение целевой функции оптимального решения","f");
+        //Значение целевой функции оптимального решения:
+        //f=5
+    }
+
+    if (NameFunction=="MHL_ErrorExOfTestFunction_Binary")
+    {
+        MHL_DefineTestFunction(TestFunction_SumVector);
+
+        int N=5;
+        int *x=new int[N];
+        TMHL_RandomBinaryVector(x,N);
+
+        //Вызов функции
+        double Ex=MHL_ErrorExOfTestFunction_Binary(x,N);
+
+        //Использование результата
+        MHL_ShowVectorT(x,N,"Решение","x");
+        //Решение:
+        //x =
+        //1	0	1	1	1
+
+        MHL_ShowNumber(Ex,"Значение ошибки по входным параметрам","E<sub>x</sub>");
+        //Значение ошибки по входным параметрам:
+        //Ex=1
+    }
+
+    if (NameFunction=="MHL_ErrorEyOfTestFunction_Binary")
+    {
+        MHL_DefineTestFunction(TestFunction_SumVector);
+
+        int N=5;
+        int *x=new int[N];
+        TMHL_RandomBinaryVector(x,N);
+        double f=MHL_TestFunction_Binary(x,N);
+
+        //Вызов функции
+        double Ey=MHL_ErrorEyOfTestFunction_Binary(f,N);
+
+        //Использование результата
+        MHL_ShowVectorT(x,N,"Решение","x");
+        //Решение:
+        //x =
+        //0	1	1	0	1
+
+        MHL_ShowNumber(Ey,"Значение ошибки по значениям целевой функции","E<sub>y</sub>");
+        //Значение ошибки по значениям целевой функции:
+        //Ey=2
+    }
+
+    if (NameFunction=="MHL_ErrorROfTestFunction_Binary")
+    {
+        MHL_DefineTestFunction(TestFunction_SumVector);
+
+        int N=5;
+        int *x=new int[N];
+        TMHL_RandomBinaryVector(x,N);
+
+        //Вызов функции
+        double R=MHL_ErrorROfTestFunction_Binary(x,N);
+
+        //Использование результата
+        MHL_ShowVectorT(x,N,"Решение","x");
+        //Решение:
+        //x =
+        //1	1	1	1	1
+
+        MHL_ShowNumber(R,"Значение надежности","R");
+        //Значение надежности:
+        //R=1
+    }
+
+    if (NameFunction=="MHL_GetCountOfFitness")
+    {
+        MHL_DefineTestFunction(TestFunction_SumVector);
+
+        MHL_SetToZeroCountOfFitness();
+
+        int N=5;
+        double f=0;
+        int *x=new int[N];
+
+        for (int i=0;i<10;i++)
+        {
+            TMHL_RandomBinaryVector(x,N);
+            f+=MHL_TestFunction_Binary(x,N);
+        }
+
+        f/=double(10.);
+
+        //Вызов функции
+        int M=MHL_GetCountOfFitness();
+
+        //Использование результата
+        MHL_ShowNumber(M,"Количество вызовов целевой функции","M");
+        //Количество вызовов целевой функции:
+        //M=10
+
+        MHL_ShowNumber(f,"Среднее значение целевой функции","f");
+        //Среднее значение целевой функции:
+        //f=2.6
+    }
+
+    if (NameFunction=="MHL_SetToZeroCountOfFitness")
+    {
+        MHL_DefineTestFunction(TestFunction_SumVector);
+
+        //Вызов функции
+        MHL_SetToZeroCountOfFitness();
+
+        //Использование результата
+        int N=5;
+        double f=0;
+        int *x=new int[N];
+
+        for (int i=0;i<10;i++)
+        {
+            TMHL_RandomBinaryVector(x,N);
+            f+=MHL_TestFunction_Binary(x,N);
+        }
+
+        f/=double(10.);
+
+        int M=MHL_GetCountOfFitness();
+        MHL_ShowNumber(M,"Количество вызовов целевой функции","M");
+        //Количество вызовов целевой функции:
+        //M=10
+
+        MHL_ShowNumber(f,"Среднее значение целевой функции","f");
+        //Среднее значение целевой функции:
+        //f=2.6
     }
 }
 //---------------------------------------------------------------------------

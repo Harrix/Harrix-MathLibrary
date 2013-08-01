@@ -1,0 +1,1 @@
+void MHL_DefineTestFunction(TypeOfTestFunction Type);

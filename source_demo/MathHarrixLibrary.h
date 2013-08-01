@@ -26,7 +26,7 @@ void MHL_SeedRandom(void);//Инициализатор генератора сл
 double MHL_RandomNumber(void);//Генерирует вещественное случайное число из интервала (0;1)
 
 //ПЕРЕМЕННЫЕ ПЕРЕЧИСЛЯЕМОГО ТИПА
-
+enum TypeOfTestFunction { TestFunction_Ackley, TestFunction_ParaboloidOfRevolution, TestFunction_Rastrigin, TestFunction_Rosenbrock, TestFunction_SumVector };
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // ОБЪЯВЛЕНИЯ ФУНКЦИЙ
@@ -107,6 +107,23 @@ double MHL_Tanh(double x);
 double MHL_CenterDerivative(double x, double h, double (*Function)(double));
 double MHL_LeftDerivative(double x, double h, double (*Function)(double));
 double MHL_RightDerivative(double x, double h, double (*Function)(double));
+
+//Для тестовых функций
+void MHL_DefineTestFunction(TypeOfTestFunction Type);
+double MHL_ErrorExOfTestFunction_Binary(int *x, int VMHL_N);
+double MHL_ErrorExOfTestFunction_Binary(int *x, int VMHL_N, TypeOfTestFunction Type);
+double MHL_ErrorEyOfTestFunction_Binary(double FitnessOfx, int VMHL_N);
+double MHL_ErrorEyOfTestFunction_Binary(double FitnessOfx, int VMHL_N, TypeOfTestFunction Type);
+double MHL_ErrorROfTestFunction_Binary(int *x, int VMHL_N);
+double MHL_ErrorROfTestFunction_Binary(int *x, int VMHL_N, TypeOfTestFunction Type);
+double MHL_FitnessOfOptimumOfTestFunction_Binary(int VMHL_N);
+double MHL_FitnessOfOptimumOfTestFunction_Binary(int VMHL_N, TypeOfTestFunction Type);
+int MHL_GetCountOfFitness();
+double MHL_OptimumOfTestFunction_Binary(int *Optimum, int VMHL_N);
+double MHL_OptimumOfTestFunction_Binary(int *Optimum, int VMHL_N, TypeOfTestFunction Type);
+void MHL_SetToZeroCountOfFitness();
+double MHL_TestFunction_Binary(int *x, int VMHL_N);
+double MHL_TestFunction_Binary(int *x, int VMHL_N, TypeOfTestFunction Type);
 
 //Интегрирование
 double MHL_IntegralOfRectangle(double a, double b, double Epsilon,double (*Function)(double));
@@ -253,11 +270,11 @@ template <class T> T TMHL_SampleCovariance(T *x, T *y, int VMHL_N);
 template <class T> T TMHL_Variance(T *x, int VMHL_N);
 
 //Тестовые функции для оптимизации
-double MHL_TestFuction_Ackley(double *x, int VMHL_N);
-double MHL_TestFuction_ParaboloidOfRevolution(double *x, int VMHL_N);
-double MHL_TestFuction_Rastrigin(double *x, int VMHL_N);
-double MHL_TestFuction_Rosenbrock(double *x, int VMHL_N);
-double MHL_TestFuction_SumVector(int *x, int VMHL_N);
+double MHL_TestFunction_Ackley(double *x, int VMHL_N);
+double MHL_TestFunction_ParaboloidOfRevolution(double *x, int VMHL_N);
+double MHL_TestFunction_Rastrigin(double *x, int VMHL_N);
+double MHL_TestFunction_Rosenbrock(double *x, int VMHL_N);
+double MHL_TestFunction_SumVector(int *x, int VMHL_N);
 
 //Тригонометрические функции
 double MHL_Cos(double x);
@@ -967,6 +984,9 @@ else
 //*****************************************************************
 //*****************************************************************
 //Дифференцирование
+//*****************************************************************
+//*****************************************************************
+//Для тестовых функций
 //*****************************************************************
 //*****************************************************************
 //Интегрирование

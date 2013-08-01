@@ -1,0 +1,11 @@
+        MHL_DefineTestFunction(TestFunction_SumVector);
+
+        int N=5;
+
+        //Вызов функции
+        double f=MHL_FitnessOfOptimumOfTestFunction_Binary(N);
+
+        //Использование результата
+        MHL_ShowNumber(f,"Значение целевой функции оптимального решения","f");
+        //Значение целевой функции оптимального решения:
+        //f=5

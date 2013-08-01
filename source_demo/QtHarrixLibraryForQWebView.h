@@ -14,8 +14,6 @@
 
 #include "QtHarrixLibrary.h"
 
-const QString ColorOfNumber="#3d99c7";//цвет текста цифр, для вывода в HTML
-
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // ОБЪЯВЛЕНИЯ ФУНКЦИЙ
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -24,6 +22,8 @@ void HQt_AddHtml(QString Html);//Функция добавляет код html �
 
 QString HQt_ShowText (QString TitleX);//Функция возвращает строку с выводом некоторой строки с HTML кодами. Для добавление в html файл.
 QString HQt_ShowSimpleText (QString String);//Функция возвращает строку с выводом некоторой строки с HTML кодами без всякого излишевства. Для добавление в html файл.
+QString HQt_ShowH1 (QString String);//Функция возвращает строку с выводом некоторой строки в виде заголовка. Для добавление в html файл.
+QString HQt_ShowHr ();//Функция возвращает строку с выводом горизонтальной линии. Для добавление в html файл.
 QString HQt_ShowAlert (QString String);//Функция возвращает строку с выводом некоторого предупреждения. Для добавление в html файл.
 template <class T> QString THQt_ShowNumber (T VMHL_X, QString TitleX, QString NameX);//Функция возвращает строку с выводом некоторого числа VMHL_X с HTML кодами.
 template <class T> QString THQt_ShowVector (T *VMHL_Vector, int VMHL_N, QString TitleVector, QString NameVector);//Функция возвращает строку с выводом некоторый вектора VMHL_Vector с HTML кодами.
@@ -79,7 +79,7 @@ template <class T> QString THQt_ShowNumber (T VMHL_X, QString TitleX, QString Na
 
     VMHL_Result="<p><b>"+TitleX+":</b><br>";
 
-    VMHL_Result+=NameX+"=<b><font color=\""+ColorOfNumber+"\">"+QString::number(VMHL_X)+"</font></b></p>\n";
+    VMHL_Result+=NameX+"=<b><font class=\"number\">"+QString::number(VMHL_X)+"</font></b></p>\n";
 
     return VMHL_Result;
 }
@@ -95,7 +95,7 @@ template <class T> QString THQt_NumberToText (T VMHL_X)
      Строка, в которой записано число.
     */
     QString VMHL_Result;
-    VMHL_Result="<b><font color=\""+ColorOfNumber+"\">"+QString::number(VMHL_X)+"</font></b>";
+    VMHL_Result="<b><font class=\"number\">"+QString::number(VMHL_X)+"</font></b>";
     return VMHL_Result;
 }
 //---------------------------------------------------------------------------
@@ -113,7 +113,6 @@ template <class T> QString THQt_ShowVector (T *VMHL_Vector, int VMHL_N, QString 
      Строка с HTML кодами с выводимым вектором.
     */
     QString VMHL_Result;
-    VMHL_Result+="<style type='text/css'>.matrix td{text-align: center;line-height: 1.2em;padding: 0 1ex 0ex 1ex;}td.lbrak { width: 0.8ex;font-size: 50%;border: solid thin black;border-right: none;}td.rbrak { width: 0.8ex; font-size: 50%;border: solid thin black;border-left: none;}.matrixbrak td { line-height: 1.6; }</style>\n";
 
     VMHL_Result+="<p><b>"+TitleVector+":</b>";
 
@@ -121,23 +120,23 @@ template <class T> QString THQt_ShowVector (T *VMHL_Vector, int VMHL_N, QString 
     VMHL_Result+="<tr>\n";
 
     VMHL_Result+="<td>\n";
-    VMHL_Result+="<font style=\"text-decoration:overline;\">";
+    VMHL_Result+="<font class=\"overline\">";
     VMHL_Result+=NameVector;
     VMHL_Result+="</font> = \n";
     VMHL_Result+="</td>\n";
 
     VMHL_Result+="<td>\n";
-    VMHL_Result+="<table cellpadding=\"0\" cellspacing=\"0\" class=\"matrixbrak\">\n";
+    VMHL_Result+="<table class=\"matrixbrak\">\n";
     VMHL_Result+="<tr>\n";
     VMHL_Result+="<td class=\"lbrak\">&nbsp;</td>\n";
 
     VMHL_Result+="<td>\n";
-    VMHL_Result+="<table cellpadding=\"0\" cellspacing=\"0\" class=\"matrix\">\n";
+    VMHL_Result+="<table class=\"matrix\">\n";
 
     for (int i=0;i<VMHL_N;i++)
     {
         VMHL_Result+="<tr>\n";
-        VMHL_Result+="<td><b><font color=\""+ColorOfNumber+"\">"+QString::number(VMHL_Vector[i])+"</font></b></td>\n";
+        VMHL_Result+="<td class=\"number\">"+QString::number(VMHL_Vector[i])+"</td>\n";
 
         VMHL_Result+="</tr>\n";
     }
@@ -169,7 +168,6 @@ template <class T> QString THQt_ShowVectorT (T *VMHL_Vector, int VMHL_N, QString
      Строка с HTML кодами с выводимым вектором.
     */
     QString VMHL_Result;
-    VMHL_Result+="<style type='text/css'>.matrix td{text-align: center;line-height: 1.2em;padding: 0 1ex 0ex 1ex;}td.lbrak { width: 0.8ex;font-size: 50%;border: solid thin black;border-right: none;}td.rbrak { width: 0.8ex; font-size: 50%;border: solid thin black;border-left: none;}.matrixbrak td { line-height: 1.6; }</style>\n";
 
     VMHL_Result+="<p><b>"+TitleVector+":</b>";
 
@@ -177,22 +175,22 @@ template <class T> QString THQt_ShowVectorT (T *VMHL_Vector, int VMHL_N, QString
     VMHL_Result+="<tr>\n";
 
     VMHL_Result+="<td>\n";
-    VMHL_Result+="<font style=\"text-decoration:overline;\">";
+    VMHL_Result+="<font class=\"overline\">";
     VMHL_Result+=NameVector;
     VMHL_Result+="</font> = \n";
     VMHL_Result+="</td>\n";
 
     VMHL_Result+="<td>\n";
-    VMHL_Result+="<table cellpadding=\"0\" cellspacing=\"0\" class=\"matrixbrak\">\n";
+    VMHL_Result+="<table class=\"matrixbrak\">\n";
     VMHL_Result+="<tr>\n";
     VMHL_Result+="<td class=\"lbrak\">&nbsp;</td>\n";
 
     VMHL_Result+="<td>\n";
-    VMHL_Result+="<table cellpadding=\"0\" cellspacing=\"0\" class=\"matrix\">\n";
+    VMHL_Result+="<table class=\"matrix\">\n";
 
     VMHL_Result+="<tr>\n";
     for (int i=0;i<VMHL_N;i++)
-        VMHL_Result+="<td><b><font color=\""+ColorOfNumber+"\">"+QString::number(VMHL_Vector[i])+"</font></b></td>\n";
+        VMHL_Result+="<td>"+QString::number(VMHL_Vector[i])+"</td>\n";
     VMHL_Result+="</tr>\n";
 
     VMHL_Result+="</table>\n";
@@ -201,7 +199,7 @@ template <class T> QString THQt_ShowVectorT (T *VMHL_Vector, int VMHL_N, QString
     VMHL_Result+="</tr>\n";
     VMHL_Result+="</table>\n";
     VMHL_Result+="</td>\n";
-    VMHL_Result+="<td style=\"text-align:left;vertical-align:top;margin:5px;\">ᵀ<br>&nbsp;</td>\n";
+    VMHL_Result+="<td class=\"Tsmall\">ᵀ<br>&nbsp;</td>\n";
 
     VMHL_Result+="</tr>\n";
     VMHL_Result+="</table></p>\n";
@@ -225,32 +223,30 @@ template <class T> QString THQt_ShowMatrix (T *VMHL_Matrix, int VMHL_N, int VMHL
     */
     QString VMHL_Result;
 
-    VMHL_Result+="<style type='text/css'>.matrix td{text-align: center;line-height: 1.2em;padding: 0 1ex 0ex 1ex;}td.lbrak { width: 0.8ex;font-size: 50%;border: solid thin black;border-right: none;}td.rbrak { width: 0.8ex; font-size: 50%;border: solid thin black;border-left: none;}.matrixbrak td { line-height: 1.6; }</style>\n";
-
     VMHL_Result+="<p><b>"+TitleMatrix+":</b>";
 
     VMHL_Result+="<table>\n";
     VMHL_Result+="<tr>\n";
 
     VMHL_Result+="<td>\n";
-    VMHL_Result+="<font style=\"text-decoration:overline;\">";
+    VMHL_Result+="<font class=\"overline\">";
     VMHL_Result+=NameMatrix;
     VMHL_Result+="</font> = \n";
     VMHL_Result+="</td>\n";
 
     VMHL_Result+="<td>\n";
-    VMHL_Result+="<table cellpadding=\"0\" cellspacing=\"0\" class=\"matrixbrak\">\n";
+    VMHL_Result+="<table class=\"matrixbrak\">\n";
     VMHL_Result+="<tr>\n";
     VMHL_Result+="<td class=\"lbrak\">&nbsp;</td>\n";
 
     VMHL_Result+="<td>\n";
-    VMHL_Result+="<table cellpadding=\"0\" cellspacing=\"0\" class=\"matrix\">\n";
+    VMHL_Result+="<table class=\"matrix\">\n";
 
     for (int i=0;i<VMHL_N;i++)
     {
         VMHL_Result+="<tr>\n";
         for (int j=0;j<VMHL_M;j++)
-            VMHL_Result+="<td><b><font color=\""+ColorOfNumber+"\">"+QString::number(VMHL_Matrix[i][j])+"</font></b></td>\n";
+            VMHL_Result+="<td class=\"number\">"+QString::number(VMHL_Matrix[i][j])+"</td>\n";
 
         VMHL_Result+="</tr>\n";
     }

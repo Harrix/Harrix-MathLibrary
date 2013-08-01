@@ -75,10 +75,59 @@ line-height:22px;
 }
 
 hr {
- color:#afafaf;
- background-color:#afafaf;
- height:1px;
- border-width:0px;
+color:#afafaf;
+background-color:#afafaf;
+height:1px;
+border-width:0px;
+}
+
+.matrix {
+padding: 0px;
+}
+
+.matrixbrak {
+padding: 0px;
+}
+
+.matrix td {
+text-align: center;
+line-height: 1.2em;
+padding: 0 1ex 0ex 1ex;
+color:#3d99c7;
+font-weight:bold;
+}
+
+td.lbrak {
+width: 0.8ex;
+font-size: 50%;
+border: solid thin black;
+border-right: none;
+}
+
+td.rbrak { 
+width: 0.8ex; 
+font-size: 50%;
+border: solid thin black;
+border-left: none;
+}
+
+.matrixbrak td {
+ line-height: 1.6;
+}
+
+.overline{
+text-decoration:overline;
+}
+
+.Tsmall{
+text-align:left;
+vertical-align:top;
+margin:5px;
+}
+
+.number {
+color:#3d99c7;
+font-weight:bold;
 }
 
 /*/////////////////////JXGBOX////////////////////*/

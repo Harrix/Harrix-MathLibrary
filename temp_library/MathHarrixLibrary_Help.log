@@ -1,0 +1,4359 @@
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.29)  1 AUG 2013 22:43
+entering extended mode
+**MathHarrixLibrary_Help.tex
+
+(C:\Dropbox\Dropbox\GitHub\MathHarrixLibrary\temp_library\MathHarrixLibrary_Hel
+p.tex
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
+abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
+croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
+lician, german, german-x-2012-05-30, greek, gujarati, hindi, hungarian, iceland
+ic, indonesian, interlingua, irish, italian, kannada, kurmanji, latin, latvian,
+ lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerman, n
+german-x-2012-05-30, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
+ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
+an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
+ishmax, welsh, loaded.
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\article.cls"
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\size12.clo"
+File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(C:\Dropbox\Dropbox\GitHub\MathHarrixLibrary\temp_library\packages.tex
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\lscape.sty"
+Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count87
+)))
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\geometry\geometry.sty"
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ifvtex.sty"
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count88
+\Gm@cntv=\count89
+\c@Gm@tempcnt=\count90
+\Gm@bindingoffset=\dimen103
+\Gm@wd@mp=\dimen104
+\Gm@odd@mp=\dimen105
+\Gm@even@mp=\dimen106
+\Gm@layoutwidth=\dimen107
+\Gm@layoutheight=\dimen108
+\Gm@layouthoffset=\dimen109
+\Gm@layoutvoffset=\dimen110
+\Gm@dimlist=\toks15
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\cmap\cmap.sty"
+Package: cmap 2008/03/06 v1.0h CMap support: searchable PDF
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\fontenc.sty"
+Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\cyrillic\t2aenc.def"
+File: t2aenc.def 2005/09/27 v1.0i Cyrillic encoding definition file
+)
+LaTeX Font Info:    Try loading font information for T2A+cmr on input line 100.
+
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\cyrillic\t2acmr.fd"
+File: t2acmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
+)<<t2a.cmap>>) ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\inputenc.sty"
+Package: inputenc 2008/03/30 v1.1d Input encoding file
+\inpenc@prehook=\toks16
+\inpenc@posthook=\toks17
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\utf8.def"
+File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
+Now handling font encoding OML ...
+... no UTF-8 mapping file for font encoding OML
+Now handling font encoding T1 ...
+... processing UTF-8 mapping file for font encoding T1
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\t1enc.dfu"
+File: t1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
+   defining Unicode char U+00A1 (decimal 161)
+   defining Unicode char U+00A3 (decimal 163)
+   defining Unicode char U+00AB (decimal 171)
+   defining Unicode char U+00BB (decimal 187)
+   defining Unicode char U+00BF (decimal 191)
+   defining Unicode char U+00C0 (decimal 192)
+   defining Unicode char U+00C1 (decimal 193)
+   defining Unicode char U+00C2 (decimal 194)
+   defining Unicode char U+00C3 (decimal 195)
+   defining Unicode char U+00C4 (decimal 196)
+   defining Unicode char U+00C5 (decimal 197)
+   defining Unicode char U+00C6 (decimal 198)
+   defining Unicode char U+00C7 (decimal 199)
+   defining Unicode char U+00C8 (decimal 200)
+   defining Unicode char U+00C9 (decimal 201)
+   defining Unicode char U+00CA (decimal 202)
+   defining Unicode char U+00CB (decimal 203)
+   defining Unicode char U+00CC (decimal 204)
+   defining Unicode char U+00CD (decimal 205)
+   defining Unicode char U+00CE (decimal 206)
+   defining Unicode char U+00CF (decimal 207)
+   defining Unicode char U+00D0 (decimal 208)
+   defining Unicode char U+00D1 (decimal 209)
+   defining Unicode char U+00D2 (decimal 210)
+   defining Unicode char U+00D3 (decimal 211)
+   defining Unicode char U+00D4 (decimal 212)
+   defining Unicode char U+00D5 (decimal 213)
+   defining Unicode char U+00D6 (decimal 214)
+   defining Unicode char U+00D8 (decimal 216)
+   defining Unicode char U+00D9 (decimal 217)
+   defining Unicode char U+00DA (decimal 218)
+   defining Unicode char U+00DB (decimal 219)
+   defining Unicode char U+00DC (decimal 220)
+   defining Unicode char U+00DD (decimal 221)
+   defining Unicode char U+00DE (decimal 222)
+   defining Unicode char U+00DF (decimal 223)
+   defining Unicode char U+00E0 (decimal 224)
+   defining Unicode char U+00E1 (decimal 225)
+   defining Unicode char U+00E2 (decimal 226)
+   defining Unicode char U+00E3 (decimal 227)
+   defining Unicode char U+00E4 (decimal 228)
+   defining Unicode char U+00E5 (decimal 229)
+   defining Unicode char U+00E6 (decimal 230)
+   defining Unicode char U+00E7 (decimal 231)
+   defining Unicode char U+00E8 (decimal 232)
+   defining Unicode char U+00E9 (decimal 233)
+   defining Unicode char U+00EA (decimal 234)
+   defining Unicode char U+00EB (decimal 235)
+   defining Unicode char U+00EC (decimal 236)
+   defining Unicode char U+00ED (decimal 237)
+   defining Unicode char U+00EE (decimal 238)
+   defining Unicode char U+00EF (decimal 239)
+   defining Unicode char U+00F0 (decimal 240)
+   defining Unicode char U+00F1 (decimal 241)
+   defining Unicode char U+00F2 (decimal 242)
+   defining Unicode char U+00F3 (decimal 243)
+   defining Unicode char U+00F4 (decimal 244)
+   defining Unicode char U+00F5 (decimal 245)
+   defining Unicode char U+00F6 (decimal 246)
+   defining Unicode char U+00F8 (decimal 248)
+   defining Unicode char U+00F9 (decimal 249)
+   defining Unicode char U+00FA (decimal 250)
+   defining Unicode char U+00FB (decimal 251)
+   defining Unicode char U+00FC (decimal 252)
+   defining Unicode char U+00FD (decimal 253)
+   defining Unicode char U+00FE (decimal 254)
+   defining Unicode char U+00FF (decimal 255)
+   defining Unicode char U+0102 (decimal 258)
+   defining Unicode char U+0103 (decimal 259)
+   defining Unicode char U+0104 (decimal 260)
+   defining Unicode char U+0105 (decimal 261)
+   defining Unicode char U+0106 (decimal 262)
+   defining Unicode char U+0107 (decimal 263)
+   defining Unicode char U+010C (decimal 268)
+   defining Unicode char U+010D (decimal 269)
+   defining Unicode char U+010E (decimal 270)
+   defining Unicode char U+010F (decimal 271)
+   defining Unicode char U+0110 (decimal 272)
+   defining Unicode char U+0111 (decimal 273)
+   defining Unicode char U+0118 (decimal 280)
+   defining Unicode char U+0119 (decimal 281)
+   defining Unicode char U+011A (decimal 282)
+   defining Unicode char U+011B (decimal 283)
+   defining Unicode char U+011E (decimal 286)
+   defining Unicode char U+011F (decimal 287)
+   defining Unicode char U+0130 (decimal 304)
+   defining Unicode char U+0131 (decimal 305)
+   defining Unicode char U+0132 (decimal 306)
+   defining Unicode char U+0133 (decimal 307)
+   defining Unicode char U+0139 (decimal 313)
+   defining Unicode char U+013A (decimal 314)
+   defining Unicode char U+013D (decimal 317)
+   defining Unicode char U+013E (decimal 318)
+   defining Unicode char U+0141 (decimal 321)
+   defining Unicode char U+0142 (decimal 322)
+   defining Unicode char U+0143 (decimal 323)
+   defining Unicode char U+0144 (decimal 324)
+   defining Unicode char U+0147 (decimal 327)
+   defining Unicode char U+0148 (decimal 328)
+   defining Unicode char U+014A (decimal 330)
+   defining Unicode char U+014B (decimal 331)
+   defining Unicode char U+0150 (decimal 336)
+   defining Unicode char U+0151 (decimal 337)
+   defining Unicode char U+0152 (decimal 338)
+   defining Unicode char U+0153 (decimal 339)
+   defining Unicode char U+0154 (decimal 340)
+   defining Unicode char U+0155 (decimal 341)
+   defining Unicode char U+0158 (decimal 344)
+   defining Unicode char U+0159 (decimal 345)
+   defining Unicode char U+015A (decimal 346)
+   defining Unicode char U+015B (decimal 347)
+   defining Unicode char U+015E (decimal 350)
+   defining Unicode char U+015F (decimal 351)
+   defining Unicode char U+0160 (decimal 352)
+   defining Unicode char U+0161 (decimal 353)
+   defining Unicode char U+0162 (decimal 354)
+   defining Unicode char U+0163 (decimal 355)
+   defining Unicode char U+0164 (decimal 356)
+   defining Unicode char U+0165 (decimal 357)
+   defining Unicode char U+016E (decimal 366)
+   defining Unicode char U+016F (decimal 367)
+   defining Unicode char U+0170 (decimal 368)
+   defining Unicode char U+0171 (decimal 369)
+   defining Unicode char U+0178 (decimal 376)
+   defining Unicode char U+0179 (decimal 377)
+   defining Unicode char U+017A (decimal 378)
+   defining Unicode char U+017B (decimal 379)
+   defining Unicode char U+017C (decimal 380)
+   defining Unicode char U+017D (decimal 381)
+   defining Unicode char U+017E (decimal 382)
+   defining Unicode char U+200C (decimal 8204)
+   defining Unicode char U+2013 (decimal 8211)
+   defining Unicode char U+2014 (decimal 8212)
+   defining Unicode char U+2018 (decimal 8216)
+   defining Unicode char U+2019 (decimal 8217)
+   defining Unicode char U+201A (decimal 8218)
+   defining Unicode char U+201C (decimal 8220)
+   defining Unicode char U+201D (decimal 8221)
+   defining Unicode char U+201E (decimal 8222)
+   defining Unicode char U+2030 (decimal 8240)
+   defining Unicode char U+2031 (decimal 8241)
+   defining Unicode char U+2039 (decimal 8249)
+   defining Unicode char U+203A (decimal 8250)
+   defining Unicode char U+2423 (decimal 9251)
+)
+Now handling font encoding OT1 ...
+... processing UTF-8 mapping file for font encoding OT1
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ot1enc.dfu"
+File: ot1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
+   defining Unicode char U+00A1 (decimal 161)
+   defining Unicode char U+00A3 (decimal 163)
+   defining Unicode char U+00B8 (decimal 184)
+   defining Unicode char U+00BF (decimal 191)
+   defining Unicode char U+00C5 (decimal 197)
+   defining Unicode char U+00C6 (decimal 198)
+   defining Unicode char U+00D8 (decimal 216)
+   defining Unicode char U+00DF (decimal 223)
+   defining Unicode char U+00E6 (decimal 230)
+   defining Unicode char U+00EC (decimal 236)
+   defining Unicode char U+00ED (decimal 237)
+   defining Unicode char U+00EE (decimal 238)
+   defining Unicode char U+00EF (decimal 239)
+   defining Unicode char U+00F8 (decimal 248)
+   defining Unicode char U+0131 (decimal 305)
+   defining Unicode char U+0141 (decimal 321)
+   defining Unicode char U+0142 (decimal 322)
+   defining Unicode char U+0152 (decimal 338)
+   defining Unicode char U+0153 (decimal 339)
+   defining Unicode char U+2013 (decimal 8211)
+   defining Unicode char U+2014 (decimal 8212)
+   defining Unicode char U+2018 (decimal 8216)
+   defining Unicode char U+2019 (decimal 8217)
+   defining Unicode char U+201C (decimal 8220)
+   defining Unicode char U+201D (decimal 8221)
+)
+Now handling font encoding OMS ...
+... processing UTF-8 mapping file for font encoding OMS
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omsenc.dfu"
+File: omsenc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
+   defining Unicode char U+00A7 (decimal 167)
+   defining Unicode char U+00B6 (decimal 182)
+   defining Unicode char U+00B7 (decimal 183)
+   defining Unicode char U+2020 (decimal 8224)
+   defining Unicode char U+2021 (decimal 8225)
+   defining Unicode char U+2022 (decimal 8226)
+)
+Now handling font encoding OMX ...
+... no UTF-8 mapping file for font encoding OMX
+Now handling font encoding U ...
+... no UTF-8 mapping file for font encoding U
+Now handling font encoding T2A ...
+... processing UTF-8 mapping file for font encoding T2A
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\t2aenc.dfu"
+File: t2aenc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
+   defining Unicode char U+00A4 (decimal 164)
+   defining Unicode char U+00A7 (decimal 167)
+   defining Unicode char U+00AB (decimal 171)
+   defining Unicode char U+00BB (decimal 187)
+   defining Unicode char U+0131 (decimal 305)
+   defining Unicode char U+0400 (decimal 1024)
+   defining Unicode char U+0401 (decimal 1025)
+   defining Unicode char U+0402 (decimal 1026)
+   defining Unicode char U+0403 (decimal 1027)
+   defining Unicode char U+0404 (decimal 1028)
+   defining Unicode char U+0405 (decimal 1029)
+   defining Unicode char U+0406 (decimal 1030)
+   defining Unicode char U+0407 (decimal 1031)
+   defining Unicode char U+0408 (decimal 1032)
+   defining Unicode char U+0409 (decimal 1033)
+   defining Unicode char U+040A (decimal 1034)
+   defining Unicode char U+040B (decimal 1035)
+   defining Unicode char U+040C (decimal 1036)
+   defining Unicode char U+040D (decimal 1037)
+   defining Unicode char U+040E (decimal 1038)
+   defining Unicode char U+040F (decimal 1039)
+   defining Unicode char U+0410 (decimal 1040)
+   defining Unicode char U+0411 (decimal 1041)
+   defining Unicode char U+0412 (decimal 1042)
+   defining Unicode char U+0413 (decimal 1043)
+   defining Unicode char U+0414 (decimal 1044)
+   defining Unicode char U+0415 (decimal 1045)
+   defining Unicode char U+0416 (decimal 1046)
+   defining Unicode char U+0417 (decimal 1047)
+   defining Unicode char U+0418 (decimal 1048)
+   defining Unicode char U+0419 (decimal 1049)
+   defining Unicode char U+041A (decimal 1050)
+   defining Unicode char U+041B (decimal 1051)
+   defining Unicode char U+041C (decimal 1052)
+   defining Unicode char U+041D (decimal 1053)
+   defining Unicode char U+041E (decimal 1054)
+   defining Unicode char U+041F (decimal 1055)
+   defining Unicode char U+0420 (decimal 1056)
+   defining Unicode char U+0421 (decimal 1057)
+   defining Unicode char U+0422 (decimal 1058)
+   defining Unicode char U+0423 (decimal 1059)
+   defining Unicode char U+0424 (decimal 1060)
+   defining Unicode char U+0425 (decimal 1061)
+   defining Unicode char U+0426 (decimal 1062)
+   defining Unicode char U+0427 (decimal 1063)
+   defining Unicode char U+0428 (decimal 1064)
+   defining Unicode char U+0429 (decimal 1065)
+   defining Unicode char U+042A (decimal 1066)
+   defining Unicode char U+042B (decimal 1067)
+   defining Unicode char U+042C (decimal 1068)
+   defining Unicode char U+042D (decimal 1069)
+   defining Unicode char U+042E (decimal 1070)
+   defining Unicode char U+042F (decimal 1071)
+   defining Unicode char U+0430 (decimal 1072)
+   defining Unicode char U+0431 (decimal 1073)
+   defining Unicode char U+0432 (decimal 1074)
+   defining Unicode char U+0433 (decimal 1075)
+   defining Unicode char U+0434 (decimal 1076)
+   defining Unicode char U+0435 (decimal 1077)
+   defining Unicode char U+0436 (decimal 1078)
+   defining Unicode char U+0437 (decimal 1079)
+   defining Unicode char U+0438 (decimal 1080)
+   defining Unicode char U+0439 (decimal 1081)
+   defining Unicode char U+043A (decimal 1082)
+   defining Unicode char U+043B (decimal 1083)
+   defining Unicode char U+043C (decimal 1084)
+   defining Unicode char U+043D (decimal 1085)
+   defining Unicode char U+043E (decimal 1086)
+   defining Unicode char U+043F (decimal 1087)
+   defining Unicode char U+0440 (decimal 1088)
+   defining Unicode char U+0441 (decimal 1089)
+   defining Unicode char U+0442 (decimal 1090)
+   defining Unicode char U+0443 (decimal 1091)
+   defining Unicode char U+0444 (decimal 1092)
+   defining Unicode char U+0445 (decimal 1093)
+   defining Unicode char U+0446 (decimal 1094)
+   defining Unicode char U+0447 (decimal 1095)
+   defining Unicode char U+0448 (decimal 1096)
+   defining Unicode char U+0449 (decimal 1097)
+   defining Unicode char U+044A (decimal 1098)
+   defining Unicode char U+044B (decimal 1099)
+   defining Unicode char U+044C (decimal 1100)
+   defining Unicode char U+044D (decimal 1101)
+   defining Unicode char U+044E (decimal 1102)
+   defining Unicode char U+044F (decimal 1103)
+   defining Unicode char U+0450 (decimal 1104)
+   defining Unicode char U+0451 (decimal 1105)
+   defining Unicode char U+0452 (decimal 1106)
+   defining Unicode char U+0453 (decimal 1107)
+   defining Unicode char U+0454 (decimal 1108)
+   defining Unicode char U+0455 (decimal 1109)
+   defining Unicode char U+0456 (decimal 1110)
+   defining Unicode char U+0457 (decimal 1111)
+   defining Unicode char U+0458 (decimal 1112)
+   defining Unicode char U+0459 (decimal 1113)
+   defining Unicode char U+045A (decimal 1114)
+   defining Unicode char U+045B (decimal 1115)
+   defining Unicode char U+045C (decimal 1116)
+   defining Unicode char U+045D (decimal 1117)
+   defining Unicode char U+045E (decimal 1118)
+   defining Unicode char U+045F (decimal 1119)
+   defining Unicode char U+0490 (decimal 1168)
+   defining Unicode char U+0491 (decimal 1169)
+   defining Unicode char U+0492 (decimal 1170)
+   defining Unicode char U+0493 (decimal 1171)
+   defining Unicode char U+0496 (decimal 1174)
+   defining Unicode char U+0497 (decimal 1175)
+   defining Unicode char U+0498 (decimal 1176)
+   defining Unicode char U+0499 (decimal 1177)
+   defining Unicode char U+049A (decimal 1178)
+   defining Unicode char U+049B (decimal 1179)
+   defining Unicode char U+049C (decimal 1180)
+   defining Unicode char U+049D (decimal 1181)
+   defining Unicode char U+04A0 (decimal 1184)
+   defining Unicode char U+04A1 (decimal 1185)
+   defining Unicode char U+04A2 (decimal 1186)
+   defining Unicode char U+04A3 (decimal 1187)
+   defining Unicode char U+04A4 (decimal 1188)
+   defining Unicode char U+04A5 (decimal 1189)
+   defining Unicode char U+04AA (decimal 1194)
+   defining Unicode char U+04AB (decimal 1195)
+   defining Unicode char U+04AE (decimal 1198)
+   defining Unicode char U+04AF (decimal 1199)
+   defining Unicode char U+04B0 (decimal 1200)
+   defining Unicode char U+04B1 (decimal 1201)
+   defining Unicode char U+04B2 (decimal 1202)
+   defining Unicode char U+04B3 (decimal 1203)
+   defining Unicode char U+04B6 (decimal 1206)
+   defining Unicode char U+04B7 (decimal 1207)
+   defining Unicode char U+04B8 (decimal 1208)
+   defining Unicode char U+04B9 (decimal 1209)
+   defining Unicode char U+04BA (decimal 1210)
+   defining Unicode char U+04BB (decimal 1211)
+   defining Unicode char U+04C0 (decimal 1216)
+   defining Unicode char U+04C1 (decimal 1217)
+   defining Unicode char U+04C2 (decimal 1218)
+   defining Unicode char U+04D0 (decimal 1232)
+   defining Unicode char U+04D1 (decimal 1233)
+   defining Unicode char U+04D2 (decimal 1234)
+   defining Unicode char U+04D3 (decimal 1235)
+   defining Unicode char U+04D4 (decimal 1236)
+   defining Unicode char U+04D5 (decimal 1237)
+   defining Unicode char U+04D6 (decimal 1238)
+   defining Unicode char U+04D7 (decimal 1239)
+   defining Unicode char U+04D8 (decimal 1240)
+   defining Unicode char U+04D9 (decimal 1241)
+   defining Unicode char U+04DA (decimal 1242)
+   defining Unicode char U+04DB (decimal 1243)
+   defining Unicode char U+04DC (decimal 1244)
+   defining Unicode char U+04DD (decimal 1245)
+   defining Unicode char U+04DE (decimal 1246)
+   defining Unicode char U+04DF (decimal 1247)
+   defining Unicode char U+04E2 (decimal 1250)
+   defining Unicode char U+04E3 (decimal 1251)
+   defining Unicode char U+04E4 (decimal 1252)
+   defining Unicode char U+04E5 (decimal 1253)
+   defining Unicode char U+04E6 (decimal 1254)
+   defining Unicode char U+04E7 (decimal 1255)
+   defining Unicode char U+04E8 (decimal 1256)
+   defining Unicode char U+04E9 (decimal 1257)
+   defining Unicode char U+04EC (decimal 1260)
+   defining Unicode char U+04ED (decimal 1261)
+   defining Unicode char U+04EE (decimal 1262)
+   defining Unicode char U+04EF (decimal 1263)
+   defining Unicode char U+04F0 (decimal 1264)
+   defining Unicode char U+04F1 (decimal 1265)
+   defining Unicode char U+04F2 (decimal 1266)
+   defining Unicode char U+04F3 (decimal 1267)
+   defining Unicode char U+04F4 (decimal 1268)
+   defining Unicode char U+04F5 (decimal 1269)
+   defining Unicode char U+04F8 (decimal 1272)
+   defining Unicode char U+04F9 (decimal 1273)
+   defining Unicode char U+200C (decimal 8204)
+   defining Unicode char U+2013 (decimal 8211)
+   defining Unicode char U+2014 (decimal 8212)
+   defining Unicode char U+2018 (decimal 8216)
+   defining Unicode char U+2019 (decimal 8217)
+   defining Unicode char U+201C (decimal 8220)
+   defining Unicode char U+201D (decimal 8221)
+   defining Unicode char U+201E (decimal 8222)
+   defining Unicode char U+2030 (decimal 8240)
+   defining Unicode char U+2031 (decimal 8241)
+   defining Unicode char U+2116 (decimal 8470)
+   defining Unicode char U+2329 (decimal 9001)
+   defining Unicode char U+232A (decimal 9002)
+   defining Unicode char U+2423 (decimal 9251)
+)
+   defining Unicode char U+00A9 (decimal 169)
+   defining Unicode char U+00AA (decimal 170)
+   defining Unicode char U+00AE (decimal 174)
+   defining Unicode char U+00BA (decimal 186)
+   defining Unicode char U+02C6 (decimal 710)
+   defining Unicode char U+02DC (decimal 732)
+   defining Unicode char U+200C (decimal 8204)
+   defining Unicode char U+2026 (decimal 8230)
+   defining Unicode char U+2122 (decimal 8482)
+   defining Unicode char U+2423 (decimal 9251)
+))
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\babel\babel.sty"
+Package: babel 2008/07/08 v3.8m The Babel package
+
+*************************************
+* Local config file bblopts.cfg used
+*
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\bblopts.cfg"
+File: bblopts.cfg 2006/07/31 v1.0 MiKTeX 'babel' configuration
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\babel\english.ldf"
+Language: english 2005/03/30 v3.3o English support from the babel system
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\babel\babel.def"
+File: babel.def 2008/07/08 v3.8m Babel common definitions
+\babel@savecnt=\count91
+\U@D=\dimen111
+)
+\l@canadian = a dialect from \language\l@american 
+\l@australian = a dialect from \language\l@british 
+\l@newzealand = a dialect from \language\l@british 
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\babel\russianb.ldf"
+Language: russianb 2008/03/21 v1.1r Russian support from the babel system
+Package babel Info: Making " an active character on input line 199.
+))
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\pscyr\pscyr.sty"
+Package: pscyr 2002/07/04 v0.4d Cyrillic Type1 fonts as default
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ams\classes\amsthm.sty"
+Package: amsthm 2004/08/06 v2.20
+\thm@style=\toks18
+\thm@bodyfont=\toks19
+\thm@headfont=\toks20
+\thm@notefont=\toks21
+\thm@headpunct=\toks22
+\thm@preskip=\skip43
+\thm@postskip=\skip44
+\thm@headsep=\skip45
+\dth@everypar=\toks23
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
+Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
+\@emptytoks=\toks24
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ams\math\amsmath.sty"
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip46
+
+For additional information on amsmath, use the `?' option.
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ams\math\amstext.sty"
+Package: amstext 2000/06/29 v2.01
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ams\math\amsgen.sty"
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks25
+\ex@=\dimen112
+))
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ams\math\amsbsy.sty"
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen113
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ams\math\amsopn.sty"
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count92
+LaTeX Info: Redefining \frac on input line 211.
+\uproot@=\count93
+\leftroot@=\count94
+LaTeX Info: Redefining \overline on input line 307.
+\classnum@=\count95
+\DOTSCASE@=\count96
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen114
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+\macc@depth=\count97
+\c@MaxMatrixCols=\count98
+\dotsspace@=\muskip10
+\c@parentequation=\count99
+\dspbrk@lvl=\count100
+\tag@help=\toks26
+\row@=\count101
+\column@=\count102
+\maxfields@=\count103
+\andhelp@=\toks27
+\eqnshift@=\dimen115
+\alignsep@=\dimen116
+\tagshift@=\dimen117
+\tagwidth@=\dimen118
+\totwidth@=\dimen119
+\lineht@=\dimen120
+\@envbody=\toks28
+\multlinegap=\skip47
+\multlinetaggap=\skip48
+\mathdisplay@stack=\toks29
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty"
+Package: amssymb 2009/06/22 v3.00
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ams\math\amscd.sty"
+Package: amscd 1999/11/29 v2.0
+\athelp@=\toks30
+\minaw@=\dimen121
+\bigaw@=\dimen122
+\minCDarrowwidth=\dimen123
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\indentfirst.sty"
+Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\setspace\setspace.sty"
+Package: setspace 2011/12/19 v6.7a set line spacing
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\enumitem\enumitem.sty"
+Package: enumitem 2011/09/28 v3.5.2 Customized lists
+\labelindent=\skip49
+\enit@outerparindent=\dimen124
+\enit@toks=\toks31
+\enit@inbox=\box28
+\enitdp@description=\count104
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\color.sty"
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 130.
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\colortbl\colortbl.sty"
+Package: colortbl 2012/02/13 v1.0a Color table columns (DPC)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\array.sty"
+Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen125
+\extrarowheight=\dimen126
+\NC@list=\toks32
+\extratabsurround=\skip50
+\backup@length=\skip51
+)
+\everycr=\toks33
+\minrowclearance=\skip52
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\longtable.sty"
+Package: longtable 2004/02/01 v4.11 Multi-page Table package (DPC)
+\LTleft=\skip53
+\LTright=\skip54
+\LTpre=\skip55
+\LTpost=\skip56
+\LTchunksize=\count105
+\LTcapwidth=\dimen127
+\LT@head=\box29
+\LT@firsthead=\box30
+\LT@foot=\box31
+\LT@lastfoot=\box32
+\LT@cols=\count106
+\LT@rows=\count107
+\c@LT@tables=\count108
+\c@LT@chunks=\count109
+\LT@p@ftn=\toks34
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\multirow\multirow.sty"
+\bigstrutjot=\dimen128
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\makecell\makecell.sty"
+Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
+\rotheadsize=\dimen129
+\c@nlinenum=\count110
+\TeXr@lab=\toks35
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\caption\caption.sty"
+Package: caption 2013/02/03 v3.3-65 Customizing captions (AR)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\caption\caption3.sty"
+Package: caption3 2013/02/03 v1.5-62 caption3 kernel (AR)
+\captionmargin=\dimen130
+\captionmargin@=\dimen131
+\captionwidth=\dimen132
+\caption@tempdima=\dimen133
+\caption@indent=\dimen134
+\caption@parindent=\dimen135
+\caption@hangindent=\dimen136
+)
+\c@ContinuedFloat=\count111
+Package caption Info: longtable package is loaded.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\caption\ltcaption.sty"
+Package: ltcaption 2013/02/03 v1.3-62 longtable captions (AR)
+))
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\soul\soul.sty"
+Package: soul 2003/11/17 v2.4 letterspacing/underlining (mf)
+\SOUL@word=\toks36
+\SOUL@lasttoken=\toks37
+\SOUL@cmds=\toks38
+\SOUL@buffer=\toks39
+\SOUL@token=\toks40
+\SOUL@spaceskip=\skip57
+\SOUL@ttwidth=\dimen137
+\SOUL@uldp=\dimen138
+\SOUL@ulht=\dimen139
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\cite\cite.sty"
+LaTeX Info: Redefining \cite on input line 302.
+LaTeX Info: Redefining \nocite on input line 373.
+Package: cite 2010/09/10  v 5.3
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\hyperref.sty"
+Package: hyperref 2012/11/06 v6.83m Hypertext links for LaTeX
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\hobsub-hyperref.sty"
+Package: hobsub-hyperref 2012/04/25 v1.12 Bundle oberdiek, subset hyperref (HO)
+
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\hobsub-generic.sty"
+Package: hobsub-generic 2012/04/25 v1.12 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2012/04/25 v1.12 Construct package bundles (HO)
+Package hobsub Info: Skipping package `infwarerr' (already loaded).
+Package hobsub Info: Skipping package `ltxcmds' (already loaded).
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+Package hobsub Info: Skipping package `ifvtex' (already loaded).
+Package: intcalc 2007/09/27 v1.1 Expandable calculations with integers (HO)
+Package hobsub Info: Skipping package `ifpdf' (already loaded).
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+Package: pdfescape 2011/11/25 v1.13 Implements pdfTeX's escape features (HO)
+Package: bigintcalc 2012/04/08 v1.3 Expandable calculations on big integers (HO
+)
+Package: bitset 2011/01/30 v1.1 Handle bit-vector datatype (HO)
+Package: uniquecounter 2011/01/30 v1.2 Provide unlimited unique counter (HO)
+)
+Package hobsub Info: Skipping package `hobsub' (already loaded).
+Package: letltxmacro 2010/09/02 v1.4 Let assignment for LaTeX macros (HO)
+Package: hopatch 2011/06/24 v1.1 Wrapper for package hooks (HO)
+Package: xcolor-patch 2011/01/30 xcolor patch
+Package: atveryend 2011/06/30 v1.8 Hooks at the very end of document (HO)
+Package atveryend Info: \enddocument detected (standard20110627).
+Package: atbegshi 2011/10/05 v1.16 At begin shipout hook (HO)
+Package: refcount 2011/10/16 v3.4 Data extraction from label references (HO)
+Package: hycolor 2011/01/30 v1.7 Color options for hyperref/bookmark (HO)
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\auxhook.sty"
+Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+)
+\@linkdim=\dimen140
+\Hy@linkcounter=\count112
+\Hy@pagecounter=\count113
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\pd1enc.def"
+File: pd1enc.def 2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+)
+\Hy@SavedSpaceFactor=\count114
+Package hyperref Info: Option `unicode' set `true' on input line 3411.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\puenc.def"
+File: puenc.def 2012/11/06 v6.83m Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\hyperref.cfg"
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Hyper figures OFF on input line 4443.
+Package hyperref Info: Link nesting OFF on input line 4448.
+Package hyperref Info: Hyper index ON on input line 4451.
+Package hyperref Info: Plain pages OFF on input line 4458.
+Package hyperref Info: Backreferencing OFF on input line 4463.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4688.
+\c@Hy@tempcnt=\count115
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ltxmisc\url.sty"
+\Urlmuskip=\muskip11
+Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 5041.
+\XeTeXLinkMargin=\dimen141
+\Fld@menulength=\count116
+\Field@Width=\dimen142
+\Fld@charsize=\dimen143
+Package hyperref Info: Hyper figures OFF on input line 6295.
+Package hyperref Info: Link nesting OFF on input line 6300.
+Package hyperref Info: Hyper index ON on input line 6303.
+Package hyperref Info: backreferencing OFF on input line 6310.
+Package hyperref Info: Link coloring OFF on input line 6315.
+Package hyperref Info: Link coloring with OCG OFF on input line 6320.
+Package hyperref Info: PDF/A mode OFF on input line 6325.
+LaTeX Info: Redefining \ref on input line 6365.
+LaTeX Info: Redefining \pageref on input line 6369.
+\Hy@abspage=\count117
+\c@Item=\count118
+\c@Hfootnote=\count119
+)
+
+Package hyperref Message: Driver (autodetected): hpdftex.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\hpdftex.def"
+File: hpdftex.def 2012/11/06 v6.83m Hyperref driver for pdfTeX
+\Fld@listcount=\count120
+\c@bookmark@seq@number=\count121
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\rerunfilecheck.sty"
+Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+82.
+)
+\Hy@SectionHShift=\skip58
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+\Gin@req@height=\dimen144
+\Gin@req@width=\dimen145
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\epstopdf.sty"
+Package: epstopdf 2010/02/09 v2.5 Conversion with epstopdf on the fly (HO)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\grfext.sty"
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+)
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+))
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\xcolor\xcolor.sty"
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+LaTeX Info: Redefining \color on input line 702.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\listings.sty"
+\lst@mode=\count122
+\lst@gtempboxa=\box33
+\lst@token=\toks41
+\lst@length=\count123
+\lst@currlwidth=\dimen146
+\lst@column=\count124
+\lst@pos=\count125
+\lst@lostspace=\dimen147
+\lst@width=\dimen148
+\lst@newlines=\count126
+\lst@lineno=\count127
+\lst@maxwidth=\dimen149
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
+File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
+\c@lstnumber=\count128
+\lst@skipnumbers=\count129
+\lst@framebox=\box34
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\listings.cfg"
+File: listings.cfg 2007/02/22 1.4 listings configuration
+))
+Package: listings 2007/02/22 1.4 (Carsten Heinz)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\algorithms\algorithm.sty"
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
+nment
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\float\float.sty"
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count130
+\float@exts=\toks42
+\float@box=\box35
+\@float@everytoks=\toks43
+\@floatcapt=\box36
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ifthen.sty"
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\@float@every@algorithm=\toks44
+\c@algorithm=\count131
+))
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\algorithmicx\algpseudocode.sty"
+Package: algpseudocode 
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\algorithmicx\algorithmicx.sty"
+Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
+
+Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
+\c@ALG@line=\count132
+\c@ALG@rem=\count133
+\c@ALG@nested=\count134
+\ALG@tlm=\skip59
+\ALG@thistlm=\skip60
+\c@ALG@Lnr=\count135
+\c@ALG@blocknr=\count136
+\c@ALG@storecount=\count137
+\c@ALG@tmpcounter=\count138
+\ALG@tmplength=\skip61
+)
+Document Style - pseudocode environments for use with the `algorithmicx' style
+) (C:\Dropbox\Dropbox\GitHub\MathHarrixLibrary\temp_library\styles.tex
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
+File: lstlang1.sty 2004/09/05 1.3 listings language file
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
+File: lstlang1.sty 2004/09/05 1.3 listings language file
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
+File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 158.
+)
+(C:\Dropbox\Dropbox\GitHub\MathHarrixLibrary\temp_library\MathHarrixLibrary_Hel
+p.aux
+
+LaTeX Warning: Label `examplefunction14855' multiply defined.
+
+
+LaTeX Warning: Label `img:MHL_ProportionalSelection_Sheme' multiply defined.
+
+
+LaTeX Warning: Label `img:MHL_ProportionalSelection_Sheme' multiply defined.
+
+
+LaTeX Warning: Label `img:TMHL_BinaryToDecimalFromPart_Sheme' multiply defined.
+
+
+
+LaTeX Warning: Label `img:MHL_DerivativeOfBellShapedKernelParabola_Graph' multi
+ply defined.
+
+)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Try loading font information for T2A+faq on input line 11.
+ ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\pscyr\t2afaq.fd"
+File: t2afaq.fd 2004/09/23 Fontinst v1.914 font definitions for T2A/faq.
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count139
+\scratchdimen=\dimen150
+\scratchbox=\box37
+\nofMPsegments=\count140
+\nofMParguments=\count141
+\everyMPshowfont=\toks45
+\MPscratchCnt=\count142
+\MPscratchDim=\dimen151
+\MPnumerator=\count143
+\makeMPintoPDFobject=\count144
+\everyMPtoPDFconversion=\toks46
+)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(56.9055pt, 512.14963pt, 28.45274pt)
+* v-part:(T,H,B)=(56.9055pt, 731.23584pt, 56.9055pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=512.14963pt
+* \textheight=731.23584pt
+* \oddsidemargin=-15.36449pt
+* \evensidemargin=-15.36449pt
+* \topmargin=-52.36449pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=35.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
+Package caption Info: hyperref package is loaded.
+Package caption Info: listings package is loaded.
+Package caption Info: End \AtBeginDocument code.
+\AtBeginShipoutBox=\box38
+Package hyperref Info: Link coloring ON on input line 11.
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
+Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
+Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
+)
+\c@section@level=\count145
+)
+LaTeX Info: Redefining \ref on input line 11.
+LaTeX Info: Redefining \pageref on input line 11.
+LaTeX Info: Redefining \nameref on input line 11.
+
+(C:\Dropbox\Dropbox\GitHub\MathHarrixLibrary\temp_library\MathHarrixLibrary_Hel
+p.out)
+(C:\Dropbox\Dropbox\GitHub\MathHarrixLibrary\temp_library\MathHarrixLibrary_Hel
+p.out)
+\@outlinefile=\write3
+\c@lstlisting=\count146
+ (C:\Dropbox\Dropbox\GitHub\MathHarrixLibrary\temp_library\names.tex)<<ot1.cmap
+>><<oml.cmap>><<oms.cmap>><<omx.cmap>>
+LaTeX Font Info:    Try loading font information for U+msa on input line 16.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+File: umsa.fd 2009/06/22 v3.00 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 16.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
+File: umsb.fd 2009/06/22 v3.00 AMS symbols B
+)
+(C:\Dropbox\Dropbox\GitHub\MathHarrixLibrary\temp_library\MathHarrixLibrary_Hel
+p.toc
+LaTeX Font Info:    Try loading font information for OT1+faq on input line 1.
+ ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\pscyr\ot1faq.fd"
+File: ot1faq.fd 2001/12/09 Fontinst v1.914 font definitions for OT1/faq.
+) [1
+
+{C:/Users/ENTER/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2] [3] [4]
+
+[5] [6] [7])
+\tf@toc=\write4
+ [8]
+Underfull \hbox (badness 10000) in paragraph at lines 41--42
+
+ []
+
+LaTeX Font Info:    Try loading font information for OMS+faq on input line 46.
+LaTeX Font Info:    No file OMSfaq.fd. on input line 46.
+
+LaTeX Font Warning: Font shape `OMS/faq/m/n' undefined
+(Font)              using `OMS/cmsy/m/n' instead
+(Font)              for symbol `textbullet' on input line 46.
+
+[9]
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
+nput line 65.
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 65--65
+[][][][][][][] 
+ []
+
+LaTeX Font Info:    Try loading font information for T2A+fer on input line 65.
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\pscyr\t2afer.fd"
+File: t2afer.fd 2004/09/21 Fontinst v1.914 font definitions for T2A/fer.
+)
+Overfull \hbox (6.0pt too wide) in paragraph at lines 70--70
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 75--75
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 95--95
+[][][][][][][] 
+ []
+
+
+Underfull \hbox (badness 2591) in paragraph at lines 99--100
+[]\T2A/faq/m/n/12 Если пла-ни-ру-ем ис-поль-зо-вать функ-ции, ис-поль-зу-ю-щие 
+слу-чай-ные чис-ла (ес-
+ []
+
+
+Underfull \hbox (badness 3271) in paragraph at lines 99--100
+\T2A/faq/m/n/12 ли не зна-ем, то то-же сде-ла-ем), то в на-ча-ле про-грам-мы в 
+кон-струк-то-ре
+ []
+
+[10]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 100--100
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 105--105
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 126--126
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 143--143
+[][][][][][][] 
+ []
+
+[11]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 161--161
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 172--172
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 189--189
+[][][][][][][] 
+ []
+
+[12]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 208--208
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 219--219
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 239--239
+[][][][][][][] 
+ []
+
+[13]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 248--248
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 264--264
+[][][][][][][] 
+ []
+
+[14]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 290--290
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 296--296
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 303--303
+[][][][][][][] 
+ []
+
+[15]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 342--342
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 350--350
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 359--359
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 372--372
+[][][][][][][] 
+ []
+
+[16]
+Underfull \hbox (badness 4886) in paragraph at lines 414--415
+[]\T2A/faq/m/n/12 программа для про-вер-ки ра-бо-то-спо-соб-но-сти но-вых функ-
+ций и ком-пи-ля-ции
+ []
+
+
+Underfull \hbox (badness 1038) in paragraph at lines 414--415
+\T2A/faq/m/n/12 DemoMathHarrixLibrary.exe (на-при-мер, Qt 5.1.0 с Qt Creator 2.
+7.0 или лю-бая
+ []
+
+[17]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 423--423
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 427--427
+[][][][][][][] 
+ []
+
+
+Underfull \hbox (badness 1005) in paragraph at lines 437--438
+[]\T2A/faq/m/n/12 Если функ-ция в ка-че-стве па-ра-мет-ра име-ет некий век-тор,
+ то он обо-зна-ча-ет-ся
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 449--449
+[][][][][][][] 
+ []
+
+[18]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 463--463
+[][][][][][][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 466--467
+\T2A/faq/bx/n/12 Замечание. \T2A/faq/m/n/12 В .h файл до-бав-ля-ем до строч-ки 
+<<\T2A/faq/bx/n/12 #endif //
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 471--471
+[][][][][][][] 
+ []
+
+[19]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 517--517
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 522--522
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 528--528
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 549--549
+[][][][][][][] 
+ []
+
+[20]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 556--556
+[][][][][][][] 
+ []
+
+
+Underfull \hbox (badness 5637) in paragraph at lines 573--574
+[]\T2A/faq/m/n/12 Рассмотрим немно-го этот код. По-сле вы-зо-ва функ-ции идет к
+ом-мен-та-рий
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 575--575
+[][][][][][][] 
+ []
+
+[21]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 599--599
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 609--609
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 615--615
+[][][][][][][] 
+ []
+
+[22]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 659--659
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 671--671
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 679--679
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 686--686
+[][][][][][][] 
+ []
+
+[23]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 697--697
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 715--715
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 726--726
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 733--733
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 745--745
+[][][][][][][] 
+ []
+
+[24]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 759--759
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 767--767
+[][][][][][][] 
+ []
+
+[25]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 798--798
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 802--802
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 817--817
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 834--834
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 839--839
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 849--849
+[][][][][][][] 
+ []
+
+[26]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 886--886
+[][][][][][][] 
+ []
+
+[27] [28] [29] [30] [31]
+Underfull \hbox (badness 10000) in paragraph at lines 1059--1060
+[][][]\T2A/faq/bx/n/12 MHL_RankSelection[][] \T2A/faq/m/n/12 --- Ран-го-вая се-
+лек-ция. Опе-ра-тор ге-не-ти-че-ско-го ал-го-
+ []
+
+
+Underfull \hbox (badness 2932) in paragraph at lines 1059--1060
+\T2A/faq/m/n/12 рит-ма. Ра-бо-та-ет с век-то-ром ве-ро-ят-но-стей вы-бо-ра ин-д
+и-ви-дов, ко-то-рый мож-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1059--1060
+\T2A/faq/m/n/12 но по-лу-чить из век-то-ра при-год-но-стей ин-ди-ви-дов по-сред
+-ством функ-ции
+ []
+
+
+Underfull \hbox (badness 1067) in paragraph at lines 1059--1060
+\T2A/faq/m/n/12 MHL_MakeVectorOfRankForRankSelection (для по-лу-че-ния мас-си-в
+а ран-гов) и по-
+ []
+
+[32] [33] [34]
+Underfull \hbox (badness 2205) in paragraph at lines 1193--1194
+\T2A/faq/m/n/12 в ин-тер-вал $[]$. При этом в ну-ле воз-вра-ща-ет $\OT1/cmr/m/n
+/12 0\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 5$\T2A/faq/m/n/12 , в $\OMS/faq/m/n/12  
+1$ \T2A/faq/m/n/12 воз-вра-ща-ет $\OT1/cmr/m/n/12 0$\T2A/faq/m/n/12 ,
+ []
+
+
+Underfull \hbox (badness 2189) in paragraph at lines 1193--1194
+\T2A/faq/m/n/12 в $\OMS/faq/m/n/12 1$ \T2A/faq/m/n/12 воз-вра-ща-ет $\OT1/cmr/m
+/n/12 1$\T2A/faq/m/n/12 . Ес-ли $\OML/cmm/m/it/12 x < y$\T2A/faq/m/n/12 , то $\
+OML/cmm/m/it/12 MHL[]NormalizationNumberAll\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\
+OT1/cmr/m/n/12 ) \OML/cmm/m/it/12 <$
+ []
+
+[35] [36] [37]
+Underfull \hbox (badness 3780) in paragraph at lines 1374--1375
+[][][]\T2A/faq/bx/n/12 TMHL_RandomVectorOfPermutation[][] \T2A/faq/m/n/12 --- Ф
+унк-ция со-зда-ет слу-чай-ную строку-
+ []
+
+[38]
+Underfull \hbox (badness 1077) in paragraph at lines 1406--1407
+[][][]\T2A/faq/bx/n/12 TMHL_BubbleSortRowWithOtherConjugateRowsInMatrix[][] \T2
+A/faq/m/n/12 --- Функ-ция сор-ти-ру-ет
+ []
+
+[39] [40]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 1496--1496
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 1516--1516
+[][][][][][][] 
+ []
+
+[41]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 1548--1548
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 1573--1573
+[][][][][][][] 
+ []
+
+[42]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 1625--1625
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 1644--1644
+[][][][][][][] 
+ []
+
+[43] [44]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 1726--1726
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 1743--1743
+[][][][][][][] 
+ []
+
+[45]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 1786--1786
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 1805--1805
+[][][][][][][] 
+ []
+
+[46]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 1854--1854
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 1869--1869
+[][][][][][][] 
+ []
+
+[47]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 1902--1902
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 1918--1918
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 1949--1949
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 1963--1963
+[][][][][][][] 
+ []
+
+[48]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 2001--2001
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 2015--2015
+[][][][][][][] 
+ []
+
+[49]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 2053--2053
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 2072--2072
+[][][][][][][] 
+ []
+
+[50]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 2120--2120
+[][][][][][][] 
+ []
+
+[51]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 2139--2139
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 2184--2184
+[][][][][][][] 
+ []
+
+[52]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 2202--2202
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 2240--2240
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 2255--2255
+[][][][][][][] 
+ []
+
+[53]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 2291--2291
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 2306--2306
+[][][][][][][] 
+ []
+
+[54]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 2342--2342
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 2357--2357
+[][][][][][][] 
+ []
+
+[55]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 2396--2396
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 2411--2411
+[][][][][][][] 
+ []
+
+[56]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 2450--2450
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 2465--2465
+[][][][][][][] 
+ []
+
+[57]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 2504--2504
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 2519--2519
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 2550--2550
+[][][][][][][] 
+ []
+
+[58]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 2565--2565
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 2596--2596
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 2611--2611
+[][][][][][][] 
+ []
+
+[59]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 2652--2652
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 2667--2667
+[][][][][][][] 
+ []
+
+[60]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 2706--2706
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 2721--2721
+[][][][][][][] 
+ []
+
+[61]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 2760--2760
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 2774--2774
+[][][][][][][] 
+ []
+
+[62]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 2812--2812
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 2826--2826
+[][][][][][][] 
+ []
+
+[63]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 2864--2864
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 2898--2898
+[][][][][][][] 
+ []
+
+[64]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 2976--2976
+[][][][][][][] 
+ []
+
+[65]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 2993--2993
+[][][][][][][] 
+ []
+
+[66]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 3048--3048
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 3082--3082
+[][][][][][][] 
+ []
+
+[67] [68]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 3159--3159
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 3175--3175
+[][][][][][][] 
+ []
+
+[69]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 3226--3226
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 3240--3240
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 3273--3273
+[][][][][][][] 
+ []
+
+[70]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 3307--3307
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 3316--3316
+[][][][][][][] 
+ []
+
+[71]
+Underfull \hbox (badness 2310) in paragraph at lines 3334--3337
+[]\T2A/faq/m/n/12 Это слу-жеб-ная функ-ция для ис-поль-зо-ва-ния функ-ции про-п
+ор-ци-о-наль-ной се-лек-ции
+ []
+
+
+Underfull \hbox (badness 1939) in paragraph at lines 3334--3337
+\T2A/faq/m/n/12 Опе-ра-тор се-лек-ции ра-бо-та-ет с мас-си-вом при-год-но-стей 
+ин-ди-ви-дов, но непо-сред-ствен-
+ []
+
+
+Underfull \hbox (badness 1237) in paragraph at lines 3334--3337
+\T2A/faq/m/n/12 ди-ви-дов. Каж-дый раз для вы-бо-ра ин-ди-ви-да со-зда-вать мас
+-сив ве-ро-ят-но-стей за-трат-но,
+ []
+
+
+Underfull \hbox (badness 1675) in paragraph at lines 3334--3337
+\T2A/faq/m/n/12 по-это-му для каж-дой по-пу-ля-ции на каж-дом по-ко-ле-нии вна-
+ча-ле вы-зы-ва-ет-ся функ-ция
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 3347--3347
+[][][][][][][] 
+ []
+
+[72]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 3407--3407
+[][][][][][][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3413--3414
+[]\T2A/faq/m/n/12 Rank --- мас-сив ран-гов, ко-то-рые бы-ли по-счи-та-ны функ-ц
+и-ей
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 3424--3424
+[][][][][][][] 
+ []
+
+[73] [74]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 3489--3489
+[][][][][][][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3507--3508
+[]\T2A/faq/m/n/12 Это слу-жеб-ная функ-ция для ис-поль-зо-ва-ния функ-ции ран-г
+о-вой се-лек-ции
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3509--3510
+[]\T2A/faq/m/n/12 Работает в связ-ке с функ-ци-я-ми MHL_RankSelection и
+ []
+
+
+Underfull \hbox (badness 3229) in paragraph at lines 3509--3510
+\T2A/faq/m/n/12 MHL_MakeVectorOfProbabilityForProportionalSelectionV2. Опе-ра-т
+ор се-лек-ции ра-бо-та-ет с
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 3517--3517
+[][][][][][][] 
+ []
+
+[75]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 3564--3564
+[][][][][][][] 
+ []
+
+[76]
+Underfull \hbox (badness 10000) in paragraph at lines 3582--3583
+[]\T2A/faq/m/n/12 Это мо-ди-фи-ци-ро-ван-ная функ-ция. Ори-ги-наль-ная функ-ция
+
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 3590--3590
+[][][][][][][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3634--3635
+[]\T2A/faq/m/n/12 Нормировка век-то-ра чи-сел в от-ре-зок $\OT1/cmr/m/n/12 [0; 
+1]$ \T2A/faq/m/n/12 по-сред-ством функ-ции
+ []
+
+[77]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 3637--3637
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 3656--3656
+[][][][][][][] 
+ []
+
+[78]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 3703--3703
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 3722--3722
+[][][][][][][] 
+ []
+
+[79]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 3771--3771
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 3790--3790
+[][][][][][][] 
+ []
+
+[80]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 3843--3843
+[][][][][][][] 
+ []
+
+
+Underfull \hbox (badness 5345) in paragraph at lines 3863--3864
+[]\T2A/faq/m/n/12 Данная функ-ция не нуж-на для ра-бо-ты тур-нир-ной се-лек-ции
+ че-рез функ-цию
+ []
+
+[81]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 3878--3878
+[][][][][][][] 
+ []
+
+[82]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 3932--3932
+[][][][][][][] 
+ []
+
+<images/MHL_ProportionalSelection_Sheme.pdf, id=3957, 544.702pt x 241.5695pt>
+File: images/MHL_ProportionalSelection_Sheme.pdf Graphic file (type pdf)
+
+<use images/MHL_ProportionalSelection_Sheme.pdf>
+Package pdftex.def Info: images/MHL_ProportionalSelection_Sheme.pdf used on inp
+ut line 3950.
+(pdftex.def)             Requested size: 435.76219pt x 193.25586pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3960--3961
+[]\T2A/faq/m/n/12 Связке функ-ций MHL_MakeVectorOfProbabilityForProportionalSel
+ectionV2 и
+ []
+
+[83 <C:/Dropbox/Dropbox/GitHub/MathHarrixLibrary/temp_library/images/MHL_Propor
+tionalSelection_Sheme.pdf>]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 3972--3972
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 4014--4014
+[][][][][][][] 
+ []
+
+[84]
+File: images/MHL_ProportionalSelection_Sheme.pdf Graphic file (type pdf)
+ <use images/MHL_ProportionalSelection_Sheme.pdf>
+Package pdftex.def Info: images/MHL_ProportionalSelection_Sheme.pdf used on inp
+ut line 4032.
+(pdftex.def)             Requested size: 435.76219pt x 193.25586pt.
+
+Underfull \hbox (badness 1527) in paragraph at lines 4050--4051
+[]\T2A/faq/m/n/12 Данная функ-ция ис-поль-зу-ет-ся в стан-дарт-ном ге-не-ти-че-
+ском ал-го-рит-ме, ре-а-ли-зо-ван-
+ []
+
+
+Underfull \hbox (badness 1436) in paragraph at lines 4050--4051
+\T2A/faq/m/n/12 ным в ви-де функ-ции MHL_StandartGeneticAlgorithm. Ра-бо-та-ет 
+в связ-ке с функ-ци-ей
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 4055--4055
+[][][][][][][] 
+ []
+
+[85] [86]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 4122--4122
+[][][][][][][] 
+ []
+
+File: images/MHL_ProportionalSelection_Sheme.pdf Graphic file (type pdf)
+<use images/MHL_ProportionalSelection_Sheme.pdf>
+Package pdftex.def Info: images/MHL_ProportionalSelection_Sheme.pdf used on inp
+ut line 4140.
+(pdftex.def)             Requested size: 435.76219pt x 193.25586pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 4150--4151
+[]\T2A/faq/m/n/12 Связке функ-ций MHL_MakeVectorOfProbabilityForProportionalSel
+ectionV2 и
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4154--4157
+[]\T2A/faq/m/n/12 Различия по вре-мен-ным за-тра-там на вы-пол-не-ние. Эта ре-а
+-ли-за-ция
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4154--4157
+\T2A/faq/m/n/12 быст-рее, чем MHL_SelectionProportional и по-чти рав-на связ-ке
+ функ-ций
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4154--4157
+\T2A/faq/m/n/12 MHL_MakeVectorOfProbabilityForProportionalSelectionV2 и MHL_Pro
+portionalSelectionV2,
+ []
+
+[87]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 4165--4165
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 4205--4205
+[][][][][][][] 
+ []
+
+[88] <images/MHL_RankSelection_Sheme.pdf, id=4184, 420.57124pt x 365.365pt>
+File: images/MHL_RankSelection_Sheme.pdf Graphic file (type pdf)
+
+<use images/MHL_RankSelection_Sheme.pdf>
+Package pdftex.def Info: images/MHL_RankSelection_Sheme.pdf used on input line 
+4223.
+(pdftex.def)             Requested size: 336.45746pt x 292.29239pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 4230--4231
+[]\T2A/faq/m/n/12 Данная функ-ция ис-поль-зу-ет-ся в стан-дарт-ном ге-не-ти-че-
+ском ал-го-рит-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4230--4231
+\T2A/faq/m/n/12 ме, ре-а-ли-зо-ван-ным в ви-де функ-ции MHL_StandartGeneticAlgo
+rithm. Ра-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4230--4231
+\T2A/faq/m/n/12 бо-та-ет в связ-ке с функ-ци-я-ми MHL_MakeVectorOfRankForRankSe
+lection и
+ []
+
+
+Underfull \hbox (badness 3229) in paragraph at lines 4230--4231
+\T2A/faq/m/n/12 MHL_MakeVectorOfProbabilityForProportionalSelectionV2. Опе-ра-т
+ор се-лек-ции ра-бо-та-ет с
+ []
+
+[89 <C:/Dropbox/Dropbox/GitHub/MathHarrixLibrary/temp_library/images/MHL_RankSe
+lection_Sheme.pdf>]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 4239--4239
+[][][][][][][] 
+ []
+
+[90]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 4310--4310
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 4330--4330
+[][][][][][][] 
+ []
+
+[91]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 4368--4368
+[][][][][][][] 
+ []
+
+
+Underfull \hbox (badness 5893) in paragraph at lines 4421--4422
+[]\T2A/faq/m/n/12 VMHL_Result --- зна-че-ние це-ле-вой функ-ции в точ-ке, опре-
+де-лен-ной век-то-ром
+ []
+
+[92]
+<images/MHL_StandartBinaryGeneticAlgorithm_Sheme.pdf, id=4343, 545.00917pt x 71
+0.61885pt>
+File: images/MHL_StandartBinaryGeneticAlgorithm_Sheme.pdf Graphic file (type pd
+f)
+ <use images/MHL_StandartBinaryGeneticAlgorithm_Sheme.pdf>
+Package pdftex.def Info: images/MHL_StandartBinaryGeneticAlgorithm_Sheme.pdf us
+ed on input line 4433.
+(pdftex.def)             Requested size: 272.5039pt x 355.30855pt.
+ [93 <C:/Dropbox/Dropbox/GitHub/MathHarrixLibrary/temp_library/images/MHL_Stand
+artBinaryGeneticAlgorithm_Sheme.pdf>]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 4479--4479
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 4489--4489
+[][][][][][][] 
+ []
+
+[94]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 4540--4540
+[][][][][][][] 
+ []
+
+
+<images/MHL_StandartGeneticAlgorithm_Sheme.pdf, id=4420, 612.75923pt x 528.4482
+7pt>
+File: images/MHL_StandartGeneticAlgorithm_Sheme.pdf Graphic file (type pdf)
+ <use images/MHL_StandartGeneticAlgorithm_Sheme.pdf>
+Package pdftex.def Info: images/MHL_StandartGeneticAlgorithm_Sheme.pdf used on 
+input line 4551.
+(pdftex.def)             Requested size: 306.37886pt x 264.22348pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[95]
+Underfull \hbox (badness 5893) in paragraph at lines 4604--4605
+[]\T2A/faq/m/n/12 VMHL_Result --- зна-че-ние це-ле-вой функ-ции в точ-ке, опре-
+де-лен-ной век-то-ром
+ []
+
+[96 <C:/Dropbox/Dropbox/GitHub/MathHarrixLibrary/temp_library/images/MHL_Standa
+rtGeneticAlgorithm_Sheme.pdf>]
+File: images/MHL_StandartBinaryGeneticAlgorithm_Sheme.pdf Graphic file (type pd
+f)
+
+<use images/MHL_StandartBinaryGeneticAlgorithm_Sheme.pdf>
+Package pdftex.def Info: images/MHL_StandartBinaryGeneticAlgorithm_Sheme.pdf us
+ed on input line 4616.
+(pdftex.def)             Requested size: 272.5039pt x 355.30855pt.
+ [97]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 4661--4661
+[][][][][][][] 
+ []
+
+[98]
+Underfull \hbox (badness 5893) in paragraph at lines 4731--4732
+[]\T2A/faq/m/n/12 VMHL_Result --- зна-че-ние це-ле-вой функ-ции в точ-ке, опре-
+де-лен-ной век-то-ром
+ []
+
+[99]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 4777--4777
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 4785--4785
+[][][][][][][] 
+ []
+
+[100] [101]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 4895--4895
+[][][][][][][] 
+ []
+
+[102]
+Underfull \hbox (badness 5893) in paragraph at lines 4958--4959
+[]\T2A/faq/m/n/12 VMHL_Result --- зна-че-ние це-ле-вой функ-ции в точ-ке, опре-
+де-лен-ной век-то-ром
+ []
+
+[103]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 5004--5004
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 5012--5012
+[][][][][][][] 
+ []
+
+[104]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 5075--5075
+[][][][][][][] 
+ []
+
+[105]
+<images/MHL_TournamentSelection_Sheme.pdf, id=4718, 362.688pt x 260.30551pt>
+File: images/MHL_TournamentSelection_Sheme.pdf Graphic file (type pdf)
+
+<use images/MHL_TournamentSelection_Sheme.pdf>
+Package pdftex.def Info: images/MHL_TournamentSelection_Sheme.pdf used on input
+ line 5114.
+(pdftex.def)             Requested size: 290.15079pt x 208.24469pt.
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 5122--5122
+[][][][][][][] 
+ []
+
+[106 <C:/Dropbox/Dropbox/GitHub/MathHarrixLibrary/temp_library/images/MHL_Tourn
+amentSelection_Sheme.pdf>] [107]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 5203--5203
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 5226--5226
+[][][][][][][] 
+ []
+
+[108]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 5264--5264
+[][][][][][][] 
+ []
+
+
+<images/TMHL_MutationBinaryMatrix_Sheme.pdf, id=4866, 270.51062pt x 143.03438pt
+>
+File: images/TMHL_MutationBinaryMatrix_Sheme.pdf Graphic file (type pdf)
+ <use images/TMHL_MutationBinaryMatrix_Sheme.pdf>
+Package pdftex.def Info: images/TMHL_MutationBinaryMatrix_Sheme.pdf used on inp
+ut line 5287.
+(pdftex.def)             Requested size: 216.40878pt x 114.42764pt.
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 5294--5294
+[][][][][][][] 
+ []
+
+[109 <C:/Dropbox/Dropbox/GitHub/MathHarrixLibrary/temp_library/images/TMHL_Muta
+tionBinaryMatrix_Sheme.pdf>]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 5345--5345
+[][][][][][][] 
+ []
+
+[110]
+<images/TMHL_SinglepointCrossover_Sheme.pdf, id=4976, 382.0945pt x 307.1475pt>
+File: images/TMHL_SinglepointCrossover_Sheme.pdf Graphic file (type pdf)
+
+<use images/TMHL_SinglepointCrossover_Sheme.pdf>
+Package pdftex.def Info: images/TMHL_SinglepointCrossover_Sheme.pdf used on inp
+ut line 5384.
+(pdftex.def)             Requested size: 305.676pt x 245.71832pt.
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 5390--5390
+[][][][][][][] 
+ []
+
+[111 <C:/Dropbox/Dropbox/GitHub/MathHarrixLibrary/temp_library/images/TMHL_Sing
+lepointCrossover_Sheme.pdf>]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 5430--5430
+[][][][][][][] 
+ []
+
+[112]
+<images/TMHL_TwopointCrossover_Sheme.pdf, id=5107, 382.0945pt x 307.1475pt>
+File: images/TMHL_TwopointCrossover_Sheme.pdf Graphic file (type pdf)
+
+<use images/TMHL_TwopointCrossover_Sheme.pdf>
+Package pdftex.def Info: images/TMHL_TwopointCrossover_Sheme.pdf used on input 
+line 5473.
+(pdftex.def)             Requested size: 305.676pt x 245.71832pt.
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 5479--5479
+[][][][][][][] 
+ []
+
+[113 <C:/Dropbox/Dropbox/GitHub/MathHarrixLibrary/temp_library/images/TMHL_Twop
+ointCrossover_Sheme.pdf>]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 5519--5519
+[][][][][][][] 
+ []
+
+<images/TMHL_UniformCrossover_Sheme.pdf, id=5214, 382.0945pt x 160.6pt>
+File: images/TMHL_UniformCrossover_Sheme.pdf Graphic file (type pdf)
+
+<use images/TMHL_UniformCrossover_Sheme.pdf>
+Package pdftex.def Info: images/TMHL_UniformCrossover_Sheme.pdf used on input l
+ine 5549.
+(pdftex.def)             Requested size: 305.676pt x 128.48016pt.
+ [114]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 5555--5555
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 5597--5597
+[][][][][][][] 
+ []
+
+[115 <C:/Dropbox/Dropbox/GitHub/MathHarrixLibrary/temp_library/images/TMHL_Unif
+ormCrossover_Sheme.pdf>]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 5618--5618
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 5655--5655
+[][][][][][][] 
+ []
+
+[116]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 5668--5668
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 5685--5685
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 5698--5698
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 5715--5715
+[][][][][][][] 
+ []
+
+[117]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 5728--5728
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 5745--5745
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 5758--5758
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 5775--5775
+[][][][][][][] 
+ []
+
+[118]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 5788--5788
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 5805--5805
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 5818--5818
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 5837--5837
+[][][][][][][] 
+ []
+
+[119]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 5863--5863
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 5872--5872
+[][][][][][][] 
+ []
+
+[120]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 5900--5900
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 5926--5926
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 5935--5935
+[][][][][][][] 
+ []
+
+[121]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 5963--5963
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 5989--5989
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 5998--5998
+[][][][][][][] 
+ []
+
+[122]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 6028--6028
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 6042--6042
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 6067--6067
+[][][][][][][] 
+ []
+
+[123]
+Underfull \hbox (badness 1014) in paragraph at lines 6087--6088
+[]\T2A/faq/m/n/12 Итак, для обыч-но-го ис-поль-зо-ва-ния (без па-ра-мет-ра Type
+) нуж-но вы-звать функ-цию
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 6092--6092
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 6118--6118
+[][][][][][][] 
+ []
+
+[124]
+Underfull \hbox (badness 1014) in paragraph at lines 6138--6139
+[]\T2A/faq/m/n/12 Итак, для обыч-но-го ис-поль-зо-ва-ния (без па-ра-мет-ра Type
+) нуж-но вы-звать функ-цию
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 6143--6143
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 6170--6170
+[][][][][][][] 
+ []
+
+[125]
+Underfull \hbox (badness 1014) in paragraph at lines 6190--6191
+[]\T2A/faq/m/n/12 Итак, для обыч-но-го ис-поль-зо-ва-ния (без па-ра-мет-ра Type
+) нуж-но вы-звать функ-цию
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 6195--6195
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 6221--6221
+[][][][][][][] 
+ []
+
+[126]
+Underfull \hbox (badness 1014) in paragraph at lines 6239--6240
+[]\T2A/faq/m/n/12 Итак, для обыч-но-го ис-поль-зо-ва-ния (без па-ра-мет-ра Type
+) нуж-но вы-звать функ-цию
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 6242--6242
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 6261--6261
+[][][][][][][] 
+ []
+
+[127]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 6278--6278
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 6313--6313
+[][][][][][][] 
+ []
+
+[128]
+Underfull \hbox (badness 1014) in paragraph at lines 6333--6334
+[]\T2A/faq/m/n/12 Итак, для обыч-но-го ис-поль-зо-ва-ния (без па-ра-мет-ра Type
+) нуж-но вы-звать функ-цию
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 6336--6336
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 6361--6361
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 6378--6378
+[][][][][][][] 
+ []
+
+[129]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 6412--6412
+[][][][][][][] 
+ []
+
+
+Underfull \hbox (badness 1014) in paragraph at lines 6432--6433
+[]\T2A/faq/m/n/12 Итак, для обыч-но-го ис-поль-зо-ва-ния (без па-ра-мет-ра Type
+) нуж-но вы-звать функ-цию
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 6435--6435
+[][][][][][][] 
+ []
+
+[130]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 6463--6463
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 6487--6487
+[][][][][][][] 
+ []
+
+[131]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 6496--6496
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 6522--6522
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 6546--6546
+[][][][][][][] 
+ []
+
+[132]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 6555--6555
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 6581--6581
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 6605--6605
+[][][][][][][] 
+ []
+
+[133]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 6614--6614
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 6642--6642
+[][][][][][][] 
+ []
+
+[134]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 6695--6695
+[][][][][][][] 
+ []
+
+[135] [136]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 6788--6788
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 6819--6819
+[][][][][][][] 
+ []
+
+[137]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 6868--6868
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 6883--6883
+[][][][][][][] 
+ []
+
+[138]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 6910--6910
+[][][][][][][] 
+ []
+
+
+<images/TMHL_BinaryToDecimalFromPart_Sheme.pdf, id=6064, 191.71625pt x 96.36pt>
+File: images/TMHL_BinaryToDecimalFromPart_Sheme.pdf Graphic file (type pdf)
+<use images/TMHL_BinaryToDecimalFromPart_Sheme.pdf>
+Package pdftex.def Info: images/TMHL_BinaryToDecimalFromPart_Sheme.pdf used on 
+input line 6932.
+(pdftex.def)             Requested size: 191.71577pt x 96.35974pt.
+
+Underfull \hbox (badness 2856) in paragraph at lines 6939--6940
+[]\T2A/faq/m/n/12 Для пе-ре-во-да всей би-нар-ной стро-ки в чис-ло луч-ше вос-п
+оль-зо-вать-ся функ-ци-ей
+ []
+
+[139 <C:/Dropbox/Dropbox/GitHub/MathHarrixLibrary/temp_library/images/TMHL_Bina
+ryToDecimalFromPart_Sheme.pdf>]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 6946--6946
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 6979--6979
+[][][][][][][] 
+ []
+
+[140]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 6999--6999
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7032--7032
+[][][][][][][] 
+ []
+
+[141]
+File: images/TMHL_BinaryToDecimalFromPart_Sheme.pdf Graphic file (type pdf)
+ <use images/TMHL_BinaryToDecimalFromPart_Sheme.pdf>
+Package pdftex.def Info: images/TMHL_BinaryToDecimalFromPart_Sheme.pdf used on 
+input line 7056.
+(pdftex.def)             Requested size: 191.71577pt x 96.35974pt.
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7078--7078
+[][][][][][][] 
+ []
+
+[142]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7120--7120
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7143--7143
+[][][][][][][] 
+ []
+
+[143]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7162--7162
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7179--7179
+[][][][][][][] 
+ []
+
+[144]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7206--7206
+[][][][][][][] 
+ []
+
+<images/MHL_ExpMSxD2_Graph.png, id=6272, 271.0125pt x 194.22563pt>
+File: images/MHL_ExpMSxD2_Graph.png Graphic file (type png)
+
+<use images/MHL_ExpMSxD2_Graph.png>
+Package pdftex.def Info: images/MHL_ExpMSxD2_Graph.png used on input line 7225.
+
+(pdftex.def)             Requested size: 271.01183pt x 194.22514pt.
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7233--7233
+[][][][][][][] 
+ []
+
+[145 <C:/Dropbox/Dropbox/GitHub/MathHarrixLibrary/temp_library/images/MHL_ExpMS
+xD2_Graph.png>]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7256--7256
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7273--7273
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7300--7300
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7315--7315
+[][][][][][][] 
+ []
+
+[146]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7338--7338
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7351--7351
+[][][][][][][] 
+ []
+
+[147]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7375--7375
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7388--7388
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7410--7410
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7425--7425
+[][][][][][][] 
+ []
+
+[148]
+Underfull \hbox (badness 1571) in paragraph at lines 7445--7446
+[]\T2A/faq/m/n/12 Функция нор-ми-ру-ет чис-ло из ин-тер-ва-ла $[]$ в ин-тер-вал
+ $[]$. При этом в
+ []
+
+
+Underfull \hbox (badness 1571) in paragraph at lines 7445--7446
+\T2A/faq/m/n/12 ну-ле воз-вра-ща-ет $\OT1/cmr/m/n/12 0\OML/cmm/m/it/12 :\OT1/cm
+r/m/n/12 5$\T2A/faq/m/n/12 , в $\OMS/faq/m/n/12  1$ \T2A/faq/m/n/12 воз-вра-ща-
+ет $\OT1/cmr/m/n/12 0$\T2A/faq/m/n/12 , в $\OMS/faq/m/n/12 1$ \T2A/faq/m/n/12 в
+оз-вра-ща-ет $\OT1/cmr/m/n/12 1$\T2A/faq/m/n/12 . Ес-ли $\OML/cmm/m/it/12 x < y
+$\T2A/faq/m/n/12 , то
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7448--7448
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7466--7466
+[][][][][][][] 
+ []
+
+[149]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7488--7488
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7503--7503
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7519--7519
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7536--7536
+[][][][][][][] 
+ []
+
+[150]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7563--7563
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7580--7580
+[][][][][][][] 
+ []
+
+[151]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7607--7607
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7620--7620
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7637--7637
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7650--7650
+[][][][][][][] 
+ []
+
+[152]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7673--7673
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7686--7686
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7702--7702
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7715--7715
+[][][][][][][] 
+ []
+
+[153]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7738--7738
+[][][][][][][] 
+ []
+
+<images/TMHL_HeavisideFunction_Graph.png, id=6554, 263.48438pt x 193.47281pt>
+File: images/TMHL_HeavisideFunction_Graph.png Graphic file (type png)
+
+<use images/TMHL_HeavisideFunction_Graph.png>
+Package pdftex.def Info: images/TMHL_HeavisideFunction_Graph.png used on input 
+line 7760.
+(pdftex.def)             Requested size: 263.48372pt x 193.47234pt.
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7768--7768
+[][][][][][][] 
+ []
+
+[154 <C:/Dropbox/Dropbox/GitHub/MathHarrixLibrary/temp_library/images/TMHL_Heav
+isideFunction_Graph.png>]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7784--7784
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7800--7800
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7818--7818
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7833--7833
+[][][][][][][] 
+ []
+
+[155]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7851--7851
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7866--7866
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7894--7894
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7909--7909
+[][][][][][][] 
+ []
+
+[156]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7926--7926
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7943--7943
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7960--7960
+[][][][][][][] 
+ []
+
+[157]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7975--7975
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 7994--7994
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 8011--8011
+[][][][][][][] 
+ []
+
+[158]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 8064--8064
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 8083--8083
+[][][][][][][] 
+ []
+
+[159] [160]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 8160--8160
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 8179--8179
+[][][][][][][] 
+ []
+
+[161]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 8227--8227
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 8246--8246
+[][][][][][][] 
+ []
+
+[162]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 8294--8294
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 8311--8311
+[][][][][][][] 
+ []
+
+[163]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 8348--8348
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 8363--8363
+[][][][][][][] 
+ []
+
+[164]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 8392--8392
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 8430--8430
+[][][][][][][] 
+ []
+
+[165] [166]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 8546--8546
+[][][][][][][] 
+ []
+
+[167]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 8569--8569
+[][][][][][][] 
+ []
+
+[168]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 8626--8626
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 8649--8649
+[][][][][][][] 
+ []
+
+[169]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 8705--8705
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 8724--8724
+[][][][][][][] 
+ []
+
+[170]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 8772--8772
+[][][][][][][] 
+ []
+
+[171]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 8810--8810
+[][][][][][][] 
+ []
+
+[172] [173]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 8926--8926
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 8945--8945
+[][][][][][][] 
+ []
+
+[174]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 8991--8991
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 9014--9014
+[][][][][][][] 
+ []
+
+[175]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 9073--9073
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 9092--9092
+[][][][][][][] 
+ []
+
+[176]
+Underfull \hbox (badness 10000) in paragraph at lines 9150--9151
+[]\T2A/faq/m/n/12 Функция ко-пи-ру-ет со-дер-жи-мое мат-ри-цы (дву-мер-но-го ма
+с-си-ва) a в мас-сив
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 9153--9153
+[][][][][][][] 
+ []
+
+[177]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 9172--9172
+[][][][][][][] 
+ []
+
+[178]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 9230--9230
+[][][][][][][] 
+ []
+
+
+Underfull \hbox (badness 3803) in paragraph at lines 9242--9243
+[]\T2A/faq/m/n/12 VMHL_M --- ко-ли-че-ство столб-цов в мат-ри-це и од-но-вре-ме
+н-но раз-мер мас-си-ва
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 9249--9249
+[][][][][][][] 
+ []
+
+[179]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 9303--9303
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 9320--9320
+[][][][][][][] 
+ []
+
+[180]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 9363--9363
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 9380--9380
+[][][][][][][] 
+ []
+
+[181]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 9423--9423
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 9442--9442
+[][][][][][][] 
+ []
+
+[182]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 9508--9508
+[][][][][][][] 
+ []
+
+[183]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 9529--9529
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 9566--9566
+[][][][][][][] 
+ []
+
+[184]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 9583--9583
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 9636--9636
+[][][][][][][] 
+ []
+
+[185]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 9655--9655
+[][][][][][][] 
+ []
+
+[186]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 9725--9725
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 9742--9742
+[][][][][][][] 
+ []
+
+[187]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 9785--9785
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 9802--9802
+[][][][][][][] 
+ []
+
+[188]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 9847--9847
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 9869--9869
+[][][][][][][] 
+ []
+
+[189]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 9914--9914
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 9936--9936
+[][][][][][][] 
+ []
+
+[190]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 9985--9985
+[][][][][][][] 
+ []
+
+[191]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 10007--10007
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 10054--10054
+[][][][][][][] 
+ []
+
+[192]
+<images/MHL_BellShapedKernelExp_Graph.png, id=8186, 453.19313pt x 228.855pt>
+File: images/MHL_BellShapedKernelExp_Graph.png Graphic file (type png)
+
+<use images/MHL_BellShapedKernelExp_Graph.png>
+Package pdftex.def Info: images/MHL_BellShapedKernelExp_Graph.png used on input
+ line 10073.
+(pdftex.def)             Requested size: 453.19202pt x 228.85443pt.
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 10080--10080
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 10100--10100
+[][][][][][][] 
+ []
+
+[193 <C:/Dropbox/Dropbox/GitHub/MathHarrixLibrary/temp_library/images/MHL_BellS
+hapedKernelExp_Graph.png (PNG copy)>]
+<images/MHL_BellShapedKernelParabola_Graph.png, id=8208, 454.69875pt x 229.6078
+2pt>
+File: images/MHL_BellShapedKernelParabola_Graph.png Graphic file (type png)
+ <use images/MHL_BellShapedKernelParabola_Graph.png>
+Package pdftex.def Info: images/MHL_BellShapedKernelParabola_Graph.png used on 
+input line 10119.
+(pdftex.def)             Requested size: 454.69763pt x 229.60725pt.
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 10126--10126
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 10146--10146
+[][][][][][][] 
+ []
+
+[194 <C:/Dropbox/Dropbox/GitHub/MathHarrixLibrary/temp_library/images/MHL_BellS
+hapedKernelParabola_Graph.png (PNG copy)>]
+<images/MHL_BellShapedKernelRectangle_Graph.png, id=8229, 458.46281pt x 231.866
+26pt>
+File: images/MHL_BellShapedKernelRectangle_Graph.png Graphic file (type png)
+ <use images/MHL_BellShapedKernelRectangle_Graph.png>
+Package pdftex.def Info: images/MHL_BellShapedKernelRectangle_Graph.png used on
+ input line 10165.
+(pdftex.def)             Requested size: 458.46169pt x 231.86568pt.
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 10171--10171
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 10191--10191
+[][][][][][][] 
+ []
+
+[195 <C:/Dropbox/Dropbox/GitHub/MathHarrixLibrary/temp_library/images/MHL_BellS
+hapedKernelRectangle_Graph.png (PNG copy)>]
+<images/MHL_BellShapedKernelTriangle_Graph.png, id=8250, 452.4403pt x 229.60782
+pt>
+File: images/MHL_BellShapedKernelTriangle_Graph.png Graphic file (type png)
+ <use images/MHL_BellShapedKernelTriangle_Graph.png>
+Package pdftex.def Info: images/MHL_BellShapedKernelTriangle_Graph.png used on 
+input line 10210.
+(pdftex.def)             Requested size: 452.43921pt x 229.60725pt.
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 10216--10216
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 10236--10236
+[][][][][][][] 
+ []
+
+[196 <C:/Dropbox/Dropbox/GitHub/MathHarrixLibrary/temp_library/images/MHL_BellS
+hapedKernelTriangle_Graph.png (PNG copy)>]
+<images/MHL_DerivativeOfBellShapedKernelExp_Graph.png, id=8271, 456.20438pt x 2
+36.38312pt>
+File: images/MHL_DerivativeOfBellShapedKernelExp_Graph.png Graphic file (type p
+ng)
+ <use images/MHL_DerivativeOfBellShapedKernelExp_Graph.png>
+Package pdftex.def Info: images/MHL_DerivativeOfBellShapedKernelExp_Graph.png u
+sed on input line 10255.
+(pdftex.def)             Requested size: 456.20325pt x 236.38254pt.
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 10261--10261
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 10281--10281
+[][][][][][][] 
+ []
+
+[197 <C:/Dropbox/Dropbox/GitHub/MathHarrixLibrary/temp_library/images/MHL_Deriv
+ativeOfBellShapedKernelExp_Graph.png (PNG copy)>]
+<images/MHL_DerivativeOfBellShapedKernelParabola_Graph.png, id=8291, 453.94594p
+t x 228.855pt>
+File: images/MHL_DerivativeOfBellShapedKernelParabola_Graph.png Graphic file (t
+ype png)
+ <use images/MHL_DerivativeOfBellShapedKernelParabola_Graph.png>
+Package pdftex.def Info: images/MHL_DerivativeOfBellShapedKernelParabola_Graph.
+png used on input line 10300.
+(pdftex.def)             Requested size: 453.94482pt x 228.85443pt.
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 10306--10306
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 10326--10326
+[][][][][][][] 
+ []
+
+[198 <C:/Dropbox/Dropbox/GitHub/MathHarrixLibrary/temp_library/images/MHL_Deriv
+ativeOfBellShapedKernelParabola_Graph.png (PNG copy)>]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 10344--10344
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 10364--10364
+[][][][][][][] 
+ []
+
+File: images/MHL_DerivativeOfBellShapedKernelParabola_Graph.png Graphic file (t
+ype png)
+<use images/MHL_DerivativeOfBellShapedKernelParabola_Graph.png>
+Package pdftex.def Info: images/MHL_DerivativeOfBellShapedKernelParabola_Graph.
+png used on input line 10383.
+(pdftex.def)             Requested size: 453.94482pt x 228.85443pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 10389--10389
+[][][][][][][] 
+ []
+
+[199]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 10411--10411
+[][][][][][][] 
+ []
+
+[200]
+<images/MHL_TrapeziformFuzzyNumber_Graph.png, id=8353, 456.95718pt x 234.1247pt
+>
+File: images/MHL_TrapeziformFuzzyNumber_Graph.png Graphic file (type png)
+ <use images/MHL_TrapeziformFuzzyNumber_Graph.png>
+Package pdftex.def Info: images/MHL_TrapeziformFuzzyNumber_Graph.png used on in
+put line 10438.
+(pdftex.def)             Requested size: 456.95605pt x 234.12411pt.
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 10445--10445
+[][][][][][][] 
+ []
+
+[201 <C:/Dropbox/Dropbox/GitHub/MathHarrixLibrary/temp_library/images/MHL_Trape
+ziformFuzzyNumber_Graph.png (PNG copy)>]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 10484--10484
+[][][][][][][] 
+ []
+
+[202]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 10527--10527
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 10537--10537
+[][][][][][][] 
+ []
+
+[203]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 10581--10581
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 10593--10593
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 10611--10611
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 10623--10623
+[][][][][][][] 
+ []
+
+[204]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 10643--10643
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 10669--10669
+[][][][][][][] 
+ []
+
+[205]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 10691--10691
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 10711--10711
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 10742--10742
+[][][][][][][] 
+ []
+
+[206]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 10762--10762
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 10805--10805
+[][][][][][][] 
+ []
+
+[207]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 10825--10825
+[][][][][][][] 
+ []
+
+[208]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 10886--10886
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 10906--10906
+[][][][][][][] 
+ []
+
+[209]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 10950--10950
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 10968--10968
+[][][][][][][] 
+ []
+
+[210]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 11002--11002
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 11020--11020
+[][][][][][][] 
+ []
+
+[211]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 11068--11068
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 11082--11082
+[][][][][][][] 
+ []
+
+[212]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 11116--11116
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 11131--11131
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 11160--11160
+[][][][][][][] 
+ []
+
+[213]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 11177--11177
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 11204--11204
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 11221--11221
+[][][][][][][] 
+ []
+
+[214]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 11256--11256
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 11271--11271
+[][][][][][][] 
+ []
+
+[215]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 11302--11302
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 11323--11323
+[][][][][][][] 
+ []
+
+[216]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 11355--11355
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 11376--11376
+[][][][][][][] 
+ []
+
+[217]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 11420--11420
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 11441--11441
+[][][][][][][] 
+ []
+
+[218]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 11502--11502
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 11523--11523
+[][][][][][][] 
+ []
+
+[219]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 11567--11567
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 11586--11586
+[][][][][][][] 
+ []
+
+[220]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 11621--11621
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 11640--11640
+[][][][][][][] 
+ []
+
+[221]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 11688--11688
+[][][][][][][] 
+ []
+
+[222]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 11710--11710
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 11745--11745
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 11764--11764
+[][][][][][][] 
+ []
+
+[223]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 11797--11797
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 11811--11811
+[][][][][][][] 
+ []
+
+[224]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 11830--11830
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 11844--11844
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 11860--11860
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 11875--11875
+[][][][][][][] 
+ []
+
+[225]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 11912--11912
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 11931--11931
+[][][][][][][] 
+ []
+
+[226]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 11970--11970
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 11985--11985
+[][][][][][][] 
+ []
+
+[227]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 12035--12035
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 12050--12050
+[][][][][][][] 
+ []
+
+[228]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 12099--12099
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 12118--12118
+[][][][][][][] 
+ []
+
+[229]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 12162--12162
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 12179--12179
+[][][][][][][] 
+ []
+
+[230]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 12220--12220
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 12237--12237
+[][][][][][][] 
+ []
+
+[231]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 12279--12279
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 12296--12296
+[][][][][][][] 
+ []
+
+[232]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 12329--12329
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 12348--12348
+[][][][][][][] 
+ []
+
+[233]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 12392--12392
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 12409--12409
+[][][][][][][] 
+ []
+
+[234]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 12456--12456
+[][][][][][][] 
+ []
+
+[235]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 12475--12475
+[][][][][][][] 
+ []
+
+[236]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 12538--12538
+[][][][][][][] 
+ []
+
+
+<images/MHL_DensityOfDistributionOfNormalDistribution_Graph.png, id=9730, 271.0
+125pt x 194.22563pt>
+File: images/MHL_DensityOfDistributionOfNormalDistribution_Graph.png Graphic fi
+le (type png)
+
+<use images/MHL_DensityOfDistributionOfNormalDistribution_Graph.png>
+Package pdftex.def Info: images/MHL_DensityOfDistributionOfNormalDistribution_G
+raph.png used on input line 12557.
+(pdftex.def)             Requested size: 271.01183pt x 194.22514pt.
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 12565--12565
+[][][][][][][] 
+ []
+
+[237 <C:/Dropbox/Dropbox/GitHub/MathHarrixLibrary/temp_library/images/MHL_Densi
+tyOfDistributionOfNormalDistribution_Graph.png>]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 12588--12588
+[][][][][][][] 
+ []
+
+
+<images/MHL_DistributionFunctionOfNormalDistribution_Graph.png, id=9753, 271.01
+25pt x 194.22563pt>
+File: images/MHL_DistributionFunctionOfNormalDistribution_Graph.png Graphic fil
+e (type png)
+
+<use images/MHL_DistributionFunctionOfNormalDistribution_Graph.png>
+Package pdftex.def Info: images/MHL_DistributionFunctionOfNormalDistribution_Gr
+aph.png used on input line 12609.
+(pdftex.def)             Requested size: 271.01183pt x 194.22514pt.
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 12617--12617
+[][][][][][][] 
+ []
+
+[238 <C:/Dropbox/Dropbox/GitHub/MathHarrixLibrary/temp_library/images/MHL_Distr
+ibutionFunctionOfNormalDistribution_Graph.png>]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 12640--12640
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 12654--12654
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 12672--12672
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 12686--12686
+[][][][][][][] 
+ []
+
+[239]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 12704--12704
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 12720--12720
+[][][][][][][] 
+ []
+
+[240]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 12759--12759
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 12783--12783
+[][][][][][][] 
+ []
+
+[241]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 12816--12816
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 12839--12839
+[][][][][][][] 
+ []
+
+[242]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 12873--12873
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 12888--12888
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 12927--12927
+[][][][][][][] 
+ []
+
+[243]
+Underfull \hbox (badness 10000) in alignment at lines 12943--12947
+[][] 
+ []
+
+
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 12943--12948
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in alignment at lines 12956--12962
+[][] 
+ []
+
+
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 12956--12963
+[][] 
+ []
+
+<images/MHL_TestFunction_Ackley_Graph.png, id=9951, 755.07094pt x 368.1253pt>
+File: images/MHL_TestFunction_Ackley_Graph.png Graphic file (type png)
+
+<use images/MHL_TestFunction_Ackley_Graph.png>
+Package pdftex.def Info: images/MHL_TestFunction_Ackley_Graph.png used on input
+ line 12966.
+(pdftex.def)             Requested size: 377.53455pt x 184.0622pt.
+
+Underfull \hbox (badness 4366) in paragraph at lines 12975--12975
+[]|\T2A/faq/bx/n/12 Число ин-тер-ва-лов, на ко-то-рые
+ []
+
+
+Underfull \hbox (badness 10000) in alignment at lines 12973--12977
+[][] 
+ []
+
+
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 12973--12978
+[][] 
+ []
+
+[244 <C:/Dropbox/Dropbox/GitHub/MathHarrixLibrary/temp_library/images/MHL_TestF
+unction_Ackley_Graph.png (PNG copy)>]
+Underfull \hbox (badness 10000) in alignment at lines 12986--12995
+[][] 
+ []
+
+
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 12986--12996
+[][] 
+ []
+
+[245]
+Underfull \hbox (badness 10000) in alignment at lines 13021--13027
+[][] 
+ []
+
+
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 13021--13028
+[][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 13030--13030
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 13056--13056
+[][][][][][][] 
+ []
+
+[246]
+Underfull \hbox (badness 10000) in alignment at lines 13072--13076
+[][] 
+ []
+
+
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 13072--13077
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in alignment at lines 13085--13091
+[][] 
+ []
+
+
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 13085--13092
+[][] 
+ []
+
+
+<images/MHL_TestFunction_ParaboloidOfRevolution_Graph.png, id=9992, 752.0597pt 
+x 365.11406pt>
+File: images/MHL_TestFunction_ParaboloidOfRevolution_Graph.png Graphic file (ty
+pe png)
+ <use images/MHL_TestFunction_ParaboloidOfRevolution_Graph.png>
+Package pdftex.def Info: images/MHL_TestFunction_ParaboloidOfRevolution_Graph.p
+ng used on input line 13095.
+(pdftex.def)             Requested size: 376.02893pt x 182.55658pt.
+
+Underfull \hbox (badness 4366) in paragraph at lines 13104--13104
+[]|\T2A/faq/bx/n/12 Число ин-тер-ва-лов, на ко-то-рые
+ []
+
+
+Underfull \hbox (badness 10000) in alignment at lines 13102--13106
+[][] 
+ []
+
+
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 13102--13107
+[][] 
+ []
+
+[247 <C:/Dropbox/Dropbox/GitHub/MathHarrixLibrary/temp_library/images/MHL_TestF
+unction_ParaboloidOfRevolution_Graph.png (PNG copy)>]
+Underfull \hbox (badness 10000) in alignment at lines 13115--13124
+[][] 
+ []
+
+
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 13115--13125
+[][] 
+ []
+
+[248]
+Underfull \hbox (badness 10000) in alignment at lines 13150--13156
+[][] 
+ []
+
+
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 13150--13157
+[][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 13159--13159
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 13185--13185
+[][][][][][][] 
+ []
+
+[249]
+Underfull \hbox (badness 10000) in alignment at lines 13201--13205
+[][] 
+ []
+
+
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 13201--13206
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in alignment at lines 13214--13220
+[][] 
+ []
+
+
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 13214--13221
+[][] 
+ []
+
+
+<images/MHL_TestFunction_Rastrigin_Graph.png, id=10030, 757.32938pt x 370.38374
+pt>
+File: images/MHL_TestFunction_Rastrigin_Graph.png Graphic file (type png)
+ <use images/MHL_TestFunction_Rastrigin_Graph.png>
+Package pdftex.def Info: images/MHL_TestFunction_Rastrigin_Graph.png used on in
+put line 13224.
+(pdftex.def)             Requested size: 378.66376pt x 185.1914pt.
+
+Underfull \hbox (badness 4366) in paragraph at lines 13233--13233
+[]|\T2A/faq/bx/n/12 Число ин-тер-ва-лов, на ко-то-рые
+ []
+
+
+Underfull \hbox (badness 10000) in alignment at lines 13231--13235
+[][] 
+ []
+
+
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 13231--13236
+[][] 
+ []
+
+[250 <C:/Dropbox/Dropbox/GitHub/MathHarrixLibrary/temp_library/images/MHL_TestF
+unction_Rastrigin_Graph.png (PNG copy)>]
+Underfull \hbox (badness 10000) in alignment at lines 13244--13253
+[][] 
+ []
+
+
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 13244--13254
+[][] 
+ []
+
+[251]
+Underfull \hbox (badness 10000) in alignment at lines 13279--13285
+[][] 
+ []
+
+
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 13279--13286
+[][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 13288--13288
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 13314--13314
+[][][][][][][] 
+ []
+
+[252]
+Underfull \hbox (badness 10000) in alignment at lines 13330--13334
+[][] 
+ []
+
+
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 13330--13335
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in alignment at lines 13343--13349
+[][] 
+ []
+
+
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 13343--13350
+[][] 
+ []
+
+
+<images/MHL_TestFunction_Rosenbrock_Graph.png, id=10067, 760.34062pt x 362.8556
+2pt>
+File: images/MHL_TestFunction_Rosenbrock_Graph.png Graphic file (type png)
+ <use images/MHL_TestFunction_Rosenbrock_Graph.png>
+Package pdftex.def Info: images/MHL_TestFunction_Rosenbrock_Graph.png used on i
+nput line 13353.
+(pdftex.def)             Requested size: 380.16937pt x 181.42737pt.
+
+Underfull \hbox (badness 4366) in paragraph at lines 13362--13362
+[]|\T2A/faq/bx/n/12 Число ин-тер-ва-лов, на ко-то-рые
+ []
+
+
+Underfull \hbox (badness 10000) in alignment at lines 13360--13364
+[][] 
+ []
+
+
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 13360--13365
+[][] 
+ []
+
+[253 <C:/Dropbox/Dropbox/GitHub/MathHarrixLibrary/temp_library/images/MHL_TestF
+unction_Rosenbrock_Graph.png (PNG copy)>]
+Underfull \hbox (badness 10000) in alignment at lines 13373--13382
+[][] 
+ []
+
+
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 13373--13383
+[][] 
+ []
+
+[254]
+Underfull \hbox (badness 10000) in alignment at lines 13408--13414
+[][] 
+ []
+
+
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 13408--13415
+[][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 13417--13417
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 13444--13444
+[][][][][][][] 
+ []
+
+[255]
+Underfull \hbox (badness 10000) in alignment at lines 13460--13464
+[][] 
+ []
+
+
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 13460--13465
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in alignment at lines 13473--13481
+[][] 
+ []
+
+
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 13473--13482
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in alignment at lines 13485--13497
+[][] 
+ []
+
+
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 13485--13498
+[][] 
+ []
+
+[256]
+Underfull \hbox (badness 10000) in alignment at lines 13523--13529
+[][] 
+ []
+
+
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 13523--13530
+[][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 13532--13532
+[][][][][][][] 
+ []
+
+[257]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 13571--13571
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 13588--13588
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 13606--13606
+[][][][][][][] 
+ []
+
+[258]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 13619--13619
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 13637--13637
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 13650--13650
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 13668--13668
+[][][][][][][] 
+ []
+
+[259]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 13681--13681
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 13699--13699
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 13712--13712
+[][][][][][][] 
+ []
+
+[260]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 13730--13730
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 13743--13743
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 13761--13761
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 13774--13774
+[][][][][][][] 
+ []
+
+[261]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 13792--13792
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 13805--13805
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 13823--13823
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 13840--13840
+[][][][][][][] 
+ []
+
+[262]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 13858--13858
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 13871--13871
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 13889--13889
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 13906--13906
+[][][][][][][] 
+ []
+
+[263]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 13924--13924
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 13937--13937
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 13957--13957
+[][][][][][][] 
+ []
+
+[264]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 13981--13981
+[][][][][][][] 
+ []
+
+[265]
+
+Package caption Warning: Unused \captionsetup[ruled] on input line 174.
+See the caption package documentation for explanation.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 14009.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 14009.
+
+(C:\Dropbox\Dropbox\GitHub\MathHarrixLibrary\temp_library\MathHarrixLibrary_Hel
+p.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 14009.
+
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 14009
+.
+Package rerunfilecheck Info: File `MathHarrixLibrary_Help.out' has not changed.
+
+(rerunfilecheck)             Checksum: 05A5ABC64F432FA07DBAD9209D74E682;45633.
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 14009.
+ ) 
+Here is how much of TeX's memory you used:
+ 25698 strings out of 493921
+ 387778 string characters out of 3144876
+ 731578 words of memory out of 3000000
+ 20902 multiletter control sequences out of 15000+200000
+ 35654 words of font info for 67 fonts, out of 3000000 for 9000
+ 841 hyphenation exceptions out of 8191
+ 38i,17n,58p,1403b,2119s stack positions out of 5000i,500n,10000p,200000b,50000s
+pdfTeX warning (dest): name{lstnumber.48.3} has been referenced but does not 
+exist, replaced by a fixed one
+
+{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}{C:/Program 
+Files (x86)/MiKTeX 2.9/fonts/enc/t2/t2a.enc}<C:/Program Files (x86)/MiKTeX 2.9/
+fonts/type1/public/pscyr/antiq6.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/ty
+pe1/public/pscyr/antiq7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmex10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cmextra/cmex8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmmi10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmmi12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/a
+msfonts/cm/cmmi6.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsf
+onts/cm/cmmi8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmr12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+mr6.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.
+pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pf
+b><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><
+C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/pscyr/ercour.pfb><C:/Progr
+am Files (x86)/MiKTeX 2.9/fonts/type1/public/pscyr/ercourb.pfb><C:/Program File
+s (x86)/MiKTeX 2.9/fonts/type1/public/pscyr/ercouri.pfb><C:/Program Files (x86)
+/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on MathHarrixLibrary_Help.pdf (265 pages, 6410124 bytes).
+PDF statistics:
+ 11976 PDF objects out of 12825 (max. 8388607)
+ 7760 named destinations out of 8907 (max. 500000)
+ 2026 words of extra memory for PDF output out of 10000 (max. 10000000)
+

@@ -1,1 +1,0 @@
-double MHL_TestFuction_Ackley(double *x, int VMHL_N);

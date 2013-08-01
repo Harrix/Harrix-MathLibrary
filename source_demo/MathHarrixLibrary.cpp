@@ -36,6 +36,9 @@ double *VMHL_TempDouble1;
 double *VMHL_TempDouble2;
 double *VMHL_TempDouble3;
 
+TypeOfTestFunction VMHL_TypeOfTestFunction;//для функций по работе с тестовыми функциями для анализа эффективности алгоритмов
+int CountOfFitness;//количество вызовов тестовой функции при запуске алгоритма оптимизации
+
 void MHL_SeedRandom(void)
 {
 /*
@@ -1387,6 +1390,336 @@ return ((Function(x+h)-Function(x))/h);
 //---------------------------------------------------------------------------
 
 //*****************************************************************
+//Для тестовых функций
+//*****************************************************************
+void MHL_DefineTestFunction(TypeOfTestFunction Type)
+{
+    /*
+    Служебная функция определяет тестовую функцию для других функций по работе с тестовыми функциями.
+	Вызывать всегда, когда хотите вызвать функции по работе с тестовыми функциями (из одноименного раздела).
+    Ответ представляет собой два действительных числа.
+    Входные параметры:
+     Type - обозначение тестовой функции, которую вызываем.
+     Смотреть виды в переменных перечисляемого типа в начале MathHarrixLibrary.h файла.
+    Возвращаемое значение:
+     Отсутствует.
+    */
+    VMHL_TypeOfTestFunction=Type;
+}
+//---------------------------------------------------------------------------
+double MHL_ErrorExOfTestFunction_Binary(int *x, int VMHL_N)
+{
+    /*
+    Функция определяет значение ошибки по входным параметрам найденного решения
+    в задаче оптимизации для тестовой функции. Включает в себя все тестовые функции.
+    Обязательно вызвать один раз перед ее использованием функцию MHL_DefineTestFunction,
+    в которой определяется конкретный тип задачи оптимизации.
+    Входные параметры:
+     x - указатель на исходный массив (найденное решение алгоритмом);
+     VMHL_N - размер массива x.
+    Возвращаемое значение:
+     Значение ошибки по входным параметрам Ex.
+    */
+    double VMHL_Result_Ex = 0;
+    int i;
+
+    int *Optimum=new int[VMHL_N];
+
+    MHL_OptimumOfTestFunction_Binary(Optimum, VMHL_N);
+
+
+    if (VMHL_TypeOfTestFunction==TestFunction_SumVector)
+    {
+        for (i=0;i<VMHL_N;i++)
+            VMHL_Result_Ex+=fabs(x[i]-Optimum[i]);
+    }
+
+    delete [] Optimum;
+
+    return VMHL_Result_Ex;
+}
+//---------------------------------------------------------------------------
+double MHL_ErrorExOfTestFunction_Binary(int *x, int VMHL_N, TypeOfTestFunction Type)
+{
+    /*
+    Функция определяет значение ошибки по входным параметрам найденного решения
+    в задаче оптимизации для тестовой функции. Включает в себя все тестовые функции.
+    Входные параметры:
+     x - указатель на исходный массив (найденное решение алгоритмом);
+     VMHL_N - размер массива x;
+     Type - тип тестовой функции.
+    Возвращаемое значение:
+     Значение ошибки по входным параметрам Ex.
+    */
+    double VMHL_Result = 0;
+
+    VMHL_TypeOfTestFunction = Type;
+
+    VMHL_Result = MHL_ErrorExOfTestFunction_Binary(x, VMHL_N);
+
+    return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+double MHL_ErrorEyOfTestFunction_Binary(double FitnessOfx, int VMHL_N)
+{
+    /*
+    Функция определяет значение ошибки по значениям целевой функции найденного решения
+    в задаче оптимизации для тестовой функции. Включает в себя все тестовые функции.
+    Обязательно вызвать один раз перед ее использованием функцию MHL_DefineTestFunction,
+    в которой определяется конкретный тип задачи оптимизации.
+    Входные параметры:
+     FitnessOfx - значение целевой функции найденного решения алгоритмом оптимизации;
+     VMHL_N - размер массива x.
+    Возвращаемое значение:
+     Значение ошибки по значениям целевой функции Ey.
+    */
+    double VMHL_Result_Ey = 0;
+
+    double FitnessOfOptimum=MHL_FitnessOfOptimumOfTestFunction_Binary(VMHL_N);
+
+    if (VMHL_TypeOfTestFunction==TestFunction_SumVector)
+    {
+        VMHL_Result_Ey=fabs(FitnessOfx-FitnessOfOptimum);
+    }
+
+    return VMHL_Result_Ey;
+}
+//---------------------------------------------------------------------------
+double MHL_ErrorEyOfTestFunction_Binary(double FitnessOfx, int VMHL_N, TypeOfTestFunction Type)
+{
+    /*
+    Функция определяет значение ошибки по значениям целевой функции найденного решения
+    в задаче оптимизации для тестовой функции. Включает в себя все тестовые функции.
+    Входные параметры:
+     FitnessOfx - значение целевой функции найденного решения алгоритмом оптимизации;
+     VMHL_N - размер массива x;
+     Type - тип тестовой функции.
+    Возвращаемое значение:
+     Значение ошибки по значениям целевой функции Ey.
+    */
+    double VMHL_Result = 0;
+
+    VMHL_TypeOfTestFunction = Type;
+
+    VMHL_Result = MHL_ErrorEyOfTestFunction_Binary(FitnessOfx, VMHL_N);
+
+    return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+double MHL_ErrorROfTestFunction_Binary(int *x, int VMHL_N)
+{
+    /*
+    Функция определяет значение надежности найденного решения
+    в задаче оптимизации для тестовой функции. Включает в себя все тестовые функции.
+    Обязательно вызвать один раз перед ее использованием функцию MHL_DefineTestFunction,
+    в которой определяется конкретный тип задачи оптимизации.
+    Входные параметры:
+     x - указатель на исходный массив (найденное решение алгоритмом);
+     VMHL_N - размер массива x.
+    Возвращаемое значение:
+     Значение надежности R.
+    */
+    double VMHL_Result_R = 1;
+    int i;
+
+    int *Optimum=new int[VMHL_N];
+
+    MHL_OptimumOfTestFunction_Binary(Optimum, VMHL_N);
+
+    if (VMHL_TypeOfTestFunction==TestFunction_SumVector)
+    {
+        for (i=0;i<VMHL_N;i++)
+        {
+            if (x[i]!=Optimum[i]) VMHL_Result_R=0;
+        }
+    }
+
+    delete [] Optimum;
+
+    return VMHL_Result_R;
+}
+//---------------------------------------------------------------------------
+double MHL_ErrorROfTestFunction_Binary(int *x, int VMHL_N, TypeOfTestFunction Type)
+{
+    /*
+    Функция определяет значение надежности найденного решения
+    в задаче оптимизации для тестовой функции. Включает в себя все тестовые функции.
+    Входные параметры:
+     x - указатель на исходный массив (найденное решение алгоритмом);
+     VMHL_N - размер массива x;
+     Type - тип тестовой функции.
+    Возвращаемое значение:
+     Значение надежности R.
+    */
+    double VMHL_Result = 0;
+
+    VMHL_TypeOfTestFunction = Type;
+
+    VMHL_Result = MHL_ErrorROfTestFunction_Binary(x, VMHL_N);
+
+    return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+double MHL_FitnessOfOptimumOfTestFunction_Binary(int VMHL_N)
+{
+    /*
+    Функция определяет значение целевой функции в оптимуме для тестовой функции.
+    Включает в себя все тестовые функции.
+    Обязательно вызвать один раз перед ее использованием функцию MHL_DefineTestFunction,
+    в которой определяется конкретный тип задачи оптимизации.
+    Входные параметры:
+     VMHL_N - размер массива x в решаемой задаче оптимизации.
+    Возвращаемое значение:
+     Значение тестовой функции в оптимальной точке.
+    */
+    double VMHL_Result = 0;
+
+    if (VMHL_TypeOfTestFunction==TestFunction_SumVector)
+    {
+        VMHL_Result = VMHL_N;
+    }
+
+    return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+double MHL_FitnessOfOptimumOfTestFunction_Binary(int VMHL_N, TypeOfTestFunction Type)
+{
+    /*
+    Функция определяет значение целевой функции в оптимуме для тестовой функции.
+    Включает в себя все тестовые функции.
+    Входные параметры:
+     VMHL_N - размер массива x в решаемой задаче оптимизации;
+     Type - тип тестовой функции.
+    Возвращаемое значение:
+     Значение тестовой функции в оптимальной точке.
+    */
+    double VMHL_Result = 0;
+
+    VMHL_TypeOfTestFunction = Type;
+
+    VMHL_Result = MHL_FitnessOfOptimumOfTestFunction_Binary(VMHL_N);
+
+    return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+int MHL_GetCountOfFitness()
+{
+    /*
+    Функция выдает количество вызовов целевой функции.
+    Вызывать после вызова алгорита оптимизации.
+    Обязательно вызвать MHL_SetToZeroCountOfFitness один раз перед вызовом алгоритмов оптимизации
+    при исследовании эффективности алгоритмов оптимизации, где требуется контроль числа вызовов целевой функции.
+    Входные параметры:
+     Отсутствуют.
+    Возвращаемое значение:
+     Количество вызовов целевой функции.
+    */
+    return CountOfFitness;
+}
+//---------------------------------------------------------------------------
+double MHL_OptimumOfTestFunction_Binary(int *Optimum, int VMHL_N)
+{
+    /*
+    Функция определяет значение оптимума для тестовой функции. Включает в себя все тестовые функции.
+    Обязательно вызвать один раз перед ее использованием функцию MHL_DefineTestFunction,
+    в которой определяется конкретный тип задачи оптимизации.
+    Входные параметры:
+     Optimum - указатель на исходный массив, куда будет записываться результат;
+     VMHL_N - размер массива x.
+    Возвращаемое значение:
+     Значение тестовой функции в оптимальной точке.
+    */
+    double VMHL_Result = 0;
+    int i;
+
+    if (VMHL_TypeOfTestFunction==TestFunction_SumVector)
+    {
+        for (i=0;i<VMHL_N;i++)
+            Optimum[i]=1;
+        VMHL_Result = MHL_FitnessOfOptimumOfTestFunction_Binary(VMHL_N);
+    }
+
+    return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+double MHL_OptimumOfTestFunction_Binary(int *Optimum, int VMHL_N, TypeOfTestFunction Type)
+{
+    /*
+    Функция определяет значение оптимума для тестовой функции. Включает в себя все тестовые функции.
+    Входные параметры:
+     Optimum - указатель на исходный массив, куда будет записываться результат;
+     VMHL_N - размер массива x;
+     Type - тип тестовой функции.
+     Смотреть виды в переменных перечисляемого типа в начале MathHarrixLibrary.h файла.
+    Возвращаемое значение:
+     Значение тестовой функции в оптимальной точке.
+    */
+    double VMHL_Result = 0;
+
+    VMHL_TypeOfTestFunction = Type;
+
+    VMHL_Result = MHL_TestFunction_Binary(Optimum, VMHL_N);
+
+    return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+void MHL_SetToZeroCountOfFitness()
+{
+    /*
+    Функция обнуляет количество вызовов целевой функции.
+    Обязательно вызвать один раз перед вызовом алгоритмов оптимизации при исследовании эффективности
+    алгоритмов оптимизации, где требуется контроль числа вызовов целевой функции.
+    Входные параметры:
+     Отсутствуют.
+    Возвращаемое значение:
+     Отсутствует.
+    */
+    CountOfFitness=0;
+}
+//---------------------------------------------------------------------------
+double MHL_TestFunction_Binary(int *x, int VMHL_N)
+{
+    /*
+    Общая тестовая функция для задач бинарной оптимизации. Включает в себя все тестовые функции.
+    Обязательно вызвать один раз перед ее использованием функцию MHL_DefineTestFunction,
+    в которой определяется конкретный тип задачи оптимизации.
+    Входные параметры:
+     x - указатель на исходный массив;
+     VMHL_N - размер массива x.
+    Возвращаемое значение:
+     Значение тестовой функции в точке x.
+    */
+    double VMHL_Result = 0;
+
+    if (VMHL_TypeOfTestFunction==TestFunction_SumVector)
+        VMHL_Result = MHL_TestFunction_SumVector(x, VMHL_N);
+    CountOfFitness++;//увеличиваем число вызовов целевой функции
+    return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+double MHL_TestFunction_Binary(int *x, int VMHL_N, TypeOfTestFunction Type)
+{
+    /*
+    Общая тестовая функция для задач бинарной оптимизации. Включает в себя все тестовые функции.
+    Входные параметры:
+     x - указатель на исходный массив;
+     VMHL_N - размер массива x,
+     Type - тип тестовой функции.
+     Смотреть виды в переменных перечисляемого типа в начале MathHarrixLibrary.h файла.
+    Возвращаемое значение:
+     Значение тестовой функции в точке x.
+    */
+    double VMHL_Result = 0;
+
+    VMHL_TypeOfTestFunction = Type;
+
+    VMHL_Result = MHL_TestFunction_Binary(x, VMHL_N);
+
+    return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+
+//*****************************************************************
 //Интегрирование
 //*****************************************************************
 double MHL_IntegralOfRectangle(double a, double b, double Epsilon,double (*Function)(double))
@@ -2451,7 +2784,7 @@ return Variance*Variance;
 //*****************************************************************
 //Тестовые функции для оптимизации
 //*****************************************************************
-double MHL_TestFuction_Ackley(double *x, int VMHL_N)
+double MHL_TestFunction_Ackley(double *x, int VMHL_N)
 {
 /*
 Функция многих переменных: Ackley.
@@ -2471,7 +2804,7 @@ VMHL_Result=20.+exp(1)-20.*f1-f2;
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
-double MHL_TestFuction_ParaboloidOfRevolution(double *x, int VMHL_N)
+double MHL_TestFunction_ParaboloidOfRevolution(double *x, int VMHL_N)
 {
 /*
 Функция многих переменных: Эллиптический параболоид.
@@ -2487,7 +2820,7 @@ for (int i=0;i<VMHL_N;i++) VMHL_Result+=x[i]*x[i];
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
-double MHL_TestFuction_Rastrigin(double *x, int VMHL_N)
+double MHL_TestFunction_Rastrigin(double *x, int VMHL_N)
 {
 /*
 Функция многих переменных: функция Растригина.
@@ -2504,7 +2837,7 @@ VMHL_Result+=10*VMHL_N;
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
-double MHL_TestFuction_Rosenbrock(double *x, int VMHL_N)
+double MHL_TestFunction_Rosenbrock(double *x, int VMHL_N)
 {
 /*
 Функция многих переменных: функция Розенброка.
@@ -2520,7 +2853,7 @@ for (int i=0;i<VMHL_N-1;i++) VMHL_Result+=100.*(x[i+1]-x[i]*x[i])*(x[i+1]-x[i]*x
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
-double MHL_TestFuction_SumVector(int *x, int VMHL_N)
+double MHL_TestFunction_SumVector(int *x, int VMHL_N)
 {
 /*
 Сумма всех элементов бинарного вектора.

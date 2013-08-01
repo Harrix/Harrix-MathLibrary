@@ -10,3 +10,6 @@ int *VMHL_TempInt4;
 double *VMHL_TempDouble1;
 double *VMHL_TempDouble2;
 double *VMHL_TempDouble3;
+
+TypeOfTestFunction VMHL_TypeOfTestFunction;//для функций по работе с тестовыми функциями для анализа эффективности алгоритмов
+int CountOfFitness;//количество вызовов тестовой функции при запуске алгоритма оптимизации
