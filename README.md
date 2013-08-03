@@ -1,7 +1,7 @@
 MathHarrixLibrary
 ===================
 
-Версия v.3.9.
+Версия v.3.10.
 
 https://github.com/Harrix/MathHarrixLibrary
 
@@ -40,6 +40,10 @@ https://github.com/Harrix/MathHarrixLibrary
 **[+]** добавление
 
 **[*]** разное
+
+**3.10.**
+
+**[+]** Добавлены функции, так что теперь теперь в библиотеке 219 функций.
 
 **3.9.**
 

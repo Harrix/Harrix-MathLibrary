@@ -52,6 +52,7 @@ template <class T> int TMHL_NumberOfPositiveValues(T *a, int VMHL_N);
 template <class T> int TMHL_NumberOfZeroValues(T *a, int VMHL_N);
 template <class T> void TMHL_OrdinalVector(T *VMHL_ResultVector, int VMHL_N);
 template <class T> void TMHL_OrdinalVectorZero(T *VMHL_ResultVector, int VMHL_N);
+template <class T> T TMHL_ProductOfElementsOfVector(T *VMHL_Vector,int VMHL_N);
 template <class T> void TMHL_ReverseVector(T *VMHL_ResultVector, int VMHL_N);
 template <class T> int TMHL_SearchFirstNotZero(T *x, int VMHL_N);
 template <class T> int TMHL_SearchFirstZero(T *x, int VMHL_N);
@@ -150,6 +151,7 @@ int MHL_GreatestCommonDivisorEuclid(int A,int B);
 int MHL_HowManyPowersOfTwo(int x);
 double MHL_InverseNormalizationNumberAll(double x);
 int MHL_LeastCommonMultipleEuclid(int A,int B);
+void MHL_MixedMultiLogicVectorOfFullSearch(int *VMHL_Vector, int I, int *HowMuchInElements, int VMHL_N);
 double MHL_NormalizationNumberAll(double x);
 int MHL_Parity(int a);
 double MHL_SumGeometricSeries(double u1,double q,int n);
@@ -636,6 +638,23 @@ template <class T> void TMHL_OrdinalVectorZero(T *VMHL_ResultVector, int VMHL_N)
 */
 for (int i=0;i<VMHL_N;i++) 
     VMHL_ResultVector[i]=i;
+}
+//---------------------------------------------------------------------------
+template <class T> T TMHL_ProductOfElementsOfVector(T *VMHL_Vector,int VMHL_N)
+{
+/*
+Функция вычисляет произведение элементов вектора.
+Входные параметры:
+ VMHL_Vector - указатель на исходный массив;
+ VMHL_N - размер массива.
+Возвращаемое значение:
+ Произведение элементов массива.
+*/
+T VMHL_Result=1;
+for (int i=0;i<VMHL_N;i++)
+    VMHL_Result*=VMHL_Vector[i];
+
+return VMHL_Result;
 }
 //---------------------------------------------------------------------------
 template <class T> void TMHL_ReverseVector(T *VMHL_ResultVector, int VMHL_N)

@@ -631,6 +631,12 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("MHL_SetToZeroCountOfFitness"));
     model->appendRow(item);
 
+    item = new QStandardItem(QString("TMHL_ProductOfElementsOfVector"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_MixedMultiLogicVectorOfFullSearch"));
+    model->appendRow(item);
+
     model->sort(0);
 
     //соединение модели списка с конкретным списком
@@ -7450,6 +7456,76 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         MHL_ShowNumber(f,"Среднее значение целевой функции","f");
         //Среднее значение целевой функции:
         //f=2.6
+    }
+
+    if (NameFunction=="TMHL_ProductOfElementsOfVector")
+    {
+        int VMHL_N=5;//Размер массива
+        double p;
+        double *a;
+        a=new double[VMHL_N];
+
+        for (int i=0;i<VMHL_N;i++) a[i]=MHL_RandomUniformIntIncluding(1,4);//Заполняем случайными значениями
+
+        //Вызов функции
+        p=TMHL_ProductOfElementsOfVector(a,VMHL_N);
+
+        //Используем полученный результат
+        MHL_ShowVector (a,VMHL_N,"Заполненный вектор", "a");
+        //Заполненный вектор:
+        //a =
+        //4
+        //3
+        //1
+        //3
+        //2
+
+        MHL_ShowNumber (p,"Произведение элементов массива", "p");
+        //Произведение элементов массива:
+        //p=72
+
+        delete [] a;
+    }
+
+    if (NameFunction=="MHL_MixedMultiLogicVectorOfFullSearch")
+    {
+        int i;
+        int N=3;
+        int *x;
+        x=new int[N];
+        int *y;
+        y=new int[N];
+
+        x[0]=3;
+        x[1]=2;
+        x[2]=3;
+
+        int P=TMHL_ProductOfElementsOfVector(x,N);
+
+        MHL_ShowVector(x,N,"Сколько каждого параметра в штуках","x");
+        //Сколько каждого параметра в штуках:
+        //x =
+        //3
+        //2
+        //3
+
+        for (i=0;i<P;i++)
+        {
+            MHL_ShowNumber(i,"<hr>Номер итерации", "i");
+            //Номер итерации:
+            //i=0
+
+            //Вызов функции
+            MHL_MixedMultiLogicVectorOfFullSearch(y,i,x,N);
+
+            MHL_ShowVectorT(y,N,"Необходимый вектор","y");
+            //Необходимый вектор:
+            //y =
+            //0	0	0
+        }
+
+        delete [] x;
+        delete [] y;
     }
 }
 //---------------------------------------------------------------------------

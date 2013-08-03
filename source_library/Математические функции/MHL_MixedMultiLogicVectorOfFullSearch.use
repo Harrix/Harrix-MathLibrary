@@ -1,0 +1,37 @@
+        int i;
+        int N=3;
+        int *x;
+        x=new int[N];
+        int *y;
+        y=new int[N];
+
+        x[0]=3;
+        x[1]=2;
+        x[2]=3;
+
+        int P=TMHL_ProductOfElementsOfVector(x,N);
+
+        MHL_ShowVector(x,N,"Сколько каждого параметра в штуках","x");
+        //Сколько каждого параметра в штуках:
+        //x =
+        //3
+        //2
+        //3
+
+        for (i=0;i<P;i++)
+        {
+            MHL_ShowNumber(i,"<hr>Номер итерации", "i");
+            //Номер итерации:
+            //i=0
+
+            //Вызов функции
+            MHL_MixedMultiLogicVectorOfFullSearch(y,i,x,N);
+
+            MHL_ShowVectorT(y,N,"Необходимый вектор","y");
+            //Необходимый вектор:
+            //y =
+            //0	0	0
+        }
+
+        delete [] x;
+        delete [] y;

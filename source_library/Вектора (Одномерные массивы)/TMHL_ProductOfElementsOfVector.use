@@ -1,0 +1,25 @@
+        int VMHL_N=5;//Размер массива
+        double p;
+        double *a;
+        a=new double[VMHL_N];
+
+        for (int i=0;i<VMHL_N;i++) a[i]=MHL_RandomUniformIntIncluding(1,4);//Заполняем случайными значениями
+
+        //Вызов функции
+        p=TMHL_ProductOfElementsOfVector(a,VMHL_N);
+
+        //Используем полученный результат
+        MHL_ShowVector (a,VMHL_N,"Заполненный вектор", "a");
+        //Заполненный вектор:
+        //a =
+        //4
+        //3
+        //1
+        //3
+        //2
+
+        MHL_ShowNumber (p,"Произведение элементов массива", "p");
+        //Произведение элементов массива:
+        //p=72
+
+        delete [] a;
