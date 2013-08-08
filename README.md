@@ -1,7 +1,7 @@
 MathHarrixLibrary
 ===================
 
-Версия v.3.10.
+Версия v.3.11.
 
 https://github.com/Harrix/MathHarrixLibrary
 
