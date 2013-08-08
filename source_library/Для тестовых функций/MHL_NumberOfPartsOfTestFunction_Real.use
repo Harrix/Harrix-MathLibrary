@@ -1,0 +1,17 @@
+        MHL_DefineTestFunction(TestFunction_Ackley);
+
+        int N=5;
+        int *NumberOfParts=new int[N];
+
+        //Вызов функции
+        double e=MHL_NumberOfPartsOfTestFunction_Real(NumberOfParts,N);
+
+        //Использование результата
+        MHL_ShowVectorT(NumberOfParts,N,"На сколько частей нужно делить каждую координату функции TestFunction_Ackley","NumberOfParts");
+        //На сколько частей нужно делить каждую координату функции TestFunction_Ackley:
+        //NumberOfParts =	
+        //4095	4095	4095	4095	4095
+
+        MHL_ShowNumber(e,"Точность вычислений.","e");
+        //Точность вычислений.:
+        //e=0.025

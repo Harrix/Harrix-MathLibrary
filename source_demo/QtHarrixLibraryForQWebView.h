@@ -119,7 +119,7 @@ template <class T> QString THQt_ShowVector (T *VMHL_Vector, int VMHL_N, QString 
     VMHL_Result+="<table>\n";
     VMHL_Result+="<tr>\n";
 
-    VMHL_Result+="<td>\n";
+    VMHL_Result+="<td class=\"middle\">\n";
     VMHL_Result+="<font class=\"overline\">";
     VMHL_Result+=NameVector;
     VMHL_Result+="</font> = \n";
@@ -199,7 +199,7 @@ template <class T> QString THQt_ShowVectorT (T *VMHL_Vector, int VMHL_N, QString
     VMHL_Result+="</tr>\n";
     VMHL_Result+="</table>\n";
     VMHL_Result+="</td>\n";
-    VMHL_Result+="<td class=\"Tsmall\">ᵀ<br>&nbsp;</td>\n";
+    VMHL_Result+="<td class=\"Tsmall\">ᵀ</td>\n";
 
     VMHL_Result+="</tr>\n";
     VMHL_Result+="</table></p>\n";
@@ -228,7 +228,7 @@ template <class T> QString THQt_ShowMatrix (T *VMHL_Matrix, int VMHL_N, int VMHL
     VMHL_Result+="<table>\n";
     VMHL_Result+="<tr>\n";
 
-    VMHL_Result+="<td>\n";
+    VMHL_Result+="<td class=\"middle\">\n";
     VMHL_Result+="<font class=\"overline\">";
     VMHL_Result+=NameMatrix;
     VMHL_Result+="</font> = \n";

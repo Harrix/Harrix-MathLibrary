@@ -1,0 +1,11 @@
+        TypeOfTestFunction Type=TestFunction_Ackley;
+
+        //Вызов функции
+        int ClassOfTestFunction=MHL_ClassOfTestFunction(Type);
+
+        //используем результат
+        if (ClassOfTestFunction==1)
+            MHL_ShowText("Это задача бинарной оптимизации");
+        if (ClassOfTestFunction==2)
+            MHL_ShowText("Это задача вещественной оптимизации");
+        //Это задача вещественной оптимизации.

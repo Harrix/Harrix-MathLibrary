@@ -1,4 +1,4 @@
-//Библиотека для отображения различных данных в QWebView. Версия v.1.3.
+//Библиотека для отображения различных данных в QWebView. Версия v.1.4.
 //https://github.com/Harrix/QtHarrixLibraryForQWebView
 //Библиотека распространяется по лицензии Apache License, Version 2.0.
 

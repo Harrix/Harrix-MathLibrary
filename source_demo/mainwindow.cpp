@@ -637,6 +637,33 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("MHL_MixedMultiLogicVectorOfFullSearch"));
     model->appendRow(item);
 
+    item = new QStandardItem(QString("MHL_ClassOfTestFunction"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_TestFunction_Real"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_OptimumOfTestFunction_Real"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_FitnessOfOptimumOfTestFunction_Real"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_NumberOfPartsOfTestFunction_Real"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_PrecisionOfCalculationsOfTestFunction_Real"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_ErrorROfTestFunction_Real"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_ErrorExOfTestFunction_Real"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_ErrorEyOfTestFunction_Real"));
+    model->appendRow(item);
+
     model->sort(0);
 
     //соединение модели списка с конкретным списком
@@ -663,30 +690,30 @@ MainWindow::~MainWindow()
 //---------------------------------------------------------------------------
 double Func(int *x,int VMHL_N)
 {
-//Сумма всех элементов массива
-return TMHL_SumVector(x,VMHL_N);
+    //Сумма всех элементов массива
+    return TMHL_SumVector(x,VMHL_N);
 }
 //---------------------------------------------------------------------------
 double Func2(double *x,int VMHL_N)
 {
-//Сумма всех элементов массива
-return -((x[0]-2)*(x[0]-2)+(x[1]-2)*(x[1]-2));
-//return (exp(-x[0]*x[0])+0.01*cos(200*x[0]));
-//return (1.-0.5*cos(1.5*(10.*x[0]-0.3))*cos(31.4*x[0])+0.5*cos(sqrt(5.)*10.*x[0])*cos(35.*x[0]));
+    //Сумма всех элементов массива
+    return -((x[0]-2)*(x[0]-2)+(x[1]-2)*(x[1]-2));
+    //return (exp(-x[0]*x[0])+0.01*cos(200*x[0]));
+    //return (1.-0.5*cos(1.5*(10.*x[0]-0.3))*cos(31.4*x[0])+0.5*cos(sqrt(5.)*10.*x[0])*cos(35.*x[0]));
 
-//double X=x[0];
-//double Y=x[1];
+    //double X=x[0];
+    //double Y=x[1];
 
-//double S,Z1,Z2;
-//Z1=-(1./((X-1.)*(X-1.)+0.2))-(1./(2.*(X-2.)*(X-2.)+0.15))-(1./(3.*(X-3.)*(X-3.)+0.3));
-//Z2=-(1./((Y-1.)*(Y-1.)+0.2))-(1./(2.*(Y-2.)*(Y-2.)+0.15))-(1./(3.*(Y-3.)*(Y-3.)+0.3));
-//S=-Z1*Z2;
-//return -S;
+    //double S,Z1,Z2;
+    //Z1=-(1./((X-1.)*(X-1.)+0.2))-(1./(2.*(X-2.)*(X-2.)+0.15))-(1./(3.*(X-3.)*(X-3.)+0.3));
+    //Z2=-(1./((Y-1.)*(Y-1.)+0.2))-(1./(2.*(Y-2.)*(Y-2.)+0.15))-(1./(3.*(Y-3.)*(Y-3.)+0.3));
+    //S=-Z1*Z2;
+    //return -S;
 }
 //---------------------------------------------------------------------------
 double Func3(double x)
 {
-return x*x;
+    return x*x;
 }
 //---------------------------------------------------------------------------
 void MainWindow::MHL_ShowText (QString TitleX)
@@ -1150,11 +1177,11 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //Вызов функции
         for (int i=0;i<1000;i++)
         {
-        x=MHL_RandomUniformInt(0,3);
-        if (x==0) s0++;
-        if (x==1) s1++;
-        if (x==2) s2++;
-        if (x==3) s3++;
+            x=MHL_RandomUniformInt(0,3);
+            if (x==0) s0++;
+            if (x==1) s1++;
+            if (x==2) s2++;
+            if (x==3) s3++;
         }
 
         //Используем полученный результат
@@ -1231,11 +1258,11 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
 
         //Возьмем для примера границы интервала равными около номера ячейки в матрице
         for (i=0;i<VMHL_N;i++)
-         for (j=0;j<VMHL_M;j++)
-          {
-          Left[i][j]=i*VMHL_N+j-0.1;
-          Right[i][j]=Left[i][j]+0.2;
-          }
+            for (j=0;j<VMHL_M;j++)
+            {
+                Left[i][j]=i*VMHL_N+j-0.1;
+                Right[i][j]=Left[i][j]+0.2;
+            }
 
         //Вызов функции
         MHL_RandomRealMatrixInElements(a,Left,Right,VMHL_N,VMHL_M);
@@ -1644,7 +1671,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         a=new int[VMHL_N];
         //Заполним случайными числами
         for (i=0;i<VMHL_N;i++)
-         a[i]=MHL_RandomUniformInt(0,2);
+            a[i]=MHL_RandomUniformInt(0,2);
 
         //Вызов функции
         int Number=TMHL_SearchFirstNotZero(a,VMHL_N);
@@ -1679,7 +1706,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         a=new int[VMHL_N];
         //Заполним случайными числами
         for (i=0;i<VMHL_N;i++)
-         a[i]=MHL_RandomUniformInt(0,2);
+            a[i]=MHL_RandomUniformInt(0,2);
 
         //Вызов функции
         int Number=TMHL_SearchFirstZero(a,VMHL_N);
@@ -1718,9 +1745,9 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         c=new int[VMHL_N];
         //Заполним случайными числами
         for (i=0;i<VMHL_N;i++)
-         a[i]=MHL_RandomUniformInt(0,10);
+            a[i]=MHL_RandomUniformInt(0,10);
         for (i=0;i<VMHL_N;i++)
-         b[i]=MHL_RandomUniformInt(0,10);
+            b[i]=MHL_RandomUniformInt(0,10);
 
         //Вызов функции
         TMHL_VectorMinusVector(a,b,c,VMHL_N);
@@ -1751,9 +1778,9 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         b=new int[VMHL_N];
         //Заполним случайными числами
         for (i=0;i<VMHL_N;i++)
-         a[i]=MHL_RandomUniformInt(0,10);
+            a[i]=MHL_RandomUniformInt(0,10);
         for (i=0;i<VMHL_N;i++)
-         b[i]=MHL_RandomUniformInt(0,10);
+            b[i]=MHL_RandomUniformInt(0,10);
 
         MHL_ShowVectorT (a,VMHL_N,"Случайный вектор", "a");
         //Случайный вектор:
@@ -1790,9 +1817,9 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         c=new int[VMHL_N];
         //Заполним случайными числами
         for (i=0;i<VMHL_N;i++)
-         a[i]=MHL_RandomUniformInt(0,10);
+            a[i]=MHL_RandomUniformInt(0,10);
         for (i=0;i<VMHL_N;i++)
-         b[i]=MHL_RandomUniformInt(0,10);
+            b[i]=MHL_RandomUniformInt(0,10);
 
         //Вызов функции
         TMHL_VectorPlusVector(a,b,c,VMHL_N);
@@ -1824,9 +1851,9 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         b=new int[VMHL_N];
         //Заполним случайными числами
         for (i=0;i<VMHL_N;i++)
-         a[i]=MHL_RandomUniformInt(0,10);
+            a[i]=MHL_RandomUniformInt(0,10);
         for (i=0;i<VMHL_N;i++)
-         b[i]=MHL_RandomUniformInt(0,10);
+            b[i]=MHL_RandomUniformInt(0,10);
 
         MHL_ShowVectorT (a,VMHL_N,"Случайный вектор", "a");
         //Случайный вектор:
@@ -1860,7 +1887,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         a=new double[VMHL_N];
         //Заполним случайными числами
         for (i=0;i<VMHL_N;i++)
-         a[i]=MHL_RandomUniformInt(0,10);
+            a[i]=MHL_RandomUniformInt(0,10);
 
         MHL_ShowVector (a,VMHL_N,"Случайный вектор", "a");
         //Случайный вектор:
@@ -2053,7 +2080,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         a=new int[VMHL_N];
         //Заполним случайными числами
         for (i=0;i<VMHL_N;i++)
-         a[i]=MHL_RandomUniformInt(-20,20);
+            a[i]=MHL_RandomUniformInt(-20,20);
 
         //Вызов функции
         int NumberOfNegative=TMHL_NumberOfNegativeValues(a,VMHL_N);
@@ -2088,7 +2115,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         a=new int[VMHL_N];
         //Заполним случайными числами
         for (i=0;i<VMHL_N;i++)
-         a[i]=MHL_RandomUniformInt(-20,20);
+            a[i]=MHL_RandomUniformInt(-20,20);
 
         //Вызов функции
         int NumberOfNegative=TMHL_NumberOfPositiveValues(a,VMHL_N);
@@ -2123,7 +2150,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         a=new int[VMHL_N];
         //Заполним случайными числами
         for (i=0;i<VMHL_N;i++)
-         a[i]=MHL_RandomUniformInt(-2,2);
+            a[i]=MHL_RandomUniformInt(-2,2);
 
         //Вызов функции
         int NumberOfNegative=TMHL_NumberOfZeroValues(a,VMHL_N);
@@ -2232,7 +2259,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         a=new int[VMHL_N];
         //Заполним случайными числами
         for (i=0;i<VMHL_N;i++)
-         a[i]=MHL_RandomUniformInt(0,5);
+            a[i]=MHL_RandomUniformInt(0,5);
         int k=MHL_RandomUniformInt(0,5);//искомое число
 
         //Вызов функции
@@ -2384,8 +2411,8 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         for (i=0;i<VMHL_N;i++) a[i]=new int[VMHL_M];
         //Заполним случайными числами
         for (i=0;i<VMHL_N;i++)
-         for (j=0;j<VMHL_M;j++)
-          a[i][j]=MHL_RandomUniformInt(10,100);
+            for (j=0;j<VMHL_M;j++)
+                a[i][j]=MHL_RandomUniformInt(10,100);
 
         //Вызов функции
         int SumMatrix=TMHL_SumMatrix(a,VMHL_N,VMHL_M);
@@ -2448,8 +2475,8 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         for (i=0;i<VMHL_N;i++) Matrix[i]=new double[VMHL_M];
         //Заполним случайными числами
         for (i=0;i<VMHL_N;i++)
-         for (j=0;j<VMHL_M;j++)
-          Matrix[i][j]=MHL_RandomUniformInt(10,100);
+            for (j=0;j<VMHL_M;j++)
+                Matrix[i][j]=MHL_RandomUniformInt(10,100);
 
         //Вызов функции
         double Maximum=TMHL_MaximumOfMatrix(Matrix,VMHL_N,VMHL_M);
@@ -2487,8 +2514,8 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         for (i=0;i<VMHL_N;i++) Matrix[i]=new double[VMHL_M];
         //Заполним случайными числами
         for (i=0;i<VMHL_N;i++)
-         for (j=0;j<VMHL_M;j++)
-          Matrix[i][j]=MHL_RandomUniformInt(10,100);
+            for (j=0;j<VMHL_M;j++)
+                Matrix[i][j]=MHL_RandomUniformInt(10,100);
 
         //Вызов функции
         double Minimum=TMHL_MinimumOfMatrix(Matrix,VMHL_N,VMHL_M);
@@ -2565,11 +2592,11 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         for (i=0;i<VMHL_N;i++) c[i]=new int[VMHL_M];
         //Заполним случайными числами
         for (i=0;i<VMHL_N;i++)
-         for (j=0;j<VMHL_M;j++)
-          {
-          a[i][j]=MHL_RandomUniformInt(10,20);
-          b[i][j]=MHL_RandomUniformInt(10,20);
-          }
+            for (j=0;j<VMHL_M;j++)
+            {
+                a[i][j]=MHL_RandomUniformInt(10,20);
+                b[i][j]=MHL_RandomUniformInt(10,20);
+            }
 
         //Вызов функции
         TMHL_MatrixMinusMatrix(a,b,c,VMHL_N,VMHL_M);
@@ -2618,11 +2645,11 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         for (i=0;i<VMHL_N;i++) b[i]=new int[VMHL_M];
         //Заполним случайными числами
         for (i=0;i<VMHL_N;i++)
-         for (j=0;j<VMHL_M;j++)
-          {
-          a[i][j]=MHL_RandomUniformInt(10,20);
-          b[i][j]=MHL_RandomUniformInt(10,20);
-          }
+            for (j=0;j<VMHL_M;j++)
+            {
+                a[i][j]=MHL_RandomUniformInt(10,20);
+                b[i][j]=MHL_RandomUniformInt(10,20);
+            }
 
         MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Матрица", "a");
         //Матрица:
@@ -2677,11 +2704,11 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         for (i=0;i<VMHL_N;i++) c[i]=new int[VMHL_M];
         //Заполним случайными числами
         for (i=0;i<VMHL_N;i++)
-         for (j=0;j<VMHL_M;j++)
-          {
-          a[i][j]=MHL_RandomUniformInt(10,20);
-          b[i][j]=MHL_RandomUniformInt(10,20);
-          }
+            for (j=0;j<VMHL_M;j++)
+            {
+                a[i][j]=MHL_RandomUniformInt(10,20);
+                b[i][j]=MHL_RandomUniformInt(10,20);
+            }
 
         //Вызов функции
         TMHL_MatrixPlusMatrix(a,b,c,VMHL_N,VMHL_M);
@@ -2730,11 +2757,11 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         for (i=0;i<VMHL_N;i++) b[i]=new int[VMHL_M];
         //Заполним случайными числами
         for (i=0;i<VMHL_N;i++)
-         for (j=0;j<VMHL_M;j++)
-          {
-          a[i][j]=MHL_RandomUniformInt(10,20);
-          b[i][j]=MHL_RandomUniformInt(10,20);
-          }
+            for (j=0;j<VMHL_M;j++)
+            {
+                a[i][j]=MHL_RandomUniformInt(10,20);
+                b[i][j]=MHL_RandomUniformInt(10,20);
+            }
 
         MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Матрица", "a");
         //Матрица:
@@ -2783,8 +2810,8 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         for (i=0;i<VMHL_N;i++) Matrix[i]=new int[VMHL_M];
         //Заполним случайными числами
         for (i=0;i<VMHL_N;i++)
-         for (j=0;j<VMHL_M;j++)
-          Matrix[i][j]=MHL_RandomUniformInt(10,100);
+            for (j=0;j<VMHL_M;j++)
+                Matrix[i][j]=MHL_RandomUniformInt(10,100);
 
         MHL_ShowMatrix (Matrix,VMHL_N,VMHL_M,"Случайная матрица", "Matrix");
         //Случайная матрица:
@@ -2830,8 +2857,8 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         for (i=0;i<VMHL_M;i++) MatrixT[i]=new int[VMHL_N];
         //Заполним случайными числами
         for (i=0;i<VMHL_N;i++)
-         for (j=0;j<VMHL_M;j++)
-          Matrix[i][j]=MHL_RandomUniformInt(10,100);
+            for (j=0;j<VMHL_M;j++)
+                Matrix[i][j]=MHL_RandomUniformInt(10,100);
 
         //Вызов функции
         TMHL_MatrixT(Matrix,MatrixT,VMHL_N,VMHL_M);
@@ -3104,11 +3131,11 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
 
         //Заполним границы изменения каждого элемента
         for (i=0;i<VMHL_N;i++)
-         for (j=0;j<VMHL_M;j++)
-          {
-          n[i][j]=i*VMHL_N+j-10;
-          m[i][j]=n[i][j]+20;
-          }
+            for (j=0;j<VMHL_M;j++)
+            {
+                n[i][j]=i*VMHL_N+j-10;
+                m[i][j]=n[i][j]+20;
+            }
 
         //Вызов функции
         TMHL_RandomIntMatrixInElements(a,n,m,VMHL_N,VMHL_M);
@@ -3375,8 +3402,8 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         for (i=0;i<VMHL_N;i++) Matrix[i]=new int[VMHL_M];
         //Заполним случайными числами
         for (i=0;i<VMHL_N;i++)
-         for (j=0;j<VMHL_M;j++)
-          Matrix[i][j]=MHL_RandomUniformInt(10,100);
+            for (j=0;j<VMHL_M;j++)
+                Matrix[i][j]=MHL_RandomUniformInt(10,100);
 
         MHL_ShowMatrix (Matrix,VMHL_N,VMHL_M,"Случайная матрица", "Matrix");
         // Случайная матрица:
@@ -3426,8 +3453,8 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         b=new int[VMHL_N];
         //Заполним случайными числами
         for (i=0;i<VMHL_N;i++)
-         for (j=0;j<VMHL_M;j++)
-          a[i][j]=MHL_RandomUniformInt(10,100);
+            for (j=0;j<VMHL_M;j++)
+                a[i][j]=MHL_RandomUniformInt(10,100);
         MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Случайная матрица", "a");
         //Случайная матрица:
         //a =
@@ -3443,7 +3470,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //51	89	78
 
         for (j=0;j<VMHL_N;j++)
-         b[j]=MHL_RandomUniformInt(10,100);
+            b[j]=MHL_RandomUniformInt(10,100);
 
         int k=1;//Номер столбца, в который мы копируем
 
@@ -3497,8 +3524,8 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         for (i=0;i<VMHL_N;i++) Matrix[i]=new double[VMHL_M];
         //Заполним случайными числами
         for (i=0;i<VMHL_N;i++)
-         for (j=0;j<VMHL_M;j++)
-          Matrix[i][j]=MHL_RandomUniformInt(10,100);
+            for (j=0;j<VMHL_M;j++)
+                Matrix[i][j]=MHL_RandomUniformInt(10,100);
 
         MHL_ShowMatrix (Matrix,VMHL_N,VMHL_M,"Случайная матрица", "Matrix");
         // Случайная матрица:
@@ -3541,8 +3568,8 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         for (i=0;i<VMHL_N;i++) Matrix[i]=new double[VMHL_M];
         //Заполним случайными числами
         for (i=0;i<VMHL_N;i++)
-         for (j=0;j<VMHL_M;j++)
-          Matrix[i][j]=MHL_RandomUniformInt(10,100);
+            for (j=0;j<VMHL_M;j++)
+                Matrix[i][j]=MHL_RandomUniformInt(10,100);
 
         MHL_ShowMatrix (Matrix,VMHL_N,VMHL_M,"Случайная матрица", "Matrix");
         // Случайная матрица:
@@ -3587,8 +3614,8 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         b=new int[VMHL_N];
         //Заполним случайными числами
         for (i=0;i<VMHL_N;i++)
-         for (j=0;j<VMHL_M;j++)
-          a[i][j]=MHL_RandomUniformInt(10,100);
+            for (j=0;j<VMHL_M;j++)
+                a[i][j]=MHL_RandomUniformInt(10,100);
 
         int k=1;//Номер копируемого столбца
 
@@ -3645,8 +3672,8 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         for (i=0;i<VMHL_N;i++) b[i]=new double[VMHL_M];
         //Заполним случайными числами
         for (i=0;i<VMHL_N;i++)
-         for (j=0;j<VMHL_M;j++)
-          a[i][j]=MHL_RandomUniformInt(10,100);
+            for (j=0;j<VMHL_M;j++)
+                a[i][j]=MHL_RandomUniformInt(10,100);
 
         //Вызов функции
         TMHL_MatrixToMatrix(a,b,VMHL_N,VMHL_M);
@@ -3698,8 +3725,8 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         b=new int[VMHL_M];
         //Заполним случайными числами
         for (i=0;i<VMHL_N;i++)
-         for (j=0;j<VMHL_M;j++)
-          a[i][j]=MHL_RandomUniformInt(10,100);
+            for (j=0;j<VMHL_M;j++)
+                a[i][j]=MHL_RandomUniformInt(10,100);
 
         int k=1;//Номер копируемой строки
 
@@ -3746,8 +3773,8 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         for (i=0;i<VMHL_N;i++) Matrix[i]=new int[VMHL_M];
         //Заполним случайными числами
         for (i=0;i<VMHL_N;i++)
-         for (j=0;j<VMHL_M;j++)
-          Matrix[i][j]=MHL_RandomUniformInt(10,100);
+            for (j=0;j<VMHL_M;j++)
+                Matrix[i][j]=MHL_RandomUniformInt(10,100);
 
         MHL_ShowMatrix (Matrix,VMHL_N,VMHL_M,"Случайная матрица", "Matrix");
         //Случайная матрица:
@@ -3797,8 +3824,8 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         b=new int[VMHL_M];
         //Заполним случайными числами
         for (i=0;i<VMHL_N;i++)
-         for (j=0;j<VMHL_M;j++)
-          a[i][j]=MHL_RandomUniformInt(10,100);
+            for (j=0;j<VMHL_M;j++)
+                a[i][j]=MHL_RandomUniformInt(10,100);
         MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Случайная матрица", "a");
         //Случайная матрица:
         //a =
@@ -3814,7 +3841,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //84	83	98
 
         for (j=0;j<VMHL_M;j++)
-         b[j]=MHL_RandomUniformInt(10,100);
+            b[j]=MHL_RandomUniformInt(10,100);
 
         int k=1;//Номер строки, в которую мы копируем
 
@@ -3861,8 +3888,8 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         for (i=0;i<VMHL_N;i++) a[i]=new int[VMHL_M];
         //Заполним случайными числами
         for (i=0;i<VMHL_N;i++)
-         for (j=0;j<VMHL_M;j++)
-          a[i][j]=MHL_RandomUniformInt(0,50);
+            for (j=0;j<VMHL_M;j++)
+                a[i][j]=MHL_RandomUniformInt(0,50);
 
         //Вызов функции
         int NumberOfDifferent=TMHL_NumberOfDifferentValuesInMatrix(a,VMHL_N,VMHL_M);
@@ -3961,7 +3988,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         a=new double[VMHL_N];
         //Заполним случайными числами
         for (i=0;i<VMHL_N;i++)
-         a[i]=MHL_RandomUniformInt(10,100);
+            a[i]=MHL_RandomUniformInt(10,100);
 
         MHL_ShowVector (a,VMHL_N,"Вектор равен", "a");
         //Вектор равен:
@@ -3998,7 +4025,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         a=new int[VMHL_N];
         //Заполним случайными числами
         for (i=0;i<VMHL_N;i++)
-         a[i]=MHL_RandomUniformInt(0,5);
+            a[i]=MHL_RandomUniformInt(0,5);
 
         //Вызов функции
         int NumberOfDifferent=TMHL_NumberOfDifferentValuesInVector(a,VMHL_N);
@@ -4557,10 +4584,10 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         y=new int[VMHL_N];
         //Заполним случайными числами
         for (i=0;i<VMHL_N;i++)
-         {
-         x[i]=MHL_RandomUniformInt(0,5);
-         y[i]=MHL_RandomUniformInt(0,5);
-         }
+        {
+            x[i]=MHL_RandomUniformInt(0,5);
+            y[i]=MHL_RandomUniformInt(0,5);
+        }
 
         //Вызов функции
         int metric=TMHL_CityBlock(x,y,VMHL_N);
@@ -4625,7 +4652,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //4.78271
         //5.78705
 
-       MHL_ShowNumber (metric,"Значение метрики евклидово расстояние", "metric");
+        MHL_ShowNumber (metric,"Значение метрики евклидово расстояние", "metric");
         //Значение метрики евклидово расстояние:
         //metric=8.65837
 
@@ -4862,16 +4889,16 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //VMHL_Success=1
 
         if (VMHL_Success==1)
-         {
-         MHL_ShowVectorT(Decision,LengthBinarString,"Найденное решение","Decision");
-         //Найденное решение:
-         //Decision =
-         //1	0	1	1	1	1	1	0	1	1	1	1	1	1	1	0	0	1	0	0	1	1	1	1	1	0	1	1	0	1	1	0	1	1	1	1	0	0	1	1	1	1	0	1	1	1	0	1	1	1
+        {
+            MHL_ShowVectorT(Decision,LengthBinarString,"Найденное решение","Decision");
+            //Найденное решение:
+            //Decision =
+            //1	0	1	1	1	1	1	0	1	1	1	1	1	1	1	0	0	1	0	0	1	1	1	1	1	0	1	1	0	1	1	0	1	1	1	1	0	0	1	1	1	1	0	1	1	1	0	1	1	1
 
-         MHL_ShowNumber(ValueOfFitnessFunction,"Значение функции пригодности","ValueOfFitnessFunction");
-         // Значение функции пригодности:
-         //ValueOfFitnessFunction=37
-         }
+            MHL_ShowNumber(ValueOfFitnessFunction,"Значение функции пригодности","ValueOfFitnessFunction");
+            // Значение функции пригодности:
+            //ValueOfFitnessFunction=37
+        }
         delete [] ParametersOfBinaryMonteCarloAlgorithm;
         delete [] Decision;
     }
@@ -4883,7 +4910,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         double *a;
         a=new double[VMHL_N];
         for (i=0;i<VMHL_N;i++)
-         a[i]=MHL_RandomNumber();
+            a[i]=MHL_RandomNumber();
 
         MHL_ShowVector (a,VMHL_N,"Случайный вектор", "a");
         // Например
@@ -4929,7 +4956,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         double *a;
         a=new double[VMHL_N];
         for (i=0;i<VMHL_N;i++)
-         a[i]=MHL_RandomNumber();
+            a[i]=MHL_RandomNumber();
 
         MHL_ShowVector (a,VMHL_N,"Случайный вектор", "a");
         // Например
@@ -4974,7 +5001,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         double *a;
         a=new double[VMHL_N];
         for (i=0;i<VMHL_N;i++)
-         a[i]=MHL_RandomUniformInt(10,50);
+            a[i]=MHL_RandomUniformInt(10,50);
 
         // Например
         MHL_ShowVectorT (a,VMHL_N,"Случайный вектор", "a");
@@ -5005,10 +5032,10 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         int *b;
         b=new int[VMHL_N];
         for (i=0;i<VMHL_N;i++)
-         {
-         a[i]=MHL_RandomUniformInt(10,50);
-         b[i]=MHL_RandomUniformInt(10,50);
-         }
+        {
+            a[i]=MHL_RandomUniformInt(10,50);
+            b[i]=MHL_RandomUniformInt(10,50);
+        }
 
         // Например
         MHL_ShowVectorT (a,VMHL_N,"Случайный вектор", "a");
@@ -5050,11 +5077,11 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         int *c;
         c=new int[VMHL_N];
         for (i=0;i<VMHL_N;i++)
-         {
-         a[i]=MHL_RandomUniformInt(10,50);
-         b[i]=MHL_RandomUniformInt(10,50);
-         c[i]=MHL_RandomUniformInt(10,50);
-         }
+        {
+            a[i]=MHL_RandomUniformInt(10,50);
+            b[i]=MHL_RandomUniformInt(10,50);
+            c[i]=MHL_RandomUniformInt(10,50);
+        }
 
         // Например
         MHL_ShowVectorT (a,VMHL_N,"Случайный вектор", "a");
@@ -5170,7 +5197,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         a=new double[VMHL_N];
         //Заполним случайными числами
         for (i=0;i<VMHL_N;i++)
-         a[i]=MHL_RandomUniform(0,10);
+            a[i]=MHL_RandomUniform(0,10);
 
         //Вызов функции
         double Mean=TMHL_Mean(a,VMHL_N);
@@ -5205,7 +5232,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         a=new double[VMHL_N];
         //Заполним случайными числами
         for (i=0;i<VMHL_N;i++)
-         a[i]=MHL_RandomUniform(0,10);
+            a[i]=MHL_RandomUniform(0,10);
 
         //Вызов функции
         double Median=TMHL_Median(a,VMHL_N);
@@ -5781,7 +5808,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         double *Fitness;
         Fitness=new double[VMHL_N];
         for (i=0;i<VMHL_N;i++)
-         Fitness[i]=MHL_RandomNumber();
+            Fitness[i]=MHL_RandomNumber();
 
         int SizeTournament=3;// Размер турнира
 
@@ -5815,7 +5842,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         double *Fitness;
         Fitness=new double[VMHL_N];
         for (i=0;i<VMHL_N;i++)
-         Fitness[i]=MHL_RandomNumber();
+            Fitness[i]=MHL_RandomNumber();
 
         int SizeTournament=3;// Размер турнира
 
@@ -5850,7 +5877,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         VMHL_N=7;//Размер массива
         Fitness=new double[VMHL_N];
         for (i=0;i<VMHL_N;i++)
-         Fitness[i]=MHL_RandomNumber();
+            Fitness[i]=MHL_RandomNumber();
 
         int *Taken;//Информация о том, в турнире или нет индивид (Служебный массив)
         Taken=new int[VMHL_N];
@@ -5892,7 +5919,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         double *Fitness;
         Fitness=new double[VMHL_N];
         for (i=0;i<VMHL_N;i++)
-         Fitness[i]=MHL_RandomUniformInt(1,10)/10.;
+            Fitness[i]=MHL_RandomUniformInt(1,10)/10.;
 
         double *Rank;
         Rank=new double[VMHL_N];
@@ -5936,7 +5963,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         a=new double[VMHL_N];
         //Заполним случайными числами
         for (i=0;i<VMHL_N;i++)
-         a[i]=MHL_RandomUniformInt(-100,100);
+            a[i]=MHL_RandomUniformInt(-100,100);
 
         MHL_ShowVector (a,VMHL_N,"Случайный вектор", "a");
         //Случайный вектор:
@@ -5985,7 +6012,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         a=new double[VMHL_N];
         //Заполним случайными числами
         for (i=0;i<VMHL_N;i++)
-         a[i]=MHL_RandomUniformInt(-100,100);
+            a[i]=MHL_RandomUniformInt(-100,100);
 
         MHL_ShowVector (a,VMHL_N,"Случайный вектор", "a");
         //Случайный вектор:
@@ -6299,7 +6326,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         double *Fitness;
         Fitness=new double[VMHL_N];
         for (i=0;i<VMHL_N;i++)
-         Fitness[i]=MHL_RandomUniformInt(1,10)/10.;
+            Fitness[i]=MHL_RandomUniformInt(1,10)/10.;
 
         double *Rank;
         Rank=new double[VMHL_N];
@@ -6391,16 +6418,16 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //VMHL_Success=1
 
         if (VMHL_Success==1)
-         {
-         MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
-         //Найденное решение:
-         //Decision =
-         //1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1
+        {
+            MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
+            //Найденное решение:
+            //Decision =
+            //1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1
 
-         MHL_ShowNumber(ValueOfFitnessFunction,"Значение функции пригодности","ValueOfFitnessFunction");
-         // Значение функции пригодности:
-         //ValueOfFitnessFunction=50
-         }
+            MHL_ShowNumber(ValueOfFitnessFunction,"Значение функции пригодности","ValueOfFitnessFunction");
+            // Значение функции пригодности:
+            //ValueOfFitnessFunction=50
+        }
 
         delete [] ParametersOfStandartBinaryGeneticAlgorithm;
         delete [] Decision;
@@ -6449,14 +6476,14 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //Используем полученный результат
         MHL_ShowNumber(VMHL_Success,"Как прошел запуск","VMHL_Success");
         if (VMHL_Success==1)
-         {
-         MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
-         //Найденное решение:
-         //Decision = 1.99530029296875
-         MHL_ShowNumber(ValueOfFitnessFunction,"Значение целовой функции","ValueOfFitnessFunction");
-         //Значение целовой функции:
-         //ValueOfFitnessFunction = 7.74778987033769
-         }
+        {
+            MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
+            //Найденное решение:
+            //Decision = 1.99530029296875
+            MHL_ShowNumber(ValueOfFitnessFunction,"Значение целовой функции","ValueOfFitnessFunction");
+            //Значение целовой функции:
+            //ValueOfFitnessFunction = 7.74778987033769
+        }
 
         delete [] ParametersOfStandartRealGeneticAlgorithm;
         delete [] Decision;
@@ -6497,16 +6524,16 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //VMHL_Success=1
 
         if (VMHL_Success==1)
-         {
-         MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
-         //Найденное решение:
-         //Decision =
-         //1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1
+        {
+            MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
+            //Найденное решение:
+            //Decision =
+            //1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1
 
-         MHL_ShowNumber(ValueOfFitnessFunction,"Значение функции пригодности","ValueOfFitnessFunction");
-         // Значение функции пригодности:
-         //ValueOfFitnessFunction=50
-         }
+            MHL_ShowNumber(ValueOfFitnessFunction,"Значение функции пригодности","ValueOfFitnessFunction");
+            // Значение функции пригодности:
+            //ValueOfFitnessFunction=50
+        }
 
         delete [] ParametersOfStandartBinaryGeneticAlgorithm;
         delete [] Decision;
@@ -6554,14 +6581,14 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
             //Используем полученный результат
             MHL_ShowNumber(VMHL_Success,"Как прошел запуск","VMHL_Success");
             if (VMHL_Success==1)
-             {
-             MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
-             //Найденное решение:
-             //Decision = 1.99530029296875
-             MHL_ShowNumber(ValueOfFitnessFunction,"Значение целовой функции","ValueOfFitnessFunction");
-             //Значение целовой функции:
-             //ValueOfFitnessFunction = 7.74778987033769
-             }
+            {
+                MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
+                //Найденное решение:
+                //Decision = 1.99530029296875
+                MHL_ShowNumber(ValueOfFitnessFunction,"Значение целовой функции","ValueOfFitnessFunction");
+                //Значение целовой функции:
+                //ValueOfFitnessFunction = 7.74778987033769
+            }
 
             delete [] ParametersOfStandartRealGeneticAlgorithm;
             delete [] Decision;
@@ -6776,7 +6803,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         double *Fitness;
         Fitness=new double[VMHL_N];
         for (i=0;i<VMHL_N;i++)
-         Fitness[i]=MHL_RandomUniformInt(1,10)/10.;
+            Fitness[i]=MHL_RandomUniformInt(1,10)/10.;
 
         double *Rank;
         Rank=new double[VMHL_N];
@@ -6837,7 +6864,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         double *Fitness;
         Fitness=new double[VMHL_N];
         for (i=0;i<VMHL_N;i++)
-         Fitness[i]=MHL_RandomUniformInt(1,10)/10.;
+            Fitness[i]=MHL_RandomUniformInt(1,10)/10.;
 
         double *Rank;
         Rank=new double[VMHL_N];
@@ -6881,11 +6908,11 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //Вызов функции
         for (int i=0;i<1000;i++)
         {
-        x=MHL_RandomUniformIntIncluding(0,3);
-        if (x==0) s0++;
-        if (x==1) s1++;
-        if (x==2) s2++;
-        if (x==3) s3++;
+            x=MHL_RandomUniformIntIncluding(0,3);
+            if (x==0) s0++;
+            if (x==1) s1++;
+            if (x==2) s2++;
+            if (x==3) s3++;
         }
 
         //Используем полученный результат
@@ -7081,12 +7108,12 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //Result=1
         if (Result==1)
         {
-        MHL_ShowNumber(x1,"Первый корень квадратного уравнения","x1");
-        //Первый корень квадратного уравнения:
-        //x1=-0.683375
-        MHL_ShowNumber(x2,"Первый корень квадратного уравнения","x2");
-        //Первый корень квадратного уравнения:
-        //x2=-7.31662
+            MHL_ShowNumber(x1,"Первый корень квадратного уравнения","x1");
+            //Первый корень квадратного уравнения:
+            //x1=-0.683375
+            MHL_ShowNumber(x2,"Первый корень квадратного уравнения","x2");
+            //Первый корень квадратного уравнения:
+            //x2=-7.31662
         }
     }
 
@@ -7253,23 +7280,23 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
 
     if (NameFunction=="MHL_DefineTestFunction")
     {
-    //Вызов функции
-    MHL_DefineTestFunction(TestFunction_SumVector);
+        //Вызов функции
+        MHL_DefineTestFunction(TestFunction_SumVector);
 
-    //Использование результата
-    int N=5;
-    int *x=new int[N];
-    TMHL_RandomBinaryVector(x,N);
-    double f=MHL_TestFunction_Binary(x,N);
+        //Использование результата
+        int N=5;
+        int *x=new int[N];
+        TMHL_RandomBinaryVector(x,N);
+        double f=MHL_TestFunction_Binary(x,N);
 
-    MHL_ShowVectorT(x,N,"Решение","x");
-    //Решение:
-    //x =
-    //1	1	1	1	0
+        MHL_ShowVectorT(x,N,"Решение","x");
+        //Решение:
+        //x =
+        //1	1	1	1	0
 
-    MHL_ShowNumber(f,"Значение целевой функции","f");
-    //Значение целевой функции:
-    //f=4
+        MHL_ShowNumber(f,"Значение целевой функции","f");
+        //Значение целевой функции:
+        //f=4
     }
 
     if (NameFunction=="MHL_TestFunction_Binary")
@@ -7325,8 +7352,8 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         double f=MHL_FitnessOfOptimumOfTestFunction_Binary(N);
 
         //Использование результата
-        MHL_ShowNumber(f,"Значение целевой функции оптимального решения","f");
-        //Значение целевой функции оптимального решения:
+        MHL_ShowNumber(f,"Значение целевой функции оптимального решения функции TestFunction_SumVector","f");
+        //Значение целевой функции оптимального решения функции TestFunction_SumVector:
         //f=5
     }
 
@@ -7526,6 +7553,181 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
 
         delete [] x;
         delete [] y;
+    }
+
+    if (NameFunction=="MHL_ClassOfTestFunction")
+    {
+        TypeOfTestFunction Type=TestFunction_Ackley;
+
+        //Вызов функции
+        int ClassOfTestFunction=MHL_ClassOfTestFunction(Type);
+
+        //используем результат
+        if (ClassOfTestFunction==1)
+            MHL_ShowText("Это задача бинарной оптимизации");
+        if (ClassOfTestFunction==2)
+            MHL_ShowText("Это задача вещественной оптимизации");
+        //Это задача вещественной оптимизации.
+    }
+
+    if (NameFunction=="MHL_TestFunction_Real")
+    {
+        MHL_DefineTestFunction(TestFunction_Ackley);
+
+        int N=5;
+        double *x=new double[N];
+        MHL_RandomRealVector(x,-1,1,N);
+
+        //Вызов функции
+        double f=MHL_TestFunction_Real(x,N);
+
+        //Использование результата
+        MHL_ShowVectorT(x,N,"Решение","x");
+        //Решение:
+        //x =
+        //-0.391724	0.347656	0.259155	-0.544617	0.116516
+
+        MHL_ShowNumber(f,"Значение целевой функции","f");
+        //Значение целевой функции:
+        //f=3.38932
+    }
+
+    if (NameFunction=="MHL_OptimumOfTestFunction_Real")
+    {
+        MHL_DefineTestFunction(TestFunction_Ackley);
+
+        int N=5;
+        double *x=new double[N];
+
+        //Вызов функции
+        double f=MHL_OptimumOfTestFunction_Real(x,N);
+
+        //Использование результата
+        MHL_ShowVectorT(x,N,"Оптимальное решение тестовой функции TestFunction_Ackley","x");
+        //Оптимальное решение тестовой функции TestFunction_Ackley:
+        //x =
+        //0	0	0	0	0
+
+        MHL_ShowNumber(f,"Значение целевой функции оптимального решения","f");
+        //Значение целевой функции оптимального решения:
+        //f=0
+    }
+
+    if (NameFunction=="MHL_FitnessOfOptimumOfTestFunction_Real")
+    {
+        MHL_DefineTestFunction(TestFunction_Ackley);
+
+        int N=5;
+
+        //Вызов функции
+        double f=MHL_FitnessOfOptimumOfTestFunction_Binary(N);
+
+        //Использование результата
+        MHL_ShowNumber(f,"Значение целевой функции оптимального решения функции TestFunction_Ackley","f");
+        //Значение целевой функции оптимального решения функции TestFunction_Ackley:
+        //f=0
+    }
+
+    if (NameFunction=="MHL_NumberOfPartsOfTestFunction_Real")
+    {
+        MHL_DefineTestFunction(TestFunction_Ackley);
+
+        int N=5;
+        int *NumberOfParts=new int[N];
+
+        //Вызов функции
+        double e=MHL_NumberOfPartsOfTestFunction_Real(NumberOfParts,N);
+
+        //Использование результата
+        MHL_ShowVectorT(NumberOfParts,N,"На сколько частей нужно делить каждую координату функции TestFunction_Ackley","NumberOfParts");
+        //На сколько частей нужно делить каждую координату функции TestFunction_Ackley:
+        //NumberOfParts =
+        //4095	4095	4095	4095	4095
+
+        MHL_ShowNumber(e,"Точность вычислений.","e");
+        //Точность вычислений.:
+        //e=0.025
+    }
+
+    if (NameFunction=="MHL_PrecisionOfCalculationsOfTestFunction_Real")
+    {
+        MHL_DefineTestFunction(TestFunction_Ackley);
+
+        //Вызов функции
+        double e=MHL_PrecisionOfCalculationsOfTestFunction_Real();
+
+        //Использование результата
+        MHL_ShowNumber(e,"Точность вычислений","e");
+        //Точность вычислений:
+        //e=0.025
+    }
+
+    if (NameFunction=="MHL_ErrorROfTestFunction_Real")
+    {
+        MHL_DefineTestFunction(TestFunction_Ackley);
+
+        int N=5;
+        double *x=new double[N];
+        MHL_RandomRealVector(x,0.01,0.02,N);
+
+        //Вызов функции
+        double R=MHL_ErrorROfTestFunction_Real(x,N);
+
+        //Использование результата
+        MHL_ShowVectorT(x,N,"Решение","x");
+        //Решение:
+        //x =
+        //0.0118939	0.0177618	0.0115656	0.0181937	0.0124084
+
+        MHL_ShowNumber(R,"Значение надежности","R");
+        //Значение надежности:
+        //R=1
+    }
+
+    if (NameFunction=="MHL_ErrorExOfTestFunction_Real")
+    {
+        MHL_DefineTestFunction(TestFunction_Ackley);
+
+        int N=5;
+        double *x=new double[N];
+        MHL_RandomRealVector(x,-0.5,0.05,N);
+
+        //Вызов функции
+        double Ex=MHL_ErrorExOfTestFunction_Real(x,N);
+
+        //Использование результата
+        MHL_ShowVectorT(x,N,"Решение","x");
+        //Решение:
+        //x =
+        //-0.43694	-0.458693	-0.0266388	0.0117142	-0.136948
+
+
+        MHL_ShowNumber(Ex,"Значение ошибки по входным параметрам","E<sub>x</sub>");
+        //Значение ошибки по входным параметрам:
+        //Ex=0.129756
+    }
+
+    if (NameFunction=="MHL_ErrorEyOfTestFunction_Real")
+    {
+        MHL_DefineTestFunction(TestFunction_Ackley);
+
+        int N=5;
+        double *x=new double[N];
+        MHL_RandomRealVector(x,-0.5,0.05,N);
+        double f=MHL_TestFunction_Real(x,N);
+
+        //Вызов функции
+        double Ey=MHL_ErrorEyOfTestFunction_Real(f,N);
+
+        //Использование результата
+        MHL_ShowVectorT(x,N,"Решение","x");
+        //Решение:
+        //x =
+        //-0.0963959	-0.183693	-0.0485428	-0.185757	0.0321075
+
+        MHL_ShowNumber(Ey,"Значение ошибки по значениям целевой функции","E<sub>y</sub>");
+        //Значение ошибки по значениям целевой функции:
+        //Ey=1.18549
     }
 }
 //---------------------------------------------------------------------------

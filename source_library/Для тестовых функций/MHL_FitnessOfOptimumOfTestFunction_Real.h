@@ -1,0 +1,2 @@
+double MHL_FitnessOfOptimumOfTestFunction_Real(double VMHL_N);
+double MHL_FitnessOfOptimumOfTestFunction_Real(double VMHL_N, TypeOfTestFunction Type);
