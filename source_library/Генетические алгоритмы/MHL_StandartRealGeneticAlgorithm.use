@@ -13,7 +13,7 @@
         ParametersOfStandartRealGeneticAlgorithm[3]=TypeOfCros;//Тип скрещивания
         ParametersOfStandartRealGeneticAlgorithm[4]=TypeOfMutation;//Тип мутации
         ParametersOfStandartRealGeneticAlgorithm[5]=TypeOfForm;//Тип формирования нового поколения
-        ParametersOfStandartRealGeneticAlgorithm[6]=0;//Тип формирования нового поколения
+		ParametersOfStandartRealGeneticAlgorithm[6]=0;//Тип преобразование задачи вещественной оптимизации в задачу бинарной оптимизации
 
         double *Left;//массив левых границ изменения каждой вещественной координаты
         Left=new double[ChromosomeLength];

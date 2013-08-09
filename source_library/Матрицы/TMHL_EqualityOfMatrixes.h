@@ -1,0 +1,1 @@
+template <class T> bool TMHL_EqualityOfMatrixes (T **a, T **b,int VMHL_N,int VMHL_M);

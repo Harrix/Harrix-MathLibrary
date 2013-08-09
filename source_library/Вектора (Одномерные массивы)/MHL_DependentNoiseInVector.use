@@ -1,0 +1,45 @@
+        int VMHL_N=10;//Размер массива
+        double *x;
+        x=new double[VMHL_N];
+        //Заполним массив номерами от 1
+        TMHL_OrdinalVector(x,VMHL_N);
+        MHL_ShowVector (x,VMHL_N,"Вектор", "x");
+        //Вектор:
+        //x =	
+        //1
+        //2
+        //3
+        //4
+        //5
+        //6
+        //7
+        //8
+        //9
+        //10
+
+        double percent=double(MHL_RandomUniformInt(0,100));//Процент помехи
+
+        //Вызов функции
+        MHL_DependentNoiseInVector(x,percent,VMHL_N);
+
+        //Используем полученный результат
+
+        MHL_ShowNumber (percent,"Процент помехи", "percent");
+        //Процент помехи:
+        //percent=6
+        MHL_ShowVector (x,VMHL_N,"Вектор с зависимой помехой", "x");
+        //Вектор с помехой:
+        //Вектор с помехой:
+        //x =	
+        //0.865099
+        //2.50058
+        //2.43314
+        //4.38595
+        //3.98511
+        //5.36837
+        //8.42834
+        //7.18024
+        //9.33134
+        //10.5783
+
+        delete [] x;

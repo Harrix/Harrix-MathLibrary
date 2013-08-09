@@ -1,0 +1,45 @@
+        int i,j;
+        int VMHL_N=2;//Размер массива (число строк)
+        int VMHL_M=2;//Размер массива (число столбцов)
+
+        int **a;
+        a=new int*[VMHL_N];
+        for (i=0;i<VMHL_N;i++) a[i]=new int[VMHL_M];
+        //Заполним случайными числами
+        for (i=0;i<VMHL_N;i++)
+         for (j=0;j<VMHL_M;j++)
+          a[i][j]=MHL_RandomUniformInt(0,2);
+
+        int **b;
+        b=new int*[VMHL_N];
+        for (i=0;i<VMHL_N;i++) b[i]=new int[VMHL_M];
+        //Заполним случайными числами
+        for (i=0;i<VMHL_N;i++)
+         for (j=0;j<VMHL_M;j++)
+          b[i][j]=MHL_RandomUniformInt(0,2);
+
+        //Вызов функции
+        bool Equality=TMHL_EqualityOfMatrixes(a,b,VMHL_N,VMHL_M);
+
+        //Используем полученный результат
+        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Случайная матрица", "a");
+        //Случайная матрица:
+        //a =	
+        //1	1
+        //0	1
+
+        MHL_ShowMatrix (b,VMHL_N,VMHL_M,"Случайная матрица", "b");
+        //Случайная матрица:
+        //b =	
+        //1	1
+        //0	1
+
+        MHL_ShowNumber (Equality,"Равны ли матрицы", "Equality");
+        //Равны ли матрицы:
+        //Equality=1
+
+        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        delete [] a;
+        
+        for (i=0;i<VMHL_N;i++) delete [] b[i];
+        delete [] b;

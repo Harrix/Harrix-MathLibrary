@@ -664,6 +664,21 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("MHL_ErrorEyOfTestFunction_Real"));
     model->appendRow(item);
 
+    item = new QStandardItem(QString("TMHL_SearchElementInVector"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("TMHL_EqualityOfMatrixes"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_DependentNoiseInVector"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("TMHL_Minkovski"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_LeftAndRightBorderOfTestFunction_Real"));
+    model->appendRow(item);
+
     model->sort(0);
 
     //соединение модели списка с конкретным списком
@@ -7728,6 +7743,211 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         MHL_ShowNumber(Ey,"Значение ошибки по значениям целевой функции","E<sub>y</sub>");
         //Значение ошибки по значениям целевой функции:
         //Ey=1.18549
+    }
+
+    if (NameFunction=="TMHL_SearchElementInVector")
+    {
+        int i;
+        int VMHL_N=10;//Размер массива (число строк)
+        int *a;
+        a=new int[VMHL_N];
+        //Заполним случайными числами
+        for (i=0;i<VMHL_N;i++)
+         a[i]=MHL_RandomUniformInt(0,4);
+
+        int x=2;
+
+        //Вызов функции
+        int Number=TMHL_SearchElementInVector(a,x,VMHL_N);
+
+        //Используем полученный результат
+        MHL_ShowVector (a,VMHL_N,"Случайный вектор", "a");
+        //Случайный вектор:
+        //a =
+        //3
+        //3
+        //0
+        //1
+        //0
+        //2
+        //2
+        //1
+        //3
+        //1
+
+        MHL_ShowNumber (x,"Искомое число", "x");
+        //Искомое число:
+        //x=2
+
+        MHL_ShowNumber (Number,"Номер первого элемента, равного искомому", "Number");
+        //Номер первого элемента, равного искомому:
+        //Number=5
+
+        delete [] a;
+    }
+
+    if (NameFunction=="TMHL_EqualityOfMatrixes")
+    {
+        int i,j;
+        int VMHL_N=2;//Размер массива (число строк)
+        int VMHL_M=2;//Размер массива (число столбцов)
+
+        int **a;
+        a=new int*[VMHL_N];
+        for (i=0;i<VMHL_N;i++) a[i]=new int[VMHL_M];
+        //Заполним случайными числами
+        for (i=0;i<VMHL_N;i++)
+         for (j=0;j<VMHL_M;j++)
+          a[i][j]=MHL_RandomUniformInt(0,2);
+
+        int **b;
+        b=new int*[VMHL_N];
+        for (i=0;i<VMHL_N;i++) b[i]=new int[VMHL_M];
+        //Заполним случайными числами
+        for (i=0;i<VMHL_N;i++)
+         for (j=0;j<VMHL_M;j++)
+          b[i][j]=MHL_RandomUniformInt(0,2);
+
+        //Вызов функции
+        bool Equality=TMHL_EqualityOfMatrixes(a,b,VMHL_N,VMHL_M);
+
+        //Используем полученный результат
+        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Случайная матрица", "a");
+        //Случайная матрица:
+        //a =
+        //1	1
+        //0	1
+
+        MHL_ShowMatrix (b,VMHL_N,VMHL_M,"Случайная матрица", "b");
+        //Случайная матрица:
+        //b =
+        //1	1
+        //0	1
+
+        MHL_ShowNumber (Equality,"Равны ли матрицы", "Equality");
+        //Равны ли матрицы:
+        //Equality=1
+
+        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        delete [] a;
+
+        for (i=0;i<VMHL_N;i++) delete [] b[i];
+        delete [] b;
+    }
+
+    if (NameFunction=="MHL_DependentNoiseInVector")
+    {
+        int VMHL_N=10;//Размер массива
+        double *x;
+        x=new double[VMHL_N];
+        //Заполним массив номерами от 1
+        TMHL_OrdinalVector(x,VMHL_N);
+        MHL_ShowVector (x,VMHL_N,"Вектор", "x");
+        //Вектор:
+        //x =
+        //1
+        //2
+        //3
+        //4
+        //5
+        //6
+        //7
+        //8
+        //9
+        //10
+
+        double percent=double(MHL_RandomUniformInt(0,100));//Процент помехи
+
+        //Вызов функции
+        MHL_DependentNoiseInVector(x,percent,VMHL_N);
+
+        //Используем полученный результат
+
+        MHL_ShowNumber (percent,"Процент помехи", "percent");
+        //Процент помехи:
+        //percent=6
+        MHL_ShowVector (x,VMHL_N,"Вектор с зависимой помехой", "x");
+        //Вектор с помехой:
+        //Вектор с помехой:
+        //x =
+        //0.865099
+        //2.50058
+        //2.43314
+        //4.38595
+        //3.98511
+        //5.36837
+        //8.42834
+        //7.18024
+        //9.33134
+        //10.5783
+
+        delete [] x;
+    }
+
+    if (NameFunction=="TMHL_Minkovski")
+    {
+        int VMHL_N=5;//Размер массива
+        double *x;
+        x=new double[VMHL_N];
+        double *y;
+        y=new double[VMHL_N];
+        //Заполним случайными числами
+        MHL_RandomRealVector (x,0,10,VMHL_N);
+        MHL_RandomRealVector (y,0,10,VMHL_N);
+
+        int r=3;
+
+        //Вызов функции
+        double metric=TMHL_Minkovski(x,y,r,VMHL_N);
+
+        //Используем полученный результат
+        MHL_ShowVector (x,VMHL_N,"Первый массив", "x");
+        //Первый массив:
+        //x =
+        //8.2312
+        //2.74628
+        //9.36371
+        //7.31995
+        //0.139465
+
+        MHL_ShowVector (y,VMHL_N,"Второй массив", "y");
+        //Второй массив:
+        //y =
+        //6.2793
+        //5.07324
+        //9.01978
+        //5.29297
+        //9.84436
+
+        MHL_ShowNumber (metric,"Значение метрики Минковского", "metric");
+        //Значение метрики Минковского:
+        //metric=9.8044
+
+        delete [] x;
+        delete [] y;
+    }
+
+    if (NameFunction=="MHL_LeftAndRightBorderOfTestFunction_Real")
+    {
+        MHL_DefineTestFunction(TestFunction_Ackley);
+
+        int N=5;
+        double *Left=new double[N];
+        double *Right=new double[N];
+
+        //Вызов функции
+        MHL_LeftAndRightBorderOfTestFunction_Real(Left,Right,N);
+
+        //Использование результата
+        MHL_ShowVectorT(Left,N,"Левые границы допустимой области функции TestFunction_Ackley","Left");
+        //Левые границы допустимой области функции TestFunction_Ackley:
+        //Left =
+        //-5	-5	-5	-5	-5
+
+        MHL_ShowVectorT(Right,N,"Правые границы допустимой области функции TestFunction_Ackley","Right");
+        //Правые границы допустимой области функции TestFunction_Ackley:
+        //Right =
+        //5	5	5	5	5
     }
 }
 //---------------------------------------------------------------------------

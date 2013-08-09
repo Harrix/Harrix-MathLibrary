@@ -1,0 +1,1 @@
+template <class T> int TMHL_SearchElementInVector (T *X, T x, int VMHL_N);

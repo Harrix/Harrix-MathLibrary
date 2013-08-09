@@ -1,4 +1,5 @@
 //БИБЛИОТЕКА MATH HARRIX LIBRARY
+//Версия 3.12
 
 //Сборник различных математических функций с открытым кодом на языке C++
 //Страница проекта: https://github.com/Harrix/MathHarrixLibrary
@@ -73,6 +74,28 @@ return (double)rand()/(RAND_MAX+1);
 //*****************************************************************
 //Вектора (Одномерные массивы)
 //*****************************************************************
+void MHL_DependentNoiseInVector(double *VMHL_ResultVector, double percent, int VMHL_N)
+{
+/*
+Функция добавляет к элементам выборки помеху, зависящую от значения элемента выборки
+(плюс-минус сколько-то процентов модуля разности минимального и максимального элемента выборки,
+умноженного на значение элемента).
+Входные параметры:
+ VMHL_ResultVector - указатель на массив;
+ percent - процент шума;
+ VMHL_N - количество элементов в массивах.
+Возвращаемое значение:
+ Отсутствует.
+*/
+if (percent<0) percent=0;
+int i;
+double max=TMHL_MaximumOfVector(VMHL_ResultVector,VMHL_N);//Максимальное значение
+double min=TMHL_MinimumOfVector(VMHL_ResultVector,VMHL_N);//Минимальное значение
+double b=percent*(max-min)/100.;//Амплитуда шума
+for (i=0;i<VMHL_N;i++)
+ VMHL_ResultVector[i]+=VMHL_ResultVector[i]*MHL_RandomUniform(-b/2.,b/2.);
+}
+//---------------------------------------------------------------------------
 double MHL_EuclidNorma(double *a,int VMHL_N)
 {
 /*
@@ -965,7 +988,7 @@ https://github.com/Harrix/Standard-Genetic-Algorithm
   [5] - тип формирования нового поколения (TypeOfForm):
         0 - OnlyOffspringGenerationForming (Только потомки);
         1 - OnlyOffspringWithBestGenerationForming (Только потомки и копия лучшего индивида)
-  [6] - тип преобразования задачи вещественной оптимизации в задачу бинарной оптимизации (TypOfConverting);
+  [6] - тип преобразования задачи вещественной оптимизации в задачу бинарной оптимизации (TypeOfConverting);
         0 - IntConverting (Стандартное представление целого числа – номер узла в сетке дискретизации);
         1 - GrayСodeConverting (Стандартный рефлексивный Грей-код).
  NumberOfParts - указатель на массив: на сколько частей делить каждую вещественную координату при дискретизации (размерность Parameters[0]);
@@ -1930,6 +1953,68 @@ int MHL_GetCountOfFitness()
      Количество вызовов целевой функции.
     */
     return CountOfFitness;
+}
+//---------------------------------------------------------------------------
+void MHL_LeftAndRightBorderOfTestFunction_Real(double *Left, double *Right,int VMHL_N)
+{
+    /*
+    Функция определяет левые и правые границы допустимой области для тестовой функции вещественной оптимизации.
+    Более точную информацию ищите в описаниях тестовых функций:
+    https://github.com/Harrix/HarrixTestFunctions
+    Включает в себя все тестовые функции вещественной оптимизации.
+    Обязательно вызвать один раз перед ее использованием функцию MHL_DefineTestFunction,
+    в которой определяется конкретный тип задачи оптимизации.
+    Входные параметры:
+     Left - указатель на массив, куда будет записываться результат левых границ допустимой области;
+     Right - указатель на массив, куда будет записываться результат левых границ допустимой области;
+     VMHL_N - размер массива x.
+    Возвращаемое значение:
+     Отсутствует.
+    */
+    int i;
+
+    if (VMHL_TypeOfTestFunction==TestFunction_Ackley)
+    {
+        for (i=0;i<VMHL_N;i++) Left[i]=-5;
+        for (i=0;i<VMHL_N;i++) Right[i]=5;
+    }
+
+    if (VMHL_TypeOfTestFunction==TestFunction_ParaboloidOfRevolution)
+    {
+        for (i=0;i<VMHL_N;i++) Left[i]=-2;
+        for (i=0;i<VMHL_N;i++) Right[i]=2;
+    }
+
+    if (VMHL_TypeOfTestFunction==TestFunction_Rastrigin)
+    {
+        for (i=0;i<VMHL_N;i++) Left[i]=-5;
+        for (i=0;i<VMHL_N;i++) Right[i]=5;
+    }
+
+    if (VMHL_TypeOfTestFunction==TestFunction_Rosenbrock)
+    {
+        for (i=0;i<VMHL_N;i++) Left[i]=-2;
+        for (i=0;i<VMHL_N;i++) Right[i]=2;
+    }
+}
+//---------------------------------------------------------------------------
+void MHL_LeftAndRightBorderOfTestFunction_Real(double *Left, double *Right, int VMHL_N, TypeOfTestFunction Type)
+{
+    /*
+    Функция определяет левые и правые границы допустимой области для тестовой функции вещественной оптимизации.
+    Более точную информацию ищите в описаниях тестовых функций:
+    https://github.com/Harrix/HarrixTestFunctions
+    Включает в себя все тестовые функции вещественной оптимизации.
+    Входные параметры:
+     NumberOfParts - указатель на массив, куда будет записываться результат;
+     VMHL_N - размер массива x;
+     Type - тип тестовой функции.
+    Возвращаемое значение:
+     Точность вычислений.
+    */
+    VMHL_TypeOfTestFunction = Type;
+
+    MHL_LeftAndRightBorderOfTestFunction_Real(Left, Right, VMHL_N);
 }
 //---------------------------------------------------------------------------
 double MHL_NumberOfPartsOfTestFunction_Real(int *NumberOfParts, int VMHL_N)

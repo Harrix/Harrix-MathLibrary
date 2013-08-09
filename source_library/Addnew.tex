@@ -63,6 +63,14 @@ template <class T> int TMHL_SearchFirstZero(T *VMHL_Vector, int VMHL_N);
 
 \begin{itemize}
 \item Заходим в папку \textbf{source\_demo} и открываем проект \textbf{DemoMathHarrixLibrary.pro} в Qt Creator.
+\item Компилируем проект и в папку с скомпиированным приложением (в режиме Release) из папки \textbf{demo} скопируем файлы:
+\begin{itemize}
+\item  папка images;
+\item  index.html;
+\item  jquery.js;
+\item  jsxgraphcore.js;
+\item  style.css.
+\end {itemize}
 \item Добавляем в конец файлов \textbf{MathHarrixLibrary.cpp} и \textbf{MathHarrixLibrary.h} функцию, которую хотим добавить. Например, в MathHarrixLibrary.cpp добавляем:
 \begin{lstlisting}[label=examplefunction01, caption=Что добавляем в MathHarrixLibrary.cpp]
 int  MHL_Func(int VMHL_X)
@@ -577,7 +585,7 @@ MHL_ShowNumber (y,"Умноженное число", "y");
 \item Удалим папку \textbf{temp\_library} после всех наших действий.
 \item  Если папка с скомпилированным файлом DemoMathHarrixLibrary.exe появилась в корневой папке библиотеки, то удалите ее (например, build-DemoMathHarrixLibrary-Desktop\_Qt\_5\_0\_2\_MinGW\_32bit-Release).
 \item Отредактируйте на своё усмотрение файл README.md, где напишите о новых изменениях.
-\item В файлах \textbf{README.md} и \textbf{source\_library\textbackslash Title.tex} поменяйте номер версии библиотеки.
+\item В файлах \textbf{README.md}, \textbf{Header.cpp}, \textbf{source\_library\textbackslash Title.tex} поменяйте номер версии библиотеки.
 \end{itemize}
 
 Вот, вроде и всё. Мы добавили новую функцию и обновили все файлы и папки библиотеки.

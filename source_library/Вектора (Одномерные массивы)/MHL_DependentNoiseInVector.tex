@@ -1,0 +1,19 @@
+\textbf{Входные параметры:}  
+
+ VMHL\_ResultVector --- указатель на массив;
+ 
+ percent --- процент шума;
+ 
+ VMHL\_N --- количество элементов в массивах.
+
+\textbf{Возвращаемое значение:}
+
+Отсутствует.
+
+\textbf{Формула:}
+\begin{eqnarray*}
+b=\dfrac{percent\cdot\left( \max{x_i}-\min{x_i}\right)}{100};\\
+x_i=x_i+x_i\cdot random \left( -\dfrac{b}{2},\dfrac{b}{2}\right),
+\end{eqnarray*}
+
+где $x_i \in VMHL\_ResultVector$, $i=\overline{1,VMHL\_N}$.

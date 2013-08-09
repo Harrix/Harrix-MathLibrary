@@ -309,6 +309,47 @@ void MainWindow::on_pushButton_clicked()
 
                 Temp = HQt_ReadFile(path2+filename)+"\n";//добавляем текст файла
 
+                //удаляем пробелы
+                QStringList TempWithSpace = Temp.split( "\n" );
+                QStringList TempWithoutSpace;
+
+                QString FirstLine = TempWithSpace.at(0);
+
+                QString st,StringFromTempWithoutSpace;
+
+                int countspace=0;
+
+                bool beginsting=true;
+
+                for (int i=0;i<FirstLine.length();i++)
+                {
+                    if ((FirstLine.at(i)==' ')&&(beginsting==true))
+                    {
+                        countspace++;
+                    }
+                    if (FirstLine.at(i)!=' ')
+                        beginsting=false;
+                }
+
+                QString Space;
+                for (int i=0;i<countspace;i++) Space+=" ";
+
+                for (int i=0;i<TempWithSpace.count();i++)
+                {
+                st = TempWithSpace.at(i);
+
+                if (st.mid(0,countspace)==Space)
+                StringFromTempWithoutSpace = st.mid(countspace,-1);
+                else
+                    StringFromTempWithoutSpace=st;
+
+                TempWithoutSpace << StringFromTempWithoutSpace;
+
+                }
+
+                Temp=HQt_QStringListToQString(TempWithoutSpace);
+                //закончили удалять пробелы
+
                 ResultTexFunctions+="\\begin{lstlisting}[label=code_use_"+nameof_func+",caption=Пример использования]\n";
                 ResultTexFunctions+=Temp;
                 ResultTexFunctions+="\\end{lstlisting}\n\n";

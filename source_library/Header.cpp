@@ -1,4 +1,5 @@
 //БИБЛИОТЕКА MATH HARRIX LIBRARY
+//Версия 3.12
 
 //Сборник различных математических функций с открытым кодом на языке C++
 //Страница проекта: https://github.com/Harrix/MathHarrixLibrary
