@@ -23,7 +23,7 @@ double MHL_ErrorROfTestFunction_Real(double *x, int VMHL_N)
     {
         for (i=0;i<VMHL_N;i++)
         {
-            if (fabs(x[i]-Optimum[i])<=MHL_PrecisionOfCalculationsOfTestFunction_Real()) VMHL_Result_R=0;
+            if (fabs(x[i]-Optimum[i])>=MHL_PrecisionOfCalculationsOfTestFunction_Real()) VMHL_Result_R=0;
         }
     }
 
@@ -31,7 +31,7 @@ double MHL_ErrorROfTestFunction_Real(double *x, int VMHL_N)
     {
         for (i=0;i<VMHL_N;i++)
         {
-            if (fabs(x[i]-Optimum[i])<=MHL_PrecisionOfCalculationsOfTestFunction_Real()) VMHL_Result_R=0;
+            if (fabs(x[i]-Optimum[i])>=MHL_PrecisionOfCalculationsOfTestFunction_Real()) VMHL_Result_R=0;
         }
     }
 
@@ -39,7 +39,7 @@ double MHL_ErrorROfTestFunction_Real(double *x, int VMHL_N)
     {
         for (i=0;i<VMHL_N;i++)
         {
-            if (fabs(x[i]-Optimum[i])<=MHL_PrecisionOfCalculationsOfTestFunction_Real()) VMHL_Result_R=0;
+            if (fabs(x[i]-Optimum[i])>=MHL_PrecisionOfCalculationsOfTestFunction_Real()) VMHL_Result_R=0;
         }
     }
 
@@ -47,7 +47,7 @@ double MHL_ErrorROfTestFunction_Real(double *x, int VMHL_N)
     {
         for (i=0;i<VMHL_N;i++)
         {
-            if (fabs(x[i]-Optimum[i])<=MHL_PrecisionOfCalculationsOfTestFunction_Real()) VMHL_Result_R=0;
+            if (fabs(x[i]-Optimum[i])>=MHL_PrecisionOfCalculationsOfTestFunction_Real()) VMHL_Result_R=0;
         }
     }
 

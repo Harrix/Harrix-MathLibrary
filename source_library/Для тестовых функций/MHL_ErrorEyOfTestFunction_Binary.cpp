@@ -18,7 +18,7 @@ double MHL_ErrorEyOfTestFunction_Binary(double FitnessOfx, int VMHL_N)
 
     if (VMHL_TypeOfTestFunction==TestFunction_SumVector)
     {
-        VMHL_Result_Ey=fabs(FitnessOfx-FitnessOfOptimum);
+        VMHL_Result_Ey=fabs(MHL_MaximumOrMinimumOfTestFunction_Binary()*FitnessOfx-FitnessOfOptimum);
 		VMHL_Result_Ey/=double(VMHL_N);
     }
 

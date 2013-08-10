@@ -18,22 +18,22 @@ double MHL_ErrorEyOfTestFunction_Real(double FitnessOfx, int VMHL_N)
 
     if (VMHL_TypeOfTestFunction==TestFunction_Ackley)
     {
-        VMHL_Result_Ey=fabs(FitnessOfx-FitnessOfOptimum);
+        VMHL_Result_Ey=fabs(MHL_MaximumOrMinimumOfTestFunction_Real()*FitnessOfx-FitnessOfOptimum);
     }
 
     if (VMHL_TypeOfTestFunction==TestFunction_ParaboloidOfRevolution)
     {
-        VMHL_Result_Ey=fabs(FitnessOfx-FitnessOfOptimum);
+        VMHL_Result_Ey=fabs(MHL_MaximumOrMinimumOfTestFunction_Real()*FitnessOfx-FitnessOfOptimum);
     }
 
     if (VMHL_TypeOfTestFunction==TestFunction_Rastrigin)
     {
-        VMHL_Result_Ey=fabs(FitnessOfx-FitnessOfOptimum);
+        VMHL_Result_Ey=fabs(MHL_MaximumOrMinimumOfTestFunction_Real()*FitnessOfx-FitnessOfOptimum);
     }
 
     if (VMHL_TypeOfTestFunction==TestFunction_Rosenbrock)
     {
-        VMHL_Result_Ey=fabs(FitnessOfx-FitnessOfOptimum);
+        VMHL_Result_Ey=fabs(MHL_MaximumOrMinimumOfTestFunction_Real()*FitnessOfx-FitnessOfOptimum);
     }
 
     return VMHL_Result_Ey;

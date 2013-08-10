@@ -679,6 +679,12 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("MHL_LeftAndRightBorderOfTestFunction_Real"));
     model->appendRow(item);
 
+    item = new QStandardItem(QString("MHL_MaximumOrMinimumOfTestFunction_Real"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_MaximumOrMinimumOfTestFunction_Binary"));
+    model->appendRow(item);
+
     model->sort(0);
 
     //соединение модели списка с конкретным списком
@@ -7948,6 +7954,32 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //Правые границы допустимой области функции TestFunction_Ackley:
         //Right =
         //5	5	5	5	5
+    }
+
+    if (NameFunction=="MHL_MaximumOrMinimumOfTestFunction_Real")
+    {
+        MHL_DefineTestFunction(TestFunction_Ackley);
+
+        //Вызов функции
+        double MorM=MHL_MaximumOrMinimumOfTestFunction_Real();
+
+        //Использование результата
+        MHL_ShowNumber(MorM,"Максимум или минимум функции находим у TestFunction_Ackley","MorM");
+        //Максимум или минимум функции находим у TestFunction_Ackley:
+        //MorM=-1
+    }
+
+    if (NameFunction=="MHL_MaximumOrMinimumOfTestFunction_Binary")
+    {
+        MHL_DefineTestFunction(TestFunction_SumVector);
+
+        //Вызов функции
+        double MorM=MHL_MaximumOrMinimumOfTestFunction_Binary();
+
+        //Использование результата
+        MHL_ShowNumber(MorM,"Максимум или минимум функции находим у TestFunction_SumVector","MorM");
+        //Максимум или минимум функции находим у TestFunction_SumVector:
+        //MorM=1
     }
 }
 //---------------------------------------------------------------------------

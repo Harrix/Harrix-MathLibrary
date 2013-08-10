@@ -1,0 +1,2 @@
+double MHL_MaximumOrMinimumOfTestFunction_Real();
+double MHL_MaximumOrMinimumOfTestFunction_Real(TypeOfTestFunction Type);

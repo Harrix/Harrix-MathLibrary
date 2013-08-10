@@ -13,16 +13,16 @@ double MHL_TestFunction_Real(double *x, int VMHL_N)
     double VMHL_Result = 0;
 
     if (VMHL_TypeOfTestFunction==TestFunction_Ackley)
-        VMHL_Result = MHL_TestFunction_Ackley(x, VMHL_N);
+        VMHL_Result = MHL_MaximumOrMinimumOfTestFunction_Real()*MHL_TestFunction_Ackley(x, VMHL_N);
 
     if (VMHL_TypeOfTestFunction==TestFunction_ParaboloidOfRevolution)
-        VMHL_Result = MHL_TestFunction_ParaboloidOfRevolution(x, VMHL_N);
+        VMHL_Result = MHL_MaximumOrMinimumOfTestFunction_Real()*MHL_TestFunction_ParaboloidOfRevolution(x, VMHL_N);
 
     if (VMHL_TypeOfTestFunction==TestFunction_Rastrigin)
-        VMHL_Result = MHL_TestFunction_Rastrigin(x, VMHL_N);
+        VMHL_Result = MHL_MaximumOrMinimumOfTestFunction_Real()*MHL_TestFunction_Rastrigin(x, VMHL_N);
 
     if (VMHL_TypeOfTestFunction==TestFunction_Rosenbrock)
-        VMHL_Result = MHL_TestFunction_Rosenbrock(x, VMHL_N);
+        VMHL_Result = MHL_MaximumOrMinimumOfTestFunction_Real()*MHL_TestFunction_Rosenbrock(x, VMHL_N);
 
     CountOfFitness++;//увеличиваем число вызовов целевой функции
     return VMHL_Result;

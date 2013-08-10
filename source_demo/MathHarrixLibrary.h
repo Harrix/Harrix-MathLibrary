@@ -133,6 +133,10 @@ double MHL_FitnessOfOptimumOfTestFunction_Real(double VMHL_N, TypeOfTestFunction
 int MHL_GetCountOfFitness();
 void MHL_LeftAndRightBorderOfTestFunction_Real(double *Left, double *Right,int VMHL_N);
 void MHL_LeftAndRightBorderOfTestFunction_Real(double *Left, double *Right, int VMHL_N, TypeOfTestFunction Type);
+double MHL_MaximumOrMinimumOfTestFunction_Binary();
+double MHL_MaximumOrMinimumOfTestFunction_Binary(TypeOfTestFunction Type);
+double MHL_MaximumOrMinimumOfTestFunction_Real();
+double MHL_MaximumOrMinimumOfTestFunction_Real(TypeOfTestFunction Type);
 double MHL_NumberOfPartsOfTestFunction_Real(int *NumberOfParts, int VMHL_N);
 double MHL_NumberOfPartsOfTestFunction_Real(int *NumberOfParts, int VMHL_N, TypeOfTestFunction Type);
 double MHL_OptimumOfTestFunction_Binary(int *Optimum, int VMHL_N);

@@ -1,5 +1,5 @@
 //БИБЛИОТЕКА MATH HARRIX LIBRARY
-//Версия 3.12
+//Версия 3.13
 
 //Сборник различных математических функций с открытым кодом на языке C++
 //Страница проекта: https://github.com/Harrix/MathHarrixLibrary
@@ -1613,7 +1613,7 @@ double MHL_ErrorEyOfTestFunction_Binary(double FitnessOfx, int VMHL_N)
 
     if (VMHL_TypeOfTestFunction==TestFunction_SumVector)
     {
-        VMHL_Result_Ey=fabs(FitnessOfx-FitnessOfOptimum);
+        VMHL_Result_Ey=fabs(MHL_MaximumOrMinimumOfTestFunction_Binary()*FitnessOfx-FitnessOfOptimum);
 		VMHL_Result_Ey/=double(VMHL_N);
     }
 
@@ -1662,22 +1662,22 @@ double MHL_ErrorEyOfTestFunction_Real(double FitnessOfx, int VMHL_N)
 
     if (VMHL_TypeOfTestFunction==TestFunction_Ackley)
     {
-        VMHL_Result_Ey=fabs(FitnessOfx-FitnessOfOptimum);
+        VMHL_Result_Ey=fabs(MHL_MaximumOrMinimumOfTestFunction_Real()*FitnessOfx-FitnessOfOptimum);
     }
 
     if (VMHL_TypeOfTestFunction==TestFunction_ParaboloidOfRevolution)
     {
-        VMHL_Result_Ey=fabs(FitnessOfx-FitnessOfOptimum);
+        VMHL_Result_Ey=fabs(MHL_MaximumOrMinimumOfTestFunction_Real()*FitnessOfx-FitnessOfOptimum);
     }
 
     if (VMHL_TypeOfTestFunction==TestFunction_Rastrigin)
     {
-        VMHL_Result_Ey=fabs(FitnessOfx-FitnessOfOptimum);
+        VMHL_Result_Ey=fabs(MHL_MaximumOrMinimumOfTestFunction_Real()*FitnessOfx-FitnessOfOptimum);
     }
 
     if (VMHL_TypeOfTestFunction==TestFunction_Rosenbrock)
     {
-        VMHL_Result_Ey=fabs(FitnessOfx-FitnessOfOptimum);
+        VMHL_Result_Ey=fabs(MHL_MaximumOrMinimumOfTestFunction_Real()*FitnessOfx-FitnessOfOptimum);
     }
 
     return VMHL_Result_Ey;
@@ -1786,7 +1786,7 @@ double MHL_ErrorROfTestFunction_Real(double *x, int VMHL_N)
     {
         for (i=0;i<VMHL_N;i++)
         {
-            if (fabs(x[i]-Optimum[i])<=MHL_PrecisionOfCalculationsOfTestFunction_Real()) VMHL_Result_R=0;
+            if (fabs(x[i]-Optimum[i])>=MHL_PrecisionOfCalculationsOfTestFunction_Real()) VMHL_Result_R=0;
         }
     }
 
@@ -1794,7 +1794,7 @@ double MHL_ErrorROfTestFunction_Real(double *x, int VMHL_N)
     {
         for (i=0;i<VMHL_N;i++)
         {
-            if (fabs(x[i]-Optimum[i])<=MHL_PrecisionOfCalculationsOfTestFunction_Real()) VMHL_Result_R=0;
+            if (fabs(x[i]-Optimum[i])>=MHL_PrecisionOfCalculationsOfTestFunction_Real()) VMHL_Result_R=0;
         }
     }
 
@@ -1802,7 +1802,7 @@ double MHL_ErrorROfTestFunction_Real(double *x, int VMHL_N)
     {
         for (i=0;i<VMHL_N;i++)
         {
-            if (fabs(x[i]-Optimum[i])<=MHL_PrecisionOfCalculationsOfTestFunction_Real()) VMHL_Result_R=0;
+            if (fabs(x[i]-Optimum[i])>=MHL_PrecisionOfCalculationsOfTestFunction_Real()) VMHL_Result_R=0;
         }
     }
 
@@ -1810,7 +1810,7 @@ double MHL_ErrorROfTestFunction_Real(double *x, int VMHL_N)
     {
         for (i=0;i<VMHL_N;i++)
         {
-            if (fabs(x[i]-Optimum[i])<=MHL_PrecisionOfCalculationsOfTestFunction_Real()) VMHL_Result_R=0;
+            if (fabs(x[i]-Optimum[i])>=MHL_PrecisionOfCalculationsOfTestFunction_Real()) VMHL_Result_R=0;
         }
     }
 
@@ -2017,6 +2017,113 @@ void MHL_LeftAndRightBorderOfTestFunction_Real(double *Left, double *Right, int 
     MHL_LeftAndRightBorderOfTestFunction_Real(Left, Right, VMHL_N);
 }
 //---------------------------------------------------------------------------
+double MHL_MaximumOrMinimumOfTestFunction_Binary()
+{
+    /*
+    Функция сообщает - ищется максимум или минимум в задаче оптимизации
+    для тестовой функции бинарной оптимизации.
+    Требуется для использования в других функций.
+    Включает в себя все тестовые функции бинарной оптимизации.
+    Обязательно вызвать один раз перед ее использованием функцию MHL_DefineTestFunction,
+    в которой определяется конкретный тип задачи оптимизации.
+    Входные параметры:
+     Отсутствуют.
+    Возвращаемое значение:
+     1 - задача на нахождение максимума;
+     -1 - задача на нахождение минимума.
+    */
+    double VMHL_Result = 0;
+
+    if (VMHL_TypeOfTestFunction==TestFunction_SumVector)
+    {
+        VMHL_Result=1;
+    }
+
+    return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+double MHL_MaximumOrMinimumOfTestFunction_Binary(TypeOfTestFunction Type)
+{
+    /*
+    Функция сообщает - ищется максимум или минимум в задаче оптимизации
+    для тестовой функции бинарной оптимизации.
+    Требуется для использования в других функций.
+    Включает в себя все тестовые функции бинарной оптимизации.
+    Входные параметры:
+     Type - тип тестовой функции.
+    Возвращаемое значение:
+     Точность вычислений.
+    */
+    double VMHL_Result = 0;
+
+    VMHL_TypeOfTestFunction = Type;
+
+    VMHL_Result = MHL_MaximumOrMinimumOfTestFunction_Binary();
+
+    return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+double MHL_MaximumOrMinimumOfTestFunction_Real()
+{
+    /*
+    Функция сообщает - ищется максимум или минимум в задаче оптимизации
+    для тестовой функции вещественной оптимизации.
+    Требуется для использования в других функций.
+    Включает в себя все тестовые функции вещественной оптимизации.
+    Обязательно вызвать один раз перед ее использованием функцию MHL_DefineTestFunction,
+    в которой определяется конкретный тип задачи оптимизации.
+    Входные параметры:
+     Отсутствуют.
+    Возвращаемое значение:
+     1 - задача на нахождение максимума;
+     -1 - задача на нахождение минимума.
+    */
+    double VMHL_Result = 0;
+
+    if (VMHL_TypeOfTestFunction==TestFunction_Ackley)
+    {
+        VMHL_Result=-1;
+    }
+
+    if (VMHL_TypeOfTestFunction==TestFunction_ParaboloidOfRevolution)
+    {
+        VMHL_Result=-1;
+    }
+
+    if (VMHL_TypeOfTestFunction==TestFunction_Rastrigin)
+    {
+        VMHL_Result=-1;
+    }
+
+    if (VMHL_TypeOfTestFunction==TestFunction_Rosenbrock)
+    {
+        VMHL_Result=-1;
+    }
+
+    return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+double MHL_MaximumOrMinimumOfTestFunction_Real(TypeOfTestFunction Type)
+{
+    /*
+    Функция сообщает - ищется максимум или минимум в задаче оптимизации
+    для тестовой функции вещественной оптимизации.
+    Требуется для использования в других функций.
+    Включает в себя все тестовые функции вещественной оптимизации.
+    Входные параметры:
+     Type - тип тестовой функции.
+    Возвращаемое значение:
+     Точность вычислений.
+    */
+    double VMHL_Result = 0;
+
+    VMHL_TypeOfTestFunction = Type;
+
+    VMHL_Result = MHL_MaximumOrMinimumOfTestFunction_Real();
+
+    return VMHL_Result;
+}
+//---------------------------------------------------------------------------
 double MHL_NumberOfPartsOfTestFunction_Real(int *NumberOfParts, int VMHL_N)
 {
     /*
@@ -2203,7 +2310,7 @@ double MHL_PrecisionOfCalculationsOfTestFunction_Real()
     для тестовой функции вещественной оптимизации для алгоритма дискретной оптимизации.
     Более точную информацию ищите в описаниях тестовых функций:
     https://github.com/Harrix/HarrixTestFunctions
-	Включает в себя все тестовые функции бинарной оптимизации.
+	Включает в себя все тестовые функции вещественной оптимизации.
     Обязательно вызвать один раз перед ее использованием функцию MHL_DefineTestFunction,
     в которой определяется конкретный тип задачи оптимизации.
     Входные параметры:
@@ -2287,7 +2394,7 @@ double MHL_TestFunction_Binary(int *x, int VMHL_N)
     double VMHL_Result = 0;
 
     if (VMHL_TypeOfTestFunction==TestFunction_SumVector)
-        VMHL_Result = MHL_TestFunction_SumVector(x, VMHL_N);
+        VMHL_Result = MHL_MaximumOrMinimumOfTestFunction_Binary()*MHL_TestFunction_SumVector(x, VMHL_N);
     CountOfFitness++;//увеличиваем число вызовов целевой функции
     return VMHL_Result;
 }
@@ -2328,16 +2435,16 @@ double MHL_TestFunction_Real(double *x, int VMHL_N)
     double VMHL_Result = 0;
 
     if (VMHL_TypeOfTestFunction==TestFunction_Ackley)
-        VMHL_Result = MHL_TestFunction_Ackley(x, VMHL_N);
+        VMHL_Result = MHL_MaximumOrMinimumOfTestFunction_Real()*MHL_TestFunction_Ackley(x, VMHL_N);
 
     if (VMHL_TypeOfTestFunction==TestFunction_ParaboloidOfRevolution)
-        VMHL_Result = MHL_TestFunction_ParaboloidOfRevolution(x, VMHL_N);
+        VMHL_Result = MHL_MaximumOrMinimumOfTestFunction_Real()*MHL_TestFunction_ParaboloidOfRevolution(x, VMHL_N);
 
     if (VMHL_TypeOfTestFunction==TestFunction_Rastrigin)
-        VMHL_Result = MHL_TestFunction_Rastrigin(x, VMHL_N);
+        VMHL_Result = MHL_MaximumOrMinimumOfTestFunction_Real()*MHL_TestFunction_Rastrigin(x, VMHL_N);
 
     if (VMHL_TypeOfTestFunction==TestFunction_Rosenbrock)
-        VMHL_Result = MHL_TestFunction_Rosenbrock(x, VMHL_N);
+        VMHL_Result = MHL_MaximumOrMinimumOfTestFunction_Real()*MHL_TestFunction_Rosenbrock(x, VMHL_N);
 
     CountOfFitness++;//увеличиваем число вызовов целевой функции
     return VMHL_Result;

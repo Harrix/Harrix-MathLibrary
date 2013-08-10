@@ -13,7 +13,7 @@ double MHL_TestFunction_Binary(int *x, int VMHL_N)
     double VMHL_Result = 0;
 
     if (VMHL_TypeOfTestFunction==TestFunction_SumVector)
-        VMHL_Result = MHL_TestFunction_SumVector(x, VMHL_N);
+        VMHL_Result = MHL_MaximumOrMinimumOfTestFunction_Binary()*MHL_TestFunction_SumVector(x, VMHL_N);
     CountOfFitness++;//увеличиваем число вызовов целевой функции
     return VMHL_Result;
 }
