@@ -1,5 +1,5 @@
 //БИБЛИОТЕКА MATH HARRIX LIBRARY
-//Версия 3.13
+//Версия 3.14
 
 //Сборник различных математических функций с открытым кодом на языке C++
 //Страница проекта: https://github.com/Harrix/MathHarrixLibrary
@@ -3132,9 +3132,9 @@ int MHL_BinaryMonteCarloAlgorithm(int *Parameters, double (*FitnessFunction)(int
 Алгоритм оптимизации. Ищет максимум функции пригодности FitnessFunction.
 Входные параметры:
  Parameters
-  [0] - длина бинарной строки (определается задачей оптимизации, что мы решаем);
+  [0] - длина бинарной строки (определяется задачей оптимизации, что мы решаем);
   [1] - число вычислений функции пригодности (CountOfFitness);
- FitnessFunction - указатель на функцию пригодности (не целевая функция, а именно функция пригодности);
+ FitnessFunction - указатель на целевую функцию (если решается задача условной оптимизации, то учет ограничений должен быть включен в эту функцию);
  VMHL_ResultVector - найденное решение (бинарный вектор);
  VMHL_Result - значение функции в точке, определенной вектором VMHL_ResultVector.
 Возвращаемое значение:
@@ -3146,16 +3146,16 @@ int MHL_BinaryMonteCarloAlgorithm(int *Parameters, double (*FitnessFunction)(int
 */
 //Считываем из Parameters параметры алгоритма
 int LengthBinarString=Parameters[0];//Длина бинарной строки
-int CountOfFitness=Parameters[1];//Число вычислений функции пригодности
+int CountOfFitness=Parameters[1];//Число вычислений функции целевой
 
 //Проверим данные
 if (LengthBinarString<1) return 0;//Слишком маленькая длина бинарной строки
-if (CountOfFitness<1) return 0;//Слишком маленькое число вычислений функции пригодности
+if (CountOfFitness<1) return 0;//Слишком маленькое число вычислений функции целевой
 
 //Переменные
 int i;//Счетчик
-double TempFitness;//Значение функции пригодности произвольного решения
-double BestFitness;//Значение функции пригодности лучшего решения за всё время работы алгоритма
+double TempFitness;//Значение функции целевой произвольного решения
+double BestFitness;//Значение функции целевой лучшего решения за всё время работы алгоритма
 
 //Для выполнения алгоритма требуются некоторые дополнительные массивы. Создадим их.
 //Массив для хранения произвольного решения
@@ -3168,14 +3168,14 @@ BestIndividual=new int[LengthBinarString];
 //Получим первое решение (оно пока и лучшее)
 TMHL_RandomBinaryVector(BestIndividual,LengthBinarString);
 
-//Вычислим значение функции пригодности
+//Вычислим значение функции целевой
 try
  {
  BestFitness=FitnessFunction(BestIndividual,LengthBinarString);
  }
 catch(...)
  {
- return 0;//Алгоритм не смог посчитать значение функции пригодности
+ return 0;//Алгоритм не смог посчитать значение функции целевой
  }
 
 for (i=1;i<CountOfFitness;i++)
@@ -3184,14 +3184,14 @@ for (i=1;i<CountOfFitness;i++)
  //Получим новое случайное решение
  TMHL_RandomBinaryVector(TempIndividual,LengthBinarString);
 
- //Вычислим значение функции пригодности
+ //Вычислим значение функции целевой
  try
   {
   TempFitness=FitnessFunction(TempIndividual,LengthBinarString);
   }
  catch(...)
   {
-  return 0;//Алгоритм не смог посчитать значение функции пригодности
+  return 0;//Алгоритм не смог посчитать значение функции целевой
   }
 
  //Является ли данное решение лучше лучшего решения за всё время работы алгоритма
@@ -3199,13 +3199,13 @@ for (i=1;i<CountOfFitness;i++)
   {
   //Если всё-таки лучше
   TMHL_VectorToVector(TempIndividual,BestIndividual,LengthBinarString);
-  BestFitness=TempFitness;//Запоминаем его значение функции пригодности
+  BestFitness=TempFitness;//Запоминаем его значение функции целевой
   }
 
  }//////////////////// ГЛАВНЫЙ ЦИКЛ ///////////////////////
 
 //Алгоритм закончил свою работу
-//Выдадим найденное лучшее решение за время запуска алгоритма и его значение функции пригодности
+//Выдадим найденное лучшее решение за время запуска алгоритма и его значение функции целевой
 TMHL_VectorToVector(BestIndividual,VMHL_ResultVector,LengthBinarString);
 *VMHL_Result=BestFitness;
 
@@ -3214,6 +3214,419 @@ delete [] TempIndividual;
 delete [] BestIndividual;
 
 return 1;//Всё успешно
+}
+//---------------------------------------------------------------------------
+void MHL_DichotomyOptimization (double Left, double Right, double (*Function)(double), double Interval, double Epsilon, double *VMHL_Result_X,double *VMHL_Result_Y)
+{
+/*
+Метод дихотомии. Метод одномерной оптимизации унимодальной функции на интервале. Ищет минимум.
+Входные параметры:
+ Left - начало интервала поиска;
+ Right - конец интервала поиска;
+ Function - унимодальная функция, минимум которой ищется;
+ Interval - длина конечного интервала неопределенности (точность поиска);
+ Epsilon - малое число;
+ VMHL_Result_X - вычисленная точка минимума (сюда записывается результат);
+ VMHL_Result_Y - значение функции в точке минимума (сюда записывается результат).
+Возвращаемое значение:
+ Отсутствует.
+Примечание:
+ Epsilon должен быть меньше, чем Interval/2, иначе возвращается левая граница просто.
+*/
+if (Epsilon>=Interval/2.)
+ {
+ //зануляем результаты
+ *VMHL_Result_X=Left;
+ *VMHL_Result_Y=Function(*VMHL_Result_X);
+ }
+else
+ {
+ double l,v;
+ while (fabs(Right-Left)>=Interval)
+  {
+  l=(Left+Right)/2.-Epsilon;
+  v=(Left+Right)/2.+Epsilon;
+  if (Function(l)<Function(v))
+   Right=v;
+  else
+   Left=l;
+  }
+ *VMHL_Result_X=(Left+Right)/2.;
+ *VMHL_Result_Y=Function(*VMHL_Result_X);
+ }
+}
+//---------------------------------------------------------------------------
+void MHL_FibonacciOptimization (double Left, double Right, double (*Function)(double), int Count, double *VMHL_Result_X,double *VMHL_Result_Y)
+{
+/*
+Метод Фибоначчи. Метод одномерной оптимизации унимодальной функции на интервале. Ищет минимум.
+Входные параметры:
+ Left - начало интервала поиска;
+ Right - конец интервала поиска;
+ Function - унимодальная функция, минимум которой ищется;
+ Count - число вычислений целевой функции;
+ VMHL_Result_X - вычисленная точка минимума (сюда записывается результат);
+ VMHL_Result_Y - значение функции в точке минимума (сюда записывается результат).
+Возвращаемое значение: 
+ Отсутствует.
+*/
+double l,v,fl,fv,Fib1,Fib2;
+int i=1,n;
+n=Count-1;
+
+Fib1=TMHL_FibonacciNumber(n-i-1);
+Fib2=TMHL_FibonacciNumber(n-i+1);
+l=Left+(Fib1/Fib2)*(Right-Left);
+
+Fib1=TMHL_FibonacciNumber(n-i  );
+Fib2=TMHL_FibonacciNumber(n-i+1);
+v=Left+(Fib1/Fib2)*(Right-Left);
+
+fl=Function(l);
+fv=Function(v);
+for (i=2;i<n;i++)
+ {
+ if (Function(l)<Function(v))
+  {
+  Right=v;
+  v=l;
+  fv=fl;
+
+  Fib1=TMHL_FibonacciNumber(n-i-1);
+  Fib2=TMHL_FibonacciNumber(n-i+1);
+  l=Left+(Fib1/Fib2)*(Right-Left);
+
+  fl=Function(l);
+  }
+ else
+  {
+  Left=l;
+  l=v;
+  fl=fv;
+
+  Fib1=TMHL_FibonacciNumber(n-i  );
+  Fib2=TMHL_FibonacciNumber(n-i+1);
+  v=Left+(Fib1/Fib2)*(Right-Left);
+
+  fv=Function(v);
+  }
+ }
+*VMHL_Result_X=(Left+Right)/2.;
+*VMHL_Result_Y=Function(*VMHL_Result_X);
+}
+//---------------------------------------------------------------------------
+void MHL_GoldenSectionOptimization (double Left, double Right, double (*Function)(double), double Interval, double *VMHL_Result_X,double *VMHL_Result_Y)
+{
+/*
+Метод золотого сечения. Метод одномерной оптимизации унимодальной функции на интервале. Ищет минимум.
+Входные параметры:
+ Left - начало интервала поиска;
+ b - конец интервала поиска;
+ Function - унимодальная функция, минимум которой ищется;
+ Interval - длина конечного интервала неопределенности (точность поиска);
+ VMHL_Result_X - вычисленная точка минимума (сюда записывается результат);
+ VMHL_Result_Y - значение функции в точке минимума (сюда записывается результат).
+Возвращаемое значение: 
+ Отсутствует.
+*/
+double l,v,fl,fv;
+l=Left+(1.-MHL_TAU)*(Right-Left);
+v=Left+MHL_TAU*(Right-Left);
+fl=Function(l);
+fv=Function(v);
+while (fabs(Right-Left)>=Interval)
+ {
+ if (Function(l)<Function(v))
+  {
+  Right=v;
+  v=l;
+  fv=fl;
+  l=Left+(1.-MHL_TAU)*(Right-Left);
+  fl=Function(l);
+  }
+ else
+  {
+  Left=l;
+  l=v;
+  fl=fv;
+  v=Left+MHL_TAU*(Right-Left);
+  fv=Function(v);
+  }
+ }
+*VMHL_Result_X=(Left+Right)/2.;
+*VMHL_Result_Y=Function(*VMHL_Result_X);
+}
+//---------------------------------------------------------------------------
+void MHL_QuadraticFitOptimization (double Left, double Right, double (*Function)(double), double Epsilon, double Epsilon2, double *VMHL_Result_X,double *VMHL_Result_Y)
+{
+/*
+Метод квадратичной интерполяции. Метод одномерной оптимизации унимодальной функции на интервале. Ищет минимум.
+Входные параметры:
+ Left - начало интервала поиска;
+ Right - конец интервала поиска;
+ Function - унимодальная функция, минимум которой ищется;
+ Epsilon - точность;
+ Epsilon2 - шаг, фактически еще одно малое число;
+ VMHL_Result_X - вычисленная точка минимума (сюда записывается результат);
+ VMHL_Result_Y - значение функции в точке минимума (сюда записывается результат).
+Возвращаемое значение:
+ Отсутствует.
+*/
+double x,h,x1,x2,x3,k,f1,f2,f3,fx,fp1,fp2,fp3,p[4],X=Left;
+double error=0;
+int ko;
+h=Epsilon2;
+x1=(Left+Right)/2.-h;
+x2=(Left+Right)/2.;
+x3=(Left+Right)/2.+h;
+f1=Function(x1);
+f2=Function(x2);
+f3=Function(x3);
+if (f1<f2)
+ k=-1.;
+else
+ k=1.;
+while (!((f1>=f2)&&(f2<=f3)))
+ {
+ x1=x1+k*h;
+ x2=x2+k*h;
+ x3=x3+k*h;
+ f1=Function(x1);
+ f2=Function(x2);
+ f3=Function(x3);
+ if (x1<Left) error=Left;
+ if (x3>Right) error=Right;
+ if (error!=0) break;
+ }
+if (error==0)
+{
+ x=0.5*((x2*x2-x3*x3)*f1+(x3*x3-x1*x1)*f2+(x1*x1-x2*x2)*f3)/((x2-x3)*f1+(x3-x1)*f2+(x1-x2)*f3);
+ fx=Function(x);
+ while ((fabs(fx-f2)>Epsilon)&&(X!=x))
+  {
+  X=x;
+  p[0]=x1;
+  p[1]=x2;
+  p[2]=x3;
+  p[3]=x;
+  TMHL_BubbleSort(p, 4);
+  fp1=Function(p[0]);
+  fp2=Function(p[1]);
+  fp3=Function(p[2]);
+  if (!((fp1>=fp2)&&(fp2<=fp3)))
+   ko=1;
+  else
+   ko=0;
+  x1=p[0+ko];
+  x2=p[1+ko];
+  x3=p[2+ko];
+  x=0.5*((x2*x2-x3*x3)*f1+(x3*x3-x1*x1)*f2+(x1*x1-x2*x2)*f3)/((x2-x3)*f1+(x3-x1)*f2+(x1-x2)*f3);
+  fx=Function(x);
+  }
+ *VMHL_Result_X=x;
+ *VMHL_Result_Y=fx;
+}
+else
+ {
+    *VMHL_Result_X=error;
+    *VMHL_Result_Y=Function(error);
+ }
+}
+//---------------------------------------------------------------------------
+int MHL_RealMonteCarloAlgorithm(int *Parameters, double *Left, double *Right, double (*FitnessFunction)(double*,int), double *VMHL_ResultVector, double *VMHL_Result)
+{
+/*
+Метод Монте-Карло (Monte-Carlo). Простейший метод оптимизации на вещественных строках. В простонародье его называют "методом научного тыка".
+Алгоритм оптимизации. Ищет максимум функции пригодности FitnessFunction.
+Входные параметры:
+ Parameters
+  [0] - длина вещественной строки (определяется задачей оптимизации, что мы решаем);
+  [1] - число вычислений функции пригодности (CountOfFitness);
+ Left - массив левых границ изменения каждой вещественной координаты (размерность Parameters[0]);
+ Right - массив правых границ изменения каждой вещественной координаты (размерность Parameters[0]);
+ FitnessFunction - указатель на целевую функцию (если решается задача условной оптимизации, то учет ограничений должен быть включен в эту функцию);
+ VMHL_ResultVector - найденное решение (вещественный вектор);
+ VMHL_Result - значение функции в точке, определенной вектором VMHL_ResultVector.
+Возвращаемое значение:
+ 1 - завершил работу без ошибок. Всё хорошо.
+ 0 - возникли при работе ошибки. Скорее всего в этом случае в VMHL_ResultVector и в VMHL_Result не содержится решение задачи.
+Пример значений рабочего вектора Parameters:
+ Parameters[0]=5;
+ Parameters[1]=50*50;
+*/
+//Считываем из Parameters параметры алгоритма
+int LengthBinarString=Parameters[0];//Длина вещественной строки
+int CountOfFitness=Parameters[1];//Число вычислений функции целевой
+
+//Проверим данные
+if (LengthBinarString<1) return 0;//Слишком маленькая длина вещественной строки
+if (CountOfFitness<1) return 0;//Слишком маленькое число вычислений функции целевой
+
+//Переменные
+int i;//Счетчик
+double TempFitness;//Значение функции пригодности произвольного решения
+double BestFitness;//Значение функции пригодности лучшего решения за всё время работы алгоритма
+
+//Для выполнения алгоритма требуются некоторые дополнительные массивы. Создадим их.
+//Массив для хранения произвольного решения
+double *TempIndividual;
+TempIndividual=new double[LengthBinarString];
+//Массив для хранения лучшего решения за всё время работы алгоритма
+double *BestIndividual;
+BestIndividual=new double[LengthBinarString];
+
+//Получим первое решение (оно пока и лучшее)
+MHL_RandomRealVectorInElements(BestIndividual,Left,Right,LengthBinarString);
+
+//Вычислим значение функции целевой
+try
+ {
+ BestFitness=FitnessFunction(BestIndividual,LengthBinarString);
+ }
+catch(...)
+ {
+ return 0;//Алгоритм не смог посчитать значение функции целевой
+ }
+
+for (i=1;i<CountOfFitness;i++)
+ {//////////////////// ГЛАВНЫЙ ЦИКЛ ///////////////////////
+
+ //Получим новое случайное решение
+ MHL_RandomRealVectorInElements(TempIndividual,Left,Right,LengthBinarString);
+
+ //Вычислим значение функции целевой
+ try
+  {
+  TempFitness=FitnessFunction(TempIndividual,LengthBinarString);
+  }
+ catch(...)
+  {
+  return 0;//Алгоритм не смог посчитать значение функции целевой
+  }
+
+ //Является ли данное решение лучше лучшего решения за всё время работы алгоритма
+ if (TempFitness>BestFitness)
+  {
+  //Если всё-таки лучше
+  TMHL_VectorToVector(TempIndividual,BestIndividual,LengthBinarString);
+  BestFitness=TempFitness;//Запоминаем его значение функции целевой
+  }
+
+ }//////////////////// ГЛАВНЫЙ ЦИКЛ ///////////////////////
+
+//Алгоритм закончил свою работу
+//Выдадим найденное лучшее решение за время запуска алгоритма и его значение функции целевой
+TMHL_VectorToVector(BestIndividual,VMHL_ResultVector,LengthBinarString);
+*VMHL_Result=BestFitness;
+
+//Удалим все дополнительные массивы
+delete [] TempIndividual;
+delete [] BestIndividual;
+
+return 1;//Всё успешно
+}
+//---------------------------------------------------------------------------
+void MHL_RealMonteCarloOptimization (double Left, double Right, double (*Function)(double), int Count, double *VMHL_Result_X,double *VMHL_Result_Y)
+{
+/*
+Метод Монте-Карло (Monte-Carlo). Простейший метод оптимизации на вещественных строках. Ищет минимум.
+От функции MHL_RealMonteCarloAlgorithm отличается тем, что ищет минимум, а не максимум, и не у многомерной функции,
+а одномерной. Вводится, чтобы было продолжением однотипных методов оптимизации одномерных унимодальных функций.
+Входные параметры:
+ Left - начало интервала поиска
+ Right - конец интервала поиска
+ Function - унимодальная функция, минимум которой ищется
+ Count - число вычислений целевой функции
+ VMHL_Result_X - вычисленная точка минимума (сюда записывается результат);
+ VMHL_Result_Y - значение функции в точке минимума (сюда записывается результат).
+Возвращаемое значение:
+ Отсутствует.
+*/
+int i;
+double min,fmin,f,x;
+min=MHL_RandomUniform(Left,Right);
+fmin=Function(min);
+for (i=1;i<Count;i++)
+ {
+ x=MHL_RandomUniform(Left,Right);
+ f=Function(x);
+ if (f<fmin)
+  {
+  min=x;
+  fmin=f;
+  }
+ }
+*VMHL_Result_X=min;
+*VMHL_Result_Y=fmin;
+}
+//---------------------------------------------------------------------------
+void MHL_UniformSearchOptimization (double Left, double Right, double (*Function)(double), double Interval, double *VMHL_Result_X,double *VMHL_Result_Y)
+{
+/*
+Метод равномерного поиска. Метод одномерной оптимизации функции на интервале. Ищет минимум.
+Входные параметры:
+ Left - начало интервала поиска;
+ Right - конец интервала поиска;
+ Function - унимодальная функция, минимум которой ищется;
+ Interval - длина шага, с которым будет проводится поиск;
+ VMHL_Result_X - вычисленная точка минимума (сюда записывается результат);
+ VMHL_Result_Y - значение функции в точке минимума (сюда записывается результат).
+Возвращаемое значение:
+ Отсутствует.
+*/
+int i,n;
+double min,fmin,f,x;
+n=ceil(fabs(Right-Left)/Interval);
+min=Left;
+fmin=Function(min);
+x=Left;
+for (i=1;i<n;i++)
+ {
+ x+=Interval;
+ f=Function(x);
+ if (f<fmin)
+  {
+  min=x;
+  fmin=f;
+  }
+ }
+*VMHL_Result_X=min;
+*VMHL_Result_Y=fmin;
+}
+//---------------------------------------------------------------------------
+void MHL_UniformSearchOptimizationN (double Left, double Right, double (*Function)(double), int Count, double *VMHL_Result_X,double *VMHL_Result_Y)
+{
+/*
+Метод равномерного поиска. Метод одномерной оптимизации функции на интервале. Ищет минимум. От MHL_UniformSearchOptimization отличается тем, что вместо параметра шага равномерного прохода используется число вычислений целевой функции, но они взаимозаменяемы.
+Входные параметры:
+ Left - начало интервала поиска;
+ Right - конец интервала поиска;
+ Function - унимодальная функция, минимум которой ищется;
+ Count - число вычислений целевой функции;
+ VMHL_Result_X - вычисленная точка минимума (сюда записывается результат);
+ VMHL_Result_Y - значение функции в точке минимума (сюда записывается результат).
+Возвращаемое значение:
+ Отсутствует.
+*/
+int i,n;
+double min,fmin,f,x;
+double Interval=ceil(fabs(Right-Left)/double(Count));
+n=Count;
+min=Left;
+fmin=Function(min);
+x=Left;
+for (i=1;i<n;i++)
+ {
+ x+=Interval;
+ f=Function(x);
+ if (f<fmin)
+  {
+  min=x;
+  fmin=f;
+  }
+ }
+*VMHL_Result_X=min;
+*VMHL_Result_Y=fmin;
 }
 //---------------------------------------------------------------------------
 

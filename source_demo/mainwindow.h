@@ -48,5 +48,6 @@ private:
 double Func3(double x);
 double Func(int *x,int VMHL_N);
 double Func2(double *x,int VMHL_N);
+double Func4(double x);
 
 #endif // MAINWINDOW_H

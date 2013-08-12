@@ -1,0 +1,16 @@
+        double Left=-5;
+        double Right=5;
+        int Count=30;
+        double x,f;
+
+        //Вызов функции
+        MHL_FibonacciOptimization (Left, Right, Func4, Count, &x, &f);
+
+        //Используем полученный результат
+        MHL_ShowNumber(x,"Найденное решение","x");
+        //Найденное решение:
+        //x=1
+
+        MHL_ShowNumber(f,"Значение целевой функции в найденном решении","f");
+        //Значение целевой функции в найденном решении:
+        //f=3.7817e-12

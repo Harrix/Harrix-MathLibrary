@@ -5,9 +5,9 @@ int MHL_BinaryMonteCarloAlgorithm(int *Parameters, double (*FitnessFunction)(int
 Алгоритм оптимизации. Ищет максимум функции пригодности FitnessFunction.
 Входные параметры:
  Parameters
-  [0] - длина бинарной строки (определается задачей оптимизации, что мы решаем);
+  [0] - длина бинарной строки (определяется задачей оптимизации, что мы решаем);
   [1] - число вычислений функции пригодности (CountOfFitness);
- FitnessFunction - указатель на функцию пригодности (не целевая функция, а именно функция пригодности);
+ FitnessFunction - указатель на целевую функцию (если решается задача условной оптимизации, то учет ограничений должен быть включен в эту функцию);
  VMHL_ResultVector - найденное решение (бинарный вектор);
  VMHL_Result - значение функции в точке, определенной вектором VMHL_ResultVector.
 Возвращаемое значение:
@@ -19,16 +19,16 @@ int MHL_BinaryMonteCarloAlgorithm(int *Parameters, double (*FitnessFunction)(int
 */
 //Считываем из Parameters параметры алгоритма
 int LengthBinarString=Parameters[0];//Длина бинарной строки
-int CountOfFitness=Parameters[1];//Число вычислений функции пригодности
+int CountOfFitness=Parameters[1];//Число вычислений функции целевой
 
 //Проверим данные
 if (LengthBinarString<1) return 0;//Слишком маленькая длина бинарной строки
-if (CountOfFitness<1) return 0;//Слишком маленькое число вычислений функции пригодности
+if (CountOfFitness<1) return 0;//Слишком маленькое число вычислений функции целевой
 
 //Переменные
 int i;//Счетчик
-double TempFitness;//Значение функции пригодности произвольного решения
-double BestFitness;//Значение функции пригодности лучшего решения за всё время работы алгоритма
+double TempFitness;//Значение функции целевой произвольного решения
+double BestFitness;//Значение функции целевой лучшего решения за всё время работы алгоритма
 
 //Для выполнения алгоритма требуются некоторые дополнительные массивы. Создадим их.
 //Массив для хранения произвольного решения
@@ -41,14 +41,14 @@ BestIndividual=new int[LengthBinarString];
 //Получим первое решение (оно пока и лучшее)
 TMHL_RandomBinaryVector(BestIndividual,LengthBinarString);
 
-//Вычислим значение функции пригодности
+//Вычислим значение функции целевой
 try
  {
  BestFitness=FitnessFunction(BestIndividual,LengthBinarString);
  }
 catch(...)
  {
- return 0;//Алгоритм не смог посчитать значение функции пригодности
+ return 0;//Алгоритм не смог посчитать значение функции целевой
  }
 
 for (i=1;i<CountOfFitness;i++)
@@ -57,14 +57,14 @@ for (i=1;i<CountOfFitness;i++)
  //Получим новое случайное решение
  TMHL_RandomBinaryVector(TempIndividual,LengthBinarString);
 
- //Вычислим значение функции пригодности
+ //Вычислим значение функции целевой
  try
   {
   TempFitness=FitnessFunction(TempIndividual,LengthBinarString);
   }
  catch(...)
   {
-  return 0;//Алгоритм не смог посчитать значение функции пригодности
+  return 0;//Алгоритм не смог посчитать значение функции целевой
   }
 
  //Является ли данное решение лучше лучшего решения за всё время работы алгоритма
@@ -72,13 +72,13 @@ for (i=1;i<CountOfFitness;i++)
   {
   //Если всё-таки лучше
   TMHL_VectorToVector(TempIndividual,BestIndividual,LengthBinarString);
-  BestFitness=TempFitness;//Запоминаем его значение функции пригодности
+  BestFitness=TempFitness;//Запоминаем его значение функции целевой
   }
 
  }//////////////////// ГЛАВНЫЙ ЦИКЛ ///////////////////////
 
 //Алгоритм закончил свою работу
-//Выдадим найденное лучшее решение за время запуска алгоритма и его значение функции пригодности
+//Выдадим найденное лучшее решение за время запуска алгоритма и его значение функции целевой
 TMHL_VectorToVector(BestIndividual,VMHL_ResultVector,LengthBinarString);
 *VMHL_Result=BestFitness;
 

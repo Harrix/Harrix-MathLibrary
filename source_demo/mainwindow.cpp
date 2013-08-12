@@ -685,6 +685,30 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("MHL_MaximumOrMinimumOfTestFunction_Binary"));
     model->appendRow(item);
 
+    item = new QStandardItem(QString("MHL_RealMonteCarloAlgorithm"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_DichotomyOptimization"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_FibonacciOptimization"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_GoldenSectionOptimization"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_QuadraticFitOptimization"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_RealMonteCarloOptimization"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_UniformSearchOptimization"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_UniformSearchOptimizationN"));
+    model->appendRow(item);
+
     model->sort(0);
 
     //соединение модели списка с конкретным списком
@@ -735,6 +759,11 @@ double Func2(double *x,int VMHL_N)
 double Func3(double x)
 {
     return x*x;
+}
+//---------------------------------------------------------------------------
+double Func4(double x)
+{
+return (x-1)*(x-1);
 }
 //---------------------------------------------------------------------------
 void MainWindow::MHL_ShowText (QString TitleX)
@@ -7980,6 +8009,195 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         MHL_ShowNumber(MorM,"Максимум или минимум функции находим у TestFunction_SumVector","MorM");
         //Максимум или минимум функции находим у TestFunction_SumVector:
         //MorM=1
+    }
+
+    if (NameFunction=="MHL_RealMonteCarloAlgorithm")
+    {
+        int ChromosomeLength=2;//Длина хромосомы
+        int CountOfFitness=50*50;//Число вычислений целевой функции
+
+        int *ParametersOfAlgorithm;
+        ParametersOfAlgorithm=new int[2];
+        ParametersOfAlgorithm[0]=ChromosomeLength;//Длина хромосомы
+        ParametersOfAlgorithm[1]=CountOfFitness;//Число вычислений целевой функции
+
+        double *Left;//массив левых границ изменения каждой вещественной координаты
+        Left=new double[ChromosomeLength];
+        double *Right;//массив правых границ изменения каждой вещественной координаты
+        Right=new double[ChromosomeLength];
+
+        //Заполним массивы
+        //Причем по каждой коодинтате одинаковые значения выставим
+        TMHL_FillVector(Left,ChromosomeLength,-5.);//Пусть будет интервал [-3;3]
+        TMHL_FillVector(Right,ChromosomeLength,5.);
+
+        double *Decision;//вещественное решение
+        Decision=new double[ChromosomeLength];
+        double ValueOfFitnessFunction;//значение целевой функции в точке Decision
+        int VMHL_Success=0;//Успешен ли будет запуск cГА
+
+        //Запуск алгоритма
+        VMHL_Success=MHL_RealMonteCarloAlgorithm (ParametersOfAlgorithm,Left,Right,Func2, Decision, &ValueOfFitnessFunction);
+
+        //Используем полученный результат
+        MHL_ShowNumber(VMHL_Success,"Как прошел запуск","VMHL_Success");
+        if (VMHL_Success==1)
+         {
+         MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
+         //Найденное решение:
+         //Decision =
+         //1.91864	1.93604
+         MHL_ShowNumber(ValueOfFitnessFunction,"Значение целtвой функции","ValueOfFitnessFunction");
+         //Значение целевой функции:
+         //ValueOfFitnessFunction=-0.0107109
+         }
+
+        delete [] ParametersOfAlgorithm;
+        delete [] Decision;
+        delete [] Left;
+        delete [] Right;
+    }
+
+    if (NameFunction=="MHL_DichotomyOptimization")
+    {
+        double Left=-5;
+        double Right=5;
+        double Interval=0.01;
+        double Epsilon=0.001;
+        double x,f;
+
+        //Вызов функции
+        MHL_DichotomyOptimization (Left, Right, Func4, Interval, Epsilon, &x, &f);
+
+        //Используем полученный результат
+        MHL_ShowNumber(x,"Найденное решение","x");
+        //Найденное решение:
+        //x=0.998335
+
+        MHL_ShowNumber(f,"Значение целевой функции в найденном решении","f");
+        //Значение целевой функции в найденном решении:
+        //f=2.77073e-06
+    }
+
+    if (NameFunction=="MHL_FibonacciOptimization")
+    {
+        double Left=-5;
+        double Right=5;
+        int Count=30;
+        double x,f;
+
+        //Вызов функции
+        MHL_FibonacciOptimization (Left, Right, Func4, Count, &x, &f);
+
+        //Используем полученный результат
+        MHL_ShowNumber(x,"Найденное решение","x");
+        //Найденное решение:
+        //x=1
+
+        MHL_ShowNumber(f,"Значение целевой функции в найденном решении","f");
+        //Значение целевой функции в найденном решении:
+        //f=3.7817e-12
+    }
+
+    if (NameFunction=="MHL_GoldenSectionOptimization")
+    {
+        double Left=-5;
+        double Right=5;
+        double Interval=0.001;
+        double x,f;
+
+        //Вызов функции
+        MHL_GoldenSectionOptimization (Left, Right, Func4, Interval, &x, &f);
+
+        //Используем полученный результат
+        MHL_ShowNumber(x,"Найденное решение","x");
+        //Найденное решение:
+        //x=0.999934
+
+        MHL_ShowNumber(f,"Значение целевой функции в найденном решении","f");
+        //Значение целевой функции в найденном решении:
+        //f=4.37013e-09
+    }
+
+    if (NameFunction=="MHL_QuadraticFitOptimization")
+    {
+        double Left=-5;
+        double Right=5;
+        double Epsilon=0.001;
+        double Epsilon2=0.001;
+        double x,f;
+
+        //Вызов функции
+        MHL_QuadraticFitOptimization (Left, Right, Func4, Epsilon,Epsilon2, &x, &f);
+
+        //Используем полученный результат
+        MHL_ShowNumber(x,"Найденное решение","x");
+        //Найденное решение:
+        //x=1
+
+        MHL_ShowNumber(f,"Значение целевой функции в найденном решении","f");
+        //Значение целевой функции в найденном решении:
+        //f=0
+    }
+
+    if (NameFunction=="MHL_RealMonteCarloOptimization")
+    {
+        double Left=-5;
+        double Right=5;
+        int Count=30;
+        double x,f;
+
+        //Вызов функции
+        MHL_RealMonteCarloOptimization (Left, Right, Func4, Count, &x, &f);
+
+        //Используем полученный результат
+        MHL_ShowNumber(x,"Найденное решение","x");
+        //Найденное решение:
+        //x=1.11359
+
+        MHL_ShowNumber(f,"Значение целевой функции в найденном решении","f");
+        //Значение целевой функции в найденном решении:
+        //f=0.0129019
+    }
+
+    if (NameFunction=="MHL_UniformSearchOptimization")
+    {
+        double Left=-5;
+        double Right=5;
+        double Interval=0.001;
+        double x,f;
+
+        //Вызов функции
+        MHL_UniformSearchOptimization (Left, Right, Func4, Interval, &x, &f);
+
+        //Используем полученный результат
+        MHL_ShowNumber(x,"Найденное решение","x");
+        //Найденное решение:
+        //x=1
+
+        MHL_ShowNumber(f,"Значение целевой функции в найденном решении","f");
+        //Значение целевой функции в найденном решении:
+        //f=2.3863e-29
+    }
+
+    if (NameFunction=="MHL_UniformSearchOptimizationN")
+    {
+        double Left=-5;
+        double Right=5;
+        int Count=30;
+        double x,f;
+
+        //Вызов функции
+        MHL_UniformSearchOptimizationN (Left, Right, Func4, Count, &x, &f);
+
+        //Используем полученный результат
+        MHL_ShowNumber(x,"Найденное решение","x");
+        //Найденное решение:
+        //x=1
+
+        MHL_ShowNumber(f,"Значение целевой функции в найденном решении","f");
+        //Значение целевой функции в найденном решении:
+        //f=0
     }
 }
 //---------------------------------------------------------------------------

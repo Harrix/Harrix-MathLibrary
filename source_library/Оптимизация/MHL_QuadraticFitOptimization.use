@@ -1,0 +1,17 @@
+        double Left=-5;
+        double Right=5;
+        double Epsilon=0.001;
+        double Epsilon2=0.001;
+        double x,f;
+
+        //Вызов функции
+        MHL_QuadraticFitOptimization (Left, Right, Func4, Epsilon,Epsilon2, &x, &f);
+
+        //Используем полученный результат
+        MHL_ShowNumber(x,"Найденное решение","x");
+        //Найденное решение:
+        //x=1
+
+        MHL_ShowNumber(f,"Значение целевой функции в найденном решении","f");
+        //Значение целевой функции в найденном решении:
+        //f=0
