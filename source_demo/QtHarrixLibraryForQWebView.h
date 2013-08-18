@@ -25,11 +25,25 @@ QString HQt_ShowSimpleText (QString String);//Функция возвращае�
 QString HQt_ShowH1 (QString String);//Функция возвращает строку с выводом некоторой строки в виде заголовка. Для добавление в html файл.
 QString HQt_ShowHr ();//Функция возвращает строку с выводом горизонтальной линии. Для добавление в html файл.
 QString HQt_ShowAlert (QString String);//Функция возвращает строку с выводом некоторого предупреждения. Для добавление в html файл.
-template <class T> QString THQt_ShowNumber (T VMHL_X, QString TitleX, QString NameX);//Функция возвращает строку с выводом некоторого числа VMHL_X с HTML кодами.
-template <class T> QString THQt_ShowVector (T *VMHL_Vector, int VMHL_N, QString TitleVector, QString NameVector);//Функция возвращает строку с выводом некоторый вектора VMHL_Vector с HTML кодами.
 template <class T> QString THQt_NumberToText (T VMHL_X);//Функция выводит число VMHL_X в строку.
+template <class T> QString THQt_ShowNumber (T VMHL_X, QString TitleX, QString NameX);//Функция возвращает строку с выводом некоторого числа VMHL_X с HTML кодами.
+template <class T> QString THQt_ShowNumber (T VMHL_X, QString NameX);//Функция возвращает строку с выводом некоторого числа VMHL_X с HTML кодами. Для добавление в html файл.
+template <class T> QString THQt_ShowNumber (T VMHL_X);//Функция возвращает строку с выводом некоторого числа VMHL_X с HTML кодами. Для добавление в html файл.
+template <class T> QString THQt_ShowVector (T *VMHL_Vector, int VMHL_N, QString TitleVector, QString NameVector);//Функция возвращает строку с выводом некоторый вектора VMHL_Vector с HTML кодами.
+template <class T> QString THQt_ShowVector (T *VMHL_Vector, int VMHL_N, QString NameVector);//Функция возвращает строку с выводом некоторый вектора VMHL_Vector с HTML кодами.
+template <class T> QString THQt_ShowVector (T *VMHL_Vector, int VMHL_N);//Функция возвращает строку с выводом некоторый вектора VMHL_Vector с HTML кодами.
+QString THQt_ShowVector (QStringList VMHL_Vector, QString TitleVector, QString NameVector);//Функция возвращает строку с выводом некоторого списка строк VMHL_Vector с HTML кодами. Для добавление в html файл.
+QString THQt_ShowVector (QStringList VMHL_Vector, QString NameVector);//Функция возвращает строку с выводом некоторого списка строк VMHL_Vector с HTML кодами. Для добавление в html файл.
+QString THQt_ShowVector (QStringList VMHL_Vector);//Функция возвращает строку с выводом некоторого списка строк VMHL_Vector с HTML кодами. Для добавление в html файл.
 template <class T> QString THQt_ShowVectorT (T *VMHL_Vector, int VMHL_N, QString TitleVector, QString NameVector);//Функция возвращает строку с выводом некоторый вектора VMHL_Vector в траснпонированном виде с HTML кодами.
+template <class T> QString THQt_ShowVectorT (T *VMHL_Vector, int VMHL_N, QString NameVector);//Функция возвращает строку с выводом некоторый вектора VMHL_Vector в траснпонированном виде с HTML кодами.
+template <class T> QString THQt_ShowVectorT (T *VMHL_Vector, int VMHL_N);//Функция возвращает строку с выводом некоторый вектора VMHL_Vector в траснпонированном виде с HTML кодами.
 template <class T> QString THQt_ShowMatrix (T *VMHL_Matrix, int VMHL_N, int VMHL_M, QString TitleMatrix, QString NameMatrix);//Функция возвращает строку с выводом некоторой матрицы VMHL_Matrix с HTML кодами.
+template <class T> QString THQt_ShowMatrix (T *VMHL_Matrix, int VMHL_N, int VMHL_M, QString NameMatrix);//Функция возвращает строку с выводом некоторой матрицы VMHL_Matrix с HTML кодами.
+template <class T> QString THQt_ShowMatrix (T *VMHL_Matrix, int VMHL_N, int VMHL_M);//Функция возвращает строку с выводом некоторой матрицы VMHL_Matrix с HTML кодами.
+QString THQt_ShowMatrix (QStringList *VMHL_Matrix, int VMHL_N, QString TitleMatrix, QString NameMatrix);//Функция возвращает строку с выводом некоторой матрицы VMHL_Matrix с HTML кодами. Для добавление в html файл.
+QString THQt_ShowMatrix (QStringList *VMHL_Matrix, int VMHL_N, QString NameMatrix);//Функция возвращает строку с выводом некоторой матрицы VMHL_Matrix с HTML кодами. Для добавление в html файл.
+QString THQt_ShowMatrix (QStringList *VMHL_Matrix, int VMHL_N);//Функция возвращает строку с выводом некоторой матрицы VMHL_Matrix с HTML кодами. Для добавление в html файл.
 template <class T> QString THQt_ShowChartOfLine (T *VMHL_VectorX,T *VMHL_VectorY, int VMHL_N, QString TitleChart, QString NameVectorX, QString NameVectorY, QString NameLine, bool ShowLine, bool ShowPoints, bool ShowArea, bool ShowSpecPoints, bool RedLine);//Функция возвращает строку с выводом некоторого графика по точкам с HTML кодами. Для добавление в html файл.
 template <class T> QString THQt_ShowChartOfLine (T *VMHL_VectorX,T *VMHL_VectorY, int VMHL_N, QString TitleChart, QString NameVectorX, QString NameVectorY, bool ShowLine, bool ShowPoints, bool ShowArea, bool ShowSpecPoints, bool RedLine);//Функция возвращает строку с выводом некоторого графика по точкам с HTML кодами. Для добавление в html файл. Отличается от основной функцией отсутствием параметра NameLine(название первого графика (для легенды)).
 template <class T> QString THQt_ShowChartOfLine (T *VMHL_VectorX,T *VMHL_VectorY, int VMHL_N, QString TitleChart, QString NameVectorX, QString NameVectorY, QString NameLine);// Функция возвращает строку с выводом некоторого графика по точкам с HTML кодами. Отличается от основной функцией отсутствием булевских параметров в конце - все по умолчанию делается.
@@ -60,7 +74,6 @@ QString HQt_DrawLine (double Left, double Right, double h, double (*Function)(do
 QString HQt_DrawLine (double Left, double Right, double h, double (*Function)(double), QString TitleChart, QString NameVectorX, QString NameVectorY, QString NameLine);//Функция возвращает строку с HTML кодом отрисовки линии по функции Function. Для добавление в html файл. Отличается от основной функцией отсутствием булевских параметров в конце - все по умолчанию делается.
 QString HQt_DrawLine (double Left, double Right, double h, double (*Function)(double));//Функция возвращает строку с HTML кодом отрисовки линии по функции Function. Для добавление в html файл. Отличается от основной функцией отсутствием булевских параметров в конце и названий осей и графиков - для быстрого отображения графика без лишних телодвижений.
 
-
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // РЕАЛИЗАЦИЯ ШАБЛОНОВ
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -80,6 +93,41 @@ template <class T> QString THQt_ShowNumber (T VMHL_X, QString TitleX, QString Na
     VMHL_Result="<p><b>"+TitleX+":</b><br>";
 
     VMHL_Result+=NameX+"=<b><font class=\"number\">"+QString::number(VMHL_X)+"</font></b></p>\n";
+
+    return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+
+template <class T> QString THQt_ShowNumber (T VMHL_X, QString NameX)
+{
+    /*
+    Функция возвращает строку с выводом некоторого числа VMHL_X с HTML кодами. Для добавление в html файл.
+    Входные параметры:
+     VMHL_X - выводимое число;
+     NameX - обозначение числа.
+    Возвращаемое значение:
+     Строка с HTML кодами с выводимым числом.
+    */
+    QString VMHL_Result;
+
+    VMHL_Result="<p>"+NameX+"=<b><font class=\"number\">"+QString::number(VMHL_X)+"</font></b></p>\n";
+
+    return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+
+template <class T> QString THQt_ShowNumber (T VMHL_X)
+{
+    /*
+    Функция возвращает строку с выводом некоторого числа VMHL_X с HTML кодами. Для добавление в html файл.
+    Входные параметры:
+     VMHL_X - выводимое число.
+    Возвращаемое значение:
+     Строка с HTML кодами с выводимым числом.
+    */
+    QString VMHL_Result;
+
+    VMHL_Result="<p>x=<b><font class=\"number\">"+QString::number(VMHL_X)+"</font></b></p>\n";
 
     return VMHL_Result;
 }
@@ -122,6 +170,109 @@ template <class T> QString THQt_ShowVector (T *VMHL_Vector, int VMHL_N, QString 
     VMHL_Result+="<td class=\"middle\">\n";
     VMHL_Result+="<font class=\"overline\">";
     VMHL_Result+=NameVector;
+    VMHL_Result+="</font> = \n";
+    VMHL_Result+="</td>\n";
+
+    VMHL_Result+="<td>\n";
+    VMHL_Result+="<table class=\"matrixbrak\">\n";
+    VMHL_Result+="<tr>\n";
+    VMHL_Result+="<td class=\"lbrak\">&nbsp;</td>\n";
+
+    VMHL_Result+="<td>\n";
+    VMHL_Result+="<table class=\"matrix\">\n";
+
+    for (int i=0;i<VMHL_N;i++)
+    {
+        VMHL_Result+="<tr>\n";
+        VMHL_Result+="<td class=\"number\">"+QString::number(VMHL_Vector[i])+"</td>\n";
+
+        VMHL_Result+="</tr>\n";
+    }
+
+    VMHL_Result+="</table>\n";
+    VMHL_Result+="</td>\n";
+    VMHL_Result+="<td class=\"rbrak\">&nbsp;</td>\n";
+    VMHL_Result+="</tr>\n";
+    VMHL_Result+="</table>\n";
+    VMHL_Result+="</td>\n";
+
+    VMHL_Result+="</tr>\n";
+    VMHL_Result+="</table></p>\n";
+
+    return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+
+template <class T> QString THQt_ShowVector (T *VMHL_Vector, int VMHL_N, QString NameVector)
+{
+    /*
+    Функция возвращает строку с выводом некоторого вектора VMHL_Vector с HTML кодами. Для добавление в html файл.
+    Входные параметры:
+     VMHL_Vector - указатель на выводимый вектор;
+     VMHL_N - количество элементов вектора;
+     NameVector - обозначение вектора.
+    Возвращаемое значение:
+     Строка с HTML кодами с выводимым вектором.
+    */
+    QString VMHL_Result;
+
+    VMHL_Result+="<p><table>\n";
+    VMHL_Result+="<tr>\n";
+
+    VMHL_Result+="<td class=\"middle\">\n";
+    VMHL_Result+="<font class=\"overline\">";
+    VMHL_Result+=NameVector;
+    VMHL_Result+="</font> = \n";
+    VMHL_Result+="</td>\n";
+
+    VMHL_Result+="<td>\n";
+    VMHL_Result+="<table class=\"matrixbrak\">\n";
+    VMHL_Result+="<tr>\n";
+    VMHL_Result+="<td class=\"lbrak\">&nbsp;</td>\n";
+
+    VMHL_Result+="<td>\n";
+    VMHL_Result+="<table class=\"matrix\">\n";
+
+    for (int i=0;i<VMHL_N;i++)
+    {
+        VMHL_Result+="<tr>\n";
+        VMHL_Result+="<td class=\"number\">"+QString::number(VMHL_Vector[i])+"</td>\n";
+
+        VMHL_Result+="</tr>\n";
+    }
+
+    VMHL_Result+="</table>\n";
+    VMHL_Result+="</td>\n";
+    VMHL_Result+="<td class=\"rbrak\">&nbsp;</td>\n";
+    VMHL_Result+="</tr>\n";
+    VMHL_Result+="</table>\n";
+    VMHL_Result+="</td>\n";
+
+    VMHL_Result+="</tr>\n";
+    VMHL_Result+="</table></p>\n";
+
+    return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+
+template <class T> QString THQt_ShowVector (T *VMHL_Vector, int VMHL_N)
+{
+    /*
+    Функция возвращает строку с выводом некоторого вектора VMHL_Vector с HTML кодами. Для добавление в html файл.
+    Входные параметры:
+     VMHL_Vector - указатель на выводимый вектор;
+     VMHL_N - количество элементов вектора.
+    Возвращаемое значение:
+     Строка с HTML кодами с выводимым вектором.
+    */
+    QString VMHL_Result;
+
+    VMHL_Result+="<p><table>\n";
+    VMHL_Result+="<tr>\n";
+
+    VMHL_Result+="<td class=\"middle\">\n";
+    VMHL_Result+="<font class=\"overline\">";
+    VMHL_Result+="x";
     VMHL_Result+="</font> = \n";
     VMHL_Result+="</td>\n";
 
@@ -208,6 +359,105 @@ template <class T> QString THQt_ShowVectorT (T *VMHL_Vector, int VMHL_N, QString
 }
 //---------------------------------------------------------------------------
 
+template <class T> QString THQt_ShowVectorT (T *VMHL_Vector, int VMHL_N, QString NameVector)
+{
+    /*
+    Функция возвращает строку с выводом некотоого вектора VMHL_Vector в траснпонированном виде с HTML кодами. Для добавление в html файл.
+    Входные параметры:
+     VMHL_Vector - указатель на выводимый вектор;
+     VMHL_N - количество элементов вектора;
+     NameVector - обозначение вектора.
+    Возвращаемое значение:
+     Строка с HTML кодами с выводимым вектором.
+    */
+    QString VMHL_Result;
+
+    VMHL_Result+="<p><table>\n";
+    VMHL_Result+="<tr>\n";
+
+    VMHL_Result+="<td>\n";
+    VMHL_Result+="<font class=\"overline\">";
+    VMHL_Result+=NameVector;
+    VMHL_Result+="</font> = \n";
+    VMHL_Result+="</td>\n";
+
+    VMHL_Result+="<td>\n";
+    VMHL_Result+="<table class=\"matrixbrak\">\n";
+    VMHL_Result+="<tr>\n";
+    VMHL_Result+="<td class=\"lbrak\">&nbsp;</td>\n";
+
+    VMHL_Result+="<td>\n";
+    VMHL_Result+="<table class=\"matrix\">\n";
+
+    VMHL_Result+="<tr>\n";
+    for (int i=0;i<VMHL_N;i++)
+        VMHL_Result+="<td>"+QString::number(VMHL_Vector[i])+"</td>\n";
+    VMHL_Result+="</tr>\n";
+
+    VMHL_Result+="</table>\n";
+    VMHL_Result+="</td>\n";
+    VMHL_Result+="<td class=\"rbrak\">&nbsp;</td>\n";
+    VMHL_Result+="</tr>\n";
+    VMHL_Result+="</table>\n";
+    VMHL_Result+="</td>\n";
+    VMHL_Result+="<td class=\"Tsmall\">ᵀ</td>\n";
+
+    VMHL_Result+="</tr>\n";
+    VMHL_Result+="</table></p>\n";
+
+    return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+
+template <class T> QString THQt_ShowVectorT (T *VMHL_Vector, int VMHL_N)
+{
+    /*
+    Функция возвращает строку с выводом некотоого вектора VMHL_Vector в траснпонированном виде с HTML кодами. Для добавление в html файл.
+    Входные параметры:
+     VMHL_Vector - указатель на выводимый вектор;
+     VMHL_N - количество элементов вектора.
+    Возвращаемое значение:
+     Строка с HTML кодами с выводимым вектором.
+    */
+    QString VMHL_Result;
+
+    VMHL_Result+="<p><table>\n";
+    VMHL_Result+="<tr>\n";
+
+    VMHL_Result+="<td>\n";
+    VMHL_Result+="<font class=\"overline\">";
+    VMHL_Result+="x";
+    VMHL_Result+="</font> = \n";
+    VMHL_Result+="</td>\n";
+
+    VMHL_Result+="<td>\n";
+    VMHL_Result+="<table class=\"matrixbrak\">\n";
+    VMHL_Result+="<tr>\n";
+    VMHL_Result+="<td class=\"lbrak\">&nbsp;</td>\n";
+
+    VMHL_Result+="<td>\n";
+    VMHL_Result+="<table class=\"matrix\">\n";
+
+    VMHL_Result+="<tr>\n";
+    for (int i=0;i<VMHL_N;i++)
+        VMHL_Result+="<td>"+QString::number(VMHL_Vector[i])+"</td>\n";
+    VMHL_Result+="</tr>\n";
+
+    VMHL_Result+="</table>\n";
+    VMHL_Result+="</td>\n";
+    VMHL_Result+="<td class=\"rbrak\">&nbsp;</td>\n";
+    VMHL_Result+="</tr>\n";
+    VMHL_Result+="</table>\n";
+    VMHL_Result+="</td>\n";
+    VMHL_Result+="<td class=\"Tsmall\">ᵀ</td>\n";
+
+    VMHL_Result+="</tr>\n";
+    VMHL_Result+="</table></p>\n";
+
+    return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+
 template <class T> QString THQt_ShowMatrix (T *VMHL_Matrix, int VMHL_N, int VMHL_M, QString TitleMatrix, QString NameMatrix)
 {
     /*
@@ -231,6 +481,113 @@ template <class T> QString THQt_ShowMatrix (T *VMHL_Matrix, int VMHL_N, int VMHL
     VMHL_Result+="<td class=\"middle\">\n";
     VMHL_Result+="<font class=\"overline\">";
     VMHL_Result+=NameMatrix;
+    VMHL_Result+="</font> = \n";
+    VMHL_Result+="</td>\n";
+
+    VMHL_Result+="<td>\n";
+    VMHL_Result+="<table class=\"matrixbrak\">\n";
+    VMHL_Result+="<tr>\n";
+    VMHL_Result+="<td class=\"lbrak\">&nbsp;</td>\n";
+
+    VMHL_Result+="<td>\n";
+    VMHL_Result+="<table class=\"matrix\">\n";
+
+    for (int i=0;i<VMHL_N;i++)
+    {
+        VMHL_Result+="<tr>\n";
+        for (int j=0;j<VMHL_M;j++)
+            VMHL_Result+="<td class=\"number\">"+QString::number(VMHL_Matrix[i][j])+"</td>\n";
+
+        VMHL_Result+="</tr>\n";
+    }
+
+    VMHL_Result+="</table>\n";
+    VMHL_Result+="</td>\n";
+    VMHL_Result+="<td class=\"rbrak\">&nbsp;</td>\n";
+    VMHL_Result+="</tr>\n";
+    VMHL_Result+="</table>\n";
+    VMHL_Result+="</td>\n";
+
+    VMHL_Result+="</tr>\n";
+    VMHL_Result+="</table></p>\n";
+
+    return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+
+template <class T> QString THQt_ShowMatrix (T *VMHL_Matrix, int VMHL_N, int VMHL_M, QString NameMatrix)
+{
+    /*
+    Функция возвращает строку с выводом некоторой матрицы VMHL_Matrix с HTML кодами. Для добавление в html файл.
+    Входные параметры:
+     VMHL_Matrix - указатель на выводимую матрицу;
+     VMHL_N - количество строк в матрице;
+     VMHL_M - количество столбцов в матрице;
+     NameMatrix - обозначение матрицы.
+    Возвращаемое значение:
+     Отсутствует.
+    */
+    QString VMHL_Result;
+
+    VMHL_Result+="<p><table>\n";
+    VMHL_Result+="<tr>\n";
+
+    VMHL_Result+="<td class=\"middle\">\n";
+    VMHL_Result+="<font class=\"overline\">";
+    VMHL_Result+=NameMatrix;
+    VMHL_Result+="</font> = \n";
+    VMHL_Result+="</td>\n";
+
+    VMHL_Result+="<td>\n";
+    VMHL_Result+="<table class=\"matrixbrak\">\n";
+    VMHL_Result+="<tr>\n";
+    VMHL_Result+="<td class=\"lbrak\">&nbsp;</td>\n";
+
+    VMHL_Result+="<td>\n";
+    VMHL_Result+="<table class=\"matrix\">\n";
+
+    for (int i=0;i<VMHL_N;i++)
+    {
+        VMHL_Result+="<tr>\n";
+        for (int j=0;j<VMHL_M;j++)
+            VMHL_Result+="<td class=\"number\">"+QString::number(VMHL_Matrix[i][j])+"</td>\n";
+
+        VMHL_Result+="</tr>\n";
+    }
+
+    VMHL_Result+="</table>\n";
+    VMHL_Result+="</td>\n";
+    VMHL_Result+="<td class=\"rbrak\">&nbsp;</td>\n";
+    VMHL_Result+="</tr>\n";
+    VMHL_Result+="</table>\n";
+    VMHL_Result+="</td>\n";
+
+    VMHL_Result+="</tr>\n";
+    VMHL_Result+="</table></p>\n";
+
+    return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+
+template <class T> QString THQt_ShowMatrix (T *VMHL_Matrix, int VMHL_N, int VMHL_M)
+{
+    /*
+    Функция возвращает строку с выводом некоторой матрицы VMHL_Matrix с HTML кодами. Для добавление в html файл.
+    Входные параметры:
+     VMHL_Matrix - указатель на выводимую матрицу;
+     VMHL_N - количество строк в матрице;
+     VMHL_M - количество столбцов в матрице.
+    Возвращаемое значение:
+     Отсутствует.
+    */
+    QString VMHL_Result;
+
+    VMHL_Result+="<p><table>\n";
+    VMHL_Result+="<tr>\n";
+
+    VMHL_Result+="<td class=\"middle\">\n";
+    VMHL_Result+="<font class=\"overline\">";
+    VMHL_Result+="x";
     VMHL_Result+="</font> = \n";
     VMHL_Result+="</td>\n";
 
