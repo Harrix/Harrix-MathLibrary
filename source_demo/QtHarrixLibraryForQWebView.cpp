@@ -1,4 +1,4 @@
-//Библиотека для отображения различных данных в QWebView. Версия v.1.7.
+//Библиотека для отображения различных данных в QWebView. Версия v.1.8.
 //https://github.com/Harrix/QtHarrixLibraryForQWebView
 //Библиотека распространяется по лицензии Apache License, Version 2.0.
 
@@ -616,7 +616,10 @@ QString THQt_ShowVector (QStringList VMHL_Vector, QString TitleVector, QString N
     for (int i=0;i<VMHL_Vector.count();i++)
     {
         VMHL_Result+="<tr>\n";
-        VMHL_Result+="<td class=\"number\">"+VMHL_Vector.at(i)+"</td>\n";
+        QString B=VMHL_Vector.at(i);
+        if (B!=B.trimmed()) B="→|"+B+"|←";
+        B=B.replace(" ","&nbsp;");
+        VMHL_Result+="<td class=\"number\">"+B+"</td>\n";
 
         VMHL_Result+="</tr>\n";
     }
@@ -668,7 +671,10 @@ QString THQt_ShowVector (QStringList VMHL_Vector, QString NameVector)
     for (int i=0;i<VMHL_Vector.count();i++)
     {
         VMHL_Result+="<tr>\n";
-        VMHL_Result+="<td class=\"number\">"+VMHL_Vector.at(i)+"</td>\n";
+        QString B=VMHL_Vector.at(i);
+        if (B!=B.trimmed()) B="→|"+B+"|←";
+        B=B.replace(" ","&nbsp;");
+        VMHL_Result+="<td class=\"number\">"+B+"</td>\n";
 
         VMHL_Result+="</tr>\n";
     }
@@ -719,7 +725,11 @@ QString THQt_ShowVector (QStringList VMHL_Vector)
     for (int i=0;i<VMHL_Vector.count();i++)
     {
         VMHL_Result+="<tr>\n";
-        VMHL_Result+="<td class=\"number\">"+VMHL_Vector.at(i)+"</td>\n";
+        QString B=VMHL_Vector.at(i);
+        if (B!=B.trimmed()) B="→|"+B+"|←";
+        B=B.replace(" ","&nbsp;");
+
+        VMHL_Result+="<td class=\"number\">"+B+"</td>\n";
 
         VMHL_Result+="</tr>\n";
     }
@@ -777,7 +787,12 @@ QString THQt_ShowMatrix (QStringList *VMHL_Matrix, int VMHL_N, QString TitleMatr
     {
         VMHL_Result+="<tr>\n";
         for (int j=0;j<VMHL_Matrix[i].count();j++)
-            VMHL_Result+="<td class=\"number\">"+VMHL_Matrix[i].at(j)+"</td>\n";
+        {
+            QString B=VMHL_Matrix[i].at(j);
+            if (B!=B.trimmed()) B="→|"+B+"|←";
+            B=B.replace(" ","&nbsp;");
+            VMHL_Result+="<td class=\"number\">"+B+"</td>\n";
+        }
 
         VMHL_Result+="</tr>\n";
     }
@@ -832,7 +847,12 @@ QString THQt_ShowMatrix (QStringList *VMHL_Matrix, int VMHL_N, QString NameMatri
     {
         VMHL_Result+="<tr>\n";
         for (int j=0;j<VMHL_Matrix[i].count();j++)
-            VMHL_Result+="<td class=\"number\">"+VMHL_Matrix[i].at(j)+"</td>\n";
+        {
+            QString B=VMHL_Matrix[i].at(j);
+            if (B!=B.trimmed()) B="→|"+B+"|←";
+            B=B.replace(" ","&nbsp;");
+            VMHL_Result+="<td class=\"number\">"+B+"</td>\n";
+        }
 
         VMHL_Result+="</tr>\n";
     }
@@ -886,7 +906,12 @@ QString THQt_ShowMatrix (QStringList *VMHL_Matrix, int VMHL_N)
     {
         VMHL_Result+="<tr>\n";
         for (int j=0;j<VMHL_Matrix[i].count();j++)
-            VMHL_Result+="<td class=\"number\">"+VMHL_Matrix[i].at(j)+"</td>\n";
+        {
+            QString B=VMHL_Matrix[i].at(j);
+            if (B!=B.trimmed()) B="→|"+B+"|←";
+            B=B.replace(" ","&nbsp;");
+            VMHL_Result+="<td class=\"number\">"+B+"</td>\n";
+        }
 
         VMHL_Result+="</tr>\n";
     }
