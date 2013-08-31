@@ -709,6 +709,12 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("MHL_UniformSearchOptimizationN"));
     model->appendRow(item);
 
+    item = new QStandardItem(QString("TMHL_CheckForIdenticalRowsInMatrix"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("TMHL_CheckForIdenticalColsInMatrix"));
+    model->appendRow(item);
+
     model->sort(0);
 
     //соединение модели списка с конкретным списком
@@ -8198,6 +8204,72 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         MHL_ShowNumber(f,"Значение целевой функции в найденном решении","f");
         //Значение целевой функции в найденном решении:
         //f=0
+    }
+
+    if (NameFunction=="TMHL_CheckForIdenticalRowsInMatrix")
+    {
+        int i;
+        int VMHL_N=10;//Размер массива (число строк)
+        int VMHL_M=2;//Размер массива (число столбцов)
+        int **a;
+        a=new int*[VMHL_N];
+        for (i=0;i<VMHL_N;i++) a[i]=new int[VMHL_M];
+
+        TMHL_RandomIntMatrix(a,0,5,VMHL_N,VMHL_M);//заполним матрицу
+
+        //Вызов функции
+        bool b=TMHL_CheckForIdenticalRowsInMatrix(a,VMHL_N,VMHL_M);
+
+        //Используем полученный результат
+        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Заполненная матрица", "a");
+        //Заполненная матрица:
+        //a =
+        //3	3
+        //0	0
+        //3	0
+        //0	3
+        //3	1
+        //3	2
+        //3	2
+        //2	1
+        //0	3
+        //4	2
+
+        MHL_ShowNumber(b,"Есть ли одинаковые строки", "b");
+        //Есть ли одинаковые строки:
+        //b=1
+
+        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        delete [] a;
+    }
+
+    if (NameFunction=="TMHL_CheckForIdenticalColsInMatrix")
+    {
+        int i;
+        int VMHL_N=2;//Размер массива (число строк)
+        int VMHL_M=10;//Размер массива (число столбцов)
+        int **a;
+        a=new int*[VMHL_N];
+        for (i=0;i<VMHL_N;i++) a[i]=new int[VMHL_M];
+
+        TMHL_RandomIntMatrix(a,0,5,VMHL_N,VMHL_M);//заполним матрицу
+
+        //Вызов функции
+        bool b=TMHL_CheckForIdenticalColsInMatrix(a,VMHL_N,VMHL_M);
+
+        //Используем полученный результат
+        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Заполненная матрица", "a");
+        //Заполненная матрица:
+        //a =
+        //4	4	0	1	0	1	0	0	2	1
+        //1	4	4	3	3	4	4	3	0	1
+
+        MHL_ShowNumber(b,"Есть ли одинаковые столбцы", "b");
+        //Есть ли одинаковые столбцы::
+        //b=1
+
+        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        delete [] a;
     }
 }
 //---------------------------------------------------------------------------
