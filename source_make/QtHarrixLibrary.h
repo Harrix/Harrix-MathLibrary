@@ -28,6 +28,8 @@ QString HQt_GetExpFromFilename(QString filename);//Функция получае
 QStringList HQt_QStringToQStringList(QString line);//Функция переводит QString в QStringList.
 QString HQt_QStringListToQString(QStringList lines);//Функция переводит QStringList в QString.
 bool HQt_FileExists(QString filename);//Функция проверяет сущестование файла.
+bool HQt_DirExists(QString path);//Функция проверяет сущестование директории.
+void HQt_DirMake(QString path);//Функция проверяет сущестование директории, и если ее нет, то создает.
 QString HQt_GetNameFromFilename(QString filename);//Функция получает имя файла без расширения по его имени.
 bool HQt_CopyFile(QString filename, QString dir);//Функция копирует файл filename в папку dir.
 bool HQt_CopyFile(QString filename, QString dir, bool overwrite);//Функция копирует файл filename в папку dir, с возможносью перезаписи.
