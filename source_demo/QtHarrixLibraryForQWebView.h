@@ -3073,7 +3073,7 @@ template <class T> QString THQt_ShowChartsOfLineFromMatrix (T **VMHL_MatrixXY,in
 
     if (ShowSpecPoints)
     {
-        //Теперь проставим точки
+        //Теперь поставим точки
         //Нулевая точка
         VMHL_Result+=NameBoard+".create('point',["+SBeginXAxis+","+SBeginYAxis+"], {strokeColor:'"+CoordinateColor+"',highlightStrokeColor:'"+HighlightCoordinateColor+"',fillColor:'white',highlightFillColor:'white',strokeWidth:'2pt',face:'o', size:1, name:'Min<sub>x</sub> = "+SBeginXAxis+", Min<sub>y</sub> = "+SBeginYAxis+"',label:{fontsize:10}});\n";
         //Максимальная по Y
@@ -3221,12 +3221,12 @@ template <class T> QString THQt_ShowChartsOfLineFromMatrix (T **VMHL_MatrixXY,in
      NameVectorY - название оси Oy;
      ShowLine - показывать ли линию;
      ShowPoints - показывать ли точки;
-     ShowArea - показывать ли закрашенную ошбласть под кривой;
+     ShowArea - показывать ли закрашенную область под кривой;
      ShowSpecPoints - показывать ли специальные точки.
     Возвращаемое значение:
      Строка с HTML кодами с выводимым графиком.
     Примечание:
-     Используются случайные числа, так что рекомендуется вызвать в программе иницилизатор случайных чисел qsrand.
+     Используются случайные числа, так что рекомендуется вызвать в программе инициализатор случайных чисел qsrand.
      Рекомендую так:
      qsrand(QDateTime::currentMSecsSinceEpoch () % 1000000);
     Пример использования:
