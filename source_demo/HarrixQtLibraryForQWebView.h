@@ -1,5 +1,5 @@
-#ifndef QTHARRIXLIBRARYFORQWEBVIEW_H
-#define QTHARRIXLIBRARYFORQWEBVIEW_H
+#ifndef HARRIXQTLIBRARYFORQWEBVIEW_H
+#define HARRIXQTLIBRARYFORQWEBVIEW_H
 
 #include <QDebug>
 #include <QFile>
@@ -4996,4 +4996,4 @@ template <class T> QString THQt_ShowTwoIndependentChartsOfPointsAndLine (T *VMHL
     return THQt_ShowTwoIndependentChartsOfPointsAndLine (VMHL_VectorX1,VMHL_VectorY1,VMHL_N1,VMHL_VectorX2,VMHL_VectorY2, VMHL_N2, "", "x", "y","", "",true,false,false,true);
 }
 //---------------------------------------------------------------------------
-#endif // QTHARRIXLIBRARYFORQWEBVIEW_H
+#endif // HARRIXQTLIBRARYFORQWEBVIEW_H

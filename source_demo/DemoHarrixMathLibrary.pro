@@ -16,12 +16,12 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     HarrixMathLibrary.cpp \
     HarrixQtLibrary.cpp \
-    QtHarrixLibraryForQWebView.cpp
+    HarrixQtLibraryForQWebView.cpp
 
 HEADERS  += mainwindow.h \
     HarrixMathLibrary.h \
     HarrixQtLibrary.h \
-    QtHarrixLibraryForQWebView.h
+    HarrixQtLibraryForQWebView.h
 
 FORMS    += mainwindow.ui
 

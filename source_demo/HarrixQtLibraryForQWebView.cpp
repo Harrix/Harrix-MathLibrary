@@ -2,7 +2,7 @@
 //https://github.com/Harrix/HarrixQtLibraryForQWebView
 //Библиотека распространяется по лицензии Apache License, Version 2.0.
 
-#include "QtHarrixLibraryForQWebView.h"
+#include "HarrixQtLibraryForQWebView.h"
 
 QString VMHL_HTML;
 QString VMHL_Path;

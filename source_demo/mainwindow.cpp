@@ -9,7 +9,7 @@
 #include <QSortFilterProxyModel>
 
 #include "HarrixMathLibrary.h"
-#include "QtHarrixLibraryForQWebView.h"
+#include "HarrixQtLibraryForQWebView.h"
 #include "HarrixQtLibrary.h"
 
 MainWindow::MainWindow(QWidget *parent) :
