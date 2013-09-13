@@ -8,9 +8,9 @@
 #include <QStandardItemModel>
 #include <QSortFilterProxyModel>
 
-#include "MathHarrixLibrary.h"
+#include "HarrixMathLibrary.h"
 #include "QtHarrixLibraryForQWebView.h"
-#include "QtHarrixLibrary.h"
+#include "HarrixQtLibrary.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -782,7 +782,7 @@ void MainWindow::MHL_ShowText (QString TitleX)
      Отсутствует.
     */
     QString VMHL_Result;
-    VMHL_Result=HQt_ShowText (TitleX);// из QtHarrixLibrary.h
+    VMHL_Result=HQt_ShowText (TitleX);// из HarrixQtLibrary.h
     Html=VMHL_Result;
     HQt_AddHtml(Html);
 }
@@ -799,7 +799,7 @@ template <class T> void MainWindow::MHL_ShowNumber (T VMHL_X, QString TitleX, QS
      Отсутствует.
     */
     QString VMHL_Result;
-    VMHL_Result=THQt_ShowNumber (VMHL_X, TitleX, NameX);// из QtHarrixLibrary.h
+    VMHL_Result=THQt_ShowNumber (VMHL_X, TitleX, NameX);// из HarrixQtLibrary.h
     Html=VMHL_Result;
     HQt_AddHtml(Html);
 }
@@ -832,7 +832,7 @@ template <class T> void MainWindow::MHL_ShowVector (T *VMHL_Vector, int VMHL_N, 
      Отсутствует.
     */
     QString VMHL_Result;
-    VMHL_Result=THQt_ShowVector (VMHL_Vector,VMHL_N, TitleVector, NameVector);// из QtHarrixLibrary.h
+    VMHL_Result=THQt_ShowVector (VMHL_Vector,VMHL_N, TitleVector, NameVector);// из HarrixQtLibrary.h
     Html=VMHL_Result;
     HQt_AddHtml(Html);
 }
@@ -851,7 +851,7 @@ template <class T> void MainWindow::MHL_ShowVectorT (T *VMHL_Vector, int VMHL_N,
      Отсутствует.
     */
     QString VMHL_Result;
-    VMHL_Result=THQt_ShowVectorT (VMHL_Vector,VMHL_N, TitleVector, NameVector);// из QtHarrixLibrary.h
+    VMHL_Result=THQt_ShowVectorT (VMHL_Vector,VMHL_N, TitleVector, NameVector);// из HarrixQtLibrary.h
     Html=VMHL_Result;
     HQt_AddHtml(Html);
 }
@@ -871,7 +871,7 @@ template <class T> void MainWindow::MHL_ShowMatrix (T **VMHL_Matrix, int VMHL_N,
      Отсутствует.
     */
     QString VMHL_Result;
-    VMHL_Result=THQt_ShowMatrix (VMHL_Matrix, VMHL_N ,VMHL_M, TitleMatrix, NameMatrix);// из QtHarrixLibrary.h
+    VMHL_Result=THQt_ShowMatrix (VMHL_Matrix, VMHL_N ,VMHL_M, TitleMatrix, NameMatrix);// из HarrixQtLibrary.h
     Html=VMHL_Result;
     HQt_AddHtml(Html);
 }

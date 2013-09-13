@@ -6,13 +6,13 @@
 \subsection{Общий алгоритм подключения}
 
 \begin{itemize}
-\item Скопируем себе папку \textbf{\_library} с готовой последней версией библиотеки на сайте проекта \href{https://github.com/Harrix/MathHarrixLibrary}{https://github.com/Harrix/MathHarrixLibrary}.
+\item Скопируем себе папку \textbf{\_library} с готовой последней версией библиотеки на сайте проекта \href{https://github.com/Harrix/HarrixMathLibrary}{https://github.com/Harrix/HarrixMathLibrary}.
 
-\item Скопируем файлы \textbf{MathHarrixLibrary.cpp}, \textbf{MathHarrixLibrary.h} в папку с Вашим проектом на C++.
+\item Скопируем файлы \textbf{HarrixMathLibrary.cpp}, \textbf{HarrixMathLibrary.h} в папку с Вашим проектом на C++.
 
 \item Пропишем в проекте:
 \begin{lstlisting}[label=install_01,caption=Подключение библиотеки]
-#include "MathHarrixLibrary.h"
+#include "HarrixMathLibrary.h"
 \end{lstlisting}
 
 \item Если планируем использовать функции, использующие случайные числа (если не знаем, то тоже сделаем), то в начале программы вызовем:
@@ -34,15 +34,15 @@ double degree=MHL_DegToRad(60);
 Рассматривается на примере создания Qt Gui Application в Qt 5.1.0 for Desktop (MinGW 4.7) с использованием Qt Creator 2.7.0.
 
 \begin{itemize}
-\item Скопируем себе папку \textbf{\_library} с готовой последней версией библиотеки на сайте проекта \href{https://github.com/Harrix/MathHarrixLibrary}{https://github.com/Harrix/MathHarrixLibrary}.
+\item Скопируем себе папку \textbf{\_library} с готовой последней версией библиотеки на сайте проекта \href{https://github.com/Harrix/HarrixMathLibrary}{https://github.com/Harrix/HarrixMathLibrary}.
 
-\item Скопируем файлы \textbf{MathHarrixLibrary.cpp}, \textbf{MathHarrixLibrary.h} в папку с Вашим проектом на C++ там, где находится файл проекта *.pro.
+\item Скопируем файлы \textbf{HarrixMathLibrary.cpp}, \textbf{HarrixMathLibrary.h} в папку с Вашим проектом на C++ там, где находится файл проекта *.pro.
 
-\item Добавим к проекту файлы \textbf{MathHarrixLibrary.cpp} и \textbf{MathHarrixLibrary.h}. Для этого по проекту в Qt Creator щелкнем правой кнопкой и вызовем команду \textbf{Add Existings Files...}, где выберем наши файлы.
+\item Добавим к проекту файлы \textbf{HarrixMathLibrary.cpp} и \textbf{HarrixMathLibrary.h}. Для этого по проекту в Qt Creator щелкнем правой кнопкой и вызовем команду \textbf{Add Existings Files...}, где выберем наши файлы.
 
 \item Пропишем в главном файле исходников проекта \textbf{mainwindow.cpp}:
 \begin{lstlisting}[label=install_01_qt,caption=Подключение библиотеки]
-#include "MathHarrixLibrary.h"
+#include "HarrixMathLibrary.h"
 \end{lstlisting}
 
 \item Если планируем использовать функции, использующие случайные числа (если не знаем, то тоже сделаем), то в начале программы в конструкторе \textbf{MainWindow::MainWindow} вызовем:
@@ -55,7 +55,7 @@ MHL_SeedRandom();//Инициализировали генератор случ�
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-#include "MathHarrixLibrary.h"
+#include "HarrixMathLibrary.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -84,11 +84,11 @@ void MainWindow::on_pushButton_clicked()
 
 \subsection{Подключение к C++ Builder на примере C++ Builder 6.0}
 \begin{itemize}
-\item Скопируем себе папку \textbf{\_library} с готовой последней версией библиотеки на сайте проекта \href{https://github.com/Harrix/MathHarrixLibrary}{https://github.com/Harrix/MathHarrixLibrary}.
+\item Скопируем себе папку \textbf{\_library} с готовой последней версией библиотеки на сайте проекта \href{https://github.com/Harrix/HarrixMathLibrary}{https://github.com/Harrix/HarrixMathLibrary}.
 
-\item Скопируем файлы \textbf{MathHarrixLibrary.cpp}, \textbf{MathHarrixLibrary.h} в папку с проектом на C++.
+\item Скопируем файлы \textbf{HarrixMathLibrary.cpp}, \textbf{HarrixMathLibrary.h} в папку с проектом на C++.
 
-\item Пропишем проекте в файле \textbf{.cpp} главной формы (часто это \textbf{Unit1.cpp}) строчку \textbf{\#include "MathHarrixLibrary.h"}:
+\item Пропишем проекте в файле \textbf{.cpp} главной формы (часто это \textbf{Unit1.cpp}) строчку \textbf{\#include "HarrixMathLibrary.h"}:
 \begin{lstlisting}[label=install_code_01,caption=Подключение библиотеки]
 //---------------------------------------------------------------------------
 
@@ -96,7 +96,7 @@ void MainWindow::on_pushButton_clicked()
 #pragma hdrstop
 
 #include "Unit1.h"
-#include "MathHarrixLibrary.h"
+#include "HarrixMathLibrary.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -104,7 +104,7 @@ TForm1 *Form1;
 ...
 \end{lstlisting}
 
-\item Добавим в проект файл \textbf{MathHarrixLibrary.cpp} через команду: \textbf{Project} $\rightarrow$ \textbf{Add to Project\dots}.
+\item Добавим в проект файл \textbf{HarrixMathLibrary.cpp} через команду: \textbf{Project} $\rightarrow$ \textbf{Add to Project\dots}.
 
 \item Если планируем использовать функции, использующие случайные числа (если не знаем, то тоже сделаем), то в конструкторе главной формы инициализируем генератор случайных чисел:
 \begin{lstlisting}[label=install_code_02,caption=Инициализация генератора случайных чисел]
@@ -130,11 +130,11 @@ Memo1->Lines->Add("x = "+AnsiString(x));//выведем его
 
 \subsection{Подключение к C++ Builder на примере C++Builder XE4}
 \begin{itemize}
-\item Скопируем себе папку \textbf{\_library} с готовой последней версией библиотеки на сайте проекта \href{https://github.com/Harrix/MathHarrixLibrary}{https://github.com/Harrix/MathHarrixLibrary}.
+\item Скопируем себе папку \textbf{\_library} с готовой последней версией библиотеки на сайте проекта \href{https://github.com/Harrix/HarrixMathLibrary}{https://github.com/Harrix/HarrixMathLibrary}.
 
-\item Скопируем файлы \textbf{MathHarrixLibrary.cpp}, \textbf{MathHarrixLibrary.h} в папку с проектом на C++.
+\item Скопируем файлы \textbf{HarrixMathLibrary.cpp}, \textbf{HarrixMathLibrary.h} в папку с проектом на C++.
 
-\item Пропишем проекте в файле \textbf{.cpp} главной формы (часто это \textbf{Unit1.cpp}) строчку \textbf{\#include "MathHarrixLibrary.h"}:
+\item Пропишем проекте в файле \textbf{.cpp} главной формы (часто это \textbf{Unit1.cpp}) строчку \textbf{\#include "HarrixMathLibrary.h"}:
 \begin{lstlisting}[label=install_code_04,caption=Подключение библиотеки]
 //---------------------------------------------------------------------------
 
@@ -142,7 +142,7 @@ Memo1->Lines->Add("x = "+AnsiString(x));//выведем его
 #pragma hdrstop
 
 #include "Unit1.h"
-#include "MathHarrixLibrary.h"
+#include "HarrixMathLibrary.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -151,7 +151,7 @@ TForm1 *Form1;
 ...
 \end{lstlisting}
 
-\item Добавим в проект файл \textbf{MathHarrixLibrary.cpp} через команду: \textbf{Project} $\rightarrow$ \textbf{Add to Project\dots}.
+\item Добавим в проект файл \textbf{HarrixMathLibrary.cpp} через команду: \textbf{Project} $\rightarrow$ \textbf{Add to Project\dots}.
 
 \item Если планируем использовать функции, использующие случайные числа (если не знаем, то тоже сделаем), то в конструкторе главной формы инициализируем генератор случайных чисел:
 \begin{lstlisting}[label=install_code_05,caption=Инициализация генератора случайных чисел]
@@ -180,18 +180,18 @@ Memo1->Lines->Add("x = "+AnsiString(x));//выведем его
 Используется СLR приложение Windows Forms Application (точнее пустой проект, к которому прикреплена форма) на Visual C++.
 
 \begin{itemize}
-\item Скопируем себе папку \textbf{\_library} с готовой последней версией библиотеки на сайте проекта \href{https://github.com/Harrix/MathHarrixLibrary}{https://github.com/Harrix/MathHarrixLibrary}.
+\item Скопируем себе папку \textbf{\_library} с готовой последней версией библиотеки на сайте проекта \href{https://github.com/Harrix/HarrixMathLibrary}{https://github.com/Harrix/HarrixMathLibrary}.
 
-\item Скопируем файлы \textbf{MathHarrixLibrary.cpp}, \textbf{MathHarrixLibrary.h} в папку с проектом *.vcxproj на C++.
+\item Скопируем файлы \textbf{HarrixMathLibrary.cpp}, \textbf{HarrixMathLibrary.h} в папку с проектом *.vcxproj на C++.
 
-\item Пропишем проекте в файле \textbf{.h} главной формы (у меня это \textbf{MyForm.h}) строчку \textbf{\#include "MathHarrixLibrary.h"}:
+\item Пропишем проекте в файле \textbf{.h} главной формы (у меня это \textbf{MyForm.h}) строчку \textbf{\#include "HarrixMathLibrary.h"}:
 \begin{lstlisting}[label=install_code_07,caption=Подключение библиотеки]
 #pragma once
-#include "MathHarrixLibrary.h"
+#include "HarrixMathLibrary.h"
 ...
 \end{lstlisting}
 
-\item Добавим в проект файл \textbf{MathHarrixLibrary.cpp} через правый клик по проекту: \textbf{Добавить} $\rightarrow$ \textbf{Существующий элемент Shift+Alt+A}.
+\item Добавим в проект файл \textbf{HarrixMathLibrary.cpp} через правый клик по проекту: \textbf{Добавить} $\rightarrow$ \textbf{Существующий элемент Shift+Alt+A}.
 
 \item Если планируем использовать функции, использующие случайные числа (если не знаем, то тоже сделаем), то в конструкторе главной формы инициализируем генератор случайных чисел:
 \begin{lstlisting}[label=install_code_08,caption=Инициализация генератора случайных чисел]

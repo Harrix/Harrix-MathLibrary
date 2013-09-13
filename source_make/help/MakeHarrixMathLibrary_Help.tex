@@ -1,0 +1,216 @@
+\documentclass[a4paper,12pt]{article}
+
+\input{packages}
+\input{styles}
+
+\title{MakeHarrixMathLibrary v.1.4}
+\author{А.\,Б. Сергиенко}
+\date{\today}
+
+
+\begin{document}
+
+\input{names}
+
+\maketitle
+
+\begin{abstract}
+\textbf{MakeHarrixMathLibrary} --- это программа собирающая библиотеку HarrixMathLibrary и справку к ней из исходных материалов.
+\end{abstract}
+
+\tableofcontents
+
+\newpage
+
+\section{Внешний вид программы}
+
+\begin{figure} [h] 
+  \center
+  \includegraphics [scale=0.5] {makemainwindow.png}
+  \caption{Внешний вид программы} 
+  \label{img:latex}  
+\end{figure}
+
+При нажатии на кнопку \textbf{<<Собрать библиотеку>>} будет производиться сборка библиотеки вместе с файлами справки. После чего будет открыта папка с сформированными файлами.
+
+В текстовом поле под кнопкой будет отображаться ход работы программы.
+
+\section{Результат работы программы}
+
+В папке \textbf{source\_library} находится исходный материал, который обрабатывается программой MakeHarrixMathLibrary.exe, в результате чего образуются следующие элементы:
+
+\begin{itemize}
+\item \textbf{HarrixMathLibrary.cpp} --- главный файл библиотеки;
+\item \textbf{HarrixMathLibrary.h} --- заголовочный файл;\\
+\item \textbf{HarrixMathLibrary\_Help.tex} --- файл справки в формате \LaTeX.
+\item \textbf{names.tex} --- дополнительный файл для HarrixMathLibrary\_Help.tex;
+\item \textbf{packages.tex} --- дополнительный файл для HarrixMathLibrary\_Help.tex;
+\item \textbf{styles.tex} --- дополнительный файл для HarrixMathLibrary\_Help.tex;
+\item \textbf{\textbackslash images\textbackslash} --- папка с рисунками форматов *.png или *.pdf для HarrixMathLibrary\_Help.tex.
+\end{itemize}
+
+Все данные файлы собираются в папке \textbf{temp\_library}.
+
+Описание того, что делать с полученными файлами описано в разделе \textbf{<<Как добавлять свои функции>>} в файле HarrixMathLibrary\_Help.pdf в папке \textbf{\_library}.
+
+\section{Как собирается библиотека}
+Исходники библиотеки находятся с папке \textbf{source\_library}.
+
+Файлы \textbf{HarrixMathLibrary.cpp} и \textbf{HarrixMathLibrary.h} собираются следующим образом.
+
+Итак, вначале добавляются к файлам некоторые основные файлы:
+
+\begin{itemize}
+\item \textbf{Header.cpp} --- основная информация, подключение заголовочных файлов;
+\item \textbf{AdditionalVariables.cpp} --- содержит список дополнительных переменных, которые используются внутри функций. Самим использовать их не нужно --- это только внутренние переменные;
+\item \textbf{Random.cpp} --- две основные функции для работы со случайными числами: MHL\_SeedRandom() и MHL\_RandomNumber();
+\item \textbf{Random.h} --- объявлениях этих самых функций: MHL\_SeedRandom() и MHL\_RandomNumber();
+\item \textbf{Const.h} --- содержит список констант для работы с библиотеки;
+\item \textbf{Enum.h} --- переменные перечисляемого типа.
+\end{itemize}
+
+Также \textbf{HarrixMathLibrary.h} обрамляется кодом:
+\begin{lstlisting}[label=make_sectioncpp,caption=Обрамление HarrixMathLibrary.h файла]
+#ifndef HARRIXMATHLIBRARY_H
+#define HARRIXMATHLIBRARY_H
+
+#endif // HARRIXMATHLIBRARY_H
+\end{lstlisting}
+
+Также в папке \textbf{source\_library} есть директории. Каждая директория --- это множество функций какого-то раздела. Перед рассмотрением файлов папки программа добавляет в файл HarrixMathLibrary.cpp следующий код:
+
+\begin{lstlisting}[label=make_sectioncpp,caption=Название раздела]
+//*****************************************************************
+//[Название папки]
+//*****************************************************************
+\end{lstlisting}
+
+А в файл HarrixMathLibrary.h добавляется код:
+
+\begin{lstlisting}[label=make_sectionh,caption=Название раздела]
+//[Название папки]
+\end{lstlisting}
+
+После каждой функции в HarrixMathLibrary.cpp вставляется код:
+\begin{lstlisting}[label=make_sectionh,caption=Название раздела]
+//---------------------------------------------------------------------------
+\end{lstlisting}
+
+Далее программа пробегает по каждой папке, которая представляет собой раздел функций в библиотеке. Каждая функция в разделе предоставляется следующими файлами:
+\begin{itemize}
+\item \textbf{<File>.cpp} или \textbf{<File>.tpp} --- код функции;
+\item \textbf{<File>.h} --- заголовочный файл функции;
+\item \textbf{<File>.tex} --- справка по функции;
+\item \textbf{<File>.desc} --- описание функции;
+\item \textbf{<File>.use} --- пример использования функции (из него удаляются пробелы в начале строк, равным числу пробелов вначале первой строки);
+\item \textbf{<File>\_<name>.pdf} --- множество рисунков, необходимых для справки по функции (необязательные файлы);
+\item \textbf{<File>\_<name>.png} --- множество рисунков, необходимых для справки по функции (необязательные файлы);
+\end{itemize}
+
+Важно помнить, что каждый *.cpp, *.h, *.tex файл в папках папки \textbf{source\_library} не является полноценным файлом соответствующего расширения и без сборки в единые файлы библиотеки не может использоваться.
+
+Разница файлов *.cpp и *.tpp в том, что в *.tpp  пишется код шаблонов функций, а в *.cpp пишутся обычные функции, и их реализация располагается в HarrixMathLibrary.cpp файле, тогда как шаблоны располагаются в HarrixMathLibrary.h файле.
+
+Ниже показан алгоритм (Алгоритм \ref{alg:MakingCppH}) формирования файлов библиотеки.
+
+Итоговое количество функций определяется как количество знаков <<;>> в h файлах функций, которые располагаются в папках.
+
+
+\begin{algorithm}
+\caption{Алгоритм собирания файлов библиотеки} \label{alg:MakingCppH}
+\begin{algorithmic}
+\State \textbf{Начало алгоритма}
+\State $ HarrixMathLibrary.cpp+=Header.cpp $;
+\State $ HarrixMathLibrary.cpp+=AdditionalVariables.cpp $;
+\State $ HarrixMathLibrary.cpp+=Random.cpp $;
+\State $ HarrixMathLibrary.h+= \text{\textit{Начало обрамления}}$;
+\State $ HarrixMathLibrary.h+=Const.h $;
+\State $ HarrixMathLibrary.h+=Random.h $;
+\State $ HarrixMathLibrary.h+=Enum.h $;
+\ForAll {папок}
+\State $ HarrixMathLibrary.cpp+=\text{\textit{Код 1. Название раздела}} $;
+\State $ HarrixMathLibrary.h+=\text{\textit{Код 2. Название раздела}} $;
+\ForAll {файлов папки расширения *.cpp, *.tpp и *.h}
+\If {есть файл *.cpp}
+\State $ HarrixMathLibrary.cpp+=<File>.cpp $;
+\Else
+\State $ ResultTpp+=<File>.tpp $;
+\EndIf
+\State $ HarrixMathLibrary.h+=<File>.h $;
+\EndFor
+\EndFor
+\State $ HarrixMathLibrary.h+= ResultTpp$;
+\State $ HarrixMathLibrary.h+= \text{\textit{Конец обрамления}}$;
+\State Сохранить $ HarrixMathLibrary.cpp $ в папке temp\_library;
+\State Сохранить $ HarrixMathLibrary.h $ в папке temp\_library;
+\State \textbf{Конец алгоритма}
+\end{algorithmic}
+\end{algorithm}
+
+Стоит отметить, что все разделы функций и сами функции сортируются в алфавитном порядке.
+
+
+\section{Как собирается справка}
+Исходники файлов справки библиотеки находятся с папке
+\textbf{source\_library}.
+
+Файлы \textbf{HarrixMathLibrary.tex} собирается следующим образом.
+
+Итак, вначале добавляются к файлу некоторые основные файлы:
+
+\begin{itemize}
+\item \textbf{Title.tex} --- титульная информация и содержание справки;
+\item \textbf{Description\_part1.tex} и \textbf{Description\_part2.tex} --- описание библиотеки (разделено на два файла, чтобы между ними вставить число функций);
+\item \textbf{Install.tex} --- содержит информацию об установке и использованию библиотеки;
+\item \textbf{Random.tex} --- информация о случайных числах в библиотеке;
+\item \textbf{Addnew.tex} --- информация о том, как добавлять новые функции в библиотеку.
+\end{itemize}
+
+Ниже показан алгоритм (Алгоритм \ref{alg:MakingHelp}) формирования файлов справки библиотеки.
+
+Некоторые моменты по преобразованию некоторых данных (например, преобразование $<File>.desc$) не рассматривается в алгоритме, но вы можете все посмотреть в исходном коде программы, которая поставляется с данной библиотекой в папке \textbf{source\_make\textbackslash}
+
+\section{Исходники MakeHarrixMathLibrary.exe и справки по ним}
+
+MakeHarrixMathLibrary написан на Qt 5, конкретнее на QtCreator 2.7.0, Qt 5.0.1, Qt Gui Application.  Не требует каких-то дополнительных файлов. Исходники программы располагаются в папке \textbf{source\_make\textbackslash}.
+
+Исходники справки MakeHarrixMathLibrary (данного файла, который вы читаете) по располагаются в папке \textbf{source\_make\textbackslash help\textbackslash}. Главный файл исходника справки --- это файл MakeHarrixMathLibrary\_Help.tex.
+
+\begin{algorithm}
+\caption{Алгоритм собирания файлов справки библиотеки} \label{alg:MakingHelp}
+\begin{algorithmic}
+\State \textbf{Начало алгоритма}
+\State $ HarrixMathLibrary\_Help.tex+=Install.tex $;
+\State $ HarrixMathLibrary\_Help.tex+=Random.tex $;
+\State $ HarrixMathLibrary\_Help.tex+=Addnew.tex $;
+\State $ResultTexList += \text {\textit{Заголовок для списка функций}}$;
+\State $ResultTexFunctions += \text {\textit{Заголовок для функций}}$;
+\ForAll {папок}
+\State $ ResultTexList+=\text{\textit{Заголовок раздела}} $;
+\State $ ResultTexFunctions+=\text{\textit{Заголовок раздела}} $;
+\State $n=0$;
+\ForAll {файлов папки расширения *.desc, *.tex, *.h, *.use}
+\State $ ResultTexList+=<File>.desc $ в обработке;
+\State $ ResultTexFunctions+=<File>.desc $ в обработке;
+\State $ ResultTexFunctions+=<File>.h $ в обертке;
+\State $ ResultTexFunctions+=<File>.tex $;
+\State $ ResultTexFunctions+=<File>.use $ в обертке;
+\State $n++$;
+\EndFor
+\ForAll {файлов папки расширения *.pdf и *.png}
+\State  Скопировать файл <File>.<png|pdf> в папку \textbf{\textbackslash images\textbackslash};
+\EndFor
+\EndFor
+\State $ HarrixMathLibrary\_Help.tex+=ResultTexList $;
+\State $ HarrixMathLibrary\_Help.tex+=ResultTexFunctions $;
+\State $ HarrixMathLibrary\_Help.tex+=\text{Концовка документа} $;
+\State $ HarrixMathLibrary\_Help.tex=Description\_part2.tex+ HarrixMathLibrary\_Help.tex$;
+\State $ HarrixMathLibrary\_Help.tex=n+ HarrixMathLibrary\_Help.tex$;
+\State $ HarrixMathLibrary\_Help.tex=Description\_part1.tex+ HarrixMathLibrary\_Help.tex$;
+\State $ HarrixMathLibrary\_Help.tex=Title.tex+ HarrixMathLibrary\_Help.tex$;
+\State Сохранить $ HarrixMathLibrary\_Help.tex $ в папке temp\_library;
+\State \textbf{Конец алгоритма}
+\end{algorithmic}
+\end{algorithm}
+
+\end{document}

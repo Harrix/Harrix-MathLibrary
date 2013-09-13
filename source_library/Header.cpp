@@ -1,8 +1,8 @@
-//БИБЛИОТЕКА MATH HARRIX LIBRARY
-//Версия 3.15
+//Библиотека HarrixMathLibrary
+//Версия 3.16
 
 //Сборник различных математических функций с открытым кодом на языке C++
-//Страница проекта: https://github.com/Harrix/MathHarrixLibrary
+//Страница проекта: https://github.com/Harrix/HarrixMathLibrary
 //Распространяется по лицензии Apache License, Version 2.0
 
 //   Copyright 2007-2013 Harrix
@@ -22,4 +22,4 @@
 #include <time.h>
 #include <math.h>
 
-#include "MathHarrixLibrary.h"
+#include "HarrixMathLibrary.h"

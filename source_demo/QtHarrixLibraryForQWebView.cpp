@@ -1,5 +1,5 @@
 //Библиотека для отображения различных данных в QWebView. Версия v.1.8.
-//https://github.com/Harrix/QtHarrixLibraryForQWebView
+//https://github.com/Harrix/HarrixQtLibraryForQWebView
 //Библиотека распространяется по лицензии Apache License, Version 2.0.
 
 #include "QtHarrixLibraryForQWebView.h"

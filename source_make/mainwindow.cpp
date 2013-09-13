@@ -8,7 +8,7 @@
 #include <QStandardItemModel>
 #include <QTime>
 
-#include "QtHarrixLibrary.h"
+#include "HarrixQtLibrary.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -70,8 +70,8 @@ void MainWindow::on_pushButton_clicked()
     bool b;
     ui->textEdit->insertHtml("<font color=\"#858585\">Начало формирования файлов библиотеки...<\font><br>");
 
-    ResultH += "#ifndef MATHHARRIXLIBRARY_H\n";
-    ResultH += "#define MATHHARRIXLIBRARY_H\n";
+    ResultH += "#ifndef HARRIXMATHLIBRARY_H\n";
+    ResultH += "#define HARRIXMATHLIBRARY_H\n";
 
     ResultTpp += "//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n";
     ResultTpp += "// РЕАЛИЗАЦИЯ ШАБЛОНОВ\n";//добавляем название папки (раздела)
@@ -409,15 +409,15 @@ void MainWindow::on_pushButton_clicked()
     if (!(Temp.trimmed().isEmpty())) ui->textEdit->insertHtml("Загрузили файл <b>Title.tex</b><br>");
     else {ui->textEdit->insertHtml("<font color=\"red\">Ошибка с файлом <b>Title.tex</b><\font><br>");countoferrors++;}
 
-    ResultH += "\n#endif // MATHHARRIXLIBRARY_H";
+    ResultH += "\n#endif // HARRIXMATHLIBRARY_H";
 
-    HQt_SaveFile(ResultCpp,temp_library_path+"MathHarrixLibrary.cpp");
-    ui->textEdit->insertHtml("<br>Сохранили файл <b>MathHarrixLibrary.cpp</b><br>");
-    HQt_SaveFile(ResultH,temp_library_path+"MathHarrixLibrary.h");
-    ui->textEdit->insertHtml("Сохранили файл <b>MathHarrixLibrary.h</b><br>");
+    HQt_SaveFile(ResultCpp,temp_library_path+"HarrixMathLibrary.cpp");
+    ui->textEdit->insertHtml("<br>Сохранили файл <b>HarrixMathLibrary.cpp</b><br>");
+    HQt_SaveFile(ResultH,temp_library_path+"HarrixMathLibrary.h");
+    ui->textEdit->insertHtml("Сохранили файл <b>HarrixMathLibrary.h</b><br>");
 
-    HQt_SaveFile(ResultTex,temp_library_path+"MathHarrixLibrary_Help.tex");
-    ui->textEdit->insertHtml("Сохранили файл <b>MathHarrixLibrary_Help.tex</b><br>");
+    HQt_SaveFile(ResultTex,temp_library_path+"HarrixMathLibrary_Help.tex");
+    ui->textEdit->insertHtml("Сохранили файл <b>HarrixMathLibrary_Help.tex</b><br>");
 
     //Начнем копирование некоторых файлов целиком
     b=HQt_CopyFile(path+"names.tex", temp_library_path,true);

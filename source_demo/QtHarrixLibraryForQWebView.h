@@ -12,7 +12,7 @@
 #include <QApplication>
 #include <typeinfo>
 
-#include "QtHarrixLibrary.h"
+#include "HarrixQtLibrary.h"
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // ОБЪЯВЛЕНИЯ ФУНКЦИЙ

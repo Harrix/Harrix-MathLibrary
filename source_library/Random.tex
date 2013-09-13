@@ -1,5 +1,5 @@
 \newpage
-\section{О случайных числах в библиотеке MathHarrixLibrary}\label{section_random}
+\section{О случайных числах в библиотеке HarrixMathLibrary}\label{section_random}
 
 \textbf{Генератор случайных чисел (ГСЧ)} --- очень важная и нужная функция в программировании. При этом необходим лишь первичный генератор --- генератор случайных вещественных чисел в интервале $\left( 0; 1\right)$ по равномерному закону распределения. Все остальные случайные числа с другими законами распределения можно получить из равномерного.
 
@@ -13,14 +13,14 @@
 \item \textbf{MHL\_RandomNumber()} --- непосредственно генератор случайных чисел. В своей реализации использует значение переменной MHL\_Dummy.
 \end{itemize}
 
-В файле \textbf{MathHarrixLibrary.h} (после объявления констант в начале файла) есть строчки, которые объявляют эти вещи:
-\begin{lstlisting}[label=random_h,caption=Объявление функций в MathHarrixLibrary.h]
+В файле \textbf{HarrixMathLibrary.h} (после объявления констант в начале файла) есть строчки, которые объявляют эти вещи:
+\begin{lstlisting}[label=random_h,caption=Объявление функций в HarrixMathLibrary.h]
 //ДЛЯ ГЕНЕРАТОРА СЛУЧАЙНЫХ ЧИСЕЛ
 void MHL_SeedRandom(void);//Инициализатор генератора случайных чисел
 double MHL_RandomNumber(void);//Генерирует вещественное случайное число из интервала (0;1)
 \end{lstlisting}
 
-\begin{lstlisting}[label=random_h_cpp,caption=Объявление переменной в MathHarrixLibrary.cpp]
+\begin{lstlisting}[label=random_h_cpp,caption=Объявление переменной в HarrixMathLibrary.cpp]
 //ДЛЯ ГЕНЕРАТОРА СЛУЧАЙНЫХ ЧИСЕЛ
 unsigned int MHL_Dummy;//Результат инициализации генератора случайных чисел
 \end{lstlisting}

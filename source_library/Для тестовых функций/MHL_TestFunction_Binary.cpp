@@ -26,7 +26,7 @@ double MHL_TestFunction_Binary(int *x, int VMHL_N, TypeOfTestFunction Type)
      x - указатель на исходный массив;
      VMHL_N - размер массива x,
      Type - тип тестовой функции.
-     Смотреть виды в переменных перечисляемого типа в начале MathHarrixLibrary.h файла.
+     Смотреть виды в переменных перечисляемого типа в начале HarrixMathLibrary.h файла.
     Возвращаемое значение:
      Значение тестовой функции в точке x.
     */

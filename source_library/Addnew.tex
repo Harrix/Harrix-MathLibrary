@@ -18,18 +18,18 @@
 Вначале надо сориентироваться в структуре библиотеки:
 \begin{itemize}
 \item \textbf{\_library} --- основная папка, в которой распологается готовая библиотека и данная справка;
-\item \textbf{demo} --- папка, в которой находится программа DemoMathHarrixLibrary.exe с демонстрацией работы функций;
-\item \textbf{make} --- в этой папке находится программа MakeMathHarrixLibrary.exe для собрания готовых файлов библиотеки из исходных материалов из папки source\_library. Также там находится справка по этой программе;
-\item \textbf{source\_demo} --- папка с исходными кодами DemoMathHarrixLibrary.exe из папки demo;
-\item \textbf{source\_library} --- папка исходных материалов библиотеки. Сами эти файлы библиотекой не являются, так как они потом собираются MakeMathHarrixLibrary.exe; 
-\item \textbf{source\_make} --- папка с исходными кодами MakeMathHarrixLibrary.exe из папки make;
+\item \textbf{demo} --- папка, в которой находится программа DemoHarrixMathLibrary.exe с демонстрацией работы функций;
+\item \textbf{make} --- в этой папке находится программа MakeHarrixMathLibrary.exe для собрания готовых файлов библиотеки из исходных материалов из папки source\_library. Также там находится справка по этой программе;
+\item \textbf{source\_demo} --- папка с исходными кодами DemoHarrixMathLibrary.exe из папки demo;
+\item \textbf{source\_library} --- папка исходных материалов библиотеки. Сами эти файлы библиотекой не являются, так как они потом собираются MakeHarrixMathLibrary.exe; 
+\item \textbf{source\_make} --- папка с исходными кодами MakeHarrixMathLibrary.exe из папки make;
 \item \textbf{LICENSE.txt} и \textbf{NOTICE.txt} --- файлы Apache лицензии;
 \item \textbf{README.md} --- файл информации о проекте в системе GitHub.
 \end{itemize}
 
 Для полноценной работы по добавлению функций вам потребуются:
 \begin{itemize}
-\item программа для проверки работоспособности новых функций и компиляции DemoMathHarrixLibrary.exe (например, Qt 5.1.0 с Qt Creator 2.7.0 или любая другая версия Qt). Для проверки работоспособности библиотеки без компиляции DemoMathHarrixLibrary.exe подойдет любой другой C++ компилятор;
+\item программа для проверки работоспособности новых функций и компиляции DemoHarrixMathLibrary.exe (например, Qt 5.1.0 с Qt Creator 2.7.0 или любая другая версия Qt). Для проверки работоспособности библиотеки без компиляции DemoHarrixMathLibrary.exe подойдет любой другой C++ компилятор;
 \item программа для компиляции *.tex документов в *.pdf для формирования справочных материалов. Автор использует для этого связку MiKTex и TeXstudio (версии MiKTex 2.9 и TeXstudio 2.5.2).
 \end{itemize}
 
@@ -45,7 +45,7 @@ void MHL_NormalizationVectorOne(double *VMHL_ResultVector,int VMHL_N);
 \begin{lstlisting}[label=examplename2,caption=Пример названия шаблона функции]
 template <class T> int TMHL_SearchFirstZero(T *VMHL_Vector, int VMHL_N);
 \end{lstlisting}
-Код функций в итоге будет располагаться в MathHarrixLibrary.cpp, а реализация шаблонов будет располагаться в MathHarrixLibrary.h.
+Код функций в итоге будет располагаться в HarrixMathLibrary.cpp, а реализация шаблонов будет располагаться в HarrixMathLibrary.h.
 \item  Количество элементов в одномерном массиве обозначается стандартной переменной  \textbf{int VMHL\_N}.
 \item Количество элементов в двумерном массиве обозначается стандартными переменными  \textbf{int VMHL\_N} и \textbf{int VMHL\_M}.
 \item Возвращаемое значение функций обозначается переменной \textbf{VMHL\_Result}.
@@ -62,7 +62,7 @@ template <class T> int TMHL_SearchFirstZero(T *VMHL_Vector, int VMHL_N);
 \textbf{Шаг 1.}\label{step1} Вначале нам нужно реализовать саму функцию и проверить ее работоспособность. Если вы хотите работать не через средства, предоставляемые библиотекой, то этот шаг можно пропустить.
 
 \begin{itemize}
-\item Заходим в папку \textbf{source\_demo} и открываем проект \textbf{DemoMathHarrixLibrary.pro} в Qt Creator.
+\item Заходим в папку \textbf{source\_demo} и открываем проект \textbf{DemoHarrixMathLibrary.pro} в Qt Creator.
 \item Компилируем проект и в папку с скомпиированным приложением (в режиме Release) из папки \textbf{demo} скопируем файлы:
 \begin{itemize}
 \item  папка images;
@@ -71,8 +71,8 @@ template <class T> int TMHL_SearchFirstZero(T *VMHL_Vector, int VMHL_N);
 \item  jsxgraphcore.js;
 \item  style.css.
 \end {itemize}
-\item Добавляем в конец файлов \textbf{MathHarrixLibrary.cpp} и \textbf{MathHarrixLibrary.h} функцию, которую хотим добавить. Например, в MathHarrixLibrary.cpp добавляем:
-\begin{lstlisting}[label=examplefunction01, caption=Что добавляем в MathHarrixLibrary.cpp]
+\item Добавляем в конец файлов \textbf{HarrixMathLibrary.cpp} и \textbf{HarrixMathLibrary.h} функцию, которую хотим добавить. Например, в HarrixMathLibrary.cpp добавляем:
+\begin{lstlisting}[label=examplefunction01, caption=Что добавляем в HarrixMathLibrary.cpp]
 int  MHL_Func(int VMHL_X)
 {
 /*
@@ -85,14 +85,14 @@ int  MHL_Func(int VMHL_X)
   return 2*VMHL_X;
 }
 \end{lstlisting}
-А в MathHarrixLibrary.h добавляем:
-\begin{lstlisting}[label=examplefunction02, caption=Что добавляем в MathHarrixLibrary.h]
+А в HarrixMathLibrary.h добавляем:
+\begin{lstlisting}[label=examplefunction02, caption=Что добавляем в HarrixMathLibrary.h]
 int  MHL_Func(int VMHL_X);
 \end{lstlisting}
-\textbf{Замечание.} В .h файл добавляем до строчки <<\textbf{\#endif // MATHHARRIXLIBRARY\_H}>>.
+\textbf{Замечание.} В .h файл добавляем до строчки <<\textbf{\#endif // HARRIXMATHLIBRARY\_H}>>.
 
-\textbf{Замечание.} Если вы добавляете шаблон функции, то его реализацию надо добавлять в MathHarrixLibrary.h.
-\item Теперь перейдем в проекте DemoMathHarrixLibrary.pro в файл \textbf{mainwindow.cpp}.
+\textbf{Замечание.} Если вы добавляете шаблон функции, то его реализацию надо добавлять в HarrixMathLibrary.h.
+\item Теперь перейдем в проекте DemoHarrixMathLibrary.pro в файл \textbf{mainwindow.cpp}.
 \item Вначале этого файла идет следующий код:
 \begin{lstlisting}[label=examplefunction03, caption=mainwindow.cpp]
 #include "mainwindow.h"
@@ -104,9 +104,9 @@ int  MHL_Func(int VMHL_X);
 #include <QDir>
 #include <QStandardItemModel>
 
-#include "MathHarrixLibrary.h"
+#include "HarrixMathLibrary.h"
 
-#include "QtHarrixLibrary.h"
+#include "HarrixQtLibrary.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -206,7 +206,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
 \end{lstlisting}
 \end{itemize}
 
-Теперь рассмотрим какие функции используются для вывода результата. Типичными объектами, над которыми выполняются действия по выводу, являются: числа, вектора, матрицы. Их мы стандартизовано и выводим, используя некоторые функции. Так как библиотека MathHarrixLibrary может использоваться на различных системах C++, а вывод информации в каждой системе может быть разным, то функции вывода строились таким образом, чтобы внешне выглядели однотипно в любой системе C++, так как в справке к функциям из библиотеки функции вывода также будут присутствовать. Итак, использование функций внешне должно быть везде одинаковым для всех систем C++.  Поэтому вы можете их переписать под свои нужды.
+Теперь рассмотрим какие функции используются для вывода результата. Типичными объектами, над которыми выполняются действия по выводу, являются: числа, вектора, матрицы. Их мы стандартизовано и выводим, используя некоторые функции. Так как библиотека HarrixMathLibrary может использоваться на различных системах C++, а вывод информации в каждой системе может быть разным, то функции вывода строились таким образом, чтобы внешне выглядели однотипно в любой системе C++, так как в справке к функциям из библиотеки функции вывода также будут присутствовать. Итак, использование функций внешне должно быть везде одинаковым для всех систем C++.  Поэтому вы можете их переписать под свои нужды.
 
 
 \begin{itemize}
@@ -252,12 +252,12 @@ template <class T> void MainWindow::MHL_ShowNumber (T VMHL_X, QString TitleX, QS
      Отсутствует.
     */
     QString VMHL_Result;
-    VMHL_Result=THQt_ShowNumber (VMHL_X, TitleX, NameX);// из QtHarrixLibrary.h
+    VMHL_Result=THQt_ShowNumber (VMHL_X, TitleX, NameX);// из HarrixQtLibrary.h
     Html+=VMHL_Result;
 }
 //---------------------------------------------------------------------------
 
-//QtHarrixLibrary.h
+//HarrixQtLibrary.h
 template <class T> QString THQt_ShowNumber (T VMHL_X, QString TitleX, QString NameX)
 {
     /*
@@ -399,9 +399,9 @@ MHL_ShowText ("Выводимый текст");
 
 \end{itemize}
 
-Итак, мы добавили в DemoMathHarrixLibrary.pro нашу функцию и проверили ее работоспособность. 
+Итак, мы добавили в DemoHarrixMathLibrary.pro нашу функцию и проверили ее работоспособность. 
 
-\textbf{Шаг 2.}\label{step2} Теперь нам нужно добавить нашу функцию в исходники. Все исходные материалы располагаются в папке \textbf{source\_library}. В ней располагаются некоторые файлы, которые нам не особы интересны (подробнее в файле справке к программе MakeMathHarrixLibrary.exe в файле \textbf{make\textbackslash MakeMathHarrixLibrary\_Help.pdf}) и папки (например, \textbf{Вектора (Одномерные массивы)}). Каждая такая папка является разделом функций в библиотеке. Вам нужно выбрать папку, в которую вы будете добавлять свою функцию или создать свою собственную, если ничто не подходит по смыслу.
+\textbf{Шаг 2.}\label{step2} Теперь нам нужно добавить нашу функцию в исходники. Все исходные материалы располагаются в папке \textbf{source\_library}. В ней располагаются некоторые файлы, которые нам не особы интересны (подробнее в файле справке к программе MakeHarrixMathLibrary.exe в файле \textbf{make\textbackslash MakeHarrixMathLibrary\_Help.pdf}) и папки (например, \textbf{Вектора (Одномерные массивы)}). Каждая такая папка является разделом функций в библиотеке. Вам нужно выбрать папку, в которую вы будете добавлять свою функцию или создать свою собственную, если ничто не подходит по смыслу.
 
 Каждая функция или шаблон функции в разделе (выбранной вами папке) предоставляется следующими файлами:
 \begin{itemize}
@@ -503,10 +503,10 @@ MHL_ShowNumber (y,"Умноженное число", "y");
 
 Итак, мы добавили в папку source\_library нашу функцию. Теперь нужно перестроить библиотеку и провести замену файлов.
 
-\textbf{Шаг 3.}\label{step3} Сборка библиотеки. Перейдем в папку \textbf{make} в корне файлов библиотеки. В ней есть программа MakeMathHarrixLibrary.exe и справка к ней MakeMathHarrixLibrary\_Help.pdf. 
+\textbf{Шаг 3.}\label{step3} Сборка библиотеки. Перейдем в папку \textbf{make} в корне файлов библиотеки. В ней есть программа MakeHarrixMathLibrary.exe и справка к ней MakeHarrixMathLibrary\_Help.pdf. 
 
 \begin{itemize}
-\item Включим программу \textbf{MakeMathHarrixLibrary.exe}.
+\item Включим программу \textbf{MakeHarrixMathLibrary.exe}.
 \item Нажмем кнопку \textbf{Собрать библиотеку}.
 \item В окне программы будет отчет об собрании библиотеки, например:
 \begin{lstlisting}[label=examplereport, caption=Пример отчета о сборке библиотеки]
@@ -547,9 +547,9 @@ MHL_ShowNumber (y,"Умноженное число", "y");
 Загрузили файл Description_part1.tex
 Загрузили файл Title.tex
 
-Сохранили файл MathHarrixLibrary.cpp
-Сохранили файл MathHarrixLibrary.h
-Сохранили файл MathHarrixLibrary_Help.tex
+Сохранили файл HarrixMathLibrary.cpp
+Сохранили файл HarrixMathLibrary.h
+Сохранили файл HarrixMathLibrary_Help.tex
 
 Скопировали файл names.tex
 Скопировали файл packages.tex
@@ -569,21 +569,21 @@ MHL_ShowNumber (y,"Умноженное число", "y");
 \textbf{Шаг 4.}\label{step4} Разберем файлы из папки \textbf{temp\_library}.
 
 \begin{itemize}
-\item Скопируем файлы \textbf{MathHarrixLibrary.cpp} и \textbf{MathHarrixLibrary.h} в папку \textbf{\_library}.
+\item Скопируем файлы \textbf{HarrixMathLibrary.cpp} и \textbf{HarrixMathLibrary.h} в папку \textbf{\_library}.
 
-\item Откройте файл \textbf{MathHarrixLibrary\_Help.tex } в \LaTeX \ программе (автор использует TeXstudio) и скомпилируйте его.
+\item Откройте файл \textbf{HarrixMathLibrary\_Help.tex } в \LaTeX \ программе (автор использует TeXstudio) и скомпилируйте его.
 
-В итоге в папке temp\_library появится файл \textbf{MathHarrixLibrary\_Help.pdf}. Скопируйте этот файл в папку \textbf{\_library}.
+В итоге в папке temp\_library появится файл \textbf{HarrixMathLibrary\_Help.pdf}. Скопируйте этот файл в папку \textbf{\_library}.
 
 \item Теперь разберемся с программой для демонстрации. Как мы помним, в ней в самом начале мы проверяли свою функцию. 
 \begin{itemize}
-\item Скопируем файлы \textbf{MathHarrixLibrary.cpp} и \textbf{MathHarrixLibrary.h} в папку \textbf{source\_demo}.
-\item  Откройте \textbf{DemoMathHarrixLibrary.pro} из папки source\_demo в Qt Creator и скомпилирйте приложение (в режиме Release).
-\item Найдите папку, в которую скомпилировался проект. Это может быть папка проектов Qt, или папка появится в корневой папке библиотеки MathHarrixLibrary.
-\item Скопируйте файл \textbf{DemoMathHarrixLibrary.exe} в папку \textbf{demo}.
+\item Скопируем файлы \textbf{HarrixMathLibrary.cpp} и \textbf{HarrixMathLibrary.h} в папку \textbf{source\_demo}.
+\item  Откройте \textbf{DemoHarrixMathLibrary.pro} из папки source\_demo в Qt Creator и скомпилирйте приложение (в режиме Release).
+\item Найдите папку, в которую скомпилировался проект. Это может быть папка проектов Qt, или папка появится в корневой папке библиотеки HarrixMathLibrary.
+\item Скопируйте файл \textbf{DemoHarrixMathLibrary.exe} в папку \textbf{demo}.
 \end{itemize}
 \item Удалим папку \textbf{temp\_library} после всех наших действий.
-\item  Если папка с скомпилированным файлом DemoMathHarrixLibrary.exe появилась в корневой папке библиотеки, то удалите ее (например, build-DemoMathHarrixLibrary-Desktop\_Qt\_5\_0\_2\_MinGW\_32bit-Release).
+\item  Если папка с скомпилированным файлом DemoHarrixMathLibrary.exe появилась в корневой папке библиотеки, то удалите ее (например, build-DemoHarrixMathLibrary-Desktop\_Qt\_5\_0\_2\_MinGW\_32bit-Release).
 \item Отредактируйте на своё усмотрение файл README.md, где напишите о новых изменениях.
 \item В файлах \textbf{README.md}, \textbf{Header.cpp}, \textbf{source\_library\textbackslash Title.tex} поменяйте номер версии библиотеки.
 \end{itemize}
