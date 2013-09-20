@@ -1,4 +1,6 @@
-//Библиотека для отображения различных данных в QWebView. Версия v.1.9.
+//HarrixQtLibraryForQWebView
+//Версия 1.10
+//Библиотека для отображения различных данных в QWebView.
 //https://github.com/Harrix/HarrixQtLibraryForQWebView
 //Библиотека распространяется по лицензии Apache License, Version 2.0.
 
@@ -21,7 +23,6 @@ void HQt_BeginHtml(QString Path)
     VMHL_HTML="";
     VMHL_Path=Path;
     HQt_SaveFile(VMHL_HTML, VMHL_Path+"temp.html");//сохраняем пустую пока переменную в temp.html
-    HQt_SaveFile(HQt_RandomString(5), Path+"marker.html");
 }
 //---------------------------------------------------------------------------
 
@@ -36,8 +37,6 @@ void HQt_AddHtml(QString Html)
     */
     VMHL_HTML+=Html;
     HQt_SaveFile(VMHL_HTML, VMHL_Path+"temp.html");
-    //добавим маркер того, что что-то добавилось, чтобы скрипт в index.html обновил информацию из temp.html.
-    HQt_SaveFile(HQt_RandomString(5), VMHL_Path+"marker.html");
 }
 //---------------------------------------------------------------------------
 
