@@ -1,5 +1,5 @@
 HarrixMathLibrary
-===================
+=================
 
 Версия 3.17
 
@@ -12,7 +12,7 @@ https://github.com/Harrix/HarrixMathLibrary
 Для справки по установке, использованию и всем функциям перейдите в папку **_library** и откройте файл **HarrixMathLibrary_Help.pdf**. Там же находятся файлы последней версии библиотеки.
 
 Структура папок на GitHub
---------------------------
+-------------------------
 
 В проекте https://github.com/Harrix/HarrixMathLibrary имеются следущие папки:
 
@@ -31,7 +31,7 @@ https://github.com/Harrix/HarrixMathLibrary
 Подробный список изменений в файле CHANGELOG.md.
 
 Контакты
----------------
+--------
 
 С автором можно связаться по адресу sergienkoanton@mail.ru или  http://vk.com/harrix .
 
