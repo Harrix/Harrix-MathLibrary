@@ -14,6 +14,6 @@ double f1,f2=0;
 f1=exp(-0.2*sqrt(TMHL_SumSquareVector(x,VMHL_N)/double(VMHL_N)));
 for (int i=0;i<VMHL_N;i++) f2=f2+cos(2.*MHL_PI*x[i]);
 f2=exp(f2/double(VMHL_N));
-VMHL_Result=20.+exp(1)-20.*f1-f2;
+VMHL_Result=20.+exp(1.)-20.*f1-f2;
 return VMHL_Result;
 }

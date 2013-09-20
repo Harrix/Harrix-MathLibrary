@@ -23,7 +23,7 @@ double MHL_ErrorExOfTestFunction_Binary(int *x, int VMHL_N)
     if (VMHL_TypeOfTestFunction==TestFunction_SumVector)
     {
         for (i=0;i<VMHL_N;i++)
-            VMHL_Result_Ex+=fabs(x[i]-Optimum[i]);
+            VMHL_Result_Ex+=abs(x[i]-Optimum[i]);
     }
 
     delete [] Optimum;

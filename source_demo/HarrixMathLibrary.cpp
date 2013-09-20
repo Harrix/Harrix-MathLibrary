@@ -1,22 +1,8 @@
-//Библиотека HarrixMathLibrary
-//Версия 3.16
-
-//Сборник различных математических функций с открытым кодом на языке C++
-//Страница проекта: https://github.com/Harrix/HarrixMathLibrary
-//Распространяется по лицензии Apache License, Version 2.0
-
-//   Copyright 2007-2013 Harrix
-//   Licensed under the Apache License, Version 2.0 (the "License");
-//   you may not use this file except in compliance with the License.
-//   You may obtain a copy of the License at
-//
-//       http://www.apache.org/licenses/LICENSE-2.0
-//
-//   Unless required by applicable law or agreed to in writing, software
-//   distributed under the License is distributed on an "AS IS" BASIS,
-//   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-//   See the License for the specific language governing permissions and
-//   limitations under the License.
+//HarrixMathLibrary
+//Версия 3.17
+//Сборник различных математических функций и шаблонов с открытым кодом на языке C++.
+//https://github.com/Harrix/HarrixMathLibrary
+//Библиотека распространяется по лицензии Apache License, Version 2.0.
 
 #include <stdlib.h>
 #include <time.h>
@@ -1487,7 +1473,7 @@ double MHL_ErrorExOfTestFunction_Binary(int *x, int VMHL_N)
     if (VMHL_TypeOfTestFunction==TestFunction_SumVector)
     {
         for (i=0;i<VMHL_N;i++)
-            VMHL_Result_Ex+=fabs(x[i]-Optimum[i]);
+            VMHL_Result_Ex+=abs(x[i]-Optimum[i]);
     }
 
     delete [] Optimum;
@@ -3995,7 +3981,7 @@ double f1,f2=0;
 f1=exp(-0.2*sqrt(TMHL_SumSquareVector(x,VMHL_N)/double(VMHL_N)));
 for (int i=0;i<VMHL_N;i++) f2=f2+cos(2.*MHL_PI*x[i]);
 f2=exp(f2/double(VMHL_N));
-VMHL_Result=20.+exp(1)-20.*f1-f2;
+VMHL_Result=20.+exp(1.)-20.*f1-f2;
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
