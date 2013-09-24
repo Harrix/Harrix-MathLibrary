@@ -3,7 +3,7 @@
 \input{packages}
 \input{styles}
 
-\title{MakeHarrixMathLibrary v.1.5}
+\title{MakeHarrixMathLibrary v.1.6}
 \author{А.\,Б. Сергиенко}
 \date{\today}
 
@@ -166,6 +166,7 @@
 \item \textbf{Install.tex} --- содержит информацию об установке и использованию библиотеки;
 \item \textbf{Random.tex} --- информация о случайных числах в библиотеке;
 \item \textbf{Addnew.tex} --- информация о том, как добавлять новые функции в библиотеку.
+\item \textbf{Thirdparty.tex} --- информация о сторонних библиотеках, используемых в HarrixMathLibrary.
 \end{itemize}
 
 Ниже показан алгоритм (Алгоритм \ref{alg:MakingHelp}) формирования файлов справки библиотеки.
@@ -185,6 +186,7 @@ MakeHarrixMathLibrary написан на Qt 5, конкретнее на QtCrea
 \State $ HarrixMathLibrary\_Help.tex+=Install.tex $;
 \State $ HarrixMathLibrary\_Help.tex+=Random.tex $;
 \State $ HarrixMathLibrary\_Help.tex+=Addnew.tex $;
+\State $ HarrixMathLibrary\_Help.tex+=Thirdparty.tex $;
 \State $ResultTexList += \text {\textit{Заголовок для списка функций}}$;
 \State $ResultTexFunctions += \text {\textit{Заголовок для функций}}$;
 \ForAll {папок}

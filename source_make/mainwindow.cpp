@@ -125,6 +125,11 @@ void MainWindow::on_pushButton_clicked()
     if (!(Temp.trimmed().isEmpty())) ui->textEdit->insertHtml("Загрузили файл <b>Addnew.tex</b><br>");
     else {MessageError="<font color=\"red\">Ошибка с файлом <b>Addnew.tex</b><\font><br>";AllMessageError+=MessageError;ui->textEdit->insertHtml(MessageError);countoferrors++;}
 
+    Temp = HQt_ReadFile(path+"Thirdparty.tex")+"\n\n";//информация j сторонних библиотеках
+    ResultTex += Temp;
+    if (!(Temp.trimmed().isEmpty())) ui->textEdit->insertHtml("Загрузили файл <b>Thirdparty.tex</b><br>");
+    else {MessageError="<font color=\"red\">Ошибка с файлом <b>Thirdparty.tex</b><\font><br>";AllMessageError+=MessageError;ui->textEdit->insertHtml(MessageError);countoferrors++;}
+
     ResultH += "//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n";
     ResultH += "// ОБЪЯВЛЕНИЯ ФУНКЦИЙ\n";//добавляем название папки (раздела)
     ResultH += "//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n\n";
