@@ -1,5 +1,5 @@
 //HarrixMathLibrary
-//Версия 3.17
+//Версия 3.18
 //Сборник различных математических функций и шаблонов с открытым кодом на языке C++.
 //https://github.com/Harrix/HarrixMathLibrary
 //Библиотека распространяется по лицензии Apache License, Version 2.0.
@@ -9,9 +9,13 @@
 #include <math.h>
 
 #include "HarrixMathLibrary.h"
+#include "mtrand.h"//генеhатор случайных чисел Mersenne Twister
 
-//ДЛЯ ГЕНЕРАТОРА СЛУЧАЙНЫХ ЧИСЕЛ
-unsigned int MHL_Dummy;//Результат инициализации генератора случайных чисел
+//ДЛЯ ГЕНЕРАТОРОВ СЛУЧАЙНЫХ ЧИСЕЛ
+unsigned int MHL_Dummy;//Результат инициализации гстандартного генератора случайных чисел
+TypeOfRandomNumberGenerator MHL_TypeOfRandomNumberGenerator;//тип генератора случайных чисел
+MTRand mt((unsigned)time(NULL));//Инициализатор генератора случайных чисел Mersenne Twister
+MTRand drand;//Для генерирования случайного числа в диапозоне [0,1).
 
 //СЛУЖЕБНЫЕ ДОПОЛНИТЕЛЬНЫЕ ПЕРМЕННЫЕ
 double (*VMHL_TempFunction)(double*,int);
@@ -36,24 +40,54 @@ void MHL_SeedRandom(void)
 Возвращаемое значение:
  Отсутствуют.
 */
+//StandardRandomNumberGenerator
+//Инициализатор стандартного генератора случайных чисел
 //В качестве начального значения для ГСЧ используем текущее время
 MHL_Dummy=(unsigned)time(NULL);
 srand(MHL_Dummy);//Стандартная инициализация
-rand();//первый вызов для контроля
+//rand();//первый вызов для контроля
+
+//MersenneTwisterRandomNumberGenerator
+//Инициализатор генератора случайных чисел Mersenne Twister
+//В качестве начального значения для ГСЧ используем текущее время
+//Инициализациz происходит еще при подключении данного файла
+
+//Назначаем генератор по умолчанию как Mersenne Twister
+MHL_TypeOfRandomNumberGenerator = MersenneTwisterRandomNumberGenerator;
 }
 //---------------------------------------------------------------------------
 double MHL_RandomNumber(void)
 {
 /*
 Генератор случайных чисел (ГСЧ).
-В данном случае используется самый простой его вариант со всеми его недостатками.
-Использовать в функциях по криптографии не стоит.
+Есть два варианта генератора случайных чисел, который можно переключать
+функцией MHL_SetRandomNumberGenerator.
 Входные параметры:
  Отсутствуют.
 Возвращаемое значение:
- Случайное вещественное число из интервала (0;1) по равномерному закону распределения.
+ Случайное вещественное число из интервала (0;1) или [0;1) по равномерному закону распределения.
 */
-return (double)rand()/(RAND_MAX+1);
+    if (MHL_TypeOfRandomNumberGenerator==StandardRandomNumberGenerator)
+        return (double)rand()/(RAND_MAX+1);
+    if (MHL_TypeOfRandomNumberGenerator==MersenneTwisterRandomNumberGenerator)
+        return drand();
+
+    return 0;
+}
+//---------------------------------------------------------------------------
+
+void MHL_SetRandomNumberGenerator(TypeOfRandomNumberGenerator T)
+{
+/*
+Функция переназначает генератор случайных чисел.
+Входные параметры:
+ TypeOfRandomNumberGenerator - тип генератора случайных чисел:
+  StandardRandomNumberGenerator - стандартный генератор случайных чисел;
+  MersenneTwisterRandomNumberGenerator - генератор случайных чисел Mersenne Twister.
+Возвращаемое значение:
+ Отсутствует.
+*/
+    MHL_TypeOfRandomNumberGenerator = T;
 }
 //---------------------------------------------------------------------------
 
@@ -1448,6 +1482,148 @@ void MHL_DefineTestFunction(TypeOfTestFunction Type)
     VMHL_TypeOfTestFunction=Type;
 }
 //---------------------------------------------------------------------------
+int MHL_DimensionTestFunction_Binary(int i)
+{
+    /*
+    Функция определяет размерность тестовой задачи для тестовой функции бинарной оптимизации
+    по номеру подзадачи (число подзадач по функции MHL_GetCountOfSubProblems_Binary).
+    Включает в себя все тестовые функции бинарной оптимизации.
+    Обязательно вызвать один раз перед ее использованием функцию MHL_DefineTestFunction,
+    в которой определяется конкретный тип задачи оптимизации.
+    Входные параметры:
+     i - номер подзадачи (начиная с нуля).
+    Возвращаемое значение:
+     Размерность тестовой задачи для тестовой функции бинарной оптимизации.
+    */
+    int VMHL_Result = 0;
+
+    //проверка
+    if (i<0) i=0;
+    if (i>MHL_GetCountOfSubProblems_Binary()) i=MHL_GetCountOfSubProblems_Binary();
+
+    if (VMHL_TypeOfTestFunction==TestFunction_SumVector)
+    {
+        if (i==0) VMHL_Result = 20;
+        if (i==1) VMHL_Result = 30;
+        if (i==2) VMHL_Result = 40;
+        if (i==3) VMHL_Result = 50;
+        if (i==4) VMHL_Result = 60;
+        if (i==5) VMHL_Result = 70;
+        if (i==6) VMHL_Result = 80;
+        if (i==7) VMHL_Result = 90;
+        if (i==8) VMHL_Result = 100;
+        if (i==9) VMHL_Result = 200;
+    }
+
+    return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+int MHL_DimensionTestFunction_Binary(int i, TypeOfTestFunction Type)
+{
+    /*
+    Функция определяет размерность тестовой задачи для тестовой функции бинарной оптимизации
+    по номеру подзадачи (число подзадач по функции MHL_GetCountOfSubProblems_Binary).
+    Входные параметры:
+     i - номер подзадачи (начиная с нуля);
+     Type - тип тестовой функции.
+    Возвращаемое значение:
+     Размерность тестовой задачи для тестовой функции бинарной оптимизации.
+    */
+    int VMHL_Result = 0;
+
+    VMHL_TypeOfTestFunction = Type;
+
+    VMHL_Result = MHL_DimensionTestFunction_Binary(i);
+
+    return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+int MHL_DimensionTestFunction_Real(int i)
+{
+    /*
+    Функция определяет размерность тестовой задачи для тестовой функции вещественной оптимизации
+    по номеру подзадачи (число подзадач по функции MHL_GetCountOfSubProblems_Binary).
+    Включает в себя все тестовые функции вещественной оптимизации.
+    Обязательно вызвать один раз перед ее использованием функцию MHL_DefineTestFunction,
+    в которой определяется конкретный тип задачи оптимизации.
+    Входные параметры:
+     i - номер подзадачи (начиная с нуля).
+    Возвращаемое значение:
+     Размерность тестовой задачи для тестовой функции вещественной оптимизации.
+    */
+    int VMHL_Result = 0;
+
+    //проверка
+    if (i<0) i=0;
+    if (i>MHL_GetCountOfSubProblems_Binary()) i=MHL_GetCountOfSubProblems_Binary();
+
+    if (VMHL_TypeOfTestFunction==TestFunction_Ackley)
+    {
+        if (i==0) VMHL_Result = 2;
+        if (i==1) VMHL_Result = 3;
+        if (i==2) VMHL_Result = 4;
+        if (i==3) VMHL_Result = 5;
+        if (i==4) VMHL_Result = 10;
+        if (i==5) VMHL_Result = 20;
+        if (i==6) VMHL_Result = 30;
+    }
+
+    if (VMHL_TypeOfTestFunction==TestFunction_ParaboloidOfRevolution)
+    {
+        if (i==0) VMHL_Result = 2;
+        if (i==1) VMHL_Result = 3;
+        if (i==2) VMHL_Result = 4;
+        if (i==3) VMHL_Result = 5;
+        if (i==4) VMHL_Result = 10;
+        if (i==5) VMHL_Result = 20;
+        if (i==6) VMHL_Result = 30;
+    }
+
+    if (VMHL_TypeOfTestFunction==TestFunction_Rastrigin)
+    {
+        if (i==0) VMHL_Result = 2;
+        if (i==1) VMHL_Result = 3;
+        if (i==2) VMHL_Result = 4;
+        if (i==3) VMHL_Result = 5;
+        if (i==4) VMHL_Result = 10;
+        if (i==5) VMHL_Result = 20;
+        if (i==6) VMHL_Result = 30;
+    }
+
+    if (VMHL_TypeOfTestFunction==TestFunction_Rosenbrock)
+    {
+        if (i==0) VMHL_Result = 2;
+        if (i==1) VMHL_Result = 3;
+        if (i==2) VMHL_Result = 4;
+        if (i==3) VMHL_Result = 5;
+        if (i==4) VMHL_Result = 10;
+        if (i==5) VMHL_Result = 20;
+        if (i==6) VMHL_Result = 30;
+    }
+
+    return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+int MHL_DimensionTestFunction_Real(int i, TypeOfTestFunction Type)
+{
+    /*
+    Функция определяет размерность тестовой задачи для тестовой функции вещественной оптимизации
+    по номеру подзадачи (число подзадач по функции MHL_GetCountOfSubProblems_Binary).
+    Входные параметры:
+     i - номер подзадачи (начиная с нуля);
+     Type - тип тестовой функции.
+    Возвращаемое значение:
+     Размерность тестовой задачи для тестовой функции вещественной оптимизации.
+    */
+    int VMHL_Result = 0;
+
+    VMHL_TypeOfTestFunction = Type;
+
+    VMHL_Result = MHL_DimensionTestFunction_Real(i);
+
+    return VMHL_Result;
+}
+//---------------------------------------------------------------------------
 double MHL_ErrorExOfTestFunction_Binary(int *x, int VMHL_N)
 {
     /*
@@ -1939,6 +2115,103 @@ int MHL_GetCountOfFitness()
      Количество вызовов целевой функции.
     */
     return CountOfFitness;
+}
+//---------------------------------------------------------------------------
+int MHL_GetCountOfSubProblems_Binary()
+{
+    /*
+    Функция определяет число подзадач (включая основную задачу) для тестовой функции бинарной оптимизации.
+    Включает в себя все тестовые функции бинарной оптимизации.
+    Обязательно вызвать один раз перед ее использованием функцию MHL_DefineTestFunction,
+    в которой определяется конкретный тип задачи оптимизации.
+    Входные параметры:
+     Отсутствуют.
+    Возвращаемое значение:
+     Число подзадач (включая основную задачу) для тестовой функции.
+    */
+    int VMHL_Result = 0;
+
+    if (VMHL_TypeOfTestFunction==TestFunction_SumVector)
+    {
+        VMHL_Result = 10;
+    }
+
+    return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+int MHL_GetCountOfSubProblems_Binary(TypeOfTestFunction Type)
+{
+    /*
+    Функция определяет число подзадач (включая основную задачу) для тестовой функции бинарной оптимизации.
+    Включает в себя все тестовые функции бинарной оптимизации.
+    Входные параметры:
+     Type - тип тестовой функции.
+    Возвращаемое значение:
+     Число подзадач (включая основную задачу) для тестовой функции.
+    */
+    int VMHL_Result = 0;
+
+    VMHL_TypeOfTestFunction = Type;
+
+    VMHL_Result = MHL_GetCountOfSubProblems_Binary();
+
+    return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+int MHL_GetCountOfSubProblems_Real()
+{
+    /*
+    Функция определяет число подзадач (включая основную задачу) для тестовой функции вещественной оптимизации.
+    Включает в себя все тестовые функции вещественной оптимизации.
+    Обязательно вызвать один раз перед ее использованием функцию MHL_DefineTestFunction,
+    в которой определяется конкретный тип задачи оптимизации.
+    Входные параметры:
+     Отсутствуют.
+    Возвращаемое значение:
+     Число подзадач (включая основную задачу) для тестовой функции.
+    */
+    int VMHL_Result = 0;
+
+    if (VMHL_TypeOfTestFunction==TestFunction_Ackley)
+    {
+        VMHL_Result = 7;
+    }
+
+    if (VMHL_TypeOfTestFunction==TestFunction_ParaboloidOfRevolution)
+    {
+        VMHL_Result = 7;
+    }
+
+    if (VMHL_TypeOfTestFunction==TestFunction_Rastrigin)
+    {
+        VMHL_Result = 7;
+    }
+
+    if (VMHL_TypeOfTestFunction==TestFunction_Rosenbrock)
+    {
+        VMHL_Result = 7;
+    }
+
+    return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+int MHL_GetCountOfSubProblems_Real(TypeOfTestFunction Type)
+{
+    /*
+    Функция определяет число подзадач (включая основную задачу) для тестовой функции вещественной оптимизации.
+    Включает в себя все тестовые функции вещественной оптимизации.
+    Входные параметры:
+     Type - тип тестовой функции.
+    Возвращаемое значение:
+     Число подзадач (включая основную задачу) для тестовой функции.
+    */
+    int VMHL_Result = 0;
+
+    VMHL_TypeOfTestFunction = Type;
+
+    VMHL_Result = MHL_GetCountOfSubProblems_Real();
+
+    return VMHL_Result;
 }
 //---------------------------------------------------------------------------
 void MHL_LeftAndRightBorderOfTestFunction_Real(double *Left, double *Right,int VMHL_N)

@@ -29,11 +29,11 @@
 
 Для полноценной работы по добавлению функций вам потребуются:
 \begin{itemize}
-\item программа для проверки работоспособности новых функций и компиляции DemoHarrixMathLibrary.exe (например, Qt 5.1.0 с Qt Creator 2.7.0 или любая другая версия Qt). Для проверки работоспособности библиотеки без компиляции DemoHarrixMathLibrary.exe подойдет любой другой C++ компилятор;
-\item программа для компиляции *.tex документов в *.pdf для формирования справочных материалов. Автор использует для этого связку MiKTex и TeXstudio (версии MiKTex 2.9 и TeXstudio 2.5.2).
+\item программа для проверки работоспособности новых функций и компиляции DemoHarrixMathLibrary.exe (например, Qt 5.1.1 с Qt Creator 2.8.1 или любая другая версия Qt с пятой версии). Для проверки работоспособности библиотеки без компиляции DemoHarrixMathLibrary.exe подойдет любой другой C++ компилятор;
+\item программа для компиляции *.tex документов в *.pdf для формирования справочных материалов. Автор использует для этого связку MiKTex и TeXstudio (версии MiKTex 2.9 и TeXstudio 2.6.2).
 \end{itemize}
 
-В варианте, который использует автор, в *.tex файлах справкок для отображения русских букв используется модуль \textbf{pscyr}. Об его установке можно прочитать в статье \href{http://blog.harrix.org/?p=444}{http://blog.harrix.org/?p=444}.
+В варианте, который использует автор, в *.tex файлах справок для отображения русских букв используется модуль \textbf{pscyr}. Об его установке (там можно и скачать) можно прочитать в статье \href{http://blog.harrix.org/?p=444}{http://blog.harrix.org/?p=444}.
 
 Далее приведены некоторые спецификации, принятые в данной библиотеке.
 \begin{itemize}
@@ -45,15 +45,15 @@ void MHL_NormalizationVectorOne(double *VMHL_ResultVector,int VMHL_N);
 \begin{lstlisting}[label=examplename2,caption=Пример названия шаблона функции]
 template <class T> int TMHL_SearchFirstZero(T *VMHL_Vector, int VMHL_N);
 \end{lstlisting}
-Код функций в итоге будет располагаться в HarrixMathLibrary.cpp, а реализация шаблонов будет располагаться в HarrixMathLibrary.h.
-\item  Количество элементов в одномерном массиве обозначается стандартной переменной  \textbf{int VMHL\_N}.
+Код функций в итоге будет располагаться в HarrixMathLibrary.cpp, а реализация шаблонов будет располагаться в HarrixMathLibrary.h. Содержимое файлов mtrand.cpp и mtrand.h трогать не нужно.
+\item Количество элементов в одномерном массиве обозначается стандартной переменной  \textbf{int VMHL\_N}.
 \item Количество элементов в двумерном массиве обозначается стандартными переменными  \textbf{int VMHL\_N} и \textbf{int VMHL\_M}.
 \item Возвращаемое значение функций обозначается переменной \textbf{VMHL\_Result}.
 \item Возвращаемый вектор (над которым производятся вычисления) обозначается указателем \textbf{*VMHL\_ResultVector}.
 \item Возвращаемая матрица (над которой производятся вычисления) обозначается указателем \textbf{**VMHL\_ResultMatrix}.
-\item Если функция в качестве параметра имеет одну числовую переменную, то она обозначается \textbf{VMHL\_X} или \textbf{VMHL\_X1}. Если есть однотипные переменные, то обозначаются \textbf{VMHL\_X2} или \textbf{VMHL\_Y} и так далее.
-\item Если функция в качестве параметра имеет некий вектор, то он обозначается \textbf{VMHL\_Vector}.
-\item Если функция в качестве параметра имеет некую матрицу, то она обозначается \textbf{VMHL\_Matrix}.
+\item Если функция в качестве параметра имеет одну числовую переменную, то она обозначается \textbf{VMHL\_X} или \textbf{VMHL\_X1}. Если есть однотипные переменные, то обозначаются \textbf{VMHL\_X2} или \textbf{VMHL\_Y} и так далее (данная рекомендация даже автором редко соблюдается).
+\item Если функция в качестве параметра имеет некий вектор, то он обозначается \textbf{VMHL\_Vector} (данная рекомендация даже автором редко соблюдается).
+\item Если функция в качестве параметра имеет некую матрицу, то она обозначается \textbf{VMHL\_Matrix} (данная рекомендация даже автором редко соблюдается).
 \item То есть если входные переменные не имеют какой-то особый смысл, то название переменных стандартно, но в тоже время все входные и выходные переменные могут начинаться с \textbf{VMHL\_}, чтобы различать их от внутренних, но во отличии от выходных значений это есть \textbf{не обязательное условие}.
 \end{itemize}
 
@@ -569,7 +569,7 @@ MHL_ShowNumber (y,"Умноженное число", "y");
 \textbf{Шаг 4.}\label{step4} Разберем файлы из папки \textbf{temp\_library}.
 
 \begin{itemize}
-\item Скопируем файлы \textbf{HarrixMathLibrary.cpp} и \textbf{HarrixMathLibrary.h} в папку \textbf{\_library}.
+\item Скопируем файлы \textbf{HarrixMathLibrary.cpp}, \textbf{HarrixMathLibrary.h}, \textbf{mtrand.cpp}, \textbf{mtrand.h} в папку \textbf{\_library}.
 
 \item Откройте файл \textbf{HarrixMathLibrary\_Help.tex } в \LaTeX \ программе (автор использует TeXstudio) и скомпилируйте его.
 
@@ -577,15 +577,16 @@ MHL_ShowNumber (y,"Умноженное число", "y");
 
 \item Теперь разберемся с программой для демонстрации. Как мы помним, в ней в самом начале мы проверяли свою функцию. 
 \begin{itemize}
-\item Скопируем файлы \textbf{HarrixMathLibrary.cpp} и \textbf{HarrixMathLibrary.h} в папку \textbf{source\_demo}.
-\item  Откройте \textbf{DemoHarrixMathLibrary.pro} из папки source\_demo в Qt Creator и скомпилирйте приложение (в режиме Release).
+\item Скопируем файлы \textbf{HarrixMathLibrary.cpp}, \textbf{HarrixMathLibrary.h}, \textbf{mtrand.cpp}, \textbf{mtrand.h} в папку \textbf{source\_demo}.
+\item  Откройте \textbf{DemoHarrixMathLibrary.pro} из папки source\_demo в Qt Creator и скомпилируйте приложение (в режиме Release).
 \item Найдите папку, в которую скомпилировался проект. Это может быть папка проектов Qt, или папка появится в корневой папке библиотеки HarrixMathLibrary.
 \item Скопируйте файл \textbf{DemoHarrixMathLibrary.exe} в папку \textbf{demo}.
+\item В папке \textbf{demo} возможно придется обновить набор dll, если Вы используете версию Qt гораздо более новую, чем в данной сборке библиотеке.
 \end{itemize}
 \item Удалим папку \textbf{temp\_library} после всех наших действий.
-\item  Если папка с скомпилированным файлом DemoHarrixMathLibrary.exe появилась в корневой папке библиотеки, то удалите ее (например, build-DemoHarrixMathLibrary-Desktop\_Qt\_5\_0\_2\_MinGW\_32bit-Release).
-\item Отредактируйте на своё усмотрение файл README.md, где напишите о новых изменениях.
-\item В файлах \textbf{README.md}, \textbf{Header.cpp}, \textbf{source\_library\textbackslash Title.tex} поменяйте номер версии библиотеки.
+\item  Если папка с скомпилированным файлом DemoHarrixMathLibrary.exe появилась в корневой папке библиотеки, то удалите ее (например, build-DemoHarrixMathLibrary-Desktop\_Qt\_5\_1\_1\_MinGW\_32bit-Release).
+\item Отредактируйте на своё усмотрение файл CHANGELOG.md, где напишите о новых изменениях.
+\item В файлах \textbf{README.md}, \textbf{source\_library\textbackslash Header.cpp}, \textbf{source\_library\textbackslash Title.tex} поменяйте номер версии библиотеки.
 \end{itemize}
 
 Вот, вроде и всё. Мы добавили новую функцию и обновили все файлы и папки библиотеки.

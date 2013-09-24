@@ -1,0 +1,9 @@
+        MHL_DefineTestFunction(TestFunction_SumVector);
+
+        //Вызов функции
+        double N=MHL_GetCountOfSubProblems_Binary();
+
+        //Использование результата
+        MHL_ShowNumber(N,"Число подзадач (включая основную задачу) для TestFunction_SumVector","N");
+        //Число подзадач (включая основную задачу) для TestFunction_SumVector:
+        //N=10

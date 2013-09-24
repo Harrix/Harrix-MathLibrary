@@ -1,28 +1,32 @@
 \newpage
 \section{О случайных числах в библиотеке HarrixMathLibrary}\label{section_random}
 
-\textbf{Генератор случайных чисел (ГСЧ)} --- очень важная и нужная функция в программировании. При этом необходим лишь первичный генератор --- генератор случайных вещественных чисел в интервале $\left( 0; 1\right)$ по равномерному закону распределения. Все остальные случайные числа с другими законами распределения можно получить из равномерного.
+\textbf{Генератор случайных чисел (ГСЧ)} --- очень важная и нужная функция в программировании. При этом необходим лишь первичный генератор --- генератор случайных вещественных чисел в интервале $\left( 0; 1\right)$ по равномерному закону распределения (везде, где пишется о генераторе случайных чисел, надо понимать, что говорится о генераторе псевдослучайных чисел). Все остальные случайные числа с другими законами распределения можно получить из равномерного.
 
-По умолчанию в библиотеке используется стандартный генератор случайных чисел.
+По умолчанию в библиотеке используется генератор случайных чисел Mersenne Twister. Также есть стандартный генератор случайных чисел.
 
 
-Итак, что есть в библиотеке? Есть две функции и одна переменная:
+Итак, что есть в библиотеке? Есть три функции и несколько переменных. Рассмотрим функции:
 \begin{itemize}
-\item \textbf{MHL\_Dummy} --- результат инициализации генератора случайных чисел. Значение этой переменной вычисляется автоматически функцией MHL\_SeedRandom().
 \item \textbf{MHL\_SeedRandom()} --- инициализатор генератора случайных чисел. Нужно вызвать один раз за всё время запуска программы, в которой используется библиотека.
-\item \textbf{MHL\_RandomNumber()} --- непосредственно генератор случайных чисел. В своей реализации использует значение переменной MHL\_Dummy.
+\item \textbf{MHL\_RandomNumber()} --- непосредственно генератор случайных чисел.
+\item \textbf{MHL\_SetRandomNumberGenerator(TypeOfRandomNumberGenerator T)} --- функция позволяет переназначить генератор случайных чисел на другой.
 \end{itemize}
 
 В файле \textbf{HarrixMathLibrary.h} (после объявления констант в начале файла) есть строчки, которые объявляют эти вещи:
 \begin{lstlisting}[label=random_h,caption=Объявление функций в HarrixMathLibrary.h]
-//ДЛЯ ГЕНЕРАТОРА СЛУЧАЙНЫХ ЧИСЕЛ
+enum TypeOfRandomNumberGenerator { StandardRandomNumberGenerator, MersenneTwisterRandomNumberGenerator };//тип генератора случайных чисел: стандартный или MersenneTwister:
 void MHL_SeedRandom(void);//Инициализатор генератора случайных чисел
 double MHL_RandomNumber(void);//Генерирует вещественное случайное число из интервала (0;1)
+void MHL_SetRandomNumberGenerator(TypeOfRandomNumberGenerator T);//Переназначить генератор случайных чисел на другой
 \end{lstlisting}
 
 \begin{lstlisting}[label=random_h_cpp,caption=Объявление переменной в HarrixMathLibrary.cpp]
-//ДЛЯ ГЕНЕРАТОРА СЛУЧАЙНЫХ ЧИСЕЛ
-unsigned int MHL_Dummy;//Результат инициализации генератора случайных чисел
+//ДЛЯ ГЕНЕРАТОРОВ СЛУЧАЙНЫХ ЧИСЕЛ
+unsigned int MHL_Dummy;//Результат инициализации гстандартного генератора случайных чисел
+TypeOfRandomNumberGenerator MHL_TypeOfRandomNumberGenerator;//тип генератора случайных чисел
+MTRand mt((unsigned)time(NULL));//Инициализатор генератора случайных чисел Mersenne Twister
+MTRand drand;//Для генерирования случайного числа в диапозоне [0,1).
 \end{lstlisting}
 
 В случае своего желания Вы можете заменить тело функций MHL\_SeedRandom() и MHL\_RandomNumber() на свои собственные. Ниже представлены варианты, которые предлагаются автором.
@@ -37,25 +41,55 @@ void MHL_SeedRandom(void)
  Отсутствуют.
 Возвращаемое значение:
  Отсутствуют.
-*/ 
+*/
+//StandardRandomNumberGenerator
+//Инициализатор стандартного генератора случайных чисел
 //В качестве начального значения для ГСЧ используем текущее время
 MHL_Dummy=(unsigned)time(NULL);
 srand(MHL_Dummy);//Стандартная инициализация
-rand();//первый вызов для контроля
+//rand();//первый вызов для контроля
+
+//MersenneTwisterRandomNumberGenerator
+//Инициализатор генератора случайных чисел Mersenne Twister
+//В качестве начального значения для ГСЧ используем текущее время
+//Инициализациz происходит еще при подключении данного файла
+
+//Назначаем генератор по умолчанию как Mersenne Twister
+MHL_TypeOfRandomNumberGenerator = MersenneTwisterRandomNumberGenerator;
 }
 //---------------------------------------------------------------------------
 double MHL_RandomNumber(void)
 {
 /*
 Генератор случайных чисел (ГСЧ).
-В данном случае используется самый простой его вариант со всеми его недостатками.
-Использовать в функциях по криптографии не стоит.
+Есть два варианта генератора случайных чисел, который можно переключать
+функцией MHL_SetRandomNumberGenerator.
 Входные параметры:
  Отсутствуют.
 Возвращаемое значение:
- Случайное вещественное число из интервала (0;1) по равномерному закону распределения
-*/ 
-return (double)rand()/(RAND_MAX+1);
+ Случайное вещественное число из интервала (0;1) или [0;1) по равномерному закону распределения.
+*/
+    if (MHL_TypeOfRandomNumberGenerator==StandardRandomNumberGenerator)
+        return (double)rand()/(RAND_MAX+1);
+    if (MHL_TypeOfRandomNumberGenerator==MersenneTwisterRandomNumberGenerator)
+        return drand();
+
+    return 0;
+}
+//---------------------------------------------------------------------------
+
+void MHL_SetRandomNumberGenerator(TypeOfRandomNumberGenerator T)
+{
+/*
+Функция переназначает генератор случайных чисел.
+Входные параметры:
+ TypeOfRandomNumberGenerator - тип генератора случайных чисел:
+  StandardRandomNumberGenerator - стандартный генератор случайных чисел;
+  MersenneTwisterRandomNumberGenerator - генератор случайных чисел Mersenne Twister.
+Возвращаемое значение:
+ Отсутствует.
+*/
+    MHL_TypeOfRandomNumberGenerator = T;
 }
 //---------------------------------------------------------------------------
 \end{lstlisting}
@@ -63,7 +97,7 @@ return (double)rand()/(RAND_MAX+1);
 Теперь разберем, как применять данные функции.
 
 \begin{itemize}
-\item \hyperref[section_install]{Подключаем} библиотеку к Вашему проекту на C++.
+\item \hyperref[section_install]{Подключаем} библиотеку к Вашему проекту на C++ (об этом читайте в \hyperref[section_install]{главе об установке}).
 \item В начале программы \textbf{один} раз вызываем функцию MHL\_SeedRandom(). Ниже приведены примеры, где обычно стоит вызывать эту функцию.
 
 \begin{lstlisting}[label=random_console,caption=Применение MHL\_SeedRandom для консольного приложения]
@@ -94,7 +128,7 @@ MainWindow::MainWindow(QWidget *parent) :
 }
 \end{lstlisting}
 
-\item Теперь в любом месте программы мы можем получить случайное число из интервала $ \left(0; 1\right)  $. Например:
+\item Теперь в любом месте программы мы можем получить случайное число из интервала $ \left(0; 1\right]  $. Например:
 
 \begin{lstlisting}[label=random_use,caption=Применение ГСЧ]
 double x;
@@ -105,4 +139,16 @@ x=MHL_RandomNumber();
 
 \end{itemize}
 
-Вы можете заменить код этих функций (MHL\_SeedRandom, MHL\_RandomNumber) на свой генератор случайных чисел в интервале $\left( 0; 1\right)$. При этом работоспособность библиотеки не нарушится.
+А с помощью функции \textbf{MHL\_SetRandomNumberGenerator} можно поменять генератор случайных чисел. С помощью данного вызова меняем на стандартный генератор случайных чисел.
+\begin{lstlisting}[label=SetRandomNumberGenerator,caption=Меняем на стандартный генератор случайных чисел]
+MHL_SetRandomNumberGenerator(StandardRandomNumberGenerator);
+\end{lstlisting}
+
+А так меняем на генератор Mersenne Twister (он стоит по умолчанию).
+\begin{lstlisting}[label=SetRandomNumberGenerator,caption=Меняем на генератор случайных чисел Mersenne Twister]
+MHL_SetRandomNumberGenerator(MersenneTwisterRandomNumberGenerator);
+\end{lstlisting}
+
+В библиотеке используется сторонняя реализация генератора случайных чисел Mersenne Twister, и эта реализация располагается в файлах mtrand.cpp и mtrand.h.
+
+Вы можете заменить код функций (MHL\_SeedRandom, MHL\_RandomNumber) на свой генератор случайных чисел в интервале $\left( 0; 1\right)$. При этом работоспособность библиотеки не нарушится.

@@ -1,0 +1,9 @@
+        MHL_DefineTestFunction(TestFunction_Ackley);
+
+        //Вызов функции
+        double N=MHL_DimensionTestFunction_Real(0);
+
+        //Использование результата
+        MHL_ShowNumber(N,"Размерность тестовой задачи для TestFunction_Ackley при i=0","N");
+        //Размерность тестовой задачи для TestFunction_Ackley при i=0:
+        //N=2

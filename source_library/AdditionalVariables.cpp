@@ -1,5 +1,8 @@
-//ДЛЯ ГЕНЕРАТОРА СЛУЧАЙНЫХ ЧИСЕЛ
-unsigned int MHL_Dummy;//Результат инициализации генератора случайных чисел
+//ДЛЯ ГЕНЕРАТОРОВ СЛУЧАЙНЫХ ЧИСЕЛ
+unsigned int MHL_Dummy;//Результат инициализации гстандартного генератора случайных чисел
+TypeOfRandomNumberGenerator MHL_TypeOfRandomNumberGenerator;//тип генератора случайных чисел
+MTRand mt((unsigned)time(NULL));//Инициализатор генератора случайных чисел Mersenne Twister
+MTRand drand;//Для генерирования случайного числа в диапозоне [0,1).
 
 //СЛУЖЕБНЫЕ ДОПОЛНИТЕЛЬНЫЕ ПЕРМЕННЫЕ
 double (*VMHL_TempFunction)(double*,int);

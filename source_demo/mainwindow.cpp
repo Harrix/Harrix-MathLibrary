@@ -8,6 +8,10 @@
 #include <QStandardItemModel>
 #include <QSortFilterProxyModel>
 
+#include <stdlib.h>
+#include <time.h>
+#include <math.h>
+
 #include "HarrixMathLibrary.h"
 #include "HarrixQtLibraryForQWebView.h"
 #include "HarrixQtLibrary.h"
@@ -713,6 +717,18 @@ MainWindow::MainWindow(QWidget *parent) :
     model->appendRow(item);
 
     item = new QStandardItem(QString("TMHL_CheckForIdenticalColsInMatrix"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_GetCountOfSubProblems_Binary"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_GetCountOfSubProblems_Real"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_DimensionTestFunction_Binary"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_DimensionTestFunction_Real"));
     model->appendRow(item);
 
     model->sort(0);
@@ -8270,6 +8286,58 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
 
         for (i=0;i<VMHL_N;i++) delete [] a[i];
         delete [] a;
+    }
+
+    if (NameFunction=="MHL_GetCountOfSubProblems_Binary")
+    {
+        MHL_DefineTestFunction(TestFunction_SumVector);
+
+        //Вызов функции
+        double N=MHL_GetCountOfSubProblems_Binary();
+
+        //Использование результата
+        MHL_ShowNumber(N,"Число подзадач (включая основную задачу) для TestFunction_SumVector","N");
+        //Число подзадач (включая основную задачу) для TestFunction_SumVector:
+        //N=10
+    }
+
+    if (NameFunction=="MHL_GetCountOfSubProblems_Real")
+    {
+        MHL_DefineTestFunction(TestFunction_Ackley);
+
+        //Вызов функции
+        double N=MHL_GetCountOfSubProblems_Real();
+
+        //Использование результата
+        MHL_ShowNumber(N,"Число подзадач (включая основную задачу) для TestFunction_Ackley","N");
+        //Число подзадач (включая основную задачу) для TestFunction_Ackley:
+        //N=7
+    }
+
+    if (NameFunction=="MHL_DimensionTestFunction_Binary")
+    {
+        MHL_DefineTestFunction(TestFunction_SumVector);
+
+        //Вызов функции
+        double N=MHL_DimensionTestFunction_Binary(0);
+
+        //Использование результата
+        MHL_ShowNumber(N,"Размерность тестовой задачи для TestFunction_SumVector при i=0","N");
+        //Размерность тестовой задачи для TestFunction_SumVector при i=0:
+        //N=20
+    }
+
+    if (NameFunction=="MHL_DimensionTestFunction_Real")
+    {
+        MHL_DefineTestFunction(TestFunction_Ackley);
+
+        //Вызов функции
+        double N=MHL_DimensionTestFunction_Real(0);
+
+        //Использование результата
+        MHL_ShowNumber(N,"Размерность тестовой задачи для TestFunction_Ackley при i=0","N");
+        //Размерность тестовой задачи для TestFunction_Ackley при i=0:
+        //N=2
     }
 }
 //---------------------------------------------------------------------------
