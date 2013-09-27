@@ -731,6 +731,12 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("MHL_DimensionTestFunction_Real"));
     model->appendRow(item);
 
+    item = new QStandardItem(QString("MHL_LeftBorderOfWilcoxonWFromTable"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_RightBorderOfWilcoxonWFromTable"));
+    model->appendRow(item);
+
     model->sort(0);
 
     //соединение модели списка с конкретным списком
@@ -8338,6 +8344,46 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         MHL_ShowNumber(N,"Размерность тестовой задачи для TestFunction_Ackley при i=0","N");
         //Размерность тестовой задачи для TestFunction_Ackley при i=0:
         //N=2
+    }
+
+    if (NameFunction=="MHL_LeftBorderOfWilcoxonWFromTable")
+    {
+        int m=20;
+        MHL_ShowNumber(m,"Объем меньшей выборки","m");
+
+        int n=21;
+        MHL_ShowNumber(n,"Объем большей выборки","n");
+
+        double Q=0.05;
+        MHL_ShowNumber(Q,"Уровень значисмости","Q");
+
+        //Вызов функции
+        double Left=MHL_LeftBorderOfWilcoxonWFromTable(m,n,Q);
+
+        //Использование результата
+        MHL_ShowNumber(Left,"Левая граница интервала критический значений сатистики W для критерия Вилкоксена","Left");
+        //Левая граница интервала критический значений сатистики W для критерия Вилкоксена:
+        //Left=356
+    }
+
+    if (NameFunction=="MHL_RightBorderOfWilcoxonWFromTable")
+    {
+        int m=20;
+        MHL_ShowNumber(m,"Объем меньшей выборки","m");
+
+        int n=21;
+        MHL_ShowNumber(n,"Объем большей выборки","n");
+
+        double Q=0.05;
+        MHL_ShowNumber(Q,"Уровень значисмости","Q");
+
+        //Вызов функции
+        double Right=MHL_RightBorderOfWilcoxonWFromTable(m,n,Q);
+
+        //Использование результата
+        MHL_ShowNumber(Right,"Правая граница интервала критический значений сатистики W для критерия Вилкоксена","Right");
+        //Правая граница интервала критический значений сатистики W для критерия Вилкоксена:
+        //Right=484
     }
 }
 //---------------------------------------------------------------------------

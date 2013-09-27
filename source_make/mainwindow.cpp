@@ -394,6 +394,9 @@ void MainWindow::on_pushButton_clicked()
 
     ResultTex+=ResultTexList+"\n";
     ResultTex+=ResultTexFunctions;
+    ResultTex+="\\addcontentsline{toc}{chapter}{\\bibname}\n";
+    ResultTex+="\\bibliographystyle{utf8gost705u}  %% стилевой файл для оформления по ГОСТу\n";
+    ResultTex+="\\bibliography{biblio}     %% имя библиографической базы (bib-файла)\n";
     ResultTex+="\\newpage\n\n\\end{document}";
 
 
@@ -427,6 +430,14 @@ void MainWindow::on_pushButton_clicked()
     ui->textEdit->insertHtml("Сохранили файл <b>HarrixMathLibrary_Help.tex</b><br>");
 
     //Начнем копирование некоторых файлов целиком
+    b=HQt_CopyFile(path+"biblio.bib", temp_library_path,true);
+    if (b) ui->textEdit->insertHtml("<br>Скопировали файл <b>biblio.bib</b>");
+    else {MessageError="<font color=\"red\">Ошибка с файлом <b>biblio.bib</b><\font><br>";AllMessageError+=MessageError;ui->textEdit->insertHtml(MessageError);countoferrors++;}
+
+    b=HQt_CopyFile(path+"utf8gost705u.bst", temp_library_path,true);
+    if (b) ui->textEdit->insertHtml("<br>Скопировали файл <b>utf8gost705u.bst</b>");
+    else {MessageError="<font color=\"red\">Ошибка с файлом <b>utf8gost705u.bst</b><\font><br>";AllMessageError+=MessageError;ui->textEdit->insertHtml(MessageError);countoferrors++;}
+
     b=HQt_CopyFile(path+"mtrand.cpp", temp_library_path,true);
     if (b) ui->textEdit->insertHtml("<br>Скопировали файл <b>mtrand.cpp</b>");
     else {MessageError="<font color=\"red\">Ошибка с файлом <b>mtrand.cpp</b><\font><br>";AllMessageError+=MessageError;ui->textEdit->insertHtml(MessageError);countoferrors++;}

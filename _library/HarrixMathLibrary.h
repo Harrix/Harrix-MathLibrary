@@ -311,6 +311,8 @@ template <class T, class T2, class T3> void TMHL_BubbleSortWithTwoConjugateVecto
 //Статистика и теория вероятности
 double MHL_DensityOfDistributionOfNormalDistribution(double x);
 double MHL_DistributionFunctionOfNormalDistribution(double x, double Epsilon);
+double MHL_LeftBorderOfWilcoxonWFromTable(int m, int n, double Q);
+double MHL_RightBorderOfWilcoxonWFromTable(int m, int n, double Q);
 double MHL_StdDevToVariance(double StdDev);
 double MHL_VarianceToStdDev(double Variance);
 template <class T> T TMHL_Mean(T *x, int VMHL_N);
