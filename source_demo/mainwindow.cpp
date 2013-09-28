@@ -428,10 +428,10 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("TMHL_BubbleSortWithTwoConjugateVectors"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_DensityOfDistributionOfNormalDistribution"));
+    item = new QStandardItem(QString("MHL_DensityOfDistributionOfNormalizedCenteredNormalDistribution"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_DistributionFunctionOfNormalDistribution"));
+    item = new QStandardItem(QString("MHL_DistributionFunctionOfNormalizedCenteredNormalDistribution"));
     model->appendRow(item);
 
     item = new QStandardItem(QString("MHL_StdDevToVariance"));
@@ -737,6 +737,15 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("MHL_RightBorderOfWilcoxonWFromTable"));
     model->appendRow(item);
 
+    item = new QStandardItem(QString("MHL_ProbabilityDensityFunctionOfInverseGaussianDistribution"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_DistributionFunctionOfNormalDistribution"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_WilcoxonW"));
+    model->appendRow(item);
+
     model->sort(0);
 
     //соединение модели списка с конкретным списком
@@ -791,7 +800,7 @@ double Func3(double x)
 //---------------------------------------------------------------------------
 double Func4(double x)
 {
-return (x-1)*(x-1);
+    return (x-1)*(x-1);
 }
 //---------------------------------------------------------------------------
 void MainWindow::MHL_ShowText (QString TitleX)
@@ -5201,14 +5210,14 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] c;
     }
 
-    if (NameFunction=="MHL_DensityOfDistributionOfNormalDistribution")
+    if (NameFunction=="MHL_DensityOfDistributionOfNormalizedCenteredNormalDistribution")
     {
         double t;
         double f;
         t=MHL_RandomUniform(0,3);
 
         //Вызов функции
-        f=MHL_DensityOfDistributionOfNormalDistribution(t);
+        f=MHL_DensityOfDistributionOfNormalizedCenteredNormalDistribution(t);
 
         //Используем полученный результат
 
@@ -5218,25 +5227,6 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         MHL_ShowNumber (f,"Значение функции", "f");
         // Значение функции:
         //f=0.144736
-    }
-
-    if (NameFunction=="MHL_DistributionFunctionOfNormalDistribution")
-    {
-        double t;
-        double f;
-        t=MHL_RandomUniform(0,3);
-
-        //Вызов функции
-        f=MHL_DistributionFunctionOfNormalDistribution(t,0.001);
-
-        //Используем полученный результат
-
-        MHL_ShowNumber (t,"Параметр", "t");
-        //Параметр:
-        //t=2.62253
-        MHL_ShowNumber (f,"Значение функции", "f");
-        //Значение функции:
-        //f=0.495627
     }
 
     if (NameFunction=="MHL_StdDevToVariance")
@@ -7816,7 +7806,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         a=new int[VMHL_N];
         //Заполним случайными числами
         for (i=0;i<VMHL_N;i++)
-         a[i]=MHL_RandomUniformInt(0,4);
+            a[i]=MHL_RandomUniformInt(0,4);
 
         int x=2;
 
@@ -7860,16 +7850,16 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         for (i=0;i<VMHL_N;i++) a[i]=new int[VMHL_M];
         //Заполним случайными числами
         for (i=0;i<VMHL_N;i++)
-         for (j=0;j<VMHL_M;j++)
-          a[i][j]=MHL_RandomUniformInt(0,2);
+            for (j=0;j<VMHL_M;j++)
+                a[i][j]=MHL_RandomUniformInt(0,2);
 
         int **b;
         b=new int*[VMHL_N];
         for (i=0;i<VMHL_N;i++) b[i]=new int[VMHL_M];
         //Заполним случайными числами
         for (i=0;i<VMHL_N;i++)
-         for (j=0;j<VMHL_M;j++)
-          b[i][j]=MHL_RandomUniformInt(0,2);
+            for (j=0;j<VMHL_M;j++)
+                b[i][j]=MHL_RandomUniformInt(0,2);
 
         //Вызов функции
         bool Equality=TMHL_EqualityOfMatrixes(a,b,VMHL_N,VMHL_M);
@@ -8070,15 +8060,15 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //Используем полученный результат
         MHL_ShowNumber(VMHL_Success,"Как прошел запуск","VMHL_Success");
         if (VMHL_Success==1)
-         {
-         MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
-         //Найденное решение:
-         //Decision =
-         //1.91864	1.93604
-         MHL_ShowNumber(ValueOfFitnessFunction,"Значение целtвой функции","ValueOfFitnessFunction");
-         //Значение целевой функции:
-         //ValueOfFitnessFunction=-0.0107109
-         }
+        {
+            MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
+            //Найденное решение:
+            //Decision =
+            //1.91864	1.93604
+            MHL_ShowNumber(ValueOfFitnessFunction,"Значение целtвой функции","ValueOfFitnessFunction");
+            //Значение целевой функции:
+            //ValueOfFitnessFunction=-0.0107109
+        }
 
         delete [] ParametersOfAlgorithm;
         delete [] Decision;
@@ -8385,6 +8375,117 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //Правая граница интервала критический значений сатистики W для критерия Вилкоксена:
         //Right=484
     }
+
+    if (NameFunction=="MHL_ProbabilityDensityFunctionOfInverseGaussianDistribution")
+    {
+        double x;
+        double mu=1;
+        double lambda=1;
+        double f;
+        x=MHL_RandomUniform(0,3);
+        //x=0.975;
+
+        //Вызов функции
+        f=MHL_ProbabilityDensityFunctionOfInverseGaussianDistribution(x,mu,lambda);
+
+        //Используем полученный результат
+        MHL_ShowNumber (x,"Входная переменная", "x");
+        //Входная переменная:
+        //x=1.10063
+        MHL_ShowNumber (mu,"Параметр mu", "mu");
+        //Параметр mu:
+        //mu=1
+        MHL_ShowNumber (lambda,"Параметр lambda", "lambda");
+        //Параметр lambda:
+        //lambda=1
+        MHL_ShowNumber (f,"Значение функции", "f");
+        //Значение функции:
+        //f=0.343916
+    }
+
+    if (NameFunction=="MHL_DistributionFunctionOfNormalizedCenteredNormalDistribution")
+    {
+        double t;
+        double f;
+        t=MHL_RandomUniform(0,3);
+
+        //Вызов функции
+        f=MHL_DistributionFunctionOfNormalizedCenteredNormalDistribution(t,0.001);
+
+        //Используем полученный результат
+
+        MHL_ShowNumber (t,"Параметр", "t");
+        //Параметр:
+        //t=1.36576
+        MHL_ShowNumber (f,"Значение функции", "f");
+        //Значение функции:
+        //f=0.914011
+    }
+
+    if (NameFunction=="MHL_DistributionFunctionOfNormalDistribution")
+    {
+        double x;
+        double f;
+        x=MHL_RandomUniform(0,3);
+        double mu=3;
+        double sigma=1;
+
+        //Вызов функции
+        f=MHL_DistributionFunctionOfNormalizedCenteredNormalDistribution(x,0.001);
+
+        //Используем полученный результат
+        MHL_ShowNumber (x,"Входная переменная", "x");
+        //Входная переменная:
+        //x=0.527979
+        MHL_ShowNumber (mu,"Параметр mu", "mu");
+        //Параметр mu:
+        //mu=3
+        MHL_ShowNumber (sigma,"Параметр sigma", "sigma");
+        //Параметр sigma:
+        //sigma=1
+        MHL_ShowNumber (f,"Значение функции распределения нормального распределения", "f");
+        //Значение функции распределения нормального распределения:
+        //f=0.701244
+    }
+
+    if (NameFunction=="MHL_WilcoxonW")
+    {
+        int VMHL_Result;
+
+        int VMHL_N1=10;
+        int VMHL_N2=10;
+
+        double *a = new double[VMHL_N1];
+        double *b = new double[VMHL_N2];
+        TMHL_RandomIntVector(a,0.,10.,VMHL_N1);
+        TMHL_RandomIntVector(b,0.,10.,VMHL_N2);
+        MHL_ShowVectorT(a,VMHL_N1,"Первая выборка","a");
+        //Первая выборка:
+        //a =
+        //6	0	6	1	4	9	6	2	4	8
+
+        MHL_ShowVectorT(b,VMHL_N2,"Вторая выборка","b");
+        //Вторая выборка:
+        //b =
+        //8	1	1	6	0	3	1	1	2	3
+
+        double Q=0.002;
+        //Q=0.2;
+        MHL_ShowNumber(Q,"Уровень значимости","Q");
+        //Уровень значимости:
+        //Q=0.002
+        //Вызов функции
+        VMHL_Result = MHL_WilcoxonW(a, b, VMHL_N1, VMHL_N2, Q);
+
+        //Используем результат
+        MHL_ShowNumber(VMHL_Result,"Итог проверка двух выборок ритерием Вилкосена W","VMHL_Result");
+        //Итог проверка двух выборок ритерием Вилкосена W:
+        //VMHL_Result=1
+
+        delete [] a;
+        delete [] b;
+    }
+
 }
 //---------------------------------------------------------------------------
 

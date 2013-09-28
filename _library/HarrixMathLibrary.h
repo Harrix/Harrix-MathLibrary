@@ -189,6 +189,7 @@ int MHL_LeastCommonMultipleEuclid(int A,int B);
 void MHL_MixedMultiLogicVectorOfFullSearch(int *VMHL_Vector, int I, int *HowMuchInElements, int VMHL_N);
 double MHL_NormalizationNumberAll(double x);
 int MHL_Parity(int a);
+double MHL_ProbabilityDensityFunctionOfInverseGaussianDistribution (double x, double mu, double lambda);
 double MHL_SumGeometricSeries(double u1,double q,int n);
 double MHL_SumOfArithmeticalProgression(double a1,double d,int n);
 int MHL_SumOfDigits(int a);
@@ -309,12 +310,14 @@ template <class T, class T2> void TMHL_BubbleSortWithConjugateVector(T *VMHL_Res
 template <class T, class T2, class T3> void TMHL_BubbleSortWithTwoConjugateVectors(T *VMHL_ResultVector, T2 *VMHL_ResultVector2, T3 *VMHL_ResultVector3, int VMHL_N);
 
 //Статистика и теория вероятности
-double MHL_DensityOfDistributionOfNormalDistribution(double x);
-double MHL_DistributionFunctionOfNormalDistribution(double x, double Epsilon);
+double MHL_DensityOfDistributionOfNormalizedCenteredNormalDistribution(double x);
+double MHL_DistributionFunctionOfNormalDistribution(double x, double mu, double sigma, double Epsilon);
+double MHL_DistributionFunctionOfNormalizedCenteredNormalDistribution(double x, double Epsilon);
 double MHL_LeftBorderOfWilcoxonWFromTable(int m, int n, double Q);
 double MHL_RightBorderOfWilcoxonWFromTable(int m, int n, double Q);
 double MHL_StdDevToVariance(double StdDev);
 double MHL_VarianceToStdDev(double Variance);
+int MHL_WilcoxonW(double *a, double *b, int VMHL_N1, int VMHL_N2, double Q);
 template <class T> T TMHL_Mean(T *x, int VMHL_N);
 template <class T> T TMHL_Median(T *x, int VMHL_N);
 template <class T> T TMHL_SampleCovariance(T *x, T *y, int VMHL_N);

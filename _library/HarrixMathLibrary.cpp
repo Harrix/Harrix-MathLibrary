@@ -1,5 +1,5 @@
 //HarrixMathLibrary
-//Версия 3.20
+//Версия 3.21
 //Сборник различных математических функций и шаблонов с открытым кодом на языке C++.
 //https://github.com/Harrix/HarrixMathLibrary
 //Библиотека распространяется по лицензии Apache License, Version 2.0.
@@ -3168,6 +3168,27 @@ else
  return 0;
 }
 //---------------------------------------------------------------------------
+double MHL_ProbabilityDensityFunctionOfInverseGaussianDistribution (double x, double mu, double lambda)
+{
+/*
+Функция вычисляет плотность вероятности распределения обратного гауссовскому распределению.
+Входные параметры:
+ x - входная переменная (x>0);
+ mu - первый параметр распределения;
+ lambda - второй параметр распределения.
+Возвращаемое значение:
+ Значение функции в точке.
+*/
+    double VMHL_Result=0;
+
+    if ((mu>0)&&(x>0)&&(lambda>0))
+    {
+        VMHL_Result = sqrt(lambda/(2.*MHL_PI*x*x*x))*exp((-lambda*(x-mu)*(x-mu))/(2.*mu*mu*x));
+    }
+
+return VMHL_Result;
+}
+//---------------------------------------------------------------------------
 double MHL_SumGeometricSeries(double u1,double q,int n)
 {
 /*
@@ -4185,7 +4206,7 @@ return VMHL_Result;
 //*****************************************************************
 //Статистика и теория вероятности
 //*****************************************************************
-double MHL_DensityOfDistributionOfNormalDistribution(double x)
+double MHL_DensityOfDistributionOfNormalizedCenteredNormalDistribution(double x)
 {
 /*
 Плотность распределения вероятности нормированного и центрированного нормального распределения.
@@ -4197,17 +4218,48 @@ double MHL_DensityOfDistributionOfNormalDistribution(double x)
 return ((1./sqrt(2.*MHL_PI))*MHL_ExpMSxD2(x));
 }
 //---------------------------------------------------------------------------
-double MHL_DistributionFunctionOfNormalDistribution(double x, double Epsilon)
+double MHL_DistributionFunctionOfNormalDistribution(double x, double mu, double sigma, double Epsilon)
+{
+/*
+Функция распределения нормального распределения.
+Входные параметры:
+ x - входная переменная (правая граница интегрирования);
+ mu - математическое ожидание;
+ sigma - стандартное отклонение (sigma>0);
+ Epsilon - погрешность (например, Epsilon = 0.00001 - больше не берите, а то будет большая погрешность).
+Возвращаемое значение:
+ Значение функции в точке.
+*/
+    double VMHL_Result=0;
+
+    if (sigma>0)
+        VMHL_Result = MHL_DistributionFunctionOfNormalizedCenteredNormalDistribution((x-mu)/sigma,Epsilon);
+
+    return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+double MHL_DistributionFunctionOfNormalizedCenteredNormalDistribution(double x, double Epsilon)
 {
 /*
 Функция распределения нормированного и центрированного нормального распределения.
 Входные параметры:
  x - входная переменная (правая граница интегрирования);
- Epsilon - погрешность (например, Epsilon=0.001).
+ Epsilon - погрешность (например, Epsilon = 0.00001 - больше не берите, а то будет большая погрешность).
 Возвращаемое значение:
  Значение функции в точке.
 */
-return ((1./sqrt(2.*MHL_PI))*MHL_IntegralOfSimpson(0,x,Epsilon,MHL_ExpMSxD2));
+    double VMHL_Result=0;
+
+    if (x<0)
+    {
+        VMHL_Result = 1 - (((1./sqrt(2.*MHL_PI))*MHL_IntegralOfSimpson(0,-x,Epsilon,MHL_ExpMSxD2))+0.5);
+    }
+    if (x>0)
+    {
+        VMHL_Result = (((1./sqrt(2.*MHL_PI))*MHL_IntegralOfSimpson(0,x,Epsilon,MHL_ExpMSxD2))+0.5);
+    }
+
+	return VMHL_Result;
 }
 //---------------------------------------------------------------------------
 double MHL_LeftBorderOfWilcoxonWFromTable(int m, int n, double Q)
@@ -7770,6 +7822,123 @@ double MHL_VarianceToStdDev(double Variance)
  Значение среднеквадратичного уклонения.
 */
 return Variance*Variance;
+}
+//---------------------------------------------------------------------------
+int MHL_WilcoxonW(double *a, double *b, int VMHL_N1, int VMHL_N2, double Q)
+{
+/*
+Функция проверяет однородность выборок по критерию Вилкосена W.
+Входные параметры:
+ a - первая выборка;
+ b - вторая выборка;
+ VMHL_N1 - размер первой выборки;
+ VMHL_N2 - размер второй выборки;
+ Q - уровень значимости. Может принимать значения:
+  0.002;
+  0.01;
+  0.02;
+  0.05;
+  0.1;
+  0.2.
+Возвращаемое значение:
+ -2 - уровень значимости выбран неправильно (не из допустимого множества);
+ -1 - объемы выборок не позволяют провести проверку при данном уровне значимости (или они не положительные);
+ 0 - выборки не однородны  при данном уровне значимости;
+ 1 - выборки однородны  при данном уровне значимости;
+*/
+int VMHL_Result=-2;
+
+bool checkQ=false;
+if (Q==0.002) checkQ=true;
+if (Q==0.01)  checkQ=true;
+if (Q==0.02)  checkQ=true;
+if (Q==0.05)  checkQ=true;
+if (Q==0.1)   checkQ=true;
+if (Q==0.2)   checkQ=true;
+if (checkQ==false) return VMHL_Result;// уровень значимости выбран не допустимого множества
+
+//проверим правильность размеров выборки
+VMHL_Result=-1;
+if (VMHL_N1<=0) return VMHL_Result;
+if (VMHL_N2<=0) return VMHL_Result;
+//Если одной выборки много по числу элементов, а второй мало, то статистика выдаст некорректные результаты
+if ((VMHL_N1>25)&&(VMHL_N2<5)) return VMHL_Result;
+if ((VMHL_N2>25)&&(VMHL_N1<5)) return VMHL_Result;
+
+int i;
+double *All=new double[VMHL_N1+VMHL_N2];//объединенный массив
+double *Rank=new double[VMHL_N1+VMHL_N2];//ранги
+
+double W=0;//значение статистики критерия Вилкосена
+
+//заполняем объединенный массив
+for (i=0;i<VMHL_N1;i++) All[i]=a[i];//заливаем первую выборку
+for (i=0;i<VMHL_N2;i++) All[i+VMHL_N1]=b[i];//заливаем вторую выборку
+
+//проставляем ранги
+MHL_MakeVectorOfRankForRankSelection(All, Rank,VMHL_N1+VMHL_N2);
+
+//подсчитываем значение статистики W критерия Вилкосена
+if (VMHL_N1<=VMHL_N2)
+    for (i=0;i<VMHL_N1;i++) W += Rank[i];
+else
+    for (i=0;i<VMHL_N2;i++) W += Rank[i+VMHL_N1];
+
+//Границы интервала критический значений статистики W для критерия Вилкоксена
+double Left;
+double Right;
+
+if ((VMHL_N1<=25)&&(VMHL_N2<=25))
+{
+    //Берем значения из таблицы
+    Left=MHL_LeftBorderOfWilcoxonWFromTable(VMHL_N1,VMHL_N2,Q/2.);
+    Right=MHL_RightBorderOfWilcoxonWFromTable(VMHL_N1,VMHL_N2,Q/2.);
+    if ((Left==-1)||(Right==-1)) return -1;//При таких размерах нельзя провести корректную проверку
+}
+else
+{
+    //В таблице значений для таких объемов выборки нет, поэтому проводим пересчет
+    double m,n;
+    if (VMHL_N1<=VMHL_N2)
+    {
+        m=VMHL_N1;
+        n=VMHL_N2;
+    }
+    else
+    {
+        m=VMHL_N2;
+        n=VMHL_N1;
+    }
+
+    double MW2=2*m*(m+n+1)/2.;
+
+    double f1=(m*(m+n+1)-1)/2.;
+    double f2=sqrt(m*n*(m+n+1)/12.);
+
+    double h;
+    //Берем значения обратной функции нормального распределения при значении 1-Q/2, так как
+    //мы учитываем две критические границы
+    if (Q==0.002) h=3.090232;//0.999
+    if (Q==0.01)  h=2.575829;//0.995
+    if (Q==0.02)  h=2.326348;//0.99
+    if (Q==0.05)  h=1.959964;//0.975
+    if (Q==0.1)   h=1.644854;//0.95
+    if (Q==0.2)   h=1.281552;//0.9
+
+    Left=int(f1-h*f2);
+    Right=MW2-Left;
+}
+
+//Теперь проведем непосредственно проверку гипотезу об однородности выборок
+if ((W>=Left)&&(W<=Right))
+    VMHL_Result = 1;//выборки однородны
+else
+    VMHL_Result = 0;//выборки не однородны
+
+delete [] All;
+delete [] Rank;
+
+return VMHL_Result;
 }
 //---------------------------------------------------------------------------
 

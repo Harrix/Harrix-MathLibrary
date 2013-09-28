@@ -1,1 +1,0 @@
-double MHL_DensityOfDistributionOfNormalDistribution(double x);
