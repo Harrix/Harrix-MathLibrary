@@ -448,6 +448,16 @@ double MHL_LeftBorderOfWilcoxonWFromTable(int m, int n, double Q)
             if (Q==0.05)  VMHL_Result = 17;
             if (Q==0.10)  VMHL_Result = 21;
         }
+		
+		if (n==21)
+        {
+            if (Q==0.001) VMHL_Result = 7;
+            if (Q==0.005) VMHL_Result = 9;
+            if (Q==0.010) VMHL_Result = 11;
+            if (Q==0.025) VMHL_Result = 14;
+            if (Q==0.05)  VMHL_Result = 17;
+            if (Q==0.10)  VMHL_Result = 21;
+        }
 
         if (n==22)
         {

@@ -1,6 +1,11 @@
 HarrixMathLibrary
 =================
 
+3.22
+----
+ * Исправил ошибку в MakeHarrixMathLibrary.exe.
+ * Исправил ошибку в MHL_LeftBorderOfWilcoxonWFromTable.
+
 3.21
 ----
  * Добавлены функции, так что теперь теперь в библиотеке 270 функций (собственных).
