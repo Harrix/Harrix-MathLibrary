@@ -10,7 +10,7 @@ template <class T> bool TMHL_EqualityOfVectors(T *a, T *b, int VMHL_N)
  true - вектора совпадают;
  false - вектора не совпадают.
 */
-int VMHL_Result=true;
+bool VMHL_Result=true;
 for (int i=0;i<VMHL_N;i++)
  if (a[i]!=b[i]) VMHL_Result=false;
 

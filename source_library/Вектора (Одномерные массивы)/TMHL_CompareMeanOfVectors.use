@@ -1,0 +1,29 @@
+        int VMHL_Result;
+
+        int VMHL_N1=10;
+        int VMHL_N2=10;
+
+        double *a = new double[VMHL_N1];
+        double *b = new double[VMHL_N2];
+        TMHL_RandomIntVector(a,0.,100.,VMHL_N1);
+        TMHL_RandomIntVector(b,0.,20.,VMHL_N2);
+        MHL_ShowVectorT(a,VMHL_N1,"Первая выборка","a");
+        //Первая выборка:
+        //a =
+        //15	91	38	78	68	80	68	83	37	97
+
+        MHL_ShowVectorT(b,VMHL_N2,"Вторая выборка","b");
+        //Вторая выборка:
+        //b =
+        //7	10	0	18	11	4	18	3	12	13
+
+        //Вызов функции
+        VMHL_Result = TMHL_CompareMeanOfVectors(a, b, VMHL_N1, VMHL_N2);
+
+        //Используем результат
+        MHL_ShowNumber(VMHL_Result,"У какой выборки больше среднеарифметическое","VMHL_Result");
+        //У какой выборки больше среднеарифметическое:
+        //VMHL_Result=1
+
+        delete [] a;
+        delete [] b;

@@ -746,6 +746,9 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("MHL_WilcoxonW"));
     model->appendRow(item);
 
+    item = new QStandardItem(QString("TMHL_CompareMeanOfVectors"));
+    model->appendRow(item);
+
     model->sort(0);
 
     //соединение модели списка с конкретным списком
@@ -8480,6 +8483,39 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //Используем результат
         MHL_ShowNumber(VMHL_Result,"Итог проверка двух выборок ритерием Вилкосена W","VMHL_Result");
         //Итог проверка двух выборок ритерием Вилкосена W:
+        //VMHL_Result=1
+
+        delete [] a;
+        delete [] b;
+    }
+    
+    if (NameFunction=="TMHL_CompareMeanOfVectors")
+    {
+        int VMHL_Result;
+
+        int VMHL_N1=10;
+        int VMHL_N2=10;
+
+        double *a = new double[VMHL_N1];
+        double *b = new double[VMHL_N2];
+        TMHL_RandomIntVector(a,0.,100.,VMHL_N1);
+        TMHL_RandomIntVector(b,0.,20.,VMHL_N2);
+        MHL_ShowVectorT(a,VMHL_N1,"Первая выборка","a");
+        //Первая выборка:
+        //a =
+        //15	91	38	78	68	80	68	83	37	97
+
+        MHL_ShowVectorT(b,VMHL_N2,"Вторая выборка","b");
+        //Вторая выборка:
+        //b =
+        //7	10	0	18	11	4	18	3	12	13
+
+        //Вызов функции
+        VMHL_Result = TMHL_CompareMeanOfVectors(a, b, VMHL_N1, VMHL_N2);
+
+        //Используем результат
+        MHL_ShowNumber(VMHL_Result,"У какой выборки больше среднеарифметическое","VMHL_Result");
+        //У какой выборки больше среднеарифметическое:
         //VMHL_Result=1
 
         delete [] a;
