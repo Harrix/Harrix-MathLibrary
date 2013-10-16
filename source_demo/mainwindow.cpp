@@ -749,6 +749,12 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("TMHL_CompareMeanOfVectors"));
     model->appendRow(item);
 
+    item = new QStandardItem(QString("MHL_CountOfFitnessOfTestFunction_Real"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_CountOfFitnessOfTestFunction_Binary"));
+    model->appendRow(item);
+
     model->sort(0);
 
     //соединение модели списка с конкретным списком
@@ -8520,6 +8526,36 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
 
         delete [] a;
         delete [] b;
+    }
+
+    if (NameFunction=="MHL_CountOfFitnessOfTestFunction_Real")
+    {
+        MHL_DefineTestFunction(TestFunction_Ackley);
+
+        int Dimension = 3;
+
+        //Вызов функции
+        int  N=MHL_CountOfFitnessOfTestFunction_Real(Dimension);
+
+        //Использование результата
+        MHL_ShowNumber(N,"Количество вычислений целевой функции для TestFunction_Ackley при размерности 3","N");
+        //Количество вычислений целевой функции для TestFunction_Ackley при размерности 3:
+        //N=729
+    }
+
+    if (NameFunction=="MHL_CountOfFitnessOfTestFunction_Binary")
+    {
+        MHL_DefineTestFunction(TestFunction_SumVector);
+
+        int Dimension = 30;
+
+        //Вызов функции
+        int  N=MHL_CountOfFitnessOfTestFunction_Binary(Dimension);
+
+        //Использование результата
+        MHL_ShowNumber(N,"Количество вычислений целевой функции для TestFunction_SumVector при размерности 30","N");
+        //Количество вычислений целевой функции для TestFunction_SumVector при размерности 30:
+        //N=400
     }
 
 }

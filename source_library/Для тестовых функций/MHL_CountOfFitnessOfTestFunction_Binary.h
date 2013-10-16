@@ -1,0 +1,2 @@
+int MHL_CountOfFitnessOfTestFunction_Binary(int Dimension);
+int MHL_CountOfFitnessOfTestFunction_Binary(int Dimension, TypeOfTestFunction Type);

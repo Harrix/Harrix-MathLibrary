@@ -1,0 +1,11 @@
+        MHL_DefineTestFunction(TestFunction_SumVector);
+
+        int Dimension = 30;
+
+        //Вызов функции
+        int  N=MHL_CountOfFitnessOfTestFunction_Binary(Dimension);
+
+        //Использование результата
+        MHL_ShowNumber(N,"Количество вычислений целевой функции для TestFunction_SumVector при размерности 30","N");
+        //Количество вычислений целевой функции для TestFunction_SumVector при размерности 30:
+        //N=400

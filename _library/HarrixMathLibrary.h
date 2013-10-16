@@ -117,6 +117,10 @@ double MHL_RightDerivative(double x, double h, double (*Function)(double));
 
 //Для тестовых функций
 int MHL_ClassOfTestFunction(TypeOfTestFunction Type);
+int MHL_CountOfFitnessOfTestFunction_Binary(int Dimension);
+int MHL_CountOfFitnessOfTestFunction_Binary(int Dimension, TypeOfTestFunction Type);
+int MHL_CountOfFitnessOfTestFunction_Real(int Dimension);
+int MHL_CountOfFitnessOfTestFunction_Real(int Dimension, TypeOfTestFunction Type);
 void MHL_DefineTestFunction(TypeOfTestFunction Type);
 int MHL_DimensionTestFunction_Binary(int i);
 int MHL_DimensionTestFunction_Binary(int i, TypeOfTestFunction Type);
