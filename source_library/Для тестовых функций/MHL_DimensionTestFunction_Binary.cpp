@@ -15,7 +15,7 @@ int MHL_DimensionTestFunction_Binary(int i)
 
     //проверка
     if (i<0) i=0;
-    if (i>MHL_GetCountOfSubProblems_Binary()) i=MHL_GetCountOfSubProblems_Binary();
+    //if (i>=MHL_GetCountOfSubProblems_Binary()) i=MHL_GetCountOfSubProblems_Binary()-1;
 
     if (VMHL_TypeOfTestFunction==TestFunction_SumVector)
     {

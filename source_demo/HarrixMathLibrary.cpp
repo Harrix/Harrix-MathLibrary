@@ -1,5 +1,5 @@
 //HarrixMathLibrary
-//Версия 3.24
+//Версия 3.25
 //Сборник различных математических функций и шаблонов с открытым кодом на языке C++.
 //https://github.com/Harrix/HarrixMathLibrary
 //Библиотека распространяется по лицензии Apache License, Version 2.0.
@@ -1635,7 +1635,7 @@ int MHL_DimensionTestFunction_Binary(int i)
 
     //проверка
     if (i<0) i=0;
-    if (i>MHL_GetCountOfSubProblems_Binary()) i=MHL_GetCountOfSubProblems_Binary();
+    //if (i>=MHL_GetCountOfSubProblems_Binary()) i=MHL_GetCountOfSubProblems_Binary()-1;
 
     if (VMHL_TypeOfTestFunction==TestFunction_SumVector)
     {
@@ -1691,7 +1691,7 @@ int MHL_DimensionTestFunction_Real(int i)
 
     //проверка
     if (i<0) i=0;
-    if (i>MHL_GetCountOfSubProblems_Binary()) i=MHL_GetCountOfSubProblems_Binary();
+    //if (i>=MHL_GetCountOfSubProblems_Real()) i=MHL_GetCountOfSubProblems_Real()-1;
 
     if (VMHL_TypeOfTestFunction==TestFunction_Ackley)
     {
