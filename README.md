@@ -7,7 +7,7 @@ HarrixMathLibrary
 
 https://github.com/Harrix/HarrixMathLibrary
 
-Библиотека распространяется по лицензии Apache License, Version 2.0.
+Библиотека распространяется по лицензии [Apache License, Version 2.0](../master/LICENSE.txt).
 
 Для справки по установке, использованию и всем функциям перейдите в папку **_library** и откройте файл **HarrixMathLibrary_Help.pdf**. Там же находятся файлы последней версии библиотеки.
 
