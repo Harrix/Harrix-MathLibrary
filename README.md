@@ -17,11 +17,11 @@ https://github.com/Harrix/HarrixMathLibrary
 В проекте https://github.com/Harrix/HarrixMathLibrary имеются следущие папки:
 
  * [**_library**](../master/_library) - непосредственно сама библиотека. В папке содержится последний билд библиотеки.
- * [**demo**](../master/demo) - папка с программой DemoHarrixMathLibrary.exe, демонстрирующей работу функций библиотеки.
- * [**make**](../master/make) - папка с программой MakeHarrixMathLibrary.exe, которая формирует из исходников в папке source_library библиотеку и справку к ней.
- * [**source_demo**](../master/source_demo) - папка с исходным текстом программы DemoHarrixMathLibrary.exe.
- * [**source_library**](../master/source_library) - папка с исходным текстом библиотеки, который потом собирается программой MakeHarrixMathLibrary.exe из папки make.
- * [**source_make**](../master/source_make) - папка с исходным текстом MakeHarrixMathLibrary.exe и справки по ней.
+ * [**demo**](../master/demo) - папка с программой [DemoHarrixMathLibrary.exe](../master/demo/DemoHarrixMathLibrary.exe), демонстрирующей работу функций библиотеки.
+ * [**make**](../master/make) - папка с программой [MakeHarrixMathLibrary.exe](../master/make/MakeHarrixMathLibrary.exe), которая формирует из исходников в папке source_library библиотеку и справку к ней.
+ * [**source_demo**](../master/source_demo) - папка с исходным текстом программы [DemoHarrixMathLibrary.exe](../master/demo/DemoHarrixMathLibrary.exe).
+ * [**source_library**](../master/source_library) - папка с исходным текстом библиотеки, который потом собирается программой [MakeHarrixMathLibrary.exe](../master/make/MakeHarrixMathLibrary.exe) из папки [make](../master/make).
+ * [**source_make**](../master/source_make) - папка с исходным текстом [MakeHarrixMathLibrary.exe](../master/make/MakeHarrixMathLibrary.exe) и справки по ней.
  * [**LICENSE.txt**](../master/LICENSE.txt), [NOTICE.txt](../master/NOTICE.txt)**** - файлы лицензии Apache License, Version 2.0.
  * [**README.md**](../master/README.md) - непосредственно этот файл.
  * [**images**](../master/images) - в папке находятся служебные рисунки для отображения в этом файле.
