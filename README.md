@@ -14,7 +14,7 @@ https://github.com/Harrix/HarrixMathLibrary
 Структура папок на GitHub
 -------------------------
 
-В проекте https://github.com/Harrix/HarrixMathLibrary имеются следущие папки:
+В проекте https://github.com/Harrix/HarrixMathLibrary имеются следущие папки и файлы:
 
  * [**_library**](../master/_library) - непосредственно сама библиотека. В папке содержится последний билд библиотеки.
  * [**demo**](../master/demo) - папка с программой [DemoHarrixMathLibrary.exe](../master/demo/DemoHarrixMathLibrary.exe), демонстрирующей работу функций библиотеки.
