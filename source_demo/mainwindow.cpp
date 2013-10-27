@@ -755,6 +755,18 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("MHL_CountOfFitnessOfTestFunction_Binary"));
     model->appendRow(item);
 
+    item = new QStandardItem(QString("MHL_LineGeneralForm"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_LineSlopeInterceptForm"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_LineTwoPoint"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_Parabola"));
+    model->appendRow(item);
+
     model->sort(0);
 
     //соединение модели списка с конкретным списком
@@ -8556,6 +8568,100 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         MHL_ShowNumber(N,"Количество вычислений целевой функции для TestFunction_SumVector при размерности 30","N");
         //Количество вычислений целевой функции для TestFunction_SumVector при размерности 30:
         //N=400
+    }
+
+    if (NameFunction=="MHL_LineGeneralForm")
+    {
+        double A=MHL_RandomUniformInt(1,10);
+        double B=MHL_RandomUniformInt(1,10);
+        double C=MHL_RandomUniformInt(1,10);
+
+        double x=5;
+
+        int solutionis;
+
+        //Вызов функции
+        double y=MHL_LineGeneralForm(x,A,B,C,&solutionis);
+
+        //Используем полученный результат
+        MHL_ShowText("Уравнение прямой: "+MHL_NumberToText(A)+"*x+"+MHL_NumberToText(B)+"*y+"+MHL_NumberToText(C)+"=0");
+        //Уравнение прямой: 7*x+1*y+7=0.
+        MHL_ShowNumber(solutionis,"Найдено ли решение","solutionis");
+        //Найдено ли решение:
+        //solutionis=1
+        if (solutionis!=0)
+        {
+        MHL_ShowNumber(y,"Значение функции прямой в точке x=5","y");
+        //Значение функции прямой в точке x=5:
+        //y=-42
+        }
+    }
+
+    if (NameFunction=="MHL_LineSlopeInterceptForm")
+    {
+        double k=MHL_RandomUniformInt(1,10);
+        double b=MHL_RandomUniformInt(1,10);
+
+        double x=5;
+
+        //Вызов функции
+        double y=MHL_LineSlopeInterceptForm(x,k,b);
+
+        //Используем полученный результат
+        MHL_ShowText("Уравнение прямой: y="+MHL_NumberToText(k)+"*x+"+MHL_NumberToText(b));
+        //Уравнение прямой: y=4*x+1.
+        MHL_ShowNumber(y,"Значение функции прямой в точке x=5","y");
+        //Значение функции прямой в точке x=5:
+        //y=21
+    }
+
+    if (NameFunction=="MHL_LineTwoPoint")
+    {
+        double x1=MHL_RandomUniformInt(1,10);
+        double y1=MHL_RandomUniformInt(1,10);
+        double x2=MHL_RandomUniformInt(1,10);
+        double y2=MHL_RandomUniformInt(1,10);
+
+        double x=5;
+
+        int solutionis;
+
+        //Вызов функции
+        double y=MHL_LineTwoPoint(x,x1,y1,x2,y2,&solutionis);
+
+        //Используем полученный результат
+        MHL_ShowText("Первая точка: ("+MHL_NumberToText(x1)+"; "+MHL_NumberToText(y1)+")");
+        //Первая точка: (6; 3).
+        MHL_ShowText("Вторая точка: ("+MHL_NumberToText(x2)+"; "+MHL_NumberToText(y2)+")");
+        //Вторая точка: (3; 3).
+        MHL_ShowNumber(solutionis,"Найдено ли решение","solutionis");
+        //Найдено ли решение:
+        //solutionis=1
+        if (solutionis!=0)
+        {
+        MHL_ShowNumber(y,"Значение прямо, проходящей через две указанные точки, в точке x=5","y");
+        //Значение прямо, проходящей через две указанные точки, в точке x=5:
+        //y=32
+        }
+    }
+
+    if (NameFunction=="MHL_Parabola")
+    {
+        double a=MHL_RandomUniformInt(1,10);
+        double b=MHL_RandomUniformInt(1,10);
+        double c=MHL_RandomUniformInt(1,10);
+
+        double x=5;
+
+        //Вызов функции
+        double y=MHL_Parabola(x,a,b,c);
+
+        //Используем полученный результат
+        MHL_ShowText("Уравнение параболы: y="+MHL_NumberToText(a)+"*x^2+"+MHL_NumberToText(b)+"*x+"+MHL_NumberToText(c));
+        //Уравнение параболы: y=4*x^2+5*x+3.
+        MHL_ShowNumber(y,"Значение функции параболы в точке x=5","y");
+        //Значение функции параболы в точке x=5:
+        //y=128
     }
 
 }

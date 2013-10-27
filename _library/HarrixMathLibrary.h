@@ -100,6 +100,12 @@ template <class T> void TMHL_TwopointCrossover(T *Parent1, T *Parent2, T *VMHL_R
 template <class T> void TMHL_UniformCrossover(T *Parent1, T *Parent2, T *VMHL_ResultVector, int VMHL_N);
 
 //Геометрия
+double MHL_LineGeneralForm(double x, double A, double B, double C, int *solutionis);
+double MHL_LineGeneralForm(double x, double A, double B, double C);
+double MHL_LineSlopeInterceptForm(double x, double k, double b);
+double MHL_LineTwoPoint(double x, double x1, double y1, double x2, double y2, int *solutionis);
+double MHL_LineTwoPoint(double x, double x1, double y1, double x2, double y2);
+double MHL_Parabola(double x, double a, double b, double c);
 template <class T> int TMHL_BoolCrossingTwoSegment(T b1,T c1,T b2,T c2);
 
 //Гиперболические функции

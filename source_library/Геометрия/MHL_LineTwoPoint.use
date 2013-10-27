@@ -1,0 +1,26 @@
+        double x1=MHL_RandomUniformInt(1,10);
+        double y1=MHL_RandomUniformInt(1,10);
+        double x2=MHL_RandomUniformInt(1,10);
+        double y2=MHL_RandomUniformInt(1,10);
+
+        double x=5;
+
+        int solutionis;
+
+        //Вызов функции
+        double y=MHL_LineTwoPoint(x,x1,y1,x2,y2,&solutionis);
+
+        //Используем полученный результат
+        MHL_ShowText("Первая точка: ("+MHL_NumberToText(x1)+"; "+MHL_NumberToText(y1)+")");
+        //Первая точка: (6; 3).
+        MHL_ShowText("Вторая точка: ("+MHL_NumberToText(x2)+"; "+MHL_NumberToText(y2)+")");
+        //Вторая точка: (3; 3).
+        MHL_ShowNumber(solutionis,"Найдено ли решение","solutionis");
+        //Найдено ли решение:
+        //solutionis=1
+        if (solutionis!=0)
+        {
+        MHL_ShowNumber(y,"Значение прямо, проходящей через две указанные точки, в точке x=5","y");
+        //Значение прямо, проходящей через две указанные точки, в точке x=5:
+        //y=32
+        }

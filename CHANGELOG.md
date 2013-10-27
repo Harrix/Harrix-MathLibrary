@@ -3,6 +3,11 @@ HarrixMathLibrary
 
 3.25
 ----
+ * Исправление функции MHL_QuadraticEquation.
+ * Добавлены функции в разделе "Геометрия", так что теперь теперь в библиотеке 282 функций (собственных).
+
+3.25
+----
  * Исправлены ошибки в функциях MHL_DimensionTestFunction_Binary и MHL_DimensionTestFunction_Real.
  * Demo обновлен, а то в версии 3.24 это не было сделано.
 

@@ -1,0 +1,14 @@
+        double k=MHL_RandomUniformInt(1,10);
+        double b=MHL_RandomUniformInt(1,10);
+
+        double x=5;
+
+        //Вызов функции
+        double y=MHL_LineSlopeInterceptForm(x,k,b);
+
+        //Используем полученный результат
+        MHL_ShowText("Уравнение прямой: y="+MHL_NumberToText(k)+"*x+"+MHL_NumberToText(b));
+        //Уравнение прямой: y=4*x+1.
+        MHL_ShowNumber(y,"Значение функции прямой в точке x=5","y");
+        //Значение функции прямой в точке x=5:
+        //y=21
