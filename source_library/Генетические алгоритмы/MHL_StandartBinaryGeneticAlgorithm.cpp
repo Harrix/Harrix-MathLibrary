@@ -1,7 +1,7 @@
 int MHL_StandartBinaryGeneticAlgorithm(int *Parameters, double (*FitnessFunction)(int*,int), int *VMHL_ResultVector, double *VMHL_Result)
 {
 /*
-Генетический алгоритм на бинарных строках. Реализация алгоритма из документа "Генетический алгоритм. Стандарт. v.3.0".
+Стандартный генетический алгоритм на бинарных строках. Реализация алгоритма из документа "Генетический алгоритм. Стандарт. v.3.0".
 https://github.com/Harrix/Standard-Genetic-Algorithm
 Алгоритм оптимизации. Ищет максимум целевой функции FitnessFunction.
 Входные параметры:

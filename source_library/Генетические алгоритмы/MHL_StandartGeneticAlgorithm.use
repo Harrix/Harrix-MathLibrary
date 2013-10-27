@@ -69,7 +69,7 @@
             NumberOfParts=new int[ChromosomeLength];
 
             //Заполним массивы
-            //Причем по каждой коодинтате одинаковые значения выставим
+            //Причем по каждой координате одинаковые значения выставим
             TMHL_FillVector(Left,ChromosomeLength,-5.);//Пусть будет интервал [-3;3]
             TMHL_FillVector(Right,ChromosomeLength,5.);
             TMHL_FillVector(NumberOfParts,ChromosomeLength,TMHL_PowerOf(2,15)-1);//Делим на 32768-1 частей каждую вещественную координату
@@ -88,10 +88,11 @@
              {
              MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
              //Найденное решение:
-             //Decision = 1.99530029296875
-             MHL_ShowNumber(ValueOfFitnessFunction,"Значение целовой функции","ValueOfFitnessFunction");
-             //Значение целовой функции:
-             //ValueOfFitnessFunction = 7.74778987033769
+             //Decision =	
+			 //2.00348	2.00226
+			 MHL_ShowNumber(ValueOfFitnessFunction,"Значение целевой функции","ValueOfFitnessFunction");
+			 //Значение целевой функции:
+			 //ValueOfFitnessFunction=-1.72034e-05
              }
 
             delete [] ParametersOfStandartRealGeneticAlgorithm;
