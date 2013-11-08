@@ -469,7 +469,7 @@ template <class T> QString THQt_ShowMatrix (T *VMHL_Matrix, int VMHL_N, int VMHL
      TitleMatrix - заголовок выводимой матрицы;
      NameMatrix - обозначение матрицы.
     Возвращаемое значение:
-     Отсутствует.
+     Строка с HTML кодами с выводимой матрицей.
     */
     QString VMHL_Result;
 
@@ -525,7 +525,7 @@ template <class T> QString THQt_ShowMatrix (T *VMHL_Matrix, int VMHL_N, int VMHL
      VMHL_M - количество столбцов в матрице;
      NameMatrix - обозначение матрицы.
     Возвращаемое значение:
-     Отсутствует.
+     Строка с HTML кодами с выводимой матрицей.
     */
     QString VMHL_Result;
 
@@ -578,7 +578,7 @@ template <class T> QString THQt_ShowMatrix (T *VMHL_Matrix, int VMHL_N, int VMHL
      VMHL_N - количество строк в матрице;
      VMHL_M - количество столбцов в матрице.
     Возвращаемое значение:
-     Отсутствует.
+     Строка с HTML кодами с выводимой матрицей.
     */
     QString VMHL_Result;
 
