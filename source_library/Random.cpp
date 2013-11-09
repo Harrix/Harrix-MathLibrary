@@ -13,7 +13,7 @@ void MHL_SeedRandom(void)
 //В качестве начального значения для ГСЧ используем текущее время
 MHL_Dummy=(unsigned)time(NULL);
 srand(MHL_Dummy);//Стандартная инициализация
-//rand();//первый вызов для контроля
+rand();//первый вызов для контроля
 
 //MersenneTwisterRandomNumberGenerator
 //Инициализатор генератора случайных чисел Mersenne Twister
