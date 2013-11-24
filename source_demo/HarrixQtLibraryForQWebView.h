@@ -2511,7 +2511,7 @@ template <class T> QString THQt_ShowChartsOfLineFromMatrix (T **VMHL_MatrixXY,in
         Color[3]="#e06c65";
         HighlightColor[3]="#9d2b24";
     }
-    if ((VMHL_M-1==5)&&(ShowArea))//если 4 графика и показаны закрашенные области
+    if ((VMHL_M-1==5)&&(ShowArea))//если 5 графика и показаны закрашенные области
     {
         Color[0]="#799bac";
         HighlightColor[0]="#9d2b24";
@@ -2555,7 +2555,7 @@ template <class T> QString THQt_ShowChartsOfLineFromMatrix (T **VMHL_MatrixXY,in
         Color[4]="#9d50c8";
         HighlightColor[4]="#6a2b8d";
     }
-    if ((VMHL_M-1==6)&&(ShowArea))//если 4 графика и показаны закрашенные области
+    if ((VMHL_M-1==6)&&(ShowArea))//если 6 графика и показаны закрашенные области
     {
         Color[0]="#799bac";
         HighlightColor[0]="#9d2b24";
@@ -2587,7 +2587,7 @@ template <class T> QString THQt_ShowChartsOfLineFromMatrix (T **VMHL_MatrixXY,in
         ColorArea[5]="#cccccc";
         OpacityArea[5]="0.5";
     }
-    if ((VMHL_M-1==6)&&(!ShowArea))//если 5 графика и не показаны закрашенные области
+    if ((VMHL_M-1==6)&&(!ShowArea))//если 6 графика и не показаны закрашенные области
     {
         Color[0]="#97bbcd";
         HighlightColor[0]="#3c7693";
@@ -2607,7 +2607,7 @@ template <class T> QString THQt_ShowChartsOfLineFromMatrix (T **VMHL_MatrixXY,in
         Color[5]="#9d50c8";
         HighlightColor[5]="#6a2b8d";
     }
-    if ((VMHL_M-1==7)&&(ShowArea))//если 4 графика и показаны закрашенные области
+    if ((VMHL_M-1==7)&&(ShowArea))//если 7 графика и показаны закрашенные области
     {
         Color[0]="#6a8795";
         HighlightColor[0]="#26576f";
@@ -2644,7 +2644,7 @@ template <class T> QString THQt_ShowChartsOfLineFromMatrix (T **VMHL_MatrixXY,in
         ColorArea[6]="#cccccc";
         OpacityArea[6]="0.5";
     }
-    if ((VMHL_M-1==7)&&(!ShowArea))//если 5 графика и не показаны закрашенные области
+    if ((VMHL_M-1==7)&&(!ShowArea))//если 7 графика и не показаны закрашенные области
     {
         Color[0]="#6250c9";
         HighlightColor[0]="#392b86";
@@ -2667,7 +2667,7 @@ template <class T> QString THQt_ShowChartsOfLineFromMatrix (T **VMHL_MatrixXY,in
         Color[6]="#9d50c8";
         HighlightColor[6]="#6a2b8d";
     }
-    if ((VMHL_M-1==8)&&(ShowArea))//если 4 графика и показаны закрашенные области
+    if ((VMHL_M-1==8)&&(ShowArea))//если 8 графика и показаны закрашенные области
     {
         Color[0]="#6a8795";
         HighlightColor[0]="#26576f";
@@ -2709,7 +2709,7 @@ template <class T> QString THQt_ShowChartsOfLineFromMatrix (T **VMHL_MatrixXY,in
         ColorArea[7]="#cccccc";
         OpacityArea[7]="0.5";
     }
-    if ((VMHL_M-1==8)&&(!ShowArea))//если 5 графика и не показаны закрашенные области
+    if ((VMHL_M-1==8)&&(!ShowArea))//если 8 графика и не показаны закрашенные области
     {
         Color[0]="#6250c9";
         HighlightColor[0]="#392b86";
@@ -2735,7 +2735,7 @@ template <class T> QString THQt_ShowChartsOfLineFromMatrix (T **VMHL_MatrixXY,in
         Color[7]="#c64f8f";
         HighlightColor[7]="#8d275e";
     }
-    if ((VMHL_M-1==9)&&(ShowArea))//если 4 графика и показаны закрашенные области
+    if ((VMHL_M-1==9)&&(ShowArea))//если 9 графика и показаны закрашенные области
     {
         Color[0]="#6a8795";
         HighlightColor[0]="#26576f";
@@ -2782,7 +2782,7 @@ template <class T> QString THQt_ShowChartsOfLineFromMatrix (T **VMHL_MatrixXY,in
         ColorArea[8]="#cccccc";
         OpacityArea[8]="0.5";
     }
-    if ((VMHL_M-1==9)&&(!ShowArea))//если 5 графика и не показаны закрашенные области
+    if ((VMHL_M-1==9)&&(!ShowArea))//если 9 графика и не показаны закрашенные области
     {
         Color[0]="#6250c9";
         HighlightColor[0]="#392b86";
@@ -2811,7 +2811,7 @@ template <class T> QString THQt_ShowChartsOfLineFromMatrix (T **VMHL_MatrixXY,in
         Color[8]="#c64f8f";
         HighlightColor[8]="#8d275e";
     }
-    if ((VMHL_M-1>9)&&(ShowArea))//если 4 графика и показаны закрашенные области
+	if ((VMHL_M-1>9)&&(ShowArea))//если больше 9 графика и показаны закрашенные области
     {
         double position;
         for (j=0;j<VMHL_M-1;j++)
@@ -2823,7 +2823,7 @@ template <class T> QString THQt_ShowChartsOfLineFromMatrix (T **VMHL_MatrixXY,in
             OpacityArea[j]="0.5";
         }
     }
-    if ((VMHL_M-1>9)&&(!ShowArea))//если 4 графика и показаны закрашенные области
+	if ((VMHL_M-1>9)&&(!ShowArea))//если больше 9 графика и показаны закрашенные области
     {
         double position;
         for (j=0;j<VMHL_M-1;j++)

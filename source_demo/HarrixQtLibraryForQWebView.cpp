@@ -275,7 +275,7 @@ QString HQt_ReadHdataToHtmlChart (QString filename)
 
         for (int j=0;j<i;j++) List.removeFirst();//удалим строчки, которые проанализировали
 
-        //Заберем данные непосредственно
+		//Заберем данные непосредственно из файла
         String=List.at(0);
         if (String=="BeginData")
         {
