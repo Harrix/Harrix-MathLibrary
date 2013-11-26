@@ -1,0 +1,39 @@
+        int ChromosomeLength=50;//Длина хромосомы
+        int CountOfFitness=50*50;//Число вычислений целевой функции
+		int SizeOfTournament=2;//Размер турнира в турнирной селекции
+        int TypeOfCros=0;//Тип скрещивания
+        int TypeOfMutation=1;//Тип мутации
+        int TypeOfForm=0;//Тип формирования нового поколения
+
+        double *ParametersOfAlgorithm;
+        ParametersOfAlgorithm=new double[6];
+        ParametersOfAlgorithm[0]=ChromosomeLength;//Длина хромосомы
+        ParametersOfAlgorithm[1]=CountOfFitness;//Число вычислений целевой функции
+        ParametersOfAlgorithm[2]=SizeOfTournament;//Размер турнира в турнирной селекции
+        ParametersOfAlgorithm[3]=TypeOfCros;//Тип скрещивания
+        ParametersOfAlgorithm[4]=TypeOfMutation;//Тип мутации
+        ParametersOfAlgorithm[5]=TypeOfForm;//Тип формирования нового поколения
+
+        int *Decision;//бинарное решение
+        Decision=new int[ChromosomeLength];
+        double ValueOfFitnessFunction;//значение функции пригодности в точке Decision
+        int VMHL_Success=0;//Успешен ли будет запуск cГА
+
+        //Запуск алгоритма
+        VMHL_Success=MHL_BinaryGeneticAlgorithmWDTS (ParametersOfAlgorithm,Func, Decision, &ValueOfFitnessFunction);
+
+        //Используем полученный результат
+        MHL_ShowNumber(VMHL_Success,"Как прошел запуск","VMHL_Success");
+        //Как прошел запуск:
+        //VMHL_Success=1
+
+        if (VMHL_Success==1)
+         {
+         MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
+         //Найденное решение:
+         //Decision =
+         //1	1	1	1	1	1	1	1	1	1	1	1	0	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	0	1	1	1	1	1	1	1	1	1	1	1	0	1	1	1	1	1	1	1	1
+
+         MHL_ShowNumber(ValueOfFitnessFunction,"Значение функции пригодности","ValueOfFitnessFunction");
+         //Значение функции пригодности:
+         //ValueOfFitnessFunction=47

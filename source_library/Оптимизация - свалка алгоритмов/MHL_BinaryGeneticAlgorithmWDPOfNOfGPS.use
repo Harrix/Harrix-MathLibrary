@@ -39,3 +39,7 @@
          MHL_ShowNumber(ValueOfFitnessFunction,"Значение функции пригодности","ValueOfFitnessFunction");
          //Значение функции пригодности:
          //ValueOfFitnessFunction=47
+         }
+
+        delete [] ParametersOfAlgorithm;
+        delete [] Decision;
