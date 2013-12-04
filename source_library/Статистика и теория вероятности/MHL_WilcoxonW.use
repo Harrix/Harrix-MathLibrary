@@ -26,8 +26,8 @@
         VMHL_Result = MHL_WilcoxonW(a, b, VMHL_N1, VMHL_N2, Q);
         
         //Используем результат
-        MHL_ShowNumber(VMHL_Result,"Итог проверка двух выборок ритерием Вилкосена W","VMHL_Result");
-        //Итог проверка двух выборок ритерием Вилкосена W:
+        MHL_ShowNumber(VMHL_Result,"Итог проверка двух выборок критерием Вилкосена W","VMHL_Result");
+        //Итог проверка двух выборок критерием Вилкосена W:
         //VMHL_Result=1
         
         delete [] a;
