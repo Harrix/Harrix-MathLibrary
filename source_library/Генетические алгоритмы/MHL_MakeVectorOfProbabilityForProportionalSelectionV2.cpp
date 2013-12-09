@@ -9,7 +9,7 @@ void MHL_MakeVectorOfProbabilityForProportionalSelectionV2(double *Fitness, doub
  VMHL_ResultVector - вектор вероятностей выбора индивидов из популяции, который мы и формируем;
  VMHL_N - размер массива пригодностей.
 Возвращаемое значение:
- Отстутствет.
+ Отсутствует.
 */
 //Вектор Fitness мы не меняем. Поэтому проводим копирование.
 TMHL_VectorToVector(Fitness,VMHL_ResultVector,VMHL_N);
