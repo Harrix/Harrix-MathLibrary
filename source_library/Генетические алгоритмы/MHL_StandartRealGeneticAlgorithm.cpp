@@ -1,7 +1,7 @@
 int MHL_StandartRealGeneticAlgorithm(int *Parameters, int *NumberOfParts, double *Left, double *Right, double (*FitnessFunction)(double*,int), double *VMHL_ResultVector, double *VMHL_Result)
 {
 /*
-Стандартный генетический алгоритм на вещественных строках.
+Стандартный генетический алгоритм для решения задач на вещественных строках.
 Реализация алгоритма из документа "Генетический алгоритм. Стандарт. v.3.0".
 https://github.com/Harrix/Standard-Genetic-Algorithm
 Алгоритм оптимизации. Ищет максимум целевой функции FitnessFunction.
@@ -15,7 +15,7 @@ https://github.com/Harrix/Standard-Genetic-Algorithm
         2 - TournamentSelection (Турнирная селекция).
   [3] - тип скрещивания (TypeOfCros):
         0 - SinglepointCrossover (Одноточечное скрещивание);
-        1 - TwopointCrossover (Двуточечное скрещивание);
+        1 - TwopointCrossover (Двухточечное скрещивание);
         2 - UniformCrossover (Равномерное скрещивание).
   [4] - тип мутации (TypeOfMutation):
         0 - Weak (Слабая мутация);

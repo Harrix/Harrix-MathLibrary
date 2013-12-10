@@ -779,6 +779,18 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("MHL_RealGeneticAlgorithmWDTS"));
     model->appendRow(item);
 
+    item = new QStandardItem(QString("TMHL_SinglepointCrossoverWithCopying"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("TMHL_TwopointCrossoverWithCopying"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_BinaryGeneticAlgorithmWCC"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_RealGeneticAlgorithmWCC"));
+    model->appendRow(item);
+
     model->sort(0);
 
     //соединение модели списка с конкретным списком
@@ -8603,9 +8615,9 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //solutionis=1
         if (solutionis!=0)
         {
-        MHL_ShowNumber(y,"Значение функции прямой в точке x=5","y");
-        //Значение функции прямой в точке x=5:
-        //y=-42
+            MHL_ShowNumber(y,"Значение функции прямой в точке x=5","y");
+            //Значение функции прямой в точке x=5:
+            //y=-42
         }
     }
 
@@ -8651,9 +8663,9 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //solutionis=1
         if (solutionis!=0)
         {
-        MHL_ShowNumber(y,"Значение прямо, проходящей через две указанные точки, в точке x=5","y");
-        //Значение прямо, проходящей через две указанные точки, в точке x=5:
-        //y=32
+            MHL_ShowNumber(y,"Значение прямо, проходящей через две указанные точки, в точке x=5","y");
+            //Значение прямо, проходящей через две указанные точки, в точке x=5:
+            //y=32
         }
     }
 
@@ -8710,16 +8722,16 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //VMHL_Success=1
 
         if (VMHL_Success==1)
-         {
-         MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
-         //Найденное решение:
-         //Decision =
-         //1	1	1	1	1	1	1	1	1	1	1	1	0	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	0	1	1	1	1	1	1	1	1	1	1	1	0	1	1	1	1	1	1	1	1
+        {
+            MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
+            //Найденное решение:
+            //Decision =
+            //1	1	1	1	1	1	1	1	1	1	1	1	0	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	0	1	1	1	1	1	1	1	1	1	1	1	0	1	1	1	1	1	1	1	1
 
-         MHL_ShowNumber(ValueOfFitnessFunction,"Значение функции пригодности","ValueOfFitnessFunction");
-         //Значение функции пригодности:
-         //ValueOfFitnessFunction=47
-         }
+            MHL_ShowNumber(ValueOfFitnessFunction,"Значение функции пригодности","ValueOfFitnessFunction");
+            //Значение функции пригодности:
+            //ValueOfFitnessFunction=47
+        }
 
         delete [] ParametersOfAlgorithm;
         delete [] Decision;
@@ -8770,16 +8782,16 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //Используем полученный результат
         MHL_ShowNumber(VMHL_Success,"Как прошел запуск","VMHL_Success");
         if (VMHL_Success==1)
-         {
-         MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
-         //Найденное решение:
-         //Decision =
-         //2.00226	1.98883
+        {
+            MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
+            //Найденное решение:
+            //Decision =
+            //2.00226	1.98883
 
-         MHL_ShowNumber(ValueOfFitnessFunction,"Значение целовой функции","ValueOfFitnessFunction");
-         //Значение целовой функции:
-         //ValueOfFitnessFunction=-0.000129856
-         }
+            MHL_ShowNumber(ValueOfFitnessFunction,"Значение целовой функции","ValueOfFitnessFunction");
+            //Значение целовой функции:
+            //ValueOfFitnessFunction=-0.000129856
+        }
 
         delete [] ParametersOfAlgorithm;
         delete [] Decision;
@@ -8831,16 +8843,16 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //Используем полученный результат
         MHL_ShowNumber(VMHL_Success,"Как прошел запуск","VMHL_Success");
         if (VMHL_Success==1)
-         {
-         MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
-         //Найденное решение:
-         //Decision =
-         //2.00226	2.00134
+        {
+            MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
+            //Найденное решение:
+            //Decision =
+            //2.00226	2.00134
 
-         MHL_ShowNumber(ValueOfFitnessFunction,"Значение целовой функции","ValueOfFitnessFunction");
-         //Значение целовой функции:
-         //ValueOfFitnessFunction=-6.90296e-06
-         }
+            MHL_ShowNumber(ValueOfFitnessFunction,"Значение целовой функции","ValueOfFitnessFunction");
+            //Значение целовой функции:
+            //ValueOfFitnessFunction=-6.90296e-06
+        }
 
         delete [] ParametersOfAlgorithm;
         delete [] Decision;
@@ -8881,21 +8893,200 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //VMHL_Success=1
 
         if (VMHL_Success==1)
-         {
-         MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
-         //Найденное решение:
-         //Найденное решение:
-         //Decision =
-         //1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	0	1	1	1	1	1	1	1	1	1	1
+        {
+            MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
+            //Найденное решение:
+            //Найденное решение:
+            //Decision =
+            //1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	0	1	1	1	1	1	1	1	1	1	1
 
 
-         MHL_ShowNumber(ValueOfFitnessFunction,"Значение функции пригодности","ValueOfFitnessFunction");
-         //Значение функции пригодности:
-         //ValueOfFitnessFunction=49
-         }
+            MHL_ShowNumber(ValueOfFitnessFunction,"Значение функции пригодности","ValueOfFitnessFunction");
+            //Значение функции пригодности:
+            //ValueOfFitnessFunction=49
+        }
 
         delete [] ParametersOfAlgorithm;
         delete [] Decision;
+    }
+
+    if (NameFunction=="TMHL_SinglepointCrossoverWithCopying")
+    {
+        int VMHL_N=10; //Размер массива (число строк)
+        int *Parent1;
+        Parent1=new int[VMHL_N];
+        int *Parent2;
+        Parent2=new int[VMHL_N];
+        int *Child;
+        Child=new int[VMHL_N];
+        TMHL_RandomBinaryVector(Parent1,VMHL_N);
+        TMHL_RandomBinaryVector(Parent2,VMHL_N);
+
+        //Получим потомка Child
+        TMHL_SinglepointCrossoverWithCopying(Parent1,Parent2,Child,VMHL_N);
+
+        //Используем полученный результат
+        MHL_ShowVectorT (Parent1,VMHL_N,"Первый родитель", "Parent1");
+        //Первый родитель:
+        //Parent1 =
+        //0	1	1	0	0	1	0	1	1	1
+
+        MHL_ShowVectorT (Parent2,VMHL_N,"Второй родитель", "Parent2");
+        //Второй родитель:
+        //Parent2 =
+        //0	0	0	1	0	1	0	0	0	0
+
+        MHL_ShowVectorT (Child,VMHL_N,"Полученный потомок", "Child");
+        //Полученный потомок:
+        //Child =
+        //0	1	1	0	0	1	0	1	1	1
+
+        delete [] Parent2;
+        delete [] Parent1;
+        delete [] Child;
+    }
+
+    if (NameFunction=="TMHL_TwopointCrossoverWithCopying")
+    {
+        int VMHL_N=10; //Размер массива (число строк)
+        int *Parent1;
+        Parent1=new int[VMHL_N];
+        int *Parent2;
+        Parent2=new int[VMHL_N];
+        int *Child;
+        Child=new int[VMHL_N];
+        TMHL_RandomBinaryVector(Parent1,VMHL_N);
+        TMHL_RandomBinaryVector(Parent2,VMHL_N);
+
+        //Получим потомка Child
+        TMHL_TwopointCrossoverWithCopying(Parent1,Parent2,Child,VMHL_N);
+
+        //Используем полученный результат
+        MHL_ShowVectorT (Parent1,VMHL_N,"Первый родитель", "Parent1");
+        //Первый родитель:
+        //Parent1 =
+        //1	1	0	0	1	1	0	0	0	0
+
+        MHL_ShowVectorT (Parent2,VMHL_N,"Второй родитель", "Parent2");
+        //Второй родитель:
+        //Parent2 =
+        //0	1	1	0	0	1	0	0	1	0
+
+        MHL_ShowVectorT (Child,VMHL_N,"Полученный потомок", "Child");
+        //Полученный потомок:
+        //Child =
+        //0	1	1	0	0	1	0	0	1	0
+
+        delete [] Parent2;
+        delete [] Parent1;
+        delete [] Child;
+    }
+
+    if (NameFunction=="MHL_BinaryGeneticAlgorithmWCC")
+    {
+        int ChromosomeLength=50;//Длина хромосомы
+        int CountOfFitness=50*50;//Число вычислений целевой функции
+        int TypeOfSel=1;//Тип селекции
+        int TypeOfCros=0;//Тип скрещивания
+        int TypeOfMutation=1;//Тип мутации
+        int TypeOfForm=0;//Тип формирования нового поколения
+
+        int *Parameters;
+        Parameters=new int[6];
+        Parameters[0]=ChromosomeLength;//Длина хромосомы
+        Parameters[1]=CountOfFitness;//Число вычислений целевой функции
+        Parameters[2]=TypeOfSel;//Тип селекции
+        Parameters[3]=TypeOfCros;//Тип скрещивания
+        Parameters[4]=TypeOfMutation;//Тип мутации
+        Parameters[5]=TypeOfForm;//Тип формирования нового поколения
+
+        int *Decision;//бинарное решение
+        Decision=new int[ChromosomeLength];
+        double ValueOfFitnessFunction;//значение функции пригодности в точке Decision
+        int VMHL_Success=0;//Успешен ли будет запуск cГА
+
+        //Запуск алгоритма
+        VMHL_Success=MHL_BinaryGeneticAlgorithmWCC (Parameters,Func, Decision, &ValueOfFitnessFunction);
+
+        //Используем полученный результат
+        MHL_ShowNumber(VMHL_Success,"Как прошел запуск","VMHL_Success");
+        //Как прошел запуск:
+        //VMHL_Success=1
+
+        if (VMHL_Success==1)
+         {
+         MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
+         //Найденное решение:
+         //Decision =
+         //1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1
+
+         MHL_ShowNumber(ValueOfFitnessFunction,"Значение функции пригодности","ValueOfFitnessFunction");
+         // Значение функции пригодности:
+         //ValueOfFitnessFunction=50
+         }
+
+        delete [] Parameters;
+        delete [] Decision;
+    }
+
+    if (NameFunction=="MHL_RealGeneticAlgorithmWCC")
+    {
+        int ChromosomeLength=2;//Длина хромосомы
+        int CountOfFitness=50*50;//Число вычислений целевой функции
+        int TypeOfSel=1;//Тип селекции
+        int TypeOfCros=0;//Тип скрещивания
+        int TypeOfMutation=1;//Тип мутации
+        int TypeOfForm=0;//Тип формирования нового поколения
+
+        int *Parameters;
+        Parameters=new int[7];
+        Parameters[0]=ChromosomeLength;//Длина хромосомы
+        Parameters[1]=CountOfFitness;//Число вычислений целевой функции
+        Parameters[2]=TypeOfSel;//Тип селекции
+        Parameters[3]=TypeOfCros;//Тип скрещивания
+        Parameters[4]=TypeOfMutation;//Тип мутации
+        Parameters[5]=TypeOfForm;//Тип формирования нового поколения
+        Parameters[6]=0;//Тип преобразование задачи вещественной оптимизации в задачу бинарной оптимизации
+
+        double *Left;//массив левых границ изменения каждой вещественной координаты
+        Left=new double[ChromosomeLength];
+        double *Right;//массив правых границ изменения каждой вещественной координаты
+        Right=new double[ChromosomeLength];
+        int *NumberOfParts;//на сколько делить каждую координату
+        NumberOfParts=new int[ChromosomeLength];
+
+        //Заполним массивы
+        //Причем по каждой координате одинаковые значения выставим
+        TMHL_FillVector(Left,ChromosomeLength,-5.);//Пусть будет интервал [-3;3]
+        TMHL_FillVector(Right,ChromosomeLength,5.);
+        TMHL_FillVector(NumberOfParts,ChromosomeLength,TMHL_PowerOf(2,15)-1);//Делим на 32768-1 частей каждую вещественную координату
+
+        double *Decision;//вещественное решение
+        Decision=new double[ChromosomeLength];
+        double ValueOfFitnessFunction;//значение целевой функции в точке Decision
+        int VMHL_Success=0;//Успешен ли будет запуск cГА
+
+        //Запуск алгоритма
+        VMHL_Success=MHL_RealGeneticAlgorithmWCC (Parameters,NumberOfParts,Left,Right,Func2, Decision, &ValueOfFitnessFunction);
+
+        //Используем полученный результат
+        MHL_ShowNumber(VMHL_Success,"Как прошел запуск","VMHL_Success");
+        if (VMHL_Success==1)
+         {
+         MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
+         //Найденное решение:
+         //Decision =
+         //2.0105	2.00195
+         MHL_ShowNumber(ValueOfFitnessFunction,"Значение целевой функции","ValueOfFitnessFunction");
+         //Значение целевой функции:
+         //ValueOfFitnessFunction=-0.000114024
+         }
+
+        delete [] Parameters;
+        delete [] Decision;
+        delete [] Left;
+        delete [] Right;
+        delete [] NumberOfParts;
     }
 }
 //---------------------------------------------------------------------------

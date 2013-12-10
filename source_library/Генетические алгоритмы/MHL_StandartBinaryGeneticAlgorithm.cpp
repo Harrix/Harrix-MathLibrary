@@ -1,7 +1,7 @@
 int MHL_StandartBinaryGeneticAlgorithm(int *Parameters, double (*FitnessFunction)(int*,int), int *VMHL_ResultVector, double *VMHL_Result)
 {
 /*
-Стандартный генетический алгоритм на бинарных строках. Реализация алгоритма из документа "Генетический алгоритм. Стандарт. v.3.0".
+Стандартный генетический алгоритм для решения задач на бинарных строках. Реализация алгоритма из документа "Генетический алгоритм. Стандарт. v.3.0".
 https://github.com/Harrix/Standard-Genetic-Algorithm
 Алгоритм оптимизации. Ищет максимум целевой функции FitnessFunction.
 Входные параметры:
@@ -14,11 +14,11 @@ https://github.com/Harrix/Standard-Genetic-Algorithm
         2 - TournamentSelection (Турнирная селекция).
   [3] - тип скрещивания (TypeOfCros):
         0 - SinglepointCrossover (Одноточечное скрещивание);
-        1 - TwopointCrossover (Двуточечное скрещивание);
+        1 - TwopointCrossover (Двухточечное скрещивание);
         2 - UniformCrossover (Равномерное скрещивание).
   [4] - тип мутации (TypeOfMutation):
         0 - Weak (Слабая мутация);
-        1 - Averagen (Средняя мутация);
+        1 - Average (Средняя мутация);
         2 - Strong (Сильная мутация).
   [5] - тип формирования нового поколения (TypeOfForm):
         0 - OnlyOffspringGenerationForming (Только потомки);
