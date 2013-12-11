@@ -21,6 +21,11 @@ double MHL_NumberOfPartsOfTestFunction_Real(int *NumberOfParts, int VMHL_N)
     {
         for (i=0;i<VMHL_N;i++) NumberOfParts[i]=4095;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_AckleyII)
+    {
+        for (i=0;i<VMHL_N;i++) NumberOfParts[i]=4095;
+    }
 
     if (VMHL_TypeOfTestFunction==TestFunction_ParaboloidOfRevolution)
     {

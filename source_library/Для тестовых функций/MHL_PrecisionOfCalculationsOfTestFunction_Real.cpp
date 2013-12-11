@@ -19,6 +19,11 @@ double MHL_PrecisionOfCalculationsOfTestFunction_Real()
     {
         VMHL_Result_E=0.025;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_AckleyII)
+    {
+        VMHL_Result_E=0.025;
+    }
 
     if (VMHL_TypeOfTestFunction==TestFunction_ParaboloidOfRevolution)
     {

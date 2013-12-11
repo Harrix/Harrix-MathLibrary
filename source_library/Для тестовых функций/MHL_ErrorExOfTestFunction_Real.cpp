@@ -25,6 +25,13 @@ double MHL_ErrorExOfTestFunction_Real(double *x, int VMHL_N)
             VMHL_Result_Ex+=(x[i]-Optimum[i])*(x[i]-Optimum[i]);
         VMHL_Result_Ex=sqrt(VMHL_Result_Ex)/double(VMHL_N);
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_AckleyII)
+    {
+        for (i=0;i<VMHL_N;i++)
+            VMHL_Result_Ex+=(x[i]-Optimum[i])*(x[i]-Optimum[i]);
+        VMHL_Result_Ex=sqrt(VMHL_Result_Ex)/double(VMHL_N);
+    }
 
     if (VMHL_TypeOfTestFunction==TestFunction_ParaboloidOfRevolution)
     {

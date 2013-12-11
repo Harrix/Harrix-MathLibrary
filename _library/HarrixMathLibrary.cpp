@@ -1,11 +1,11 @@
 //HarrixMathLibrary
-//Версия 3.31
+//Версия 3.32
 //Сборник различных математических функций и шаблонов с открытым кодом на языке C++.
 //https://github.com/Harrix/HarrixMathLibrary
 //Библиотека распространяется по лицензии Apache License, Version 2.0.
 
 #include "HarrixMathLibrary.h"
-#include "mtrand.h"//генеhатор случайных чисел Mersenne Twister
+#include "mtrand.h"//генератор случайных чисел Mersenne Twister
 
 //ДЛЯ ГЕНЕРАТОРОВ СЛУЧАЙНЫХ ЧИСЕЛ
 unsigned int MHL_Dummy;//Результат инициализации гстандартного генератора случайных чисел
@@ -1647,6 +1647,9 @@ int MHL_ClassOfTestFunction(TypeOfTestFunction Type)
 
     if (Type==TestFunction_Ackley)
         return 2;
+		
+   if (Type==TestFunction_AckleyII)
+        return 2;
 
     if (Type==TestFunction_ParaboloidOfRevolution)
         return 2;
@@ -1728,6 +1731,17 @@ int MHL_CountOfFitnessOfTestFunction_Real(int Dimension)
     int VMHL_Result = 0;
 
     if (VMHL_TypeOfTestFunction==TestFunction_Ackley)
+    {
+        if (Dimension==2)  VMHL_Result = 324;
+        if (Dimension==3)  VMHL_Result = 729;
+        if (Dimension==4)  VMHL_Result = 1225;
+        if (Dimension==5)  VMHL_Result = 1849;
+        if (Dimension==10) VMHL_Result = 5776;
+        if (Dimension==20) VMHL_Result = 15876;
+        if (Dimension==30) VMHL_Result = 28224;
+    }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_AckleyII)
     {
         if (Dimension==2)  VMHL_Result = 324;
         if (Dimension==3)  VMHL_Result = 729;
@@ -1896,6 +1910,17 @@ int MHL_DimensionTestFunction_Real(int i)
         if (i==5) VMHL_Result = 20;
         if (i==6) VMHL_Result = 30;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_AckleyII)
+    {
+        if (i==0) VMHL_Result = 2;
+        if (i==1) VMHL_Result = 3;
+        if (i==2) VMHL_Result = 4;
+        if (i==3) VMHL_Result = 5;
+        if (i==4) VMHL_Result = 10;
+        if (i==5) VMHL_Result = 20;
+        if (i==6) VMHL_Result = 30;
+    }
 
     if (VMHL_TypeOfTestFunction==TestFunction_ParaboloidOfRevolution)
     {
@@ -2035,6 +2060,13 @@ double MHL_ErrorExOfTestFunction_Real(double *x, int VMHL_N)
             VMHL_Result_Ex+=(x[i]-Optimum[i])*(x[i]-Optimum[i]);
         VMHL_Result_Ex=sqrt(VMHL_Result_Ex)/double(VMHL_N);
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_AckleyII)
+    {
+        for (i=0;i<VMHL_N;i++)
+            VMHL_Result_Ex+=(x[i]-Optimum[i])*(x[i]-Optimum[i]);
+        VMHL_Result_Ex=sqrt(VMHL_Result_Ex)/double(VMHL_N);
+    }
 
     if (VMHL_TypeOfTestFunction==TestFunction_ParaboloidOfRevolution)
     {
@@ -2152,6 +2184,11 @@ double MHL_ErrorEyOfTestFunction_Real(double FitnessOfx, int VMHL_N)
     double FitnessOfOptimum=MHL_FitnessOfOptimumOfTestFunction_Real(VMHL_N);
 
     if (VMHL_TypeOfTestFunction==TestFunction_Ackley)
+    {
+        VMHL_Result_Ey=fabs(MHL_MaximumOrMinimumOfTestFunction_Real()*FitnessOfx-FitnessOfOptimum);
+    }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_AckleyII)
     {
         VMHL_Result_Ey=fabs(MHL_MaximumOrMinimumOfTestFunction_Real()*FitnessOfx-FitnessOfOptimum);
     }
@@ -2280,6 +2317,14 @@ double MHL_ErrorROfTestFunction_Real(double *x, int VMHL_N)
             if (fabs(x[i]-Optimum[i])>=MHL_PrecisionOfCalculationsOfTestFunction_Real()) VMHL_Result_R=0;
         }
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_AckleyII)
+    {
+        for (i=0;i<VMHL_N;i++)
+        {
+            if (fabs(x[i]-Optimum[i])>=MHL_PrecisionOfCalculationsOfTestFunction_Real()) VMHL_Result_R=0;
+        }
+    }
 
     if (VMHL_TypeOfTestFunction==TestFunction_ParaboloidOfRevolution)
     {
@@ -2391,6 +2436,11 @@ double MHL_FitnessOfOptimumOfTestFunction_Real(double VMHL_N)
     if (VMHL_TypeOfTestFunction==TestFunction_Ackley)
     {
         VMHL_Result = 0;
+    }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_AckleyII)
+    {
+        VMHL_Result = 1.069560557758917;
     }
 
     if (VMHL_TypeOfTestFunction==TestFunction_ParaboloidOfRevolution)
@@ -2505,6 +2555,11 @@ int MHL_GetCountOfSubProblems_Real()
     {
         VMHL_Result = 7;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_AckleyII)
+    {
+        VMHL_Result = 7;
+    }
 
     if (VMHL_TypeOfTestFunction==TestFunction_ParaboloidOfRevolution)
     {
@@ -2562,6 +2617,12 @@ void MHL_LeftAndRightBorderOfTestFunction_Real(double *Left, double *Right,int V
     int i;
 
     if (VMHL_TypeOfTestFunction==TestFunction_Ackley)
+    {
+        for (i=0;i<VMHL_N;i++) Left[i]=-5;
+        for (i=0;i<VMHL_N;i++) Right[i]=5;
+    }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_AckleyII)
     {
         for (i=0;i<VMHL_N;i++) Left[i]=-5;
         for (i=0;i<VMHL_N;i++) Right[i]=5;
@@ -2672,6 +2733,11 @@ double MHL_MaximumOrMinimumOfTestFunction_Real()
     {
         VMHL_Result=-1;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_AckleyII)
+    {
+        VMHL_Result=-1;
+    }
 
     if (VMHL_TypeOfTestFunction==TestFunction_ParaboloidOfRevolution)
     {
@@ -2732,6 +2798,11 @@ double MHL_NumberOfPartsOfTestFunction_Real(int *NumberOfParts, int VMHL_N)
     int i;
 
     if (VMHL_TypeOfTestFunction==TestFunction_Ackley)
+    {
+        for (i=0;i<VMHL_N;i++) NumberOfParts[i]=4095;
+    }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_AckleyII)
     {
         for (i=0;i<VMHL_N;i++) NumberOfParts[i]=4095;
     }
@@ -2848,6 +2919,11 @@ double MHL_OptimumOfTestFunction_Real(double *Optimum, int VMHL_N)
     {
         for (i=0;i<VMHL_N;i++) Optimum[i]=0;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_AckleyII)
+    {
+        for (i=0;i<VMHL_N;i++) Optimum[i]=0;
+    }
 
     if (VMHL_TypeOfTestFunction==TestFunction_ParaboloidOfRevolution)
     {
@@ -2909,6 +2985,11 @@ double MHL_PrecisionOfCalculationsOfTestFunction_Real()
     double VMHL_Result_E = 0;
 
     if (VMHL_TypeOfTestFunction==TestFunction_Ackley)
+    {
+        VMHL_Result_E=0.025;
+    }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_AckleyII)
     {
         VMHL_Result_E=0.025;
     }
@@ -3024,6 +3105,9 @@ double MHL_TestFunction_Real(double *x, int VMHL_N)
 
     if (VMHL_TypeOfTestFunction==TestFunction_Ackley)
         VMHL_Result = MHL_MaximumOrMinimumOfTestFunction_Real()*MHL_TestFunction_Ackley(x, VMHL_N);
+		
+	if (VMHL_TypeOfTestFunction==TestFunction_Ackley)
+        VMHL_Result = MHL_MaximumOrMinimumOfTestFunction_Real()*MHL_TestFunction_AckleyII(x, VMHL_N);
 
     if (VMHL_TypeOfTestFunction==TestFunction_ParaboloidOfRevolution)
         VMHL_Result = MHL_MaximumOrMinimumOfTestFunction_Real()*MHL_TestFunction_ParaboloidOfRevolution(x, VMHL_N);
@@ -9583,6 +9667,26 @@ double VMHL_Result;
 double f1,f2=0;
 f1=exp(-0.2*sqrt(TMHL_SumSquareVector(x,VMHL_N)/double(VMHL_N)));
 for (int i=0;i<VMHL_N;i++) f2=f2+cos(2.*MHL_PI*x[i]);
+f2=exp(f2/double(VMHL_N));
+VMHL_Result=20.+exp(1.)-20.*f1-f2;
+return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+double MHL_TestFunction_AckleyII(double *x, int VMHL_N)
+{
+/*
+Функция многих переменных: Ackley II (модификация Сергиенко Антона).
+Тестовая функция вещественной оптимизации.
+Входные параметры:
+ x - указатель на исходный массив;
+ VMHL_N - размер массива x.
+Возвращаемое значение:
+ Значение тестовой функции в точке x.
+*/
+double VMHL_Result;
+double f1,f2=0;
+f1=exp(-0.2*sqrt(TMHL_SumSquareVector(x,VMHL_N)/double(VMHL_N)));
+for (int i=0;i<VMHL_N;i++) f2=f2*cos(2.*MHL_PI*x[i]);
 f2=exp(f2/double(VMHL_N));
 VMHL_Result=20.+exp(1.)-20.*f1-f2;
 return VMHL_Result;

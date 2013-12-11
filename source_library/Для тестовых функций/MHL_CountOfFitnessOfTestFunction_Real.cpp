@@ -22,6 +22,17 @@ int MHL_CountOfFitnessOfTestFunction_Real(int Dimension)
         if (Dimension==20) VMHL_Result = 15876;
         if (Dimension==30) VMHL_Result = 28224;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_AckleyII)
+    {
+        if (Dimension==2)  VMHL_Result = 324;
+        if (Dimension==3)  VMHL_Result = 729;
+        if (Dimension==4)  VMHL_Result = 1225;
+        if (Dimension==5)  VMHL_Result = 1849;
+        if (Dimension==10) VMHL_Result = 5776;
+        if (Dimension==20) VMHL_Result = 15876;
+        if (Dimension==30) VMHL_Result = 28224;
+    }
 
     if (VMHL_TypeOfTestFunction==TestFunction_ParaboloidOfRevolution)
     {

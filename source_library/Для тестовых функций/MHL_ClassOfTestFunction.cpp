@@ -17,6 +17,9 @@ int MHL_ClassOfTestFunction(TypeOfTestFunction Type)
 
     if (Type==TestFunction_Ackley)
         return 2;
+		
+   if (Type==TestFunction_AckleyII)
+        return 2;
 
     if (Type==TestFunction_ParaboloidOfRevolution)
         return 2;

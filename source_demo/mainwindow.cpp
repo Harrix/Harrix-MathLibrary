@@ -791,6 +791,9 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("MHL_RealGeneticAlgorithmWCC"));
     model->appendRow(item);
 
+    item = new QStandardItem(QString("MHL_TestFunction_AckleyII"));
+    model->appendRow(item);
+
     model->sort(0);
 
     //соединение модели списка с конкретным списком
@@ -9088,6 +9091,27 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] Right;
         delete [] NumberOfParts;
     }
+
+        if (NameFunction=="MHL_TestFunction_AckleyII")
+        {
+            double *x;
+            double f;
+            int VMHL_N=2;
+            x=new double[VMHL_N];
+            for (int i=0;i<VMHL_N;i++) x[i]=MHL_RandomUniform(-5,5);
+            f=MHL_TestFunction_AckleyII(x,VMHL_N);
+
+            MHL_ShowVector (x,VMHL_N,"Входной вектор", "x");
+            //x =
+            //-4.02259
+            //-0.357405
+
+            MHL_ShowNumber (f,"Значение функции", "f");
+            //Значение функции:
+            //f=10.4204
+
+            delete[] x;
+        }
 }
 //---------------------------------------------------------------------------
 
