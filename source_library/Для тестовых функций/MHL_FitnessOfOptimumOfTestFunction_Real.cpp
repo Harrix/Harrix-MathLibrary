@@ -17,9 +17,14 @@ double MHL_FitnessOfOptimumOfTestFunction_Real(double VMHL_N)
         VMHL_Result = 0;
     }
 	
-	if (VMHL_TypeOfTestFunction==TestFunction_AckleyII)
+	if (VMHL_TypeOfTestFunction==TestFunction_AdditivePotential)
     {
-        VMHL_Result = 1.069560557758917;
+        VMHL_Result = -15.606060606060606;
+    }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_MultiplicativePotential)
+    {
+        VMHL_Result = -60.8872819100091;
     }
 
     if (VMHL_TypeOfTestFunction==TestFunction_ParaboloidOfRevolution)

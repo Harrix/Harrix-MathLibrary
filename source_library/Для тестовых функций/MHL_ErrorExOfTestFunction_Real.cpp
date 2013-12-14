@@ -19,35 +19,7 @@ double MHL_ErrorExOfTestFunction_Real(double *x, int VMHL_N)
 
     MHL_OptimumOfTestFunction_Real(Optimum, VMHL_N);
 
-    if (VMHL_TypeOfTestFunction==TestFunction_Ackley)
-    {
-        for (i=0;i<VMHL_N;i++)
-            VMHL_Result_Ex+=(x[i]-Optimum[i])*(x[i]-Optimum[i]);
-        VMHL_Result_Ex=sqrt(VMHL_Result_Ex)/double(VMHL_N);
-    }
-	
-	if (VMHL_TypeOfTestFunction==TestFunction_AckleyII)
-    {
-        for (i=0;i<VMHL_N;i++)
-            VMHL_Result_Ex+=(x[i]-Optimum[i])*(x[i]-Optimum[i]);
-        VMHL_Result_Ex=sqrt(VMHL_Result_Ex)/double(VMHL_N);
-    }
-
-    if (VMHL_TypeOfTestFunction==TestFunction_ParaboloidOfRevolution)
-    {
-        for (i=0;i<VMHL_N;i++)
-            VMHL_Result_Ex+=(x[i]-Optimum[i])*(x[i]-Optimum[i]);
-        VMHL_Result_Ex=sqrt(VMHL_Result_Ex)/double(VMHL_N);
-    }
-
-    if (VMHL_TypeOfTestFunction==TestFunction_Rastrigin)
-    {
-        for (i=0;i<VMHL_N;i++)
-            VMHL_Result_Ex+=(x[i]-Optimum[i])*(x[i]-Optimum[i]);
-        VMHL_Result_Ex=sqrt(VMHL_Result_Ex)/double(VMHL_N);
-    }
-
-    if (VMHL_TypeOfTestFunction==TestFunction_Rosenbrock)
+    if ((VMHL_TypeOfTestFunction==TestFunction_Ackley)||(VMHL_TypeOfTestFunction==TestFunction_ParaboloidOfRevolution)||(VMHL_TypeOfTestFunction==TestFunction_Rastrigin)||(VMHL_TypeOfTestFunction==TestFunction_Rosenbrock)||(VMHL_TypeOfTestFunction==TestFunction_AdditivePotential)||(VMHL_TypeOfTestFunction==TestFunction_MultiplicativePotential))
     {
         for (i=0;i<VMHL_N;i++)
             VMHL_Result_Ex+=(x[i]-Optimum[i])*(x[i]-Optimum[i]);

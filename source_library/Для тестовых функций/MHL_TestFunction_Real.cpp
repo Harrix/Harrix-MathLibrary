@@ -15,8 +15,11 @@ double MHL_TestFunction_Real(double *x, int VMHL_N)
     if (VMHL_TypeOfTestFunction==TestFunction_Ackley)
         VMHL_Result = MHL_MaximumOrMinimumOfTestFunction_Real()*MHL_TestFunction_Ackley(x, VMHL_N);
 		
-	if (VMHL_TypeOfTestFunction==TestFunction_Ackley)
-        VMHL_Result = MHL_MaximumOrMinimumOfTestFunction_Real()*MHL_TestFunction_AckleyII(x, VMHL_N);
+	if (VMHL_TypeOfTestFunction==TestFunction_AdditivePotential)
+        VMHL_Result = MHL_MaximumOrMinimumOfTestFunction_Real()*MHL_TestFunction_AdditivePotential(x[0], x[1]);
+		
+	if (VMHL_TypeOfTestFunction==TestFunction_MultiplicativePotential)
+        VMHL_Result = MHL_MaximumOrMinimumOfTestFunction_Real()*MHL_TestFunction_MultiplicativePotential(x[0], x[1]);
 
     if (VMHL_TypeOfTestFunction==TestFunction_ParaboloidOfRevolution)
         VMHL_Result = MHL_MaximumOrMinimumOfTestFunction_Real()*MHL_TestFunction_ParaboloidOfRevolution(x, VMHL_N);

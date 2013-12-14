@@ -22,11 +22,18 @@ void MHL_LeftAndRightBorderOfTestFunction_Real(double *Left, double *Right,int V
         for (i=0;i<VMHL_N;i++) Right[i]=5;
     }
 	
-	if (VMHL_TypeOfTestFunction==TestFunction_AckleyII)
+	if (VMHL_TypeOfTestFunction==TestFunction_AdditivePotential)
     {
-        for (i=0;i<VMHL_N;i++) Left[i]=-5;
-        for (i=0;i<VMHL_N;i++) Right[i]=5;
+        for (i=0;i<VMHL_N;i++) Left[i]=0;
+        for (i=0;i<VMHL_N;i++) Right[i]=4;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_MultiplicativePotential)
+    {
+        for (i=0;i<VMHL_N;i++) Left[i]=0;
+        for (i=0;i<VMHL_N;i++) Right[i]=4;
+    }
+
 
     if (VMHL_TypeOfTestFunction==TestFunction_ParaboloidOfRevolution)
     {

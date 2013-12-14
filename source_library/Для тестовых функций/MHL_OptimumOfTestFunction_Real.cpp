@@ -19,9 +19,14 @@ double MHL_OptimumOfTestFunction_Real(double *Optimum, int VMHL_N)
         for (i=0;i<VMHL_N;i++) Optimum[i]=0;
     }
 	
-	if (VMHL_TypeOfTestFunction==TestFunction_AckleyII)
+	if (VMHL_TypeOfTestFunction==TestFunction_AdditivePotential)
     {
-        for (i=0;i<VMHL_N;i++) Optimum[i]=0;
+        for (i=0;i<VMHL_N;i++) Optimum[i]=2;
+    }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_MultiplicativePotential)
+    {
+        for (i=0;i<VMHL_N;i++) Optimum[i]=2;
     }
 
     if (VMHL_TypeOfTestFunction==TestFunction_ParaboloidOfRevolution)

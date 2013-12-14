@@ -20,9 +20,14 @@ double MHL_PrecisionOfCalculationsOfTestFunction_Real()
         VMHL_Result_E=0.025;
     }
 	
-	if (VMHL_TypeOfTestFunction==TestFunction_AckleyII)
+	if (VMHL_TypeOfTestFunction==TestFunction_AdditivePotential)
     {
-        VMHL_Result_E=0.025;
+        VMHL_Result_E=0.01;
+    }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_MultiplicativePotential)
+    {
+        VMHL_Result_E=0.01;
     }
 
     if (VMHL_TypeOfTestFunction==TestFunction_ParaboloidOfRevolution)

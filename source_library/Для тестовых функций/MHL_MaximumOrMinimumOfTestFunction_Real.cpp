@@ -20,7 +20,12 @@ double MHL_MaximumOrMinimumOfTestFunction_Real()
         VMHL_Result=-1;
     }
 	
-	if (VMHL_TypeOfTestFunction==TestFunction_AckleyII)
+	if (VMHL_TypeOfTestFunction==TestFunction_AdditivePotential)
+    {
+        VMHL_Result=-1;
+    }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_MultiplicativePotential)
     {
         VMHL_Result=-1;
     }

@@ -30,7 +30,7 @@ double MHL_RandomNumber(void);//Генерирует вещественное с
 void MHL_SetRandomNumberGenerator(TypeOfRandomNumberGenerator T);//Переназначить генератор случайных чисел на другой
 
 //ПЕРЕМЕННЫЕ ПЕРЕЧИСЛЯЕМОГО ТИПА
-enum TypeOfTestFunction { TestFunction_Ackley, TestFunction_AckleyII, TestFunction_ParaboloidOfRevolution, TestFunction_Rastrigin, TestFunction_Rosenbrock, TestFunction_SumVector };
+enum TypeOfTestFunction { TestFunction_Ackley, TestFunction_ParaboloidOfRevolution, TestFunction_Rastrigin, TestFunction_Rosenbrock, TestFunction_SumVector, TestFunction_AdditivePotential, TestFunction_MultiplicativePotential };
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // ОБЪЯВЛЕНИЯ ФУНКЦИЙ
@@ -349,7 +349,8 @@ template <class T> T TMHL_Variance(T *x, int VMHL_N);
 
 //Тестовые функции для оптимизации
 double MHL_TestFunction_Ackley(double *x, int VMHL_N);
-double MHL_TestFunction_AckleyII(double *x, int VMHL_N);
+double MHL_TestFunction_AdditivePotential(double x, double y);
+double MHL_TestFunction_MultiplicativePotential(double x, double y);
 double MHL_TestFunction_ParaboloidOfRevolution(double *x, int VMHL_N);
 double MHL_TestFunction_Rastrigin(double *x, int VMHL_N);
 double MHL_TestFunction_Rosenbrock(double *x, int VMHL_N);

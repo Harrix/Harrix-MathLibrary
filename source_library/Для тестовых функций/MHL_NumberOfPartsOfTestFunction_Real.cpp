@@ -17,27 +17,7 @@ double MHL_NumberOfPartsOfTestFunction_Real(int *NumberOfParts, int VMHL_N)
     double VMHL_Result_E = 0;
     int i;
 
-    if (VMHL_TypeOfTestFunction==TestFunction_Ackley)
-    {
-        for (i=0;i<VMHL_N;i++) NumberOfParts[i]=4095;
-    }
-	
-	if (VMHL_TypeOfTestFunction==TestFunction_AckleyII)
-    {
-        for (i=0;i<VMHL_N;i++) NumberOfParts[i]=4095;
-    }
-
-    if (VMHL_TypeOfTestFunction==TestFunction_ParaboloidOfRevolution)
-    {
-        for (i=0;i<VMHL_N;i++) NumberOfParts[i]=4095;
-    }
-
-    if (VMHL_TypeOfTestFunction==TestFunction_Rastrigin)
-    {
-        for (i=0;i<VMHL_N;i++) NumberOfParts[i]=4095;
-    }
-
-    if (VMHL_TypeOfTestFunction==TestFunction_Rosenbrock)
+    if ((VMHL_TypeOfTestFunction==TestFunction_Ackley)||(VMHL_TypeOfTestFunction==TestFunction_ParaboloidOfRevolution)||(VMHL_TypeOfTestFunction==TestFunction_Rastrigin)||(VMHL_TypeOfTestFunction==TestFunction_Rosenbrock)||(VMHL_TypeOfTestFunction==TestFunction_AdditivePotential)||(VMHL_TypeOfTestFunction==TestFunction_MultiplicativePotential))
     {
         for (i=0;i<VMHL_N;i++) NumberOfParts[i]=4095;
     }

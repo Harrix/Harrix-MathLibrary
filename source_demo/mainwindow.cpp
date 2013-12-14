@@ -791,7 +791,10 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("MHL_RealGeneticAlgorithmWCC"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_TestFunction_AckleyII"));
+    item = new QStandardItem(QString("MHL_TestFunction_AdditivePotential"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_TestFunction_MultiplicativePotential"));
     model->appendRow(item);
 
     model->sort(0);
@@ -9017,16 +9020,16 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //VMHL_Success=1
 
         if (VMHL_Success==1)
-         {
-         MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
-         //Найденное решение:
-         //Decision =
-         //1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1
+        {
+            MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
+            //Найденное решение:
+            //Decision =
+            //1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1
 
-         MHL_ShowNumber(ValueOfFitnessFunction,"Значение функции пригодности","ValueOfFitnessFunction");
-         // Значение функции пригодности:
-         //ValueOfFitnessFunction=50
-         }
+            MHL_ShowNumber(ValueOfFitnessFunction,"Значение функции пригодности","ValueOfFitnessFunction");
+            // Значение функции пригодности:
+            //ValueOfFitnessFunction=50
+        }
 
         delete [] Parameters;
         delete [] Decision;
@@ -9075,15 +9078,15 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //Используем полученный результат
         MHL_ShowNumber(VMHL_Success,"Как прошел запуск","VMHL_Success");
         if (VMHL_Success==1)
-         {
-         MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
-         //Найденное решение:
-         //Decision =
-         //2.0105	2.00195
-         MHL_ShowNumber(ValueOfFitnessFunction,"Значение целевой функции","ValueOfFitnessFunction");
-         //Значение целевой функции:
-         //ValueOfFitnessFunction=-0.000114024
-         }
+        {
+            MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
+            //Найденное решение:
+            //Decision =
+            //2.0105	2.00195
+            MHL_ShowNumber(ValueOfFitnessFunction,"Значение целевой функции","ValueOfFitnessFunction");
+            //Значение целевой функции:
+            //ValueOfFitnessFunction=-0.000114024
+        }
 
         delete [] Parameters;
         delete [] Decision;
@@ -9092,26 +9095,53 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] NumberOfParts;
     }
 
-        if (NameFunction=="MHL_TestFunction_AckleyII")
-        {
-            double *x;
-            double f;
-            int VMHL_N=2;
-            x=new double[VMHL_N];
-            for (int i=0;i<VMHL_N;i++) x[i]=MHL_RandomUniform(-5,5);
-            f=MHL_TestFunction_AckleyII(x,VMHL_N);
+    if (NameFunction=="MHL_TestFunction_AdditivePotential")
+    {
+        double x;
+        double y;
+        double f;
+        x=MHL_RandomUniform(-5,5);
+        y=MHL_RandomUniform(-5,5);
 
-            MHL_ShowVector (x,VMHL_N,"Входной вектор", "x");
-            //x =
-            //-4.02259
-            //-0.357405
+        //Вызываем функцию
+        f=MHL_TestFunction_AdditivePotential(x,y);
 
-            MHL_ShowNumber (f,"Значение функции", "f");
-            //Значение функции:
-            //f=10.4204
+        MHL_ShowNumber (x,"Первая вещественная переменная", "x");
+        //Первая вещественная переменная:
+        //x=-2.87701
 
-            delete[] x;
-        }
+        MHL_ShowNumber (y,"Вторая вещественная переменная", "y");
+        //Вторая вещественная переменная:
+        //y=-0.443955
+
+        MHL_ShowNumber (f,"Значение функции", "f");
+        //Значение функции:
+        //f=-0.64441
+    }
+
+    if (NameFunction=="MHL_TestFunction_MultiplicativePotential")
+    {
+        double x;
+        double y;
+        double f;
+        x=MHL_RandomUniform(-5,5);
+        y=MHL_RandomUniform(-5,5);
+
+        //Вызываем функцию
+        f=MHL_TestFunction_MultiplicativePotential(x,y);
+
+        MHL_ShowNumber (x,"Первая вещественная переменная", "x");
+        //Первая вещественная переменная:
+        //x=0.520743
+
+        MHL_ShowNumber (y,"Вторая вещественная переменная", "y");
+        //Вторая вещественная переменная:
+        //y=-4.96242
+
+        MHL_ShowNumber (f,"Значение функции", "f");
+        //Значение функции:
+        //f=-0.113219
+    }
 }
 //---------------------------------------------------------------------------
 
