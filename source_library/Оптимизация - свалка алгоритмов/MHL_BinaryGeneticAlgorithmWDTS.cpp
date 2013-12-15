@@ -12,11 +12,11 @@ int MHL_BinaryGeneticAlgorithmWDTS(double *Parameters, double (*FitnessFunction)
   [2] - размер турнирной селекции (SizeOfTournament): от 2 до sqrt(CountOfFitness);
   [3] - тип скрещивания (TypeOfCros):
         0 - SinglepointCrossover (Одноточечное скрещивание);
-        1 - TwopointCrossover (Двуточечное скрещивание);
+        1 - TwopointCrossover (Двухточечное скрещивание);
         2 - UniformCrossover (Равномерное скрещивание).
   [4] - тип мутации (TypeOfMutation):
         0 - Weak (Слабая мутация);
-        1 - Averagen (Средняя мутация);
+        1 - Average (Средняя мутация);
         2 - Strong (Сильная мутация).
   [5] - тип формирования нового поколения (TypeOfForm):
         0 - OnlyOffspringGenerationForming (Только потомки);

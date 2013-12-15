@@ -797,6 +797,12 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("MHL_TestFunction_MultiplicativePotential"));
     model->appendRow(item);
 
+    item = new QStandardItem(QString("MHL_BinaryGeneticAlgorithmTournamentSelectionWithReturn"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_RealGeneticAlgorithmTournamentSelectionWithReturn"));
+    model->appendRow(item);
+
     model->sort(0);
 
     //соединение модели списка с конкретным списком
@@ -9141,6 +9147,113 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         MHL_ShowNumber (f,"Значение функции", "f");
         //Значение функции:
         //f=-0.113219
+    }
+
+    if (NameFunction=="MHL_BinaryGeneticAlgorithmTournamentSelectionWithReturn")
+    {
+        int ChromosomeLength=50;//Длина хромосомы
+        int CountOfFitness=50*50;//Число вычислений целевой функции
+        int SizeOfTournament=2;//Размер турнира в турнирной селекции с возвращением
+        int TypeOfCros=0;//Тип скрещивания
+        int TypeOfMutation=1;//Тип мутации
+        int TypeOfForm=0;//Тип формирования нового поколения
+
+        double *ParametersOfAlgorithm;
+        ParametersOfAlgorithm=new double[6];
+        ParametersOfAlgorithm[0]=ChromosomeLength;//Длина хромосомы
+        ParametersOfAlgorithm[1]=CountOfFitness;//Число вычислений целевой функции
+        ParametersOfAlgorithm[2]=SizeOfTournament;//Размер турнира в турнирной селекции с возвращением
+        ParametersOfAlgorithm[3]=TypeOfCros;//Тип скрещивания
+        ParametersOfAlgorithm[4]=TypeOfMutation;//Тип мутации
+        ParametersOfAlgorithm[5]=TypeOfForm;//Тип формирования нового поколения
+
+        int *Decision;//бинарное решение
+        Decision=new int[ChromosomeLength];
+        double ValueOfFitnessFunction;//значение функции пригодности в точке Decision
+        int VMHL_Success=0;//Успешен ли будет запуск cГА
+
+        //Запуск алгоритма
+        VMHL_Success=MHL_BinaryGeneticAlgorithmTournamentSelectionWithReturn (ParametersOfAlgorithm,Func, Decision, &ValueOfFitnessFunction);
+
+        //Используем полученный результат
+        MHL_ShowNumber(VMHL_Success,"Как прошел запуск","VMHL_Success");
+        //Как прошел запуск:
+        //VMHL_Success=1
+
+        if (VMHL_Success==1)
+         {
+         MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
+         //Найденное решение:
+         //Decision =
+         //1	1	1	1	1	1	1	1	1	1	1	1	0	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	0	1	1	1	1	1	1	1	1	1	1	1	0	1	1	1	1	1	1	1	1
+
+         MHL_ShowNumber(ValueOfFitnessFunction,"Значение функции пригодности","ValueOfFitnessFunction");
+         //Значение функции пригодности:
+         //ValueOfFitnessFunction=47
+        }
+        delete [] ParametersOfAlgorithm;
+        delete [] Decision;
+    }
+
+    if (NameFunction=="MHL_RealGeneticAlgorithmTournamentSelectionWithReturn")
+    {
+        int ChromosomeLength=2;//Длина хромосомы
+        int CountOfFitness=50*50;//Число вычислений целевой функции
+        int SizeOfTournament=2;//Размер турнира в турнирной селекции с возвращением
+        int TypeOfCros=0;//Тип скрещивания
+        int TypeOfMutation=1;//Тип мутации
+        int TypeOfForm=0;//Тип формирования нового поколения
+
+        double *ParametersOfAlgorithm;
+        ParametersOfAlgorithm=new double[7];
+        ParametersOfAlgorithm[0]=ChromosomeLength;//Длина хромосомы
+        ParametersOfAlgorithm[1]=CountOfFitness;//Число вычислений целевой функции
+        ParametersOfAlgorithm[2]=SizeOfTournament;//Размер турнира в турнирной селекции с возвращением
+        ParametersOfAlgorithm[3]=TypeOfCros;//Тип скрещивания
+        ParametersOfAlgorithm[4]=TypeOfMutation;//Тип мутации
+        ParametersOfAlgorithm[5]=TypeOfForm;//Тип формирования нового поколения
+        ParametersOfAlgorithm[6]=0;//Тип преобразование задачи вещественной оптимизации в задачу бинарной оптимизации
+
+        double *Left;//массив левых границ изменения каждой вещественной координаты
+        Left=new double[ChromosomeLength];
+        double *Right;//массив правых границ изменения каждой вещественной координаты
+        Right=new double[ChromosomeLength];
+        int *NumberOfParts;//на сколько делить каждую координату
+        NumberOfParts=new int[ChromosomeLength];
+
+        //Заполним массивы
+        //Причем по каждой координате одинаковые значения выставим
+        TMHL_FillVector(Left,ChromosomeLength,-5.);//Пусть будет интервал [-3;3]
+        TMHL_FillVector(Right,ChromosomeLength,5.);
+        TMHL_FillVector(NumberOfParts,ChromosomeLength,TMHL_PowerOf(2,15)-1);//Делим на 32768-1 частей каждую вещественную координату
+
+        double *Decision;//вещественное решение
+        Decision=new double[ChromosomeLength];
+        double ValueOfFitnessFunction;//значение целевой функции в точке Decision
+        int VMHL_Success=0;//Успешен ли будет запуск cГА
+
+        //Запуск алгоритма
+        VMHL_Success=MHL_RealGeneticAlgorithmTournamentSelectionWithReturn (ParametersOfAlgorithm,NumberOfParts,Left,Right,Func2, Decision, &ValueOfFitnessFunction);
+
+        //Используем полученный результат
+        MHL_ShowNumber(VMHL_Success,"Как прошел запуск","VMHL_Success");
+        if (VMHL_Success==1)
+         {
+         MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
+         //Найденное решение:
+         //Decision =
+         //2.00226	1.98883
+
+         MHL_ShowNumber(ValueOfFitnessFunction,"Значение целовой функции","ValueOfFitnessFunction");
+         //Значение целевой функции:
+         //ValueOfFitnessFunction=-0.000129856
+         }
+
+        delete [] ParametersOfAlgorithm;
+        delete [] Decision;
+        delete [] Left;
+        delete [] Right;
+        delete [] NumberOfParts;
     }
 }
 //---------------------------------------------------------------------------

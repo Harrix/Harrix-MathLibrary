@@ -1,7 +1,7 @@
 int MHL_BinaryMonteCarloAlgorithm(int *Parameters, double (*FitnessFunction)(int*,int), int *VMHL_ResultVector, double *VMHL_Result)
 {
 /*
-Метод Монте-Карло (Monte-Carlo). Простейший метод оптимизации на бинарных строках. В простонародье его называют "методом научного тыка".
+Метод Монте-Карло (Monte-Carlo). Простейший метод оптимизации для решения задач на бинарных строках. В простонародье его называют "методом научного тыка".
 Алгоритм оптимизации. Ищет максимум функции пригодности FitnessFunction.
 Входные параметры:
  Parameters

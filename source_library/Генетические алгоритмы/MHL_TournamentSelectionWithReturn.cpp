@@ -10,7 +10,7 @@ int MHL_TournamentSelectionWithReturn(double *Fitness, int SizeTournament, int V
  Номер выбранного индивида популяции.
 Примечание:
  Не является стандартной реализацией турнирной селекции, так как в классичсекой турнирной селекции
-в один туринир один и тот же индивид может попасть только один раз.
+в один турнир один и тот же индивид может попасть только один раз.
 */
 if (SizeTournament<2) SizeTournament=2;
 if (SizeTournament>VMHL_N) SizeTournament=VMHL_N;
