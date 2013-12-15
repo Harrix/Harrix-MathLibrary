@@ -4800,7 +4800,7 @@ int MHL_BinaryGeneticAlgorithmWDPOfNOfGPS(double *Parameters, double (*FitnessFu
         2 - TournamentSelection (Турнирная селекция).
   [3] - тип скрещивания (TypeOfCros):
         0 - SinglepointCrossover (Одноточечное скрещивание);
-        1 - TwopointCrossover (Двуточечное скрещивание);
+        1 - TwopointCrossover (Двухточечное скрещивание);
         2 - UniformCrossover (Равномерное скрещивание).
   [4] - тип мутации (TypeOfMutation):
         0 - Weak (Слабая мутация);
@@ -5650,7 +5650,7 @@ int MHL_RealGeneticAlgorithmWDPOfNOfGPS(double *Parameters, int *NumberOfParts, 
         2 - TournamentSelection (Турнирная селекция).
   [3] - тип скрещивания (TypeOfCros):
         0 - SinglepointCrossover (Одноточечное скрещивание);
-        1 - TwopointCrossover (Двуточечное скрещивание);
+        1 - TwopointCrossover (Двухточечное скрещивание);
         2 - UniformCrossover (Равномерное скрещивание).
   [4] - тип мутации (TypeOfMutation):
         0 - Weak (Слабая мутация);
@@ -5816,7 +5816,7 @@ int MHL_RealGeneticAlgorithmWDTS(double *Parameters, int *NumberOfParts, double 
   [2] - размер турнирной селекции (SizeOfTournament): от 2 до sqrt(CountOfFitness);
   [3] - тип скрещивания (TypeOfCros):
         0 - SinglepointCrossover (Одноточечное скрещивание);
-        1 - TwopointCrossover (Двуточечное скрещивание);
+        1 - TwopointCrossover (Двухточечное скрещивание);
         2 - UniformCrossover (Равномерное скрещивание).
   [4] - тип мутации (TypeOfMutation):
         0 - Weak (Слабая мутация);

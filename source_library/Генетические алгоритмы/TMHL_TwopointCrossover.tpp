@@ -1,7 +1,7 @@
 template <class T> void TMHL_TwopointCrossover(T *Parent1, T *Parent2, T *VMHL_ResultVector, int VMHL_N)
 {
 /*
-Двуточечное скрещивание. Оператор генетического алгоритма.
+Двухточечное скрещивание. Оператор генетического алгоритма.
 Входные параметры:
  Parent1 - первый родитель;
  Parent2 - второй родитель;
