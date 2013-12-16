@@ -18,10 +18,13 @@ int MHL_ClassOfTestFunction(TypeOfTestFunction Type)
     if (Type==TestFunction_Ackley)
         return 2;
 		
-   if (Type==TestFunction_AdditivePotential)
+	if (Type==TestFunction_AdditivePotential)
         return 2;
 		
-   if (Type==TestFunction_MultiplicativePotential)
+    if (Type==TestFunction_MultiplicativePotential)
+        return 2;
+		
+	if (Type==TestFunction_ReverseGriewank)
         return 2;
 
     if (Type==TestFunction_ParaboloidOfRevolution)

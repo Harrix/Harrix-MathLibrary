@@ -26,6 +26,11 @@ double MHL_FitnessOfOptimumOfTestFunction_Real(double VMHL_N)
     {
         VMHL_Result = -60.8872819100091;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_ReverseGriewank)
+    {
+        VMHL_Result = 1.;
+    }
 
     if (VMHL_TypeOfTestFunction==TestFunction_ParaboloidOfRevolution)
     {

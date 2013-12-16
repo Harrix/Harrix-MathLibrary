@@ -29,6 +29,11 @@ double MHL_PrecisionOfCalculationsOfTestFunction_Real()
     {
         VMHL_Result_E=0.01;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_ReverseGriewank)
+    {
+        VMHL_Result_E=0.05;
+    }
 
     if (VMHL_TypeOfTestFunction==TestFunction_ParaboloidOfRevolution)
     {
