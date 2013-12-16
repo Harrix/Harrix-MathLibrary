@@ -803,6 +803,9 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("MHL_RealGeneticAlgorithmTournamentSelectionWithReturn"));
     model->appendRow(item);
 
+    item = new QStandardItem(QString("MHL_TestFunction_ReverseGriewank"));
+    model->appendRow(item);
+
     model->sort(0);
 
     //соединение модели списка с конкретным списком
@@ -9181,15 +9184,15 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //VMHL_Success=1
 
         if (VMHL_Success==1)
-         {
-         MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
-         //Найденное решение:
-         //Decision =
-         //1	1	1	1	1	1	1	1	1	1	1	1	0	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	0	1	1	1	1	1	1	1	1	1	1	1	0	1	1	1	1	1	1	1	1
+        {
+            MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
+            //Найденное решение:
+            //Decision =
+            //1	1	1	1	1	1	1	1	1	1	1	1	0	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	0	1	1	1	1	1	1	1	1	1	1	1	0	1	1	1	1	1	1	1	1
 
-         MHL_ShowNumber(ValueOfFitnessFunction,"Значение функции пригодности","ValueOfFitnessFunction");
-         //Значение функции пригодности:
-         //ValueOfFitnessFunction=47
+            MHL_ShowNumber(ValueOfFitnessFunction,"Значение функции пригодности","ValueOfFitnessFunction");
+            //Значение функции пригодности:
+            //ValueOfFitnessFunction=47
         }
         delete [] ParametersOfAlgorithm;
         delete [] Decision;
@@ -9238,22 +9241,46 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //Используем полученный результат
         MHL_ShowNumber(VMHL_Success,"Как прошел запуск","VMHL_Success");
         if (VMHL_Success==1)
-         {
-         MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
-         //Найденное решение:
-         //Decision =
-         //2.00226	1.98883
+        {
+            MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
+            //Найденное решение:
+            //Decision =
+            //2.00226	1.98883
 
-         MHL_ShowNumber(ValueOfFitnessFunction,"Значение целовой функции","ValueOfFitnessFunction");
-         //Значение целевой функции:
-         //ValueOfFitnessFunction=-0.000129856
-         }
+            MHL_ShowNumber(ValueOfFitnessFunction,"Значение целовой функции","ValueOfFitnessFunction");
+            //Значение целевой функции:
+            //ValueOfFitnessFunction=-0.000129856
+        }
 
         delete [] ParametersOfAlgorithm;
         delete [] Decision;
         delete [] Left;
         delete [] Right;
         delete [] NumberOfParts;
+    }
+
+    if (NameFunction=="MHL_TestFunction_ReverseGriewank")
+    {
+        double x;
+        double y;
+        double f;
+        x=MHL_RandomUniform(-10,10);
+        y=MHL_RandomUniform(-10,10);
+
+        //Вызываем функцию
+        f=MHL_TestFunction_ReverseGriewank(x,y);
+
+        MHL_ShowNumber (x,"Первая вещественная переменная", "x");
+        //Первая вещественная переменная:
+        //x=9.39884
+
+        MHL_ShowNumber (y,"Вторая вещественная переменная", "y");
+        //Вторая вещественная переменная:
+        //y=-8.80345
+
+        MHL_ShowNumber (f,"Значение функции", "f");
+        //Значение функции:
+        //f=0.26129
     }
 }
 //---------------------------------------------------------------------------

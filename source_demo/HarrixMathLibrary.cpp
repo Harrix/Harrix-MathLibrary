@@ -1,5 +1,5 @@
 //HarrixMathLibrary
-//Версия 3.34
+//Версия 3.35
 //Сборник различных математических функций и шаблонов с открытым кодом на языке C++.
 //https://github.com/Harrix/HarrixMathLibrary
 //Библиотека распространяется по лицензии Apache License, Version 2.0.
@@ -10091,6 +10091,24 @@ double MHL_TestFunction_Rastrigin(double *x, int VMHL_N)
 double VMHL_Result=0;
 for (int i=0;i<VMHL_N;i++) VMHL_Result+=x[i]*x[i]-10.*cos(2.*MHL_PI*x[i]);
 VMHL_Result+=10*VMHL_N;
+return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+double MHL_TestFunction_ReverseGriewank(double x, double y)
+{
+/*
+Функция двух переменных: функция ReverseGriewank.
+Тестовая функция вещественной оптимизации.
+Входные параметры:
+ x - первая вещественная переменная;
+ y - вторая вещественная переменная.
+Возвращаемое значение:
+ Значение тестовой функции в точке (x,y).
+*/
+double VMHL_Result;
+
+VMHL_Result = 1./((x*x+y*y)/200.-cos(x)*cos(y/sqrt(2.))+2.);
+
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------

@@ -1,0 +1,20 @@
+        double x;
+        double y;
+        double f;
+        x=MHL_RandomUniform(-10,10);
+        y=MHL_RandomUniform(-10,10);
+        
+        //Вызываем функцию
+        f=MHL_TestFunction_ReverseGriewank(x,y);
+        
+        MHL_ShowNumber (x,"Первая вещественная переменная", "x");
+        //Первая вещественная переменная:
+        //x=9.39884
+        
+        MHL_ShowNumber (y,"Вторая вещественная переменная", "y");
+        //Вторая вещественная переменная:
+        //y=-8.80345
+        
+        MHL_ShowNumber (f,"Значение функции", "f");
+        //Значение функции:
+        //f=0.26129

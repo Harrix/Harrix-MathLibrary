@@ -355,6 +355,7 @@ double MHL_TestFunction_AdditivePotential(double x, double y);
 double MHL_TestFunction_MultiplicativePotential(double x, double y);
 double MHL_TestFunction_ParaboloidOfRevolution(double *x, int VMHL_N);
 double MHL_TestFunction_Rastrigin(double *x, int VMHL_N);
+double MHL_TestFunction_ReverseGriewank(double x, double y);
 double MHL_TestFunction_Rosenbrock(double *x, int VMHL_N);
 double MHL_TestFunction_SumVector(int *x, int VMHL_N);
 
