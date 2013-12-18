@@ -32,6 +32,12 @@ double MHL_TestFunction_Real(double *x, int VMHL_N)
 
     if (VMHL_TypeOfTestFunction==TestFunction_Rosenbrock)
         VMHL_Result = MHL_MaximumOrMinimumOfTestFunction_Real()*MHL_TestFunction_Rosenbrock(x, VMHL_N);
+		
+	if (VMHL_TypeOfTestFunction==TestFunction_HyperEllipsoid)
+        VMHL_Result = MHL_MaximumOrMinimumOfTestFunction_Real()*MHL_TestFunction_HyperEllipsoid(x, VMHL_N);
+		
+	if (VMHL_TypeOfTestFunction==TestFunction_RotatedHyperEllipsoid)
+        VMHL_Result = MHL_MaximumOrMinimumOfTestFunction_Real()*MHL_TestFunction_RotatedHyperEllipsoid(x, VMHL_N);
 
     CountOfFitness++;//увеличиваем число вызовов целевой функции
     return VMHL_Result;

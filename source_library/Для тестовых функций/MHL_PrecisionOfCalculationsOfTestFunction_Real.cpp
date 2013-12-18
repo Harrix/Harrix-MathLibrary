@@ -49,6 +49,16 @@ double MHL_PrecisionOfCalculationsOfTestFunction_Real()
     {
         VMHL_Result_E=0.01;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_HyperEllipsoid)
+    {
+        VMHL_Result_E=0.025;
+    }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_RotatedHyperEllipsoid)
+    {
+        VMHL_Result_E=0.025;
+    }
 
     return VMHL_Result_E;
 }

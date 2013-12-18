@@ -46,6 +46,16 @@ double MHL_FitnessOfOptimumOfTestFunction_Real(double VMHL_N)
     {
         VMHL_Result = 0;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_HyperEllipsoid)
+    {
+        VMHL_Result = 0;
+    }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_RotatedHyperEllipsoid)
+    {
+        VMHL_Result = 0;
+    }
 
     return VMHL_Result;
 }

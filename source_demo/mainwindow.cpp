@@ -806,6 +806,12 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("MHL_TestFunction_ReverseGriewank"));
     model->appendRow(item);
 
+    item = new QStandardItem(QString("MHL_TestFunction_HyperEllipsoid"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_TestFunction_RotatedHyperEllipsoid"));
+    model->appendRow(item);
+
     model->sort(0);
 
     //соединение модели списка с конкретным списком
@@ -9281,6 +9287,50 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         MHL_ShowNumber (f,"Значение функции", "f");
         //Значение функции:
         //f=0.26129
+    }
+
+    if (NameFunction=="MHL_TestFunction_HyperEllipsoid")
+    {
+        double *x;
+        double f;
+        int VMHL_N=2;
+        x=new double[VMHL_N];
+        for (int i=0;i<VMHL_N;i++) x[i]=MHL_RandomUniform(-5,5);
+        f=MHL_TestFunction_HyperEllipsoid(x,VMHL_N);
+
+        MHL_ShowVector (x,VMHL_N,"Входной вектор", "x");
+        //Входной вектор:
+        //x =
+        //1.39903
+        //1.96538
+
+        MHL_ShowNumber (f,"Значение функции", "f");
+        //Значение функции:
+        //f=17.4082
+
+        delete[] x;
+    }
+
+    if (NameFunction=="MHL_TestFunction_RotatedHyperEllipsoid")
+    {
+        double *x;
+        double f;
+        int VMHL_N=2;
+        x=new double[VMHL_N];
+        for (int i=0;i<VMHL_N;i++) x[i]=MHL_RandomUniform(-5,5);
+        f=MHL_TestFunction_RotatedHyperEllipsoid(x,VMHL_N);
+
+        MHL_ShowVector (x,VMHL_N,"Входной вектор", "x");
+        //Входной вектор:
+        //x =
+        //-0.933898
+        //-1.2216
+
+        MHL_ShowNumber (f,"Значение функции", "f");
+        //Значение функции:
+        //f=5.51833
+
+        delete[] x;
     }
 }
 //---------------------------------------------------------------------------

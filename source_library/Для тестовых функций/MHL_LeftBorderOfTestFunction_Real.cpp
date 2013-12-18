@@ -57,6 +57,18 @@ void MHL_LeftAndRightBorderOfTestFunction_Real(double *Left, double *Right,int V
         for (i=0;i<VMHL_N;i++) Left[i]=-2;
         for (i=0;i<VMHL_N;i++) Right[i]=2;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_HyperEllipsoid)
+    {
+        for (i=0;i<VMHL_N;i++) Left[i]=-5;
+        for (i=0;i<VMHL_N;i++) Right[i]=5;
+    }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_RotatedHyperEllipsoid)
+    {
+        for (i=0;i<VMHL_N;i++) Left[i]=-5;
+        for (i=0;i<VMHL_N;i++) Right[i]=5;
+    }
 }
 //---------------------------------------------------------------------------
 void MHL_LeftAndRightBorderOfTestFunction_Real(double *Left, double *Right, int VMHL_N, TypeOfTestFunction Type)

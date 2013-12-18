@@ -46,6 +46,16 @@ int MHL_GetCountOfSubProblems_Real()
     {
         VMHL_Result = 7;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_HyperEllipsoid)
+    {
+        VMHL_Result = 7;
+    }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_RotatedHyperEllipsoid)
+    {
+        VMHL_Result = 7;
+    }
 
     return VMHL_Result;
 }
