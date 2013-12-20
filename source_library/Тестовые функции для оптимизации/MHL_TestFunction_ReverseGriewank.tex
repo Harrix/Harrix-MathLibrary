@@ -19,7 +19,7 @@
 \textbf{Формула} (целевая функция):
 \begin{equation}
 \label{TestFunctions:eq:MHL_ReverseGriewank}
-f\left( \bar{x}\right) = \dfrac{1}{\dfrac{x^2+y^2}{200}-cos\left( x\right)cos\left( \dfrac{y}{\sqrt{2}}\right)+2  }, \text{ где}
+f\left( \bar{x}\right) = \dfrac{1}{\dfrac{\bar{x}_1^2+\bar{x}_2^2}{200}-cos\left( \bar{x}_0\right)cos\left( \dfrac{\bar{x}_2}{\sqrt{2}}\right)+2  }, \text{ где}
 \end{equation}
 \indent $\bar{x}\in X$, $\bar{x}_j\in \left[ Left_j; Right_j\right] $, $Left_j=-10$, $Right_j=10$, $j=\overline{1,n}$, $n=2$.
 
@@ -83,7 +83,7 @@ E_f = \dfrac{\sum_{k=1}^{N} \left| f\left( \bar{x}_{submin}^k \right)-f\left( \b
 \subsection {Свойства задачи}
 \begin{tabularwide}
 \textbf{Условной или безусловной оптимизации: } & Задача безусловной оптимизации. \\
-\textbf{Одномерной или многомерной оптимизации: } & Многомерной: $ n $. \\
+\textbf{Одномерной или многомерной оптимизации: } & Многомерной: (двумерной). \\
 \textbf{Функция унимодальная или многоэкстремальная: } & Функция многоэкстремальная. \\
 \textbf{Функция стохастическая или нет: } & Функция не стохастическая. \\
 \textbf{Особенности: } & Нет. \\

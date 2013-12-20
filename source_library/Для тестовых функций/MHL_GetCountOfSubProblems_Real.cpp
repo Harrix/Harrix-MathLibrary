@@ -56,6 +56,11 @@ int MHL_GetCountOfSubProblems_Real()
     {
         VMHL_Result = 7;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_Wave)
+    {
+        VMHL_Result = 1;
+    }
 
     return VMHL_Result;
 }

@@ -38,6 +38,9 @@ double MHL_TestFunction_Real(double *x, int VMHL_N)
 		
 	if (VMHL_TypeOfTestFunction==TestFunction_RotatedHyperEllipsoid)
         VMHL_Result = MHL_MaximumOrMinimumOfTestFunction_Real()*MHL_TestFunction_RotatedHyperEllipsoid(x, VMHL_N);
+		
+	if (VMHL_TypeOfTestFunction==TestFunction_Wave)
+        VMHL_Result = MHL_MaximumOrMinimumOfTestFunction_Real()*MHL_TestFunction_Wave(x[0]);
 
     CountOfFitness++;//увеличиваем число вызовов целевой функции
     return VMHL_Result;

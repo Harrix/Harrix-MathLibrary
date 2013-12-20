@@ -812,6 +812,9 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("MHL_TestFunction_RotatedHyperEllipsoid"));
     model->appendRow(item);
 
+    item = new QStandardItem(QString("MHL_TestFunction_Wave"));
+    model->appendRow(item);
+
     model->sort(0);
 
     //соединение модели списка с конкретным списком
@@ -9331,6 +9334,24 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //f=5.51833
 
         delete[] x;
+    }
+
+    if (NameFunction=="MHL_TestFunction_Wave")
+    {
+        double x;
+        double f;
+        x=MHL_RandomUniform(-2,2);
+
+        //Вызываем функцию
+        f=MHL_TestFunction_Wave(x);
+
+        MHL_ShowNumber (x,"Вещественная переменная", "x");
+        //Вещественная переменная:
+        //x=0.802021
+
+        MHL_ShowNumber (f,"Значение функции", "f");
+        //Значение функции:
+        //f=0.515755
     }
 }
 //---------------------------------------------------------------------------

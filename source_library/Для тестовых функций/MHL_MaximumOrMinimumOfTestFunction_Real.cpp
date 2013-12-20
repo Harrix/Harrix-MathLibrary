@@ -59,6 +59,11 @@ double MHL_MaximumOrMinimumOfTestFunction_Real()
     {
         VMHL_Result=-1;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_Wave)
+    {
+        VMHL_Result=1;
+    }
 
     return VMHL_Result;
 }
