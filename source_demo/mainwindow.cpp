@@ -815,6 +815,9 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("MHL_TestFunction_Wave"));
     model->appendRow(item);
 
+    item = new QStandardItem(QString("MHL_TestFunction_Multiextremal"));
+    model->appendRow(item);
+
     model->sort(0);
 
     //соединение модели списка с конкретным списком
@@ -9352,6 +9355,25 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         MHL_ShowNumber (f,"Значение функции", "f");
         //Значение функции:
         //f=0.515755
+    }
+
+    if (NameFunction=="MHL_TestFunction_Multiextremal")
+    {
+        double x;
+        double f;
+        x=MHL_RandomUniform(-2,2);
+        x=0.954451617;
+
+        //Вызываем функцию
+        f=MHL_TestFunction_Multiextremal(x);
+
+        MHL_ShowNumber (x,"Вещественная переменная", "x");
+        //Вещественная переменная:
+        //x=1.112
+
+        MHL_ShowNumber (f,"Значение функции", "f");
+        //Значение функции:
+        //f=5.46058
     }
 }
 //---------------------------------------------------------------------------

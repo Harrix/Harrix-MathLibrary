@@ -61,6 +61,11 @@ double MHL_FitnessOfOptimumOfTestFunction_Real(double VMHL_N)
     {
         VMHL_Result = 1.01;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_Multiextremal)
+    {
+        VMHL_Result = 0.000103742;
+    }
 
     return VMHL_Result;
 }
