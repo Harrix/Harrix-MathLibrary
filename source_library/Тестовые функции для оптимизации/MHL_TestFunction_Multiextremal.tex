@@ -35,7 +35,7 @@ f\left( \bar{x}\right) = 0.05\left( x-1\right)^2 + \left( 3-2.9e^{-2.77257x^2}\r
   \label{TestFunctions:img:MHL_TestFunction_Multiextremale}  
 \end{figure}
 
-\subsection {Параметры для алгоритмов оптимизации}
+\textbf {Параметры для алгоритмов оптимизации}
 
 \begin{tabularwide}
 \textbf{Точность вычислений:} & $\varepsilon=0.01$. \\
@@ -48,14 +48,14 @@ f\left( \bar{x}\right) = 0.05\left( x-1\right)^2 + \left( 3-2.9e^{-2.77257x^2}\r
 NumberOfParts_j=2^{\left( k_2\right)_j }-1\geq\dfrac{10\left( Right_j-Left_j\right) }{\varepsilon},\text{где } \left( k_2\right)_j \in \mathbb{N}, \left( j=\overline{1,n}\right).
 \end{equation*}
 
-\subsection {Основная задача и подзадачи}
+\textbf {Основная задача и подзадачи}
 
 \begin{tabularwide}
 \textbf{Изменяемый параметр: } & $n$ --- размерность вещественного вектора. \\
 \textbf{Значение в основной задаче:} & $n=1$.\\
 \end{tabularwide}
 
-\subsection {Нахождение ошибки оптимизации}
+\textbf {Нахождение ошибки оптимизации}
 
 Пусть в результате работы алгоритма оптимизации за $N$ запусков мы нашли решения $\bar{x}_{submin}^k$ со значениями целевой функции $f\left( \bar{x}_{submin}^k\right) $ соответственно ($k=\overline{1,N}$). Используем три вида ошибок:
 
@@ -77,7 +77,7 @@ E_x = \dfrac{\sum_{k=1}^{N} \left( \frac{\sqrt{\sum_{j=1}^{n}{\left( \left( \bar
 E_f = \dfrac{\sum_{k=1}^{N} \left| f\left( \bar{x}_{submin}^k \right)-f\left( \bar{x}_{min} \right) \right|  }{N}.
 \end{equation*}
 
-\subsection {Свойства задачи}
+\textbf {Свойства задачи}
 \begin{tabularwide}
 \textbf{Условной или безусловной оптимизации: } & Задача безусловной оптимизации. \\
 \textbf{Одномерной или многомерной оптимизации: } & Одномерной. \\
