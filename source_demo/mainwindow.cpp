@@ -818,6 +818,9 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("MHL_TestFunction_Multiextremal"));
     model->appendRow(item);
 
+    item = new QStandardItem(QString("MHL_TestFunction_Multiextremal2"));
+    model->appendRow(item);
+
     model->sort(0);
 
     //соединение модели списка с конкретным списком
@@ -9362,7 +9365,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         double x;
         double f;
         x=MHL_RandomUniform(-2,2);
-        x=0.954451617;
+        //x=0.954451617;
 
         //Вызываем функцию
         f=MHL_TestFunction_Multiextremal(x);
@@ -9374,6 +9377,25 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         MHL_ShowNumber (f,"Значение функции", "f");
         //Значение функции:
         //f=5.46058
+    }
+
+    if (NameFunction=="MHL_TestFunction_Multiextremal2")
+    {
+        double x;
+        double f;
+        x=MHL_RandomUniform(-2,2);
+        x=-0.993263;
+
+        //Вызываем функцию
+        f=MHL_TestFunction_Multiextremal2(x);
+
+        MHL_ShowNumber (x,"Вещественная переменная", "x");
+        //Вещественная переменная:
+        //x=-0.00666742
+
+        MHL_ShowNumber (f,"Значение функции", "f");
+        //Значение функции:
+        //f=1.0641
     }
 }
 //---------------------------------------------------------------------------

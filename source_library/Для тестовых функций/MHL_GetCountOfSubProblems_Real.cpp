@@ -66,6 +66,11 @@ int MHL_GetCountOfSubProblems_Real()
     {
         VMHL_Result = 1;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_Multiextremal2)
+    {
+        VMHL_Result = 1;
+    }
 
     return VMHL_Result;
 }

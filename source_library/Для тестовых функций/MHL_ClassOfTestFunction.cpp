@@ -47,6 +47,9 @@ int MHL_ClassOfTestFunction(TypeOfTestFunction Type)
 		
 	if (Type==TestFunction_Multiextremal)
         return 2;
+		
+	if (Type==TestFunction_Multiextremal2)
+        return 2;
 
     return VMHL_Result;
 }

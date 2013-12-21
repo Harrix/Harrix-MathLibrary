@@ -102,6 +102,11 @@ int MHL_CountOfFitnessOfTestFunction_Real(int Dimension)
     {
         if (Dimension==2)  VMHL_Result = 64;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_Multiextremal2)
+    {
+        if (Dimension==2)  VMHL_Result = 64;
+    }
 
     return VMHL_Result;
 }

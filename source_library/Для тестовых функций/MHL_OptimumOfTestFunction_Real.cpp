@@ -68,6 +68,11 @@ double MHL_OptimumOfTestFunction_Real(double *Optimum, int VMHL_N)
     {
         for (i=0;i<VMHL_N;i++) Optimum[i]=0.954452;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_Multiextremal2)
+    {
+        for (i=0;i<VMHL_N;i++) Optimum[i]=-0.993263;
+    }
 
     VMHL_Result = MHL_FitnessOfOptimumOfTestFunction_Real(VMHL_N);
 
