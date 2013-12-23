@@ -1,5 +1,5 @@
 //HarrixMathLibrary
-//Версия 3.42
+//Версия 3.43
 //Сборник различных математических функций и шаблонов с открытым кодом на языке C++.
 //https://github.com/Harrix/HarrixMathLibrary
 //Библиотека распространяется по лицензии Apache License, Version 2.0.
@@ -1837,17 +1837,17 @@ int MHL_CountOfFitnessOfTestFunction_Real(int Dimension)
 	
 	if (VMHL_TypeOfTestFunction==TestFunction_Wave)
     {
-        if (Dimension==2)  VMHL_Result = 64;
+        if (Dimension==1)  VMHL_Result = 64;
     }
 	
 	if (VMHL_TypeOfTestFunction==TestFunction_Multiextremal)
     {
-        if (Dimension==2)  VMHL_Result = 64;
+        if (Dimension==1)  VMHL_Result = 64;
     }
 	
 	if (VMHL_TypeOfTestFunction==TestFunction_Multiextremal2)
     {
-        if (Dimension==2)  VMHL_Result = 64;
+        if (Dimension==1)  VMHL_Result = 64;
     }
 	
 	if (VMHL_TypeOfTestFunction==TestFunction_Sombrero)
@@ -3001,7 +3001,7 @@ double MHL_NumberOfPartsOfTestFunction_Real(int *NumberOfParts, int VMHL_N)
     double VMHL_Result_E = 0;
     int i;
 
-    if ((VMHL_TypeOfTestFunction==TestFunction_Ackley)||(VMHL_TypeOfTestFunction==TestFunction_ParaboloidOfRevolution)||(VMHL_TypeOfTestFunction==TestFunction_Rastrigin)||(VMHL_TypeOfTestFunction==TestFunction_Rosenbrock)||(VMHL_TypeOfTestFunction==TestFunction_AdditivePotential)||(VMHL_TypeOfTestFunction==TestFunction_MultiplicativePotential)||(VMHL_TypeOfTestFunction==TestFunction_ReverseGriewank)||(VMHL_TypeOfTestFunction==TestFunction_HyperEllipsoid)||(VMHL_TypeOfTestFunction==TestFunction_RotatedHyperEllipsoid)||(VMHL_TypeOfTestFunction==TestFunction_Wave)||(VMHL_TypeOfTestFunction==TestFunction_Multiextremal)||(VMHL_TypeOfTestFunction==TestFunction_Multiextremal2)||(VMHL_TypeOfTestFunction==TestFunction_Multiextremal2))
+    if ((VMHL_TypeOfTestFunction==TestFunction_Ackley)||(VMHL_TypeOfTestFunction==TestFunction_ParaboloidOfRevolution)||(VMHL_TypeOfTestFunction==TestFunction_Rastrigin)||(VMHL_TypeOfTestFunction==TestFunction_Rosenbrock)||(VMHL_TypeOfTestFunction==TestFunction_AdditivePotential)||(VMHL_TypeOfTestFunction==TestFunction_MultiplicativePotential)||(VMHL_TypeOfTestFunction==TestFunction_ReverseGriewank)||(VMHL_TypeOfTestFunction==TestFunction_HyperEllipsoid)||(VMHL_TypeOfTestFunction==TestFunction_RotatedHyperEllipsoid)||(VMHL_TypeOfTestFunction==TestFunction_Wave)||(VMHL_TypeOfTestFunction==TestFunction_Multiextremal)||(VMHL_TypeOfTestFunction==TestFunction_Multiextremal2)||(VMHL_TypeOfTestFunction==TestFunction_Multiextremal2)||(VMHL_TypeOfTestFunction==TestFunction_Sombrero))
     {
         for (i=0;i<VMHL_N;i++) NumberOfParts[i]=4095;
     }

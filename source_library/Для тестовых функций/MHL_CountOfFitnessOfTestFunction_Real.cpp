@@ -95,17 +95,17 @@ int MHL_CountOfFitnessOfTestFunction_Real(int Dimension)
 	
 	if (VMHL_TypeOfTestFunction==TestFunction_Wave)
     {
-        if (Dimension==2)  VMHL_Result = 64;
+        if (Dimension==1)  VMHL_Result = 64;
     }
 	
 	if (VMHL_TypeOfTestFunction==TestFunction_Multiextremal)
     {
-        if (Dimension==2)  VMHL_Result = 64;
+        if (Dimension==1)  VMHL_Result = 64;
     }
 	
 	if (VMHL_TypeOfTestFunction==TestFunction_Multiextremal2)
     {
-        if (Dimension==2)  VMHL_Result = 64;
+        if (Dimension==1)  VMHL_Result = 64;
     }
 	
 	if (VMHL_TypeOfTestFunction==TestFunction_Sombrero)
