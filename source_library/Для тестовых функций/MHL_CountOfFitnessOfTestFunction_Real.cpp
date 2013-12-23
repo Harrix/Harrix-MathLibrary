@@ -107,6 +107,11 @@ int MHL_CountOfFitnessOfTestFunction_Real(int Dimension)
     {
         if (Dimension==2)  VMHL_Result = 64;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_Sombrero)
+    {
+        if (Dimension==2)  VMHL_Result = 324;
+    }
 
     return VMHL_Result;
 }

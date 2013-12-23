@@ -1,0 +1,20 @@
+        double x;
+        double y;
+        double f;
+        x=MHL_RandomUniform(-20,20);
+        y=MHL_RandomUniform(-20,20);
+
+        //Вызываем функцию
+        f=MHL_TestFunction_Sombrero(x,y);
+
+        MHL_ShowNumber (x,"Первая вещественная переменная", "x");
+        //Первая вещественная переменная:
+        //x=-3.26381
+
+        MHL_ShowNumber (y,"Вторая вещественная переменная", "y");
+        //Вторая вещественная переменная:
+        //y=-0.836133
+
+        MHL_ShowNumber (f,"Значение функции", "f");
+        //Значение функции:
+        //f=0.938425

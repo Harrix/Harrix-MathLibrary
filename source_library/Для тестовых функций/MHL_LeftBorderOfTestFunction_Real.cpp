@@ -87,6 +87,12 @@ void MHL_LeftAndRightBorderOfTestFunction_Real(double *Left, double *Right,int V
         for (i=0;i<VMHL_N;i++) Left[i]=-2;
         for (i=0;i<VMHL_N;i++) Right[i]=2;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_Sombrero)
+    {
+        for (i=0;i<VMHL_N;i++) Left[i]=-10;
+        for (i=0;i<VMHL_N;i++) Right[i]=10;
+    }
 }
 //---------------------------------------------------------------------------
 void MHL_LeftAndRightBorderOfTestFunction_Real(double *Left, double *Right, int VMHL_N, TypeOfTestFunction Type)

@@ -71,6 +71,11 @@ double MHL_FitnessOfOptimumOfTestFunction_Real(double VMHL_N)
     {
         VMHL_Result = 1.93374;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_Sombrero)
+    {
+        VMHL_Result = 1.;
+    }
 
     return VMHL_Result;
 }

@@ -47,6 +47,9 @@ double MHL_TestFunction_Real(double *x, int VMHL_N)
 		
 	if (VMHL_TypeOfTestFunction==TestFunction_Multiextremal2)
         VMHL_Result = MHL_MaximumOrMinimumOfTestFunction_Real()*MHL_TestFunction_Multiextremal2(x[0]);
+		
+	if (VMHL_TypeOfTestFunction==TestFunction_Sombrero)
+        VMHL_Result = MHL_MaximumOrMinimumOfTestFunction_Real()*MHL_TestFunction_Sombrero(x[0], x[1]);
 
     CountOfFitness++;//увеличиваем число вызовов целевой функции
     return VMHL_Result;
