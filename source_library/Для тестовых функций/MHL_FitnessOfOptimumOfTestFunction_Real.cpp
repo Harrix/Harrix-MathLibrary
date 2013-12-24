@@ -76,6 +76,11 @@ double MHL_FitnessOfOptimumOfTestFunction_Real(double VMHL_N)
     {
         VMHL_Result = 1.;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_Himmelblau)
+    {
+        VMHL_Result = 0.;
+    }
 
     return VMHL_Result;
 }

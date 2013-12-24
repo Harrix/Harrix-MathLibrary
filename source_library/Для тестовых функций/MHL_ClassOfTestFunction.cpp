@@ -53,6 +53,9 @@ int MHL_ClassOfTestFunction(TypeOfTestFunction Type)
 		
 	if (Type==TestFunction_Sombrero)
         return 2;
+		
+	if (Type==TestFunction_Himmelblau)
+        return 2;
 
     return VMHL_Result;
 }

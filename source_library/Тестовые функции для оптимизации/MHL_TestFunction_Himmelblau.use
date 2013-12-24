@@ -1,0 +1,20 @@
+        double x;
+        double y;
+        double f;
+        x=MHL_RandomUniform(-5,5);
+        y=MHL_RandomUniform(-5,5);
+
+        //Вызываем функцию
+        f=MHL_TestFunction_Himmelblau(x,y);
+
+        MHL_ShowNumber (x,"Первая вещественная переменная", "x");
+        //Первая вещественная переменная:
+        //x=1.8744
+
+        MHL_ShowNumber (y,"Вторая вещественная переменная", "y");
+        //Вторая вещественная переменная:
+        //y=0.39062
+
+        MHL_ShowNumber (f,"Значение функции", "f");
+        //Значение функции:
+        //f=75.0844

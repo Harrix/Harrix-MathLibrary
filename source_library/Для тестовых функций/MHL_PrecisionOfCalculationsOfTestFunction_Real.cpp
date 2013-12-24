@@ -79,6 +79,11 @@ double MHL_PrecisionOfCalculationsOfTestFunction_Real()
     {
         VMHL_Result_E=0.05;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_Himmelblau)
+    {
+        VMHL_Result_E=0.025;
+    }
 
     return VMHL_Result_E;
 }

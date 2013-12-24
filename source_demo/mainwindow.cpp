@@ -824,6 +824,9 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("MHL_TestFunction_Sombrero"));
     model->appendRow(item);
 
+    item = new QStandardItem(QString("MHL_TestFunction_Himmelblau"));
+    model->appendRow(item);
+
     model->sort(0);
 
     //соединение модели списка с конкретным списком
@@ -9423,6 +9426,32 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         MHL_ShowNumber (f,"Значение функции", "f");
         //Значение функции:
         //f=0.938425
+    }
+
+    if (NameFunction=="MHL_TestFunction_Himmelblau")
+    {
+        double x;
+        double y;
+        double f;
+        x=MHL_RandomUniform(-5,5);
+        y=MHL_RandomUniform(-5,5);
+        x=3;
+        y=2;
+
+        //Вызываем функцию
+        f=MHL_TestFunction_Himmelblau(x,y);
+
+        MHL_ShowNumber (x,"Первая вещественная переменная", "x");
+        //Первая вещественная переменная:
+        //x=1.8744
+
+        MHL_ShowNumber (y,"Вторая вещественная переменная", "y");
+        //Вторая вещественная переменная:
+        //y=0.39062
+
+        MHL_ShowNumber (f,"Значение функции", "f");
+        //Значение функции:
+        //f=75.0844
     }
 }
 //---------------------------------------------------------------------------
