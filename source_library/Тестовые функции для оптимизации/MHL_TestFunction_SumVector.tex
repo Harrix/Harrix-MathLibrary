@@ -17,6 +17,7 @@ VMHL\_N --- размер массива x.
 \end{tabularwide}
 
 \textbf{Формула} (целевая функция):
+
 \begin{equation*}
 \label{TestFunctions:eq:MHL_TestFunction_SumVector}
 f\left( \bar{x}\right) = \sum_{i=1}^{n}\bar{x}_i, \text{ где}
@@ -54,6 +55,7 @@ f\left( \bar{x}\right) = \sum_{i=1}^{n}\bar{x}_i, \text{ где}
 Пусть в результате работы алгоритма оптимизации за $N$ запусков мы нашли решения $\bar{x}_{submax}^k$ со значениями целевой функции $f\left( \bar{x}_{submax}^k\right) $ соответственно ($k=\overline{1,N}$). Используем три вида ошибок:
 
 \textbf{Надёжность: }
+
 \begin{equation*}
 R = \dfrac{\sum_{k=1}^{N}S\left( \bar{x}_{submax}^k \right) }{N}, \text{ где}
 \end{equation*}
@@ -62,11 +64,13 @@ S\left( \bar{x}_{submax}^k \right)=\left\lbrace \begin{aligned} 1,& \text{ ес�
 \end{equation*}
 
 \textbf{Ошибка по входным параметрам:}
+
 \begin{equation*}
 E_x = \dfrac{\sum_{k=1}^{N} \left( \frac{\sum_{j=1}^{n}\left| \left( \bar{x}_{submax}^k \right)_j-\left( \bar{x}_{max} \right)_j \right| }{n} \right)  }{N}.
 \end{equation*}
 
 \textbf{Ошибка по значениям целевой функции: }
+
 \begin{equation*}
 E_f = \dfrac{\sum_{k=1}^{N} \left| f\left( \bar{x}_{submax}^k \right)-f\left( \bar{x}_{max} \right) \right|  }{N}.
 \end{equation*}

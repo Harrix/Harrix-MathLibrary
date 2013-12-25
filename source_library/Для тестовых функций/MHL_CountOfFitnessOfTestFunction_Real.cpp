@@ -117,6 +117,11 @@ int MHL_CountOfFitnessOfTestFunction_Real(int Dimension)
     {
         if (Dimension==2)  VMHL_Result = 324;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_Katnikov)
+    {
+        if (Dimension==2)  VMHL_Result = 324;
+    }
 
     return VMHL_Result;
 }
