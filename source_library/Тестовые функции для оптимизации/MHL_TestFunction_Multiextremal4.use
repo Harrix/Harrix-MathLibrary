@@ -1,0 +1,20 @@
+        double x;
+        double y;
+        double f;
+        x=MHL_RandomUniform(0,4);
+        y=MHL_RandomUniform(0,4);
+
+        //Вызываем функцию
+        f=MHL_TestFunction_Multiextremal4(x,y);
+
+        MHL_ShowNumber (x,"Первая вещественная переменная", "x");
+        //Первая вещественная переменная:
+        //x=2.6604
+
+        MHL_ShowNumber (y,"Вторая вещественная переменная", "y");
+        //Вторая вещественная переменная:
+        //y=2.56989
+
+        MHL_ShowNumber (f,"Значение функции", "f");
+        //Значение функции:
+        //f=8.82495

@@ -59,6 +59,12 @@ int MHL_ClassOfTestFunction(TypeOfTestFunction Type)
 		
 	if (Type==TestFunction_Katnikov)
         return 2;
+		
+	if (Type==TestFunction_Multiextremal3)
+        return 2;
+		
+	if (Type==TestFunction_Multiextremal4)
+        return 2;
 
     return VMHL_Result;
 }

@@ -127,6 +127,16 @@ int MHL_DimensionTestFunction_Real(int i)
     {
         if (i==0) VMHL_Result = 2;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_Multiextremal3)
+    {
+        if (i==0) VMHL_Result = 2;
+    }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_Multiextremal4)
+    {
+        if (i==0) VMHL_Result = 2;
+    }
 
     return VMHL_Result;
 }

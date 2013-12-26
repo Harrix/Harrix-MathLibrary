@@ -89,6 +89,16 @@ double MHL_PrecisionOfCalculationsOfTestFunction_Real()
     {
         VMHL_Result_E=0.025;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_Multiextremal3)
+    {
+        VMHL_Result_E=0.025;
+    }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_Multiextremal4)
+    {
+        VMHL_Result_E=0.01;
+    }
 
     return VMHL_Result_E;
 }

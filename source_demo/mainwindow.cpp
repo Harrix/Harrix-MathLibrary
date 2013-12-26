@@ -830,6 +830,12 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("MHL_TestFunction_Katnikov"));
     model->appendRow(item);
 
+    item = new QStandardItem(QString("MHL_TestFunction_Multiextremal3"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_TestFunction_Multiextremal4"));
+    model->appendRow(item);
+
     model->sort(0);
 
     //соединение модели списка с конкретным списком
@@ -9477,6 +9483,54 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         MHL_ShowNumber (f,"Значение функции", "f");
         //Значение функции:
         //f=11.5793
+    }
+
+    if (NameFunction=="MHL_TestFunction_Multiextremal3")
+    {
+        double x;
+        double y;
+        double f;
+        x=MHL_RandomUniform(-5,5);
+        y=MHL_RandomUniform(-5,5);
+
+        //Вызываем функцию
+        f=MHL_TestFunction_Multiextremal3(x,y);
+
+        MHL_ShowNumber (x,"Первая вещественная переменная", "x");
+        //Первая вещественная переменная:
+        //x=2.68873
+
+        MHL_ShowNumber (y,"Вторая вещественная переменная", "y");
+        //Вторая вещественная переменная:
+        //y=0.520861
+
+        MHL_ShowNumber (f,"Значение функции", "f");
+        //Значение функции:
+        //f=10.8962
+    }
+
+    if (NameFunction=="MHL_TestFunction_Multiextremal4")
+    {
+        double x;
+        double y;
+        double f;
+        x=MHL_RandomUniform(0,4);
+        y=MHL_RandomUniform(0,4);
+
+        //Вызываем функцию
+        f=MHL_TestFunction_Multiextremal4(x,y);
+
+        MHL_ShowNumber (x,"Первая вещественная переменная", "x");
+        //Первая вещественная переменная:
+        //x=2.6604
+
+        MHL_ShowNumber (y,"Вторая вещественная переменная", "y");
+        //Вторая вещественная переменная:
+        //y=2.56989
+
+        MHL_ShowNumber (f,"Значение функции", "f");
+        //Значение функции:
+        //f=8.82495
     }
 }
 //---------------------------------------------------------------------------
