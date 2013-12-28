@@ -30,7 +30,7 @@ double MHL_RandomNumber(void);//Генерирует вещественное с
 void MHL_SetRandomNumberGenerator(TypeOfRandomNumberGenerator T);//Переназначить генератор случайных чисел на другой
 
 //ПЕРЕМЕННЫЕ ПЕРЕЧИСЛЯЕМОГО ТИПА
-enum TypeOfTestFunction { TestFunction_Ackley, TestFunction_ParaboloidOfRevolution, TestFunction_Rastrigin, TestFunction_Rosenbrock, TestFunction_SumVector, TestFunction_AdditivePotential, TestFunction_MultiplicativePotential, TestFunction_ReverseGriewank, TestFunction_HyperEllipsoid, TestFunction_RotatedHyperEllipsoid, TestFunction_Wave, TestFunction_Multiextremal, TestFunction_Multiextremal2, TestFunction_Sombrero, TestFunction_Himmelblau, TestFunction_Katnikov, TestFunction_Multiextremal3, TestFunction_Multiextremal4 };
+enum TypeOfTestFunction { TestFunction_Ackley, TestFunction_ParaboloidOfRevolution, TestFunction_Rastrigin, TestFunction_Rosenbrock, TestFunction_SumVector, TestFunction_AdditivePotential, TestFunction_MultiplicativePotential, TestFunction_ReverseGriewank, TestFunction_HyperEllipsoid, TestFunction_RotatedHyperEllipsoid, TestFunction_Wave, TestFunction_Multiextremal, TestFunction_Multiextremal2, TestFunction_Sombrero, TestFunction_Himmelblau, TestFunction_Katnikov, TestFunction_Multiextremal3, TestFunction_Multiextremal4, TestFunction_StepFunction };
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // ОБЪЯВЛЕНИЯ ФУНКЦИЙ
@@ -366,6 +366,7 @@ double MHL_TestFunction_ReverseGriewank(double x, double y);
 double MHL_TestFunction_Rosenbrock(double *x, int VMHL_N);
 double MHL_TestFunction_RotatedHyperEllipsoid(double *x, int VMHL_N);
 double MHL_TestFunction_Sombrero(double x, double y);
+double MHL_TestFunction_StepFunction(double *x, int VMHL_N);
 double MHL_TestFunction_SumVector(int *x, int VMHL_N);
 double MHL_TestFunction_Wave(double x);
 
@@ -1225,7 +1226,7 @@ for (i=0;i<VMHL_N;i++)
 template <class T> int TMHL_BoolCrossingTwoSegment(T b1,T c1,T b2,T c2)
 {
 /*
-Функция определяет наличие пересечения двух отрезков. Координаты отрезков могут быть перепутаны по порядку в каждом отрезке.
+Функция определяет наличие пересечения двух отрезков на линии. Координаты отрезков могут быть перепутаны по порядку в каждом отрезке.
 Входные параметры:
  b1 - левый конец первого отрезка;
  c1 - правый конец первого отрезка;

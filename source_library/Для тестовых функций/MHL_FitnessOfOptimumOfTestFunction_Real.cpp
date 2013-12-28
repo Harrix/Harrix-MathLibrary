@@ -96,6 +96,11 @@ double MHL_FitnessOfOptimumOfTestFunction_Real(double VMHL_N)
     {
         VMHL_Result = 0.;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_StepFunction)
+    {
+        VMHL_Result = -1.;
+    }
 
     return VMHL_Result;
 }
