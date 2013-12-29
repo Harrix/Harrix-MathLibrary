@@ -141,6 +141,18 @@ void MHL_LeftAndRightBorderOfTestFunction_Real(double *Left, double *Right,int V
         for (i=0;i<VMHL_N;i++) Left[i]=-512;
         for (i=0;i<VMHL_N;i++) Right[i]=512;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_RastriginWithChange)
+    {
+        for (i=0;i<VMHL_N;i++) Left[i]=-16;
+        for (i=0;i<VMHL_N;i++) Right[i]=16;
+    }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_RastriginWithTurning)
+    {
+        for (i=0;i<VMHL_N;i++) Left[i]=-16;
+        for (i=0;i<VMHL_N;i++) Right[i]=16;
+    }
 }
 //---------------------------------------------------------------------------
 void MHL_LeftAndRightBorderOfTestFunction_Real(double *Left, double *Right, int VMHL_N, TypeOfTestFunction Type)

@@ -116,6 +116,16 @@ int MHL_GetCountOfSubProblems_Real()
     {
         VMHL_Result = 1;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_RastriginWithChange)
+    {
+        VMHL_Result = 1;
+    }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_RastriginWithTurning)
+    {
+        VMHL_Result = 1;
+    }
 
     return VMHL_Result;
 }

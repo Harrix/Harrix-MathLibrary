@@ -848,6 +848,12 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("MHL_TestFunction_EggHolder"));
     model->appendRow(item);
 
+    item = new QStandardItem(QString("MHL_TestFunction_RastriginWithChange"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_TestFunction_RastriginWithTurning"));
+    model->appendRow(item);
+
     model->sort(0);
 
     //соединение модели списка с конкретным списком
@@ -9638,6 +9644,54 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         MHL_ShowNumber (f,"Значение функции", "f");
         //Значение функции:
         //f=-287.643
+    }
+
+    if (NameFunction=="MHL_TestFunction_RastriginWithChange")
+    {
+        double x;
+        double y;
+        double f;
+        x=MHL_RandomUniform(-16,16);
+        y=MHL_RandomUniform(-16,16);
+
+        //Вызываем функцию
+        f=MHL_TestFunction_RastriginWithChange(x,y);
+
+        MHL_ShowNumber (x,"Первая вещественная переменная", "x");
+        //Первая вещественная переменная:
+        //x=12.4601
+
+        MHL_ShowNumber (y,"Вторая вещественная переменная", "y");
+        //Вторая вещественная переменная:
+        //y=5.36642
+
+        MHL_ShowNumber (f,"Значение функции", "f");
+        //Значение функции:
+        //f=31.4576
+    }
+
+    if (NameFunction=="MHL_TestFunction_RastriginWithTurning")
+    {
+        double x;
+        double y;
+        double f;
+        x=MHL_RandomUniform(-16,16);
+        y=MHL_RandomUniform(-16,16);
+
+        //Вызываем функцию
+        f=MHL_TestFunction_RastriginWithTurning(x,y);
+
+        MHL_ShowNumber (x,"Первая вещественная переменная", "x");
+        //Первая вещественная переменная:
+        //x=-7.1266
+
+        MHL_ShowNumber (y,"Вторая вещественная переменная", "y");
+        //Вторая вещественная переменная:
+        //y=11.4531
+
+        MHL_ShowNumber (f,"Значение функции", "f");
+        //Значение функции:
+        //f=10.3461
     }
 }
 //---------------------------------------------------------------------------

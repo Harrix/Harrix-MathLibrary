@@ -77,6 +77,12 @@ int MHL_ClassOfTestFunction(TypeOfTestFunction Type)
 		
 	if (Type==TestFunction_EggHolder)
         return 2;
+		
+	if (Type==TestFunction_RastriginWithChange)
+        return 2;
+		
+	if (Type==TestFunction_RastriginWithTurning)
+        return 2;
 
     return VMHL_Result;
 }

@@ -74,6 +74,12 @@ double MHL_TestFunction_Real(double *x, int VMHL_N)
 		
 	if (VMHL_TypeOfTestFunction==TestFunction_EggHolder)
         VMHL_Result = MHL_MaximumOrMinimumOfTestFunction_Real()*MHL_TestFunction_EggHolder(x[0], x[1]);
+		
+	if (VMHL_TypeOfTestFunction==TestFunction_RastriginWithChange)
+        VMHL_Result = MHL_MaximumOrMinimumOfTestFunction_Real()*MHL_TestFunction_RastriginWithChange(x[0], x[1]);
+		
+	if (VMHL_TypeOfTestFunction==TestFunction_RastriginWithTurning)
+        VMHL_Result = MHL_MaximumOrMinimumOfTestFunction_Real()*MHL_TestFunction_RastriginWithTurning(x[0], x[1]);
 
     CountOfFitness++;//увеличиваем число вызовов целевой функции
     return VMHL_Result;

@@ -119,6 +119,16 @@ double MHL_PrecisionOfCalculationsOfTestFunction_Real()
     {
         VMHL_Result_E=2.5;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_RastriginWithChange)
+    {
+        VMHL_Result_E=0.08;
+    }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_RastriginWithTurning)
+    {
+        VMHL_Result_E=0.08;
+    }
 
     return VMHL_Result_E;
 }
