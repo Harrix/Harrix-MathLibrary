@@ -101,6 +101,11 @@ double MHL_FitnessOfOptimumOfTestFunction_Real(double VMHL_N)
     {
         VMHL_Result = -1.;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_Rana)
+    {
+        VMHL_Result = -511.7328819;
+    }
 
     return VMHL_Result;
 }

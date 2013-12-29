@@ -1,5 +1,5 @@
 //HarrixMathLibrary
-//Версия 3.47
+//Версия 3.48
 //Сборник различных математических функций и шаблонов с открытым кодом на языке C++.
 //https://github.com/Harrix/HarrixMathLibrary
 //Библиотека распространяется по лицензии Apache License, Version 2.0.

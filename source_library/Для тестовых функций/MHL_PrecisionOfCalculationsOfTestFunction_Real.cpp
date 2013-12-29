@@ -104,6 +104,11 @@ double MHL_PrecisionOfCalculationsOfTestFunction_Real()
     {
         VMHL_Result_E=0.025;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_StepFunction)
+    {
+        VMHL_Result_E=2.5;
+    }
 
     return VMHL_Result_E;
 }

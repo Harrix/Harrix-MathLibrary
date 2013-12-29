@@ -123,6 +123,12 @@ void MHL_LeftAndRightBorderOfTestFunction_Real(double *Left, double *Right,int V
         for (i=0;i<VMHL_N;i++) Left[i]=-5;
         for (i=0;i<VMHL_N;i++) Right[i]=5;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_Rana)
+    {
+        for (i=0;i<VMHL_N;i++) Left[i]=-512;
+        for (i=0;i<VMHL_N;i++) Right[i]=512;
+    }
 }
 //---------------------------------------------------------------------------
 void MHL_LeftAndRightBorderOfTestFunction_Real(double *Left, double *Right, int VMHL_N, TypeOfTestFunction Type)

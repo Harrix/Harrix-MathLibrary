@@ -839,6 +839,9 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("MHL_TestFunction_StepFunction"));
     model->appendRow(item);
 
+    item = new QStandardItem(QString("MHL_TestFunction_Rana"));
+    model->appendRow(item);
+
     model->sort(0);
 
     //соединение модели списка с конкретным списком
@@ -9557,6 +9560,30 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //f=-0.444923
 
         delete[] x;
+    }
+
+    if (NameFunction=="MHL_TestFunction_Rana")
+    {
+        double x;
+        double y;
+        double f;
+        x=MHL_RandomUniform(-500,500);
+        y=MHL_RandomUniform(-500,500);
+
+        //Вызываем функцию
+        f=MHL_TestFunction_Rana(x,y);
+
+        MHL_ShowNumber (x,"Первая вещественная переменная", "x");
+        //Первая вещественная переменная:
+        //x=-169.488
+
+        MHL_ShowNumber (y,"Вторая вещественная переменная", "y");
+        //Вторая вещественная переменная:
+        //y=-458.027
+
+        MHL_ShowNumber (f,"Значение функции", "f");
+        //Значение функции:
+        //f=145.161
     }
 }
 //---------------------------------------------------------------------------

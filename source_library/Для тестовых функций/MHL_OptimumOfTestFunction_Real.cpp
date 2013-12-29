@@ -106,6 +106,13 @@ double MHL_OptimumOfTestFunction_Real(double *Optimum, int VMHL_N)
     {
         for (i=0;i<VMHL_N;i++) Optimum[i]=0;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_Rana)
+    {
+        for (i=0;i<VMHL_N;i++) Optimum[i]=0;
+        Optimum[0]=-488.6326;
+		Optimum[1]=512;
+    }
 
     VMHL_Result = MHL_FitnessOfOptimumOfTestFunction_Real(VMHL_N);
 

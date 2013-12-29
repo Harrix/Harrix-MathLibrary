@@ -68,6 +68,9 @@ int MHL_ClassOfTestFunction(TypeOfTestFunction Type)
 		
 	if (Type==TestFunction_StepFunction)
         return 2;
+		
+	if (Type==TestFunction_Rana)
+        return 2;
 
     return VMHL_Result;
 }
