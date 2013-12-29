@@ -111,6 +111,11 @@ double MHL_FitnessOfOptimumOfTestFunction_Real(double VMHL_N)
     {
         VMHL_Result = 0.99800384;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_EggHolder)
+    {
+		VMHL_Result = -959.64067;
+    }
 
     return VMHL_Result;
 }

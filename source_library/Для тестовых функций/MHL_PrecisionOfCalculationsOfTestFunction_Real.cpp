@@ -114,6 +114,11 @@ double MHL_PrecisionOfCalculationsOfTestFunction_Real()
     {
         VMHL_Result_E=0.25;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_EggHolder)
+    {
+        VMHL_Result_E=2.5;
+    }
 
     return VMHL_Result_E;
 }

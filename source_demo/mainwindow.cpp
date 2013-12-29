@@ -845,6 +845,9 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("MHL_TestFunction_ShekelsFoxholes"));
     model->appendRow(item);
 
+    item = new QStandardItem(QString("MHL_TestFunction_EggHolder"));
+    model->appendRow(item);
+
     model->sort(0);
 
     //соединение модели списка с конкретным списком
@@ -9611,6 +9614,30 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         MHL_ShowNumber (f,"Значение функции", "f");
         //Значение функции:
         //f=496.009
+    }
+
+    if (NameFunction=="MHL_TestFunction_EggHolder")
+    {
+        double x;
+        double y;
+        double f;
+        x=MHL_RandomUniform(-512,512);
+        y=MHL_RandomUniform(-512,512);
+
+        //Вызываем функцию
+        f=MHL_TestFunction_EggHolder(x,y);
+
+        MHL_ShowNumber (x,"Первая вещественная переменная", "x");
+        //Первая вещественная переменная:
+        //x=367.682
+
+        MHL_ShowNumber (y,"Вторая вещественная переменная", "y");
+        //Вторая вещественная переменная:
+        //y=464.74
+
+        MHL_ShowNumber (f,"Значение функции", "f");
+        //Значение функции:
+        //f=-287.643
     }
 }
 //---------------------------------------------------------------------------

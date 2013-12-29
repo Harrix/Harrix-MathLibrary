@@ -118,6 +118,13 @@ double MHL_OptimumOfTestFunction_Real(double *Optimum, int VMHL_N)
     {
         for (i=0;i<VMHL_N;i++) Optimum[i]=-32;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_EggHolder)
+    {
+        for (i=0;i<VMHL_N;i++) Optimum[i]=0;
+        Optimum[0]=512;
+		Optimum[1]=404.2319;
+    }
 
     VMHL_Result = MHL_FitnessOfOptimumOfTestFunction_Real(VMHL_N);
 

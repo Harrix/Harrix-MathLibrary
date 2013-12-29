@@ -74,6 +74,9 @@ int MHL_ClassOfTestFunction(TypeOfTestFunction Type)
 		
 	if (Type==TestFunction_ShekelsFoxholes)
         return 2;
+		
+	if (Type==TestFunction_EggHolder)
+        return 2;
 
     return VMHL_Result;
 }

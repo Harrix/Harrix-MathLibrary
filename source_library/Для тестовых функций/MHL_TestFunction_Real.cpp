@@ -71,6 +71,9 @@ double MHL_TestFunction_Real(double *x, int VMHL_N)
 		
 	if (VMHL_TypeOfTestFunction==TestFunction_ShekelsFoxholes)
         VMHL_Result = MHL_MaximumOrMinimumOfTestFunction_Real()*MHL_TestFunction_ShekelsFoxholes(x[0], x[1]);
+		
+	if (VMHL_TypeOfTestFunction==TestFunction_EggHolder)
+        VMHL_Result = MHL_MaximumOrMinimumOfTestFunction_Real()*MHL_TestFunction_EggHolder(x[0], x[1]);
 
     CountOfFitness++;//увеличиваем число вызовов целевой функции
     return VMHL_Result;
