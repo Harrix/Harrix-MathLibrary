@@ -1,0 +1,20 @@
+        double x;
+        double y;
+        double f;
+        x=MHL_RandomUniform(-50,50);
+        y=MHL_RandomUniform(-50,50);
+
+        //Вызываем функцию
+        f=MHL_TestFunction_ShekelsFoxholes(x,y);
+
+        MHL_ShowNumber (x,"Первая вещественная переменная", "x");
+        //Первая вещественная переменная:
+        //x=-1.42869
+
+        MHL_ShowNumber (y,"Вторая вещественная переменная", "y");
+        //Вторая вещественная переменная:
+        //y=-6.40351
+
+        MHL_ShowNumber (f,"Значение функции", "f");
+        //Значение функции:
+        //f=496.009

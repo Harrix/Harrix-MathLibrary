@@ -129,6 +129,12 @@ void MHL_LeftAndRightBorderOfTestFunction_Real(double *Left, double *Right,int V
         for (i=0;i<VMHL_N;i++) Left[i]=-512;
         for (i=0;i<VMHL_N;i++) Right[i]=512;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_ShekelsFoxholes)
+    {
+        for (i=0;i<VMHL_N;i++) Left[i]=-50;
+        for (i=0;i<VMHL_N;i++) Right[i]=50;
+    }
 }
 //---------------------------------------------------------------------------
 void MHL_LeftAndRightBorderOfTestFunction_Real(double *Left, double *Right, int VMHL_N, TypeOfTestFunction Type)

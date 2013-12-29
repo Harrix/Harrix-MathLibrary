@@ -106,6 +106,11 @@ double MHL_FitnessOfOptimumOfTestFunction_Real(double VMHL_N)
     {
         VMHL_Result = -511.7328819;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_ShekelsFoxholes)
+    {
+        VMHL_Result = 0.99800384;
+    }
 
     return VMHL_Result;
 }
