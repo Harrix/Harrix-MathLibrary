@@ -159,6 +159,12 @@ void MHL_LeftAndRightBorderOfTestFunction_Real(double *Left, double *Right,int V
         for (i=0;i<VMHL_N;i++) Left[i]=-500;
         for (i=0;i<VMHL_N;i++) Right[i]=500;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_Griewangk)
+    {
+        for (i=0;i<VMHL_N;i++) Left[i]=-16;
+        for (i=0;i<VMHL_N;i++) Right[i]=16;
+    }
 }
 //---------------------------------------------------------------------------
 void MHL_LeftAndRightBorderOfTestFunction_Real(double *Left, double *Right, int VMHL_N, TypeOfTestFunction Type)

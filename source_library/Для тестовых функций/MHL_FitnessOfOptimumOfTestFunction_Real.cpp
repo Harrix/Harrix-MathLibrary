@@ -136,6 +136,11 @@ double MHL_FitnessOfOptimumOfTestFunction_Real(double VMHL_N)
 		VMHL_Result=MHL_TestFunction_Schwefel(x,VMHL_N);
 		delete [] x;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_Griewangk)
+    {
+		VMHL_Result = 0;
+    }
 
     return VMHL_Result;
 }

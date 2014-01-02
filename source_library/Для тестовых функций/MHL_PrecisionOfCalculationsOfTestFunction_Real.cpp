@@ -134,6 +134,11 @@ double MHL_PrecisionOfCalculationsOfTestFunction_Real()
     {
         VMHL_Result_E=2.5;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_Griewangk)
+    {
+        VMHL_Result_E=0.08;
+    }
 
     return VMHL_Result_E;
 }
