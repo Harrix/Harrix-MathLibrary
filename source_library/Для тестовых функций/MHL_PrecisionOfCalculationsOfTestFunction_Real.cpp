@@ -129,6 +129,11 @@ double MHL_PrecisionOfCalculationsOfTestFunction_Real()
     {
         VMHL_Result_E=0.08;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_Schwefel)
+    {
+        VMHL_Result_E=2.5;
+    }
 
     return VMHL_Result_E;
 }

@@ -854,6 +854,9 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("MHL_TestFunction_RastriginWithTurning"));
     model->appendRow(item);
 
+    item = new QStandardItem(QString("MHL_TestFunction_Schwefel"));
+    model->appendRow(item);
+
     model->sort(0);
 
     //соединение модели списка с конкретным списком
@@ -9692,6 +9695,31 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         MHL_ShowNumber (f,"Значение функции", "f");
         //Значение функции:
         //f=10.3461
+    }
+
+    if (NameFunction=="MHL_TestFunction_Schwefel")
+    {
+        double *x;
+        double f;
+        int VMHL_N=2;
+        x=new double[VMHL_N];
+        for (int i=0;i<VMHL_N;i++) x[i]=MHL_RandomUniform(-500,500);
+
+
+        //Вызов функции
+        f=MHL_TestFunction_Schwefel(x,VMHL_N);
+
+        MHL_ShowVector (x,VMHL_N,"Входной вектор", "x");
+        //Входной вектор:
+        //x =
+        //169.715
+        //410.499
+
+        MHL_ShowNumber (f,"Значение функции", "f");
+        //Значение функции:
+        //f=357.17
+
+        delete[] x;
     }
 }
 //---------------------------------------------------------------------------

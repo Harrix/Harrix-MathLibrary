@@ -173,6 +173,17 @@ int MHL_DimensionTestFunction_Real(int i)
     {
         if (i==0) VMHL_Result = 2;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_Schwefel)
+    {
+        if (i==0) VMHL_Result = 2;
+        if (i==1) VMHL_Result = 3;
+        if (i==2) VMHL_Result = 4;
+        if (i==3) VMHL_Result = 5;
+        if (i==4) VMHL_Result = 10;
+        if (i==5) VMHL_Result = 20;
+        if (i==6) VMHL_Result = 30;
+    }
 
     return VMHL_Result;
 }

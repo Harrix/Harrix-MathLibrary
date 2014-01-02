@@ -153,6 +153,12 @@ void MHL_LeftAndRightBorderOfTestFunction_Real(double *Left, double *Right,int V
         for (i=0;i<VMHL_N;i++) Left[i]=-16;
         for (i=0;i<VMHL_N;i++) Right[i]=16;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_Schwefel)
+    {
+        for (i=0;i<VMHL_N;i++) Left[i]=-500;
+        for (i=0;i<VMHL_N;i++) Right[i]=500;
+    }
 }
 //---------------------------------------------------------------------------
 void MHL_LeftAndRightBorderOfTestFunction_Real(double *Left, double *Right, int VMHL_N, TypeOfTestFunction Type)

@@ -83,6 +83,9 @@ int MHL_ClassOfTestFunction(TypeOfTestFunction Type)
 		
 	if (Type==TestFunction_RastriginWithTurning)
         return 2;
+		
+	if (Type==TestFunction_Schwefel)
+        return 2;
 
     return VMHL_Result;
 }

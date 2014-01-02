@@ -126,6 +126,16 @@ double MHL_FitnessOfOptimumOfTestFunction_Real(double VMHL_N)
     {
 		VMHL_Result = 0;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_Schwefel)
+    {
+		VMHL_Result = 0;
+        double *x;
+        x=new double[int(VMHL_N)];
+		for (int i=0;i<VMHL_N;i++) x[i]=420.968746;
+		VMHL_Result=MHL_TestFunction_Schwefel(x,VMHL_N);
+		delete [] x;
+    }
 
     return VMHL_Result;
 }
