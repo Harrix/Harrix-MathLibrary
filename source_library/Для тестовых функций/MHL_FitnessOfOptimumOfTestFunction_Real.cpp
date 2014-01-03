@@ -146,6 +146,11 @@ double MHL_FitnessOfOptimumOfTestFunction_Real(double VMHL_N)
     {
 		VMHL_Result = -0.99019608;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_GaussianQuartic)
+    {
+		VMHL_Result = 0;
+    }
 
     return VMHL_Result;
 }

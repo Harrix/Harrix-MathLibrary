@@ -152,6 +152,11 @@ double MHL_OptimumOfTestFunction_Real(double *Optimum, int VMHL_N)
         Optimum[0]=0.00990099;
 		Optimum[1]=5;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_GaussianQuartic)
+    {
+        for (i=0;i<VMHL_N;i++) Optimum[i]=0;
+    }
 
     VMHL_Result = MHL_FitnessOfOptimumOfTestFunction_Real(VMHL_N);
 
