@@ -86,6 +86,9 @@ double MHL_TestFunction_Real(double *x, int VMHL_N)
 		
 	if (VMHL_TypeOfTestFunction==TestFunction_Griewangk)
         VMHL_Result = MHL_MaximumOrMinimumOfTestFunction_Real()*MHL_TestFunction_Griewangk(x, VMHL_N);
+		
+	if (VMHL_TypeOfTestFunction==TestFunction_InvertedRosenbrock)
+        VMHL_Result = MHL_MaximumOrMinimumOfTestFunction_Real()*MHL_TestFunction_InvertedRosenbrock(x[0], x[1]);
 
     CountOfFitness++;//увеличиваем число вызовов целевой функции
     return VMHL_Result;

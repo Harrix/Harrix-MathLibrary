@@ -165,6 +165,12 @@ void MHL_LeftAndRightBorderOfTestFunction_Real(double *Left, double *Right,int V
         for (i=0;i<VMHL_N;i++) Left[i]=-16;
         for (i=0;i<VMHL_N;i++) Right[i]=16;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_InvertedRosenbrock)
+    {
+        for (i=0;i<VMHL_N;i++) Left[i]=-5;
+        for (i=0;i<VMHL_N;i++) Right[i]=5;
+    }
 }
 //---------------------------------------------------------------------------
 void MHL_LeftAndRightBorderOfTestFunction_Real(double *Left, double *Right, int VMHL_N, TypeOfTestFunction Type)

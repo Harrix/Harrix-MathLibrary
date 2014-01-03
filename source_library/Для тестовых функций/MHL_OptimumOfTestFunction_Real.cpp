@@ -145,6 +145,13 @@ double MHL_OptimumOfTestFunction_Real(double *Optimum, int VMHL_N)
     {
         for (i=0;i<VMHL_N;i++) Optimum[i]=0;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_InvertedRosenbrock)
+    {
+        for (i=0;i<VMHL_N;i++) Optimum[i]=0;
+        Optimum[0]=0.00990099;
+		Optimum[1]=5;
+    }
 
     VMHL_Result = MHL_FitnessOfOptimumOfTestFunction_Real(VMHL_N);
 

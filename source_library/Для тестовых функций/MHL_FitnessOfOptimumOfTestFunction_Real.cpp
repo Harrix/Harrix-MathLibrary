@@ -141,6 +141,11 @@ double MHL_FitnessOfOptimumOfTestFunction_Real(double VMHL_N)
     {
 		VMHL_Result = 0;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_InvertedRosenbrock)
+    {
+		VMHL_Result = -0.99019608;
+    }
 
     return VMHL_Result;
 }

@@ -139,6 +139,11 @@ double MHL_PrecisionOfCalculationsOfTestFunction_Real()
     {
         VMHL_Result_E=0.08;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_InvertedRosenbrock)
+    {
+        VMHL_Result_E=0.025;
+    }
 
     return VMHL_Result_E;
 }

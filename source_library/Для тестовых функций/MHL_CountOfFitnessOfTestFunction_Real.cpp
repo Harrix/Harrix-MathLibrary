@@ -190,6 +190,11 @@ int MHL_CountOfFitnessOfTestFunction_Real(int Dimension)
         if (Dimension==20) VMHL_Result = 15876;
         if (Dimension==30) VMHL_Result = 28224;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_InvertedRosenbrock)
+    {
+        if (Dimension==2)  VMHL_Result = 324;
+    }
 
     return VMHL_Result;
 }
