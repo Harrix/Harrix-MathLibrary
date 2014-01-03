@@ -30,7 +30,7 @@ double MHL_RandomNumber(void);//Генерирует вещественное с
 void MHL_SetRandomNumberGenerator(TypeOfRandomNumberGenerator T);//Переназначить генератор случайных чисел на другой
 
 //ПЕРЕМЕННЫЕ ПЕРЕЧИСЛЯЕМОГО ТИПА
-enum TypeOfTestFunction { TestFunction_Ackley, TestFunction_ParaboloidOfRevolution, TestFunction_Rastrigin, TestFunction_Rosenbrock, TestFunction_SumVector, TestFunction_AdditivePotential, TestFunction_MultiplicativePotential, TestFunction_ReverseGriewank, TestFunction_HyperEllipsoid, TestFunction_RotatedHyperEllipsoid, TestFunction_Wave, TestFunction_Multiextremal, TestFunction_Multiextremal2, TestFunction_Sombrero, TestFunction_Himmelblau, TestFunction_Katnikov, TestFunction_Multiextremal3, TestFunction_Multiextremal4, TestFunction_StepFunction, TestFunction_Rana, TestFunction_ShekelsFoxholes, TestFunction_EggHolder, TestFunction_RastriginWithChange, TestFunction_RastriginWithTurning, TestFunction_Schwefel, TestFunction_Griewangk, TestFunction_InvertedRosenbrock, TestFunction_GaussianQuartic };
+enum TypeOfTestFunction { TestFunction_Ackley, TestFunction_ParaboloidOfRevolution, TestFunction_Rastrigin, TestFunction_Rosenbrock, TestFunction_SumVector, TestFunction_AdditivePotential, TestFunction_MultiplicativePotential, TestFunction_ReverseGriewank, TestFunction_HyperEllipsoid, TestFunction_RotatedHyperEllipsoid, TestFunction_Wave, TestFunction_Multiextremal, TestFunction_Multiextremal2, TestFunction_Sombrero, TestFunction_Himmelblau, TestFunction_Katnikov, TestFunction_Multiextremal3, TestFunction_Multiextremal4, TestFunction_StepFunction, TestFunction_Rana, TestFunction_ShekelsFoxholes, TestFunction_EggHolder, TestFunction_RastriginWithChange, TestFunction_RastriginWithTurning, TestFunction_Schwefel, TestFunction_Griewangk, TestFunction_InvertedRosenbrock, TestFunction_GaussianQuartic, TestFunction_RastriginNovgorod };
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // ОБЪЯВЛЕНИЯ ФУНКЦИЙ
@@ -367,6 +367,7 @@ double MHL_TestFunction_MultiplicativePotential(double x, double y);
 double MHL_TestFunction_ParaboloidOfRevolution(double *x, int VMHL_N);
 double MHL_TestFunction_Rana(double x, double y);
 double MHL_TestFunction_Rastrigin(double *x, int VMHL_N);
+double MHL_TestFunction_RastriginNovgorod(double *x, int VMHL_N);
 double MHL_TestFunction_RastriginWithChange(double x, double y);
 double MHL_TestFunction_RastriginWithTurning(double x, double y);
 double MHL_TestFunction_ReverseGriewank(double x, double y);

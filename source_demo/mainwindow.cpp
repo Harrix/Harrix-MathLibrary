@@ -869,6 +869,9 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("MHL_TestFunction_GaussianQuartic"));
     model->appendRow(item);
 
+    item = new QStandardItem(QString("MHL_TestFunction_RastriginNovgorod"));
+    model->appendRow(item);
+
     model->sort(0);
 
     //соединение модели списка с конкретным списком
@@ -9802,6 +9805,30 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         MHL_ShowNumber (f,"Значение функции", "f");
         //Значение функции:
         //f=33.8315
+
+        delete[] x;
+    }
+
+    if (NameFunction=="MHL_TestFunction_RastriginNovgorod")
+    {
+        double *x;
+        double f;
+        int VMHL_N=2;
+        x=new double[VMHL_N];
+        for (int i=0;i<VMHL_N;i++) x[i]=MHL_RandomUniform(-2,2);
+
+        //Вызов функции
+        f=MHL_TestFunction_RastriginNovgorod(x,VMHL_N);
+
+        MHL_ShowVector (x,VMHL_N,"Входной вектор", "x");
+        //Входной вектор:
+        //x =
+        //-1.15942
+        //1.19803
+
+        MHL_ShowNumber (f,"Значение функции", "f");
+        //Значение функции:
+        //f=3.42316
 
         delete[] x;
     }

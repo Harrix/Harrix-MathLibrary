@@ -146,6 +146,11 @@ int MHL_GetCountOfSubProblems_Real()
     {
         VMHL_Result = 7;
     }
+	
+	if (VMHL_TypeOfTestFunction==TestFunction_RastriginNovgorod)
+    {
+        VMHL_Result = 7;
+    }
 
     return VMHL_Result;
 }
