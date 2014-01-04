@@ -394,6 +394,7 @@ void MainWindow::on_pushButton_clicked()
 
     ResultTex+=ResultTexList+"\n";
     ResultTex+=ResultTexFunctions;
+    ResultTex+="\\phantomsection\n";
     ResultTex+="\\addcontentsline{toc}{section}{Список литературы}\n";
     ResultTex+="\\bibliographystyle{utf8gost705u}  %% стилевой файл для оформления по ГОСТу\n";
     ResultTex+="\\bibliography{biblio}     %% имя библиографической базы (bib-файла)\n";

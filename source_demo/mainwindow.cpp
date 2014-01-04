@@ -9832,6 +9832,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
 
         delete[] x;
     }
+
 }
 //---------------------------------------------------------------------------
 

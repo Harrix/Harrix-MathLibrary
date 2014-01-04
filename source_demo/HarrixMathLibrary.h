@@ -2344,7 +2344,7 @@ template <class T> void TMHL_RandomBinaryVector(T *VMHL_ResultVector,int VMHL_N)
 Функция заполняет вектор (одномерный массив) случайно нулями и единицами.
 Входные параметры:
  VMHL_ResultVector - указатель на преобразуемый массив;
- VMHL_N - размер массива VMHL_ResultMatrix (число строк).
+ VMHL_N - размер массива.
 Возвращаемое значение:
  Отсутствует.
 */
