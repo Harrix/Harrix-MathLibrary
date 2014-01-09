@@ -1,5 +1,5 @@
 //HarrixQtLibrary
-//Версия 3.14
+//Версия 3.15
 //Сборник функций для Qt.
 //https://github.com/Harrix/HarrixQtLibrary
 //Библиотека распространяется по лицензии Apache License, Version 2.0.
@@ -502,7 +502,7 @@ QString HQt_RandomString(int Length)
             "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
             "abcdefghijklmnopqrstuvwxyz";
 
-    char *s=new char[Length];
+    char *s=new char[Length+1];
 
     for (int i=0; i<Length; ++i)
     {
