@@ -1,5 +1,5 @@
 //HarrixQtLibraryForQWebView
-//Версия 1.10
+//Версия 1.11
 //Библиотека для отображения различных данных в QWebView.
 //https://github.com/Harrix/HarrixQtLibraryForQWebView
 //Библиотека распространяется по лицензии Apache License, Version 2.0.
@@ -450,6 +450,7 @@ QString HQt_ReadHdataToHtmlChart (QString filename)
     return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 QString HQt_DrawLine (double Left, double Right, double h, double (*Function)(double), QString TitleChart, QString NameVectorX, QString NameVectorY, QString NameLine, bool ShowLine, bool ShowPoints, bool ShowArea, bool ShowSpecPoints, bool RedLine)
 {
     /*
@@ -494,6 +495,7 @@ QString HQt_DrawLine (double Left, double Right, double h, double (*Function)(do
     return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 QString HQt_DrawLine (double Left, double Right, double h, double (*Function)(double), QString TitleChart, QString NameVectorX, QString NameVectorY, bool ShowLine, bool ShowPoints, bool ShowArea, bool ShowSpecPoints, bool RedLine)
 {
     /*
@@ -522,6 +524,7 @@ QString HQt_DrawLine (double Left, double Right, double h, double (*Function)(do
     return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 QString HQt_DrawLine (double Left, double Right, double h, double (*Function)(double), QString TitleChart, QString NameVectorX, QString NameVectorY, QString NameLine)
 {
     /*
@@ -550,6 +553,7 @@ QString HQt_DrawLine (double Left, double Right, double h, double (*Function)(do
     return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 QString HQt_DrawLine (double Left, double Right, double h, double (*Function)(double))
 {
     /*

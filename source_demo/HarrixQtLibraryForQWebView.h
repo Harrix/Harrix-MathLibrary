@@ -2368,7 +2368,7 @@ template <class T> QString THQt_ShowChartsOfLineFromMatrix (T **VMHL_MatrixXY,in
     Все остальные столбцы - значения векторов Y для графиков. Число графиков равно числу этих столбцов.
     Требует наличия в папке с html файлом файлы jsxgraph.css и jsxgraphcore.js из библиотеки JSXGraph.
     Входные параметры:
-     VMHL_MatrixXY - указатель на матрицу значений X и Н графиков;
+     VMHL_MatrixXY - указатель на матрицу значений X и Y графиков;
      VMHL_N - количество точек;
      VMHL_M - количество столбцов матрицы (1+количество графиков);
      TitleChart - заголовок графика;
@@ -2377,12 +2377,12 @@ template <class T> QString THQt_ShowChartsOfLineFromMatrix (T **VMHL_MatrixXY,in
      NameLine - указатель на вектор названий графиков (для легенды) количество элементов VMHL_M-1 (так как первый столбец - это X значения);
      ShowLine - показывать ли линию;
      ShowPoints - показывать ли точки;
-     ShowArea - показывать ли закрашенную ошбласть под кривой;
+     ShowArea - показывать ли закрашенную область под кривой;
      ShowSpecPoints - показывать ли специальные точки.
     Возвращаемое значение:
      Строка с HTML кодами с выводимым графиком.
     Примечание:
-     Используются случайные числа, так что рекомендуется вызвать в программе иницилизатор случайных чисел qsrand.
+     Используются случайные числа, так что рекомендуется вызвать в программе инициализатор случайных чисел qsrand.
      Рекомендую так:
      qsrand(QDateTime::currentMSecsSinceEpoch () % 1000000);
     Пример использования:
@@ -3430,12 +3430,12 @@ template <class T> QString THQt_ShowIndependentChartsOfLineFromMatrix (T **VMHL_
  NameLine - указатель на вектор названий графиков (для легенды) количество элементов VMHL_M/2;
  ShowLine - показывать ли линию;
  ShowPoints - показывать ли точки;
- ShowArea - показывать ли закрашенную ошбласть под кривой;
+ ShowArea - показывать ли закрашенную область под кривой;
  ShowSpecPoints - показывать ли специальные точки.
 Возвращаемое значение:
  Строка с HTML кодами с выводимым графиком.
 Примечание:
- Используются случайные числа, так что рекомендуется вызвать в программе иницилизатор случайных чисел qsrand.
+ Используются случайные числа, так что рекомендуется вызвать в программе инициализатор случайных чисел qsrand.
  Рекомендую так:
  qsrand(QDateTime::currentMSecsSinceEpoch () % 1000000);
 */
@@ -4064,7 +4064,7 @@ template <class T> QString THQt_ShowIndependentChartsOfLineFromMatrix (T **VMHL_
 
     if (ShowArea)
     {
-        //добавим точки для того, чтобы можно было закрасить спрошную область.
+        //добавим точки для того, чтобы можно было закрасить сплошную область.
 
         for (j=0;j<VMHL_M/2;j++)
         {
@@ -4255,6 +4255,7 @@ template <class T> QString THQt_ShowIndependentChartsOfLineFromMatrix (T **VMHL_
     return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 template <class T> QString THQt_ShowIndependentChartsOfLineFromMatrix (T **VMHL_MatrixXY,int *VMHL_N_EveryCol,int VMHL_M, QString TitleChart, QString NameVectorX, QString NameVectorY,bool ShowLine,bool ShowPoints,bool ShowArea,bool ShowSpecPoints)
 {
     /*
@@ -4275,12 +4276,12 @@ template <class T> QString THQt_ShowIndependentChartsOfLineFromMatrix (T **VMHL_
  NameLine - указатель на вектор названий графиков (для легенды) количество элементов VMHL_M/2;
  ShowLine - показывать ли линию;
  ShowPoints - показывать ли точки;
- ShowArea - показывать ли закрашенную ошбласть под кривой;
+ ShowArea - показывать ли закрашенную область под кривой;
  ShowSpecPoints - показывать ли специальные точки.
 Возвращаемое значение:
  Строка с HTML кодами с выводимым графиком.
 Примечание:
- Используются случайные числа, так что рекомендуется вызвать в программе иницилизатор случайных чисел qsrand.
+ Используются случайные числа, так что рекомендуется вызвать в программе инициализатор случайных чисел qsrand.
  Рекомендую так:
  qsrand(QDateTime::currentMSecsSinceEpoch () % 1000000);
 */
@@ -4295,6 +4296,7 @@ template <class T> QString THQt_ShowIndependentChartsOfLineFromMatrix (T **VMHL_
     return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 template <class T> QString THQt_ShowIndependentChartsOfLineFromMatrix (T **VMHL_MatrixXY,int *VMHL_N_EveryCol,int VMHL_M, QString TitleChart, QString NameVectorX, QString NameVectorY,QString *NameLine)
 {
     /*
@@ -4316,7 +4318,7 @@ template <class T> QString THQt_ShowIndependentChartsOfLineFromMatrix (T **VMHL_
 Возвращаемое значение:
  Строка с HTML кодами с выводимым графиком.
 Примечание:
- Используются случайные числа, так что рекомендуется вызвать в программе иницилизатор случайных чисел qsrand.
+ Используются случайные числа, так что рекомендуется вызвать в программе инициализатор случайных чисел qsrand.
  Рекомендую так:
  qsrand(QDateTime::currentMSecsSinceEpoch () % 1000000);
 */
@@ -4327,6 +4329,7 @@ template <class T> QString THQt_ShowIndependentChartsOfLineFromMatrix (T **VMHL_
     return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 template <class T> QString THQt_ShowIndependentChartsOfLineFromMatrix (T **VMHL_MatrixXY,int *VMHL_N_EveryCol,int VMHL_M)
 {
     /*
@@ -4348,7 +4351,7 @@ template <class T> QString THQt_ShowIndependentChartsOfLineFromMatrix (T **VMHL_
 Возвращаемое значение:
  Строка с HTML кодами с выводимым графиком.
 Примечание:
- Используются случайные числа, так что рекомендуется вызвать в программе иницилизатор случайных чисел qsrand.
+ Используются случайные числа, так что рекомендуется вызвать в программе инициализатор случайных чисел qsrand.
  Рекомендую так:
  qsrand(QDateTime::currentMSecsSinceEpoch () % 1000000);
 */
@@ -4805,6 +4808,7 @@ template <class T> QString THQt_ShowTwoIndependentChartsOfPointsAndLine (T *VMHL
     return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 template <class T> QString THQt_ShowTwoIndependentChartsOfPointsAndLine (T *VMHL_VectorX1,T *VMHL_VectorY1,int VMHL_N1,T *VMHL_VectorX2,T *VMHL_VectorY2, int VMHL_N2, QString TitleChart, QString NameVectorX, QString NameVectorY,bool ShowLine,bool ShowPoints,bool ShowArea,bool ShowSpecPoints)
 {
     /*
@@ -4874,6 +4878,7 @@ template <class T> QString THQt_ShowTwoIndependentChartsOfPointsAndLine (T *VMHL
     return THQt_ShowTwoIndependentChartsOfPointsAndLine (VMHL_VectorX1,VMHL_VectorY1, VMHL_N1,VMHL_VectorX2,VMHL_VectorY2, VMHL_N2, TitleChart, NameVectorX, NameVectorY,"", "", ShowLine, ShowPoints, ShowArea, ShowSpecPoints);
 }
 //---------------------------------------------------------------------------
+
 template <class T> QString THQt_ShowTwoIndependentChartsOfPointsAndLine (T *VMHL_VectorX1,T *VMHL_VectorY1,int VMHL_N1,T *VMHL_VectorX2,T *VMHL_VectorY2, int VMHL_N2, QString TitleChart, QString NameVectorX, QString NameVectorY,QString NameLine1, QString NameLine2)
 {
     /*
@@ -4941,6 +4946,7 @@ template <class T> QString THQt_ShowTwoIndependentChartsOfPointsAndLine (T *VMHL
     return THQt_ShowTwoIndependentChartsOfPointsAndLine (VMHL_VectorX1,VMHL_VectorY1,VMHL_N1,VMHL_VectorX2,VMHL_VectorY2, VMHL_N2, TitleChart, NameVectorX, NameVectorY,NameLine1, NameLine2,true,false,false,true);
 }
 //---------------------------------------------------------------------------
+
 template <class T> QString THQt_ShowTwoIndependentChartsOfPointsAndLine (T *VMHL_VectorX1,T *VMHL_VectorY1,int VMHL_N1,T *VMHL_VectorX2,T *VMHL_VectorY2, int VMHL_N2)
 {
     /*
