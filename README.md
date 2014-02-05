@@ -14,7 +14,8 @@ https://github.com/Harrix/HarrixMathLibrary
 Установка
 ---------
 
-Прочитать подробно об установке можно тут http://blog.harrix.org/?p=1252 (точнее о том как найти документацию в виде файла [**HarrixMathLibrary_Help.pdf**](../master/_library/HarrixMathLibrary_Help.pdf) и как настроить программы для работы с библиотекой).
+Прочитать подробно об установке можно тут http://blog.harrix.org/?p=1252.
+Точнее о том как найти документацию в виде файла [**HarrixMathLibrary_Help.pdf**](../master/_library/HarrixMathLibrary_Help.pdf) и как настроить программы для работы с библиотекой).
 
 Структура папок на GitHub
 -------------------------
