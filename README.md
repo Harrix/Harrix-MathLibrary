@@ -11,6 +11,11 @@ https://github.com/Harrix/HarrixMathLibrary
 
 Для справки по установке, использованию и всем функциям перейдите в папку [**_library**](../master/_library) и откройте файл [**HarrixMathLibrary_Help.pdf**](../master/_library/HarrixMathLibrary_Help.pdf). Там же находятся файлы последней версии библиотеки.
 
+Установка
+---------
+
+Прочитать подробно об установке можно тут http://blog.harrix.org/?p=1252 (точнее о том как найти документацию в виде файла [**HarrixMathLibrary_Help.pdf**](../master/_library/HarrixMathLibrary_Help.pdf) и как настроить программы для работы с библиотекой).
+
 Структура папок на GitHub
 -------------------------
 
@@ -25,11 +30,26 @@ https://github.com/Harrix/HarrixMathLibrary
  * [**LICENSE.txt**](../master/LICENSE.txt), [**NOTICE.txt**](../master/NOTICE.txt)**** - файлы лицензии Apache License, Version 2.0.
  * [**README.md**](../master/README.md) - непосредственно этот файл.
  * [**images**](../master/images) - в папке находятся служебные рисунки для отображения в этом файле.
+ 
+Сведения для редактирования файлов
+----------------------------------
+
+Для полноценной работы редактированию LaTeX документами вам потребуются программа для компиляции \*.tex документов в \*.pdf. Автор использует для этого связку [MiKTex](http://www.miktex.org/) и [TeXstudio](http://texstudio.sourceforge.net/). 
+
+В варианте, который использует автор, в \*.tex файлах справок для отображения русских букв используется модуль pscyr. Об его установке можно прочитать (и скачать) в статье http://blog.harrix.org/?p=444.
+
+Подробное описание установки и настройки связки MiKTeX + TeXstudio + pscyr можно прочитать в статье http://blog.harrix.org/?p=849.
 
 Скриншот демонстрационной программы
 ------------------------------------
 
 ![alt text](../master/images/demo.png "Пример работы программы демонстрации")
+
+Использованные технологии
+-------------------------
+
+- LaTeX, Qt, MiKTeX, BiBTex, TeXstudio, pscyr, pgfplots, JSXGraph, html, ajax.
+- HarrixMathLibrary, HarrixQtLibrary, HarrixLaTeXDocumentTemplate.
  
 История проекта
 ---------------
