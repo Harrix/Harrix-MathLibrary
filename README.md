@@ -49,7 +49,7 @@ https://github.com/Harrix/HarrixMathLibrary
 Использованные технологии
 -------------------------
 
-- LaTeX, Qt, MiKTeX, BiBTex, TeXstudio, pscyr, pgfplots, JSXGraph, html, ajax.
+- LaTeX, Qt, MiKTeX, BiBTex, TeXstudio, pscyr, pgfplots, JSXGraph, html, ajax, [jQuery](http://jquery.com/).
 - HarrixMathLibrary, HarrixQtLibrary, HarrixLaTeXDocumentTemplate.
  
 История проекта
