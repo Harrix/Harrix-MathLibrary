@@ -1,0 +1,23 @@
+        double a=MHL_RandomUniformInt(1,10);
+        double b=MHL_RandomUniformInt(1,10);
+        double c=MHL_RandomUniformInt(1,10);
+        double x1;
+        double x2;
+
+        int Result=MHL_QuadraticEquationCount(a,b,c,&x1,&x2);
+
+        //Используем полученный результат
+        MHL_ShowText("Квадратное уравнение: "+MHL_NumberToText(a)+"x^2+"+MHL_NumberToText(b)+"x+"+MHL_NumberToText(c)+"=0");
+        //Квадратное уравнение: 1x^2+4x+4=0.
+        MHL_ShowNumber(Result,"Сколько решений найдено","Result");
+        //Сколько решений найдено:
+        //Result=1
+        if (Result>=1)
+        {
+        MHL_ShowNumber(x1,"Первый корень квадратного уравнения","x1");
+        //Первый корень квадратного уравнения:
+        //x1=-2
+        MHL_ShowNumber(x2,"Второй корень квадратного уравнения","x2");
+        //Второй корень квадратного уравнения:
+        //x2=-2
+        }

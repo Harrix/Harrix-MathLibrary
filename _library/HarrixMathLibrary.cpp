@@ -1,5 +1,5 @@
 //HarrixMathLibrary
-//Версия 3.57
+//Версия 3.58
 //Сборник различных математических функций и шаблонов с открытым кодом на языке C++.
 //https://github.com/Harrix/HarrixMathLibrary
 //Библиотека распространяется по лицензии Apache License, Version 2.0.
@@ -11958,11 +11958,11 @@ int MHL_QuadraticEquation(double a, double b, double c, double *x1, double *x2)
  1 - все хорошо;
  0 - решения нет.
 */
-    if (a!=0)
+    if (!TMHL_AlmostZero(a))
     {
         double D;
         D=b*b-4*a*c;
-        if (D>=0)
+        if ((D>0)||(TMHL_AlmostZero(D)))
         {
             *x1=(-b+sqrt(D))/(2.*a);
             *x2=(-b-sqrt(D))/(2.*a);
@@ -11976,22 +11976,22 @@ int MHL_QuadraticEquation(double a, double b, double c, double *x1, double *x2)
     }
     else
     {
-        if (b!=0)
+        if (!TMHL_AlmostZero(b))
         {//если a==0 то это линейное уравнение
-            if (c!=0)
+            if (!TMHL_AlmostZero(c))
             {// уравнение типа bx+c=0
                 *x1=-c/b;
                 *x2=-c/b;
             }
             else
-            {//уравнtние типа bx=0
+            {//уравнение типа bx=0
                 *x1=0;
                 *x2=0;
             }
         }
         else
         {//a==0 b==0
-            if (c!=0)
+            if (!TMHL_AlmostZero(c))
             {// у нас получилось уравнение вида, например, 5=0
                 *x1=0;
                 *x2=0;
@@ -12007,6 +12007,38 @@ int MHL_QuadraticEquation(double a, double b, double c, double *x1, double *x2)
         }
     }
     return 1;
+}
+//---------------------------------------------------------------------------
+int MHL_QuadraticEquationCount(double a, double b, double c, double *x1, double *x2)
+{
+/*
+Функция решает квадратное уравнение вида: a*x*x+b*x+c=0.
+Ответ представляет собой два действительных числа.
+Отличается от MHL_QuadraticEquation только тем, что возвращается количество решений, а не его наличие.
+Входные параметры:
+ a - параметр уравнения;
+ b - параметр уравнения;
+ c - параметр уравнения;
+ x1 - первый корень;
+ x2 - второй корень.
+Возвращаемое значение:
+ Количество решений задачи: 0, 1 или  2.
+*/
+    int Result;
+
+    int GoodOrNot=MHL_QuadraticEquation(a,b,c,x1,x2);
+
+    if (GoodOrNot==0)
+        Result = 0;
+    else
+    {
+        if (*x1==*x2)
+            Result = 1;
+        else
+            Result = 2;
+    }
+
+    return Result;
 }
 //---------------------------------------------------------------------------
 

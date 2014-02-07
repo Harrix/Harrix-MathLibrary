@@ -13,11 +13,11 @@ int MHL_QuadraticEquation(double a, double b, double c, double *x1, double *x2)
  1 - все хорошо;
  0 - решения нет.
 */
-    if (a!=0)
+    if (!TMHL_AlmostZero(a))
     {
         double D;
         D=b*b-4*a*c;
-        if (D>=0)
+        if ((D>0)||(TMHL_AlmostZero(D)))
         {
             *x1=(-b+sqrt(D))/(2.*a);
             *x2=(-b-sqrt(D))/(2.*a);
@@ -31,22 +31,22 @@ int MHL_QuadraticEquation(double a, double b, double c, double *x1, double *x2)
     }
     else
     {
-        if (b!=0)
+        if (!TMHL_AlmostZero(b))
         {//если a==0 то это линейное уравнение
-            if (c!=0)
+            if (!TMHL_AlmostZero(c))
             {// уравнение типа bx+c=0
                 *x1=-c/b;
                 *x2=-c/b;
             }
             else
-            {//уравнtние типа bx=0
+            {//уравнение типа bx=0
                 *x1=0;
                 *x2=0;
             }
         }
         else
         {//a==0 b==0
-            if (c!=0)
+            if (!TMHL_AlmostZero(c))
             {// у нас получилось уравнение вида, например, 5=0
                 *x1=0;
                 *x2=0;

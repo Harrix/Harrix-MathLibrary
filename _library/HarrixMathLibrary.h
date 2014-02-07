@@ -210,6 +210,10 @@ double MHL_SumGeometricSeries(double u1,double q,int n);
 double MHL_SumOfArithmeticalProgression(double a1,double d,int n);
 int MHL_SumOfDigits(int a);
 template <class T> T TMHL_Abs(T x);
+template <class T> bool TMHL_AlmostEqual(T x, T y);
+template <class T> bool TMHL_AlmostEqual(T x, T y, double epsilon);
+template <class T> bool TMHL_AlmostZero(T x);
+template <class T> bool TMHL_AlmostZero(T x, double epsilon);
 template <class T> T TMHL_Factorial(T x);
 template <class T> T TMHL_FibonacciNumber(T n);
 template <class T> T TMHL_HeavisideFunction(T x);
@@ -396,6 +400,7 @@ double MHL_TanDeg(double x);
 
 //Уравнения
 int MHL_QuadraticEquation(double a, double b, double c, double *x1, double *x2);
+int MHL_QuadraticEquationCount(double a, double b, double c, double *x1, double *x2);
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // РЕАЛИЗАЦИЯ ШАБЛОНОВ
@@ -1396,6 +1401,72 @@ T MinusOne=-1;
 if (x>=0) VMHL_Result=x;
 else VMHL_Result=x*MinusOne;
 return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+template <class T> bool TMHL_AlmostEqual(T x, T y)
+{
+/*
+Функция показывает, являются ли числа почти равными. Используйте с осторожностью.
+Входные параметры:
+ x - значение первого числа;
+ y - значение второго числа.
+Возвращаемое значение:
+ true - являются почти равны (по модулю разница меньше или равна 0.00000001);
+ false - не являются почти раными.
+*/
+    if (fabs(double (x-y))>0.00000001) return false;
+
+    return true;
+}
+//---------------------------------------------------------------------------
+template <class T> bool TMHL_AlmostEqual(T x, T y, double epsilon)
+{
+/*
+Функция показывает, являются ли числа почти равными. Используйте с осторожностью.
+Входные параметры:
+ x - значение первого числа;
+ y - значение второго числа;
+ epsilon - маленькое число, относительно которого производится сравнение, например, 0.00000001.
+Возвращаемое значение:
+ true - являются почти равны (по модулю разница меньше или равна 0.00000001);
+ false - не являются почти раными.
+*/
+    if (fabs(double (x-y))>epsilon) return false;
+
+    return true;
+}
+//---------------------------------------------------------------------------
+template <class T> bool TMHL_AlmostZero(T x)
+{
+/*
+Функция показывает, является ли число почти нулем. Используется для сравнения с нулем для вещественных чисел.
+Используйте с осторожностью.
+Входные параметры:
+ x - значение проверяемого числа.
+Возвращаемое значение:
+ true - является почти нулем (по модулю меньше или равно 0.00000001);
+ false - не является почти нулем.
+*/
+    if (fabs(double (x))>0.00000001) return false;
+
+    return true;
+}
+//---------------------------------------------------------------------------
+template <class T> bool TMHL_AlmostZero(T x, double epsilon)
+{
+/*
+Функция показывает, является ли число почти нулем. Используется для сравнения с нулем для вещественных чисел.
+Используйте с осторожностью.
+Входные параметры:
+ x - значение проверяемого числа;
+ epsilon - маленькое число, относительно которого производится сравнение, например, 0.00000001.
+Возвращаемое значение:
+ true - является почти нулем (по модулю меньше или равно epsilon);
+ false - не является почти нулем.
+*/
+    if (fabs(double (x))>epsilon) return false;
+
+    return true;
 }
 //---------------------------------------------------------------------------
 template <class T> T TMHL_Factorial(T x)

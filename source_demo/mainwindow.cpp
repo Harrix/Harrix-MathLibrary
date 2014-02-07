@@ -872,6 +872,15 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("MHL_TestFunction_RastriginNovgorod"));
     model->appendRow(item);
 
+    item = new QStandardItem(QString("TMHL_AlmostZero"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_QuadraticEquationCount"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("TMHL_AlmostEqual"));
+    model->appendRow(item);
+
     model->sort(0);
 
     //соединение модели списка с конкретным списком
@@ -9831,6 +9840,125 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //f=3.42316
 
         delete[] x;
+    }
+
+    if (NameFunction=="TMHL_AlmostZero")
+    {
+        double y=0.000000001;
+        bool Zero;
+
+        //Вызов функции
+        Zero=TMHL_AlmostZero(y);
+
+        //Используем полученный результат
+        MHL_ShowNumber(y,"Проверяемое число","y");
+        //Проверяемое число:
+        //y=1e-09
+        MHL_ShowNumber(Zero,"Является ли почти нулем?","Zero");
+        //Является ли почти нулем?:
+        //Zero=1
+
+        y=0.01;
+
+        //Вызов функции
+        Zero=TMHL_AlmostZero(y);
+
+        //Используем полученный результат
+        MHL_ShowNumber(y,"Проверяемое число","y");
+        //Проверяемое число:
+        //y=0.01
+        MHL_ShowNumber(Zero,"Является ли почти нулем?","Zero");
+        //Является ли почти нулем?:
+        //Zero=0
+
+        y=0;
+
+        //Вызов функции
+        Zero=TMHL_AlmostZero(y);
+
+        //Используем полученный результат
+        MHL_ShowNumber(y,"Проверяемое число","y");
+        //Проверяемое число:
+        //y=0
+        MHL_ShowNumber(Zero,"Является ли почти нулем?","Zero");
+        //Является ли почти нулем?:
+        //Zero=1
+
+        y=1;
+
+        //Вызов функции
+        Zero=TMHL_AlmostZero(y);
+
+        //Используем полученный результат
+        MHL_ShowNumber(y,"Проверяемое число","y");
+        //Проверяемое число:
+        //y=1
+        MHL_ShowNumber(Zero,"Является ли почти нулем?","Zero");
+        //Является ли почти нулем?:
+        //Zero=0
+    }
+
+    if (NameFunction=="MHL_QuadraticEquationCount")
+    {
+        double a=MHL_RandomUniformInt(1,10);
+        double b=MHL_RandomUniformInt(1,10);
+        double c=MHL_RandomUniformInt(1,10);
+        double x1;
+        double x2;
+
+        int Result=MHL_QuadraticEquationCount(a,b,c,&x1,&x2);
+
+        //Используем полученный результат
+        MHL_ShowText("Квадратное уравнение: "+MHL_NumberToText(a)+"x^2+"+MHL_NumberToText(b)+"x+"+MHL_NumberToText(c)+"=0");
+        //Квадратное уравнение: 1x^2+4x+4=0.
+        MHL_ShowNumber(Result,"Сколько решений найдено","Result");
+        //Сколько решений найдено:
+        //Result=1
+        if (Result>=1)
+        {
+        MHL_ShowNumber(x1,"Первый корень квадратного уравнения","x1");
+        //Первый корень квадратного уравнения:
+        //x1=-2
+        MHL_ShowNumber(x2,"Второй корень квадратного уравнения","x2");
+        //Второй корень квадратного уравнения:
+        //x2=-2
+        }
+    }
+
+    if (NameFunction=="TMHL_AlmostEqual")
+    {
+        double x=0;
+        double y=0.000000001;
+        bool Equal;
+
+        //Вызов функции
+        Equal=TMHL_AlmostEqual(x,y);
+
+        //Используем полученный результат
+        MHL_ShowNumber(x,"Проверяемое число","x");
+        //Проверяемое число:
+        //x=0
+        MHL_ShowNumber(y,"Проверяемое число","y");
+        //Проверяемое число:
+        //y=1e-09
+        MHL_ShowNumber(Equal,"Являются ли почти равными?","Equal");
+        //Являются ли почти равными?:
+        //Equal=1
+
+        x=1;
+        y=2;
+        //Вызов функции
+        Equal=TMHL_AlmostEqual(x,y);
+        //Используем полученный результат
+        MHL_ShowNumber(x,"Проверяемое число","x");
+        //Проверяемое число:
+        //x=1
+        MHL_ShowNumber(y,"Проверяемое число","y");
+        //Проверяемое число:
+        //x=1
+        MHL_ShowNumber(Equal,"Являются ли почти равными?","Equal");
+        //Являются ли почти равными?:
+        //Equal=0
     }
 
 }
