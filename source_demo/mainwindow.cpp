@@ -890,6 +890,24 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("MHL_MeaningOfLife"));
     model->appendRow(item);
 
+    item = new QStandardItem(QString("MHL_SinglepointCrossoverForReal"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_TwopointCrossoverForReal"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_UniformCrossoverForReal"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("TMHL_MeanOfUpperFilter"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("TMHL_MeanOfLowerFilter"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("TMHL_MeanOfFilter"));
+    model->appendRow(item);
+
     model->sort(0);
 
     //соединение модели списка с конкретным списком
@@ -9925,12 +9943,12 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //Result=1
         if (Result>=1)
         {
-        MHL_ShowNumber(x1,"Первый корень квадратного уравнения","x1");
-        //Первый корень квадратного уравнения:
-        //x1=-2
-        MHL_ShowNumber(x2,"Второй корень квадратного уравнения","x2");
-        //Второй корень квадратного уравнения:
-        //x2=-2
+            MHL_ShowNumber(x1,"Первый корень квадратного уравнения","x1");
+            //Первый корень квадратного уравнения:
+            //x1=-2
+            MHL_ShowNumber(x2,"Второй корень квадратного уравнения","x2");
+            //Второй корень квадратного уравнения:
+            //x2=-2
         }
     }
 
@@ -10023,7 +10041,261 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //Ответ=42
     }
 
+    if (NameFunction=="MHL_SinglepointCrossoverForReal")
+    {
+        int VMHL_N=10; //Размер массива (число строк)
+        double *Parent1;
+        Parent1=new double[VMHL_N];
+        double *Parent2;
+        Parent2=new double[VMHL_N];
+        double *Child;
+        Child=new double[VMHL_N];
+        MHL_RandomRealVector(Parent1,0,1,VMHL_N);
+        MHL_RandomRealVector(Parent2,0,1,VMHL_N);
 
+        //Получим потомка Child
+        MHL_SinglepointCrossoverForReal(Parent1,Parent2,Child,VMHL_N);
+
+        //Используем полученный результат
+        MHL_ShowVectorT (Parent1,VMHL_N,"Первый родитель", "Parent1");
+        //Первый родитель:
+        //Parent1 =
+        //0.92261	0.684314	0.891158	0.312732	0.640667	0.406768	0.228042	0.180759	0.394544	0.88495
+
+        MHL_ShowVectorT (Parent2,VMHL_N,"Второй родитель", "Parent2");
+        //Второй родитель:
+        //Parent2 =
+        //0.856881	0.134294	0.985216	0.254506	0.456079	0.330734	0.78648	0.257115	0.609472	0.868141
+
+        MHL_ShowVectorT (Child,VMHL_N,"Полученный потомок", "Child");
+        //Полученный потомок:
+        //Child =
+        //0.92261	0.684314	0.891158	0.312732	0.456079	0.330734	0.78648	0.257115	0.609472	0.868141
+
+        delete [] Parent2;
+        delete [] Parent1;
+        delete [] Child;
+    }
+
+    if (NameFunction=="MHL_TwopointCrossoverForReal")
+    {
+        int VMHL_N=10; //Размер массива (число строк)
+        double *Parent1;
+        Parent1=new double[VMHL_N];
+        double *Parent2;
+        Parent2=new double[VMHL_N];
+        double *Child;
+        Child=new double[VMHL_N];
+        MHL_RandomRealVector(Parent1,0,1,VMHL_N);
+        MHL_RandomRealVector(Parent2,0,1,VMHL_N);
+
+        //Получим потомка Child
+        MHL_TwopointCrossoverForReal(Parent1,Parent2,Child,VMHL_N);
+
+        //Используем полученный результат
+        MHL_ShowVectorT (Parent1,VMHL_N,"Первый родитель", "Parent1");
+        //Первый родитель:
+        //Parent1 =
+        //0.301053	0.64133	0.815178	0.727049	0.426111	0.119812	0.720018	0.484514	0.948253	0.489644
+
+        MHL_ShowVectorT (Parent2,VMHL_N,"Второй родитель", "Parent2");
+        //Второй родитель:
+        //Parent2 =
+        //0.566543	0.972537	0.575658	0.887848	0.937234	0.772248	0.982688	0.931731	0.480371	0.562743
+
+        MHL_ShowVectorT (Child,VMHL_N,"Полученный потомок", "Child");
+        //Полученный потомок:
+        //Child =
+        //0.301053	0.64133	0.815178	0.887848	0.937234	0.772248	0.982688	0.484514	0.948253	0.489644
+
+        delete [] Parent2;
+        delete [] Parent1;
+        delete [] Child;
+    }
+
+    if (NameFunction=="MHL_UniformCrossoverForReal")
+    {
+        int VMHL_N=10; //Размер массива (число строк)
+        double *Parent1;
+        Parent1=new double[VMHL_N];
+        double *Parent2;
+        Parent2=new double[VMHL_N];
+        double *Child;
+        Child=new double[VMHL_N];
+        MHL_RandomRealVector(Parent1,0,1,VMHL_N);
+        MHL_RandomRealVector(Parent2,0,1,VMHL_N);
+
+        //Получим потомка Child
+        MHL_UniformCrossoverForReal(Parent1,Parent2,Child,VMHL_N);
+
+        //Используем полученный результат
+        MHL_ShowVectorT (Parent1,VMHL_N,"Первый родитель", "Parent1");
+        //Первый родитель:
+        //Parent1 =
+        //0.872271	0.400017	0.382867	0.0215583	0.195993	0.0210766	0.546082	0.540188	0.448846	0.22661
+
+        MHL_ShowVectorT (Parent2,VMHL_N,"Второй родитель", "Parent2");
+        //Второй родитель:
+        //Parent2 =
+        //0.972843	0.656896	0.892507	0.438632	0.1083	0.982196	0.376142	0.285289	0.411732	0.681029
+
+        MHL_ShowVectorT (Child,VMHL_N,"Полученный потомок", "Child");
+        //Полученный потомок:
+        //Полученный потомок:
+        //Child =
+        //0.972843	0.400017	0.382867	0.0215583	0.195993	0.0210766	0.546082	0.285289	0.448846	0.22661
+
+        delete [] Parent2;
+        delete [] Parent1;
+        delete [] Child;
+    }
+
+    if (NameFunction=="TMHL_MeanOfUpperFilter")
+    {
+        int i;
+        int VMHL_N=10;//Размер массива
+        double *a;
+        a=new double[VMHL_N];
+        //Заполним случайными числами
+        for (i=0;i<VMHL_N;i++)
+            a[i]=MHL_RandomUniform(0,10);
+
+        double UpperFilter=9;
+
+        double Mean=TMHL_Mean(a,VMHL_N);
+
+        //Вызов функции
+        double MeanOfUpperFilter=TMHL_MeanOfUpperFilter(a,VMHL_N,UpperFilter);
+
+        //Используем полученный результат
+        MHL_ShowVector (a,VMHL_N,"Массив", "a");
+        //Массив:
+        //a =
+        //4.51301
+        //9.00999
+        //5.42346
+        //4.33216
+        //8.50985
+        //9.90472
+        //6.28173
+        //2.48286
+        //9.3158
+        //1.33581
+
+        MHL_ShowNumber (UpperFilter,"Значение верхнего фильтра", "UpperFilter");
+        //Значение верхнего фильтра:
+        //UpperFilter=9
+
+        MHL_ShowNumber (Mean,"Среднее арифметическое массива", "Mean");
+        //Среднее арифметическое массива:
+        ///Mean=6.11094
+
+        MHL_ShowNumber (MeanOfUpperFilter,"Среднее арифметическое массива с верхним фильтром", "MeanOfUpperFilter");
+        //Среднее арифметическое массива с верхним фильтром:
+        //MeanOfUpperFilter=4.69698
+
+        delete [] a;
+    }
+
+    if (NameFunction=="TMHL_MeanOfLowerFilter")
+    {
+        int i;
+        int VMHL_N=10;//Размер массива
+        double *a;
+        a=new double[VMHL_N];
+        //Заполним случайными числами
+        for (i=0;i<VMHL_N;i++)
+            a[i]=MHL_RandomUniform(0,10);
+
+        double LowerFilter=1;
+
+        double Mean=TMHL_Mean(a,VMHL_N);
+
+        //Вызов функции
+        double MeanOfLowerFilter=TMHL_MeanOfLowerFilter(a,VMHL_N,LowerFilter);
+
+        //Используем полученный результат
+        MHL_ShowVector (a,VMHL_N,"Массив", "a");
+        //Массив:
+        //a =
+        //8.20861
+        //5.52348
+        //4.90245
+        //3.24057
+        //5.12062
+        //8.07709
+        //4.60095
+        //0.0358931
+        //9.51881
+        //6.51128
+
+        MHL_ShowNumber (LowerFilter,"Значение нижнего фильтра", "LowerFilter");
+        //Значение нижнего фильтра:
+        //LowerFilter=1
+
+        MHL_ShowNumber (Mean,"Среднее арифметическое массива", "Mean");
+        //Среднее арифметическое массива:
+        //Mean=5.57397
+
+        MHL_ShowNumber (MeanOfLowerFilter,"Среднее арифметическое массива с нижним фильтром", "MeanOfLowerFilter");
+        //Среднее арифметическое массива с нижним фильтром:
+        //MeanOfLowerFilter=6.18932
+
+        delete [] a;
+    }
+
+    if (NameFunction=="TMHL_MeanOfFilter")
+    {
+        int i;
+        int VMHL_N=10;//Размер массива
+        double *a;
+        a=new double[VMHL_N];
+        //Заполним случайными числами
+        for (i=0;i<VMHL_N;i++)
+            a[i]=MHL_RandomUniform(0,10);
+
+        double LowerFilter=1;
+
+        double UpperFilter=9;
+
+        double Mean=TMHL_Mean(a,VMHL_N);
+
+        //Вызов функции
+        double MeanOfFilter=TMHL_MeanOfFilter(a,VMHL_N, UpperFilter, LowerFilter);
+
+        //Используем полученный результат
+        MHL_ShowVector (a,VMHL_N,"Массив", "a");
+        //Массив:
+        //a =
+        //0.0249536
+        //5.65315
+        //4.50364
+        //9.83102
+        //8.18634
+        //6.15052
+        //0.00491235
+        //2.80304
+        //4.85183
+        //3.34549
+
+        MHL_ShowNumber (LowerFilter,"Значение нижнего фильтра", "LowerFilter");
+        //Значение нижнего фильтра:
+        //LowerFilter=1
+
+        MHL_ShowNumber (UpperFilter,"Значение верхнего фильтра", "UpperFilter");
+        //Значение верхнего фильтра:
+        //UpperFilter=9
+
+        MHL_ShowNumber (Mean,"Среднее арифметическое массива", "Mean");
+        //Среднее арифметическое массива:
+        //Mean=4.53549
+
+        MHL_ShowNumber (MeanOfFilter,"Среднее арифметическое массива с фильтром", "MeanOfFilter");
+        //Среднее арифметическое массива с фильтром:
+        //MeanOfFilter=5.07057
+
+        delete [] a;
+    }
 
 }
 //---------------------------------------------------------------------------

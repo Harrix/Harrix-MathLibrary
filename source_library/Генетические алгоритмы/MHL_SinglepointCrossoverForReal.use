@@ -1,0 +1,32 @@
+     int VMHL_N=10; //Размер массива (число строк)
+     double *Parent1;
+     Parent1=new double[VMHL_N];
+     double *Parent2;
+     Parent2=new double[VMHL_N];
+     double *Child;
+     Child=new double[VMHL_N];
+     MHL_RandomRealVector(Parent1,0,1,VMHL_N);
+     MHL_RandomRealVector(Parent2,0,1,VMHL_N);
+
+     //Получим потомка Child
+     MHL_SinglepointCrossoverForReal(Parent1,Parent2,Child,VMHL_N);
+
+     //Используем полученный результат
+     MHL_ShowVectorT (Parent1,VMHL_N,"Первый родитель", "Parent1");
+     //Первый родитель:
+     //Parent1 =	
+     //0.92261	0.684314	0.891158	0.312732	0.640667	0.406768	0.228042	0.180759	0.394544	0.88495
+
+     MHL_ShowVectorT (Parent2,VMHL_N,"Второй родитель", "Parent2");
+     //Второй родитель:
+     //Parent2 =	
+     //0.856881	0.134294	0.985216	0.254506	0.456079	0.330734	0.78648	0.257115	0.609472	0.868141
+
+     MHL_ShowVectorT (Child,VMHL_N,"Полученный потомок", "Child");
+     //Полученный потомок:
+     //Child =	
+     //0.92261	0.684314	0.891158	0.312732	0.456079	0.330734	0.78648	0.257115	0.609472	0.868141
+
+     delete [] Parent2;
+     delete [] Parent1;
+     delete [] Child;

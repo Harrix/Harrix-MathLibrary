@@ -1,5 +1,5 @@
 //HarrixMathLibrary
-//Версия 3.60
+//Версия 3.61
 //Сборник различных математических функций и шаблонов с открытым кодом на языке C++.
 //https://github.com/Harrix/HarrixMathLibrary
 //Библиотека распространяется по лицензии Apache License, Version 2.0.
@@ -613,6 +613,23 @@ while ((VMHL_Result==-1)&&(i<VMHL_N))
  i++;
  }
 return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+void MHL_SinglepointCrossoverForReal(double *Parent1, double *Parent2, double *VMHL_ResultVector, int VMHL_N)
+{
+/*
+Одноточечное скрещивание для вещественных векторов.
+Входные параметры:
+ Parent1 - первый родитель;
+ Parent2 - второй родитель;
+ VMHL_ResultVector - потомок;
+ VMHL_N - размер векторов Parent1, Parent2 и VMHL_ResultVector.
+Возвращаемое значение:
+ Отсутствует.
+Примечание:
+ Потомок выбирается случайно.
+*/
+TMHL_SinglepointCrossover(Parent1, Parent2, VMHL_ResultVector, VMHL_N);
 }
 //---------------------------------------------------------------------------
 int MHL_StandartBinaryGeneticAlgorithm(int *Parameters, double (*FitnessFunction)(int*,int), int *VMHL_ResultVector, double *VMHL_Result)
@@ -1286,6 +1303,38 @@ for (int i=1;i<SizeTournament;i++)
  }//выбор еще одного участника турнира
 
 return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+void MHL_TwopointCrossoverForReal(double *Parent1, double *Parent2, double *VMHL_ResultVector, int VMHL_N)
+{
+/*
+Двухточечное скрещивание для вещественных векторов.
+Входные параметры:
+ Parent1 - первый родитель;
+ Parent2 - второй родитель;
+ VMHL_ResultVector - потомок;
+ VMHL_N - размер векторов Parent1, Parent2 и VMHL_ResultVector.
+Возвращаемое значение:
+ Отсутствует.
+Примечание:
+ Потомок выбирается случайно.
+*/
+TMHL_TwopointCrossover(Parent1, Parent2, VMHL_ResultVector, VMHL_N);
+}
+//---------------------------------------------------------------------------
+void MHL_UniformCrossoverForReal(double*Parent1, double *Parent2, double *VMHL_ResultVector, int VMHL_N)
+{
+/*
+Равномерное скрещивание для вещественных векторов.
+Входные параметры:
+ Parent1 - первый родитель;
+ Parent2 - второй родитель;
+ VMHL_ResultVector - потомок;
+ VMHL_N - размер векторов Parent1, Parent2 и VMHL_ResultVector.
+Возвращаемое значение:
+ Отсутствует.
+*/
+TMHL_UniformCrossover(Parent1, Parent2, VMHL_ResultVector, VMHL_N);
 }
 //---------------------------------------------------------------------------
 

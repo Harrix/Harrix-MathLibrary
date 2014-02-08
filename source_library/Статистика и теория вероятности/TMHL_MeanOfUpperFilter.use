@@ -1,0 +1,43 @@
+        int i;
+        int VMHL_N=10;//Размер массива
+        double *a;
+        a=new double[VMHL_N];
+        //Заполним случайными числами
+        for (i=0;i<VMHL_N;i++)
+            a[i]=MHL_RandomUniform(0,10);
+
+        double UpperFilter=9;
+
+        double Mean=TMHL_Mean(a,VMHL_N);
+
+        //Вызов функции
+        double MeanOfUpperFilter=TMHL_MeanOfUpperFilter(a,VMHL_N,UpperFilter);
+
+        //Используем полученный результат
+        MHL_ShowVector (a,VMHL_N,"Массив", "a");
+        //Массив:
+        //a =
+        //4.51301
+        //9.00999
+        //5.42346
+        //4.33216
+        //8.50985
+        //9.90472
+        //6.28173
+        //2.48286
+        //9.3158
+        //1.33581
+
+        MHL_ShowNumber (UpperFilter,"Значение верхнего фильтра", "UpperFilter");
+        //Значение верхнего фильтра:
+        //UpperFilter=9
+
+        MHL_ShowNumber (Mean,"Среднее арифметическое массива", "Mean");
+        //Среднее арифметическое массива:
+        ///Mean=6.11094
+
+        MHL_ShowNumber (MeanOfUpperFilter,"Среднее арифметическое массива с верхним фильтром", "MeanOfUpperFilter");
+        //Среднее арифметическое массива с верхним фильтром:
+        //MeanOfUpperFilter=4.69698
+
+        delete [] a;
