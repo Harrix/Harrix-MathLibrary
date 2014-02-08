@@ -5,7 +5,7 @@ double MHL_StdDevToVariance(double StdDev)
 Входные параметры:
  StdDev - среднеквадратичное уклонение.
 Возвращаемое значение:
- Значение дисперсии случайной величины.
+ Значение выборочной дисперсии случайной величины.
 */
-return sqrt(StdDev);
+return StdDev*StdDev;
 }
