@@ -1,0 +1,6 @@
+        double Result=MHL_MeaningOfLife();
+
+        //Используем полученный результат
+        MHL_ShowNumber(Result,"Смысл жизни","Ответ");
+        //Смысл жизни:
+        //Ответ=42

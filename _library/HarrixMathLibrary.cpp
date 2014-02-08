@@ -1,5 +1,5 @@
 //HarrixMathLibrary
-//Версия 3.59
+//Версия 3.60
 //Сборник различных математических функций и шаблонов с открытым кодом на языке C++.
 //https://github.com/Harrix/HarrixMathLibrary
 //Библиотека распространяется по лицензии Apache License, Version 2.0.
@@ -4487,6 +4487,18 @@ for (int i=0;i<VMHL_N;i++)
 //*****************************************************************
 //Математические функции
 //*****************************************************************
+double MHL_AnswerToTheUltimateQuestionOfLifeTheUniverseAndEverything()
+{
+/*
+Функция возвращает ответ на главный вопрос жизни, вселенной и всего такого.
+Входные параметры:
+ Отсутствуют.
+Возвращаемое значение:
+ Ответ на главный вопрос жизни, вселенной и всего такого.
+*/
+return 42.;
+}
+//---------------------------------------------------------------------------
 double MHL_ArithmeticalProgression(double a1,double d,int n)
 {
 /*
@@ -4624,6 +4636,18 @@ int gcd,VMHL_Result;
 gcd=MHL_GreatestCommonDivisorEuclid(A,B);
 VMHL_Result=(A*B)/gcd;
 return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+double MHL_MeaningOfLife()
+{
+/*
+Функция возвращает смысл жизни.
+Входные параметры:
+ Отсутствуют.
+Возвращаемое значение:
+ Смысл жизни.
+*/
+return 42.;
 }
 //---------------------------------------------------------------------------
 void MHL_MixedMultiLogicVectorOfFullSearch(int *VMHL_Vector, int I, int *HowMuchInElements, int VMHL_N)

@@ -1,0 +1,29 @@
+        int VMHL_N=10;//Размер массива
+        double *x;
+        x=new double[VMHL_N];
+        //Заполним случайными числами
+        MHL_RandomRealVector (x,0,10,VMHL_N);
+
+        //Вызов функции
+        double UncorrectedVariance=TMHL_UncorrectedVariance(x,VMHL_N);
+
+        //Используем полученный результат
+        MHL_ShowVector (x,VMHL_N,"Массив", "x");
+        //Массив:
+        //x =
+        //7.85789
+        //3.68858
+        //1.29782
+        //7.19989
+        //7.21336
+        //0.717554
+        //5.07097
+        //0.514343
+        //9.4794
+        //5.8723
+
+        MHL_ShowNumber (UncorrectedVariance,"Значение выборочной неисправленной дисперсии", "UncorrectedVariance");
+        //Значение выборочной неисправленной дисперсии:
+        //UncorrectedVariance=9.25051
+
+        delete [] x;

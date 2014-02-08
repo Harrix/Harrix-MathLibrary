@@ -22,6 +22,7 @@ const double MHL_SQRT2=1.41421356237309504880;
 const double MHL_SQRT_2=0.707106781186547524401;
 const double MHL_INFINITY=1.7E308;
 const double MHL_MINFINITY=-1.7E308;
+const double MHL_MEANINGOFLIFE=42;
 
 //ДЛЯ ГЕНЕРАТОРОВ СЛУЧАЙНЫХ ЧИСЕЛ
 enum TypeOfRandomNumberGenerator { StandardRandomNumberGenerator, MersenneTwisterRandomNumberGenerator };//тип генератора случайных чисел: стандартный или MersenneTwister:
@@ -195,6 +196,7 @@ template <class T> void TMHL_GrayCodeToBinaryFromPart(T *a, T *VMHL_ResultVector
 template <class T> T TMHL_KCombinations(T k, T n);
 
 //Математические функции
+double MHL_AnswerToTheUltimateQuestionOfLifeTheUniverseAndEverything();
 double MHL_ArithmeticalProgression(double a1,double d,int n);
 double MHL_ExpMSxD2(double x);
 double MHL_GeometricSeries(double u1,double q,int n);
@@ -202,6 +204,7 @@ int MHL_GreatestCommonDivisorEuclid(int A,int B);
 int MHL_HowManyPowersOfTwo(int x);
 double MHL_InverseNormalizationNumberAll(double x);
 int MHL_LeastCommonMultipleEuclid(int A,int B);
+double MHL_MeaningOfLife();
 void MHL_MixedMultiLogicVectorOfFullSearch(int *VMHL_Vector, int I, int *HowMuchInElements, int VMHL_N);
 double MHL_NormalizationNumberAll(double x);
 int MHL_Parity(int a);
@@ -351,6 +354,7 @@ int MHL_WilcoxonW(double *a, double *b, int VMHL_N1, int VMHL_N2, double Q);
 template <class T> T TMHL_Mean(T *x, int VMHL_N);
 template <class T> T TMHL_Median(T *x, int VMHL_N);
 template <class T> T TMHL_SampleCovariance(T *x, T *y, int VMHL_N);
+template <class T> T TMHL_UncorrectedVariance(T *x, int VMHL_N);
 template <class T> T TMHL_Variance(T *x, int VMHL_N);
 
 //Тестовые функции для оптимизации
@@ -2872,6 +2876,29 @@ for(int i=0;i<VMHL_N;i++)
  VMHL_Result+=(x[i]-xn)*(y[i]-yn);
 
 VMHL_Result/=VMHL_N-1;
+return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+template <class T> T TMHL_UncorrectedVariance(T *x, int VMHL_N)
+{
+/*
+Функция вычисляет неисправленная выборочную дисперсию выборки.
+Входные параметры:
+ x - указатель на исходную выборку;
+ VMHL_N - размер массива.
+Возвращаемое значение:
+ Выборочная неисправленная дисперсия выборки.
+*/
+T xn;
+T VMHL_Result=0;
+
+//Найдем среднее арифметические выборки
+xn=TMHL_Mean(x,VMHL_N);
+
+for(int i=0;i<VMHL_N;i++)
+ VMHL_Result+=(x[i]-xn)*(x[i]-xn);
+
+VMHL_Result/=VMHL_N;
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------

@@ -881,6 +881,15 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("TMHL_AlmostEqual"));
     model->appendRow(item);
 
+    item = new QStandardItem(QString("TMHL_UncorrectedVariance"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_AnswerToTheUltimateQuestionOfLifeTheUniverseAndEverything"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_MeaningOfLife"));
+    model->appendRow(item);
+
     model->sort(0);
 
     //соединение модели списка с конкретным списком
@@ -9960,6 +9969,61 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //Являются ли почти равными?:
         //Equal=0
     }
+
+    if (NameFunction=="TMHL_UncorrectedVariance")
+    {
+        int VMHL_N=10;//Размер массива
+        double *x;
+        x=new double[VMHL_N];
+        //Заполним случайными числами
+        MHL_RandomRealVector (x,0,10,VMHL_N);
+
+        //Вызов функции
+        double UncorrectedVariance=TMHL_UncorrectedVariance(x,VMHL_N);
+
+        //Используем полученный результат
+        MHL_ShowVector (x,VMHL_N,"Массив", "x");
+        //Массив:
+        //x =
+        //7.85789
+        //3.68858
+        //1.29782
+        //7.19989
+        //7.21336
+        //0.717554
+        //5.07097
+        //0.514343
+        //9.4794
+        //5.8723
+
+        MHL_ShowNumber (UncorrectedVariance,"Значение выборочной неисправленной дисперсии", "UncorrectedVariance");
+        //Значение выборочной неисправленной дисперсии:
+        //UncorrectedVariance=9.25051
+
+        delete [] x;
+    }
+
+    if (NameFunction=="MHL_AnswerToTheUltimateQuestionOfLifeTheUniverseAndEverything")
+    {
+        double Result=MHL_AnswerToTheUltimateQuestionOfLifeTheUniverseAndEverything();
+
+        //Используем полученный результат
+        MHL_ShowNumber(Result,"Ответ на главный вопрос жизни, вселенной и всего такого","Ответ");
+        //Ответ на главный вопрос жизни, вселенной и всего такого:
+        //Ответ=42
+    }
+
+    if (NameFunction=="MHL_MeaningOfLife")
+    {
+        double Result=MHL_MeaningOfLife();
+
+        //Используем полученный результат
+        MHL_ShowNumber(Result,"Смысл жизни","Ответ");
+        //Смысл жизни:
+        //Ответ=42
+    }
+
+
 
 }
 //---------------------------------------------------------------------------

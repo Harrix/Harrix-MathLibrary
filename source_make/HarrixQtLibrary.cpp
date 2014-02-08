@@ -1001,7 +1001,7 @@ QStringList HQt_AddUniqueQStringInQStringList (QStringList StringList, QString S
      StringList - QStringList, в который мы добавляем строку (добавление в возвращаемом элементе);
      String - добавляемая строка.
     Возвращаемое значение:
-     Отсутствует.
+     Список строк с добавленной строкой.
     */
     bool in=false;
 
