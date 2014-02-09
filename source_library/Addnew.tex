@@ -29,7 +29,7 @@
 
 Для полноценной работы по добавлению функций вам потребуются:
 \begin{itemize}
-\item программа для проверки работоспособности новых функций и компиляции DemoHarrixMathLibrary.exe (например, Qt 5.1.1 с Qt Creator 2.8.1 или любая другая версия Qt с пятой версии). Для проверки работоспособности библиотеки без компиляции DemoHarrixMathLibrary.exe подойдет любой другой C++ компилятор;
+\item программа для проверки работоспособности новых функций и компиляции DemoHarrixMathLibrary.exe (например, Qt 5.2.0 с Qt Creator 2.8.84 или любая другая версия Qt с пятой версии). Для проверки работоспособности библиотеки без компиляции DemoHarrixMathLibrary.exe подойдет любой другой C++ компилятор;
 \item программа для компиляции *.tex документов в *.pdf для формирования справочных материалов. Автор использует для этого связку MiKTex и TeXstudio (версии MiKTex 2.9 и TeXstudio 2.6.2).
 \end{itemize}
 
@@ -37,7 +37,7 @@
 
 Подробное описание установки и настройки связки MiKTeX + TeXstudio + pscyr можно прочитать в статье \href{http://blog.harrix.org/?p=849}{http://blog.harrix.org/?p=849}.
 
-Далее приведены некоторые спецификации, принятые в данной библиотеке.
+Далее приведены некоторые спецификации, принятые в данной библиотеке. Кроме первого пункта правила не являются обязательными: сам автор регулярно их нарушает.
 \begin{itemize}
 \item Основу библиотеки составляют функции и шаблоны функций. Имена функций начинаются с \textbf{MHL\_}, например:
 \begin{lstlisting}[label=examplename,caption=Пример названия функции]
@@ -105,9 +105,14 @@ int  MHL_Func(int VMHL_X);
 #include <QUrl>
 #include <QDir>
 #include <QStandardItemModel>
+#include <QSortFilterProxyModel>
+
+#include <stdlib.h>
+#include <time.h>
+#include <math.h>
 
 #include "HarrixMathLibrary.h"
-
+#include "HarrixQtLibraryForQWebView.h"
 #include "HarrixQtLibrary.h"
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -116,8 +121,10 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    DS=QDir::separator();
-    path=QGuiApplication::applicationDirPath()+DS;//путь к папке
+    DS=QDir::separator();//какой разделитель используется в пути между папками
+    Path=QGuiApplication::applicationDirPath()+DS;//путь к папке, где находится приложение
+    HQt_BeginHtml(Path);
+    ui->webView->setUrl(QUrl::fromLocalFile(Path+"index.html"));// и в webViewотображаем index.html (его вообще не трогаем)
 
     MHL_SeedRandom();//Инициализация датчика случайных чисел
 
@@ -127,15 +134,23 @@ MainWindow::MainWindow(QWidget *parent) :
     QStandardItem *item;//элемент списка
 
     //добавление новых элементов
+    
+    //Сюда нужно добавить код
+	
+	...
+    
     item = new QStandardItem(QString("TMHL_FillVector"));
     model->appendRow(item);
 
-	//Сюда нужно добавить код 
-
-	...
+    model->sort(0);
 
     //соединение модели списка с конкретным списком
-    ui->listView->setModel(model);
+
+    proxyModelView = new QSortFilterProxyModel(this);
+    proxyModelView->setSourceModel(model);
+    proxyModelView->setObjectName(QString::fromUtf8("proxyModelView"));
+
+    ui->listView->setModel(proxyModelView);
 
     ui->listView->setEditTriggers(QAbstractItemView::NoEditTriggers);
 }
@@ -156,21 +171,16 @@ MainWindow::MainWindow(QWidget *parent) :
 \begin{lstlisting}[label=examplefunction06, caption=MainWindow::on\_listView\_clicked]
 void MainWindow::on_listView_clicked(const QModelIndex &index)
 {
-    Html="<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n<html><head><meta name=\"qrichtext\" content=\"1\" />\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\n<style type=\"text/css\">\np, li { white-space: pre-wrap; }\n</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n";
+    HQt_BeginHtml (Path);
 
     QString NameFunction;//Какая функция вызывается
 
     //выдергиваем текст
     NameFunction=index.data(Qt::DisplayRole).toString();
 
-	//Сюда нужно добавить код 
-
+    //Сюда нужно добавить код
+	
 	...
-
-    //Показ итогового результата
-    Html+="</body></html>";
-    HQt_SaveFile(Html, path+"temp.html");
-    ui->webView->setUrl(QUrl::fromLocalFile(path+"temp.html"));
 }
 \end{lstlisting}
 \item Там, где написан комментарий <<\textbf{//Сюда нужно добавить код}>> добавляете код следующего типа:
@@ -208,8 +218,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
 \end{lstlisting}
 \end{itemize}
 
-Теперь рассмотрим какие функции используются для вывода результата. Типичными объектами, над которыми выполняются действия по выводу, являются: числа, вектора, матрицы. Их мы стандартизовано и выводим, используя некоторые функции. Так как библиотека HarrixMathLibrary может использоваться на различных системах C++, а вывод информации в каждой системе может быть разным, то функции вывода строились таким образом, чтобы внешне выглядели однотипно в любой системе C++, так как в справке к функциям из библиотеки функции вывода также будут присутствовать. Итак, использование функций внешне должно быть везде одинаковым для всех систем C++.  Поэтому вы можете их переписать под свои нужды.
-
+Теперь рассмотрим какие функции используются для вывода результата. Типичными объектами, над которыми выполняются действия по выводу, являются: числа, вектора, матрицы. Их мы стандартизовано и выводим, используя некоторые функции. Так как библиотека HarrixMathLibrary может использоваться на различных системах C++, а вывод информации в каждой системе может быть разным, то функции вывода строились таким образом, чтобы внешне выглядели однотипно в любой системе C++, так как в справке к функциям из библиотеки функции вывода также будут присутствовать. Итак, использование функций внешне должно быть везде одинаковым для всех систем C++.  Поэтому вы можете их переписать под свои нужды. Обратите внимание, что это функции программы DemoHarrixMathLibrary.exe, а не самой библиотеки HarrixMathLibrary.
 
 \begin{itemize}
 \item \textbf{MHL\_NumberToText} --- функция перевода числа в строку; 
@@ -255,7 +264,8 @@ template <class T> void MainWindow::MHL_ShowNumber (T VMHL_X, QString TitleX, QS
     */
     QString VMHL_Result;
     VMHL_Result=THQt_ShowNumber (VMHL_X, TitleX, NameX);// из HarrixQtLibrary.h
-    Html+=VMHL_Result;
+    Html=VMHL_Result;
+    HQt_AddHtml(Html);
 }
 //---------------------------------------------------------------------------
 
@@ -281,7 +291,6 @@ template <class T> QString THQt_ShowNumber (T VMHL_X, QString TitleX, QString Na
 }
 //---------------------------------------------------------------------------
 \end{lstlisting}
-В функции MainWindow::on\_listView\_clicked() есть еще код для сохранения и вывода значения переменной Html в виде *.html файла.
 
 В предыдущей версии библиотеки для программы демонстрации работы функций использовалась система C++Builder 6. Там эта функции реализовывалась так:
 \begin{lstlisting}[label=examplefunction12, caption=Реализация функции MHL\_ShowNumber в C++Builder 6]
@@ -501,7 +510,7 @@ MHL_ShowNumber (y,"Умноженное число", "y");
 
 \textbf{Замечание.} Если вы хотите переопределить функцию какую-нибудь, то вы добавляете переопределенные функции, их объявления в уже существующие файлы, а не создаете новые.
 
-\textbf{Замечание.} Класс и его методы нужно оформлять в одном файле *.cpp, *.h и др., а не разбивать на несколько и прописывать каждый метод в отдельном.
+\textbf{Замечание.} Данная библиотека не предназначена для включения в себя классов по своей идеологии. Например, если добавите класс, то количество функций будет не верно посчитано. В общем, добавляйте только функции и шаблоны-функций.
 
 Итак, мы добавили в папку source\_library нашу функцию. Теперь нужно перестроить библиотеку и провести замену файлов.
 
@@ -586,7 +595,7 @@ MHL_ShowNumber (y,"Умноженное число", "y");
 \item В папке \textbf{demo} возможно придется обновить набор dll, если Вы используете версию Qt гораздо более новую, чем в данной сборке библиотеке.
 \end{itemize}
 \item Удалим папку \textbf{temp\_library} после всех наших действий.
-\item  Если папка с скомпилированным файлом DemoHarrixMathLibrary.exe появилась в корневой папке библиотеки, то удалите ее (например, build-DemoHarrixMathLibrary-Desktop\_Qt\_5\_1\_1\_MinGW\_32bit-Release).
+\item  Если папка с скомпилированным файлом DemoHarrixMathLibrary.exe появилась в корневой папке библиотеки, то удалите ее (например, build-DemoHarrixMathLibrary-Desktop\_Qt\_5\_2\_0\_MinGW\_32bit-Release).
 \item Отредактируйте на своё усмотрение файл CHANGELOG.md, где напишите о новых изменениях.
 \item В файлах \textbf{README.md}, \textbf{source\_library\textbackslash Header.cpp}, \textbf{source\_library\textbackslash Title.tex} поменяйте номер версии библиотеки.
 \end{itemize}

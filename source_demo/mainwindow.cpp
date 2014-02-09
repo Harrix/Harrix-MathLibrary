@@ -35,6 +35,9 @@ MainWindow::MainWindow(QWidget *parent) :
     QStandardItem *item;//элемент списка
 
     //добавление новых элементов
+
+    //Сюда нужно добавить код
+
     item = new QStandardItem(QString("TMHL_FillVector"));
     model->appendRow(item);
 
@@ -921,11 +924,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->listView->setModel(proxyModelView);
 
-
-    //////
-    //proxyModel->setSourceModel(model);
-    //ui->listView->setModel(proxyModel);
-
     ui->listView->setEditTriggers(QAbstractItemView::NoEditTriggers);
 }
 //---------------------------------------------------------------------------
@@ -1081,6 +1079,8 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
 
     //выдергиваем текст
     NameFunction=index.data(Qt::DisplayRole).toString();
+
+    //Сюда нужно добавить код
 
     //используем результат
     if (NameFunction=="TMHL_FillVector")
