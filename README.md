@@ -49,7 +49,7 @@ https://github.com/Harrix/HarrixMathLibrary
 Использованные технологии
 -------------------------
 
-- [LaTeX](http://ru.wikipedia.org/wiki/LaTeX), [Qt](http://qt-project.org/), [MiKTeX](http://miktex.org/), [BiBTex](http://ru.wikipedia.org/wiki/BibTeX), [TeXstudio](http://texstudio.sourceforge.net/), [PSCyr](http://blog.harrix.org/?p=444), [pgfplots](http://pgfplots.sourceforge.net/), [JSXGraph](https://github.com/jsxgraph/jsxgraph), [Html](http://ru.wikipedia.org/wiki/HTML), [AJAX](http://ru.wikipedia.org/wiki/AJAX), [jQuery](http://jquery.com/), [QWebView](http://qt-project.org/doc/qt-5/qwebview.html).
+- [LaTeX](http://ru.wikipedia.org/wiki/LaTeX), [Qt](http://qt-project.org/), [MiKTeX](http://miktex.org/), [BiBTex](http://ru.wikipedia.org/wiki/BibTeX), [TeXstudio](http://texstudio.sourceforge.net/), [PSCyr](http://blog.harrix.org/?p=444), [pgfplots](http://pgfplots.sourceforge.net/), [JSXGraph](https://github.com/jsxgraph/jsxgraph), [Html](http://ru.wikipedia.org/wiki/HTML), [AJAX](http://ru.wikipedia.org/wiki/AJAX), [jQuery](http://jquery.com/), [QWebView](http://qt-project.org/doc/qt-5/qwebview.html), [mtrand](http://www.bedaux.net/mtrand/).
 - [HarrixMathLibrary](https://github.com/Harrix/HarrixMathLibrary), [HarrixQtLibrary](https://github.com/Harrix/HarrixQtLibrary), [HarrixLaTeXDocumentTemplate](https://github.com/Harrix/HarrixLaTeXDocumentTemplate).
  
 История проекта
