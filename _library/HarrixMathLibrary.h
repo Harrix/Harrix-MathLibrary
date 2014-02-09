@@ -76,6 +76,7 @@ template <class T> void TMHL_VectorToVector(T *VMHL_Vector, T *VMHL_ResultVector
 template <class T> void TMHL_ZeroVector(T *VMHL_ResultVector,int VMHL_N);
 
 //Генетические алгоритмы
+void MHL_ArithmeticalCrossoverForReal(double *Parent1, double *Parent2, double *VMHL_ResultVector, double w, int VMHL_N);
 double MHL_BinaryFitnessFunction(int*x, int VMHL_N);
 void MHL_MakeVectorOfProbabilityForProportionalSelectionV2(double *Fitness, double *VMHL_ResultVector, int VMHL_N);
 void MHL_MakeVectorOfProbabilityForRanklSelection(double *Rank, double *VMHL_ResultVector, int VMHL_N);

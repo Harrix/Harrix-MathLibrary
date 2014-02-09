@@ -1,0 +1,37 @@
+\textbf{Входные параметры:}
+ 
+Parent1 --- первый родитель;
+ 
+Parent2 --- второй родитель;
+ 
+VMHL\_ResultVector --- потомок;
+
+w --- параметр скрещивания, который означает долю какого-то родителя в потомке: $[0;1]$;
+ 
+VMHL\_N --- размер векторов Parent1, Parent2 и VMHL\_ResultVector.
+
+\textbf{Возвращаемое значение:}
+
+ Отсутствует.
+ 
+\textbf{ Примечание:}
+
+ Потомок выбирается случайно.
+ 
+Данный оператор скрещивания используется для вещественных векторов.
+
+Пусть имеется два родителя (родительские хромосомы) $ \overline{Parent}^1 $ и $ \overline{Parent}^2$ длины $n$. Гены первого потомка формируются как сумма долей $w$ генов первого и $ \left( 1-w\right) $ долей второго родителя. Второй потом генерируется алогично, но доли меняются местами.  Из них выбирается случайно один потомок, который и передается в качестве результата оператора скрещивания. То есть скрещивание происходит по формулам:
+
+\begin{align}
+\label{SetOfOperatorsAlgorithms:eq:ArithmeticalCrossoverForReal}
+&Crossover \left( \overline{Parent}^1, \overline{Parent}^2, DataOfCros\right)=Random \left(\left\lbrace \overline{Offspring}^1; \overline{Offspring}^2\right\rbrace  \right), \\
+& \overline{Offspring}^1_i=w\cdot\overline{Parent}^1_i+\left( 1-w\right)\cdot\overline{Parent}^2_i , i=\overline{1,n};\nonumber\\
+&\overline{Offspring}^2_i=w\cdot\overline{Parent}^2_i+\left( 1-w\right)\cdot\overline{Parent}^1_i , i=\overline{1,n};\nonumber\\
+&\overline{Offspring}^1\in X, \overline{Offspring}^2\in X, w\in \left[ 0; 1\right] .\nonumber
+\end{align}
+
+Равномерное арифметическое скрещивание для вещественных векторов с возвращением добавляет в $ DataOfCros $ дополнительный параметр --- параметр скрещивания, который означает долю какого-то родителя в потомке $ w $. Обычно выбирают значение этого параметра равное $ w=0.5 $.
+
+\begin{equation}
+DataOfCros=\left( \begin{array}{c} TypeOfCros \\ w \end{array} \right).
+\end{equation}

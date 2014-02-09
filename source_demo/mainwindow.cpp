@@ -908,6 +908,9 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("TMHL_MeanOfFilter"));
     model->appendRow(item);
 
+    item = new QStandardItem(QString("MHL_ArithmeticalCrossoverForReal"));
+    model->appendRow(item);
+
     model->sort(0);
 
     //соединение модели списка с конкретным списком
@@ -10295,6 +10298,41 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //MeanOfFilter=5.07057
 
         delete [] a;
+    }
+
+    if (NameFunction=="MHL_ArithmeticalCrossoverForReal")
+    {
+        int VMHL_N=10; //Размер массива (число строк)
+        double *Parent1;
+        Parent1=new double[VMHL_N];
+        double *Parent2;
+        Parent2=new double[VMHL_N];
+        double *Child;
+        Child=new double[VMHL_N];
+        MHL_RandomRealVector(Parent1,0,1,VMHL_N);
+        MHL_RandomRealVector(Parent2,0,1,VMHL_N);
+
+        //Получим потомка Child
+        MHL_ArithmeticalCrossoverForReal(Parent1,Parent2,Child,0.5,VMHL_N);
+
+        //Используем полученный результат
+        MHL_ShowVectorT (Parent1,VMHL_N,"Первый родитель", "Parent1");
+        //Первый родитель:
+        //Parent1 =
+        //0.332926	0.899553	0.469617	0.89417	0.510588	0.261183	0.0920975	0.599565	0.663209	0.544152
+        MHL_ShowVectorT (Parent2,VMHL_N,"Второй родитель", "Parent2");
+        //Второй родитель:
+        //Parent2 =
+        //0.084834	0.633822	0.814498	0.211601	0.753767	0.815395	0.82197	0.817619	0.543505	0.754058
+
+        MHL_ShowVectorT (Child,VMHL_N,"Полученный потомок", "Child");
+        //Полученный потомок:
+        //Child =
+        //0.20888	0.766688	0.642057	0.552885	0.632177	0.538289	0.457034	0.708592	0.603357	0.649105
+
+        delete [] Parent2;
+        delete [] Parent1;
+        delete [] Child;
     }
 
 }
