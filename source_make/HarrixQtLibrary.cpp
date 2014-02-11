@@ -1,5 +1,5 @@
 //HarrixQtLibrary
-//Версия 3.16
+//Версия 3.17
 //Сборник функций для Qt.
 //https://github.com/Harrix/HarrixQtLibrary
 //Библиотека распространяется по лицензии Apache License, Version 2.0.
@@ -15,6 +15,7 @@ QString HQt_ReadFile(QString filename)
     Возвращаемое значение:
      Строка со всем содержимым текстового файла.
     */
+    filename = QDir::toNativeSeparators(filename);
     QFile file(filename);
     QString line="";
     if(!file.exists()){
@@ -55,6 +56,7 @@ void HQt_SaveFile(QString line, QString filename)
     Возвращаемое значение:
      Отсутствует.
     */
+    filename = QDir::toNativeSeparators(filename);
     QFile file(filename);
     if(file.open(QIODevice::WriteOnly | QIODevice::Text))
     {
@@ -75,6 +77,7 @@ QString HQt_ListFilesInDir(QString path)
     Возвращаемое значение:
      Строка со списком файлов в директории, разделенные \n в алфавитном порядке.
     */
+    path = QDir::toNativeSeparators(path);
     QString line="";
     QDir dir(path);
     bool ok = dir.exists();  //check if directory exist
@@ -121,6 +124,7 @@ QString HQt_ListDirsInDir(QString path)
     Возвращаемое значение:
      Строка со списком директорий в директории, разделенные \n в алфавитном порядке.
     */
+    path = QDir::toNativeSeparators(path);
     QString line="";
     QDir dir(path);
     bool ok = dir.exists();  //check if directory exist
@@ -214,6 +218,7 @@ bool HQt_FileExists(QString filename)
      false - если файл не существует,
      true - если файл существует.
     */
+    filename = QDir::toNativeSeparators(filename);
     QFile file(filename);
     if(!file.exists()){
         file.close();
@@ -235,6 +240,7 @@ bool HQt_DirExists(QString path)
      false - если папка не существует,
      true - если папка существует.
     */
+    path = QDir::toNativeSeparators(path);
     QDir dir(path);
     if(dir.exists())
        return true;
@@ -252,10 +258,8 @@ void HQt_DirMake(QString path)
     Возвращаемое значение:
      Отсутствует.
     */
-    QString Separator=QDir::separator();
-    if (path.contains(QDir::separator())) Separator=QDir::separator();
-    if (path.contains("\\")) Separator="\\";
-    if (path.contains("/")) Separator="/";
+    path = QDir::toNativeSeparators(path);
+    QString Separator="\\";
 
     QString Sub;
     QString Subpath;
@@ -285,6 +289,7 @@ QString HQt_GetNameFromFilename(QString filename)
     Возвращаемое значение:
      Строка с именем файла без расширения.
     */
+    filename = QDir::toNativeSeparators(filename);
     QString name="";
     name=HQt_GetFilenameFromFullFilename(filename).mid(0,filename.lastIndexOf("."));
     return name;
@@ -302,12 +307,10 @@ bool HQt_CopyFile(QString filename, QString dir)
      true - если скопировалось удачно,
      false - если скопировалось неудачно.
     */
+    filename = QDir::toNativeSeparators(filename);
     QFileInfo fileInfo(filename);
 
-    QString Separator=QDir::separator();
-    if (filename.contains(QDir::separator())) Separator=QDir::separator();
-    if (filename.contains("\\")) Separator="\\";
-    if (filename.contains("/")) Separator="/";
+    QString Separator="\\";
 
     QString destinationFile = dir + Separator + fileInfo.fileName();
     bool result = QFile::copy(filename, destinationFile);
@@ -327,12 +330,10 @@ bool HQt_CopyFile(QString filename, QString dir, bool overwrite)
      true - если скопировалось удачно,
      false - если скопировалось неудачно.
     */
+    filename = QDir::toNativeSeparators(filename);
     QFileInfo fileInfo(filename);
 
-    QString Separator=QDir::separator();
-    if (filename.contains(QDir::separator())) Separator=QDir::separator();
-    if (filename.contains("\\")) Separator="\\";
-    if (filename.contains("/")) Separator="/";
+    QString Separator="\\";
 
     QString destinationFile = dir + Separator + fileInfo.fileName();
 
@@ -355,12 +356,10 @@ QString HQt_GetFilenameFromFullFilename(QString filename)
     Возвращаемое значение:
      Строка с именем файла.
     */
+    filename = QDir::toNativeSeparators(filename);
     QString name;
 
-    QString Separator=QDir::separator();
-    if (filename.contains(QDir::separator())) Separator=QDir::separator();
-    if (filename.contains("\\")) Separator="\\";
-    if (filename.contains("/")) Separator="/";
+    QString Separator="\\";
 
     name=filename.mid(filename.lastIndexOf(Separator)+1);
     return name;
@@ -1087,10 +1086,9 @@ bool HQt_RenameFile(QString filename, QString newfilename)
      true - если скопировалось удачно,
      false - если скопировалось неудачно.
     */
-    QString Separator=QDir::separator();
-    if (filename.contains(QDir::separator())) Separator=QDir::separator();
-    if (filename.contains("\\")) Separator="\\";
-    if (filename.contains("/")) Separator="/";
+    filename = QDir::toNativeSeparators(filename);
+    newfilename = QDir::toNativeSeparators(newfilename);
+    QString Separator="\\";
 
     QString refilename = filename.mid(0,filename.lastIndexOf(Separator)+1) + newfilename;
 

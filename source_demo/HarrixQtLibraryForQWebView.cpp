@@ -1,5 +1,5 @@
 //HarrixQtLibraryForQWebView
-//Версия 1.13
+//Версия 1.14
 //Библиотека для отображения различных данных в QWebView.
 //https://github.com/Harrix/HarrixQtLibraryForQWebView
 //Библиотека распространяется по лицензии Apache License, Version 2.0.
@@ -21,7 +21,8 @@ void HQt_BeginHtml(QString Path)
      Отсутствует.
     */
     VMHL_HTML="";
-    VMHL_Path=Path;
+    VMHL_Path=QDir::toNativeSeparators(Path);
+    if (VMHL_Path.at(VMHL_Path.length()-1)!='\\') VMHL_Path+="\\";
     HQt_SaveFile(VMHL_HTML, VMHL_Path+"temp.html");//сохраняем пустую пока переменную в temp.html
 }
 //---------------------------------------------------------------------------
