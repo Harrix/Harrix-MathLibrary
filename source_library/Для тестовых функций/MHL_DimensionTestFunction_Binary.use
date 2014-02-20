@@ -1,9 +1,0 @@
-        MHL_DefineTestFunction(TestFunction_SumVector);
-
-        //Вызов функции
-        double N=MHL_DimensionTestFunction_Binary(0);
-
-        //Использование результата
-        MHL_ShowNumber(N,"Размерность тестовой задачи для TestFunction_SumVector при i=0","N");
-        //Размерность тестовой задачи для TestFunction_SumVector при i=0:
-        //N=20

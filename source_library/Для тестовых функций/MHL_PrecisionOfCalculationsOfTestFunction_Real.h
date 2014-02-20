@@ -1,2 +1,0 @@
-double MHL_PrecisionOfCalculationsOfTestFunction_Real();
-double MHL_PrecisionOfCalculationsOfTestFunction_Real(TypeOfTestFunction Type);

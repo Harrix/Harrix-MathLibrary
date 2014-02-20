@@ -1,9 +1,0 @@
-        MHL_DefineTestFunction(TestFunction_Ackley);
-
-        //Вызов функции
-        double N=MHL_GetCountOfSubProblems_Real();
-
-        //Использование результата
-        MHL_ShowNumber(N,"Число подзадач (включая основную задачу) для TestFunction_Ackley","N");
-        //Число подзадач (включая основную задачу) для TestFunction_Ackley:
-        //N=7

@@ -1,2 +1,0 @@
-int MHL_CountOfFitnessOfTestFunction_Real(int Dimension);
-int MHL_CountOfFitnessOfTestFunction_Real(int Dimension, TypeOfTestFunction Type);

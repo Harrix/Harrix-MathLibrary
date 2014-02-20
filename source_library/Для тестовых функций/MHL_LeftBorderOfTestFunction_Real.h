@@ -1,2 +1,0 @@
-void MHL_LeftAndRightBorderOfTestFunction_Real(double *Left, double *Right,int VMHL_N);
-void MHL_LeftAndRightBorderOfTestFunction_Real(double *Left, double *Right, int VMHL_N, TypeOfTestFunction Type);

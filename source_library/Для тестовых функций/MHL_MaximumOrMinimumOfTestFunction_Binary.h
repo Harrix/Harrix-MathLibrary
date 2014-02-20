@@ -1,2 +1,0 @@
-double MHL_MaximumOrMinimumOfTestFunction_Binary();
-double MHL_MaximumOrMinimumOfTestFunction_Binary(TypeOfTestFunction Type);

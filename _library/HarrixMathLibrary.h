@@ -130,58 +130,6 @@ double MHL_CenterDerivative(double x, double h, double (*Function)(double));
 double MHL_LeftDerivative(double x, double h, double (*Function)(double));
 double MHL_RightDerivative(double x, double h, double (*Function)(double));
 
-//Для тестовых функций
-int MHL_ClassOfTestFunction(TypeOfTestFunction Type);
-int MHL_CountOfFitnessOfTestFunction_Binary(int Dimension);
-int MHL_CountOfFitnessOfTestFunction_Binary(int Dimension, TypeOfTestFunction Type);
-int MHL_CountOfFitnessOfTestFunction_Real(int Dimension);
-int MHL_CountOfFitnessOfTestFunction_Real(int Dimension, TypeOfTestFunction Type);
-void MHL_DefineTestFunction(TypeOfTestFunction Type);
-int MHL_DimensionTestFunction_Binary(int i);
-int MHL_DimensionTestFunction_Binary(int i, TypeOfTestFunction Type);
-int MHL_DimensionTestFunction_Real(int i);
-int MHL_DimensionTestFunction_Real(int i, TypeOfTestFunction Type);
-double MHL_ErrorExOfTestFunction_Binary(int *x, int VMHL_N);
-double MHL_ErrorExOfTestFunction_Binary(int *x, int VMHL_N, TypeOfTestFunction Type);
-double MHL_ErrorExOfTestFunction_Real(double *x, int VMHL_N);
-double MHL_ErrorExOfTestFunction_Real(double *x, int VMHL_N, TypeOfTestFunction Type);
-double MHL_ErrorEyOfTestFunction_Binary(double FitnessOfx, int VMHL_N);
-double MHL_ErrorEyOfTestFunction_Binary(double FitnessOfx, int VMHL_N, TypeOfTestFunction Type);
-double MHL_ErrorEyOfTestFunction_Real(double FitnessOfx, int VMHL_N);
-double MHL_ErrorEyOfTestFunction_Real(double FitnessOfx, int VMHL_N, TypeOfTestFunction Type);
-double MHL_ErrorROfTestFunction_Binary(int *x, int VMHL_N);
-double MHL_ErrorROfTestFunction_Binary(int *x, int VMHL_N, TypeOfTestFunction Type);
-double MHL_ErrorROfTestFunction_Real(double *x, int VMHL_N);
-double MHL_ErrorROfTestFunction_Real(double *x, int VMHL_N, TypeOfTestFunction Type);
-double MHL_FitnessOfOptimumOfTestFunction_Binary(int VMHL_N);
-double MHL_FitnessOfOptimumOfTestFunction_Binary(int VMHL_N, TypeOfTestFunction Type);
-double MHL_FitnessOfOptimumOfTestFunction_Real(double VMHL_N);
-double MHL_FitnessOfOptimumOfTestFunction_Real(double VMHL_N, TypeOfTestFunction Type);
-int MHL_GetCountOfFitness();
-int MHL_GetCountOfSubProblems_Binary();
-int MHL_GetCountOfSubProblems_Binary(TypeOfTestFunction Type);
-int MHL_GetCountOfSubProblems_Real();
-int MHL_GetCountOfSubProblems_Real(TypeOfTestFunction Type);
-void MHL_LeftAndRightBorderOfTestFunction_Real(double *Left, double *Right,int VMHL_N);
-void MHL_LeftAndRightBorderOfTestFunction_Real(double *Left, double *Right, int VMHL_N, TypeOfTestFunction Type);
-double MHL_MaximumOrMinimumOfTestFunction_Binary();
-double MHL_MaximumOrMinimumOfTestFunction_Binary(TypeOfTestFunction Type);
-double MHL_MaximumOrMinimumOfTestFunction_Real();
-double MHL_MaximumOrMinimumOfTestFunction_Real(TypeOfTestFunction Type);
-double MHL_NumberOfPartsOfTestFunction_Real(int *NumberOfParts, int VMHL_N);
-double MHL_NumberOfPartsOfTestFunction_Real(int *NumberOfParts, int VMHL_N, TypeOfTestFunction Type);
-double MHL_OptimumOfTestFunction_Binary(int *Optimum, int VMHL_N);
-double MHL_OptimumOfTestFunction_Binary(int *Optimum, int VMHL_N, TypeOfTestFunction Type);
-double MHL_OptimumOfTestFunction_Real(double *Optimum, int VMHL_N);
-double MHL_OptimumOfTestFunction_Real(double *Optimum, int VMHL_N, TypeOfTestFunction Type);
-double MHL_PrecisionOfCalculationsOfTestFunction_Real();
-double MHL_PrecisionOfCalculationsOfTestFunction_Real(TypeOfTestFunction Type);
-void MHL_SetToZeroCountOfFitness();
-double MHL_TestFunction_Binary(int *x, int VMHL_N);
-double MHL_TestFunction_Binary(int *x, int VMHL_N, TypeOfTestFunction Type);
-double MHL_TestFunction_Real(double *x, int VMHL_N);
-double MHL_TestFunction_Real(double *x, int VMHL_N, TypeOfTestFunction Type);
-
 //Интегрирование
 double MHL_IntegralOfRectangle(double a, double b, double Epsilon,double (*Function)(double));
 double MHL_IntegralOfSimpson(double a, double b, double Epsilon,double (*Function)(double));
@@ -1282,9 +1230,6 @@ else
 //*****************************************************************
 //*****************************************************************
 //Дифференцирование
-//*****************************************************************
-//*****************************************************************
-//Для тестовых функций
 //*****************************************************************
 //*****************************************************************
 //Интегрирование

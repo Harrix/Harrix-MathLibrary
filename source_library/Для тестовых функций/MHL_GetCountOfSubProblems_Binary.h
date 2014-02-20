@@ -1,2 +1,0 @@
-int MHL_GetCountOfSubProblems_Binary();
-int MHL_GetCountOfSubProblems_Binary(TypeOfTestFunction Type);

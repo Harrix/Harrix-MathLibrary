@@ -1,9 +1,0 @@
-        MHL_DefineTestFunction(TestFunction_Ackley);
-
-        //Вызов функции
-        double MorM=MHL_MaximumOrMinimumOfTestFunction_Real();
-
-        //Использование результата
-        MHL_ShowNumber(MorM,"Максимум или минимум функции находим у TestFunction_Ackley","MorM");
-        //Максимум или минимум функции находим у TestFunction_Ackley:
-        //MorM=-1

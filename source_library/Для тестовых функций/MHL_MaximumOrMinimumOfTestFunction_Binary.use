@@ -1,9 +1,0 @@
-        MHL_DefineTestFunction(TestFunction_SumVector);
-
-        //Вызов функции
-        double MorM=MHL_MaximumOrMinimumOfTestFunction_Binary();
-
-        //Использование результата
-        MHL_ShowNumber(MorM,"Максимум или минимум функции находим у TestFunction_SumVector","MorM");
-        //Максимум или минимум функции находим у TestFunction_SumVector:
-        //MorM=1

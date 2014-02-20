@@ -1,9 +1,0 @@
-        MHL_DefineTestFunction(TestFunction_Ackley);
-
-        //Вызов функции
-        double e=MHL_PrecisionOfCalculationsOfTestFunction_Real();
-
-        //Использование результата
-        MHL_ShowNumber(e,"Точность вычислений","e");
-        //Точность вычислений:
-        //e=0.025

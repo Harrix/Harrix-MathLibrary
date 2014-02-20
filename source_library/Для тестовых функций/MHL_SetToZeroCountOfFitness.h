@@ -1,1 +1,0 @@
-void MHL_SetToZeroCountOfFitness();
