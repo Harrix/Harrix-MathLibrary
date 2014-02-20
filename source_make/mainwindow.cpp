@@ -33,10 +33,10 @@ void MainWindow::on_pushButton_clicked()
 
     ui->textEdit->clear();
 
-    QString DS=QDir::separator();
-    QString path=QGuiApplication::applicationDirPath()+DS+".."+DS+"source_library"+DS;//путь к папке
+    QString DS="\\";
+    QString path=QDir::toNativeSeparators(QGuiApplication::applicationDirPath())+DS+".."+DS+"source_library"+DS;//путь к папке
     QString temp_library_path;//папка где находятся собранные файлы
-    temp_library_path=QGuiApplication::applicationDirPath()+DS+".."+DS+"temp_library"+DS;//путь к папке
+    temp_library_path=QDir::toNativeSeparators(QGuiApplication::applicationDirPath())+DS+".."+DS+"temp_library"+DS;//путь к папке
 
     if (!(QDir(temp_library_path).exists()==true) )
     {
