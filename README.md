@@ -28,7 +28,7 @@ https://github.com/Harrix/HarrixMathLibrary
  * [**source_demo**](../master/source_demo) - папка с исходным текстом программы [DemoHarrixMathLibrary.exe](../master/demo/DemoHarrixMathLibrary.exe).
  * [**source_library**](../master/source_library) - папка с исходным текстом библиотеки, который потом собирается программой [MakeHarrixMathLibrary.exe](../master/make/MakeHarrixMathLibrary.exe) из папки [make](../master/make).
  * [**source_make**](../master/source_make) - папка с исходным текстом [MakeHarrixMathLibrary.exe](../master/make/MakeHarrixMathLibrary.exe) и справки по ней.
- * [**LICENSE.txt**](../master/LICENSE.txt), [**NOTICE.txt**](../master/NOTICE.txt)**** - файлы лицензии Apache License, Version 2.0.
+ * [**LICENSE.txt**](../master/LICENSE.txt), [**NOTICE.txt**](../master/NOTICE.txt) - файлы лицензии Apache License, Version 2.0.
  * [**README.md**](../master/README.md) - непосредственно этот файл.
  * [**images**](../master/images) - в папке находятся служебные рисунки для отображения в этом файле.
  
