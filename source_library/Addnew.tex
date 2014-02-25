@@ -17,19 +17,20 @@
 
 Вначале надо сориентироваться в структуре библиотеки:
 \begin{itemize}
-\item \textbf{\_library} --- основная папка, в которой распологается готовая библиотека и данная справка;
+\item \textbf{\_library} --- основная папка, в которой располагается готовая библиотека и данная справка;
 \item \textbf{demo} --- папка, в которой находится программа DemoHarrixMathLibrary.exe с демонстрацией работы функций;
 \item \textbf{make} --- в этой папке находится программа MakeHarrixMathLibrary.exe для собрания готовых файлов библиотеки из исходных материалов из папки source\_library. Также там находится справка по этой программе;
 \item \textbf{source\_demo} --- папка с исходными кодами DemoHarrixMathLibrary.exe из папки demo;
 \item \textbf{source\_library} --- папка исходных материалов библиотеки. Сами эти файлы библиотекой не являются, так как они потом собираются MakeHarrixMathLibrary.exe; 
 \item \textbf{source\_make} --- папка с исходными кодами MakeHarrixMathLibrary.exe из папки make;
 \item \textbf{LICENSE.txt} и \textbf{NOTICE.txt} --- файлы Apache лицензии;
+\item \textbf{FUNCTIONS.md} --- список функций библиотеки.
 \item \textbf{README.md} --- файл информации о проекте в системе GitHub.
 \end{itemize}
 
 Для полноценной работы по добавлению функций вам потребуются:
 \begin{itemize}
-\item программа для проверки работоспособности новых функций и компиляции DemoHarrixMathLibrary.exe (например, Qt 5.2.0 с Qt Creator 2.8.84 или любая другая версия Qt с пятой версии). Для проверки работоспособности библиотеки без компиляции DemoHarrixMathLibrary.exe подойдет любой другой C++ компилятор;
+\item программа для проверки работоспособности новых функций и компиляции DemoHarrixMathLibrary.exe (например, Qt 5.2.1 с Qt Creator 3.0.1 или любая другая версия Qt с пятой версии). Для проверки работоспособности библиотеки без компиляции DemoHarrixMathLibrary.exe подойдет любой другой C++ компилятор;
 \item программа для компиляции *.tex документов в *.pdf для формирования справочных материалов. Автор использует для этого связку MiKTex и TeXstudio (версии MiKTex 2.9 и TeXstudio 2.6.2).
 \end{itemize}
 
@@ -581,6 +582,8 @@ MHL_ShowNumber (y,"Умноженное число", "y");
 
 \begin{itemize}
 \item Скопируем файлы \textbf{HarrixMathLibrary.cpp}, \textbf{HarrixMathLibrary.h}, \textbf{mtrand.cpp}, \textbf{mtrand.h} в папку \textbf{\_library}.
+
+\item Скопируем файл \textbf{FUNCTIONS.md} в корневую папку.
 
 \item Откройте файл \textbf{HarrixMathLibrary\_Help.tex } в \LaTeX \ программе (автор использует TeXstudio) и скомпилируйте его.
 

@@ -54,6 +54,7 @@ void MainWindow::on_pushButton_clicked()
     QString ResultTex;//итоговый cpp документ
     QString ResultTexList;//временный список функций
     QString ResultTexFunctions;//временная перемнная для справки по функциям
+    QString ResultFunctionsMD;//итоговый список функций FUNCTIONS.md
     QString Temp;//переменная для временного содержания загружаемых файлов
     QString MessageError;//Текущая ошиьбка
     QString AllMessageError;//Все ошибки
@@ -78,6 +79,9 @@ void MainWindow::on_pushButton_clicked()
     ResultTpp += "//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n";
     ResultTpp += "// РЕАЛИЗАЦИЯ ШАБЛОНОВ\n";//добавляем название папки (раздела)
     ResultTpp += "//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n\n";
+
+    ResultFunctionsMD += "Список функций библиотеки HarrixMathLibrary\n";
+    ResultFunctionsMD += "===========================================\n\n";
 
     Temp = HQt_ReadFile(path+"Header.cpp")+"\n\n";//основа cpp файла
     ResultCpp += Temp;
@@ -172,6 +176,8 @@ void MainWindow::on_pushButton_clicked()
 
         ResultH   += "//"+dirname+"\n";//добавляем название папки (раздела)
 
+        ResultFunctionsMD += dirname+"\n----------------\n\n";
+
         ResultTexList += "\\textbf{"+dirname+"}\n";
         ResultTexList += "\\begin{enumerate}\n\n";
 
@@ -198,6 +204,8 @@ void MainWindow::on_pushButton_clicked()
                 ResultTexList += "\\item \\textbf{\\hyperref[" + nameof_func + "]{" + nameof_func_ + "}} --- " + Temp+"\n";
 
                 ResultTexFunctions+="\\subsubsection{" + nameof_func_ + "}\\label{"+nameof_func+"}\n\n" + Temp+"\n\n";
+
+                ResultFunctionsMD += "- "+Temp+"\n\n";
 
                 if (!(Temp.trimmed().isEmpty())) ui->textEdit->insertHtml("Загрузили файл <b>"+filename+"</b><br>");
                 else {MessageError="<font color=\"red\">Ошибка с файлом <b>"+filename+"</b><\font><br>";AllMessageError+=MessageError;ui->textEdit->insertHtml(MessageError);countoferrors++;}
@@ -260,6 +268,8 @@ void MainWindow::on_pushButton_clicked()
                 ResultTexFunctions+="\\begin{lstlisting}[label=code_syntax_"+nameof_func+",caption=Синтаксис]\n";
                 ResultTexFunctions+=Temp;
                 ResultTexFunctions+="\\end{lstlisting}\n\n";
+
+                ResultFunctionsMD += "```cpp\n"+Temp+"```\n\n";
 
                 //Проверим наличие сопутствующих файлов
                 QString F=HQt_GetNameFromFilename(filename);
@@ -429,6 +439,9 @@ void MainWindow::on_pushButton_clicked()
 
     HQt_SaveFile(ResultTex,temp_library_path+"HarrixMathLibrary_Help.tex");
     ui->textEdit->insertHtml("Сохранили файл <b>HarrixMathLibrary_Help.tex</b><br>");
+
+    HQt_SaveFile(ResultFunctionsMD,temp_library_path+"FUNCTIONS.md");
+    ui->textEdit->insertHtml("Сохранили файл <b>FUNCTIONS.md</b><br>");
 
     //Начнем копирование некоторых файлов целиком
     b=HQt_CopyFile(path+"biblio.bib", temp_library_path,true);

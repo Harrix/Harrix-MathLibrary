@@ -1,7 +1,7 @@
 HarrixMathLibrary
 =================
 
-Версия 3.65
+Версия 3.66
 
 Сборник различных математических функций и шаблонов с открытым кодом на языке C++. Упор делается на алгоритмы искусственного интеллекта. Используется только C++.
 
@@ -30,6 +30,7 @@ HarrixMathLibrary
  * [**source_make**](https://github.com/Harrix/HarrixMathLibrary/blob/master/source_make) - папка с исходным текстом [MakeHarrixMathLibrary.exe](https://github.com/Harrix/HarrixMathLibrary/blob/master/make/MakeHarrixMathLibrary.exe) и справки по ней.
  * [**LICENSE.txt**](https://github.com/Harrix/HarrixMathLibrary/blob/master/LICENSE.txt), [**NOTICE.txt**](https://github.com/Harrix/HarrixMathLibrary/blob/master/NOTICE.txt) - файлы лицензии Apache License, Version 2.0.
  * [**README.md**](https://github.com/Harrix/HarrixMathLibrary/blob/master/README.md) - непосредственно этот файл.
+ * [**FUNCTIONS.md**](https://github.com/Harrix/HarrixMathLibrary/blob/master/FUNCTIONS.md) - список функций библиотеки.
  * [**images**](https://github.com/Harrix/HarrixMathLibrary/blob/master/images) - в папке находятся служебные рисунки для отображения в этом файле.
  
 Сведения для редактирования файлов
