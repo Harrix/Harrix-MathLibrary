@@ -1649,6 +1649,13 @@ double MHL_TestFunction_Ackley(double *x, int VMHL_N);
 double MHL_TestFunction_AdditivePotential(double x, double y);
 ```
 
+- Функция двух переменных: функция Bosom. Тестовая функция вещественной оптимизации.
+
+
+```cpp
+double MHL_TestFunction_Bosom(double x, double y);
+```
+
 - Функция двух переменных: функция Egg Holder. Тестовая функция вещественной оптимизации.
 
 

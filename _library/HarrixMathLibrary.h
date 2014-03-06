@@ -314,6 +314,7 @@ template <class T> T TMHL_Variance(T *x, int VMHL_N);
 //Тестовые функции для оптимизации
 double MHL_TestFunction_Ackley(double *x, int VMHL_N);
 double MHL_TestFunction_AdditivePotential(double x, double y);
+double MHL_TestFunction_Bosom(double x, double y);
 double MHL_TestFunction_EggHolder(double x, double y);
 double MHL_TestFunction_GaussianQuartic(double *x, int VMHL_N);
 double MHL_TestFunction_Griewangk(double *x, int VMHL_N);
