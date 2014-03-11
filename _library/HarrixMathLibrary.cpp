@@ -1,5 +1,5 @@
 //HarrixMathLibrary
-//Версия 3.68
+//Версия 3.69
 //Сборник различных математических функций и шаблонов с открытым кодом на языке C++.
 //https://github.com/Harrix/HarrixMathLibrary
 //Библиотека распространяется по лицензии Apache License, Version 2.0.
@@ -293,7 +293,7 @@ void MHL_FlatCrossoverForReal(double *Parent1, double *Parent2, double *VMHL_Res
      {
          a = Parent1[i];
          b = Parent2[i];
-         if (a>b) TMHL_NumberInterchange(a,b);
+         if (a>b) TMHL_NumberInterchange(&a,&b);
          VMHL_ResultVector[i]=MHL_RandomUniform(a,b);
      }
 }

@@ -16,6 +16,12 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->textEdit->setReadOnly(true);
+
+    DS=QDir::separator();//какой разделитель используется в пути между папками
+    Path=QGuiApplication::applicationDirPath()+DS;//путь к папке, где находится приложение
+
+    Version=HQt_ReadFile(Path+"version.txt");
+    ui->lineEdit->setText(Version);
 }
 
 MainWindow::~MainWindow()
@@ -32,6 +38,8 @@ void MainWindow::on_pushButton_clicked()
     ui->pushButton->setEnabled(false);
 
     ui->textEdit->clear();
+
+    VersionNew=ui->lineEdit->text();
 
     QString DS="\\";
     QString path=QDir::toNativeSeparators(QGuiApplication::applicationDirPath())+DS+".."+DS+"source_library"+DS;//путь к папке
@@ -84,7 +92,7 @@ void MainWindow::on_pushButton_clicked()
     ResultFunctionsMD += "===========================================\n\n";
 
     Temp = HQt_ReadFile(path+"Header.cpp")+"\n\n";//основа cpp файла
-    ResultCpp += Temp;
+    ResultCpp += Temp.replace("[VERSION]",VersionNew);
     if (!(Temp.trimmed().isEmpty())) ui->textEdit->insertHtml("Загрузили файл <b>Header.cpp</b><br>");
     else {MessageError="<font color=\"red\">Ошибка с файлом <b>Header.cpp</b><\font><br>";AllMessageError+=MessageError;ui->textEdit->insertHtml(MessageError);countoferrors++;}
 
@@ -426,7 +434,7 @@ void MainWindow::on_pushButton_clicked()
     else {MessageError="<font color=\"red\">Ошибка с файлом <b>Description_part1.tex</b><\font><br>";AllMessageError+=MessageError;ui->textEdit->insertHtml(MessageError);countoferrors++;}
 
     Temp = HQt_ReadFile(path+"Title.tex")+"\n\n";// титульная информация и содержание справки
-    ResultTex = Temp+ResultTex;
+    ResultTex = Temp.replace("[VERSION]",VersionNew)+ResultTex;
     if (!(Temp.trimmed().isEmpty())) ui->textEdit->insertHtml("Загрузили файл <b>Title.tex</b><br>");
     else {MessageError="<font color=\"red\">Ошибка с файлом <b>Title.tex</b><\font><br>";AllMessageError+=MessageError;ui->textEdit->insertHtml(MessageError);countoferrors++;}
 
@@ -471,6 +479,8 @@ void MainWindow::on_pushButton_clicked()
     b=HQt_CopyFile(path+"styles.tex", temp_library_path,true);
     if (b)  ui->textEdit->insertHtml("<br>Скопировали файл <b>styles.tex</b><br>");
     else {MessageError="<font color=\"red\">Ошибка с файлом <b>styles.tex</b><\font><br>";AllMessageError+=MessageError;ui->textEdit->insertHtml(MessageError);countoferrors++;}
+
+     HQt_SaveFile(VersionNew,Path+"version.txt");
 
     if (countoferrors==0) ui->textEdit->insertHtml("<br>Ошибки не были зафиксированы.<br>");
     else ui->textEdit->insertHtml("<br><font color=\"red\">Ошибок <b>"+QString::number(countoferrors)+"</b> штук<\font><br>");
