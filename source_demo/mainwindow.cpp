@@ -842,6 +842,21 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("MHL_TestFunction_Bosom"));
     model->appendRow(item);
 
+    item = new QStandardItem(QString("MHL_FlatCrossoverForReal"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_GeometricalCrossoverForReal"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_BLXCrossoverForReal"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_LinearCrossoverForReal"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_ExtendedLineForReal"));
+    model->appendRow(item);
+
     model->sort(0);
 
     //соединение модели списка с конкретным списком
@@ -9750,29 +9765,210 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] Child;
     }
 
-     if (NameFunction=="MHL_TestFunction_Bosom")
-     {
-         double x;
-         double y;
-         double f;
-         x=MHL_RandomUniform(-12,12);
-         y=MHL_RandomUniform(-12,12);
+    if (NameFunction=="MHL_TestFunction_Bosom")
+    {
+        double x;
+        double y;
+        double f;
+        x=MHL_RandomUniform(-12,12);
+        y=MHL_RandomUniform(-12,12);
 
-         //Вызываем функцию
-         f=MHL_TestFunction_Bosom(x,y);
+        //Вызываем функцию
+        f=MHL_TestFunction_Bosom(x,y);
 
-         MHL_ShowNumber (x,"Первая вещественная переменная", "x");
-         //Первая вещественная переменная:
-         //x=6.33755
+        MHL_ShowNumber (x,"Первая вещественная переменная", "x");
+        //Первая вещественная переменная:
+        //x=6.33755
 
-         MHL_ShowNumber (y,"Вторая вещественная переменная", "y");
-         //Вторая вещественная переменная:
-         //y=10.0335
+        MHL_ShowNumber (y,"Вторая вещественная переменная", "y");
+        //Вторая вещественная переменная:
+        //y=10.0335
 
-         MHL_ShowNumber (f,"Значение функции", "f");
-         //Значение функции:
-         //f=0.173283
-     }
+        MHL_ShowNumber (f,"Значение функции", "f");
+        //Значение функции:
+        //f=0.173283
+    }
+
+    if (NameFunction=="MHL_FlatCrossoverForReal")
+    {
+        int VMHL_N=5; //Размер массива (число строк)
+        double *Parent1;
+        Parent1=new double[VMHL_N];
+        double *Parent2;
+        Parent2=new double[VMHL_N];
+        double *Child;
+        Child=new double[VMHL_N];
+        MHL_RandomRealVector(Parent1,0,1,VMHL_N);
+        MHL_RandomRealVector(Parent2,0,1,VMHL_N);
+
+        //Получим потомка Child
+        MHL_FlatCrossoverForReal(Parent1,Parent2,Child,VMHL_N);
+
+        //Используем полученный результат
+        MHL_ShowVectorT (Parent1,VMHL_N,"Первый родитель", "Parent1");
+        //Первый родитель:
+        //Parent1 =
+        //0.53608	0.642251	0.592985	0.496914	0.869165
+
+        MHL_ShowVectorT (Parent2,VMHL_N,"Второй родитель", "Parent2");
+        //Второй родитель:
+        //Parent2 =
+        //0.865619	0.479102	0.872257	0.270094	0.567692
+
+
+        MHL_ShowVectorT (Child,VMHL_N,"Полученный потомок", "Child");
+        //Полученный потомок:
+        //Child =
+        //0.86188	0.559004	0.60677	0.367834	0.737273
+
+        delete [] Parent2;
+        delete [] Parent1;
+        delete [] Child;
+    }
+
+    if (NameFunction=="MHL_GeometricalCrossoverForReal")
+    {
+        int VMHL_N=5; //Размер массива (число строк)
+        double *Parent1;
+        Parent1=new double[VMHL_N];
+        double *Parent2;
+        Parent2=new double[VMHL_N];
+        double *Child;
+        Child=new double[VMHL_N];
+        MHL_RandomRealVector(Parent1,0,1,VMHL_N);
+        MHL_RandomRealVector(Parent2,0,1,VMHL_N);
+
+        //Получим потомка Child
+        MHL_GeometricalCrossoverForReal(Parent1,Parent2,Child,0.5,VMHL_N);
+
+        //Используем полученный результат
+        MHL_ShowVectorT (Parent1,VMHL_N,"Первый родитель", "Parent1");
+        //Первый родитель:
+        //Parent1 =
+        //0.237303	0.742526	0.401953	0.794393	0.450861
+
+        MHL_ShowVectorT (Parent2,VMHL_N,"Второй родитель", "Parent2");
+        //Второй родитель:
+        //Parent2 =
+        //0.0427865	0.784436	0.736516	0.875728	0.871102
+
+        MHL_ShowVectorT (Child,VMHL_N,"Полученный потомок", "Child");
+        //Полученный потомок:
+        //Child =
+        //0.100764	0.763194	0.5441	0.83407	0.626694
+
+        delete [] Parent2;
+        delete [] Parent1;
+        delete [] Child;
+    }
+
+    if (NameFunction=="MHL_BLXCrossoverForReal")
+    {
+        int VMHL_N=5; //Размер массива (число строк)
+        double *Parent1;
+        Parent1=new double[VMHL_N];
+        double *Parent2;
+        Parent2=new double[VMHL_N];
+        double *Child;
+        Child=new double[VMHL_N];
+        MHL_RandomRealVector(Parent1,0,1,VMHL_N);
+        MHL_RandomRealVector(Parent2,0,1,VMHL_N);
+
+        //Получим потомка Child
+        MHL_BLXCrossoverForReal(Parent1,Parent2,Child,0.5,VMHL_N);
+
+        //Используем полученный результат
+        MHL_ShowVectorT (Parent1,VMHL_N,"Первый родитель", "Parent1");
+        //Первый родитель:
+        //Parent1 =
+        //0.00492424	0.904672	0.495609	0.277354	0.157748
+
+        MHL_ShowVectorT (Parent2,VMHL_N,"Второй родитель", "Parent2");
+        //Второй родитель:
+        //Parent2 =
+        //0.0642395	0.216884	0.270904	0.602833	0.0286132
+
+        MHL_ShowVectorT (Child,VMHL_N,"Полученный потомок", "Child");
+        //Полученный потомок:
+        //Child =
+        //0.0163621	0.797608	0.169474	0.73645	0.114127
+
+        delete [] Parent2;
+        delete [] Parent1;
+        delete [] Child;
+    }
+
+    if (NameFunction=="MHL_LinearCrossoverForReal")
+    {
+        int VMHL_N=5; //Размер массива (число строк)
+        double *Parent1;
+        Parent1=new double[VMHL_N];
+        double *Parent2;
+        Parent2=new double[VMHL_N];
+        double *Child;
+        Child=new double[VMHL_N];
+        MHL_RandomRealVector(Parent1,0,1,VMHL_N);
+        MHL_RandomRealVector(Parent2,0,1,VMHL_N);
+
+        //Получим потомка Child
+        MHL_LinearCrossoverForReal(Parent1,Parent2,Child,VMHL_N);
+
+        //Используем полученный результат
+        MHL_ShowVectorT (Parent1,VMHL_N,"Первый родитель", "Parent1");
+        //Первый родитель:
+        //Parent1 =
+        //0.677296	0.808882	0.182892	0.776259	0.82249
+
+        MHL_ShowVectorT (Parent2,VMHL_N,"Второй родитель", "Parent2");
+        //Второй родитель:
+        //Parent2 =
+        //0.91462	0.788695	0.563462	0.214182	0.603119
+
+        MHL_ShowVectorT (Child,VMHL_N,"Полученный потомок", "Child");
+        //Полученный потомок:
+        //Child =
+        //0.558634	0.818976	-0.00739218	1.0573	0.932176
+
+        delete [] Parent2;
+        delete [] Parent1;
+        delete [] Child;
+    }
+
+    if (NameFunction=="MHL_ExtendedLineForReal")
+    {
+        int VMHL_N=5; //Размер массива (число строк)
+        double *Parent1;
+        Parent1=new double[VMHL_N];
+        double *Parent2;
+        Parent2=new double[VMHL_N];
+        double *Child;
+        Child=new double[VMHL_N];
+        MHL_RandomRealVector(Parent1,0,1,VMHL_N);
+        MHL_RandomRealVector(Parent2,0,1,VMHL_N);
+
+        //Получим потомка Child
+        MHL_ExtendedLineForReal(Parent1,Parent2,Child,0.5,VMHL_N);
+
+        //Используем полученный результат
+        MHL_ShowVectorT (Parent1,VMHL_N,"Первый родитель", "Parent1");
+        //Первый родитель:
+        //Parent1 =
+        //0.0407698	0.221488	0.912053	0.845252	0.219005
+
+        MHL_ShowVectorT (Parent2,VMHL_N,"Второй родитель", "Parent2");
+        //Второй родитель:
+        //Parent2 =
+        //0.388894	0.841718	0.741151	0.390797	0.0401433
+
+        MHL_ShowVectorT (Child,VMHL_N,"Полученный потомок", "Child");
+        //Полученный потомок:
+        //Child =
+        //0.214832	0.531603	0.826602	0.618024	0.129574
+
+        delete [] Parent2;
+        delete [] Parent1;
+        delete [] Child;
+    }
 
 }
 //---------------------------------------------------------------------------

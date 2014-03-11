@@ -248,11 +248,46 @@ template <class T> void TMHL_ZeroVector(T *VMHL_ResultVector,int VMHL_N);
 void MHL_ArithmeticalCrossoverForReal(double *Parent1, double *Parent2, double *VMHL_ResultVector, double w, int VMHL_N);
 ```
 
+- BLX скрещивание для вещественных векторов.
+
+
+```cpp
+void MHL_BLXCrossoverForReal(double *Parent1, double *Parent2, double *VMHL_ResultVector, double alpha, int VMHL_N);
+```
+
 - Служебная функция. Функция вычисляет целевую функцию бинарного вектора, в котором закодирован вещественный вектор. Использует внутренние служебные переменные. Функция для MHL\_StandartRealGeneticAlgorithm. Использовать для своих целей не рекомендуется.
 
 
 ```cpp
 double MHL_BinaryFitnessFunction(int*x, int VMHL_N);
+```
+
+- Расширенное линейчатое скрещивание для вещественных векторов.
+
+
+```cpp
+void MHL_ExtendedLineForReal(double *Parent1, double *Parent2, double *VMHL_ResultVector, double w, int VMHL_N);
+```
+
+- Плоское скрещивание для вещественных векторов.
+
+
+```cpp
+void MHL_FlatCrossoverForReal(double *Parent1, double *Parent2, double *VMHL_ResultVector, int VMHL_N);
+```
+
+- Геометрическое скрещивание для вещественных векторов.
+
+
+```cpp
+void MHL_GeometricalCrossoverForReal(double *Parent1, double *Parent2, double *VMHL_ResultVector, double w, int VMHL_N);
+```
+
+- Линейное скрещивание для вещественных векторов.
+
+
+```cpp
+void MHL_LinearCrossoverForReal(double *Parent1, double *Parent2, double *VMHL_ResultVector, int VMHL_N);
 ```
 
 - Функция формирует вектор вероятностей выбора индивидов из вектора значений функции пригодности. Формирование вектора происходит согласно правилам пропорционально селекции из ГА. Это служебная функция для использования функции пропорциональной селекции MHL\_ProportionalSelectionV2.

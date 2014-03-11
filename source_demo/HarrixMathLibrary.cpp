@@ -1,5 +1,5 @@
 //HarrixMathLibrary
-//Версия 3.67
+//Версия 3.68
 //Сборник различных математических функций и шаблонов с открытым кодом на языке C++.
 //https://github.com/Harrix/HarrixMathLibrary
 //Библиотека распространяется по лицензии Apache License, Version 2.0.
@@ -185,6 +185,35 @@ void MHL_ArithmeticalCrossoverForReal(double *Parent1, double *Parent2, double *
      }
 }
 //---------------------------------------------------------------------------
+void MHL_BLXCrossoverForReal(double *Parent1, double *Parent2, double *VMHL_ResultVector, double alpha, int VMHL_N)
+{
+/*
+BLX скрещивание для вещественных векторов.
+Входные параметры:
+ Parent1 - первый родитель;
+ Parent2 - второй родитель;
+ VMHL_ResultVector - потомок;
+ alpha - параметр скрещивания: [0;1];
+ VMHL_N - размер векторов Parent1, Parent2 и VMHL_ResultVector.
+Возвращаемое значение:
+ Отсутствует.
+Примечание:
+ Потомок только один.
+*/
+    double cmin,cmax,I;
+
+    if (alpha<0) alpha=0;
+    if (alpha>1) alpha=1;
+
+    for (int i=0;i<VMHL_N;i++)
+    {
+        cmin=TMHL_Min(Parent1[i],Parent2[i]);
+        cmax=TMHL_Max(Parent1[i],Parent2[i]);
+        I=cmax-cmin;
+        VMHL_ResultVector[i]=MHL_RandomUniform(cmin-I*alpha,cmax+I*alpha);
+    }
+}
+//---------------------------------------------------------------------------
 double MHL_BinaryFitnessFunction(int*x, int VMHL_N)
 {
 /*
@@ -222,6 +251,104 @@ if (TypOfConverting==1)//GrayСodeConverting (Стандартный рефле�
 VMHL_Result=VMHL_TempFunction(VMHL_TempDouble3,RealLength);
 
 return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+void MHL_ExtendedLineForReal(double *Parent1, double *Parent2, double *VMHL_ResultVector, double w, int VMHL_N)
+{
+/*
+Расширенное линейчатое скрещивание для вещественных векторов.
+Входные параметры:
+ Parent1 - первый родитель;
+ Parent2 - второй родитель;
+ VMHL_ResultVector - потомок;
+ w - параметр скрещивания, который означает долю второго родителя в потомке: [-0.25;1.25];
+ VMHL_N - размер векторов Parent1, Parent2 и VMHL_ResultVector.
+Возвращаемое значение:
+ Отсутствует.
+Примечание:
+ Потомок только один.
+*/
+    if (w<-0.25) w=-0.25;
+    if (w> 1.25) w= 1.25;
+
+    for (int i=0;i<VMHL_N;i++) VMHL_ResultVector[i]=Parent1[i]+w*(Parent2[i]-Parent1[i]);
+}
+//---------------------------------------------------------------------------
+void MHL_FlatCrossoverForReal(double *Parent1, double *Parent2, double *VMHL_ResultVector, int VMHL_N)
+{
+/*
+Плоское скрещивание для вещественных векторов.
+Входные параметры:
+ Parent1 - первый родитель;
+ Parent2 - второй родитель;
+ VMHL_ResultVector - потомок;
+ VMHL_N - размер векторов Parent1, Parent2 и VMHL_ResultVector.
+Возвращаемое значение:
+ Отсутствует.
+Примечание:
+ Потомок только один.
+*/
+    double a,b;
+     for (int i=0;i<VMHL_N;i++)
+     {
+         a = Parent1[i];
+         b = Parent2[i];
+         if (a>b) TMHL_NumberInterchange(&a,&b);
+         VMHL_ResultVector[i]=MHL_RandomUniform(a,b);
+     }
+}
+//---------------------------------------------------------------------------
+void MHL_GeometricalCrossoverForReal(double *Parent1, double *Parent2, double *VMHL_ResultVector, double w, int VMHL_N)
+{
+/*
+Геометрическое скрещивание для вещественных векторов.
+Входные параметры:
+ Parent1 - первый родитель;
+ Parent2 - второй родитель;
+ VMHL_ResultVector - потомок;
+ w - параметр скрещивания, который означает своеобразную долю какого-то родителя в потомке: [0;1];
+ VMHL_N - размер векторов Parent1, Parent2 и VMHL_ResultVector.
+Возвращаемое значение:
+ Отсутствует.
+Примечание:
+ Потомок выбирается случайно.
+*/
+    int i;
+    int k=MHL_RandomUniformInt(0,2);//0 или 1
+
+    if (w<0) w=0;
+    if (w>1) w=1;
+
+    if (k==0)//какой потомок "выживет": первый вариант или второй
+     {
+     for (i=0;i<VMHL_N;i++) VMHL_ResultVector[i]=pow(Parent1[i],w)*pow(Parent2[i],1.-w);
+     }
+    else
+     {
+     for (i=0;i<VMHL_N;i++) VMHL_ResultVector[i]=pow(Parent2[i],w)*pow(Parent1[i],1.-w);
+     }
+}
+//---------------------------------------------------------------------------
+void MHL_LinearCrossoverForReal(double *Parent1, double *Parent2, double *VMHL_ResultVector, int VMHL_N)
+{
+/*
+Линейное скрещивание для вещественных векторов.
+Входные параметры:
+ Parent1 - первый родитель;
+ Parent2 - второй родитель;
+ VMHL_ResultVector - потомок;
+ VMHL_N - размер векторов Parent1, Parent2 и VMHL_ResultVector.
+Возвращаемое значение:
+ Отсутствует.
+Примечание:
+ Потомок выбирается случайно.
+*/
+    int i;
+    int k=MHL_RandomUniformInt(0,3);//0 или 1
+
+    if (k==0) for (i=0;i<VMHL_N;i++) VMHL_ResultVector[i]= 0.5*Parent1[i]+0.5*Parent2[i];
+    if (k==1) for (i=0;i<VMHL_N;i++) VMHL_ResultVector[i]= 1.5*Parent1[i]-0.5*Parent2[i];
+    if (k==2) for (i=0;i<VMHL_N;i++) VMHL_ResultVector[i]=-0.5*Parent1[i]+1.5*Parent2[i];
 }
 //---------------------------------------------------------------------------
 void MHL_MakeVectorOfProbabilityForProportionalSelectionV2(double *Fitness, double *VMHL_ResultVector, int VMHL_N)
