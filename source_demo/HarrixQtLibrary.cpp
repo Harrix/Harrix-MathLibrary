@@ -1,5 +1,5 @@
 //HarrixQtLibrary
-//Версия 3.18
+//Версия 3.19
 //Сборник функций для Qt.
 //https://github.com/Harrix/HarrixQtLibrary
 //Библиотека распространяется по лицензии Apache License, Version 2.0.
@@ -176,7 +176,7 @@ QString HQt_GetExpFromFilename(QString filename)
     exp=exp.toLower();
     return exp;
 }
-//---------------------------------------------------------------------------
+//--------------------------------------------------------------------------
 
 QStringList HQt_QStringToQStringList(QString line)
 {
@@ -1004,15 +1004,17 @@ QStringList HQt_AddUniqueQStringInQStringList (QStringList StringList, QString S
     */
     bool in=false;
 
-    for (int i=0;i<StringList.count();i++)
+    QStringList GG = StringList;
+
+    for (int i=0;i<GG.count();i++)
     {
-        if (StringList.at(i)==String)
+        if (GG.at(i)==String)
             in=true;
     }
 
-    if (!in) StringList << String;
+    if (!in) GG << String;
 
-    return StringList;
+    return GG;
 }
 //---------------------------------------------------------------------------
 
