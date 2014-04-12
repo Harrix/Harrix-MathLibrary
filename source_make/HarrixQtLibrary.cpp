@@ -1,5 +1,5 @@
 //HarrixQtLibrary
-//Версия 3.19
+//Версия 3.20
 //Сборник функций для Qt.
 //https://github.com/Harrix/HarrixQtLibrary
 //Библиотека распространяется по лицензии Apache License, Version 2.0.
@@ -17,7 +17,7 @@ QString HQt_ReadFile(QString filename)
     */
     filename = QDir::toNativeSeparators(filename);
     QFile file(filename);
-    QString line="";
+    QString line;
     if(!file.exists()){
         qDebug() << "Не существует "<<filename;
         return line;
@@ -125,7 +125,7 @@ QString HQt_ListDirsInDir(QString path)
      Строка со списком директорий в директории, разделенные \n в алфавитном порядке.
     */
     path = QDir::toNativeSeparators(path);
-    QString line="";
+    QString line;
     QDir dir(path);
     bool ok = dir.exists();  //check if directory exist
     if (ok)
@@ -171,7 +171,7 @@ QString HQt_GetExpFromFilename(QString filename)
     Возвращаемое значение:
      Строка значением расширения файла в нижнем регистре.
     */
-    QString exp="";
+    QString exp;
     exp=filename.mid(filename.lastIndexOf(".")+1);
     exp=exp.toLower();
     return exp;
