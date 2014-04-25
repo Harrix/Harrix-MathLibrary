@@ -81,6 +81,12 @@ double HQt_QStringToNumber (QString x, bool checkcomma);//Функция выв�
 bool HQt_NaturalCompareTwoQStrings(const QString& s1,const QString& s2);//Функция сравнивает две строки и определяет какая строчка идет первой. Служебная функция для сортировки строк в обычном стиле, когда строки: z1, z10, z2 сортируются как z1, z2, z10.
 QStringList HQt_NaturalSortingQStringList (QStringList StringList);//Функция сортировки строк в сортировки строк QStringList в натуральном виде, например, строки: z1, z10, z2 сортируются как z1, z2, z10.
 template <class T> void THQt_VectorToQStringList(T *x, int N);//Функция переводит вектор чисел в QStringList.
+QString HQt_BoolToWord(QString Bool);
+QString HQt_BoolToWord(QString Bool, QString No, QString Yes);
+QString HQt_BoolToWord(bool Bool);
+QString HQt_BoolToWord(bool Bool, QString No, QString Yes);
+QString HQt_BoolToWord(int Bool);
+QString HQt_BoolToWord(int Bool, QString No, QString Yes);
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // РЕАЛИЗАЦИЯ ШАБЛОНОВ
