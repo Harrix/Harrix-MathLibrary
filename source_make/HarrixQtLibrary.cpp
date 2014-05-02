@@ -1,5 +1,5 @@
 //HarrixQtLibrary
-//Версия 3.21
+//Версия 3.22
 //Сборник функций для Qt.
 //https://github.com/Harrix/HarrixQtLibrary
 //Библиотека распространяется по лицензии Apache License, Version 2.0.
@@ -2146,12 +2146,7 @@ QString HQt_BoolToWord(QString Bool)
     Возвращаемое значение:
      Слово, которое характеризует переменную.
 */
-    QString Result;
-
-    if (Bool=="0") Result="Нет";
-    if (Bool=="1") Result="Да";
-
-    return Result;
+    return HQt_BoolToWord(Bool, "Нет", "Да");
 }
 //---------------------------------------------------------------------------
 
@@ -2184,12 +2179,7 @@ QString HQt_BoolToWord(bool Bool)
     Возвращаемое значение:
      Слово, которое характеризует переменную.
 */
-    QString Result;
-
-    if (Bool==false) Result="Нет";
-    if (Bool==true) Result="Да";
-
-    return Result;
+    return HQt_BoolToWord(Bool, "Нет", "Да");
 }
 //---------------------------------------------------------------------------
 
@@ -2222,12 +2212,7 @@ QString HQt_BoolToWord(int Bool)
     Возвращаемое значение:
      Слово, которое характеризует переменную.
 */
-    QString Result;
-
-    if (Bool==0) Result="Нет";
-    if (Bool==1) Result="Да";
-
-    return Result;
+	return HQt_BoolToWord(Bool, "Нет", "Да");
 }
 //---------------------------------------------------------------------------
 
