@@ -30,6 +30,7 @@ QString HQt_QStringListToQString(QStringList lines);//Функция перев�
 bool HQt_FileExists(QString filename);//Функция проверяет существование файла.
 bool HQt_DirExists(QString path);//Функция проверяет существование директории.
 void HQt_DirMake(QString path);//Функция проверяет существование директории, и если ее нет, то создает.
+bool HQt_DirDelete(QString path);//Функция удаляет директорию и всё ее содержимое.
 QString HQt_GetNameFromFilename(QString filename);//Функция получает имя файла без расширения по его имени.
 bool HQt_CopyFile(QString filename, QString dir);//Функция копирует файл filename в папку dir.
 bool HQt_CopyFile(QString filename, QString dir, bool overwrite);//Функция копирует файл filename в папку dir, с возможностью перезаписи.
