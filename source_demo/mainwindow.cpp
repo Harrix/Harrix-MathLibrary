@@ -857,6 +857,15 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("MHL_ExtendedLineForReal"));
     model->appendRow(item);
 
+    item = new QStandardItem(QString("MHL_BinaryGeneticAlgorithmTwiceGenerations"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_RealGeneticAlgorithmTwiceGenerations"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_SeparateVectorLimitOnProductElements"));
+    model->appendRow(item);
+
     model->sort(0);
 
     //соединение модели списка с конкретным списком
@@ -9968,6 +9977,154 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] Parent2;
         delete [] Parent1;
         delete [] Child;
+    }
+
+    if (NameFunction=="MHL_SeparateVectorLimitOnProductElements")
+    {
+        int *Vector;
+        int N=8;
+        Vector = new int [N];
+        Vector[0]=2;
+        Vector[1]=3;
+        Vector[2]=4;
+        Vector[3]=2;
+        Vector[4]=3;
+        Vector[5]=4;
+        Vector[6]=2;
+        Vector[7]=4;
+
+        int *Order;
+        Order = new int [N];
+
+        int Limit=16;
+
+        int ElementsInPart;
+
+        ElementsInPart = MHL_SeparateVectorLimitOnProductElements(Vector, Order, Limit, N);
+
+        MHL_ShowVectorT(Vector,N,"Массив","Vector");
+        //Массив:
+        //Vector =
+        //2	3	4	2	3	4	2	4
+
+        MHL_ShowVectorT(Order,N,"Порядок элементов в новых двух группах","Order");
+        //Порядок элементов в новых двух группах:
+        //Order =
+        //0	3	6	1	4	2	5	7
+
+        MHL_ShowNumber(ElementsInPart,"Количество элементов в первой группе","ElementsInPart");
+        //Количество элементов в первой группе:
+        //ElementsInPart=3
+
+        delete [] Vector;
+        delete [] Order;
+    }
+
+    if (NameFunction=="MHL_BinaryGeneticAlgorithmTwiceGenerations")
+    {
+        int ChromosomeLength=200;//Длина хромосомы
+        int CountOfFitness=40*40;//Число вычислений целевой функции
+        int TypeOfSel=1;//Тип селекции
+        int TypeOfCros=0;//Тип скрещивания
+        int TypeOfMutation=1;//Тип мутации
+        int TypeOfForm=0;//Тип формирования нового поколения
+
+        int *Parameters;
+        Parameters=new int[6];
+        Parameters[0]=ChromosomeLength;//Длина хромосомы
+        Parameters[1]=CountOfFitness;//Число вычислений целевой функции
+        Parameters[2]=TypeOfSel;//Тип селекции
+        Parameters[3]=TypeOfCros;//Тип скрещивания
+        Parameters[4]=TypeOfMutation;//Тип мутации
+        Parameters[5]=TypeOfForm;//Тип формирования нового поколения
+
+        int *Decision;//бинарное решение
+        Decision=new int[ChromosomeLength];
+        double ValueOfFitnessFunction;//значение функции пригодности в точке Decision
+        int VMHL_Success=0;//Успешен ли будет запуск cГА
+
+        //Запуск алгоритма
+        VMHL_Success=MHL_BinaryGeneticAlgorithmTwiceGenerations (Parameters,Func, Decision, &ValueOfFitnessFunction);
+
+        //Используем полученный результат
+        MHL_ShowNumber(VMHL_Success,"Как прошел запуск","VMHL_Success");
+        //Как прошел запуск:
+        //VMHL_Success=1
+
+        if (VMHL_Success==1)
+        {
+            MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
+            //Найденное решение:
+            //Decision =
+            //1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1
+
+            MHL_ShowNumber(ValueOfFitnessFunction,"Значение функции пригодности","ValueOfFitnessFunction");
+            // Значение функции пригодности:
+            //ValueOfFitnessFunction=50
+        }
+
+        delete [] Parameters;
+        delete [] Decision;
+    }
+
+    if (NameFunction=="MHL_RealGeneticAlgorithmTwiceGenerations")
+    {
+        int ChromosomeLength=2;//Длина хромосомы
+        int CountOfFitness=50*50;//Число вычислений целевой функции
+        int TypeOfSel=1;//Тип селекции
+        int TypeOfCros=0;//Тип скрещивания
+        int TypeOfMutation=1;//Тип мутации
+        int TypeOfForm=0;//Тип формирования нового поколения
+
+        int *Parameters;
+        Parameters=new int[7];
+        Parameters[0]=ChromosomeLength;//Длина хромосомы
+        Parameters[1]=CountOfFitness;//Число вычислений целевой функции
+        Parameters[2]=TypeOfSel;//Тип селекции
+        Parameters[3]=TypeOfCros;//Тип скрещивания
+        Parameters[4]=TypeOfMutation;//Тип мутации
+        Parameters[5]=TypeOfForm;//Тип формирования нового поколения
+        Parameters[6]=0;//Тип преобразование задачи вещественной оптимизации в задачу бинарной оптимизации
+
+        double *Left;//массив левых границ изменения каждой вещественной координаты
+        Left=new double[ChromosomeLength];
+        double *Right;//массив правых границ изменения каждой вещественной координаты
+        Right=new double[ChromosomeLength];
+        int *NumberOfParts;//на сколько делить каждую координату
+        NumberOfParts=new int[ChromosomeLength];
+
+        //Заполним массивы
+        //Причем по каждой координате одинаковые значения выставим
+        TMHL_FillVector(Left,ChromosomeLength,-5.);//Пусть будет интервал [-3;3]
+        TMHL_FillVector(Right,ChromosomeLength,5.);
+        TMHL_FillVector(NumberOfParts,ChromosomeLength,TMHL_PowerOf(2,15)-1);//Делим на 32768-1 частей каждую вещественную координату
+
+        double *Decision;//вещественное решение
+        Decision=new double[ChromosomeLength];
+        double ValueOfFitnessFunction;//значение целевой функции в точке Decision
+        int VMHL_Success=0;//Успешен ли будет запуск cГА
+
+        //Запуск алгоритма
+        VMHL_Success=MHL_RealGeneticAlgorithmTwiceGenerations (Parameters,NumberOfParts,Left,Right,Func2, Decision, &ValueOfFitnessFunction);
+
+        //Используем полученный результат
+        MHL_ShowNumber(VMHL_Success,"Как прошел запуск","VMHL_Success");
+        if (VMHL_Success==1)
+         {
+         MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
+         //Найденное решение:
+         //Decision =
+         //1.99951	1.99646
+         MHL_ShowNumber(ValueOfFitnessFunction,"Значение целевой функции","ValueOfFitnessFunction");
+         //Значение целевой функции:
+         //ValueOfFitnessFunction=-1.27703e-05
+         }
+
+        delete [] Parameters;
+        delete [] Decision;
+        delete [] Left;
+        delete [] Right;
+        delete [] NumberOfParts;
     }
 
 }

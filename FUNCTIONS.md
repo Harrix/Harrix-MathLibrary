@@ -25,6 +25,13 @@ double MHL_EuclidNorma(double *a,int VMHL_N);
 void MHL_NoiseInVector(double *VMHL_ResultVector, double percent, int VMHL_N);
 ```
 
+- Функция перегрупирует элементы массива так, чтобы произведение элементов в начале вектора было не больше Limit. Для чего вообще функция нужна? У нас имеется несколько групп (в количестве VMHL_N) с количеством элементов, равных числу из вектора. Нужно разделить группы на две группы так, чтобы в одной из них произведение количеств элементов было не больше Limit. При этом в Order сохраняем порядок элементов, а возвращаем количество элементов в первой подгруппе.
+
+
+```cpp
+int MHL_SeparateVectorLimitOnProductElements(int *VMHL_Vector, int *Order, int Limit, int VMHL_N);
+```
+
 - Функция вмещает вектор VMHL\_ResultVector в прямоугольную многомерной области, определяемой левыми границами и правыми границами. Если какая-то координата вектора выходит за границу, то значение этой координаты принимает граничное значение.
 
 
@@ -1243,6 +1250,13 @@ void MHL_UniformSearchOptimizationN (double Left, double Right, double (*Functio
 int MHL_BinaryGeneticAlgorithmTournamentSelectionWithReturn(double *Parameters, double (*FitnessFunction)(int*,int), int *VMHL_ResultVector, double *VMHL_Result);
 ```
 
+- Генетический алгоритм с двойным количеством поколений для решения задач на бинарных строках. На четных поколениях целевая функция высчитывается как среднеарифметическое родителей.
+
+
+```cpp
+int MHL_BinaryGeneticAlgorithmTwiceGenerations(int *Parameters, double (*FitnessFunction)(int*,int), int *VMHL_ResultVector, double *VMHL_Result);
+```
+
 - Генетический алгоритм для решения задач на бинарных строках, в котором есть только два вида скрещивания: одноточечное и двухточечное скрещивание с возможностью полного копирования одного из родителей. Равномерное скрещивание отсутствует.
 
 
@@ -1270,6 +1284,13 @@ int MHL_BinaryGeneticAlgorithmWDTS(double *Parameters, double (*FitnessFunction)
 
 ```cpp
 int MHL_RealGeneticAlgorithmTournamentSelectionWithReturn(double *Parameters, int *NumberOfParts, double *Left, double *Right, double (*FitnessFunction)(double*,int), double *VMHL_ResultVector, double *VMHL_Result);
+```
+
+- Генетический алгоритм с двойным количеством поколений для решения задач на вещественных строках. На четных поколениях целевая функция высчитывается как среднеарифметическое родителей.
+
+
+```cpp
+int MHL_RealGeneticAlgorithmTwiceGenerations(int *Parameters, int *NumberOfParts, double *Left, double *Right, double (*FitnessFunction)(double*,int), double *VMHL_ResultVector, double *VMHL_Result);
 ```
 
 - Генетический алгоритм для решения задач на вещественных строках, в котором есть только два вида скрещивания: одноточечное и двухточечное скрещивание с возможностью полного копирования одного из родителей. Равномерное скрещивание отсутствует.

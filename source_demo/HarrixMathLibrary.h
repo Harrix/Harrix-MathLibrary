@@ -40,6 +40,7 @@ void MHL_SetRandomNumberGenerator(TypeOfRandomNumberGenerator T);//Перена�
 void MHL_DependentNoiseInVector(double *VMHL_ResultVector, double percent, int VMHL_N);
 double MHL_EuclidNorma(double *a,int VMHL_N);
 void MHL_NoiseInVector(double *VMHL_ResultVector, double percent, int VMHL_N);
+int MHL_SeparateVectorLimitOnProductElements(int *VMHL_Vector, int *Order, int Limit, int VMHL_N);
 template <class T> void TMHL_AcceptanceLimits(T *VMHL_ResultVector, T *Left, T *Right, int VMHL_N);
 template <class T> int TMHL_CheckElementInVector(T *x, int VMHL_N, T a);
 template <class T> int TMHL_CompareMeanOfVectors(T *a, T *b, int VMHL_N);
@@ -246,10 +247,12 @@ void MHL_UniformSearchOptimizationN (double Left, double Right, double (*Functio
 
 //Оптимизация - свалка алгоритмов
 int MHL_BinaryGeneticAlgorithmTournamentSelectionWithReturn(double *Parameters, double (*FitnessFunction)(int*,int), int *VMHL_ResultVector, double *VMHL_Result);
+int MHL_BinaryGeneticAlgorithmTwiceGenerations(int *Parameters, double (*FitnessFunction)(int*,int), int *VMHL_ResultVector, double *VMHL_Result);
 int MHL_BinaryGeneticAlgorithmWCC(int *Parameters, double (*FitnessFunction)(int*,int), int *VMHL_ResultVector, double *VMHL_Result);
 int MHL_BinaryGeneticAlgorithmWDPOfNOfGPS(double *Parameters, double (*FitnessFunction)(int*,int), int *VMHL_ResultVector, double *VMHL_Result);
 int MHL_BinaryGeneticAlgorithmWDTS(double *Parameters, double (*FitnessFunction)(int*,int), int *VMHL_ResultVector, double *VMHL_Result);
 int MHL_RealGeneticAlgorithmTournamentSelectionWithReturn(double *Parameters, int *NumberOfParts, double *Left, double *Right, double (*FitnessFunction)(double*,int), double *VMHL_ResultVector, double *VMHL_Result);
+int MHL_RealGeneticAlgorithmTwiceGenerations(int *Parameters, int *NumberOfParts, double *Left, double *Right, double (*FitnessFunction)(double*,int), double *VMHL_ResultVector, double *VMHL_Result);
 int MHL_RealGeneticAlgorithmWCC(int *Parameters, int *NumberOfParts, double *Left, double *Right, double (*FitnessFunction)(double*,int), double *VMHL_ResultVector, double *VMHL_Result);
 int MHL_RealGeneticAlgorithmWDPOfNOfGPS(double *Parameters, int *NumberOfParts, double *Left, double *Right, double (*FitnessFunction)(double*,int), double *VMHL_ResultVector, double *VMHL_Result);
 int MHL_RealGeneticAlgorithmWDTS(double *Parameters, int *NumberOfParts, double *Left, double *Right, double (*FitnessFunction)(double*,int), double *VMHL_ResultVector, double *VMHL_Result);
