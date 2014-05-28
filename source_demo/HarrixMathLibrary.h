@@ -41,7 +41,10 @@ void MHL_DependentNoiseInVector(double *VMHL_ResultVector, double percent, int V
 double MHL_EuclidNorma(double *a,int VMHL_N);
 void MHL_NoiseInVector(double *VMHL_ResultVector, double percent, int VMHL_N);
 int MHL_SeparateVectorLimitOnProductElements(int *VMHL_Vector, int *Order, int Limit, int VMHL_N);
+int MHL_SeparateVectorLimitOnProductElementsTwo(int *VMHL_Vector, int *Order, int Limit, int VMHL_N);
 template <class T> void TMHL_AcceptanceLimits(T *VMHL_ResultVector, T *Left, T *Right, int VMHL_N);
+template <class T> void TMHL_ChangeOrderInVector(T *VMHL_Vector, T *VMHL_ResultVector, int *Order, int VMHL_N);
+template <class T> void TMHL_ChangeOrderInVector(T *VMHL_Vector, int *Order, int VMHL_N);
 template <class T> int TMHL_CheckElementInVector(T *x, int VMHL_N, T a);
 template <class T> int TMHL_CompareMeanOfVectors(T *a, T *b, int VMHL_N);
 template <class T> int TMHL_CompareMeanOfVectors(T *a, T *b, int VMHL_N1, int VMHL_N2);
@@ -395,6 +398,43 @@ for (int i=0;i<VMHL_N;i++)
  if (VMHL_ResultVector[i]<Left[i]) VMHL_ResultVector[i]=Left[i];//принятие граничного левого условия
  if (VMHL_ResultVector[i]>Right[i]) VMHL_ResultVector[i]=Right[i];//принятие граничного правого условия
  }
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_ChangeOrderInVector(T *VMHL_Vector, T *VMHL_ResultVector, int *Order, int VMHL_N)
+{
+/*
+Функция меняет порядок элементов в массиве VMHL_Vector и сохраняет в другой VMHL_ResultVector согласно массиву
+Order, в котором записан новый порядок элементов.
+Входные параметры:
+ VMHL_Vector - указатель на массив;
+ VMHL_ResultVector - указатель на массив, куда сохраняем данные;
+ Order - указатель на массив, в котором хранится порядок элементов;
+ VMHL_N - количество элементов в массиве.
+Возвращаемое значение:
+ Отсутствует.
+*/
+for (int i=0;i<VMHL_N;i++)
+    VMHL_ResultVector[i]=VMHL_Vector[Order[i]];
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_ChangeOrderInVector(T *VMHL_Vector, int *Order, int VMHL_N)
+{
+/*
+Функция меняет порядок элементов в массиве VMHL_Vector согласно массиву
+Order, в котором записан новый порядок элементов.
+Входные параметры:
+ VMHL_Vector - указатель на массив;
+ Order - указатель на массив, в котором хранится порядок элементов;
+ VMHL_N - количество элементов в массиве.
+Возвращаемое значение:
+ Отсутствует.
+*/
+T *TempVector;
+TempVector = new T [VMHL_N];
+TMHL_VectorToVector(VMHL_Vector,TempVector,VMHL_N);
+for (int i=0;i<VMHL_N;i++)
+    VMHL_Vector[i]=TempVector[Order[i]];
+delete [] TempVector;
 }
 //---------------------------------------------------------------------------
 template <class T> int TMHL_CheckElementInVector(T *x, int VMHL_N, T a)

@@ -866,6 +866,12 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("MHL_SeparateVectorLimitOnProductElements"));
     model->appendRow(item);
 
+    item = new QStandardItem(QString("TMHL_ChangeOrderInVector"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_SeparateVectorLimitOnProductElementsTwo"));
+    model->appendRow(item);
+
     model->sort(0);
 
     //соединение модели списка с конкретным списком
@@ -10126,6 +10132,102 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] Right;
         delete [] NumberOfParts;
     }
+
+     if (NameFunction=="TMHL_ChangeOrderInVector")
+     {
+         int VMHL_N=5;//Размер массива
+         int *a;
+         a=new int[VMHL_N];
+
+         a[0]=2;
+         a[1]=3;
+         a[2]=1;
+         a[3]=8;
+         a[4]=2;
+
+         int *Order;
+         Order=new int[VMHL_N];
+         Order[0]=4;
+         Order[1]=3;
+         Order[2]=1;
+         Order[3]=2;
+         Order[4]=0;
+
+         MHL_ShowVector (a,VMHL_N,"Вектор", "a");
+         //Вектор:
+         //a =
+         //2
+         //3
+         //1
+         //8
+         //2
+
+         //Вызов функции
+         TMHL_ChangeOrderInVector(a,Order,VMHL_N);
+
+         //Используем полученный результат
+         MHL_ShowVector (Order,VMHL_N,"Порядок элементов, к которому нужно привести массив", "Order");
+         //Порядок элементов, к которому нужно привести массив:
+         //Order =
+         //4
+         //3
+         //1
+         //2
+         //0
+
+         MHL_ShowVector (a,VMHL_N,"Переставленный вектор", "a");
+         //Переставленный вектор:
+         //a =
+         //2
+         //8
+         //3
+         //1
+         //2
+
+         delete [] a;
+         delete [] Order;
+     }
+
+     if (NameFunction=="MHL_SeparateVectorLimitOnProductElementsTwo")
+     {
+         int *Vector;
+         int N=8;
+         Vector = new int [N];
+         Vector[0]=2;
+         Vector[1]=3;
+         Vector[2]=4;
+         Vector[3]=2;
+         Vector[4]=3;
+         Vector[5]=4;
+         Vector[6]=2;
+         Vector[7]=4;
+
+         int *Order;
+         Order = new int [N];
+
+         int Limit=16;
+
+         int ElementsInPart;
+
+         ElementsInPart = MHL_SeparateVectorLimitOnProductElementsTwo(Vector, Order, Limit, N);
+
+         MHL_ShowVectorT(Vector,N,"Массив","Vector");
+         //Массив:
+         //Vector =
+         //2	3	4	2	3	4	2	4
+
+         MHL_ShowVectorT(Order,N,"Порядок элементов в новых двух группах","Order");
+         //Порядок элементов в новых двух группах:
+         //Order =
+         //7	5	2	4	1	6	3	0
+
+         MHL_ShowNumber(ElementsInPart,"Количество элементов в первой группе","ElementsInPart");
+         //Количество элементов в первой группе:
+         //ElementsInPart=2
+
+         delete [] Vector;
+         delete [] Order;
+     }
 
 }
 //---------------------------------------------------------------------------

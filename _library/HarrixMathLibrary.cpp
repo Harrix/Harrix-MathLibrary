@@ -1,5 +1,5 @@
 //HarrixMathLibrary
-//Версия 3.71
+//Версия 3.72
 //Сборник различных математических функций и шаблонов с открытым кодом на языке C++.
 //https://github.com/Harrix/HarrixMathLibrary
 //Библиотека распространяется по лицензии Apache License, Version 2.0.
@@ -109,6 +109,7 @@ for (i=0;i<VMHL_N;i++)
  VMHL_ResultVector[i]+=VMHL_ResultVector[i]*MHL_RandomUniform(-b/2.,b/2.);
 }
 //---------------------------------------------------------------------------
+
 double MHL_EuclidNorma(double *a,int VMHL_N)
 {
 /*
@@ -129,6 +130,7 @@ VMHL_Result=sqrt(double(VMHL_Result));
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 void MHL_NoiseInVector(double *VMHL_ResultVector, double percent, int VMHL_N)
 {
 /*
@@ -150,6 +152,7 @@ for (i=0;i<VMHL_N;i++)
  VMHL_ResultVector[i]+=MHL_RandomUniform(-b/2.,b/2.);
 }
 //---------------------------------------------------------------------------
+
 int MHL_SeparateVectorLimitOnProductElements(int *VMHL_Vector, int *Order, int Limit, int VMHL_N)
 {
     /*
@@ -213,6 +216,73 @@ int MHL_SeparateVectorLimitOnProductElements(int *VMHL_Vector, int *Order, int L
 }
 //---------------------------------------------------------------------------
 
+int MHL_SeparateVectorLimitOnProductElementsTwo(int *VMHL_Vector, int *Order, int Limit, int VMHL_N)
+{
+    /*
+Функция перегрупирует элементы массива так, чтобы произведение элементов в начале вектора было не больше Limit.
+Алгоритм в данной функции немного другой, чем в функции MHL_SeparateVectorLimitOnProductElements.
+Для чего вообще функция нужна? У нас имеется несколько групп (в количестве VMHL_N) с количеством элементов,
+равных числу из вектора. Нужно разделить группы на две группы так, чтобы в одной из них произведение количеств элементов
+было не больше Limit. При этом в Order сохраняем порядок элементов, а возвращаем количество элементов в первой подгруппе.
+Задача возникла при построении таблицы, в которой надо показать все возможные комбинации (поэтому и произведение
+учитывается), когда из каждой группы берем по одному элементу, а по горизонтали слишком много элементов не расставим.
+Входные параметры:
+ VMHL_Vector - указатель на вектор, в котором хранится количество элементов в каждой группе (все должн быть положительны);
+ Order - массив, в котором сохраняется новый порядок элементов. То есть это строка перестановка, где значение элемента
+ говорит, что на этой позиции должен находится соответствующая группа из VMHL_Vector.
+ Limit - какое максимальное произведение элементов должно быть в первой группе.
+ VMHL_N - размер массива VMHL_Vector и Order.
+Возвращаемое значение:
+ Количество первых элементов в Order, которые относятся к первой группировке групп.
+ Если это невозможно, то возвращается -1 (в случае, если минимальный элемент).
+Примечание. Да, функция специфическая.
+*/
+    int VMHL_Result=-1;
+    int *VMHL_VectorTemp = new int[VMHL_N];//временная копия массива
+    int *VMHL_NumberTemp = new int[VMHL_N];//тут номера элементов будем хранить
+    TMHL_VectorToVector(VMHL_Vector,VMHL_VectorTemp,VMHL_N);
+    TMHL_ZeroVector(Order,VMHL_N);
+    TMHL_OrdinalVectorZero(VMHL_NumberTemp,VMHL_N);
+
+    //Отсортируем массив
+    TMHL_BubbleSortWithConjugateVector(VMHL_VectorTemp, VMHL_NumberTemp, VMHL_N);
+    TMHL_ReverseVector(VMHL_VectorTemp,VMHL_N);
+    TMHL_ReverseVector(VMHL_NumberTemp,VMHL_N);
+    //скопируем в итоговый массив Order
+    TMHL_VectorToVector(VMHL_NumberTemp,Order,VMHL_N);
+
+    if (VMHL_Vector[0]>Limit)
+    {
+        VMHL_Result=-1;
+    }
+    else
+    {
+        int p=1;
+        int pTemp;
+        int num=0;
+        for (int i=0;i<VMHL_N;i++)
+        {
+          pTemp=p*VMHL_Vector[i];
+          if (pTemp>Limit)
+          {
+            break;
+          }
+          else
+          {
+              p=pTemp;
+              num=i;
+          }
+        }
+        VMHL_Result=num+1;
+    }
+
+    delete [] VMHL_VectorTemp;
+    delete [] VMHL_NumberTemp;
+    return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+
+
 //*****************************************************************
 //Генетические алгоритмы
 //*****************************************************************
@@ -247,6 +317,7 @@ void MHL_ArithmeticalCrossoverForReal(double *Parent1, double *Parent2, double *
      }
 }
 //---------------------------------------------------------------------------
+
 void MHL_BLXCrossoverForReal(double *Parent1, double *Parent2, double *VMHL_ResultVector, double alpha, int VMHL_N)
 {
 /*
@@ -276,6 +347,7 @@ BLX скрещивание для вещественных векторов.
     }
 }
 //---------------------------------------------------------------------------
+
 double MHL_BinaryFitnessFunction(int*x, int VMHL_N)
 {
 /*
@@ -315,6 +387,7 @@ VMHL_Result=VMHL_TempFunction(VMHL_TempDouble3,RealLength);
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 void MHL_ExtendedLineForReal(double *Parent1, double *Parent2, double *VMHL_ResultVector, double w, int VMHL_N)
 {
 /*
@@ -336,6 +409,7 @@ void MHL_ExtendedLineForReal(double *Parent1, double *Parent2, double *VMHL_Resu
     for (int i=0;i<VMHL_N;i++) VMHL_ResultVector[i]=Parent1[i]+w*(Parent2[i]-Parent1[i]);
 }
 //---------------------------------------------------------------------------
+
 void MHL_FlatCrossoverForReal(double *Parent1, double *Parent2, double *VMHL_ResultVector, int VMHL_N)
 {
 /*
@@ -360,6 +434,7 @@ void MHL_FlatCrossoverForReal(double *Parent1, double *Parent2, double *VMHL_Res
      }
 }
 //---------------------------------------------------------------------------
+
 void MHL_GeometricalCrossoverForReal(double *Parent1, double *Parent2, double *VMHL_ResultVector, double w, int VMHL_N)
 {
 /*
@@ -391,6 +466,7 @@ void MHL_GeometricalCrossoverForReal(double *Parent1, double *Parent2, double *V
      }
 }
 //---------------------------------------------------------------------------
+
 void MHL_LinearCrossoverForReal(double *Parent1, double *Parent2, double *VMHL_ResultVector, int VMHL_N)
 {
 /*
@@ -413,6 +489,7 @@ void MHL_LinearCrossoverForReal(double *Parent1, double *Parent2, double *VMHL_R
     if (k==2) for (i=0;i<VMHL_N;i++) VMHL_ResultVector[i]=-0.5*Parent1[i]+1.5*Parent2[i];
 }
 //---------------------------------------------------------------------------
+
 void MHL_MakeVectorOfProbabilityForProportionalSelectionV2(double *Fitness, double *VMHL_ResultVector, int VMHL_N)
 {
 /*
@@ -435,6 +512,7 @@ TMHL_VectorToVector(Fitness,VMHL_ResultVector,VMHL_N);
 MHL_NormalizationVectorOne (VMHL_ResultVector,VMHL_N);
 }
 //---------------------------------------------------------------------------
+
 void MHL_MakeVectorOfProbabilityForRanklSelection(double *Rank, double *VMHL_ResultVector, int VMHL_N)
 {
 /*
@@ -463,6 +541,7 @@ else
  }
 }
 //---------------------------------------------------------------------------
+
 void MHL_MakeVectorOfRankForRankSelection(double *Fitness, double *VMHL_ResultVector, int VMHL_N)
 {
 /*
@@ -515,6 +594,7 @@ delete[] F;
 }
 //---------------------------------------------------------------------------
 //---------------------------------------------------------------------------
+
 void MHL_MakeVectorOfRankZeroForRankSelection(double *Fitness, double *VMHL_ResultVector, int VMHL_N)
 {
 /*
@@ -566,6 +646,7 @@ delete[] N;
 delete[] F;
 }
 //---------------------------------------------------------------------------
+
 void MHL_NormalizationVectorAll(double *x,int VMHL_N)
 {
 /*
@@ -580,6 +661,7 @@ for (int i=0;i<VMHL_N;i++)
  x[i]=MHL_NormalizationNumberAll(x[i]);
 }
 //---------------------------------------------------------------------------
+
 void MHL_NormalizationVectorMaxMin(double *VMHL_ResultVector,int VMHL_N)
 {
 /*
@@ -619,6 +701,7 @@ if (vbool==0)
  }
 }
 //---------------------------------------------------------------------------
+
 void MHL_NormalizationVectorOne(double *VMHL_ResultVector,int VMHL_N)
 {
 /*
@@ -644,6 +727,7 @@ else
  }
 }
 //---------------------------------------------------------------------------
+
 double MHL_ProbabilityOfTournamentSelection(double *Fitness, double *VMHL_ResultVector_Probability, int T, int VMHL_N)
 {
 /*
@@ -693,6 +777,7 @@ double MHL_ProbabilityOfTournamentSelection(double *Fitness, double *VMHL_Result
     return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 int MHL_ProportionalSelection(double *Fitness, int VMHL_N)
 {
 /*
@@ -732,6 +817,7 @@ delete [] VectorOfProbability;
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 int MHL_ProportionalSelectionV2(double *VectorOfProbability, int VMHL_N)
 {
 /*
@@ -752,6 +838,7 @@ int VMHL_Result=MHL_SelectItemOnProbability(VectorOfProbability,VMHL_N);
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 int MHL_ProportionalSelectionV3(double *Fitness, int VMHL_N)
 {
 /*
@@ -786,6 +873,7 @@ while ((VMHL_Result==-1)&&(i<VMHL_N))
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 int MHL_RankSelection(double *VectorOfProbability, int VMHL_N)
 {
 /*
@@ -803,6 +891,7 @@ int VMHL_Result=MHL_SelectItemOnProbability(VectorOfProbability,VMHL_N);
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 int MHL_SelectItemOnProbability(double *P, int VMHL_N)
 {
 /*
@@ -832,6 +921,7 @@ while ((VMHL_Result==-1)&&(i<VMHL_N))
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 void MHL_SinglepointCrossoverForReal(double *Parent1, double *Parent2, double *VMHL_ResultVector, int VMHL_N)
 {
 /*
@@ -849,6 +939,7 @@ void MHL_SinglepointCrossoverForReal(double *Parent1, double *Parent2, double *V
 TMHL_SinglepointCrossover(Parent1, Parent2, VMHL_ResultVector, VMHL_N);
 }
 //---------------------------------------------------------------------------
+
 int MHL_StandartBinaryGeneticAlgorithm(int *Parameters, double (*FitnessFunction)(int*,int), int *VMHL_ResultVector, double *VMHL_Result)
 {
 /*
@@ -1111,6 +1202,7 @@ delete [] Child;
 return 1;//Всё успешно
 }
 //---------------------------------------------------------------------------
+
 int MHL_StandartGeneticAlgorithm(int *Parameters, double (*FitnessFunction)(int*,int), int *VMHL_ResultVector, double *VMHL_Result)
 {
 /*
@@ -1212,6 +1304,7 @@ VMHL_Success=MHL_StandartRealGeneticAlgorithm(Parameters, NumberOfParts, Left, R
 return VMHL_Success;
 }
 //---------------------------------------------------------------------------
+
 int MHL_StandartRealGeneticAlgorithm(int *Parameters, int *NumberOfParts, double *Left, double *Right, double (*FitnessFunction)(double*,int), double *VMHL_ResultVector, double *VMHL_Result)
 {
 /*
@@ -1372,6 +1465,7 @@ if (TypOfConverting==1)//GrayСodeConverting (Стандартный рефле�
 return 1;//Всё успешно
 }
 //---------------------------------------------------------------------------
+
 int MHL_TournamentSelection(double *Fitness, int SizeTournament, int VMHL_N)
 {
 /*
@@ -1491,6 +1585,7 @@ for (int i=1;i<SizeTournament;i++)
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 int MHL_TournamentSelectionWithReturn(double *Fitness, int SizeTournament, int VMHL_N)
 {
 /*
@@ -1522,6 +1617,7 @@ for (int i=1;i<SizeTournament;i++)
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 void MHL_TwopointCrossoverForReal(double *Parent1, double *Parent2, double *VMHL_ResultVector, int VMHL_N)
 {
 /*
@@ -1539,6 +1635,7 @@ void MHL_TwopointCrossoverForReal(double *Parent1, double *Parent2, double *VMHL
 TMHL_TwopointCrossover(Parent1, Parent2, VMHL_ResultVector, VMHL_N);
 }
 //---------------------------------------------------------------------------
+
 void MHL_UniformCrossoverForReal(double*Parent1, double *Parent2, double *VMHL_ResultVector, int VMHL_N)
 {
 /*
@@ -1554,6 +1651,7 @@ void MHL_UniformCrossoverForReal(double*Parent1, double *Parent2, double *VMHL_R
 TMHL_UniformCrossover(Parent1, Parent2, VMHL_ResultVector, VMHL_N);
 }
 //---------------------------------------------------------------------------
+
 
 //*****************************************************************
 //Геометрия
@@ -1632,6 +1730,7 @@ double MHL_LineGeneralForm(double x, double A, double B, double C)
     return y;
 }
 //---------------------------------------------------------------------------
+
 double MHL_LineSlopeInterceptForm(double x, double k, double b)
 {
 /*
@@ -1651,6 +1750,7 @@ double MHL_LineSlopeInterceptForm(double x, double k, double b)
     return y;
 }
 //---------------------------------------------------------------------------
+
 double MHL_LineTwoPoint(double x, double x1, double y1, double x2, double y2, int *solutionis)
 {
 /*
@@ -1735,6 +1835,7 @@ y=MHL_LineTwoPoint(x, x1, y1, x2, y2, &solutionis);
 return y;
 }
 //---------------------------------------------------------------------------
+
 double MHL_Parabola(double x, double a, double b, double c)
 {
 /*
@@ -1756,6 +1857,7 @@ double MHL_Parabola(double x, double a, double b, double c)
 }
 //---------------------------------------------------------------------------
 
+
 //*****************************************************************
 //Гиперболические функции
 //*****************************************************************
@@ -1771,6 +1873,7 @@ double MHL_Cosech(double x)
 return 2./(exp(x)-exp(-x));
 }
 //---------------------------------------------------------------------------
+
 double MHL_Cosh(double x)
 {
 /*
@@ -1783,6 +1886,7 @@ double MHL_Cosh(double x)
 return (exp(x)+exp(-x))/2.;
 }
 //---------------------------------------------------------------------------
+
 double MHL_Cotanh(double x)
 {
 /*
@@ -1795,6 +1899,7 @@ double MHL_Cotanh(double x)
 return (exp(x)+exp(-x))/(exp(x)-exp(-x));
 }
 //---------------------------------------------------------------------------
+
 double MHL_Sech(double x)
 {
 /*
@@ -1807,6 +1912,7 @@ double MHL_Sech(double x)
 return 2./(exp(x)+exp(-x));
 }
 //---------------------------------------------------------------------------
+
 double MHL_Sinh(double x)
 {
 /*
@@ -1819,6 +1925,7 @@ double MHL_Sinh(double x)
 return (exp(x)-exp(-x))/2.;
 }
 //---------------------------------------------------------------------------
+
 double MHL_Tanh(double x)
 {
 /*
@@ -1832,6 +1939,7 @@ return (exp(x)-exp(-x))/(exp(x)+exp(-x));
 }
 
 //---------------------------------------------------------------------------
+
 
 //*****************************************************************
 //Дифференцирование
@@ -1854,6 +1962,7 @@ if (h<=0) return 0;
 return ((Function(x+h)-Function(x-h))/(2*h));
 }
 //---------------------------------------------------------------------------
+
 double MHL_LeftDerivative(double x, double h, double (*Function)(double))
 {
 /*
@@ -1872,6 +1981,7 @@ if (h<=0) return 0;
 return ((Function(x)-Function(x-h))/h);
 }
 //---------------------------------------------------------------------------
+
 double MHL_RightDerivative(double x, double h, double (*Function)(double))
 {
 /*
@@ -1890,6 +2000,7 @@ if (h<=0) return 0;
 return ((Function(x+h)-Function(x))/h);
 }
 //---------------------------------------------------------------------------
+
 
 //*****************************************************************
 //Интегрирование
@@ -1932,6 +2043,7 @@ while (fabs(VMHL_Result-s1)>3.*Epsilon);
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 double MHL_IntegralOfSimpson(double a, double b, double Epsilon,double (*Function)(double))
 {
 /*
@@ -1970,6 +2082,7 @@ while (x>Epsilon);
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 double MHL_IntegralOfTrapezium(double a, double b, double Epsilon,double (*Function)(double))
 {
 /*
@@ -2008,6 +2121,7 @@ while (fabs(VMHL_Result-s1)>3.*Epsilon);
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 
 //*****************************************************************
 //Кодирование и декодирование
@@ -2082,6 +2196,7 @@ for (int i=0;i<VMHL_N;i++)
 MHL_BinaryVectorToRealVector(TempBinaryVector,VMHL_ResultVector,Left,Right,Lengthi,VMHL_N);
 }
 //---------------------------------------------------------------------------
+
 void MHL_BinaryVectorToRealVector(int *x, double *VMHL_ResultVector, double *Left, double *Right, int *Lengthi, int VMHL_N)
 {
 /*
@@ -2119,6 +2234,7 @@ for (int i=0;i<VMHL_N;i++)
 }
 //---------------------------------------------------------------------------
 
+
 //*****************************************************************
 //Комбинаторика
 //*****************************************************************
@@ -2138,6 +2254,7 @@ double MHL_AnswerToTheUltimateQuestionOfLifeTheUniverseAndEverything()
 return 42.;
 }
 //---------------------------------------------------------------------------
+
 double MHL_ArithmeticalProgression(double a1,double d,int n)
 {
 /*
@@ -2153,6 +2270,7 @@ double VMHL_Result=a1+d*(n-1.);
 return  VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 double MHL_ExpMSxD2(double x)
 {
 /*
@@ -2165,6 +2283,7 @@ double MHL_ExpMSxD2(double x)
 return exp(-x*x/2.);
 }
 //---------------------------------------------------------------------------
+
 double MHL_GeometricSeries(double u1,double q,int n)
 {
 /*
@@ -2182,6 +2301,7 @@ double VMHL_Result=u1*qn1;
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 int MHL_GreatestCommonDivisorEuclid(int A,int B)
 {
 /*
@@ -2215,6 +2335,7 @@ int VMHL_Result=a+b;
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 int MHL_HowManyPowersOfTwo(int x)
 {
 /*
@@ -2235,6 +2356,7 @@ while (m<x)
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 double MHL_InverseNormalizationNumberAll(double x)
 {
 /*
@@ -2258,6 +2380,7 @@ else
  return (1./(1.-(1./(1.-2.*x))));
 }
 //---------------------------------------------------------------------------
+
 int MHL_LeastCommonMultipleEuclid(int A,int B)
 {
 /*
@@ -2277,6 +2400,7 @@ VMHL_Result=(A*B)/gcd;
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 double MHL_MeaningOfLife()
 {
 /*
@@ -2289,6 +2413,7 @@ double MHL_MeaningOfLife()
 return 42.;
 }
 //---------------------------------------------------------------------------
+
 void MHL_MixedMultiLogicVectorOfFullSearch(int *VMHL_Vector, int I, int *HowMuchInElements, int VMHL_N)
 {
 /*
@@ -2318,6 +2443,7 @@ void MHL_MixedMultiLogicVectorOfFullSearch(int *VMHL_Vector, int I, int *HowMuch
     delete [] CountInBlock;
 }
 //---------------------------------------------------------------------------
+
 double MHL_NormalizationNumberAll(double x)
 {
 /*
@@ -2336,6 +2462,7 @@ if (x<=MHL_MINFINITY) return 0.;
 return ((1./(1.+1./fabs(x))*TMHL_Sign(x)+1.)/2.);
 }
 //---------------------------------------------------------------------------
+
 int MHL_Parity(int a)
 {
 /*
@@ -2352,6 +2479,7 @@ else
  return 0;
 }
 //---------------------------------------------------------------------------
+
 double MHL_ProbabilityDensityFunctionOfInverseGaussianDistribution (double x, double mu, double lambda)
 {
 /*
@@ -2373,6 +2501,7 @@ double MHL_ProbabilityDensityFunctionOfInverseGaussianDistribution (double x, do
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 double MHL_SumGeometricSeries(double u1,double q,int n)
 {
 /*
@@ -2390,6 +2519,7 @@ double VMHL_Result=u1*(1.-qn)/(1.-q);
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 double MHL_SumOfArithmeticalProgression(double a1,double d,int n)
 {
 /*
@@ -2405,6 +2535,7 @@ double VMHL_Result=(2.*a1+d*(n-1.))*n/2.;
 return  VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 int MHL_SumOfDigits(int a)
 {
 /*
@@ -2424,6 +2555,7 @@ while (a>=1)
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 
 //*****************************************************************
 //Матрицы
@@ -2452,6 +2584,7 @@ if (z<=2.47638181818)
 return f;
 }
 //---------------------------------------------------------------------------
+
 double MHL_BellShapedKernelParabola(double z)
 {
 /*
@@ -2467,6 +2600,7 @@ if (z*z<=5)
 return f;
 }
 //---------------------------------------------------------------------------
+
 double MHL_BellShapedKernelRectangle(double z)
 {
 /*
@@ -2483,6 +2617,7 @@ if (z<=1)
 return f;
 }
 //---------------------------------------------------------------------------
+
 double MHL_BellShapedKernelTriangle(double z)
 {
 /*
@@ -2499,6 +2634,7 @@ if (z<=1)
 return f;
 }
 //---------------------------------------------------------------------------
+
 double MHL_DerivativeOfBellShapedKernelExp(double z)
 {
 /*
@@ -2513,6 +2649,7 @@ if (fabs(z)<=2.47638181818) f=0.05968*(exp(z)-exp(-z))-0.308586*z;
 return f;
 }
 //---------------------------------------------------------------------------
+
 double MHL_DerivativeOfBellShapedKernelParabola(double z)
 {
 /*
@@ -2527,6 +2664,7 @@ if (z*z<=5) f=-0.134*z;
 return f;
 }
 //---------------------------------------------------------------------------
+
 double MHL_DerivativeOfBellShapedKernelRectangle(double z)
 {
 /*
@@ -2542,6 +2680,7 @@ if (z==-1) f=1.7E308;
 return f;
 }
 //---------------------------------------------------------------------------
+
 double MHL_DerivativeOfBellShapedKernelTriangle(double z)
 {
 /*
@@ -2557,6 +2696,7 @@ if ((z<0)&&(z>=-1)) f=1.;
 return f;
 }
 //---------------------------------------------------------------------------
+
 
 //*****************************************************************
 //Нечеткие системы
@@ -2585,6 +2725,7 @@ if (x>d) f=0.;
 return f;
 }
 //---------------------------------------------------------------------------
+
 
 //*****************************************************************
 //Оптимизация
@@ -2680,6 +2821,7 @@ delete [] BestIndividual;
 return 1;//Всё успешно
 }
 //---------------------------------------------------------------------------
+
 void MHL_DichotomyOptimization (double Left, double Right, double (*Function)(double), double Interval, double Epsilon, double *VMHL_Result_X,double *VMHL_Result_Y)
 {
 /*
@@ -2720,6 +2862,7 @@ else
  }
 }
 //---------------------------------------------------------------------------
+
 void MHL_FibonacciOptimization (double Left, double Right, double (*Function)(double), int Count, double *VMHL_Result_X,double *VMHL_Result_Y)
 {
 /*
@@ -2779,6 +2922,7 @@ for (i=2;i<n;i++)
 *VMHL_Result_Y=Function(*VMHL_Result_X);
 }
 //---------------------------------------------------------------------------
+
 void MHL_GoldenSectionOptimization (double Left, double Right, double (*Function)(double), double Interval, double *VMHL_Result_X,double *VMHL_Result_Y)
 {
 /*
@@ -2821,6 +2965,7 @@ while (fabs(Right-Left)>=Interval)
 *VMHL_Result_Y=Function(*VMHL_Result_X);
 }
 //---------------------------------------------------------------------------
+
 void MHL_QuadraticFitOptimization (double Left, double Right, double (*Function)(double), double Epsilon, double Epsilon2, double *VMHL_Result_X,double *VMHL_Result_Y)
 {
 /*
@@ -2897,6 +3042,7 @@ else
  }
 }
 //---------------------------------------------------------------------------
+
 int MHL_RealMonteCarloAlgorithm(int *Parameters, double *Left, double *Right, double (*FitnessFunction)(double*,int), double *VMHL_ResultVector, double *VMHL_Result)
 {
 /*
@@ -2990,6 +3136,7 @@ delete [] BestIndividual;
 return 1;//Всё успешно
 }
 //---------------------------------------------------------------------------
+
 void MHL_RealMonteCarloOptimization (double Left, double Right, double (*Function)(double), int Count, double *VMHL_Result_X,double *VMHL_Result_Y)
 {
 /*
@@ -3024,6 +3171,7 @@ for (i=1;i<Count;i++)
 *VMHL_Result_Y=fmin;
 }
 //---------------------------------------------------------------------------
+
 void MHL_UniformSearchOptimization (double Left, double Right, double (*Function)(double), double Interval, double *VMHL_Result_X,double *VMHL_Result_Y)
 {
 /*
@@ -3058,6 +3206,7 @@ for (i=1;i<n;i++)
 *VMHL_Result_Y=fmin;
 }
 //---------------------------------------------------------------------------
+
 void MHL_UniformSearchOptimizationN (double Left, double Right, double (*Function)(double), int Count, double *VMHL_Result_X,double *VMHL_Result_Y)
 {
 /*
@@ -3093,6 +3242,7 @@ for (i=1;i<n;i++)
 *VMHL_Result_Y=fmin;
 }
 //---------------------------------------------------------------------------
+
 
 //*****************************************************************
 //Оптимизация - свалка алгоритмов
@@ -3357,6 +3507,7 @@ delete [] Child;
 return 1;//Всё успешно
 }
 //---------------------------------------------------------------------------
+
 int MHL_BinaryGeneticAlgorithmTwiceGenerations(int *Parameters, double (*FitnessFunction)(int*,int), int *VMHL_ResultVector, double *VMHL_Result)
 {
     /*
@@ -3653,6 +3804,7 @@ https://github.com/Harrix/HarrixOptimizationAlgorithms
     return 1;//Всё успешно
 }
 //---------------------------------------------------------------------------
+
 int MHL_BinaryGeneticAlgorithmWCC(int *Parameters, double (*FitnessFunction)(int*,int), int *VMHL_ResultVector, double *VMHL_Result)
 {
 /*
@@ -3913,6 +4065,7 @@ delete [] Child;
 return 1;//Всё успешно
 }
 //---------------------------------------------------------------------------
+
 int MHL_BinaryGeneticAlgorithmWDPOfNOfGPS(double *Parameters, double (*FitnessFunction)(int*,int), int *VMHL_ResultVector, double *VMHL_Result)
 {
 /*
@@ -4187,6 +4340,7 @@ delete [] Child;
 return 1;//Всё успешно
 }
 //---------------------------------------------------------------------------
+
 int MHL_BinaryGeneticAlgorithmWDTS(double *Parameters, double (*FitnessFunction)(int*,int), int *VMHL_ResultVector, double *VMHL_Result)
 {
 /*
@@ -4447,6 +4601,7 @@ delete [] Child;
 return 1;//Всё успешно
 }
 //---------------------------------------------------------------------------
+
 int MHL_RealGeneticAlgorithmTournamentSelectionWithReturn(double *Parameters, int *NumberOfParts, double *Left, double *Right, double (*FitnessFunction)(double*,int), double *VMHL_ResultVector, double *VMHL_Result)
 {
 /*
@@ -4604,6 +4759,7 @@ if (TypOfConverting==1)//GrayСodeConverting (Стандартный рефле�
 return 1;//Всё успешно
 }
 //---------------------------------------------------------------------------
+
 int MHL_RealGeneticAlgorithmTwiceGenerations(int *Parameters, int *NumberOfParts, double *Left, double *Right, double (*FitnessFunction)(double*,int), double *VMHL_ResultVector, double *VMHL_Result)
 {
     /*
@@ -4764,6 +4920,7 @@ https://github.com/Harrix/HarrixOptimizationAlgorithms
     return 1;//Всё успешно
 }
 //---------------------------------------------------------------------------
+
 int MHL_RealGeneticAlgorithmWCC(int *Parameters, int *NumberOfParts, double *Left, double *Right, double (*FitnessFunction)(double*,int), double *VMHL_ResultVector, double *VMHL_Result)
 {
 /*
@@ -4923,6 +5080,7 @@ if (TypOfConverting==1)//GrayСodeConverting (Стандартный рефле�
 return 1;//Всё успешно
 }
 //---------------------------------------------------------------------------
+
 int MHL_RealGeneticAlgorithmWDPOfNOfGPS(double *Parameters, int *NumberOfParts, double *Left, double *Right, double (*FitnessFunction)(double*,int), double *VMHL_ResultVector, double *VMHL_Result)
 {
 /*
@@ -5093,6 +5251,7 @@ if (TypOfConverting==1)//GrayСodeConverting (Стандартный рефле�
 return 1;//Всё успешно
 }
 //---------------------------------------------------------------------------
+
 int MHL_RealGeneticAlgorithmWDTS(double *Parameters, int *NumberOfParts, double *Left, double *Right, double (*FitnessFunction)(double*,int), double *VMHL_ResultVector, double *VMHL_Result)
 {
 /*
@@ -5251,6 +5410,7 @@ return 1;//Всё успешно
 }
 //---------------------------------------------------------------------------
 
+
 //*****************************************************************
 //Перевод единиц измерений
 //*****************************************************************
@@ -5266,6 +5426,7 @@ double MHL_DegToRad(double VMHL_X)
 return (MHL_PI*VMHL_X)/180.;
 }
 //---------------------------------------------------------------------------
+
 double MHL_RadToDeg(double VMHL_X)
 {
 /*
@@ -5278,6 +5439,7 @@ double MHL_RadToDeg(double VMHL_X)
 return (180.*VMHL_X)/MHL_PI;
 }
 //---------------------------------------------------------------------------
+
 
 //*****************************************************************
 //Случайные объекты
@@ -5312,6 +5474,7 @@ else
  return 0;
 }
 //---------------------------------------------------------------------------
+
 void MHL_RandomRealMatrix(double **VMHL_ResultMatrix, double Left, double Right, int VMHL_N, int VMHL_M)
 {
 /*
@@ -5330,6 +5493,7 @@ for (int i=0;i<VMHL_N;i++)
         VMHL_ResultMatrix[i][j]=MHL_RandomUniform(Left,Right);
 }
 //---------------------------------------------------------------------------
+
 void MHL_RandomRealMatrixInCols(double **VMHL_ResultMatrix, double *Left, double *Right, int VMHL_N, int VMHL_M)
 {
 /*
@@ -5349,6 +5513,7 @@ for (int i=0;i<VMHL_N;i++)
   VMHL_ResultMatrix[i][j]=MHL_RandomUniform(Left[j],Right[j]);
 }
 //---------------------------------------------------------------------------
+
 void MHL_RandomRealMatrixInElements(double **VMHL_ResultMatrix, double **Left, double **Right, int VMHL_N, int VMHL_M)
 {
 /*
@@ -5369,6 +5534,7 @@ for (int i=0;i<VMHL_N;i++)
 }
 
 //---------------------------------------------------------------------------
+
 void MHL_RandomRealMatrixInRows(double **VMHL_ResultMatrix, double *Left, double *Right, int VMHL_N, int VMHL_M)
 {
 /*
@@ -5388,6 +5554,7 @@ for (int i=0;i<VMHL_N;i++)
   VMHL_ResultMatrix[i][j]=MHL_RandomUniform(Left[i],Right[i]);
 }
 //---------------------------------------------------------------------------
+
 void MHL_RandomRealVector(double *VMHL_ResultVector, double Left, double Right, int VMHL_N)
 {
 /*
@@ -5404,6 +5571,7 @@ for (int i=0;i<VMHL_N;i++)
  VMHL_ResultVector[i]=MHL_RandomUniform(Left,Right);
 }
 //---------------------------------------------------------------------------
+
 void MHL_RandomRealVectorInElements(double *VMHL_ResultVector, double *Left, double *Right, int VMHL_N)
 {
 /*
@@ -5420,6 +5588,7 @@ for (int i=0;i<VMHL_N;i++)
  VMHL_ResultVector[i]=MHL_RandomUniform(Left[i],Right[i]);
 }
 //---------------------------------------------------------------------------
+
 void MHL_RandomVectorOfProbability(double *VMHL_ResultVector, int VMHL_N)
 {
 /*
@@ -5446,6 +5615,7 @@ else
  }
 }
 //---------------------------------------------------------------------------
+
 
 //*****************************************************************
 //Случайные числа
@@ -5492,6 +5662,7 @@ return VMHL_Result;
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 double MHL_RandomUniform(double a, double b)
 {
 /*
@@ -5505,6 +5676,7 @@ double MHL_RandomUniform(double a, double b)
 return (a+MHL_RandomNumber()*(b-a));
 }
 //---------------------------------------------------------------------------
+
 int MHL_RandomUniformInt(int n, int m)
 {
 /*
@@ -5521,6 +5693,7 @@ if (VMHL_Result==m) VMHL_Result=m-1;
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 int MHL_RandomUniformIntIncluding(int n, int m)
 {
 /*
@@ -5539,6 +5712,7 @@ if (VMHL_Result==m+1) VMHL_Result=m+1-1;
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 
 //*****************************************************************
 //Сортировка
@@ -5559,6 +5733,7 @@ double MHL_DensityOfDistributionOfNormalizedCenteredNormalDistribution(double x)
 return ((1./sqrt(2.*MHL_PI))*MHL_ExpMSxD2(x));
 }
 //---------------------------------------------------------------------------
+
 double MHL_DistributionFunctionOfNormalDistribution(double x, double mu, double sigma, double Epsilon)
 {
 /*
@@ -5579,6 +5754,7 @@ double MHL_DistributionFunctionOfNormalDistribution(double x, double mu, double 
     return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 double MHL_DistributionFunctionOfNormalizedCenteredNormalDistribution(double x, double Epsilon)
 {
 /*
@@ -5603,6 +5779,7 @@ double MHL_DistributionFunctionOfNormalizedCenteredNormalDistribution(double x, 
 	return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 double MHL_LeftBorderOfWilcoxonWFromTable(int m, int n, double Q)
 {
     /*
@@ -8696,6 +8873,7 @@ double MHL_LeftBorderOfWilcoxonWFromTable(int m, int n, double Q)
     return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 double MHL_RightBorderOfWilcoxonWFromTable(int m, int n, double Q)
 {
     /*
@@ -9151,6 +9329,7 @@ double MHL_RightBorderOfWilcoxonWFromTable(int m, int n, double Q)
     return (VMHL_Result-LeftBorder);
 }
 //---------------------------------------------------------------------------
+
 double MHL_StdDevToVariance(double StdDev)
 {
 /*
@@ -9163,6 +9342,7 @@ double MHL_StdDevToVariance(double StdDev)
 return StdDev*StdDev;
 }
 //---------------------------------------------------------------------------
+
 double MHL_VarianceToStdDev(double Variance)
 {
 /*
@@ -9175,6 +9355,7 @@ double MHL_VarianceToStdDev(double Variance)
 return sqrt(Variance);
 }
 //---------------------------------------------------------------------------
+
 int MHL_WilcoxonW(double *a, double *b, int VMHL_N1, int VMHL_N2, double Q)
 {
 /*
@@ -9293,6 +9474,7 @@ return VMHL_Result;
 }
 //---------------------------------------------------------------------------
 
+
 //*****************************************************************
 //Тестовые функции для оптимизации
 //*****************************************************************
@@ -9316,6 +9498,7 @@ VMHL_Result=20.+exp(1.)-20.*f1-f2;
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 double MHL_TestFunction_AdditivePotential(double x, double y)
 {
 /*
@@ -9334,6 +9517,7 @@ VMHL_Result=z1+z2;
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 double MHL_TestFunction_Bosom(double x, double y)
 {
 /*
@@ -9353,6 +9537,7 @@ VMHL_Result=exp(sk1/1000.)+exp(sk2/1000.)+0.15*exp(sk1)+0.15*exp(sk2);
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 double MHL_TestFunction_EggHolder(double x, double y)
 {
 /*
@@ -9371,6 +9556,7 @@ VMHL_Result=-x*sin(sqrt(fabs(x-(y+47.))))-(y+47)*sin(sqrt(fabs(x/2.+47+y)));
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 double MHL_TestFunction_GaussianQuartic(double *x, int VMHL_N)
 {
 /*
@@ -9391,6 +9577,7 @@ VMHL_Result+=MHL_RandomNormal(0, 1);
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 double MHL_TestFunction_Griewangk(double *x, int VMHL_N)
 {
 /*
@@ -9416,6 +9603,7 @@ VMHL_Result=VMHL_Result-f+1.;
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 double MHL_TestFunction_Himmelblau(double x, double y)
 {
 /*
@@ -9432,6 +9620,7 @@ VMHL_Result=(x*x+y-11)*(x*x+y-11)+(x+y*y-7)*(x+y*y-7);
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 double MHL_TestFunction_HyperEllipsoid(double *x, int VMHL_N)
 {
 /*
@@ -9451,6 +9640,7 @@ for (int i=0;i<VMHL_N;i++)
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 double MHL_TestFunction_InvertedRosenbrock(double x, double y)
 {
 /*
@@ -9469,6 +9659,7 @@ VMHL_Result=-100./(100.*(x*x-y)+(1.-x)*(1.-x)+600.);
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 double MHL_TestFunction_Katnikov(double x, double y)
 {
 /*
@@ -9486,6 +9677,7 @@ VMHL_Result=0.5*(x*x+y*y)*(2*A+A*cos(1.5*x)*cos(3.14*y)+A*cos(sqrt(5)*x)*cos(3.5
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 double MHL_TestFunction_Multiextremal(double x)
 {
 /*
@@ -9501,6 +9693,7 @@ VMHL_Result = (0.05*(x-1.)*(x-1.)+(3.-2.9*exp(-2.77257*x*x))*(1-cos(x*(4.-50*exp
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 double MHL_TestFunction_Multiextremal2(double x)
 {
 /*
@@ -9516,6 +9709,7 @@ VMHL_Result = 1.-0.5*cos(1.5*(10.*x-0.3))*cos(31.4*x)+0.5*cos(sqrt(5.)*10.*x)*co
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 double MHL_TestFunction_Multiextremal3(double x, double y)
 {
 /*
@@ -9532,6 +9726,7 @@ VMHL_Result=x*x*fabs(sin(2.*x))+y*y*fabs(sin(2.*y))-1./(5.*x*x+5.*y*y+0.2)+5.;
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 double MHL_TestFunction_Multiextremal4(double x, double y)
 {
 /*
@@ -9548,6 +9743,7 @@ VMHL_Result=0.5*(x*x+x*y+y*y)*(1.+0.5*cos(1.5*x)*cos(3.2*x*y)*cos(3.14*y)+0.5*co
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 double MHL_TestFunction_MultiplicativePotential(double x, double y)
 {
 /*
@@ -9566,6 +9762,7 @@ VMHL_Result=-z1*z2;
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 double MHL_TestFunction_ParaboloidOfRevolution(double *x, int VMHL_N)
 {
 /*
@@ -9582,6 +9779,7 @@ for (int i=0;i<VMHL_N;i++) VMHL_Result+=x[i]*x[i];
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 double MHL_TestFunction_Rana(double x, double y)
 {
 /*
@@ -9598,6 +9796,7 @@ VMHL_Result=x*sin(sqrt(fabs(y+1.-x)))*cos(sqrt(fabs(y+1.+x))) + (y+1.)*cos(sqrt(
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 double MHL_TestFunction_Rastrigin(double *x, int VMHL_N)
 {
 /*
@@ -9615,6 +9814,7 @@ VMHL_Result+=10*VMHL_N;
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 double MHL_TestFunction_RastriginNovgorod(double *x, int VMHL_N)
 {
 /*
@@ -9636,6 +9836,7 @@ VMHL_Result+=VMHL_N;
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 double MHL_TestFunction_RastriginWithChange(double x, double y)
 {
 /*
@@ -9654,6 +9855,7 @@ VMHL_Result=0.1*x*x+0.1*y*y-4.*cos(0.8*x)-4.*cos(0.8*y)+8.;
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 double MHL_TestFunction_RastriginWithTurning(double x, double y)
 {
 /*
@@ -9680,6 +9882,7 @@ VMHL_Result=(0.1*kx*A)*(0.1*kx*A)+(0.1*ky*B)*(0.1*ky*B)-4.*cos(0.8*kx*A)-4.*cos(
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 double MHL_TestFunction_ReverseGriewank(double x, double y)
 {
 /*
@@ -9698,6 +9901,7 @@ VMHL_Result = 1./((x*x+y*y)/200.-cos(x)*cos(y/sqrt(2.))+2.);
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 double MHL_TestFunction_Rosenbrock(double *x, int VMHL_N)
 {
 /*
@@ -9714,6 +9918,7 @@ for (int i=0;i<VMHL_N-1;i++) VMHL_Result+=100.*(x[i+1]-x[i]*x[i])*(x[i+1]-x[i]*x
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 double MHL_TestFunction_RotatedHyperEllipsoid(double *x, int VMHL_N)
 {
 /*
@@ -9739,6 +9944,7 @@ for (int i=0;i<VMHL_N;i++)
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 double MHL_TestFunction_Schwefel(double *x, int VMHL_N)
 {
 /*
@@ -9758,6 +9964,7 @@ for (int i=0;i<VMHL_N;i++)
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 double MHL_TestFunction_ShekelsFoxholes(double x, double y)
 {
 /*
@@ -9842,6 +10049,7 @@ VMHL_Result=1./VMHL_Result;
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 double MHL_TestFunction_Sombrero(double x, double y)
 {
 /*
@@ -9859,6 +10067,7 @@ VMHL_Result /= (1.+0.001*(x*x+y*y));
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 double MHL_TestFunction_StepFunction(double *x, int VMHL_N)
 {
 /*
@@ -9891,6 +10100,7 @@ double MHL_TestFunction_StepFunction(double *x, int VMHL_N)
     return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 double MHL_TestFunction_SumVector(int *x, int VMHL_N)
 {
 /*
@@ -9908,6 +10118,7 @@ return VMHL_Result;
 }
 
 //---------------------------------------------------------------------------
+
 double MHL_TestFunction_Wave(double x)
 {
 /*
@@ -9923,6 +10134,7 @@ VMHL_Result = (exp(-x*x)+0.01*cos(200*x));
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+
 
 //*****************************************************************
 //Тригонометрические функции
@@ -9941,6 +10153,7 @@ double MHL_Cos(double x)
 return cos(x);
 }
 //---------------------------------------------------------------------------
+
 double MHL_CosDeg(double x)
 {
 /*
@@ -9953,6 +10166,7 @@ double MHL_CosDeg(double x)
 return cos(MHL_DegToRad(x));
 }
 //---------------------------------------------------------------------------
+
 double MHL_Cosec(double x)
 {
 /*
@@ -9965,6 +10179,7 @@ double MHL_Cosec(double x)
 return 1./sin(x);
 }
 //---------------------------------------------------------------------------
+
 double MHL_CosecDeg(double x)
 {
 /*
@@ -9977,6 +10192,7 @@ double MHL_CosecDeg(double x)
 return 1./sin(MHL_DegToRad(x));
 }
 //---------------------------------------------------------------------------
+
 double MHL_Cotan(double x)
 {
 /*
@@ -9989,6 +10205,7 @@ double MHL_Cotan(double x)
 return 1./tan(x);
 }
 //---------------------------------------------------------------------------
+
 double MHL_CotanDeg(double x)
 {
 /*
@@ -10001,6 +10218,7 @@ double MHL_CotanDeg(double x)
 return 1./tan(MHL_DegToRad(x));
 }
 //---------------------------------------------------------------------------
+
 double MHL_Sec(double x)
 {
 /*
@@ -10013,6 +10231,7 @@ double MHL_Sec(double x)
 return 1./cos(x);
 }
 //---------------------------------------------------------------------------
+
 double MHL_SecDeg(double x)
 {
 /*
@@ -10025,6 +10244,7 @@ double MHL_SecDeg(double x)
 return 1./cos(MHL_DegToRad(x));
 }
 //---------------------------------------------------------------------------
+
 double MHL_Sin(double x)
 {
 /*
@@ -10039,6 +10259,7 @@ double MHL_Sin(double x)
 return sin(x);
 }
 //---------------------------------------------------------------------------
+
 double MHL_SinDeg(double x)
 {
 /*
@@ -10051,6 +10272,7 @@ double MHL_SinDeg(double x)
 return sin(MHL_DegToRad(x));
 }
 //---------------------------------------------------------------------------
+
 double MHL_Tan(double x)
 {
 /*
@@ -10065,6 +10287,7 @@ double MHL_Tan(double x)
 return tan(x);
 }
 //---------------------------------------------------------------------------
+
 double MHL_TanDeg(double x)
 {
 /*
@@ -10077,6 +10300,7 @@ double MHL_TanDeg(double x)
 return tan(MHL_DegToRad(x));
 }
 //---------------------------------------------------------------------------
+
 
 //*****************************************************************
 //Уравнения
@@ -10147,6 +10371,7 @@ int MHL_QuadraticEquation(double a, double b, double c, double *x1, double *x2)
     return 1;
 }
 //---------------------------------------------------------------------------
+
 int MHL_QuadraticEquationCount(double a, double b, double c, double *x1, double *x2)
 {
 /*
@@ -10179,4 +10404,5 @@ int MHL_QuadraticEquationCount(double a, double b, double c, double *x1, double 
     return Result;
 }
 //---------------------------------------------------------------------------
+
 
