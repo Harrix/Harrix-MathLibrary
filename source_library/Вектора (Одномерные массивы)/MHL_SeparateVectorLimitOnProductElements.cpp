@@ -36,27 +36,23 @@ int MHL_SeparateVectorLimitOnProductElements(int *VMHL_Vector, int *Order, int L
     }
     else
     {
-
         int p=1;
-        int i=0;
-        while (p<Limit)
+        int pTemp;
+        int num=0;
+        for (int i=0;i<VMHL_N;i++)
         {
-            if (p*VMHL_Vector[i]<Limit)
-            {
-                p*=VMHL_Vector[i];
-                i++;
-                if (i>=VMHL_N)
-                {
-                    break;
-                }
-            }
-            else
-            {
-                i++;
-                break;
-            }
+          pTemp=p*VMHL_Vector[i];
+          if (pTemp>Limit)
+          {
+            break;
+          }
+          else
+          {
+              p=pTemp;
+              num=i;
+          }
         }
-        VMHL_Result=i;
+        VMHL_Result=num+1;
     }
 
     delete [] VMHL_VectorTemp;
