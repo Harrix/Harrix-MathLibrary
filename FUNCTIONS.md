@@ -25,28 +25,28 @@ double MHL_EuclidNorma(double *a,int VMHL_N);
 void MHL_NoiseInVector(double *VMHL_ResultVector, double percent, int VMHL_N);
 ```
 
-- Функция перегрупирует элементы массива так, чтобы произведение элементов в начале вектора было не больше Limit. Для чего вообще функция нужна? У нас имеется несколько групп (в количестве VMHL\N) с количеством элементов, равных числу из вектора. Нужно разделить группы на две группы так, чтобы в одной из них произведение количеств элементов было не больше Limit. При этом в Order сохраняем порядок элементов, а возвращаем количество элементов в первой подгруппе.
+- Функция перегрупирует элементы массива так, чтобы произведение элементов в начале вектора было не больше Limit. Для чего вообще функция нужна? У нас имеется несколько групп (в количестве VMHL_N) с количеством элементов, равных числу из вектора. Нужно разделить группы на две группы так, чтобы в одной из них произведение количеств элементов было не больше Limit. При этом в Order сохраняем порядок элементов, а возвращаем количество элементов в первой подгруппе.
 
 
 ```cpp
 int MHL_SeparateVectorLimitOnProductElements(int *VMHL_Vector, int *Order, int Limit, int VMHL_N);
 ```
 
-- Функция перегрупирует элементы массива так, чтобы произведение элементов в начале вектора было не больше Limit. Для чего вообще функция нужна? У нас имеется несколько групп (в количестве VMHL\N) с количеством элементов, равных числу из вектора. Нужно разделить группы на две группы так, чтобы в одной из них произведение количеств элементов было не больше Limit. При этом в Order сохраняем порядок элементов, а возвращаем количество элементов в первой подгруппе. Алгоритм в данной функции немного другой, чем в функции MHL\SeparateVectorLimitOnProductElements.
+- Функция перегрупирует элементы массива так, чтобы произведение элементов в начале вектора было не больше Limit. Для чего вообще функция нужна? У нас имеется несколько групп (в количестве VMHL_N) с количеством элементов, равных числу из вектора. Нужно разделить группы на две группы так, чтобы в одной из них произведение количеств элементов было не больше Limit. При этом в Order сохраняем порядок элементов, а возвращаем количество элементов в первой подгруппе. Алгоритм в данной функции немного другой, чем в функции MHL_SeparateVectorLimitOnProductElements.
 
 
 ```cpp
 int MHL_SeparateVectorLimitOnProductElementsTwo(int *VMHL_Vector, int *Order, int Limit, int VMHL_N);
 ```
 
-- Функция вмещает вектор VMHL\ResultVector в прямоугольную многомерной области, определяемой левыми границами и правыми границами. Если какая-то координата вектора выходит за границу, то значение этой координаты принимает граничное значение.
+- Функция вмещает вектор VMHL_ResultVector в прямоугольную многомерной области, определяемой левыми границами и правыми границами. Если какая-то координата вектора выходит за границу, то значение этой координаты принимает граничное значение.
 
 
 ```cpp
 template <class T> void TMHL_AcceptanceLimits(T *VMHL_ResultVector, T *Left, T *Right, int VMHL_N);
 ```
 
-- Функция меняет порядок элементов в массиве VMHL\Vector и сохраняет в другой VMHL\ResultVector согласно массиву Order, в котором записан новый порядок элементов. Функция-перезагрузка меняет порядок элементов в массиве VMHL\Vector согласно массиву Order, в котором записан новый порядок элементов.
+- Функция меняет порядок элементов в массиве VMHL_Vector и сохраняет в другой VMHL_ResultVector согласно массиву Order, в котором записан новый порядок элементов. Функция-перезагрузка меняет порядок элементов в массиве VMHL_Vector согласно массиву Order, в котором записан новый порядок элементов.
 
 
 ```cpp
@@ -209,6 +209,20 @@ template <class T> int TMHL_SearchFirstNotZero(T *x, int VMHL_N);
 template <class T> int TMHL_SearchFirstZero(T *x, int VMHL_N);
 ```
 
+- Функция сдвигает циклически в векторе (одномерном массиве) все элементы влево на один элемент.
+
+
+```cpp
+template <class T> void TMHL_ShiftLeftVector(T *VMHL_Vector, int VMHL_N);
+```
+
+- Функция сдвигает циклически в векторе (одномерном массиве) все элементы вправо на один элемент.
+
+
+```cpp
+template <class T> void TMHL_ShiftRightVector(T *VMHL_Vector, int VMHL_N);
+```
+
 - Функция вычисляет сумму квадратов элементов вектора.
 
 
@@ -277,7 +291,7 @@ void MHL_ArithmeticalCrossoverForReal(double *Parent1, double *Parent2, double *
 void MHL_BLXCrossoverForReal(double *Parent1, double *Parent2, double *VMHL_ResultVector, double alpha, int VMHL_N);
 ```
 
-- Служебная функция. Функция вычисляет целевую функцию бинарного вектора, в котором закодирован вещественный вектор. Использует внутренние служебные переменные. Функция для MHL\StandartRealGeneticAlgorithm. Использовать для своих целей не рекомендуется.
+- Служебная функция. Функция вычисляет целевую функцию бинарного вектора, в котором закодирован вещественный вектор. Использует внутренние служебные переменные. Функция для MHL_StandartRealGeneticAlgorithm. Использовать для своих целей не рекомендуется.
 
 
 ```cpp
@@ -312,21 +326,21 @@ void MHL_GeometricalCrossoverForReal(double *Parent1, double *Parent2, double *V
 void MHL_LinearCrossoverForReal(double *Parent1, double *Parent2, double *VMHL_ResultVector, int VMHL_N);
 ```
 
-- Функция формирует вектор вероятностей выбора индивидов из вектора значений функции пригодности. Формирование вектора происходит согласно правилам пропорционально селекции из ГА. Это служебная функция для использования функции пропорциональной селекции MHL\ProportionalSelectionV2.
+- Функция формирует вектор вероятностей выбора индивидов из вектора значений функции пригодности. Формирование вектора происходит согласно правилам пропорционально селекции из ГА. Это служебная функция для использования функции пропорциональной селекции MHL_ProportionalSelectionV2.
 
 
 ```cpp
 void MHL_MakeVectorOfProbabilityForProportionalSelectionV2(double *Fitness, double *VMHL_ResultVector, int VMHL_N);
 ```
 
-- Функция формирует вектор вероятностей выбора индивидов из вектора рангов для ранговой селекции. Это служебная функция для использования функции ранговой селекции MHL\RankSelection.
+- Функция формирует вектор вероятностей выбора индивидов из вектора рангов для ранговой селекции. Это служебная функция для использования функции ранговой селекции MHL_RankSelection.
 
 
 ```cpp
 void MHL_MakeVectorOfProbabilityForRanklSelection(double *Rank, double *VMHL_ResultVector, int VMHL_N);
 ```
 
-- Проставляет ранги для элементов не сортированного массива, то есть номера, начиная с 1, в отсортированном массиве.  Если в массиве есть несколько одинаковых элементов, то ранги им присуждаются как среднеарифметические. Это служебная функция для функции MHL\RankSelection.
+- Проставляет ранги для элементов не сортированного массива, то есть номера, начиная с 1, в отсортированном массиве.  Если в массиве есть несколько одинаковых элементов, то ранги им присуждаются как среднеарифметические. Это служебная функция для функции MHL_RankSelection.
 
 
 ```cpp
@@ -340,7 +354,7 @@ void MHL_MakeVectorOfRankForRankSelection(double *Fitness, double *VMHL_ResultVe
 void MHL_MakeVectorOfRankZeroForRankSelection(double *Fitness, double *VMHL_ResultVector, int VMHL_N);
 ```
 
-- Нормировка вектора чисел в отрезок $[0;1]$ посредством функции MHL\NormalizationNumberAll.
+- Нормировка вектора чисел в отрезок $[0;1]$ посредством функции MHL_NormalizationNumberAll.
 
 
 ```cpp
@@ -375,7 +389,7 @@ double MHL_ProbabilityOfTournamentSelection(double *Fitness, double *VMHL_Result
 int MHL_ProportionalSelection(double *Fitness, int VMHL_N);
 ```
 
-- Пропорциональная селекция. Оператор генетического алгоритма. Работает с вектором вероятностей выбора индивидов, который можно получить из вектора пригодностей индивидов посредством функции MHL\MakeVectorOfProbabilityForProportionalSelectionV2.
+- Пропорциональная селекция. Оператор генетического алгоритма. Работает с вектором вероятностей выбора индивидов, который можно получить из вектора пригодностей индивидов посредством функции MHL_MakeVectorOfProbabilityForProportionalSelectionV2.
 
 
 ```cpp
@@ -389,7 +403,7 @@ int MHL_ProportionalSelectionV2(double *VectorOfProbability, int VMHL_N);
 int MHL_ProportionalSelectionV3(double *Fitness, int VMHL_N);
 ```
 
-- Ранговая селекция. Оператор генетического алгоритма. Работает с вектором вероятностей выбора индивидов, который можно получить из вектора пригодностей индивидов посредством функции MHL\MakeVectorOfRankForRankSelection (для получения массива рангов) и потом функции MHL\MakeVectorOfProbabilityForProportionalSelectionV2 (для получения массива вероятностей выбора индивидов по рангам).
+- Ранговая селекция. Оператор генетического алгоритма. Работает с вектором вероятностей выбора индивидов, который можно получить из вектора пригодностей индивидов посредством функции MHL_MakeVectorOfRankForRankSelection (для получения массива рангов) и потом функции MHL_MakeVectorOfProbabilityForProportionalSelectionV2 (для получения массива вероятностей выбора индивидов по рангам).
 
 
 ```cpp
@@ -737,7 +751,7 @@ int MHL_GreatestCommonDivisorEuclid(int A,int B);
 int MHL_HowManyPowersOfTwo(int x);
 ```
 
-- Функция осуществляет обратную нормировку числа из интервала $\left[0;1\right] $  в интервал $\left[-\infty;\infty \right] $, которое было осуществлено функцией MHL\NormalizationNumberAll.
+- Функция осуществляет обратную нормировку числа из интервала $\left[0;1\right] $  в интервал $\left[-\infty;\infty \right] $, которое было осуществлено функцией MHL_NormalizationNumberAll.
 
 
 ```cpp
@@ -765,7 +779,7 @@ double MHL_MeaningOfLife();
 void MHL_MixedMultiLogicVectorOfFullSearch(int *VMHL_Vector, int I, int *HowMuchInElements, int VMHL_N);
 ```
 
-- Функция нормирует число из интервала $\left[-\infty;\infty \right] $ в интервал $\left[0;1\right]$. При этом в нуле возвращает $0.5$, в $-\infty$ возвращает $0$, в $\infty$ возвращает $1$. Если $x<y$, то $MHL\NormalizationNumberAll(x)<MHL\NormalizationNumberAll(y)$. Под бесконечностью принимается машинная бесконечность.
+- Функция нормирует число из интервала $\left[-\infty;\infty \right] $ в интервал $\left[0;1\right]$. При этом в нуле возвращает $0.5$, в $-\infty$ возвращает $0$, в $\infty$ возвращает $1$. Если $x<y$, то $MHL_NormalizationNumberAll(x)<MHL_NormalizationNumberAll(y)$. Под бесконечностью принимается машинная бесконечность.
 
 
 ```cpp
@@ -1017,7 +1031,7 @@ template <class T> void TMHL_MatrixTMultiplyMatrix(T **a, T **b, T **VMHL_Result
 template <class T> void TMHL_MatrixToCol(T **a, T *VMHL_ResultVector, int VMHL_N, int k);
 ```
 
-- Функция копирует содержимое матрицы (двумерного массива) a в массив VMHL\ResultMatrix.
+- Функция копирует содержимое матрицы (двумерного массива) a в массив VMHL_ResultMatrix.
 
 
 ```cpp
@@ -1116,6 +1130,16 @@ template <class T> T TMHL_Euclid(T *x, T *y, int VMHL_N);
 
 ```cpp
 template <class T> T TMHL_Minkovski(T *x, T *y, int r, int VMHL_N);
+```
+
+Модели
+----------------
+
+- Итерационная модель маятника Максвелла с затухающими колебаниями с управлением. Вызов данной процедуры прогоняет только одну итерацию, то есть одно наблюдение. Последующий вызов процедуры покажет положение маятника в следующий момент времени. Самим параметры менять не надо при вызове следующей итерации, так как процедура сама все поменяет (кроме, естественно, управляющего ускорения).
+
+
+```cpp
+int MHL_PendulumOfMaxwell(double *Data);
 ```
 
 Непараметрика
@@ -1233,7 +1257,7 @@ void MHL_QuadraticFitOptimization (double Left, double Right, double (*Function)
 int MHL_RealMonteCarloAlgorithm(int *Parameters, double *Left, double *Right, double (*FitnessFunction)(double*,int), double *VMHL_ResultVector, double *VMHL_Result);
 ```
 
-- Метод Монте-Карло (Monte-Carlo). Простейший метод оптимизации на вещественных строках. Ищет минимум. От функции MHL\RealMonteCarloAlgorithm отличается тем, что ищет минимум, а не максимум, и не у многомерной функции, а одномерной. Вводится, чтобы было продолжением однотипных методов оптимизации одномерных унимодальных функций.
+- Метод Монте-Карло (Monte-Carlo). Простейший метод оптимизации на вещественных строках. Ищет минимум. От функции MHL_RealMonteCarloAlgorithm отличается тем, что ищет минимум, а не максимум, и не у многомерной функции, а одномерной. Вводится, чтобы было продолжением однотипных методов оптимизации одномерных унимодальных функций.
 
 
 ```cpp
@@ -1247,7 +1271,7 @@ void MHL_RealMonteCarloOptimization (double Left, double Right, double (*Functio
 void MHL_UniformSearchOptimization (double Left, double Right, double (*Function)(double), double Interval, double *VMHL_Result_X,double *VMHL_Result_Y);
 ```
 
-- Метод равномерного поиска. Метод одномерной оптимизации функции на интервале. Ищет минимум. От MHL\UniformSearchOptimization отличается тем, что вместо параметра шага равномерного прохода используется число вычислений целевой функции, но они взаимозаменяемы.
+- Метод равномерного поиска. Метод одномерной оптимизации функции на интервале. Ищет минимум. От MHL_UniformSearchOptimization отличается тем, что вместо параметра шага равномерного прохода используется число вычислений целевой функции, но они взаимозаменяемы.
 
 
 ```cpp
@@ -1414,7 +1438,7 @@ void MHL_RandomVectorOfProbability(double *VMHL_ResultVector, int VMHL_N);
 template <class T> void TMHL_BernulliVector(T *VMHL_ResultVector, int VMHL_N);
 ```
 
-- Функция предлагает случайный способ расставить N объектов в VMHL\N корзин при условии, что в каждой корзине может располагаться только один предмет.
+- Функция предлагает случайный способ расставить N объектов в VMHL_N корзин при условии, что в каждой корзине может располагаться только один предмет.
 
 
 ```cpp
@@ -1470,21 +1494,21 @@ template <class T> void TMHL_RandomIntMatrixInRows(T **VMHL_ResultMatrix, T *n, 
 template <class T> void TMHL_RandomIntVector(T *VMHL_ResultVector, T n, T m, int VMHL_N);
 ```
 
-- Функция заполняет массив случайными целыми  числами из определенного интервала [n\i,m\i). При этом для каждого элемента массива свой интервал изменения.
+- Функция заполняет массив случайными целыми  числами из определенного интервала [n_i,m_i). При этом для каждого элемента массива свой интервал изменения.
 
 
 ```cpp
 template <class T> void TMHL_RandomIntVectorInElements(T *VMHL_ResultVector, T *n, T *m, int VMHL_N);
 ```
 
-- Функция создает случайный массив строк-перестановок чисел от 1 до VMHL\M.
+- Функция создает случайный массив строк-перестановок чисел от 1 до VMHL_M.
 
 
 ```cpp
 template <class T> void TMHL_RandomMatrixOfPermutation(T **VMHL_ResultMatrix, int VMHL_N, int VMHL_M);
 ```
 
-- Функция создает случайную строку-перестановку чисел от 1 до VMHL\N (включительно).
+- Функция создает случайную строку-перестановку чисел от 1 до VMHL_N (включительно).
 
 
 ```cpp
@@ -2013,7 +2037,7 @@ double MHL_TanDeg(double x);
 int MHL_QuadraticEquation(double a, double b, double c, double *x1, double *x2);
 ```
 
-- Функция решает квадратное уравнение вида: $a\cdot x^2+b\cdot x+c=0$. Ответ представляет собой два действительных числа. Отличается от MHL\QuadraticEquation только тем, что возвращается количество решений, а не его наличие.
+- Функция решает квадратное уравнение вида: $a\cdot x^2+b\cdot x+c=0$. Ответ представляет собой два действительных числа. Отличается от MHL_QuadraticEquation только тем, что возвращается количество решений, а не его наличие.
 
 
 ```cpp
