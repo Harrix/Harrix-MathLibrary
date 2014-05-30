@@ -1,0 +1,21 @@
+          int VMHL_N=10;//Размер массива
+          double *a;
+          a=new double[VMHL_N];
+
+          for (int i=0;i<VMHL_N;i++) a[i]=MHL_RandomUniformInt(0,6);//Заполняем случайными значениями
+
+          MHL_ShowVectorT (a,VMHL_N,"Заполненный вектор", "a");
+          //Заполненный вектор:
+          //a =	  
+          //4	3	4	2	2	2	0	0	4	5
+
+          //Вызов функции
+          TMHL_ShiftRightVector(a,VMHL_N);
+
+          //Используем полученный результат
+          MHL_ShowVectorT (a,VMHL_N,"Заполненный вектор", "a");
+          //Заполненный вектор:
+          //a =	 
+          //5	4	3	4	2	2	2	0	0	4
+
+          delete [] a;

@@ -354,7 +354,7 @@ void MHL_MakeVectorOfRankForRankSelection(double *Fitness, double *VMHL_ResultVe
 void MHL_MakeVectorOfRankZeroForRankSelection(double *Fitness, double *VMHL_ResultVector, int VMHL_N);
 ```
 
-- Нормировка вектора чисел в отрезок $[0;1]$ посредством функции MHL_NormalizationNumberAll.
+- Нормировка вектора чисел в отрезок [0;1] посредством функции MHL_NormalizationNumberAll.
 
 
 ```cpp
@@ -368,7 +368,7 @@ void MHL_NormalizationVectorAll(double *x,int VMHL_N);
 void MHL_NormalizationVectorMaxMin(double *VMHL_ResultVector,int VMHL_N);
 ```
 
-- Нормировка вектора чисел в отрезок $[0,1]$ так, чтобы сумма всех элементов была равна 1.
+- Нормировка вектора чисел в отрезок [0,1] так, чтобы сумма всех элементов была равна 1.
 
 
 ```cpp
@@ -520,7 +520,7 @@ template <class T> void TMHL_UniformCrossover(T *Parent1, T *Parent2, T *VMHL_Re
 Геометрия
 ----------------
 
-- Функция представляет собой уравнение прямой по общему уравнению прямой вида $Ax+By+C=0$.
+- Функция представляет собой уравнение прямой по общему уравнению прямой вида Ax+By+C=0.
 
 
 ```cpp
@@ -528,7 +528,7 @@ double MHL_LineGeneralForm(double x, double A, double B, double C, int *solution
 double MHL_LineGeneralForm(double x, double A, double B, double C);
 ```
 
-- Функция представляет собой уравнение прямой с угловым коэффициентом вида $y=kx+b$.
+- Функция представляет собой уравнение прямой с угловым коэффициентом вида y=kx+b.
 
 
 ```cpp
@@ -543,7 +543,7 @@ double MHL_LineTwoPoint(double x, double x1, double y1, double x2, double y2, in
 double MHL_LineTwoPoint(double x, double x1, double y1, double x2, double y2);
 ```
 
-- Функция представляет собой уравнение параболы вида: $y=ax^2+bx+c$.
+- Функция представляет собой уравнение параболы вида: y=ax^2+bx+c.
 
 
 ```cpp
@@ -723,7 +723,7 @@ double MHL_AnswerToTheUltimateQuestionOfLifeTheUniverseAndEverything();
 double MHL_ArithmeticalProgression(double a1,double d,int n);
 ```
 
-- Функция вычисляет выражение $exp(-x*x/2)$.
+- Функция вычисляет выражение exp(-x*x/2).
 
 
 ```cpp
@@ -751,7 +751,7 @@ int MHL_GreatestCommonDivisorEuclid(int A,int B);
 int MHL_HowManyPowersOfTwo(int x);
 ```
 
-- Функция осуществляет обратную нормировку числа из интервала $\left[0;1\right] $  в интервал $\left[-\infty;\infty \right] $, которое было осуществлено функцией MHL_NormalizationNumberAll.
+- Функция осуществляет обратную нормировку числа из интервала \left[0;1\right]   в интервал \left[-\infty;\infty \right] , которое было осуществлено функцией MHL_NormalizationNumberAll.
 
 
 ```cpp
@@ -779,7 +779,7 @@ double MHL_MeaningOfLife();
 void MHL_MixedMultiLogicVectorOfFullSearch(int *VMHL_Vector, int I, int *HowMuchInElements, int VMHL_N);
 ```
 
-- Функция нормирует число из интервала $\left[-\infty;\infty \right] $ в интервал $\left[0;1\right]$. При этом в нуле возвращает $0.5$, в $-\infty$ возвращает $0$, в $\infty$ возвращает $1$. Если $x<y$, то $MHL_NormalizationNumberAll(x)<MHL_NormalizationNumberAll(y)$. Под бесконечностью принимается машинная бесконечность.
+- Функция нормирует число из интервала \left[-\infty;\infty \right]  в интервал \left[0;1\right]. При этом в нуле возвращает 0.5, в -\infty возвращает 0, в \infty возвращает 1. Если x<y, то MHL_NormalizationNumberAll(x)<MHL_NormalizationNumberAll(y). Под бесконечностью принимается машинная бесконечность.
 
 
 ```cpp
@@ -1201,8 +1201,30 @@ double MHL_DerivativeOfBellShapedKernelRectangle(double z);
 double MHL_DerivativeOfBellShapedKernelTriangle(double z);
 ```
 
+- Непараметрическая оценка регрессии при равномерном законе распределения элементов выборки в точке. Рассматривается одномерный случай: 1 вход и 1 выход. В общем, это аппроксимация функции.
+
+
+```cpp
+double MHL_NonparametricEstimatorOfRegression(double x, double *X, double *Y, int VMHL_N, double C, int V, bool *b);
+double MHL_NonparametricEstimatorOfRegression(double x, double *X, double *Y, int VMHL_N, double C, int V);
+```
+
 Нечеткие системы
 ----------------
+
+- Определяет центр тяжести трапециевидного нечеткого числа.
+
+
+```cpp
+double MHL_CentroidOfTrapeziformFuzzyNumber(double a,double b,double c,double d);
+```
+
+- Функция находит максимальное значение функции принадлежности нечеткого числа, образуемого минимизацией двух трапециевидных нечетких чисел. Необходимо для нечеткого вывода.
+
+
+```cpp
+double MHL_MaxiMinTrapeziformFuzzyNumbers (double *Data);
+```
 
 - Трапециевидное нечеткое число. Точнее его функция принадлежности.
 
@@ -2030,14 +2052,14 @@ double MHL_TanDeg(double x);
 Уравнения
 ----------------
 
-- Функция решает квадратное уравнение вида: $a\cdot x^2+b\cdot x+c=0$. Ответ представляет собой два действительных числа.
+- Функция решает квадратное уравнение вида: a\cdot x^2+b\cdot x+c=0. Ответ представляет собой два действительных числа.
 
 
 ```cpp
 int MHL_QuadraticEquation(double a, double b, double c, double *x1, double *x2);
 ```
 
-- Функция решает квадратное уравнение вида: $a\cdot x^2+b\cdot x+c=0$. Ответ представляет собой два действительных числа. Отличается от MHL_QuadraticEquation только тем, что возвращается количество решений, а не его наличие.
+- Функция решает квадратное уравнение вида: a\cdot x^2+b\cdot x+c=0. Ответ представляет собой два действительных числа. Отличается от MHL_QuadraticEquation только тем, что возвращается количество решений, а не его наличие.
 
 
 ```cpp

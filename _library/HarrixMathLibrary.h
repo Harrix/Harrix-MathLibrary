@@ -20,9 +20,11 @@ const double MHL_1_SQRTPI=0.564189583547756286948;
 const double MHL_2_SQRTPI=1.12837916709551257390;
 const double MHL_SQRT2=1.41421356237309504880;
 const double MHL_SQRT_2=0.707106781186547524401;
-const double MHL_INFINITY=1.7E308;
-const double MHL_MINFINITY=-1.7E308;
-const double MHL_MEANINGOFLIFE=42;
+const double MHL_INFINITY=1.7E308;//Машинная бесконечность
+const double MHL_MINFINITY=-1.7E308;//Минус машинная бесконечность
+const double MHL_MEANINGOFLIFE=42;//Смысл жизни
+const double MHL_G=9.80665;//Ускорение свободного падения
+const double MHL_GM=9.8156;//Ускорение свободного падения в Москве
 
 //ДЛЯ ГЕНЕРАТОРОВ СЛУЧАЙНЫХ ЧИСЕЛ
 enum TypeOfRandomNumberGenerator { StandardRandomNumberGenerator, MersenneTwisterRandomNumberGenerator };//тип генератора случайных чисел: стандартный или MersenneTwister:
@@ -68,6 +70,8 @@ template <class T> void TMHL_ReverseVector(T *VMHL_ResultVector, int VMHL_N);
 template <class T> int TMHL_SearchElementInVector (T *X, T x, int VMHL_N);
 template <class T> int TMHL_SearchFirstNotZero(T *x, int VMHL_N);
 template <class T> int TMHL_SearchFirstZero(T *x, int VMHL_N);
+template <class T> void TMHL_ShiftLeftVector(T *VMHL_Vector, int VMHL_N);
+template <class T> void TMHL_ShiftRightVector(T *VMHL_Vector, int VMHL_N);
 template <class T> T TMHL_SumSquareVector(T *VMHL_Vector,int VMHL_N);
 template <class T> T TMHL_SumVector(T *VMHL_Vector,int VMHL_N);
 template <class T> void TMHL_VectorMinusVector(T *a, T *b, T *VMHL_ResultVector, int VMHL_N);
@@ -224,6 +228,9 @@ template <class T> T TMHL_CityBlock(T *x, T *y, int VMHL_N);
 template <class T> T TMHL_Euclid(T *x, T *y, int VMHL_N);
 template <class T> T TMHL_Minkovski(T *x, T *y, int r, int VMHL_N);
 
+//Модели
+int MHL_PendulumOfMaxwell(double *Data);
+
 //Непараметрика
 double MHL_BellShapedKernelExp(double z);
 double MHL_BellShapedKernelParabola(double z);
@@ -233,8 +240,12 @@ double MHL_DerivativeOfBellShapedKernelExp(double z);
 double MHL_DerivativeOfBellShapedKernelParabola(double z);
 double MHL_DerivativeOfBellShapedKernelRectangle(double z);
 double MHL_DerivativeOfBellShapedKernelTriangle(double z);
+double MHL_NonparametricEstimatorOfRegression(double x, double *X, double *Y, int VMHL_N, double C, int V, bool *b);
+double MHL_NonparametricEstimatorOfRegression(double x, double *X, double *Y, int VMHL_N, double C, int V);
 
 //Нечеткие системы
+double MHL_CentroidOfTrapeziformFuzzyNumber(double a,double b,double c,double d);
+double MHL_MaxiMinTrapeziformFuzzyNumbers (double *Data);
 double MHL_TrapeziformFuzzyNumber(double x,double a,double b,double c,double d);
 
 //Оптимизация
@@ -921,6 +932,44 @@ while ((i<VMHL_N)&&(VMHL_Result==-1))
  i++;
  }
 return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_ShiftLeftVector(T *VMHL_Vector, int VMHL_N)
+{
+/*
+Функция сдвигает циклически в векторе (одномерном массиве) все элементы влево на один элемент.
+Входные параметры:
+ VMHL_Vector - указатель на вектор (одномерный массив);
+ VMHL_N - размер массива.
+Возвращаемое значение:
+ Отсутствует.
+*/
+T Temp;
+Temp=VMHL_Vector[0];
+
+for (int i=0;i<VMHL_N-1;i++)
+    VMHL_Vector[i] = VMHL_Vector[i+1];
+
+VMHL_Vector[VMHL_N-1] = Temp;
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_ShiftRightVector(T *VMHL_Vector, int VMHL_N)
+{
+/*
+Функция сдвигает циклически в векторе (одномерном массиве) все элементы вправо на один элемент.
+Входные параметры:
+ VMHL_Vector - указатель на вектор (одномерный массив);
+ VMHL_N - размер массива.
+Возвращаемое значение:
+ Отсутствует.
+*/
+T Temp;
+Temp=VMHL_Vector[VMHL_N-1];
+
+for (int i=VMHL_N-1;i>0;i--)
+    VMHL_Vector[i] = VMHL_Vector[i-1];
+
+VMHL_Vector[0] = Temp;
 }
 //---------------------------------------------------------------------------
 template <class T> T TMHL_SumSquareVector(T *VMHL_Vector,int VMHL_N)
@@ -2302,6 +2351,9 @@ VMHL_Result=pow(VMHL_Result,1./double(r));
 return VMHL_Result;
 }
 //---------------------------------------------------------------------------
+//*****************************************************************
+//Модели
+//*****************************************************************
 //*****************************************************************
 //Непараметрика
 //*****************************************************************

@@ -872,6 +872,24 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("MHL_SeparateVectorLimitOnProductElementsTwo"));
     model->appendRow(item);
 
+    item = new QStandardItem(QString("TMHL_ShiftLeftVector"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("TMHL_ShiftRightVector"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_PendulumOfMaxwell"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_CentroidOfTrapeziformFuzzyNumber"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_MaxiMinTrapeziformFuzzyNumbers"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_NonparametricEstimatorOfRegression"));
+    model->appendRow(item);
+
     model->sort(0);
 
     //соединение модели списка с конкретным списком
@@ -10116,15 +10134,15 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //Используем полученный результат
         MHL_ShowNumber(VMHL_Success,"Как прошел запуск","VMHL_Success");
         if (VMHL_Success==1)
-         {
-         MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
-         //Найденное решение:
-         //Decision =
-         //1.99951	1.99646
-         MHL_ShowNumber(ValueOfFitnessFunction,"Значение целевой функции","ValueOfFitnessFunction");
-         //Значение целевой функции:
-         //ValueOfFitnessFunction=-1.27703e-05
-         }
+        {
+            MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
+            //Найденное решение:
+            //Decision =
+            //1.99951	1.99646
+            MHL_ShowNumber(ValueOfFitnessFunction,"Значение целевой функции","ValueOfFitnessFunction");
+            //Значение целевой функции:
+            //ValueOfFitnessFunction=-1.27703e-05
+        }
 
         delete [] Parameters;
         delete [] Decision;
@@ -10133,101 +10151,318 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] NumberOfParts;
     }
 
-     if (NameFunction=="TMHL_ChangeOrderInVector")
-     {
-         int VMHL_N=5;//Размер массива
-         int *a;
-         a=new int[VMHL_N];
+    if (NameFunction=="TMHL_ChangeOrderInVector")
+    {
+        int VMHL_N=5;//Размер массива
+        int *a;
+        a=new int[VMHL_N];
 
-         a[0]=2;
-         a[1]=3;
-         a[2]=1;
-         a[3]=8;
-         a[4]=2;
+        a[0]=2;
+        a[1]=3;
+        a[2]=1;
+        a[3]=8;
+        a[4]=2;
 
-         int *Order;
-         Order=new int[VMHL_N];
-         Order[0]=4;
-         Order[1]=3;
-         Order[2]=1;
-         Order[3]=2;
-         Order[4]=0;
+        int *Order;
+        Order=new int[VMHL_N];
+        Order[0]=4;
+        Order[1]=3;
+        Order[2]=1;
+        Order[3]=2;
+        Order[4]=0;
 
-         MHL_ShowVector (a,VMHL_N,"Вектор", "a");
-         //Вектор:
-         //a =
-         //2
-         //3
-         //1
-         //8
-         //2
+        MHL_ShowVector (a,VMHL_N,"Вектор", "a");
+        //Вектор:
+        //a =
+        //2
+        //3
+        //1
+        //8
+        //2
 
-         //Вызов функции
-         TMHL_ChangeOrderInVector(a,Order,VMHL_N);
+        //Вызов функции
+        TMHL_ChangeOrderInVector(a,Order,VMHL_N);
 
-         //Используем полученный результат
-         MHL_ShowVector (Order,VMHL_N,"Порядок элементов, к которому нужно привести массив", "Order");
-         //Порядок элементов, к которому нужно привести массив:
-         //Order =
-         //4
-         //3
-         //1
-         //2
-         //0
+        //Используем полученный результат
+        MHL_ShowVector (Order,VMHL_N,"Порядок элементов, к которому нужно привести массив", "Order");
+        //Порядок элементов, к которому нужно привести массив:
+        //Order =
+        //4
+        //3
+        //1
+        //2
+        //0
 
-         MHL_ShowVector (a,VMHL_N,"Переставленный вектор", "a");
-         //Переставленный вектор:
-         //a =
-         //2
-         //8
-         //3
-         //1
-         //2
+        MHL_ShowVector (a,VMHL_N,"Переставленный вектор", "a");
+        //Переставленный вектор:
+        //a =
+        //2
+        //8
+        //3
+        //1
+        //2
 
-         delete [] a;
-         delete [] Order;
-     }
+        delete [] a;
+        delete [] Order;
+    }
 
-     if (NameFunction=="MHL_SeparateVectorLimitOnProductElementsTwo")
-     {
-         int *Vector;
-         int N=8;
-         Vector = new int [N];
-         Vector[0]=2;
-         Vector[1]=3;
-         Vector[2]=4;
-         Vector[3]=2;
-         Vector[4]=3;
-         Vector[5]=4;
-         Vector[6]=2;
-         Vector[7]=4;
+    if (NameFunction=="MHL_SeparateVectorLimitOnProductElementsTwo")
+    {
+        int *Vector;
+        int N=8;
+        Vector = new int [N];
+        Vector[0]=2;
+        Vector[1]=3;
+        Vector[2]=4;
+        Vector[3]=2;
+        Vector[4]=3;
+        Vector[5]=4;
+        Vector[6]=2;
+        Vector[7]=4;
 
-         int *Order;
-         Order = new int [N];
+        int *Order;
+        Order = new int [N];
 
-         int Limit=16;
+        int Limit=16;
 
-         int ElementsInPart;
+        int ElementsInPart;
 
-         ElementsInPart = MHL_SeparateVectorLimitOnProductElementsTwo(Vector, Order, Limit, N);
+        ElementsInPart = MHL_SeparateVectorLimitOnProductElementsTwo(Vector, Order, Limit, N);
 
-         MHL_ShowVectorT(Vector,N,"Массив","Vector");
-         //Массив:
-         //Vector =
-         //2	3	4	2	3	4	2	4
+        MHL_ShowVectorT(Vector,N,"Массив","Vector");
+        //Массив:
+        //Vector =
+        //2	3	4	2	3	4	2	4
 
-         MHL_ShowVectorT(Order,N,"Порядок элементов в новых двух группах","Order");
-         //Порядок элементов в новых двух группах:
-         //Order =
-         //7	5	2	4	1	6	3	0
+        MHL_ShowVectorT(Order,N,"Порядок элементов в новых двух группах","Order");
+        //Порядок элементов в новых двух группах:
+        //Order =
+        //7	5	2	4	1	6	3	0
 
-         MHL_ShowNumber(ElementsInPart,"Количество элементов в первой группе","ElementsInPart");
-         //Количество элементов в первой группе:
-         //ElementsInPart=2
+        MHL_ShowNumber(ElementsInPart,"Количество элементов в первой группе","ElementsInPart");
+        //Количество элементов в первой группе:
+        //ElementsInPart=2
 
-         delete [] Vector;
-         delete [] Order;
-     }
+        delete [] Vector;
+        delete [] Order;
+    }
+
+    if (NameFunction=="TMHL_ShiftLeftVector")
+    {
+        int VMHL_N=10;//Размер массива
+        double *a;
+        a=new double[VMHL_N];
+
+        for (int i=0;i<VMHL_N;i++) a[i]=MHL_RandomUniformInt(0,6);//Заполняем случайными значениями
+
+        MHL_ShowVector (a,VMHL_N,"Заполненный вектор", "a");
+        //Заполненный вектор:
+        //a =
+        //2
+        //5
+        //3
+        //4
+        //4
+        //1
+        //0
+        //2
+        //0
+        //3
+
+        //Вызов функции
+        TMHL_ShiftLeftVector(a,VMHL_N);
+
+        //Используем полученный результат
+        MHL_ShowVector (a,VMHL_N,"Заполненный вектор", "a");
+        //Заполненный вектор:
+        //a =
+        //5
+        //3
+        //4
+        //4
+        //1
+        //0
+        //2
+        //0
+        //3
+        //2
+
+        delete [] a;
+    }
+
+    if (NameFunction=="TMHL_ShiftRightVector")
+    {
+        int VMHL_N=10;//Размер массива
+        double *a;
+        a=new double[VMHL_N];
+
+        for (int i=0;i<VMHL_N;i++) a[i]=MHL_RandomUniformInt(0,6);//Заполняем случайными значениями
+
+        MHL_ShowVectorT (a,VMHL_N,"Заполненный вектор", "a");
+        //Заполненный вектор:
+        //a =
+        //4	3	4	2	2	2	0	0	4	5
+
+        //Вызов функции
+        TMHL_ShiftRightVector(a,VMHL_N);
+
+        //Используем полученный результат
+        MHL_ShowVectorT (a,VMHL_N,"Заполненный вектор", "a");
+        //Заполненный вектор:
+        //a =
+        //5	4	3	4	2	2	2	0	0	4
+
+        delete [] a;
+    }
+
+    if (NameFunction=="MHL_PendulumOfMaxwell")
+    {
+        int i;
+        double Data[13];
+        double m,maxis,R,r,dt,t,x0,v0,l,k,e;
+        double Input1,Input2;
+        m=0.5;
+        maxis=0.01;
+        R=0.03;
+        r=0.002;
+        dt=0.01;
+        t=20;
+        x0=0.03;
+        v0=0;
+        l=0.5;
+        k=0.1;
+        e=0.000001;
+
+        Data[0]=x0;
+        Data[1]=v0;
+        Data[2]=0;
+        Data[5]=m;
+        Data[6]=maxis;
+        Data[7]=R;
+        Data[8]=r;
+        Data[9]=l;
+        Data[10]=k;
+        Data[11]=dt;
+        Data[12]=e;
+
+        //Массивы для сохранения значений. Они не обзяательны
+        double *Position = new double [int(t/dt)];
+        double *TimePosition = new double [int(t/dt)];
+
+        for (i=0;i<int(t/dt);i++)
+        {
+            Input1=Data[0];//считываем, чтобы в случае использовать для управления
+            Input2=Data[1];
+            Data[2]=0;//управления нет
+
+            Position[i]=Input1;
+            TimePosition[i]=dt*i;
+
+            if (MHL_PendulumOfMaxwell(Data)==0) break;
+        }
+
+        QString Html=THQt_ShowChartOfLine (TimePosition,Position, int(t/dt), "Положение маятника от времени", "t", "x", "Координаты положения маятника",true,false,false,true,true);
+        HQt_AddHtml(Html);
+
+        delete [] Position;
+        delete [] TimePosition;
+    }
+
+    if (NameFunction=="MHL_CentroidOfTrapeziformFuzzyNumber")
+    {
+        double a=MHL_RandomUniform(-4,4);
+        double b=a+MHL_RandomUniform(0,2);
+        double c=b+MHL_RandomUniform(0,2);
+        double d=c+MHL_RandomUniform(0,2);
+
+        //Вызов функции
+        double f=MHL_CentroidOfTrapeziformFuzzyNumber (a,b,c,d);
+
+        //Используем полученный результат
+        MHL_ShowNumber(a,"Значение первого параметра трапецевидного нечеткого числа","a");
+        //Значение первого параметра трапецевидного нечеткого числа:
+        //a=3.59917
+        MHL_ShowNumber(b,"Значение второго параметра трапецевидного нечеткого числа","b");
+        //Значение второго параметра трапецевидного нечеткого числа:
+        //b=5.46629
+        MHL_ShowNumber(c,"Значение третьего параметра трапецевидного нечеткого числа","c");
+        //Значение третьего параметра трапецевидного нечеткого числа:
+        //c=6.24352
+        MHL_ShowNumber(d,"Значение последнего параметра трапецевидного нечеткого числа","d");
+        //Значение последнего параметра трапецевидного нечеткого числа:
+        //d=6.45975
+        MHL_ShowNumber(f,"Центр тяжести трапециевидного числа","f");
+        //Центр тяжести трапециевидного числа:
+        //f=5.36339
+    }
+
+    if (NameFunction=="MHL_MaxiMinTrapeziformFuzzyNumbers")
+    {
+        double *Data=new double[8];
+        Data[0]=MHL_RandomUniform(-4,4);
+        Data[1]=Data[0]+MHL_RandomUniform(0,2);
+        Data[2]=Data[1]+MHL_RandomUniform(0,2);
+        Data[3]=Data[2]+MHL_RandomUniform(0,2);
+        Data[4]=MHL_RandomUniform(-4,4);
+        Data[5]=Data[4]+MHL_RandomUniform(0,2);
+        Data[6]=Data[5]+MHL_RandomUniform(0,2);
+        Data[7]=Data[6]+MHL_RandomUniform(0,2);
+
+        //Вызов функции
+        double f=MHL_MaxiMinTrapeziformFuzzyNumbers (Data);
+
+        //Используем полученный результат
+        MHL_ShowVector(Data,8, "Два нечетких трапецевидных числа","Data");
+        //Два нечетких трапецевидных числа:
+        //Data =
+        //0.989053
+        //1.13038
+        //1.8941
+        //2.04333
+        //-2.00039
+        //-0.915334
+        //0.343752
+        //1.68268
+
+        MHL_ShowNumber(f,"Максимальное значение функции принадлежности объединенного нечеткого числа","f");
+        //Максимальное значение функции принадлежности объединенного нечеткого числа:
+        //f=0.468587
+        delete [] Data;
+    }
+
+    if (NameFunction=="MHL_NonparametricEstimatorOfRegression")
+    {
+        int N=500;
+        double *X=new double [N];
+        double *Y=new double [N];
+        for (int i=0;i<N;i++)
+        {
+            X[i] = MHL_RandomUniform(0,6);
+            Y[i] = sin(X[i]);
+        }
+        //MHL_NoiseInVector(Y,5,N);//добавим помеху
+
+        double x=MHL_RandomUniform(0,6);//Для этого числа будем считать оценку регрессию
+
+        double C=0.1;//коэффициент размытости
+
+        //Применим функцию
+        bool b;
+        double y=MHL_NonparametricEstimatorOfRegression(x,X,Y,N,C,3,&b);
+
+        MHL_ShowNumber(x,"Входной парметр","x");
+        //Входной парметр:
+        //x=5.7237
+        MHL_ShowNumber(y,"Непараметрическая оценка регрессии","y");
+        //Непараметрическая оценка регрессии:
+        //y=-0.537582
+        MHL_ShowNumber(sin(x),"Действительное значение функции в точке","y*");
+        //Действительное значение функции в точке:
+        //y*=-0.530754
+
+        delete [] X;
+        delete [] Y;
+    }
 
 }
 //---------------------------------------------------------------------------

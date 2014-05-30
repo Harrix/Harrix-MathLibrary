@@ -1,0 +1,49 @@
+        int i;
+        double Data[13];
+        double m,maxis,R,r,dt,t,x0,v0,l,k,e;
+        double Input1,Input2;
+        m=0.5;
+        maxis=0.01;
+        R=0.03;
+        r=0.002;
+        dt=0.01;
+        t=20;
+        x0=0.03;
+        v0=0;
+        l=0.5;
+        k=0.1;
+        e=0.000001;
+
+        Data[0]=x0;
+        Data[1]=v0;
+        Data[2]=0;
+        Data[5]=m;
+        Data[6]=maxis;
+        Data[7]=R;
+        Data[8]=r;
+        Data[9]=l;
+        Data[10]=k;
+        Data[11]=dt;
+        Data[12]=e;
+
+        //Массивы для сохранения значений. Они не обзяательны
+        double *Position = new double [int(t/dt)];
+        double *TimePosition = new double [int(t/dt)];
+
+        for (i=0;i<int(t/dt);i++)
+        {
+            Input1=Data[0];//считываем, чтобы в случае использовать для управления
+            Input2=Data[1];
+            Data[2]=0;//управления нет
+
+            Position[i]=Input1;
+            TimePosition[i]=dt*i;
+
+            if (MHL_PendulumOfMaxwell(Data)==0) break;
+        }
+
+        //QString Html=THQt_ShowChartOfLine (TimePosition,Position, int(t/dt), "Положение маятника от времени", "t", "x", "Координаты положения маятника",true,false,false,true,true);
+        //HQt_AddHtml(Html);
+
+        delete [] Position;
+        delete [] TimePosition;

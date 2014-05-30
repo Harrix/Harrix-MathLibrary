@@ -30,7 +30,7 @@ int MHL_SeparateVectorLimitOnProductElements(int *VMHL_Vector, int *Order, int L
     //скопируем в итоговый массив Order
     TMHL_VectorToVector(VMHL_NumberTemp,Order,VMHL_N);
 
-    if (VMHL_Vector[0]>Limit)
+    if (VMHL_VectorTemp[0]>Limit)
     {
         VMHL_Result=-1;
     }

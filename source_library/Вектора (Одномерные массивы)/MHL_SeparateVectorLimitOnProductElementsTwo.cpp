@@ -33,12 +33,22 @@ int MHL_SeparateVectorLimitOnProductElementsTwo(int *VMHL_Vector, int *Order, in
     //скопируем в итоговый массив Order
     TMHL_VectorToVector(VMHL_NumberTemp,Order,VMHL_N);
 
-    if (VMHL_Vector[0]>Limit)
+    if (VMHL_VectorTemp[VMHL_N-1]>Limit)
     {
         VMHL_Result=-1;
     }
     else
     {
+        if (VMHL_VectorTemp[0]>Limit)
+        {
+           while (VMHL_VectorTemp[0]>Limit)
+           {
+               TMHL_ShiftLeftVector(VMHL_VectorTemp,VMHL_N);
+               TMHL_ShiftLeftVector(VMHL_NumberTemp,VMHL_N);
+               TMHL_ShiftLeftVector(Order,VMHL_N);
+           }
+        }
+
         int p=1;
         int pTemp;
         int num=0;
