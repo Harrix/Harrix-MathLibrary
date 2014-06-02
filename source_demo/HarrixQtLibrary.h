@@ -38,6 +38,8 @@ QString HQt_BoolToWord(bool Bool, QString No, QString Yes);
 QString HQt_BoolToWord(int Bool);
 QString HQt_BoolToWord(int Bool, QString No, QString Yes);
 QString HQt_RandomString(int Length);
+QString HQt_TryingReduceString(QString text, int MaxSize);
+QString HQt_TryingReduceString(QString text);
 QString HQt_UniqueName ();
 QString HQt_UniqueName (QString BeginString);
 QString HQt_UniqueNameOnlyNumbers ();
@@ -418,5 +420,6 @@ template <class T> void THQt_VectorToQStringList(T *x, int N)
 //*****************************************************************
 //Служебные функции
 //*****************************************************************
+
 
 #endif // HARRIXQTLIBRARY_H
