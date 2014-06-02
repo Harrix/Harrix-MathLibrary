@@ -213,7 +213,7 @@ void MainWindow::on_pushButton_clicked()
 
                 ResultTexFunctions+="\\subsubsection{" + nameof_func_ + "}\\label{"+nameof_func+"}\n\n" + Temp+"\n\n";
 
-                ResultFunctionsMD += "- "+Temp.replace("\\_","_").replace("$","")+"\n\n";
+                ResultFunctionsMD += "- "+Temp.replace("\\_","_").replace("$","")+"\n";
 
                 if (!(Temp.trimmed().isEmpty())) ui->textEdit->insertHtml("Загрузили файл <b>"+filename+"</b><br>");
                 else {MessageError="<font color=\"red\">Ошибка с файлом <b>"+filename+"</b><\font><br>";AllMessageError+=MessageError;ui->textEdit->insertHtml(MessageError);countoferrors++;}
