@@ -1,0 +1,1 @@
+int MHL_GiveRainbowColorR(double position);

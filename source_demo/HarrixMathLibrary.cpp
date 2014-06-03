@@ -1,5 +1,5 @@
 //HarrixMathLibrary
-//Версия 3.73
+//Версия 3.74
 //Сборник различных математических функций и шаблонов с открытым кодом на языке C++.
 //https://github.com/Harrix/HarrixMathLibrary
 //Библиотека распространяется по лицензии Apache License, Version 2.0.
@@ -2431,7 +2431,7 @@ void MHL_MixedMultiLogicVectorOfFullSearch(int *VMHL_Vector, int I, int *HowMuch
 принимать разное максимальное значение, в полном переборе вариантов.
 Генерируется I вектор в этом полном переборе.
 Входные параметры:
- VMHL_Vector - выходной вектор, в который записывется результат;
+ VMHL_Vector - выходной вектор, в который записывается результат;
  I - номер в массиве в полном переборе, начиная с нуля (от 0 и до произведения всех элементов массива HowMuchInElements - 1);
  HowMuchInElements - сколько значений может принимать элемент в векторе. То есть элемент может быть 0 и HowMuchInElements[i] - 1;
  VMHL_N - количество элементов в массиве.
@@ -10711,6 +10711,325 @@ int MHL_QuadraticEquationCount(double a, double b, double c, double *x1, double 
     }
 
     return Result;
+}
+//---------------------------------------------------------------------------
+
+
+//*****************************************************************
+//Цвет
+//*****************************************************************
+int MHL_AlphaBlendingColorToColorB(double alpha, int R1, int G1, int B1, int R2, int G2, int B2)
+{
+    /*
+    Функция накладывает сверху на цвет другой цвет с определенной прозрачностью. Выдает значение канала B.
+    Входные параметры:
+     alpha - прозрачность второго накладываемого цвета из интервала [0;1];
+     R1,G1,B1 - RGB код первого цвета градиента, например. Каждый параметр должен быть в интервале [0,255];
+     R2,G2,B2 - RGB код второго цвета градиента, например: Каждый параметр должен быть в интервале [0,255].
+    Возвращаемое значение:
+     Строка содержащая G канал итогового цвета.
+    */
+	alpha = TMHL_AcceptanceLimitsNumber(alpha,0.,1.);
+    R1 = TMHL_AcceptanceLimitsNumber(R1,0,255);
+    G1 = TMHL_AcceptanceLimitsNumber(G1,0,255);
+    B1 = TMHL_AcceptanceLimitsNumber(B1,0,255);
+    R2 = TMHL_AcceptanceLimitsNumber(R2,0,255);
+    G2 = TMHL_AcceptanceLimitsNumber(G2,0,255);
+    B2 = TMHL_AcceptanceLimitsNumber(B2,0,255);
+
+    //int R=alpha*R2+(1-alpha)*R1;
+    //G=alpha*G2+(1-alpha)*G1;
+    int B=alpha*B2+(1-alpha)*B1;
+
+    return B;
+}
+//---------------------------------------------------------------------------
+
+int MHL_AlphaBlendingColorToColorG(double alpha, int R1, int G1, int B1, int R2, int G2, int B2)
+{
+    /*
+    Функция накладывает сверху на цвет другой цвет с определенной прозрачностью. Выдает значение канала G.
+    Входные параметры:
+     alpha - прозрачность второго накладываемого цвета из интервала [0;1];
+     R1,G1,B1 - RGB код первого цвета градиента, например. Каждый параметр должен быть в интервале [0,255];
+     R2,G2,B2 - RGB код второго цвета градиента, например: Каждый параметр должен быть в интервале [0,255].
+    Возвращаемое значение:
+     Строка содержащая G канал итогового цвета.
+    */
+	alpha = TMHL_AcceptanceLimitsNumber(alpha,0.,1.);
+    R1 = TMHL_AcceptanceLimitsNumber(R1,0,255);
+    G1 = TMHL_AcceptanceLimitsNumber(G1,0,255);
+    B1 = TMHL_AcceptanceLimitsNumber(B1,0,255);
+    R2 = TMHL_AcceptanceLimitsNumber(R2,0,255);
+    G2 = TMHL_AcceptanceLimitsNumber(G2,0,255);
+    B2 = TMHL_AcceptanceLimitsNumber(B2,0,255);
+
+    //int R=alpha*R2+(1-alpha)*R1;
+    int G=alpha*G2+(1-alpha)*G1;
+    //B=alpha*B2+(1-alpha)*B1;
+
+    return G;
+}
+//---------------------------------------------------------------------------
+
+int MHL_AlphaBlendingColorToColorR(double alpha, int R1, int G1, int B1, int R2, int G2, int B2)
+{
+    /*
+    Функция накладывает сверху на цвет другой цвет с определенной прозрачностью. Выдает значение канала R.
+    Входные параметры:
+     alpha - прозрачность второго накладываемого цвета из интервала [0;1];
+     R1,G1,B1 - RGB код первого цвета градиента, например. Каждый параметр должен быть в интервале [0,255];
+     R2,G2,B2 - RGB код второго цвета градиента, например: Каждый параметр должен быть в интервале [0,255].
+    Возвращаемое значение:
+     Строка содержащая R канал итогового цвета.
+    */
+	alpha = TMHL_AcceptanceLimitsNumber(alpha,0.,1.);
+    R1 = TMHL_AcceptanceLimitsNumber(R1,0,255);
+    G1 = TMHL_AcceptanceLimitsNumber(G1,0,255);
+    B1 = TMHL_AcceptanceLimitsNumber(B1,0,255);
+    R2 = TMHL_AcceptanceLimitsNumber(R2,0,255);
+    G2 = TMHL_AcceptanceLimitsNumber(G2,0,255);
+    B2 = TMHL_AcceptanceLimitsNumber(B2,0,255);
+
+    int R=alpha*R2+(1-alpha)*R1;
+    //G=alpha*G2+(1-alpha)*G1;
+    //B=alpha*B2+(1-alpha)*B1;
+
+    return R;
+}
+//---------------------------------------------------------------------------
+
+int MHL_ColorFromGradientB(double position, int R1, int G1, int B1, int R2, int G2, int B2)
+{
+    /*
+    Функция выдает код канала RGB из градиента от одного цвета к другому цвету согласно позиции от 0 до 1. Выдает значение канала B.
+    Входные параметры:
+     position - позиция из интервала [0;1], которая говорит какой цвет выдать из градиента;
+     R1,G1,B1 - RGB код первого цвета градиента, например. Каждый параметр должен быть в интервале [0,255];
+     R2,G2,B2 - RGB код второго цвета градиента, например: Каждый параметр должен быть в интервале [0,255].
+    Возвращаемое значение:
+     Строка содержащая B канал итогового цвета.
+    */
+    position = TMHL_AcceptanceLimitsNumber(position,0.,1.);
+    R1 = TMHL_AcceptanceLimitsNumber(R1,0,255);
+    G1 = TMHL_AcceptanceLimitsNumber(G1,0,255);
+    B1 = TMHL_AcceptanceLimitsNumber(B1,0,255);
+    R2 = TMHL_AcceptanceLimitsNumber(R2,0,255);
+    G2 = TMHL_AcceptanceLimitsNumber(G2,0,255);
+    B2 = TMHL_AcceptanceLimitsNumber(B2,0,255);
+
+    //int R=R1+position*(R2-R1);
+    //int G=G1+position*(G2-G1);
+    int B=B1+position*(B2-B1);
+
+    return B;
+}
+//---------------------------------------------------------------------------
+
+int MHL_ColorFromGradientG(double position, int R1, int G1, int B1, int R2, int G2, int B2)
+{
+    /*
+    Функция выдает код канала RGB из градиента от одного цвета к другому цвету согласно позиции от 0 до 1. Выдает значение канала G.
+    Входные параметры:
+     position - позиция из интервала [0;1], которая говорит какой цвет выдать из градиента;
+     R1,G1,B1 - RGB код первого цвета градиента, например. Каждый параметр должен быть в интервале [0,255];
+     R2,G2,B2 - RGB код второго цвета градиента, например: Каждый параметр должен быть в интервале [0,255].
+    Возвращаемое значение:
+     Строка содержащая G канал итогового цвета.
+    */
+    position = TMHL_AcceptanceLimitsNumber(position,0.,1.);
+    R1 = TMHL_AcceptanceLimitsNumber(R1,0,255);
+    G1 = TMHL_AcceptanceLimitsNumber(G1,0,255);
+    B1 = TMHL_AcceptanceLimitsNumber(B1,0,255);
+    R2 = TMHL_AcceptanceLimitsNumber(R2,0,255);
+    G2 = TMHL_AcceptanceLimitsNumber(G2,0,255);
+    B2 = TMHL_AcceptanceLimitsNumber(B2,0,255);
+
+    //int R=R1+position*(R2-R1);
+    int G=G1+position*(G2-G1);
+    //int B=B1+position*(B2-B1);
+
+    return G;
+}
+//---------------------------------------------------------------------------
+
+int MHL_ColorFromGradientR(double position, int R1, int G1, int B1, int R2, int G2, int B2)
+{
+    /*
+    Функция выдает код канала RGB из градиента от одного цвета к другому цвету согласно позиции от 0 до 1. Выдает значение канала R.
+    Входные параметры:
+     position - позиция из интервала [0;1], которая говорит какой цвет выдать из градиента;
+     R1,G1,B1 - RGB код первого цвета градиента, например. Каждый параметр должен быть в интервале [0,255];
+     R2,G2,B2 - RGB код второго цвета градиента, например: Каждый параметр должен быть в интервале [0,255].
+    Возвращаемое значение:
+     Строка содержащая R канал итогового цвета.
+    */
+    position = TMHL_AcceptanceLimitsNumber(position,0.,1.);
+    R1 = TMHL_AcceptanceLimitsNumber(R1,0,255);
+    G1 = TMHL_AcceptanceLimitsNumber(G1,0,255);
+    B1 = TMHL_AcceptanceLimitsNumber(B1,0,255);
+    R2 = TMHL_AcceptanceLimitsNumber(R2,0,255);
+    G2 = TMHL_AcceptanceLimitsNumber(G2,0,255);
+    B2 = TMHL_AcceptanceLimitsNumber(B2,0,255);
+
+    int R=R1+position*(R2-R1);
+    //int G=G1+position*(G2-G1);
+    //int B=B1+position*(B2-B1);
+
+    return R;
+}
+//---------------------------------------------------------------------------
+
+int MHL_GiveRainbowColorB(double position)
+{
+    /*
+    Функция выдает код канала RGB из градиента радуги для любой позиции от 0 до 1 из этого градиента. Выдает значение канала B.
+    Входные параметры:
+     position - позиция из интервала [0;1], которая говорит какой цвет выдать из градиента.
+    Возвращаемое значение:
+     Строка содержащая B канал итогового цвета.
+    */
+    position = TMHL_AcceptanceLimitsNumber(position,0.,1.);
+
+    int B=0;//
+
+    int nmax=6;// number of color bars
+    double m=nmax* position;
+    int n=int(m); // integer of m
+    double f=m-n;  // fraction of m
+    int t=int(f*255);
+
+    switch( n){
+    case 0: {
+        B = 0;
+        break;
+    };
+    case 1: {
+        B = 0;
+        break;
+    };
+    case 2: {
+        B = t;
+        break;
+    };
+    case 3: {
+        B = 255;
+        break;
+    };
+    case 4: {
+        B = 255;
+        break;
+    };
+    case 5: {
+        B = 255 - t;
+        break;
+    };
+
+    }; // case
+
+    return B;
+}
+//---------------------------------------------------------------------------
+
+int MHL_GiveRainbowColorG(double position)
+{
+    /*
+    Функция выдает код канала RGB из градиента радуги для любой позиции от 0 до 1 из этого градиента. Выдает значение канала G.
+    Входные параметры:
+     position - позиция из интервала [0;1], которая говорит какой цвет выдать из градиента.
+    Возвращаемое значение:
+     Строка содержащая G канал итогового цвета.
+    */
+    position = TMHL_AcceptanceLimitsNumber(position,0.,1.);
+
+    int G=0;//
+
+    int nmax=6;// number of color bars
+    double m=nmax* position;
+    int n=int(m); // integer of m
+    double f=m-n;  // fraction of m
+    int t=int(f*255);
+
+    switch( n){
+    case 0: {
+        G = t;
+        break;
+    };
+    case 1: {
+        G = 255;
+        break;
+    };
+    case 2: {
+        G = 255;
+        break;
+    };
+    case 3: {
+        G = 255 - t;
+        break;
+    };
+    case 4: {
+        G = 0;
+        break;
+    };
+    case 5: {
+        G = 0;
+        break;
+    };
+
+    }; // case
+
+    return G;
+}
+//---------------------------------------------------------------------------
+
+int MHL_GiveRainbowColorR(double position)
+{
+    /*
+    Функция выдает код канала RGB из градиента радуги для любой позиции от 0 до 1 из этого градиента. Выдает значение канала R.
+    Входные параметры:
+     position - позиция из интервала [0;1], которая говорит какой цвет выдать из градиента.
+    Возвращаемое значение:
+     Строка содержащая R канал итогового цвета.
+    */
+    position = TMHL_AcceptanceLimitsNumber(position,0.,1.);
+
+    int R=0;//
+
+    int nmax=6;// number of color bars
+    double m=nmax* position;
+    int n=int(m); // integer of m
+    double f=m-n;  // fraction of m
+    int t=int(f*255);
+
+    switch( n){
+    case 0: {
+        R = 255;
+        break;
+    };
+    case 1: {
+        R = 255 - t;
+        break;
+    };
+    case 2: {
+        R = 0;
+        break;
+    };
+    case 3: {
+        R = 0;
+        break;
+    };
+    case 4: {
+        R = t;
+        break;
+    };
+    case 5: {
+        R = 255;
+        break;
+    };
+
+    }; // case
+
+    return R;
 }
 //---------------------------------------------------------------------------
 

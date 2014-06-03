@@ -114,6 +114,7 @@ int MHL_TournamentSelectionWithReturn(double *Fitness, int SizeTournament, int V
 void MHL_TwopointCrossoverForReal(double *Parent1, double *Parent2, double *VMHL_ResultVector, int VMHL_N);
 void MHL_UniformCrossoverForReal(double*Parent1, double *Parent2, double *VMHL_ResultVector, int VMHL_N);
 template <class T> void TMHL_MutationBinaryMatrix(T **VMHL_ResultMatrix, double ProbabilityOfMutation, int VMHL_N,int VMHL_M);
+template <class T> void TMHL_MutationBinaryVector(T *VMHL_ResultVector, double ProbabilityOfMutation, int VMHL_N);
 template <class T> void TMHL_SinglepointCrossover(T *Parent1, T *Parent2, T *VMHL_ResultVector, int VMHL_N);
 template <class T> void TMHL_SinglepointCrossoverWithCopying(T *Parent1, T *Parent2, T *VMHL_ResultVector, int VMHL_N);
 template <class T> void TMHL_TwopointCrossover(T *Parent1, T *Parent2, T *VMHL_ResultVector, int VMHL_N);
@@ -177,6 +178,7 @@ double MHL_SumGeometricSeries(double u1,double q,int n);
 double MHL_SumOfArithmeticalProgression(double a1,double d,int n);
 int MHL_SumOfDigits(int a);
 template <class T> T TMHL_Abs(T x);
+template <class T> T TMHL_AcceptanceLimitsNumber(T Number, T Left, T Right);
 template <class T> bool TMHL_AlmostEqual(T x, T y);
 template <class T> bool TMHL_AlmostEqual(T x, T y, double epsilon);
 template <class T> bool TMHL_AlmostZero(T x);
@@ -382,6 +384,17 @@ double MHL_TanDeg(double x);
 //Уравнения
 int MHL_QuadraticEquation(double a, double b, double c, double *x1, double *x2);
 int MHL_QuadraticEquationCount(double a, double b, double c, double *x1, double *x2);
+
+//Цвет
+int MHL_AlphaBlendingColorToColorB(double alpha, int R1, int G1, int B1, int R2, int G2, int B2);
+int MHL_AlphaBlendingColorToColorG(double alpha, int R1, int G1, int B1, int R2, int G2, int B2);
+int MHL_AlphaBlendingColorToColorR(double alpha, int R1, int G1, int B1, int R2, int G2, int B2);
+int MHL_ColorFromGradientB(double position, int R1, int G1, int B1, int R2, int G2, int B2);
+int MHL_ColorFromGradientG(double position, int R1, int G1, int B1, int R2, int G2, int B2);
+int MHL_ColorFromGradientR(double position, int R1, int G1, int B1, int R2, int G2, int B2);
+int MHL_GiveRainbowColorB(double position);
+int MHL_GiveRainbowColorG(double position);
+int MHL_GiveRainbowColorR(double position);
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // РЕАЛИЗАЦИЯ ШАБЛОНОВ
@@ -1137,6 +1150,27 @@ for(int i=0;i<VMHL_N;i++)
   }
 }
 //---------------------------------------------------------------------------
+template <class T> void TMHL_MutationBinaryVector(T *VMHL_ResultVector, double ProbabilityOfMutation, int VMHL_N)
+{
+/*
+Мутация для бинарного вектора. Оператор генетического алгоритма.
+Входные параметры:
+ VMHL_ResultVector - указатель на преобразуемый вектор;
+ ProbabilityOfMutation - вероятность мутации;
+ VMHL_N - размер массива VMHL_ResultVector.
+Возвращаемое значение:
+ Отсутствует.
+*/
+    ProbabilityOfMutation = TMHL_AcceptanceLimitsNumber(ProbabilityOfMutation,0.,1.);
+
+    for(int i=0;i<VMHL_N;i++)
+        if (MHL_RandomNumber()<ProbabilityOfMutation)
+        {
+            //Инвертируем ген
+            if (VMHL_ResultVector[i]==0) VMHL_ResultVector[i]=1; else VMHL_ResultVector[i]=0;
+        }
+}
+//---------------------------------------------------------------------------
 template <class T> void TMHL_SinglepointCrossover(T *Parent1, T *Parent2, T *VMHL_ResultVector, int VMHL_N)
 {
 /*
@@ -1451,9 +1485,33 @@ template <class T> T TMHL_Abs(T x)
 */
 T VMHL_Result;
 T MinusOne=-1;
-if (x>=0) VMHL_Result=x;
-else VMHL_Result=x*MinusOne;
+
+if (x>=0) 
+	VMHL_Result=x;
+else 
+	VMHL_Result=x*MinusOne;
+	
 return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+template <class T> T TMHL_AcceptanceLimitsNumber(T Number, T Left, T Right)
+{
+/*
+Функция проверяет не выходит ли число за заданные рамки [Left, Right]. Если выходит, то
+принимает граничные значения.
+Входные параметры:
+ Number - проверяемое число;
+ Left - левая граница;
+ Right - правая граница.
+Возвращаемое значение:
+ Число в рамках.
+*/
+    T VMHL_Result = Number;
+
+    if (Number<Left) VMHL_Result=Left;//принятие граничного левого условия
+    if (Number>Right) VMHL_Result=Right;//принятие граничного правого условия
+
+    return VMHL_Result;
 }
 //---------------------------------------------------------------------------
 template <class T> bool TMHL_AlmostEqual(T x, T y)
@@ -3057,6 +3115,9 @@ return TMHL_SampleCovariance(x,x,VMHL_N);
 //*****************************************************************
 //*****************************************************************
 //Уравнения
+//*****************************************************************
+//*****************************************************************
+//Цвет
 //*****************************************************************
 
 #endif // HARRIXMATHLIBRARY_H

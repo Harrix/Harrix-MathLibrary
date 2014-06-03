@@ -1,0 +1,19 @@
+        int a    = MHL_RandomUniformInt(-50,50);
+        int Left = -40;
+        int Right= 30;
+
+        int Result=TMHL_AcceptanceLimitsNumber(a,Left,Right);
+
+        //Используем полученный результат
+        MHL_ShowNumber(a,"Первоначальное число","a");
+        //Первоначальное число:
+        //a=49
+        MHL_ShowNumber(Left,"Левая граница","Left");
+        //Левая граница:
+        //Left=-40
+        MHL_ShowNumber(Right,"Правая граница","Right");
+        //Правая граница:
+        //Right=30
+        MHL_ShowNumber(Result,"Число в рамках","Result");
+        //Число в рамках:
+        //Result=30

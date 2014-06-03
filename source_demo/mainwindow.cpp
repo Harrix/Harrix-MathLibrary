@@ -890,6 +890,39 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("MHL_NonparametricEstimatorOfRegression"));
     model->appendRow(item);
 
+    item = new QStandardItem(QString("TMHL_AcceptanceLimitsNumber"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_AlphaBlendingColorToColorR"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_AlphaBlendingColorToColorG"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_AlphaBlendingColorToColorB"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_ColorFromGradientR"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_ColorFromGradientG"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_ColorFromGradientB"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_GiveRainbowColorR"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_GiveRainbowColorG"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_GiveRainbowColorB"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("TMHL_MutationBinaryVector"));
+    model->appendRow(item);
+
     model->sort(0);
 
     //соединение модели списка с конкретным списком
@@ -10462,6 +10495,345 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
 
         delete [] X;
         delete [] Y;
+    }
+
+    if (NameFunction=="TMHL_AcceptanceLimitsNumber")
+    {
+        int a    = MHL_RandomUniformInt(-50,50);
+        int Left = -40;
+        int Right= 30;
+
+        int Result=TMHL_AcceptanceLimitsNumber(a,Left,Right);
+
+        //Используем полученный результат
+        MHL_ShowNumber(a,"Первоначальное число","a");
+        //Первоначальное число:
+        //a=49
+        MHL_ShowNumber(Left,"Левая граница","Left");
+        //Левая граница:
+        //Left=-40
+        MHL_ShowNumber(Right,"Правая граница","Right");
+        //Правая граница:
+        //Right=30
+        MHL_ShowNumber(Result,"Число в рамках","Result");
+        //Число в рамках:
+        //Result=30
+    }
+
+    if (NameFunction=="MHL_AlphaBlendingColorToColorR")
+    {
+        double alpha = 0.1;
+        int R1 = 25;
+        int G1 = 128;
+        int B1 = 75;
+        int R2 = 85;
+        int G2 = 1;
+        int B2 = 89;
+
+        int R=MHL_AlphaBlendingColorToColorR(alpha, R1, G1, B1, R2, G2, B2);
+
+        //Используем полученный результат
+        MHL_ShowNumber(R1,"Канал R первого цвета","R1");
+        //Канал R первого цвета:
+        //R1=25
+        MHL_ShowNumber(G1,"Канал G первого цвета","G1");
+        //Канал G первого цвета:
+        //G1=128
+        MHL_ShowNumber(B1,"Канал B первого цвета","B1");
+        //Канал B первого цвета:
+        //B1=75
+        MHL_ShowNumber(R2,"Канал R второго цвета","R2");
+        //Канал R второго цвета:
+        //R2=85
+        MHL_ShowNumber(G2,"Канал G второго цвета","G2");
+        //Канал G второго цвета:
+        //G2=1
+        MHL_ShowNumber(B2,"Канал B второго цвета","B2");
+        //Канал B второго цвета:
+        //B2=89
+
+        MHL_ShowNumber(alpha,"Степень прозрачности первого цвета","alpha");
+        //Степень прозрачности первого цвета:
+        //alpha=0.1
+
+        MHL_ShowNumber(R,"Канал R итогового цвета","R");
+        //Канал R итогового цвета:
+        //R=31
+    }
+
+    if (NameFunction=="MHL_AlphaBlendingColorToColorG")
+    {
+        double alpha = 0.1;
+        int R1 = 25;
+        int G1 = 128;
+        int B1 = 75;
+        int R2 = 85;
+        int G2 = 1;
+        int B2 = 89;
+
+        int G=MHL_AlphaBlendingColorToColorG(alpha, R1, G1, B1, R2, G2, B2);
+
+        //Используем полученный результат
+        MHL_ShowNumber(R1,"Канал R первого цвета","R1");
+        //Канал R первого цвета:
+        //R1=25
+        MHL_ShowNumber(G1,"Канал G первого цвета","G1");
+        //Канал G первого цвета:
+        //G1=128
+        MHL_ShowNumber(B1,"Канал B первого цвета","B1");
+        //Канал B первого цвета:
+        //B1=75
+        MHL_ShowNumber(R2,"Канал R второго цвета","R2");
+        //Канал R второго цвета:
+        //R2=85
+        MHL_ShowNumber(G2,"Канал G второго цвета","G2");
+        //Канал G второго цвета:
+        //G2=1
+        MHL_ShowNumber(B2,"Канал B второго цвета","B2");
+        //Канал B второго цвета:
+        //B2=89
+
+        MHL_ShowNumber(alpha,"Степень прозрачности первого цвета","alpha");
+        //Степень прозрачности первого цвета:
+        //alpha=0.1
+
+        MHL_ShowNumber(G,"Канал G итогового цвета","G");
+        //Канал G итогового цвета:
+        //G=115
+    }
+
+    if (NameFunction=="MHL_AlphaBlendingColorToColorB")
+    {
+        double alpha = 0.1;
+        int R1 = 25;
+        int G1 = 128;
+        int B1 = 75;
+        int R2 = 85;
+        int G2 = 1;
+        int B2 = 89;
+
+        int B=MHL_AlphaBlendingColorToColorB(alpha, R1, G1, B1, R2, G2, B2);
+
+        //Используем полученный результат
+        MHL_ShowNumber(R1,"Канал R первого цвета","R1");
+        //Канал R первого цвета:
+        //R1=25
+        MHL_ShowNumber(G1,"Канал G первого цвета","G1");
+        //Канал G первого цвета:
+        //G1=128
+        MHL_ShowNumber(B1,"Канал B первого цвета","B1");
+        //Канал B первого цвета:
+        //B1=75
+        MHL_ShowNumber(R2,"Канал R второго цвета","R2");
+        //Канал R второго цвета:
+        //R2=85
+        MHL_ShowNumber(G2,"Канал G второго цвета","G2");
+        //Канал G второго цвета:
+        //G2=1
+        MHL_ShowNumber(B2,"Канал B второго цвета","B2");
+        //Канал B второго цвета:
+        //B2=89
+
+        MHL_ShowNumber(alpha,"Степень прозрачности первого цвета","alpha");
+        //Степень прозрачности первого цвета:
+        //alpha=0.1
+
+        MHL_ShowNumber(B,"Канал B итогового цвета","B");
+        //Канал R итогового цвета:
+        //R=31
+    }
+
+    if (NameFunction=="MHL_ColorFromGradientR")
+    {
+        double position = 0.1;
+        int R1 = 25;
+        int G1 = 128;
+        int B1 = 75;
+        int R2 = 85;
+        int G2 = 1;
+        int B2 = 89;
+
+        int R=MHL_ColorFromGradientR(position, R1, G1, B1, R2, G2, B2);
+
+        //Используем полученный результат
+        MHL_ShowNumber(R1,"Канал R первого цвета","R1");
+        //Канал R первого цвета:
+        //R1=25
+        MHL_ShowNumber(G1,"Канал G первого цвета","G1");
+        //Канал G первого цвета:
+        //G1=128
+        MHL_ShowNumber(B1,"Канал B первого цвета","B1");
+        //Канал B первого цвета:
+        //B1=75
+        MHL_ShowNumber(R2,"Канал R второго цвета","R2");
+        //Канал R второго цвета:
+        //R2=85
+        MHL_ShowNumber(G2,"Канал G второго цвета","G2");
+        //Канал G второго цвета:
+        //G2=1
+        MHL_ShowNumber(B2,"Канал B второго цвета","B2");
+        //Канал B второго цвета:
+        //B2=89
+
+        MHL_ShowNumber(position,"Позиция из интервала [0;1], которая говорит какой цвет выдать из градиента","position");
+        //Позиция из интервала [0;1], которая говорит какой цвет выдать из градиента:
+        //position=0.1
+
+        MHL_ShowNumber(R,"Канал R итогового цвета","R");
+        //Канал R итогового цвета:
+        //R=31
+    }
+
+    if (NameFunction=="MHL_ColorFromGradientG")
+    {
+        double position = 0.1;
+        int R1 = 25;
+        int G1 = 128;
+        int B1 = 75;
+        int R2 = 85;
+        int G2 = 1;
+        int B2 = 89;
+
+        int G=MHL_ColorFromGradientG(position, R1, G1, B1, R2, G2, B2);
+
+        //Используем полученный результат
+        MHL_ShowNumber(R1,"Канал R первого цвета","R1");
+        //Канал R первого цвета:
+        //R1=25
+        MHL_ShowNumber(G1,"Канал G первого цвета","G1");
+        //Канал G первого цвета:
+        //G1=128
+        MHL_ShowNumber(B1,"Канал B первого цвета","B1");
+        //Канал B первого цвета:
+        //B1=75
+        MHL_ShowNumber(R2,"Канал R второго цвета","R2");
+        //Канал R второго цвета:
+        //R2=85
+        MHL_ShowNumber(G2,"Канал G второго цвета","G2");
+        //Канал G второго цвета:
+        //G2=1
+        MHL_ShowNumber(B2,"Канал B второго цвета","B2");
+        //Канал B второго цвета:
+        //B2=89
+
+        MHL_ShowNumber(position,"Позиция из интервала [0;1], которая говорит какой цвет выдать из градиента","position");
+        //Позиция из интервала [0;1], которая говорит какой цвет выдать из градиента:
+        //position=0.1
+
+        MHL_ShowNumber(G,"Канал G итогового цвета","G");
+        //Канал G итогового цвета:
+        //G=115
+    }
+
+    if (NameFunction=="MHL_ColorFromGradientB")
+    {
+        double position = 0.1;
+        int R1 = 25;
+        int G1 = 128;
+        int B1 = 75;
+        int R2 = 85;
+        int G2 = 1;
+        int B2 = 89;
+
+        int B=MHL_ColorFromGradientB(position, R1, G1, B1, R2, G2, B2);
+
+        //Используем полученный результат
+        MHL_ShowNumber(R1,"Канал R первого цвета","R1");
+        //Канал R первого цвета:
+        //R1=25
+        MHL_ShowNumber(G1,"Канал G первого цвета","G1");
+        //Канал G первого цвета:
+        //G1=128
+        MHL_ShowNumber(B1,"Канал B первого цвета","B1");
+        //Канал B первого цвета:
+        //B1=75
+        MHL_ShowNumber(R2,"Канал R второго цвета","R2");
+        //Канал R второго цвета:
+        //R2=85
+        MHL_ShowNumber(G2,"Канал G второго цвета","G2");
+        //Канал G второго цвета:
+        //G2=1
+        MHL_ShowNumber(B2,"Канал B второго цвета","B2");
+        //Канал B второго цвета:
+        //B2=89
+
+        MHL_ShowNumber(position,"Позиция из интервала [0;1], которая говорит какой цвет выдать из градиента","position");
+        //Позиция из интервала [0;1], которая говорит какой цвет выдать из градиента:
+        //position=0.1
+
+        MHL_ShowNumber(B,"Канал B итогового цвета","B");
+        //Канал B итогового цвета:
+        //B=76
+    }
+
+    if (NameFunction=="MHL_GiveRainbowColorR")
+    {
+        double position = 0.6;
+
+        int R=MHL_GiveRainbowColorR(position);
+
+        MHL_ShowNumber(position,"Позиция из интервала [0;1], которая говорит какой цвет выдать из радуги","position");
+        //Позиция из интервала [0;1], которая говорит какой цвет выдать из градиента:
+        //position=0.1
+
+        MHL_ShowNumber(R,"Канал R итогового цвета","R");
+        //Канал R итогового цвета:
+        //R=0
+    }
+
+    if (NameFunction=="MHL_GiveRainbowColorG")
+    {
+        double position = 0.6;
+
+        int G=MHL_GiveRainbowColorG(position);
+
+        MHL_ShowNumber(position,"Позиция из интервала [0;1], которая говорит какой цвет выдать из радуги","position");
+        //Позиция из интервала [0;1], которая говорит какой цвет выдать из градиента:
+        //position=0.1
+
+        MHL_ShowNumber(G,"Канал G итогового цвета","G");
+        //Канал G итогового цвета:
+        //G=103
+    }
+
+    if (NameFunction=="MHL_GiveRainbowColorB")
+    {
+        double position = 0.6;
+
+        int B=MHL_GiveRainbowColorB(position);
+
+        MHL_ShowNumber(position,"Позиция из интервала [0;1], которая говорит какой цвет выдать из радуги","position");
+        //Позиция из интервала [0;1], которая говорит какой цвет выдать из градиента:
+        //position=0.1
+
+        MHL_ShowNumber(B,"Канал B итогового цвета","B");
+        //Канал B итогового цвета:
+        //B=255
+    }
+
+    if (NameFunction=="TMHL_MutationBinaryVector")
+    {
+        int VMHL_N=10;//Размер массива
+        int *a;
+        a=new int[VMHL_N];
+        TMHL_RandomBinaryVector(a,VMHL_N);//Случайный бинарный вектор
+        MHL_ShowVectorT (a,VMHL_N,"Случайный бинарный вектор", "a");
+        //Случайный бинарный вектор:
+        //a =
+        //0	1	1	1	1	0	0	0	1	1
+
+        double ProbabilityOfMutation=0.1;//Вероятность мутации
+
+        //Вызов функции
+        TMHL_MutationBinaryVector(a,ProbabilityOfMutation,VMHL_N);
+
+        //Используем полученный результат
+        MHL_ShowVectorT (a,VMHL_N,"Мутированный бинарный вектор", "a");
+        //Мутированный бинарный вектор:
+        //a =
+        //0	1	0	1	1	0	0	0	0	1
+
+        delete [] a;
     }
 
 }
