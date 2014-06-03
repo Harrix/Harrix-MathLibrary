@@ -1,0 +1,43 @@
+        int N=20;
+        double *X=new double [N];
+        double *Y=new double [N];
+        for (int i=0;i<N;i++)
+        {
+            X[i] = MHL_RandomUniform(0,6);
+            Y[i] = sin(X[i]);
+        }
+
+        double *dY = new double [N];
+
+        double C=0.6;//коэффициент размытости
+
+        //Применим функцию
+        MHL_MakingVectorForNonparametricEstimatorOfDerivative3(dY,X,Y,N,C,3);
+
+        MHL_ShowVector(dY, N, "Полученный вектор", "dY");
+        //Полученный вектор:
+        //dY =	 
+        //0.433703
+        //0.135073
+        //0.423069
+        //-0.144353
+        //0.132919
+        //-0.280884
+        //0.173751
+        //-1.02639
+        //0.0222925
+        //0.0887054
+        //-0.315277
+        //-0.561402
+        //0.00702664
+        //0.0441916
+        //0.168806
+        //0.174562
+        //-0.228904
+        //-0.0751131
+        //0.136842
+        //-0.0710526
+
+        delete [] X;
+        delete [] Y;
+        delete [] dY;

@@ -1,0 +1,15 @@
+        double F=7;
+        double m=3;
+
+        double a=MHL_NewtonSecondLawAcceleration(F,m);
+
+        //Используем полученный результат
+        MHL_ShowNumber(a,"Ускорение тела","a");
+        //Ускорение тела:
+        //a=2.33333
+        MHL_ShowNumber(m,"Масса тела","m");
+        //Масса тела:
+        //m=3
+        MHL_ShowNumber(F,"Сила приложенная к телу","F");
+        //Сила приложенная к телу:
+        //F=7

@@ -45,6 +45,11 @@ void MHL_NoiseInVector(double *VMHL_ResultVector, double percent, int VMHL_N);
 int MHL_SeparateVectorLimitOnProductElements(int *VMHL_Vector, int *Order, int Limit, int VMHL_N);
 int MHL_SeparateVectorLimitOnProductElementsTwo(int *VMHL_Vector, int *Order, int Limit, int VMHL_N);
 template <class T> void TMHL_AcceptanceLimits(T *VMHL_ResultVector, T *Left, T *Right, int VMHL_N);
+template <class T> void TMHL_AcceptanceLimits(T *VMHL_ResultVector, T Left, T Right, int VMHL_N);
+template <class T> void TMHL_AcceptanceLimitsLeft(T *VMHL_ResultVector, T *Left, int VMHL_N);
+template <class T> void TMHL_AcceptanceLimitsLeft(T *VMHL_ResultVector, T Left, int VMHL_N);
+template <class T> void TMHL_AcceptanceLimitsRight(T *VMHL_ResultVector, T *Right, int VMHL_N);
+template <class T> void TMHL_AcceptanceLimitsRight(T *VMHL_ResultVector, T Right, int VMHL_N);
 template <class T> void TMHL_ChangeOrderInVector(T *VMHL_Vector, T *VMHL_ResultVector, int *Order, int VMHL_N);
 template <class T> void TMHL_ChangeOrderInVector(T *VMHL_Vector, int *Order, int VMHL_N);
 template <class T> int TMHL_CheckElementInVector(T *x, int VMHL_N, T a);
@@ -179,6 +184,8 @@ double MHL_SumOfArithmeticalProgression(double a1,double d,int n);
 int MHL_SumOfDigits(int a);
 template <class T> T TMHL_Abs(T x);
 template <class T> T TMHL_AcceptanceLimitsNumber(T Number, T Left, T Right);
+template <class T> T TMHL_AcceptanceLimitsNumberLeft(T Number, T Left);
+template <class T> T TMHL_AcceptanceLimitsNumberRight(T Number, T Right);
 template <class T> bool TMHL_AlmostEqual(T x, T y);
 template <class T> bool TMHL_AlmostEqual(T x, T y, double epsilon);
 template <class T> bool TMHL_AlmostZero(T x);
@@ -242,6 +249,20 @@ double MHL_DerivativeOfBellShapedKernelExp(double z);
 double MHL_DerivativeOfBellShapedKernelParabola(double z);
 double MHL_DerivativeOfBellShapedKernelRectangle(double z);
 double MHL_DerivativeOfBellShapedKernelTriangle(double z);
+void MHL_MakingVectorForNonparametricEstimatorOfDerivative3(double *VMHL_ResultVector, double *X, double *Y, int VMHL_N, double C, int V);
+void MHL_MakingVectorForNonparametricEstimatorOfDerivative6(double *VMHL_ResultVector, double *X, double *Y, int VMHL_N, double C, int V);
+double MHL_NonparametricEstimatorOfDerivative(double x, double *X, double *Y, int VMHL_N, double C, int V, bool *b);
+double MHL_NonparametricEstimatorOfDerivative(double x, double *X, double *Y, int VMHL_N, double C, int V);
+double MHL_NonparametricEstimatorOfDerivative2(double x, double *X, double *Y, int VMHL_N, double C, int V, bool *b);
+double MHL_NonparametricEstimatorOfDerivative2(double x, double *X, double *Y, int VMHL_N, double C, int V);
+double MHL_NonparametricEstimatorOfDerivative3(double x, double *X, double *dY, int VMHL_N, double C, int V, bool *b);
+double MHL_NonparametricEstimatorOfDerivative3(double x, double *X, double *dY, int VMHL_N, double C, int V);
+double MHL_NonparametricEstimatorOfDerivative4(double x, double *X, double *Y, int VMHL_N, double C, int V, bool *b);
+double MHL_NonparametricEstimatorOfDerivative4(double x, double *X, double *Y, int VMHL_N, double C, int V);
+double MHL_NonparametricEstimatorOfDerivative5(double x, double *X, double *Y, int VMHL_N, double C, int V, bool *b);
+double MHL_NonparametricEstimatorOfDerivative5(double x, double *X, double *Y, int VMHL_N, double C, int V);
+double MHL_NonparametricEstimatorOfDerivative6(double x, double *X, double *dY, int VMHL_N, double C, int V, bool *b);
+double MHL_NonparametricEstimatorOfDerivative6(double x, double *X, double *dY, int VMHL_N, double C, int V);
 double MHL_NonparametricEstimatorOfRegression(double x, double *X, double *Y, int VMHL_N, double C, int V, bool *b);
 double MHL_NonparametricEstimatorOfRegression(double x, double *X, double *Y, int VMHL_N, double C, int V);
 
@@ -249,6 +270,7 @@ double MHL_NonparametricEstimatorOfRegression(double x, double *X, double *Y, in
 double MHL_CentroidOfTrapeziformFuzzyNumber(double a,double b,double c,double d);
 double MHL_MaxiMinTrapeziformFuzzyNumbers (double *Data);
 double MHL_TrapeziformFuzzyNumber(double x,double a,double b,double c,double d);
+double MHL_TrapeziformTruncatedFuzzyNumber(double x, double a, double b, double c, double d, double m);
 
 //Оптимизация
 int MHL_BinaryMonteCarloAlgorithm(int *Parameters, double (*FitnessFunction)(int*,int), int *VMHL_ResultVector, double *VMHL_Result);
@@ -385,6 +407,10 @@ double MHL_TanDeg(double x);
 int MHL_QuadraticEquation(double a, double b, double c, double *x1, double *x2);
 int MHL_QuadraticEquationCount(double a, double b, double c, double *x1, double *x2);
 
+//Физика
+double MHL_NewtonSecondLawAcceleration(double F, double m);
+double MHL_NewtonSecondLawForce(double a, double m);
+
 //Цвет
 int MHL_AlphaBlendingColorToColorB(double alpha, int R1, int G1, int B1, int R2, int G2, int B2);
 int MHL_AlphaBlendingColorToColorG(double alpha, int R1, int G1, int B1, int R2, int G2, int B2);
@@ -422,6 +448,95 @@ for (int i=0;i<VMHL_N;i++)
  if (VMHL_ResultVector[i]<Left[i]) VMHL_ResultVector[i]=Left[i];//принятие граничного левого условия
  if (VMHL_ResultVector[i]>Right[i]) VMHL_ResultVector[i]=Right[i];//принятие граничного правого условия
  }
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_AcceptanceLimits(T *VMHL_ResultVector, T Left, T Right, int VMHL_N)
+{
+/*
+Функция вмещает вектор VMHL_ResultVector в прямоугольную многомерной области,
+определяемой левыми границами и правыми границами. Если какая-то координата
+вектора выходит за границу, то значение этой координаты принимает граничное значение.
+Входные параметры:
+ VMHL_ResultVector - указатель на вектор (в него же записывается "исправленный вектор");
+ Left - левая граница;
+ Right - правая граница;
+ VMHL_N - размерность вектора.
+Возвращаемое значение:
+ Отсутствует.
+*/
+for (int i=0;i<VMHL_N;i++)
+ {
+ if (VMHL_ResultVector[i]<Left) VMHL_ResultVector[i]=Left;//принятие граничного левого условия
+ if (VMHL_ResultVector[i]>Right) VMHL_ResultVector[i]=Right;//принятие граничного правого условия
+ }
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_AcceptanceLimitsLeft(T *VMHL_ResultVector, T *Left, int VMHL_N)
+{
+/*
+Если значения вектора VMHL_ResultVector[i] слева выходят за Left[i], то она ограничивается Left[i].
+Входные параметры:
+ VMHL_ResultVector - указатель на вектор (в него же записывается "исправленный вектор");
+ Left - вектор левых границ;
+ VMHL_N - размерность вектора.
+Возвращаемое значение:
+ Отсутствует.
+*/
+    for (int i=0;i<VMHL_N;i++)
+    {
+        if (VMHL_ResultVector[i]<Left[i]) VMHL_ResultVector[i]=Left[i];//принятие граничного левого условия
+    }
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_AcceptanceLimitsLeft(T *VMHL_ResultVector, T Left, int VMHL_N)
+{
+/*
+Если значения вектора VMHL_ResultVector[i] слева выходят за Left, то она ограничивается Left.
+Входные параметры:
+ VMHL_ResultVector - указатель на вектор (в него же записывается "исправленный вектор");
+ Left - левая граница;
+ VMHL_N - размерность вектора.
+Возвращаемое значение:
+ Отсутствует.
+*/
+    for (int i=0;i<VMHL_N;i++)
+    {
+        if (VMHL_ResultVector[i]<Left) VMHL_ResultVector[i]=Left;//принятие граничного левого условия
+    }
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_AcceptanceLimitsRight(T *VMHL_ResultVector, T *Right, int VMHL_N)
+{
+/*
+Если значения вектора VMHL_ResultVector[i] справа выходят за Right[i], то она ограничивается Right[i].
+Входные параметры:
+ VMHL_ResultVector - указатель на вектор (в него же записывается "исправленный вектор");
+ Right - вектор правых границ;
+ VMHL_N - размерность вектора.
+Возвращаемое значение:
+ Отсутствует.
+*/
+    for (int i=0;i<VMHL_N;i++)
+    {
+        if (VMHL_ResultVector[i]>Right[i]) VMHL_ResultVector[i]=Right[i];//принятие граничного правого условия
+    }
+}
+//---------------------------------------------------------------------------
+template <class T> void TMHL_AcceptanceLimitsRight(T *VMHL_ResultVector, T Right, int VMHL_N)
+{
+/*
+Если значения вектора VMHL_ResultVector[i] справа выходят за Right, то она ограничивается Right.
+Входные параметры:
+ VMHL_ResultVector - указатель на вектор (в него же записывается "исправленный вектор");
+ Right - правая граница;
+ VMHL_N - размерность вектора.
+Возвращаемое значение:
+ Отсутствует.
+*/
+    for (int i=0;i<VMHL_N;i++)
+    {
+        if (VMHL_ResultVector[i]>Right) VMHL_ResultVector[i]=Right;//принятие граничного правого условия
+    }
 }
 //---------------------------------------------------------------------------
 template <class T> void TMHL_ChangeOrderInVector(T *VMHL_Vector, T *VMHL_ResultVector, int *Order, int VMHL_N)
@@ -1509,6 +1624,43 @@ template <class T> T TMHL_AcceptanceLimitsNumber(T Number, T Left, T Right)
     T VMHL_Result = Number;
 
     if (Number<Left) VMHL_Result=Left;//принятие граничного левого условия
+    if (Number>Right) VMHL_Result=Right;//принятие граничного правого условия
+
+    return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+template <class T> T TMHL_AcceptanceLimitsNumberLeft(T Number, T Left)
+{
+/*
+Функция проверяет не выходит ли число за левую рамку Left. Если выходит, то
+принимает граничное значения.
+Входные параметры:
+ Number - проверяемое число;
+ Left - левая граница.
+Возвращаемое значение:
+ Число в рамках.
+*/
+    T VMHL_Result = Number;
+
+    if (Number<Left) VMHL_Result=Left;//принятие граничного левого условия
+
+    return VMHL_Result;
+}
+
+//---------------------------------------------------------------------------
+template <class T> T TMHL_AcceptanceLimitsNumberRight(T Number, T Right)
+{
+/*
+Функция проверяет не выходит ли число за правую рамку Right. Если выходит, то
+принимает граничное значения.
+Входные параметры:
+ Number - проверяемое число;
+ Right - правая граница.
+Возвращаемое значение:
+ Число в рамках.
+*/
+    T VMHL_Result = Number;
+
     if (Number>Right) VMHL_Result=Right;//принятие граничного правого условия
 
     return VMHL_Result;
@@ -3115,6 +3267,9 @@ return TMHL_SampleCovariance(x,x,VMHL_N);
 //*****************************************************************
 //*****************************************************************
 //Уравнения
+//*****************************************************************
+//*****************************************************************
+//Физика
 //*****************************************************************
 //*****************************************************************
 //Цвет

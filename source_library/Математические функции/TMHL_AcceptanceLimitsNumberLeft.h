@@ -1,0 +1,1 @@
+template <class T> T TMHL_AcceptanceLimitsNumberLeft(T Number, T Left);

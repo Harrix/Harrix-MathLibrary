@@ -10,6 +10,8 @@
 
 #include "HarrixQtLibrary.h"
 
+int CountTextEditChanging;
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -34,6 +36,8 @@ void MainWindow::on_pushButton_clicked()
     //Сборка проекта Harrix Math Library
     QTime myTimer;
     myTimer.start();//запуск таймера работы сборки библиотеки
+
+    CountTextEditChanging=0;
 
     ui->pushButton->setEnabled(false);
 
@@ -506,5 +510,26 @@ void MainWindow::on_pushButton_clicked()
 
     //открытие папки с собранными файлами
     QDesktopServices::openUrl(QUrl::fromLocalFile(temp_library_path));
+
+}
+
+void MainWindow::on_textEdit_textChanged()
+{
+CountTextEditChanging++;
+
+if (CountTextEditChanging>100)
+{
+    ui->textEdit->clear();
+    CountTextEditChanging = 0;
+}
+}
+
+void MainWindow::on_pushButton_3_clicked()
+{
+
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
 
 }

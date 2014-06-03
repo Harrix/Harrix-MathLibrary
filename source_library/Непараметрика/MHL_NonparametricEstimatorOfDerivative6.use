@@ -1,0 +1,34 @@
+        int N=100;
+        double *X=new double [N];
+        double *Y=new double [N];
+        double *dY=new double [N];
+        for (int i=0;i<N;i++)
+        {
+            X[i] = MHL_RandomUniform(0,6);
+            Y[i] = sin(X[i]);
+        }
+        //MHL_NoiseInVector(Y,5,N);//добавим помеху
+
+        double x=MHL_RandomUniform(0,6);//Для этого числа будем считать оценку регрессию
+
+        double C=0.3;//коэффициент размытости
+
+        MHL_MakingVectorForNonparametricEstimatorOfDerivative6(dY,X,Y,N,C,3);
+
+        //Применим функцию
+        bool b;
+        double y=MHL_NonparametricEstimatorOfDerivative6(x,X,dY,N,C,3,&b);
+
+        MHL_ShowNumber(x,"Входной параметр","x");
+        //Входной параметр:
+        //x=5.29326
+        MHL_ShowNumber(y,"Непараметрическая оценка производной","y");
+        //Непараметрическая оценка производной:
+        //y=0.732548
+        MHL_ShowNumber(cos(x),"Действительное значение производной функции в точке","y*");
+        //Действительное значение производной функции в точке:
+        //y*=0.548749
+
+        delete [] X;
+        delete [] Y;
+        delete [] dY;

@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MakeHarrixMathLibrary v.1.15 - Сборка библиотеки</string>
+   <string>MakeHarrixMathLibrary v.1.16 - Сборка библиотеки</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -20,7 +20,7 @@
       <property name="minimumSize">
        <size>
         <width>0</width>
-        <height>50</height>
+        <height>99</height>
        </size>
       </property>
       <property name="frameShape">
@@ -37,7 +37,7 @@
         <rect>
          <x>10</x>
          <y>13</y>
-         <width>141</width>
+         <width>211</width>
          <height>23</height>
         </rect>
        </property>
@@ -72,6 +72,32 @@
        </property>
        <property name="text">
         <string>Версия:</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_2">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>40</y>
+         <width>211</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Раскидать файлы</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_3">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>67</y>
+         <width>211</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Раскидать скомпилированные файлы</string>
        </property>
       </widget>
      </widget>

@@ -923,6 +923,51 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("TMHL_MutationBinaryVector"));
     model->appendRow(item);
 
+    item = new QStandardItem(QString("MHL_TrapeziformTruncatedFuzzyNumber"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_NewtonSecondLawForce"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_NewtonSecondLawAcceleration"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("TMHL_AcceptanceLimitsLeft"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("TMHL_AcceptanceLimitsRight"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("TMHL_AcceptanceLimitsNumberLeft"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("TMHL_AcceptanceLimitsNumberRight"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_NonparametricEstimatorOfDerivative"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_NonparametricEstimatorOfDerivative2"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_NonparametricEstimatorOfDerivative4"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_NonparametricEstimatorOfDerivative5"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_MakingVectorForNonparametricEstimatorOfDerivative3"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_NonparametricEstimatorOfDerivative3"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_NonparametricEstimatorOfDerivative6"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_MakingVectorForNonparametricEstimatorOfDerivative6"));
+    model->appendRow(item);
+
     model->sort(0);
 
     //соединение модели списка с конкретным списком
@@ -10834,6 +10879,546 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //0	1	0	1	1	0	0	0	0	1
 
         delete [] a;
+    }
+
+    if (NameFunction=="MHL_TrapeziformTruncatedFuzzyNumber")
+    {
+        double a=MHL_RandomUniform(-4,4);
+        double b=a+MHL_RandomUniform(0,2);
+        double c=b+MHL_RandomUniform(0,2);
+        double d=c+MHL_RandomUniform(0,2);
+
+        double x=MHL_RandomUniform(a-1,d+1);
+
+        double m=0.5;
+
+        //Вызов функции
+        double f=MHL_TrapeziformTruncatedFuzzyNumber (x,a,b,c,d,m);
+
+        //Используем полученный результат
+        MHL_ShowNumber(x,"Значение параметра","x");
+        //Значение параметра:
+        //x=-1.63713
+        MHL_ShowNumber(a,"Значение первого параметра трапецевидного нечеткого числа","a");
+        //Значение первого параметра трапецевидного нечеткого числа:
+        //a=-2.75211
+        MHL_ShowNumber(b,"Значение второго параметра трапецевидного нечеткого числа","b");
+        //Значение второго параметра трапецевидного нечеткого числа:
+        //b=-2.49458
+        MHL_ShowNumber(c,"Значение третьего параметра трапецевидного нечеткого числа","c");
+        //Значение третьего параметра трапецевидного нечеткого числа:
+        //c=-1.6546
+        MHL_ShowNumber(d,"Значение последнего параметра трапецевидного нечеткого числа","d");
+        //Значение последнего параметра трапецевидного нечеткого числа:
+        //d=-0.0519362
+        MHL_ShowNumber(m,"Усечение проводим по границе","m");
+        //Усечение проводим по границе:
+        //m=0.5
+        MHL_ShowNumber(f,"Значение функция принадлежности усеченного трапециевидного нечеткого числа","f");
+        //Значение функция принадлежности усеченного трапециевидного нечеткого числа:
+        //f=0.5
+    }
+
+    if (NameFunction=="MHL_NewtonSecondLawForce")
+    {
+        double a=2.2;
+        double m=3;
+
+        double F=MHL_NewtonSecondLawForce(a,m);
+
+        //Используем полученный результат
+        MHL_ShowNumber(a,"Ускорение тела","a");
+        //Ускорение тела:
+        //a=2.2
+        MHL_ShowNumber(m,"Масса тела","m");
+        //Масса тела:
+        //m=3
+        MHL_ShowNumber(F,"Сила приложенная к телу","F");
+        //Сила приложенная к телу:
+        //F=6.6
+    }
+
+    if (NameFunction=="MHL_NewtonSecondLawAcceleration")
+    {
+        double F=7;
+        double m=3;
+
+        double a=MHL_NewtonSecondLawAcceleration(F,m);
+
+        //Используем полученный результат
+        MHL_ShowNumber(a,"Ускорение тела","a");
+        //Ускорение тела:
+        //a=2.33333
+        MHL_ShowNumber(m,"Масса тела","m");
+        //Масса тела:
+        //m=3
+        MHL_ShowNumber(F,"Сила приложенная к телу","F");
+        //Сила приложенная к телу:
+        //F=7
+    }
+
+    if (NameFunction=="TMHL_AcceptanceLimitsLeft")
+    {
+        int VMHL_N=10;//Размер массива
+        double *a;
+        a=new double[VMHL_N];
+        double *Left;
+        Left=new double[VMHL_N];
+        TMHL_FillVector(Left,VMHL_N,-1.);//Левая граница
+
+        for (int i=0;i<VMHL_N;i++) a[i]=MHL_RandomUniform(-1.1,1.1);
+        MHL_ShowVector (a,VMHL_N,"Вектор", "a");
+        //Вектор:
+        //a =
+        //-0.883149
+        //-1.04337
+        //0.413145
+        //0.109003
+        //-0.177475
+        //0.648155
+        //0.219876
+        //-0.827451
+        //-1.07879
+        //0.739566
+
+        //Вызов функции
+        TMHL_AcceptanceLimitsLeft(a,Left,VMHL_N);
+
+        //Используем полученный результат
+        MHL_ShowVector (Left,VMHL_N,"Левые границы", "Left");
+        //Левые границы:
+        //Left =
+        //-1
+        //-1
+        //-1
+        //-1
+        //-1
+        //-1
+        //-1
+        //-1
+        //-1
+        //-1
+
+        MHL_ShowVector (a,VMHL_N,"Отредактированный вектор", "a");
+        //Отредактированный вектор:
+        //a =
+        //-0.883149
+        //-1
+        //0.413145
+        //0.109003
+        //-0.177475
+        //0.648155
+        //0.219876
+        //-0.827451
+        //-1
+        //0.739566
+
+        delete [] a;
+        delete [] Left;
+    }
+
+    if (NameFunction=="TMHL_AcceptanceLimitsRight")
+    {
+        int VMHL_N=10;//Размер массива
+        double *a;
+        a=new double[VMHL_N];
+        double *Right;
+        Right=new double[VMHL_N];
+        TMHL_FillVector(Right,VMHL_N,1.);//Левая граница
+
+        for (int i=0;i<VMHL_N;i++) a[i]=MHL_RandomUniform(-1.1,1.1);
+        MHL_ShowVector (a,VMHL_N,"Вектор", "a");
+        //Вектор:
+        //a =
+        //-0.292555
+        //1.08624
+        //0.491535
+        //0.911258
+        //-0.367329
+        //1.09461
+        //-1.0691
+        //0.767508
+        //0.492846
+        //-0.893972
+
+        //Вызов функции
+        TMHL_AcceptanceLimitsRight(a,Right,VMHL_N);
+
+        //Используем полученный результат
+        MHL_ShowVector (Right,VMHL_N,"Правые границы", "Right");
+        //Левые границы:
+        //Right =
+        //1
+        //1
+        //1
+        //1
+        //1
+        //1
+        //1
+        //1
+        //1
+        //1
+
+        MHL_ShowVector (a,VMHL_N,"Отредактированный вектор", "a");
+        //Отредактированный вектор:
+        //a =
+        //-0.292555
+        //1
+        //0.491535
+        //0.911258
+        //-0.367329
+        //1
+        //-1.0691
+        //0.767508
+        //0.492846
+        //-0.893972
+
+        delete [] a;
+        delete [] Right;
+    }
+
+    if (NameFunction=="TMHL_AcceptanceLimitsNumberLeft")
+    {
+        int a    = MHL_RandomUniformInt(-50,50);
+        int Left = -40;
+
+        int Result=TMHL_AcceptanceLimitsNumberLeft(a,Left);
+
+        //Используем полученный результат
+        MHL_ShowNumber(a,"Первоначальное число","a");
+        //Первоначальное число:
+        //a=49
+        MHL_ShowNumber(Left,"Левая граница","Left");
+        //Левая граница:
+        //Left=-40
+        MHL_ShowNumber(Result,"Число в рамках","Result");
+        //Число в рамках:
+        //Result=30
+    }
+
+    if (NameFunction=="TMHL_AcceptanceLimitsNumberRight")
+    {
+        int a    = MHL_RandomUniformInt(-50,50);
+        int Right= 30;
+
+        int Result=TMHL_AcceptanceLimitsNumberRight(a,Right);
+
+        //Используем полученный результат
+        MHL_ShowNumber(a,"Первоначальное число","a");
+        //Первоначальное число:
+        //a=49
+        MHL_ShowNumber(Right,"Правая граница","Right");
+        //Правая граница:
+        //Right=30
+        MHL_ShowNumber(Result,"Число в рамках","Result");
+        //Число в рамках:
+        //Result=30
+    }
+
+    if (NameFunction=="MHL_NonparametricEstimatorOfDerivative")
+    {
+        int N=100;
+        double *X=new double [N];
+        double *Y=new double [N];
+        for (int i=0;i<N;i++)
+        {
+            X[i] = MHL_RandomUniform(0,6);
+            Y[i] = sin(X[i]);
+        }
+        //MHL_NoiseInVector(Y,5,N);//добавим помеху
+
+        double x=MHL_RandomUniform(0,6);//Для этого числа будем считать оценку регрессию
+
+        double C=0.5;//коэффициент размытости
+
+        //Применим функцию
+        bool b;
+        double y=MHL_NonparametricEstimatorOfDerivative(x,X,Y,N,C,3,&b);
+
+        MHL_ShowNumber(x,"Входной парметр","x");
+        //Входной парметр:
+        //x=1.48351
+        MHL_ShowNumber(y,"Непараметрическая оценка производной","y");
+        //Непараметрическая оценка производной:
+        //y=0.0281603
+        MHL_ShowNumber(cos(x),"Действительное значение производной функции в точке","y*");
+        //Действительное значение производной функции в точке:
+        //y*=0.0871789
+
+        delete [] X;
+        delete [] Y;
+    }
+
+    if (NameFunction=="MHL_NonparametricEstimatorOfDerivative2")
+    {
+        int N=100;
+        double *X=new double [N];
+        double *Y=new double [N];
+        for (int i=0;i<N;i++)
+        {
+            X[i] = MHL_RandomUniform(0,6);
+            Y[i] = sin(X[i]);
+        }
+        //MHL_NoiseInVector(Y,5,N);//добавим помеху
+
+        double x=MHL_RandomUniform(0,6);//Для этого числа будем считать оценку регрессию
+
+        double C=0.3;//коэффициент размытости
+
+        //Применим функцию
+        bool b;
+        double y=MHL_NonparametricEstimatorOfDerivative4(x,X,Y,N,C,3,&b);
+
+        MHL_ShowNumber(x,"Входной парметр","x");
+        //Входной парметр:
+        //x=3.6964
+        MHL_ShowNumber(y,"Непараметрическая оценка производной","y");
+        //Непараметрическая оценка производной:
+        //y=-0.76092
+        MHL_ShowNumber(cos(x),"Действительное значение производной функции в точке","y*");
+        //Действительное значение производной функции в точке:
+        //y*=-0.850004
+
+        delete [] X;
+        delete [] Y;
+    }
+
+    if (NameFunction=="MHL_NonparametricEstimatorOfDerivative4")
+    {
+        int N=100;
+        double *X=new double [N];
+        double *Y=new double [N];
+        for (int i=0;i<N;i++)
+        {
+            X[i] = MHL_RandomUniform(0,6);
+            Y[i] = sin(X[i]);
+        }
+        //MHL_NoiseInVector(Y,5,N);//добавим помеху
+
+        double x=MHL_RandomUniform(0,6);//Для этого числа будем считать оценку регрессию
+
+        double C=0.5;//коэффициент размытости
+
+        //Применим функцию
+        bool b;
+        double y=MHL_NonparametricEstimatorOfDerivative4(x,X,Y,N,C,3,&b);
+
+        MHL_ShowNumber(x,"Входной парметр","x");
+        //Входной парметр:
+        //x=5.53702
+        MHL_ShowNumber(y,"Непараметрическая оценка производной","y");
+        //Непараметрическая оценка производной:
+        //y=0.761896
+        MHL_ShowNumber(cos(x),"Действительное значение производной функции в точке","y*");
+        //Действительное значение производной функции в точке:
+        //y*=0.734294
+
+        delete [] X;
+        delete [] Y;
+    }
+
+    if (NameFunction=="MHL_NonparametricEstimatorOfDerivative5")
+    {
+        int N=100;
+        double *X=new double [N];
+        double *Y=new double [N];
+        for (int i=0;i<N;i++)
+        {
+            X[i] = MHL_RandomUniform(0,6);
+            Y[i] = sin(X[i]);
+        }
+        //MHL_NoiseInVector(Y,5,N);//добавим помеху
+
+        double x=MHL_RandomUniform(0,6);//Для этого числа будем считать оценку регрессию
+
+        double C=0.5;//коэффициент размытости
+
+        //Применим функцию
+        bool b;
+        double y=MHL_NonparametricEstimatorOfDerivative5(x,X,Y,N,C,3,&b);
+
+        MHL_ShowNumber(x,"Входной парметр","x");
+        //Входной парметр:
+        //x=3.09027
+        MHL_ShowNumber(y,"Непараметрическая оценка производной","y");
+        //Непараметрическая оценка производной:
+        //y=-0.975845
+        MHL_ShowNumber(cos(x),"Действительное значение производной функции в точке","y*");
+        //Действительное значение производной функции в точке:
+        //y*=-0.998683
+
+        delete [] X;
+        delete [] Y;
+    }
+
+    if (NameFunction=="MHL_MakingVectorForNonparametricEstimatorOfDerivative3")
+    {
+        int N=20;
+        double *X=new double [N];
+        double *Y=new double [N];
+        for (int i=0;i<N;i++)
+        {
+            X[i] = MHL_RandomUniform(0,6);
+            Y[i] = sin(X[i]);
+        }
+
+        double *dY = new double [N];
+
+        double C=0.6;//коэффициент размытости
+
+        //Применим функцию
+        MHL_MakingVectorForNonparametricEstimatorOfDerivative3(dY,X,Y,N,C,3);
+
+        MHL_ShowVector(dY, N, "Полученный вектор", "dY");
+        //Полученный вектор:
+        //dY =
+        //0.433703
+        //0.135073
+        //0.423069
+        //-0.144353
+        //0.132919
+        //-0.280884
+        //0.173751
+        //-1.02639
+        //0.0222925
+        //0.0887054
+        //-0.315277
+        //-0.561402
+        //0.00702664
+        //0.0441916
+        //0.168806
+        //0.174562
+        //-0.228904
+        //-0.0751131
+        //0.136842
+        //-0.0710526
+
+        delete [] X;
+        delete [] Y;
+        delete [] dY;
+    }
+
+    if (NameFunction=="MHL_NonparametricEstimatorOfDerivative3")
+    {
+        int N=100;
+        double *X=new double [N];
+        double *Y=new double [N];
+        double *dY=new double [N];
+        for (int i=0;i<N;i++)
+        {
+            X[i] = MHL_RandomUniform(0,6);
+            Y[i] = sin(X[i]);
+        }
+        //MHL_NoiseInVector(Y,5,N);//добавим помеху
+
+        double x=MHL_RandomUniform(0,6);//Для этого числа будем считать оценку регрессию
+
+        double C=0.3;//коэффициент размытости
+
+        MHL_MakingVectorForNonparametricEstimatorOfDerivative3(dY,X,Y,N,C,3);
+
+        //Применим функцию
+        bool b;
+        double y=MHL_NonparametricEstimatorOfDerivative3(x,X,dY,N,C,3,&b);
+
+        MHL_ShowNumber(x,"Входной парметр","x");
+        //Входной парметр:
+        //x=4.00877
+        MHL_ShowNumber(y,"Непараметрическая оценка производной","y");
+        //Непараметрическая оценка производной:
+        //y=-0.532728
+        MHL_ShowNumber(cos(x),"Действительное значение производной функции в точке","y*");
+        //Действительное значение производной функции в точке:
+        //y*=-0.646979
+
+        delete [] X;
+        delete [] Y;
+        delete [] dY;
+    }
+
+    if (NameFunction=="MHL_MakingVectorForNonparametricEstimatorOfDerivative6")
+    {
+        int N=20;
+        double *X=new double [N];
+        double *Y=new double [N];
+        for (int i=0;i<N;i++)
+        {
+            X[i] = MHL_RandomUniform(0,6);
+            Y[i] = sin(X[i]);
+        }
+
+        double *dY = new double [N];
+
+        double C=0.6;//коэффициент размытости
+
+        //Применим функцию
+        MHL_MakingVectorForNonparametricEstimatorOfDerivative6(dY,X,Y,N,C,3);
+
+        MHL_ShowVector(dY, N, "Полученный вектор", "dY");
+        //Полученный вектор:
+        //dY =
+        //-0.515422
+        //-0.481574
+        //-0.443075
+        //-0.360637
+        //-0.506483
+        //-0.0248741
+        //0.898217
+        //-0.518947
+        //-0.517786
+        //0.84482
+        //-0.511115
+        //0.751889
+        //0.0241403
+        //-0.408982
+        //-0.234821
+        //0.458671
+        //0.0267333
+        //-0.400295
+        //-0.184401
+        //0.577117
+
+        delete [] X;
+        delete [] Y;
+        delete [] dY;
+    }
+
+    if (NameFunction=="MHL_NonparametricEstimatorOfDerivative6")
+    {
+        int N=100;
+        double *X=new double [N];
+        double *Y=new double [N];
+        double *dY=new double [N];
+        for (int i=0;i<N;i++)
+        {
+            X[i] = MHL_RandomUniform(0,6);
+            Y[i] = sin(X[i]);
+        }
+        //MHL_NoiseInVector(Y,5,N);//добавим помеху
+
+        double x=MHL_RandomUniform(0,6);//Для этого числа будем считать оценку регрессию
+
+        double C=0.3;//коэффициент размытости
+
+        MHL_MakingVectorForNonparametricEstimatorOfDerivative6(dY,X,Y,N,C,3);
+
+        //Применим функцию
+        bool b;
+        double y=MHL_NonparametricEstimatorOfDerivative6(x,X,dY,N,C,3,&b);
+
+        MHL_ShowNumber(x,"Входной парметр","x");
+        //Входной парметр:
+        //x=5.29326
+        MHL_ShowNumber(y,"Непараметрическая оценка производной","y");
+        //Непараметрическая оценка производной:
+        //y=0.732548
+        MHL_ShowNumber(cos(x),"Действительное значение производной функции в точке","y*");
+        //Действительное значение производной функции в точке:
+        //y*=0.548749
+
+        delete [] X;
+        delete [] Y;
+        delete [] dY;
     }
 
 }

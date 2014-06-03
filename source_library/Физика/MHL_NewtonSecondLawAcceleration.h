@@ -1,0 +1,1 @@
+double MHL_NewtonSecondLawAcceleration(double F, double m);

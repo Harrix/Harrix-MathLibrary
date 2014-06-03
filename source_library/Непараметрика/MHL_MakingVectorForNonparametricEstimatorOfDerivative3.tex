@@ -1,0 +1,29 @@
+\textbf{Входные параметры:} 
+ 
+VMHL\_ResultVector --- сюда сохраняется результат (количество элементов, как и в других векторах VMHL\_N);
+ 
+X --- выборка: значения входов;
+ 
+Y --- выборка: соответствующие значения выходов;
+ 
+VMHL\_N --- размер выборки;
+ 
+C --- коэффициент размытости;
+ 
+V --- тип ядра
+ 
+ \begin{itemize}
+ \item  0 --- прямоугольное (не рекомендуется);
+ \item  1 --- треугольное;
+ \item  2 --- параболическое (считается оптимальным);
+ \item  3 --- экспоненциальное;
+ \end{itemize}
+
+\textbf{Возвращаемое значение:}
+ 
+Отсутствует.
+
+\textbf{Формула:}
+\begin{eqnarray*}
+\overline{dY}_j =\dfrac{\sum_{i=1}^{N}\overline{Y}_i{\Phi}'\left( \frac{\overline{X}_j-\overline{X}_i}{c}\right) \sum_{i=1}^{N}\Phi\left( \frac{\overline{X}_j-\overline{X}_i}{c}\right)-\sum_{i=1}^{N}{\Phi}'\left( \frac{\overline{X}_j-\overline{X}_i}{c}\right) \sum_{i=1}^{N}\overline{Y}_i\Phi\left( \frac{\overline{X}_j-\overline{X}_i}{c}\right)}{c\left( \sum_{i=1}^{N}\Phi\left( \frac{\overline{X}_j-\overline{X}_i}{c}\right)\right)^2 }, j=\overline{1,N}.
+\end{eqnarray*}

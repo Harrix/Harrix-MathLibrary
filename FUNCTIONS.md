@@ -38,6 +38,21 @@ int MHL_SeparateVectorLimitOnProductElementsTwo(int *VMHL_Vector, int *Order, in
 
 ```cpp
 template <class T> void TMHL_AcceptanceLimits(T *VMHL_ResultVector, T *Left, T *Right, int VMHL_N);
+template <class T> void TMHL_AcceptanceLimits(T *VMHL_ResultVector, T Left, T Right, int VMHL_N);
+```
+
+- Если значения вектора VMHL_ResultVector[i] слева выходят за Left[i], то она ограничивается Left[i].
+
+```cpp
+template <class T> void TMHL_AcceptanceLimitsLeft(T *VMHL_ResultVector, T *Left, int VMHL_N);
+template <class T> void TMHL_AcceptanceLimitsLeft(T *VMHL_ResultVector, T Left, int VMHL_N);
+```
+
+- Если значения вектора VMHL_ResultVector[i] справа выходят за Right[i], то она ограничивается Right[i].
+
+```cpp
+template <class T> void TMHL_AcceptanceLimitsRight(T *VMHL_ResultVector, T *Right, int VMHL_N);
+template <class T> void TMHL_AcceptanceLimitsRight(T *VMHL_ResultVector, T Right, int VMHL_N);
 ```
 
 - Функция меняет порядок элементов в массиве VMHL_Vector и сохраняет в другой VMHL_ResultVector согласно массиву Order, в котором записан новый порядок элементов. Функция-перезагрузка меняет порядок элементов в массиве VMHL_Vector согласно массиву Order, в котором записан новый порядок элементов.
@@ -727,6 +742,18 @@ template <class T> T TMHL_Abs(T x);
 template <class T> T TMHL_AcceptanceLimitsNumber(T Number, T Left, T Right);
 ```
 
+- Функция проверяет не выходит ли число за левую рамку Left. Если выходит, то принимает граничное значения.
+
+```cpp
+template <class T> T TMHL_AcceptanceLimitsNumberLeft(T Number, T Left);
+```
+
+- Функция проверяет не выходит ли число за правую рамку Right. Если выходит, то принимает граничное значения.
+
+```cpp
+template <class T> T TMHL_AcceptanceLimitsNumberRight(T Number, T Right);
+```
+
 - Функция показывает, являются ли числа почти равными. Используйте с осторожностью.
 
 ```cpp
@@ -1049,6 +1076,60 @@ double MHL_DerivativeOfBellShapedKernelRectangle(double z);
 double MHL_DerivativeOfBellShapedKernelTriangle(double z);
 ```
 
+- Создание вектор непараметрической оценки производной в точках выборках. Служебная функция. Нужна для функции MHL_NonparametricEstimatorOfDerivative3.
+
+```cpp
+void MHL_MakingVectorForNonparametricEstimatorOfDerivative3(double *VMHL_ResultVector, double *X, double *Y, int VMHL_N, double C, int V);
+```
+
+- Создание вектор непараметрической оценки производной в точках выборках. Служебная функция. Нужна для функции MHL_NonparametricEstimatorOfDerivative6.
+
+```cpp
+void MHL_MakingVectorForNonparametricEstimatorOfDerivative6(double *VMHL_ResultVector, double *X, double *Y, int VMHL_N, double C, int V);
+```
+
+- Непараметрическая оценка производной при равномерном законе распределения элементов выборки в точке. Рассматривается одномерный случай: 1 вход и 1 выход.
+
+```cpp
+double MHL_NonparametricEstimatorOfDerivative(double x, double *X, double *Y, int VMHL_N, double C, int V, bool *b);
+double MHL_NonparametricEstimatorOfDerivative(double x, double *X, double *Y, int VMHL_N, double C, int V);
+```
+
+- Непараметрическая оценка производной при равномерном законе распределения элементов выборки в точке. Рассматривается одномерный случай: 1 вход и 1 выход. Отличается от MHL_NonparametricEstimatorOfDerivative тем, что производная считается только в точках  выборки, а потом в остальных точках вычисляется как в обычной непараметрической оценке регрессии в вновь полученной выборке.
+
+```cpp
+double MHL_NonparametricEstimatorOfDerivative2(double x, double *X, double *Y, int VMHL_N, double C, int V, bool *b);
+double MHL_NonparametricEstimatorOfDerivative2(double x, double *X, double *Y, int VMHL_N, double C, int V);
+```
+
+- Непараметрическая оценка производной при равномерном законе распределения элементов выборки в точке. Рассматривается одномерный случай: 1 вход и 1 выход. Отличается от MHL_NonparametricEstimatorOfDerivative тем, что производная считается только в точках  выборки, а потом в остальных точках вычисляется как в обычной непараметрической оценке регрессии в вновь полученной выборке. В отличии от MHL_NonparametricEstimatorOfDerivative2 пересчет выборки производной производится в другой функции MHL_MakingVectorForNonparametricEstimatorOfDerivative3.
+
+```cpp
+double MHL_NonparametricEstimatorOfDerivative3(double x, double *X, double *dY, int VMHL_N, double C, int V, bool *b);
+double MHL_NonparametricEstimatorOfDerivative3(double x, double *X, double *dY, int VMHL_N, double C, int V);
+```
+
+- Непараметрическая оценка производной при равномерном законе распределения элементов выборки в точке. Рассматривается одномерный случай: 1 вход и 1 выход. Авторская разработка. Немного модифицирована формула по сравнению с MHL_NonparametricEstimatorOfDerivative. Хорошо работает на концах выборки.
+
+```cpp
+double MHL_NonparametricEstimatorOfDerivative4(double x, double *X, double *Y, int VMHL_N, double C, int V, bool *b);
+double MHL_NonparametricEstimatorOfDerivative4(double x, double *X, double *Y, int VMHL_N, double C, int V);
+```
+
+- Авторская разработка. Немного модифицирована формула по сравнению с MHL_NonparametricEstimatorOfDerivative. Хорошо работает на концах выборки. Отличается от MHL_NonparametricEstimatorOfDerivative4 тем, что производная считается только в точках  выборки, а потом в остальных точках вычисляется как в обычной непараметрической оценке регрессии в вновь полученной выборке.
+
+```cpp
+double MHL_NonparametricEstimatorOfDerivative5(double x, double *X, double *Y, int VMHL_N, double C, int V, bool *b);
+double MHL_NonparametricEstimatorOfDerivative5(double x, double *X, double *Y, int VMHL_N, double C, int V);
+```
+
+- Непараметрическая оценка производной при равномерном законе распределения элементов выборки в точке. Рассматривается одномерный случай: 1 вход и 1 выход. Отличается от MHL_NonparametricEstimatorOfDerivative тем, что производная считается только в точках  выборки, а потом в остальных точках вычисляется как в обычной непараметрической оценке регрессии в вновь полученной выборке. В отличии от MHL_NonparametricEstimatorOfDerivative2 пересчет выборки производной производится в другой функции MHL_MakingVectorForNonparametricEstimatorOfDerivative3. Авторская разработка. Немного модифицирована формула по сравнению с MHL_NonparametricEstimatorOfDerivative.
+
+```cpp
+double MHL_NonparametricEstimatorOfDerivative6(double x, double *X, double *dY, int VMHL_N, double C, int V, bool *b);
+double MHL_NonparametricEstimatorOfDerivative6(double x, double *X, double *dY, int VMHL_N, double C, int V);
+```
+
 - Непараметрическая оценка регрессии при равномерном законе распределения элементов выборки в точке. Рассматривается одномерный случай: 1 вход и 1 выход. В общем, это аппроксимация функции.
 
 ```cpp
@@ -1075,6 +1156,12 @@ double MHL_MaxiMinTrapeziformFuzzyNumbers (double *Data);
 
 ```cpp
 double MHL_TrapeziformFuzzyNumber(double x,double a,double b,double c,double d);
+```
+
+- Трапециевидное усечённое нечеткое число. Точнее его функция принадлежности. Данное число соответствует операции редукции при нечетком выводе.
+
+```cpp
+double MHL_TrapeziformTruncatedFuzzyNumber(double x, double a, double b, double c, double d, double m);
 ```
 
 Оптимизация
@@ -1794,6 +1881,21 @@ int MHL_QuadraticEquation(double a, double b, double c, double *x1, double *x2);
 
 ```cpp
 int MHL_QuadraticEquationCount(double a, double b, double c, double *x1, double *x2);
+```
+
+Физика
+----------------
+
+- Функция вычисляет ускорение по второму закону Ньютона.
+
+```cpp
+double MHL_NewtonSecondLawAcceleration(double F, double m);
+```
+
+- Функция вычисляет силу по второму закону Ньютона.
+
+```cpp
+double MHL_NewtonSecondLawForce(double a, double m);
 ```
 
 Цвет

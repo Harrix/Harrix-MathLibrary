@@ -1,0 +1,1 @@
+double MHL_NewtonSecondLawForce(double a, double m);

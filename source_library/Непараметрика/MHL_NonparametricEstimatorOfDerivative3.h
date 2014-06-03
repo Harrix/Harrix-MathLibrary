@@ -1,0 +1,2 @@
+double MHL_NonparametricEstimatorOfDerivative3(double x, double *X, double *dY, int VMHL_N, double C, int V, bool *b);
+double MHL_NonparametricEstimatorOfDerivative3(double x, double *X, double *dY, int VMHL_N, double C, int V);
