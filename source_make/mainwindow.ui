@@ -7,11 +7,11 @@
     <x>0</x>
     <y>0</y>
     <width>435</width>
-    <height>455</height>
+    <height>495</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MakeHarrixMathLibrary v.1.16 - Сборка библиотеки</string>
+   <string>MakeHarrixMathLibrary v.2.0 - Сборка библиотеки</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -20,7 +20,7 @@
       <property name="minimumSize">
        <size>
         <width>0</width>
-        <height>99</height>
+        <height>131</height>
        </size>
       </property>
       <property name="frameShape">
@@ -75,6 +75,9 @@
        </property>
       </widget>
       <widget class="QPushButton" name="pushButton_2">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -88,6 +91,9 @@
        </property>
       </widget>
       <widget class="QPushButton" name="pushButton_3">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -98,6 +104,22 @@
        </property>
        <property name="text">
         <string>Раскидать скомпилированные файлы</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_4">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>92</y>
+         <width>211</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Удалить temp_library</string>
        </property>
       </widget>
      </widget>

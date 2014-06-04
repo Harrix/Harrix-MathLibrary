@@ -7,7 +7,7 @@ int MHL_AlphaBlendingColorToColorB(double alpha, int R1, int G1, int B1, int R2,
      R1,G1,B1 - RGB код первого цвета градиента, например. Каждый параметр должен быть в интервале [0,255];
      R2,G2,B2 - RGB код второго цвета градиента, например: Каждый параметр должен быть в интервале [0,255].
     Возвращаемое значение:
-     Строка содержащая G канал итогового цвета.
+     Число содержащее G канал итогового цвета.
     */
 	alpha = TMHL_AcceptanceLimitsNumber(alpha,0.,1.);
     R1 = TMHL_AcceptanceLimitsNumber(R1,0,255);

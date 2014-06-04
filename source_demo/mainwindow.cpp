@@ -968,6 +968,15 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("MHL_MakingVectorForNonparametricEstimatorOfDerivative6"));
     model->appendRow(item);
 
+    item = new QStandardItem(QString("MHL_NegativeColorR"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_NegativeColorG"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_NegativeColorB"));
+    model->appendRow(item);
+
     model->sort(0);
 
     //соединение модели списка с конкретным списком
@@ -11419,6 +11428,78 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] X;
         delete [] Y;
         delete [] dY;
+    }
+
+    if (NameFunction=="MHL_NegativeColorR")
+    {
+        int R1 = 25;
+        int G1 = 128;
+        int B1 = 75;
+
+        int R=MHL_NegativeColorR(R1, G1, B1);
+
+        //Используем полученный результат
+        MHL_ShowNumber(R1,"Канал R первого цвета","R1");
+        //Канал R первого цвета:
+        //R1=25
+        MHL_ShowNumber(G1,"Канал G первого цвета","G1");
+        //Канал G первого цвета:
+        //G1=128
+        MHL_ShowNumber(B1,"Канал B первого цвета","B1");
+        //Канал B первого цвета:
+        //B1=75
+
+        MHL_ShowNumber(R,"Канал R итогового цвета","R");
+        //Канал R итогового цвета:
+        //R=230
+    }
+
+    if (NameFunction=="MHL_NegativeColorG")
+    {
+        int R1 = 25;
+        int G1 = 128;
+        int B1 = 75;
+
+        int G=MHL_NegativeColorG(R1, G1, B1);
+
+        //Используем полученный результат
+        MHL_ShowNumber(R1,"Канал R первого цвета","R1");
+        //Канал R первого цвета:
+        //R1=25
+        MHL_ShowNumber(G1,"Канал G первого цвета","G1");
+        //Канал G первого цвета:
+        //G1=128
+        MHL_ShowNumber(B1,"Канал B первого цвета","B1");
+        //Канал B первого цвета:
+        //B1=75
+
+        MHL_ShowNumber(G,"Канал G итогового цвета","G");
+        //Канал G итогового цвета:
+        //G=127
+    }
+
+    if (NameFunction=="MHL_NegativeColorB")
+    {
+        int R1 = 25;
+        int G1 = 128;
+        int B1 = 75;
+
+        int B=MHL_NegativeColorB(R1, G1, B1);
+
+        //Используем полученный результат
+        MHL_ShowNumber(R1,"Канал R первого цвета","R1");
+        //Канал R первого цвета:
+        //R1=25
+        MHL_ShowNumber(G1,"Канал G первого цвета","G1");
+        //Канал G первого цвета:
+        //G1=128
+        MHL_ShowNumber(B1,"Канал B первого цвета","B1");
+        //Канал B первого цвета:
+        //B1=75
+
+        MHL_ShowNumber(B,"Канал B итогового цвета","B");
+        //Канал R итогового цвета:
+        //R=230
     }
 
 }

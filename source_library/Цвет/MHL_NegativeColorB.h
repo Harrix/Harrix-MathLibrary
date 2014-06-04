@@ -1,0 +1,1 @@
+int MHL_NegativeColorB(int R, int G, int B);

@@ -5,7 +5,7 @@ int MHL_GiveRainbowColorR(double position)
     Входные параметры:
      position - позиция из интервала [0;1], которая говорит какой цвет выдать из градиента.
     Возвращаемое значение:
-     Строка содержащая R канал итогового цвета.
+     Число содержащее R канал итогового цвета.
     */
     position = TMHL_AcceptanceLimitsNumber(position,0.,1.);
 

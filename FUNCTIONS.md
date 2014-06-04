@@ -1955,3 +1955,21 @@ int MHL_GiveRainbowColorG(double position);
 int MHL_GiveRainbowColorR(double position);
 ```
 
+- Функция инвертирует цвет. Выдает значение канала B.
+
+```cpp
+int MHL_NegativeColorB(int R, int G, int B);
+```
+
+- Функция инвертирует цвет. Выдает значение канала G.
+
+```cpp
+int MHL_NegativeColorG(int R, int G, int B);
+```
+
+- Функция инвертирует цвет. Выдает значение канала R.
+
+```cpp
+int MHL_NegativeColorR(int R, int G, int B);
+```
+
