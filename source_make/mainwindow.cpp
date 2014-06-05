@@ -117,7 +117,6 @@ void MainWindow::on_pushButton_clicked()
     else {MessageError="<font color=\"red\">Ошибка с файлом <b>AdditionalVariables.cpp</b><\font><br>";AllMessageError+=MessageError;ui->textEdit->insertHtml(MessageError);countoferrors++;}
     if (CountTextEditChanging>linewmax) {ui->textEdit->clear();CountTextEditChanging = 0;}
 
-
     Temp = HQt_ReadFile(path+"Random.cpp")+"\n\n";//две основные функции по случайнм числам
     ResultCpp += Temp;
     if (!(Temp.trimmed().isEmpty())) ui->textEdit->insertHtml("Загрузили файл <b>Random.cpp</b><br>");
@@ -234,9 +233,21 @@ void MainWindow::on_pushButton_clicked()
 
                 Temp = HQt_ReadFile(path2+filename)+"\n";//добавляем текст файла
 
-                ResultTexList += "\\item \\textbf{\\hyperref[" + nameof_func + "]{" + nameof_func_ + "}} --- " + Temp+"\n";
+                //Вставим гиперссылки на использованные функции
+                QString TempRef=Temp;
+                {
+                QRegExp regExp(" (MHL\\\\_[a-zA-Z0-9]*)([ .,!?:…$])");
+                TempRef=TempRef.replace(regExp," \\hyperref[\\1]{\\1}\\2");
+                TempRef=TempRef.replace("\\hyperref[MHL\\_","\\hyperref[MHL_");
 
-                ResultTexFunctions+="\\subsubsection{" + nameof_func_ + "}\\label{"+nameof_func+"}\n\n" + Temp+"\n\n";
+                QRegExp regExp2(" (TMHL\\\\_[a-zA-Z0-9]*)([ .,!?:…$])");
+                TempRef=TempRef.replace(regExp2," \\hyperref[\\1]{\\1}\\2");
+                TempRef=TempRef.replace("\\hyperref[TMHL\\_","\\hyperref[TMHL_");
+                }
+
+                ResultTexList += "\\item \\textbf{\\hyperref[" + nameof_func + "]{" + nameof_func_ + "}} --- " + TempRef+"\n";
+
+                ResultTexFunctions+="\\subsubsection{" + nameof_func_ + "}\\label{"+nameof_func+"}\n\n" + TempRef+"\n\n";
 
                 ResultFunctionsMD += "- "+Temp.replace("\\_","_").replace("$","")+"\n";
 
@@ -324,7 +335,19 @@ void MainWindow::on_pushButton_clicked()
 
                 Temp = HQt_ReadFile(path2+filename)+"\n";//добавляем текст файла
 
-                ResultTexFunctions+=Temp+"\n\n";
+                //Вставим гиперссылки на использованные функции
+                QString TempRef=Temp;
+                {
+                QRegExp regExp(" (MHL\\\\_[a-zA-Z0-9]*)([ .,!?:…$])");
+                TempRef=TempRef.replace(regExp," \\hyperref[\\1]{\\1}\\2");
+                TempRef=TempRef.replace("\\hyperref[MHL\\_","\\hyperref[MHL_");
+
+                QRegExp regExp2(" (TMHL\\\\_[a-zA-Z0-9]*)([ .,!?:…$])");
+                TempRef=TempRef.replace(regExp2," \\hyperref[\\1]{\\1}\\2");
+                TempRef=TempRef.replace("\\hyperref[TMHL\\_","\\hyperref[TMHL_");
+                }
+
+                ResultTexFunctions+=TempRef+"\n\n";
 
                 if (!(Temp.trimmed().isEmpty())) ui->textEdit->insertHtml("Загрузили файл <b>"+filename+"</b><br>");
                 else {MessageError="<font color=\"red\">Ошибка с файлом <b>"+filename+"</b><\font><br>";AllMessageError+=MessageError;ui->textEdit->insertHtml(MessageError);countoferrors++;}
@@ -601,33 +624,33 @@ void MainWindow::on_pushButton_2_clicked()
     {
         b = HQt_CopyFile(temp_library_path+"FUNCTIONS.md", path, true);
         if (b)
-            ui->textEdit->insertHtml("Файл FUNCTIONS.md успешно скопирован.<br>");
+            ui->textEdit->insertHtml("Файл <b>FUNCTIONS.md</b> успешно скопирован.<br>");
         else
-            ui->textEdit->insertHtml("<font color=\"red\">Файл FUNCTIONS.md не скопирован.<\font><br>");
+            ui->textEdit->insertHtml("<font color=\"red\">Файл <b>FUNCTIONS.md</b> не скопирован.<\font><br>");
 
         b = HQt_CopyFile(temp_library_path+"HarrixMathLibrary.cpp", path+"_library"+DS, true);
         if (b)
-            ui->textEdit->insertHtml("Файл HarrixMathLibrary.cpp успешно скопирован.<br>");
+            ui->textEdit->insertHtml("Файл <b>HarrixMathLibrary.cpp</b> успешно скопирован.<br>");
         else
-            ui->textEdit->insertHtml("<font color=\"red\">Файл HarrixMathLibrary.cpp не скопирован.<\font><br>");
+            ui->textEdit->insertHtml("<font color=\"red\">Файл <b>HarrixMathLibrary.cpp</b> не скопирован.<\font><br>");
 
         b = HQt_CopyFile(temp_library_path+"HarrixMathLibrary.cpp", path+"source_demo"+DS, true);
         if (b)
-            ui->textEdit->insertHtml("Файл HarrixMathLibrary.cpp успешно скопирован.<br>");
+            ui->textEdit->insertHtml("Файл <b>HarrixMathLibrary.cpp</b> успешно скопирован.<br>");
         else
-            ui->textEdit->insertHtml("<font color=\"red\">Файл HarrixMathLibrary.cpp не скопирован.<\font><br>");
+            ui->textEdit->insertHtml("<font color=\"red\">Файл <b>HarrixMathLibrary.cpp</b> не скопирован.<\font><br>");
 
         b = HQt_CopyFile(temp_library_path+"HarrixMathLibrary.h", path+"_library"+DS, true);
         if (b)
-            ui->textEdit->insertHtml("Файл HarrixMathLibrary.h успешно скопирован.<br>");
+            ui->textEdit->insertHtml("Файл <b>HarrixMathLibrary.h</b> успешно скопирован.<br>");
         else
-            ui->textEdit->insertHtml("<font color=\"red\">Файл HarrixMathLibrary.h не скопирован.<\font><br>");
+            ui->textEdit->insertHtml("<font color=\"red\">Файл <b>HarrixMathLibrary.h</b> не скопирован.<\font><br>");
 
         b = HQt_CopyFile(temp_library_path+"HarrixMathLibrary.h", path+"source_demo"+DS, true);
         if (b)
-            ui->textEdit->insertHtml("Файл HarrixMathLibrary.h успешно скопирован.<br>");
+            ui->textEdit->insertHtml("Файл <b>HarrixMathLibrary.h</b> успешно скопирован.<br>");
         else
-            ui->textEdit->insertHtml("<font color=\"red\">Файл HarrixMathLibrary.h не скопирован.<\font><br>");
+            ui->textEdit->insertHtml("<font color=\"red\">Файл <b>HarrixMathLibrary.h</b> не скопирован.<\font><br>");
 
         //Более сложная обработка
         if (Version!=VersionNew)
@@ -637,9 +660,9 @@ void MainWindow::on_pushButton_2_clicked()
             line2 = line2.replace("Версия "+Version.trimmed(),"Версия "+VersionNew.trimmed());
             HQt_SaveFile(line2,path+"README.md");
             if (line!=line2)
-                ui->textEdit->insertHtml("Файл README.md успешно обновлен.<br>");
+                ui->textEdit->insertHtml("Файл <b>README.md</b> успешно обновлен.<br>");
             else
-                ui->textEdit->insertHtml("<font color=\"red\">Файл README.md не обновлен.<\font><br>");
+                ui->textEdit->insertHtml("<font color=\"red\">Файл <b>README.md</b> не обновлен.<\font><br>");
         }
 
         if (Version!=VersionNew)
@@ -649,9 +672,9 @@ void MainWindow::on_pushButton_2_clicked()
             line2 = line2.replace("HarrixMathLibrary\n=================","HarrixMathLibrary\n=================\n\n"+VersionNew+"\n----\n * Функций в библиотеке "+QString::number(CoF)+" функций (собственных).\n * ");
             HQt_SaveFile(line2,path+"CHANGELOG.md");
             if (line!=line2)
-                ui->textEdit->insertHtml("Файл CHANGELOG.md успешно обновлен.<br>");
+                ui->textEdit->insertHtml("Файл <b>CHANGELOG.md</b> успешно обновлен.<br>");
             else
-                ui->textEdit->insertHtml("<font color=\"red\">Файл CHANGELOG.md не обновлен.<\font><br>");
+                ui->textEdit->insertHtml("<font color=\"red\">Файл <b>CHANGELOG.md</b> не обновлен.<\font><br>");
         }
     }
 
@@ -662,8 +685,9 @@ void MainWindow::on_pushButton_2_clicked()
 
 void MainWindow::on_pushButton_4_clicked()
 {
-    QString temp_library_path;//папка где находятся собранные файлы
-    temp_library_path=QDir::toNativeSeparators(QGuiApplication::applicationDirPath())+DS+".."+DS+"temp_library"+DS;//путь к папке
+    QString path=QDir::toNativeSeparators(QGuiApplication::applicationDirPath())+DS+".."+DS;
+
+    QString temp_library_path=path+"temp_library"+DS;//путь к папке
 
     ui->textEdit->insertHtml("<br>");
 
@@ -673,9 +697,19 @@ void MainWindow::on_pushButton_4_clicked()
     {
         b = HQt_DirDelete(temp_library_path);
         if (b)
-            ui->textEdit->insertHtml("Папка temp_library удалена.<br>");
+            ui->textEdit->insertHtml("Папка <b>temp_library</b> удалена.<br>");
         else
-            ui->textEdit->insertHtml("<font color=\"red\">Папка temp_library не удалена.<\font><br>");
+            ui->textEdit->insertHtml("<font color=\"red\">Папка <b>temp_library</b> не удалена.<\font><br>");
+    }
+
+    QString line=HQt_ReadFile(path+"make"+DS+"path_to_release.txt");
+    if ((QDir(path+line+DS).exists()==true) )
+    {
+        b = HQt_DirDelete(path+line+DS);
+        if (b)
+            ui->textEdit->insertHtml("Папка <b>"+line+"</b> удалена.<br>");
+        else
+            ui->textEdit->insertHtml("<font color=\"red\">Папка <b>"+line+"</b> не удалена.<\font><br>");
     }
 
     QTextCursor c =  ui->textEdit->textCursor();

@@ -1,5 +1,5 @@
 //HarrixQtLibrary
-//Версия 3.24
+//Версия 3.26
 //Сборник функций для Qt.
 //https://github.com/Harrix/HarrixQtLibrary
 //Библиотека распространяется по лицензии Apache License, Version 2.0.
@@ -1444,7 +1444,7 @@ bool HQt_CopyFile(QString filename, QString dir)
     /*
     Функция копирует файл filename в папку dir.
     Входные параметры:
-     filename - имя файла (с полным путем),
+     filename - имя файла (с полным путем);
      dir - путь к папке, куда нужно скопировать файл.
     Возвращаемое значение:
      true - если скопировалось удачно,
@@ -1465,9 +1465,9 @@ bool HQt_CopyFile(QString filename, QString dir, bool overwrite)
     /*
     Функция копирует файл filename в папку dir, с возможностью перезаписи.
     Входные параметры:
-     filename - имя файла (с полным путем),
-     dir - путь к папке, куда нужно скопировать файл.
-     overwrite - если true, то перезаписывать, если false, то не перезаписывать
+     filename - имя файла (с полным путем);
+     dir - путь к папке, куда нужно скопировать файл;
+     overwrite - если true, то перезаписывать, если false, то не перезаписывать;
     Возвращаемое значение:
      true - если скопировалось удачно,
      false - если скопировалось неудачно.
@@ -1478,6 +1478,40 @@ bool HQt_CopyFile(QString filename, QString dir, bool overwrite)
     QString Separator="\\";
 
     QString destinationFile = dir + Separator + fileInfo.fileName();
+
+    if ((QFile::exists(destinationFile))&&(overwrite==true))
+    {
+        QFile::remove(destinationFile);
+    }
+
+    bool result = QFile::copy(filename, destinationFile);
+    return result;
+}
+//---------------------------------------------------------------------------
+bool HQt_CopyFile(QString filename, QString dir, bool overwrite, bool dirmake)
+{
+    /*
+    Функция копирует файл filename в папку dir, с возможностью перезаписи.
+    Входные параметры:
+     filename - имя файла (с полным путем);
+     dir - путь к папке, куда нужно скопировать файл;
+     overwrite - если true, то перезаписывать, если false, то не перезаписывать;
+     dirmake - если true, то если нет директории, то она создается.
+    Возвращаемое значение:
+     true - если скопировалось удачно,
+     false - если скопировалось неудачно.
+    */
+    filename = QDir::toNativeSeparators(filename);
+    QFileInfo fileInfo(filename);
+
+    QString Separator="\\";
+
+    QString destinationFile = dir + Separator + fileInfo.fileName();
+
+    if ((!HQt_DirExists(dir))&&(dirmake==true))
+    {
+        HQt_DirMake(dir);
+    }
 
     if ((QFile::exists(destinationFile))&&(overwrite==true))
     {

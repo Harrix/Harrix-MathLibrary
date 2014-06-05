@@ -1955,6 +1955,24 @@ int MHL_GiveRainbowColorG(double position);
 int MHL_GiveRainbowColorR(double position);
 ```
 
+- Функция переводит цвет в серый цвет. Выдает значение канала B.
+
+```cpp
+int MHL_GreyscaleB(int R, int G, int B);
+```
+
+- Функция переводит цвет в серый цвет. Выдает значение канала G.
+
+```cpp
+int MHL_GreyscaleG(int R, int G, int B);
+```
+
+- Функция переводит цвет в серый цвет. Выдает значение канала R.
+
+```cpp
+int MHL_GreyscaleR(int R, int G, int B);
+```
+
 - Функция инвертирует цвет. Выдает значение канала B.
 
 ```cpp

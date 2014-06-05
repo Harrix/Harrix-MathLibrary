@@ -1,5 +1,5 @@
 //HarrixMathLibrary
-//Версия 3.76
+//Версия 3.77
 //Сборник различных математических функций и шаблонов с открытым кодом на языке C++.
 //https://github.com/Harrix/HarrixMathLibrary
 //Библиотека распространяется по лицензии Apache License, Version 2.0.
@@ -11598,6 +11598,69 @@ int MHL_GiveRainbowColorR(double position)
     }; // case
 
     return R;
+}
+//---------------------------------------------------------------------------
+
+int MHL_GreyscaleB(int R, int G, int B)
+{
+    /*
+    Функция переводит цвет в серый цвет. Выдает значение канала B.
+    Входные параметры:
+    R,G,B - RGB код цвета. Каждый параметр должен быть в интервале [0,255].
+    Возвращаемое значение:
+     Число содержащее B канал итогового цвета.
+    */
+    R = TMHL_AcceptanceLimitsNumber(R,0,255);
+    G = TMHL_AcceptanceLimitsNumber(G,0,255);
+    B = TMHL_AcceptanceLimitsNumber(B,0,255);
+
+    //int Rnew=(R+G+B)/3;
+    //int Gnew=(R+G+B)/3;
+    int Bnew=(R+G+B)/3;
+
+    return Bnew;
+}
+//---------------------------------------------------------------------------
+
+int MHL_GreyscaleG(int R, int G, int B)
+{
+    /*
+    Функция переводит цвет в серый цвет. Выдает значение канала G.
+    Входные параметры:
+    R,G,B - RGB код цвета. Каждый параметр должен быть в интервале [0,255].
+    Возвращаемое значение:
+     Число содержащее G канал итогового цвета.
+    */
+    R = TMHL_AcceptanceLimitsNumber(R,0,255);
+    G = TMHL_AcceptanceLimitsNumber(G,0,255);
+    B = TMHL_AcceptanceLimitsNumber(B,0,255);
+
+    //int Rnew=(R+G+B)/3;
+    int Gnew=(R+G+B)/3;
+    //int Bnew=(R+G+B)/3;
+
+    return Gnew;
+}
+//---------------------------------------------------------------------------
+
+int MHL_GreyscaleR(int R, int G, int B)
+{
+    /*
+    Функция переводит цвет в серый цвет. Выдает значение канала R.
+    Входные параметры:
+    R,G,B - RGB код цвета. Каждый параметр должен быть в интервале [0,255].
+    Возвращаемое значение:
+     Число содержащее R канал итогового цвета.
+    */
+    R = TMHL_AcceptanceLimitsNumber(R,0,255);
+    G = TMHL_AcceptanceLimitsNumber(G,0,255);
+    B = TMHL_AcceptanceLimitsNumber(B,0,255);
+
+    int Rnew=(R+G+B)/3;
+    //int Gnew=(R+G+B)/3;
+    //int Bnew=(R+G+B)/3;
+
+    return Rnew;
 }
 //---------------------------------------------------------------------------
 

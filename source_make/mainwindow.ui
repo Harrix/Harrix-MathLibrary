@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MakeHarrixMathLibrary v.2.0 - Сборка библиотеки</string>
+   <string>MakeHarrixMathLibrary v.2.1 - Сборка библиотеки</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -119,7 +119,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>Удалить temp_library</string>
+        <string>Удалить временные файлы</string>
        </property>
       </widget>
      </widget>

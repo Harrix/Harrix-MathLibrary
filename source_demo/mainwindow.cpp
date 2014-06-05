@@ -977,6 +977,15 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("MHL_NegativeColorB"));
     model->appendRow(item);
 
+    item = new QStandardItem(QString("MHL_GreyscaleR"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_GreyscaleG"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_GreyscaleB"));
+    model->appendRow(item);
+
     model->sort(0);
 
     //соединение модели списка с конкретным списком
@@ -990,12 +999,19 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->listView->setEditTriggers(QAbstractItemView::NoEditTriggers);
 }
 //---------------------------------------------------------------------------
-
 MainWindow::~MainWindow()
 {
     delete ui;
 }
 //---------------------------------------------------------------------------
+void MainWindow::on_lineEdit_4_textChanged(const QString &arg1)
+{
+    QRegExp regExp(QString("*%1*").arg(arg1), Qt::CaseInsensitive,
+                   QRegExp::Wildcard);
+    proxyModelView->setFilterRegExp(regExp);
+}
+//---------------------------------------------------------------------------
+
 double Func(int *x,int VMHL_N)
 {
     //Сумма всех элементов массива
@@ -11502,12 +11518,77 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //R=230
     }
 
+    if (NameFunction=="MHL_GreyscaleR")
+    {
+        int R1 = 25;
+        int G1 = 128;
+        int B1 = 75;
+
+        int R=MHL_GreyscaleR(R1, G1, B1);
+
+        //Используем полученный результат
+        MHL_ShowNumber(R1,"Канал R первого цвета","R1");
+        //Канал R первого цвета:
+        //R1=25
+        MHL_ShowNumber(G1,"Канал G первого цвета","G1");
+        //Канал G первого цвета:
+        //G1=128
+        MHL_ShowNumber(B1,"Канал B первого цвета","B1");
+        //Канал B первого цвета:
+        //B1=75
+
+        MHL_ShowNumber(R,"Канал R итогового цвета","R");
+        //Канал R итогового цвета:
+        //R=76
+    }
+
+    if (NameFunction=="MHL_GreyscaleG")
+    {
+        int R1 = 25;
+        int G1 = 128;
+        int B1 = 75;
+
+        int G=MHL_GreyscaleG(R1, G1, B1);
+
+        //Используем полученный результат
+        MHL_ShowNumber(R1,"Канал R первого цвета","R1");
+        //Канал R первого цвета:
+        //R1=25
+        MHL_ShowNumber(G1,"Канал G первого цвета","G1");
+        //Канал G первого цвета:
+        //G1=128
+        MHL_ShowNumber(B1,"Канал B первого цвета","B1");
+        //Канал B первого цвета:
+        //B1=75
+
+        MHL_ShowNumber(G,"Канал G итогового цвета","G");
+        //Канал G итогового цвета:
+        //G=76
+    }
+
+    if (NameFunction=="MHL_GreyscaleB")
+    {
+        int R1 = 25;
+        int G1 = 128;
+        int B1 = 75;
+
+        int B=MHL_GreyscaleB(R1, G1, B1);
+
+        //Используем полученный результат
+        MHL_ShowNumber(R1,"Канал R первого цвета","R1");
+        //Канал R первого цвета:
+        //R1=25
+        MHL_ShowNumber(G1,"Канал G первого цвета","G1");
+        //Канал G первого цвета:
+        //G1=128
+        MHL_ShowNumber(B1,"Канал B первого цвета","B1");
+        //Канал B первого цвета:
+        //B1=75
+
+        MHL_ShowNumber(B,"Канал B итогового цвета","B");
+        //Канал B итогового цвета:
+        //B=76
+    }
+
 }
 //---------------------------------------------------------------------------
-
-void MainWindow::on_lineEdit_4_textChanged(const QString &arg1)
-{
-    QRegExp regExp(QString("*%1*").arg(arg1), Qt::CaseInsensitive,
-                   QRegExp::Wildcard);
-    proxyModelView->setFilterRegExp(regExp);
-}

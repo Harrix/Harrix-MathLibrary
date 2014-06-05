@@ -1,0 +1,1 @@
+int MHL_GreyscaleB(int R, int G, int B);

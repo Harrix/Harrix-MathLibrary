@@ -63,6 +63,7 @@ int HQt_DaysBetweenDates(QString BeginDate, QString EndDate);
 //Работа с файлами и папками
 bool HQt_CopyFile(QString filename, QString dir);
 bool HQt_CopyFile(QString filename, QString dir, bool overwrite);
+bool HQt_CopyFile(QString filename, QString dir, bool overwrite, bool dirmake);
 bool HQt_DirDelete(QString path);
 bool HQt_DirExists(QString path);
 void HQt_DirMake(QString path);
@@ -420,6 +421,5 @@ template <class T> void THQt_VectorToQStringList(T *x, int N)
 //*****************************************************************
 //Служебные функции
 //*****************************************************************
-
 
 #endif // HARRIXQTLIBRARY_H
