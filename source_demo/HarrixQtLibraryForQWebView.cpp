@@ -1,5 +1,5 @@
 //HarrixQtLibraryForQWebView
-//Версия 1.14
+//Версия 1.15
 //Библиотека для отображения различных данных в QWebView.
 //https://github.com/Harrix/HarrixQtLibraryForQWebView
 //Библиотека распространяется по лицензии Apache License, Version 2.0.
@@ -9,24 +9,9 @@
 QString VMHL_HTML;
 QString VMHL_Path;
 
-//Функции для получения HTML кода для вывода в webView
-
-void HQt_BeginHtml(QString Path)
-{
-    /*
-    Функция обнуляет переменную HTML. Требуется когда нужно перезапустить показ информации в QWebView.
-    Входные параметры:
-     Path - путь к папке, в которой надо будет сохранять html код. В этой папке должен соддержаться файл index.html
-    Возвращаемое значение:
-     Отсутствует.
-    */
-    VMHL_HTML="";
-    VMHL_Path=QDir::toNativeSeparators(Path);
-    if (VMHL_Path.at(VMHL_Path.length()-1)!='\\') VMHL_Path+="\\";
-    HQt_SaveFile(VMHL_HTML, VMHL_Path+"temp.html");//сохраняем пустую пока переменную в temp.html
-}
-//---------------------------------------------------------------------------
-
+//*****************************************************************
+//Главные загрузочные функции
+//*****************************************************************
 void HQt_AddHtml(QString Html)
 {
     /*
@@ -41,91 +26,26 @@ void HQt_AddHtml(QString Html)
 }
 //---------------------------------------------------------------------------
 
-QString HQt_ShowText (QString TitleX)
+void HQt_BeginHtml(QString Path)
 {
     /*
-    Функция возвращает строку с выводом некоторой строки с HTML кодами. Для добавление в html файл.
+    Функция обнуляет переменную HTML. Требуется когда нужно перезапустить показ информации в QWebView.
     Входные параметры:
-     TitleX - непосредственно выводимая строка.
+     Path - путь к папке, в которой надо будет сохранять html код. В этой папке должен содержаться файл index.html
     Возвращаемое значение:
-     Строка с HTML кодами с выводимой строкой.
+     Отсутствует.
     */
-    QString VMHL_Result;
-
-    VMHL_Result="<p><b>"+TitleX+".</b></p>\n";
-
-    return VMHL_Result;
+    VMHL_HTML="";
+    VMHL_Path=QDir::toNativeSeparators(Path);
+    if (VMHL_Path.at(VMHL_Path.length()-1)!='\\') VMHL_Path+="\\";
+    HQt_SaveFile(VMHL_HTML, VMHL_Path+"temp.html");//сохраняем пустую пока переменную в temp.html
 }
 //---------------------------------------------------------------------------
 
-QString HQt_ShowSimpleText (QString String)
-{
-    /*
-    Функция возвращает строку с выводом некоторой строки с HTML кодами без всякого излишевства. Для добавление в html файл.
-    Входные параметры:
-     String - непосредственно выводимая строка.
-    Возвращаемое значение:
-     Строка с HTML кодами с выводимой строкой.
-    */
-    QString VMHL_Result;
 
-    VMHL_Result="<p>"+String+"</p>\n";
-
-    return VMHL_Result;
-}
-//---------------------------------------------------------------------------
-
-QString HQt_ShowH1 (QString String)
-{
-    /*
-    Функция возвращает строку с выводом некоторой строки в виде заголовка. Для добавление в html файл.
-    Входные параметры:
-     String - непосредственно выводимая строка.
-    Возвращаемое значение:
-     Строка с HTML кодами с выводимой строкой.
-    */
-    QString VMHL_Result;
-
-    VMHL_Result="<h1>"+String+"</h1>\n";
-
-    return VMHL_Result;
-}
-//---------------------------------------------------------------------------
-
-QString HQt_ShowHr ()
-{
-    /*
-    Функция возвращает строку с выводом горизонтальной линии. Для добавление в html файл.
-    Входные параметры:
-     Отсутствуют.
-    Возвращаемое значение:
-     Строка с HTML кодами с тэгом hr.
-    */
-    QString VMHL_Result;
-
-    VMHL_Result="<hr>\n";
-
-    return VMHL_Result;
-}
-//---------------------------------------------------------------------------
-
-QString HQt_ShowAlert (QString String)
-{
-    /*
-    Функция возвращает строку с выводом некоторого предупреждения. Для добавление в html файл.
-    Входные параметры:
-     String - непосредственно выводимая строка.
-    Возвращаемое значение:
-     Строка с HTML кодами с выводимым предупреждением.
-    */
-    QString VMHL_Result;
-
-    VMHL_Result="<div style=\"background: #ffdfdf url(images/box-alert.png) no-repeat 16px; border-color: #feabab;color: #c31b00;padding: 15px 20px 15px 55px;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;border: 1px solid;clear: both;margin: 15px 0;-webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1), 0 1px 0 #FFFFFF inset, 0 -1px 0 #FFFFFF inset;-moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1), 0 1px 0 #FFFFFF inset, 0 -1px 0 #FFFFFF inset;box-shadow: 0 0 3px rgba(0, 0, 0, 0.1), 0 1px 0 #FFFFFF inset, 0 -1px 0 #FFFFFF inset;text-align: justify; width:600px;\">"+String+"</div>\n";
-
-    return VMHL_Result;
-}
-//---------------------------------------------------------------------------
-
+//*****************************************************************
+//Показ графиков
+//*****************************************************************
 QString HQt_DrawLine (double Left, double Right, double h, double (*Function)(double), QString TitleChart, QString NameVectorX, QString NameVectorY, QString NameLine, bool ShowLine, bool ShowPoints, bool ShowArea, bool ShowSpecPoints, bool RedLine)
 {
     /*
@@ -170,7 +90,6 @@ QString HQt_DrawLine (double Left, double Right, double h, double (*Function)(do
     return VMHL_Result;
 }
 //---------------------------------------------------------------------------
-
 QString HQt_DrawLine (double Left, double Right, double h, double (*Function)(double), QString TitleChart, QString NameVectorX, QString NameVectorY, bool ShowLine, bool ShowPoints, bool ShowArea, bool ShowSpecPoints, bool RedLine)
 {
     /*
@@ -199,7 +118,6 @@ QString HQt_DrawLine (double Left, double Right, double h, double (*Function)(do
     return VMHL_Result;
 }
 //---------------------------------------------------------------------------
-
 QString HQt_DrawLine (double Left, double Right, double h, double (*Function)(double), QString TitleChart, QString NameVectorX, QString NameVectorY, QString NameLine)
 {
     /*
@@ -228,7 +146,6 @@ QString HQt_DrawLine (double Left, double Right, double h, double (*Function)(do
     return VMHL_Result;
 }
 //---------------------------------------------------------------------------
-
 QString HQt_DrawLine (double Left, double Right, double h, double (*Function)(double))
 {
     /*
@@ -253,6 +170,190 @@ QString HQt_DrawLine (double Left, double Right, double h, double (*Function)(do
     QString VMHL_Result;
 
     VMHL_Result += HQt_DrawLine (Left, Right, h, Function, "", "x", "y", true, false, false, true, true);
+
+    return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+
+
+//*****************************************************************
+//Показ математических выражений
+//*****************************************************************
+QString THQt_ShowMatrix (QStringList *VMHL_Matrix, int VMHL_N, QString TitleMatrix, QString NameMatrix)
+{
+    /*
+    Функция возвращает строку с выводом некоторой матрицы VMHL_Matrix с HTML кодами. Для добавление в html файл.
+    В качестве матрицы выступает массив QStringList, где количество QStringList - это количество строк. Каждый
+    QStringList - это одна строка.
+    Входные параметры:
+     VMHL_Matrix - указатель на выводимую матрицу;
+     VMHL_N - количество строк в матрице;
+     TitleMatrix - заголовок выводимой матрицы;
+     NameMatrix - обозначение матрицы.
+    Возвращаемое значение:
+     Строка с HTML кодами с выводимой матрицей.
+    */
+    QString VMHL_Result;
+
+    VMHL_Result+="<p><b>"+TitleMatrix+":</b>";
+
+    VMHL_Result+="<table>\n";
+    VMHL_Result+="<tr>\n";
+
+    VMHL_Result+="<td class=\"middle\">\n";
+    VMHL_Result+="<font class=\"overline\">";
+    VMHL_Result+=NameMatrix;
+    VMHL_Result+="</font> = \n";
+    VMHL_Result+="</td>\n";
+
+    VMHL_Result+="<td>\n";
+    VMHL_Result+="<table class=\"matrixbrak\">\n";
+    VMHL_Result+="<tr>\n";
+    VMHL_Result+="<td class=\"lbrak\">&nbsp;</td>\n";
+
+    VMHL_Result+="<td>\n";
+    VMHL_Result+="<table class=\"matrix\">\n";
+
+    for (int i=0;i<VMHL_N;i++)
+    {
+        VMHL_Result+="<tr>\n";
+        for (int j=0;j<VMHL_Matrix[i].count();j++)
+        {
+            QString B=VMHL_Matrix[i].at(j);
+            if (B!=B.trimmed()) B="→|"+B+"|←";
+            B=B.replace(" ","&nbsp;");
+            VMHL_Result+="<td class=\"number\">"+B+"</td>\n";
+        }
+
+        VMHL_Result+="</tr>\n";
+    }
+
+    VMHL_Result+="</table>\n";
+    VMHL_Result+="</td>\n";
+    VMHL_Result+="<td class=\"rbrak\">&nbsp;</td>\n";
+    VMHL_Result+="</tr>\n";
+    VMHL_Result+="</table>\n";
+    VMHL_Result+="</td>\n";
+
+    VMHL_Result+="</tr>\n";
+    VMHL_Result+="</table></p>\n";
+
+    return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+QString THQt_ShowMatrix (QStringList *VMHL_Matrix, int VMHL_N, QString NameMatrix)
+{
+    /*
+    Функция возвращает строку с выводом некоторой матрицы VMHL_Matrix с HTML кодами. Для добавление в html файл.
+    В качестве матрицы выступает массив QStringList, где количество QStringList - это количество строк. Каждый
+    QStringList - это одна строка.
+    Входные параметры:
+     VMHL_Matrix - указатель на выводимую матрицу;
+     VMHL_N - количество строк в матрице;
+     NameMatrix - обозначение матрицы.
+    Возвращаемое значение:
+     Строка с HTML кодами с выводимой матрицей.
+    */
+    QString VMHL_Result;
+
+    VMHL_Result+="<p><table>\n";
+    VMHL_Result+="<tr>\n";
+
+    VMHL_Result+="<td class=\"middle\">\n";
+    VMHL_Result+="<font class=\"overline\">";
+    VMHL_Result+=NameMatrix;
+    VMHL_Result+="</font> = \n";
+    VMHL_Result+="</td>\n";
+
+    VMHL_Result+="<td>\n";
+    VMHL_Result+="<table class=\"matrixbrak\">\n";
+    VMHL_Result+="<tr>\n";
+    VMHL_Result+="<td class=\"lbrak\">&nbsp;</td>\n";
+
+    VMHL_Result+="<td>\n";
+    VMHL_Result+="<table class=\"matrix\">\n";
+
+    for (int i=0;i<VMHL_N;i++)
+    {
+        VMHL_Result+="<tr>\n";
+        for (int j=0;j<VMHL_Matrix[i].count();j++)
+        {
+            QString B=VMHL_Matrix[i].at(j);
+            if (B!=B.trimmed()) B="→|"+B+"|←";
+            B=B.replace(" ","&nbsp;");
+            VMHL_Result+="<td class=\"number\">"+B+"</td>\n";
+        }
+
+        VMHL_Result+="</tr>\n";
+    }
+
+    VMHL_Result+="</table>\n";
+    VMHL_Result+="</td>\n";
+    VMHL_Result+="<td class=\"rbrak\">&nbsp;</td>\n";
+    VMHL_Result+="</tr>\n";
+    VMHL_Result+="</table>\n";
+    VMHL_Result+="</td>\n";
+
+    VMHL_Result+="</tr>\n";
+    VMHL_Result+="</table></p>\n";
+
+    return VMHL_Result;
+}
+//---------------------------------------------------------------------------
+QString THQt_ShowMatrix (QStringList *VMHL_Matrix, int VMHL_N)
+{
+    /*
+    Функция возвращает строку с выводом некоторой матрицы VMHL_Matrix с HTML кодами. Для добавление в html файл.
+    В качестве матрицы выступает массив QStringList, где количество QStringList - это количество строк. Каждый
+    QStringList - это одна строка.
+    Входные параметры:
+     VMHL_Matrix - указатель на выводимую матрицу;
+     VMHL_N - количество строк в матрице.
+    Возвращаемое значение:
+     Строка с HTML кодами с выводимой матрицей.
+    */
+    QString VMHL_Result;
+
+    VMHL_Result+="<p><table>\n";
+    VMHL_Result+="<tr>\n";
+
+    VMHL_Result+="<td class=\"middle\">\n";
+    VMHL_Result+="<font class=\"overline\">";
+    VMHL_Result+="";
+    VMHL_Result+="</font> = \n";
+    VMHL_Result+="</td>\n";
+
+    VMHL_Result+="<td>\n";
+    VMHL_Result+="<table class=\"matrixbrak\">\n";
+    VMHL_Result+="<tr>\n";
+    VMHL_Result+="<td class=\"lbrak\">&nbsp;</td>\n";
+
+    VMHL_Result+="<td>\n";
+    VMHL_Result+="<table class=\"matrix\">\n";
+
+    for (int i=0;i<VMHL_N;i++)
+    {
+        VMHL_Result+="<tr>\n";
+        for (int j=0;j<VMHL_Matrix[i].count();j++)
+        {
+            QString B=VMHL_Matrix[i].at(j);
+            if (B!=B.trimmed()) B="→|"+B+"|←";
+            B=B.replace(" ","&nbsp;");
+            VMHL_Result+="<td class=\"number\">"+B+"</td>\n";
+        }
+
+        VMHL_Result+="</tr>\n";
+    }
+
+    VMHL_Result+="</table>\n";
+    VMHL_Result+="</td>\n";
+    VMHL_Result+="<td class=\"rbrak\">&nbsp;</td>\n";
+    VMHL_Result+="</tr>\n";
+    VMHL_Result+="</table>\n";
+    VMHL_Result+="</td>\n";
+
+    VMHL_Result+="</tr>\n";
+    VMHL_Result+="</table></p>\n";
 
     return VMHL_Result;
 }
@@ -315,7 +416,6 @@ QString THQt_ShowVector (QStringList VMHL_Vector, QString TitleVector, QString N
     return VMHL_Result;
 }
 //---------------------------------------------------------------------------
-
 QString THQt_ShowVector (QStringList VMHL_Vector, QString NameVector)
 {
     /*
@@ -370,7 +470,6 @@ QString THQt_ShowVector (QStringList VMHL_Vector, QString NameVector)
     return VMHL_Result;
 }
 //---------------------------------------------------------------------------
-
 QString THQt_ShowVector (QStringList VMHL_Vector)
 {
     /*
@@ -426,183 +525,90 @@ QString THQt_ShowVector (QStringList VMHL_Vector)
 }
 //---------------------------------------------------------------------------
 
-QString THQt_ShowMatrix (QStringList *VMHL_Matrix, int VMHL_N, QString TitleMatrix, QString NameMatrix)
+
+//*****************************************************************
+//Показ текста
+//*****************************************************************
+QString HQt_ShowAlert (QString String)
 {
     /*
-    Функция возвращает строку с выводом некоторой матрицы VMHL_Matrix с HTML кодами. Для добавление в html файл.
-    В качестве матрицы выступает массив QStringList, где количество QStringList - это количество строк. Каждый
-    QStringList - это одна строка.
+    Функция возвращает строку с выводом некоторого предупреждения. Для добавление в html файл.
     Входные параметры:
-     VMHL_Matrix - указатель на выводимую матрицу;
-     VMHL_N - количество строк в матрице;
-     TitleMatrix - заголовок выводимой матрицы;
-     NameMatrix - обозначение матрицы.
+     String - непосредственно выводимая строка.
     Возвращаемое значение:
-     Отсутствует.
+     Строка с HTML кодами с выводимым предупреждением.
     */
     QString VMHL_Result;
 
-    VMHL_Result+="<p><b>"+TitleMatrix+":</b>";
-
-    VMHL_Result+="<table>\n";
-    VMHL_Result+="<tr>\n";
-
-    VMHL_Result+="<td class=\"middle\">\n";
-    VMHL_Result+="<font class=\"overline\">";
-    VMHL_Result+=NameMatrix;
-    VMHL_Result+="</font> = \n";
-    VMHL_Result+="</td>\n";
-
-    VMHL_Result+="<td>\n";
-    VMHL_Result+="<table class=\"matrixbrak\">\n";
-    VMHL_Result+="<tr>\n";
-    VMHL_Result+="<td class=\"lbrak\">&nbsp;</td>\n";
-
-    VMHL_Result+="<td>\n";
-    VMHL_Result+="<table class=\"matrix\">\n";
-
-    for (int i=0;i<VMHL_N;i++)
-    {
-        VMHL_Result+="<tr>\n";
-        for (int j=0;j<VMHL_Matrix[i].count();j++)
-        {
-            QString B=VMHL_Matrix[i].at(j);
-            if (B!=B.trimmed()) B="→|"+B+"|←";
-            B=B.replace(" ","&nbsp;");
-            VMHL_Result+="<td class=\"number\">"+B+"</td>\n";
-        }
-
-        VMHL_Result+="</tr>\n";
-    }
-
-    VMHL_Result+="</table>\n";
-    VMHL_Result+="</td>\n";
-    VMHL_Result+="<td class=\"rbrak\">&nbsp;</td>\n";
-    VMHL_Result+="</tr>\n";
-    VMHL_Result+="</table>\n";
-    VMHL_Result+="</td>\n";
-
-    VMHL_Result+="</tr>\n";
-    VMHL_Result+="</table></p>\n";
+    VMHL_Result="<div style=\"background: #ffdfdf url(images/box-alert.png) no-repeat 16px; border-color: #feabab;color: #c31b00;padding: 15px 20px 15px 55px;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;border: 1px solid;clear: both;margin: 15px 0;-webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1), 0 1px 0 #FFFFFF inset, 0 -1px 0 #FFFFFF inset;-moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1), 0 1px 0 #FFFFFF inset, 0 -1px 0 #FFFFFF inset;box-shadow: 0 0 3px rgba(0, 0, 0, 0.1), 0 1px 0 #FFFFFF inset, 0 -1px 0 #FFFFFF inset;text-align: justify; width:600px;\">"+String+"</div>\n";
 
     return VMHL_Result;
 }
 //---------------------------------------------------------------------------
 
-QString THQt_ShowMatrix (QStringList *VMHL_Matrix, int VMHL_N, QString NameMatrix)
+QString HQt_ShowH1 (QString String)
 {
     /*
-    Функция возвращает строку с выводом некоторой матрицы VMHL_Matrix с HTML кодами. Для добавление в html файл.
-    В качестве матрицы выступает массив QStringList, где количество QStringList - это количество строк. Каждый
-    QStringList - это одна строка.
+    Функция возвращает строку с выводом некоторой строки в виде заголовка. Для добавление в html файл.
     Входные параметры:
-     VMHL_Matrix - указатель на выводимую матрицу;
-     VMHL_N - количество строк в матрице;
-     NameMatrix - обозначение матрицы.
+     String - непосредственно выводимая строка.
     Возвращаемое значение:
-     Отсутствует.
+     Строка с HTML кодами с выводимой строкой.
     */
     QString VMHL_Result;
 
-    VMHL_Result+="<p><table>\n";
-    VMHL_Result+="<tr>\n";
-
-    VMHL_Result+="<td class=\"middle\">\n";
-    VMHL_Result+="<font class=\"overline\">";
-    VMHL_Result+=NameMatrix;
-    VMHL_Result+="</font> = \n";
-    VMHL_Result+="</td>\n";
-
-    VMHL_Result+="<td>\n";
-    VMHL_Result+="<table class=\"matrixbrak\">\n";
-    VMHL_Result+="<tr>\n";
-    VMHL_Result+="<td class=\"lbrak\">&nbsp;</td>\n";
-
-    VMHL_Result+="<td>\n";
-    VMHL_Result+="<table class=\"matrix\">\n";
-
-    for (int i=0;i<VMHL_N;i++)
-    {
-        VMHL_Result+="<tr>\n";
-        for (int j=0;j<VMHL_Matrix[i].count();j++)
-        {
-            QString B=VMHL_Matrix[i].at(j);
-            if (B!=B.trimmed()) B="→|"+B+"|←";
-            B=B.replace(" ","&nbsp;");
-            VMHL_Result+="<td class=\"number\">"+B+"</td>\n";
-        }
-
-        VMHL_Result+="</tr>\n";
-    }
-
-    VMHL_Result+="</table>\n";
-    VMHL_Result+="</td>\n";
-    VMHL_Result+="<td class=\"rbrak\">&nbsp;</td>\n";
-    VMHL_Result+="</tr>\n";
-    VMHL_Result+="</table>\n";
-    VMHL_Result+="</td>\n";
-
-    VMHL_Result+="</tr>\n";
-    VMHL_Result+="</table></p>\n";
+    VMHL_Result="<h1>"+String+"</h1>\n";
 
     return VMHL_Result;
 }
 //---------------------------------------------------------------------------
 
-QString THQt_ShowMatrix (QStringList *VMHL_Matrix, int VMHL_N)
+QString HQt_ShowHr ()
 {
     /*
-    Функция возвращает строку с выводом некоторой матрицы VMHL_Matrix с HTML кодами. Для добавление в html файл.
-    В качестве матрицы выступает массив QStringList, где количество QStringList - это количество строк. Каждый
-    QStringList - это одна строка.
+    Функция возвращает строку с выводом горизонтальной линии. Для добавление в html файл.
     Входные параметры:
-     VMHL_Matrix - указатель на выводимую матрицу;
-     VMHL_N - количество строк в матрице.
+     Отсутствуют.
     Возвращаемое значение:
-     Отсутствует.
+     Строка с HTML кодами с тэгом hr.
     */
     QString VMHL_Result;
 
-    VMHL_Result+="<p><table>\n";
-    VMHL_Result+="<tr>\n";
+    VMHL_Result="<hr>\n";
 
-    VMHL_Result+="<td class=\"middle\">\n";
-    VMHL_Result+="<font class=\"overline\">";
-    VMHL_Result+="";
-    VMHL_Result+="</font> = \n";
-    VMHL_Result+="</td>\n";
+    return VMHL_Result;
+}
+//---------------------------------------------------------------------------
 
-    VMHL_Result+="<td>\n";
-    VMHL_Result+="<table class=\"matrixbrak\">\n";
-    VMHL_Result+="<tr>\n";
-    VMHL_Result+="<td class=\"lbrak\">&nbsp;</td>\n";
+QString HQt_ShowSimpleText (QString String)
+{
+    /*
+    Функция возвращает строку с выводом некоторой строки с HTML кодами без всякого излишества. Для добавление в html файл.
+    Входные параметры:
+     String - непосредственно выводимая строка.
+    Возвращаемое значение:
+     Строка с HTML кодами с выводимой строкой.
+    */
+    QString VMHL_Result;
 
-    VMHL_Result+="<td>\n";
-    VMHL_Result+="<table class=\"matrix\">\n";
+    VMHL_Result="<p>"+String+"</p>\n";
 
-    for (int i=0;i<VMHL_N;i++)
-    {
-        VMHL_Result+="<tr>\n";
-        for (int j=0;j<VMHL_Matrix[i].count();j++)
-        {
-            QString B=VMHL_Matrix[i].at(j);
-            if (B!=B.trimmed()) B="→|"+B+"|←";
-            B=B.replace(" ","&nbsp;");
-            VMHL_Result+="<td class=\"number\">"+B+"</td>\n";
-        }
+    return VMHL_Result;
+}
+//---------------------------------------------------------------------------
 
-        VMHL_Result+="</tr>\n";
-    }
+QString HQt_ShowText (QString TitleX)
+{
+    /*
+    Функция возвращает строку с выводом некоторой строки с HTML кодами. Для добавление в html файл.
+    Входные параметры:
+     TitleX - непосредственно выводимая строка.
+    Возвращаемое значение:
+     Строка с HTML кодами с выводимой строкой.
+    */
+    QString VMHL_Result;
 
-    VMHL_Result+="</table>\n";
-    VMHL_Result+="</td>\n";
-    VMHL_Result+="<td class=\"rbrak\">&nbsp;</td>\n";
-    VMHL_Result+="</tr>\n";
-    VMHL_Result+="</table>\n";
-    VMHL_Result+="</td>\n";
-
-    VMHL_Result+="</tr>\n";
-    VMHL_Result+="</table></p>\n";
+    VMHL_Result="<p><b>"+TitleX+".</b></p>\n";
 
     return VMHL_Result;
 }
