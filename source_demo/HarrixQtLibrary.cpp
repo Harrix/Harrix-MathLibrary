@@ -1,5 +1,5 @@
 //HarrixQtLibrary
-//Версия 3.26
+//Версия 3.27
 //Сборник функций для Qt.
 //https://github.com/Harrix/HarrixQtLibrary
 //Библиотека распространяется по лицензии Apache License, Version 2.0.
@@ -2319,7 +2319,7 @@ QString HQt_StringForLaTeX (QString String)
     */
     QString VMHL_Result;
 
-    VMHL_Result=String.replace("_","\\_").replace("#","\\#");
+    VMHL_Result=String.replace("_","\\_").replace("#","\\#").replace("~", "\\~");
 
     return VMHL_Result;
 }
