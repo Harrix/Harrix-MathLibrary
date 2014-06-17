@@ -99,6 +99,7 @@ double HQt_QStringToNumber (QString x, bool checkcomma);
 QStringList HQt_QStringToQStringList(QString line);
 int HQt_SearchQStringInQStringList (QStringList StringList, QString String);
 QString HQt_StringForLaTeX (QString String);
+QString HQt_StringFromLaTeX (QString String);
 QString HQt_StringToLabelForLaTeX (QString String);
 QString HQt_TextAfterEqualSign (QString String);
 QString HQt_TextBeforeEqualSign (QString String);
