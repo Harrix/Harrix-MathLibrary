@@ -1937,6 +1937,24 @@ int MHL_ColorFromGradientG(double position, int R1, int G1, int B1, int R2, int 
 int MHL_ColorFromGradientR(double position, int R1, int G1, int B1, int R2, int G2, int B2);
 ```
 
+- Функция уменьшает яркость цвета через деление каждого канала на число p. Выдает значение канала B.
+
+```cpp
+int MHL_DivideColorB(int R, int G, int B, double p);
+```
+
+- Функция уменьшает яркость цвета через деление каждого канала на число p. Выдает значение канала G.
+
+```cpp
+int MHL_DivideColorG(int R, int G, int B, double p);
+```
+
+- Функция уменьшает яркость цвета через деление каждого канала на число p. Выдает значение канала R.
+
+```cpp
+int MHL_DivideColorR(int R, int G, int B, double p);
+```
+
 - Функция выдает код канала RGB из градиента радуги для любой позиции от 0 до 1 из этого градиента. Выдает значение канала B.
 
 ```cpp
@@ -1989,5 +2007,23 @@ int MHL_NegativeColorG(int R, int G, int B);
 
 ```cpp
 int MHL_NegativeColorR(int R, int G, int B);
+```
+
+- Функция уменьшает яркость цвета через отнимание от каждого канала числа p. Выдает значение канала B.
+
+```cpp
+int MHL_SubtractColorB(int R, int G, int B, double p);
+```
+
+- Функция уменьшает яркость цвета через отнимание от каждого канала числа p. Выдает значение канала G.
+
+```cpp
+int MHL_SubtractColorG(int R, int G, int B, double p);
+```
+
+- Функция уменьшает яркость цвета через отнимание от каждого канала числа p. Выдает значение канала R.
+
+```cpp
+int MHL_SubtractColorR(int R, int G, int B, double p);
 ```
 

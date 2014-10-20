@@ -986,6 +986,24 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("MHL_GreyscaleB"));
     model->appendRow(item);
 
+    item = new QStandardItem(QString("MHL_DivideColorR"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_DivideColorG"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_DivideColorB"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_SubtractColorR"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_SubtractColorG"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("MHL_SubtractColorB"));
+    model->appendRow(item);
+
     model->sort(0);
 
     //соединение модели списка с конкретным списком
@@ -11588,6 +11606,162 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         MHL_ShowNumber(B,"Канал B итогового цвета","B");
         //Канал B итогового цвета:
         //B=76
+    }
+
+    if (NameFunction=="MHL_DivideColorR")
+    {
+        int R1 = 25;
+        int G1 = 128;
+        int B1 = 75;
+
+        double p=2;
+
+        int R=MHL_DivideColorR(R1, G1, B1, p);
+
+        //Используем полученный результат
+        MHL_ShowNumber(R1,"Канал R первого цвета","R1");
+        //Канал R первого цвета:
+        //R1=25
+        MHL_ShowNumber(G1,"Канал G первого цвета","G1");
+        //Канал G первого цвета:
+        //G1=128
+        MHL_ShowNumber(B1,"Канал B первого цвета","B1");
+        //Канал B первого цвета:
+        //B1=75
+
+        MHL_ShowNumber(R,"Канал R итогового цвета","R");
+        //Канал R итогового цвета:
+        //R=12
+    }
+
+    if (NameFunction=="MHL_DivideColorG")
+    {
+        int R1 = 25;
+        int G1 = 128;
+        int B1 = 75;
+
+        double p=2;
+
+        int G=MHL_DivideColorG(R1, G1, B1, p);
+
+        //Используем полученный результат
+        MHL_ShowNumber(R1,"Канал R первого цвета","R1");
+        //Канал R первого цвета:
+        //R1=25
+        MHL_ShowNumber(G1,"Канал G первого цвета","G1");
+        //Канал G первого цвета:
+        //G1=128
+        MHL_ShowNumber(B1,"Канал B первого цвета","B1");
+        //Канал B первого цвета:
+        //B1=75
+
+        MHL_ShowNumber(G,"Канал G итогового цвета","G");
+        //Канал G итогового цвета:
+        //G=64
+    }
+
+    if (NameFunction=="MHL_DivideColorB")
+    {
+        int R1 = 25;
+        int G1 = 128;
+        int B1 = 75;
+
+        double p=2;
+
+        int B=MHL_DivideColorB(R1, G1, B1, p);
+
+        //Используем полученный результат
+        MHL_ShowNumber(R1,"Канал R первого цвета","R1");
+        //Канал R первого цвета:
+        //R1=25
+        MHL_ShowNumber(G1,"Канал G первого цвета","G1");
+        //Канал G первого цвета:
+        //G1=128
+        MHL_ShowNumber(B1,"Канал B первого цвета","B1");
+        //Канал B первого цвета:
+        //B1=75
+
+        MHL_ShowNumber(B,"Канал R итогового цвета","B");
+        //Канал B итогового цвета:
+        //B=37
+    }
+
+    if (NameFunction=="MHL_SubtractColorR")
+    {
+        int R1 = 25;
+        int G1 = 128;
+        int B1 = 75;
+
+        double p=50;
+
+        int R=MHL_SubtractColorR(R1, G1, B1, p);
+
+        //Используем полученный результат
+        MHL_ShowNumber(R1,"Канал R первого цвета","R1");
+        //Канал R первого цвета:
+        //R1=25
+        MHL_ShowNumber(G1,"Канал G первого цвета","G1");
+        //Канал G первого цвета:
+        //G1=128
+        MHL_ShowNumber(B1,"Канал B первого цвета","B1");
+        //Канал B первого цвета:
+        //B1=75
+
+        MHL_ShowNumber(R,"Канал R итогового цвета","R");
+        //Канал R итогового цвета:
+        //R=0
+    }
+
+    if (NameFunction=="MHL_SubtractColorG")
+    {
+        int R1 = 25;
+        int G1 = 128;
+        int B1 = 75;
+
+        double p=50;
+
+        int G=MHL_SubtractColorG(R1, G1, B1, p);
+
+        //Используем полученный результат
+        MHL_ShowNumber(R1,"Канал R первого цвета","R1");
+        //Канал R первого цвета:
+        //R1=25
+        MHL_ShowNumber(G1,"Канал G первого цвета","G1");
+        //Канал G первого цвета:
+        //G1=128
+        MHL_ShowNumber(B1,"Канал B первого цвета","B1");
+        //Канал B первого цвета:
+        //B1=75
+
+        MHL_ShowNumber(G,"Канал G итогового цвета","G");
+        //Канал G итогового цвета:
+        //G=78
+    }
+
+    if (NameFunction=="MHL_SubtractColorB")
+    {
+        int R1 = 25;
+        int G1 = 128;
+        int B1 = 75;
+
+        double p=50;
+
+        int B=MHL_SubtractColorB(R1, G1, B1, p);
+
+        //Используем полученный результат
+        MHL_ShowNumber(R1,"Канал R первого цвета","R1");
+        //Канал R первого цвета:
+        //R1=25
+        MHL_ShowNumber(G1,"Канал G первого цвета","G1");
+        //Канал G первого цвета:
+        //G1=128
+        MHL_ShowNumber(B1,"Канал B первого цвета","B1");
+        //Канал B первого цвета:
+        //B1=75
+
+        MHL_ShowNumber(B,"Канал B итогового цвета","B");
+        //Канал B итогового цвета:
+        //B=25
     }
 
 }

@@ -1,0 +1,1 @@
+int MHL_DivideColorB(int R, int G, int B, double p);

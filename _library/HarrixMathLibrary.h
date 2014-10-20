@@ -418,6 +418,9 @@ int MHL_AlphaBlendingColorToColorR(double alpha, int R1, int G1, int B1, int R2,
 int MHL_ColorFromGradientB(double position, int R1, int G1, int B1, int R2, int G2, int B2);
 int MHL_ColorFromGradientG(double position, int R1, int G1, int B1, int R2, int G2, int B2);
 int MHL_ColorFromGradientR(double position, int R1, int G1, int B1, int R2, int G2, int B2);
+int MHL_DivideColorB(int R, int G, int B, double p);
+int MHL_DivideColorG(int R, int G, int B, double p);
+int MHL_DivideColorR(int R, int G, int B, double p);
 int MHL_GiveRainbowColorB(double position);
 int MHL_GiveRainbowColorG(double position);
 int MHL_GiveRainbowColorR(double position);
@@ -427,6 +430,9 @@ int MHL_GreyscaleR(int R, int G, int B);
 int MHL_NegativeColorB(int R, int G, int B);
 int MHL_NegativeColorG(int R, int G, int B);
 int MHL_NegativeColorR(int R, int G, int B);
+int MHL_SubtractColorB(int R, int G, int B, double p);
+int MHL_SubtractColorG(int R, int G, int B, double p);
+int MHL_SubtractColorR(int R, int G, int B, double p);
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // РЕАЛИЗАЦИЯ ШАБЛОНОВ
