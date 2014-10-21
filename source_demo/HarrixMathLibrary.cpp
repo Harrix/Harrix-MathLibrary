@@ -1,5 +1,5 @@
 //HarrixMathLibrary
-//Версия 3.78
+//Версия 3.79
 //Сборник различных математических функций и шаблонов с открытым кодом на языке C++.
 //https://github.com/Harrix/HarrixMathLibrary
 //Библиотека распространяется по лицензии Apache License, Version 2.0.
@@ -11286,6 +11286,84 @@ double MHL_NewtonSecondLawForce(double a, double m)
 //*****************************************************************
 //Цвет
 //*****************************************************************
+int MHL_AddColorB(int R, int G, int B, double p)
+{
+    /*
+    Функция увеличивает яркость цвета через прибавление к каждому каналу числа p. Выдает значение канала B.
+    Входные параметры:
+    R,G,B - RGB код цвета. Каждый параметр должен быть в интервале [0,255].
+    p - на сколько увеличиваем яркость. Число должно быть в интервале [0,255];
+    Возвращаемое значение:
+     Число содержащее B канал итогового цвета.
+    */
+    R = TMHL_AcceptanceLimitsNumber(R,0,255);
+    G = TMHL_AcceptanceLimitsNumber(G,0,255);
+    B = TMHL_AcceptanceLimitsNumber(B,0,255);
+    p = TMHL_AcceptanceLimitsNumber(p,0.,255.);
+
+    //int Rnew=R+p;
+    //Rnew = TMHL_AcceptanceLimitsNumber(Rnew,0,255);
+    //int Gnew=G+p;
+    //Gnew = TMHL_AcceptanceLimitsNumber(Gnew,0,255);
+    int Bnew=B+p;
+    Bnew = TMHL_AcceptanceLimitsNumber(Bnew,0,255);
+
+    return Bnew;
+}
+//---------------------------------------------------------------------------
+
+int MHL_AddColorG(int R, int G, int B, double p)
+{
+    /*
+    Функция увеличивает яркость цвета через прибавление к каждому каналу числа p. Выдает значение канала G.
+    Входные параметры:
+    R,G,B - RGB код цвета. Каждый параметр должен быть в интервале [0,255].
+    p - на сколько увеличиваем яркость. Число должно быть в интервале [0,255];
+    Возвращаемое значение:
+     Число содержащее G канал итогового цвета.
+    */
+    R = TMHL_AcceptanceLimitsNumber(R,0,255);
+    G = TMHL_AcceptanceLimitsNumber(G,0,255);
+    B = TMHL_AcceptanceLimitsNumber(B,0,255);
+    p = TMHL_AcceptanceLimitsNumber(p,0.,255.);
+
+    //int Rnew=R+p;
+    //Rnew = TMHL_AcceptanceLimitsNumber(Rnew,0,255);
+    int Gnew=G+p;
+    Gnew = TMHL_AcceptanceLimitsNumber(Gnew,0,255);
+    //int Bnew=B+p;
+    //Bnew = TMHL_AcceptanceLimitsNumber(Bnew,0,255);
+
+    return Gnew;
+}
+//---------------------------------------------------------------------------
+
+int MHL_AddColorR(int R, int G, int B, double p)
+{
+    /*
+    Функция увеличивает яркость цвета через прибавление к каждому каналу числа p. Выдает значение канала R.
+    Входные параметры:
+    R,G,B - RGB код цвета. Каждый параметр должен быть в интервале [0,255].
+    p - на сколько увеличиваем яркость. Число должно быть в интервале [0,255];
+    Возвращаемое значение:
+     Число содержащее R канал итогового цвета.
+    */
+    R = TMHL_AcceptanceLimitsNumber(R,0,255);
+    G = TMHL_AcceptanceLimitsNumber(G,0,255);
+    B = TMHL_AcceptanceLimitsNumber(B,0,255);
+    p = TMHL_AcceptanceLimitsNumber(p,0.,255.);
+
+    int Rnew=R+p;
+    Rnew = TMHL_AcceptanceLimitsNumber(Rnew,0,255);
+    //int Gnew=G+p;
+    //Gnew = TMHL_AcceptanceLimitsNumber(Gnew,0,255);
+    //int Bnew=B+p;
+    //Bnew = TMHL_AcceptanceLimitsNumber(Bnew,0,255);
+
+    return Rnew;
+}
+//---------------------------------------------------------------------------
+
 int MHL_AlphaBlendingColorToColorB(double alpha, int R1, int G1, int B1, int R2, int G2, int B2)
 {
     /*
@@ -11737,6 +11815,84 @@ int MHL_GreyscaleR(int R, int G, int B)
     int Rnew=(R+G+B)/3;
     //int Gnew=(R+G+B)/3;
     //int Bnew=(R+G+B)/3;
+
+    return Rnew;
+}
+//---------------------------------------------------------------------------
+
+int MHL_MultiplyColorB(int R, int G, int B, double p)
+{
+    /*
+    Функция увеличивает яркость цвета через умножение каждого канала числа на p. Выдает значение канала B.
+    Входные параметры:
+    R,G,B - RGB код цвета. Каждый параметр должен быть в интервале [0,255].
+    p - во сколько увеличиваем яркость. Число должно быть в интервале [1,256];
+    Возвращаемое значение:
+     Число содержащее B канал итогового цвета.
+    */
+    R = TMHL_AcceptanceLimitsNumber(R,0,255);
+    G = TMHL_AcceptanceLimitsNumber(G,0,255);
+    B = TMHL_AcceptanceLimitsNumber(B,0,255);
+    p = TMHL_AcceptanceLimitsNumber(p,1.,256.);
+
+    //int Rnew=R*p;
+    //Rnew = TMHL_AcceptanceLimitsNumber(Rnew,0,255);
+    //int Gnew=G*p;
+    //Gnew = TMHL_AcceptanceLimitsNumber(Gnew,0,255);
+    int Bnew=B*p;
+    Bnew = TMHL_AcceptanceLimitsNumber(Bnew,0,255);
+
+    return Bnew;
+}
+//---------------------------------------------------------------------------
+
+int MHL_MultiplyColorG(int R, int G, int B, double p)
+{
+    /*
+    Функция увеличивает яркость цвета через умножение каждого канала числа на p. Выдает значение канала G.
+    Входные параметры:
+    R,G,B - RGB код цвета. Каждый параметр должен быть в интервале [0,255].
+    p - во сколько увеличиваем яркость. Число должно быть в интервале [1,256];
+    Возвращаемое значение:
+     Число содержащее G канал итогового цвета.
+    */
+    R = TMHL_AcceptanceLimitsNumber(R,0,255);
+    G = TMHL_AcceptanceLimitsNumber(G,0,255);
+    B = TMHL_AcceptanceLimitsNumber(B,0,255);
+    p = TMHL_AcceptanceLimitsNumber(p,1.,256.);
+
+    //int Rnew=R*p;
+    //Rnew = TMHL_AcceptanceLimitsNumber(Rnew,0,255);
+    int Gnew=G*p;
+    Gnew = TMHL_AcceptanceLimitsNumber(Gnew,0,255);
+    //int Bnew=B*p;
+    //Bnew = TMHL_AcceptanceLimitsNumber(Bnew,0,255);
+
+    return Gnew;
+}
+//---------------------------------------------------------------------------
+
+int MHL_MultiplyColorR(int R, int G, int B, double p)
+{
+    /*
+    Функция увеличивает яркость цвета через умножение каждого канала числа на p. Выдает значение канала R.
+    Входные параметры:
+    R,G,B - RGB код цвета. Каждый параметр должен быть в интервале [0,255].
+    p - во сколько увеличиваем яркость. Число должно быть в интервале [1,256];
+    Возвращаемое значение:
+     Число содержащее R канал итогового цвета.
+    */
+    R = TMHL_AcceptanceLimitsNumber(R,0,255);
+    G = TMHL_AcceptanceLimitsNumber(G,0,255);
+    B = TMHL_AcceptanceLimitsNumber(B,0,255);
+    p = TMHL_AcceptanceLimitsNumber(p,1.,256.);
+
+    int Rnew=R*p;
+    Rnew = TMHL_AcceptanceLimitsNumber(Rnew,0,255);
+    //int Gnew=G*p;
+    //Gnew = TMHL_AcceptanceLimitsNumber(Gnew,0,255);
+    //int Bnew=B*p;
+    //Bnew = TMHL_AcceptanceLimitsNumber(Bnew,0,255);
 
     return Rnew;
 }

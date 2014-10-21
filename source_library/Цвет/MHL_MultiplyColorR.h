@@ -1,0 +1,1 @@
+int MHL_MultiplyColorR(int R, int G, int B, double p);

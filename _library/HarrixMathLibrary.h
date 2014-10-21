@@ -412,6 +412,9 @@ double MHL_NewtonSecondLawAcceleration(double F, double m);
 double MHL_NewtonSecondLawForce(double a, double m);
 
 //Цвет
+int MHL_AddColorB(int R, int G, int B, double p);
+int MHL_AddColorG(int R, int G, int B, double p);
+int MHL_AddColorR(int R, int G, int B, double p);
 int MHL_AlphaBlendingColorToColorB(double alpha, int R1, int G1, int B1, int R2, int G2, int B2);
 int MHL_AlphaBlendingColorToColorG(double alpha, int R1, int G1, int B1, int R2, int G2, int B2);
 int MHL_AlphaBlendingColorToColorR(double alpha, int R1, int G1, int B1, int R2, int G2, int B2);
@@ -427,6 +430,9 @@ int MHL_GiveRainbowColorR(double position);
 int MHL_GreyscaleB(int R, int G, int B);
 int MHL_GreyscaleG(int R, int G, int B);
 int MHL_GreyscaleR(int R, int G, int B);
+int MHL_MultiplyColorB(int R, int G, int B, double p);
+int MHL_MultiplyColorG(int R, int G, int B, double p);
+int MHL_MultiplyColorR(int R, int G, int B, double p);
 int MHL_NegativeColorB(int R, int G, int B);
 int MHL_NegativeColorG(int R, int G, int B);
 int MHL_NegativeColorR(int R, int G, int B);
