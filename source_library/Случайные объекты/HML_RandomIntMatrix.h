@@ -1,0 +1,1 @@
+template <class T> void HML_RandomIntMatrix(T **VHML_ResultMatrix, T n, T m, int VHML_N, int VHML_M);

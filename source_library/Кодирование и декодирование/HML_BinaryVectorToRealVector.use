@@ -1,0 +1,41 @@
+        int n=10;//Размер массива
+        int *BinaryVector;
+        BinaryVector=new int[n];
+        //Заполним случайно
+        HML_RandomBinaryVector(BinaryVector,n);
+
+        int VHML_N=2;//Пусть был закодирован двумерный вектор
+        double *RealVector;//Вещественный вектор
+        RealVector=new double[VHML_N];
+        double *Left;//массив левых границ изменения каждой вещественной координаты
+        Left=new double[VHML_N];
+        double *Right;//массив правых границ изменения каждой вещественной координаты
+        Right=new double[VHML_N];
+        int *Lengthi;//массив значений, сколько на каждую координату отводится бит в бинраной строке;
+        Lengthi=new int[VHML_N];
+
+        //Заполним массивы
+        //Причем по каждой коодинтате одинаковые значения выставим
+        HML_FillVector(Left,VHML_N,0.);//Пусть будет интервал [0;1]
+        HML_FillVector(Right,VHML_N,1.);
+        HML_FillVector(Lengthi,VHML_N,5);//По сумме элементов вектор должен равен n (длине бинарной строки)
+
+        //Вызов функции
+        HML_BinaryVectorToRealVector(BinaryVector,RealVector,Left,Right,Lengthi,VHML_N);
+
+        //Используем полученный результат
+        HML_ShowVectorT (BinaryVector,n,"Бинарная строка", "BinaryVector");
+        //Бинарная строка:
+        //BinaryVector =	
+        //0	1	0	1	1	1	0	1	0	1
+
+        HML_ShowVectorT (RealVector,VHML_N,"Был закодирован вектор", "RealVector");
+        //Был закодирован вектор:
+        //RealVector =	
+        //0.34375	0.65625
+
+        delete [] BinaryVector;
+        delete [] RealVector;
+        delete [] Left;
+        delete [] Right;
+        delete [] Lengthi;

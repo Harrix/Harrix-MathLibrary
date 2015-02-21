@@ -1,0 +1,1 @@
+template <class T> bool HML_EqualityOfMatrixes (T **a, T **b,int VHML_N,int VHML_M);

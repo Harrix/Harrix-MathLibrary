@@ -1,0 +1,39 @@
+        int i;
+        int VHML_N=7;//Размер массива (число строк)
+        double *Fitness;
+        Fitness=new double[VHML_N];
+        for (i=0;i<VHML_N;i++)
+         Fitness[i]=HML_RandomUniformInt(1,10)/10.;
+
+        double *Rank;
+        Rank=new double[VHML_N];
+
+        //Вызов функции
+        HML_MakeVectorOfRankForRankSelection(Fitness,Rank,VHML_N);
+
+        //Используем полученный результат
+
+        HML_ShowVector (Fitness,VHML_N,"Массив пригодностей", "Fitness");
+        //Массив пригодностей:
+        //Fitness =
+        //0.3
+        //0.5
+        //0.7
+        //0.5
+        //0.8
+        //0.1
+        //0.6
+
+        HML_ShowVector (Rank,VHML_N,"Массив рангов", "Rank");
+        //Массив рангов:
+        //Rank =
+        //2
+        //3.5
+        //6
+        //3.5
+        //7
+        //1
+        //5
+
+        delete [] Fitness;
+        delete [] Rank;

@@ -1,0 +1,1 @@
+template <class T> T HML_Min(T a, T b);

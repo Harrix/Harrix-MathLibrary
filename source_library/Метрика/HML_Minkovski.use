@@ -1,0 +1,39 @@
+        int VHML_N=5;//Размер массива
+        double *x;
+        x=new double[VHML_N];
+        double *y;
+        y=new double[VHML_N];
+        //Заполним случайными числами
+        HML_RandomRealVector (x,0,10,VHML_N);
+        HML_RandomRealVector (y,0,10,VHML_N);
+
+        int r=3;
+
+        //Вызов функции
+        double metric=HML_Minkovski(x,y,r,VHML_N);
+
+        //Используем полученный результат
+        HML_ShowVector (x,VHML_N,"Первый массив", "x");
+        //Первый массив:
+        //x =	
+        //8.2312
+        //2.74628
+        //9.36371
+        //7.31995
+        //0.139465
+
+        HML_ShowVector (y,VHML_N,"Второй массив", "y");
+        //Второй массив:
+        //y =	
+        //6.2793
+        //5.07324
+        //9.01978
+        //5.29297
+        //9.84436
+
+        HML_ShowNumber (metric,"Значение метрики Минковского", "metric");
+        //Значение метрики Минковского:
+        //metric=9.8044
+
+        delete [] x;
+        delete [] y;

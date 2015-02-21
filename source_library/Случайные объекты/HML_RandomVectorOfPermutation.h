@@ -1,0 +1,1 @@
+template <class T> void HML_RandomVectorOfPermutation(T *VHML_ResultVector, int VHML_N);

@@ -1,0 +1,19 @@
+        double *x;
+        double f;
+        int VHML_N=2;
+        x=new double[VHML_N];
+        for (int i=0;i<VHML_N;i++) x[i]=HML_RandomUniform(-5,5);
+        f=HML_TestFunction_StepFunction(x,VHML_N);
+
+        HML_ShowVector (x,VHML_N,"Входной вектор", "x");
+        //Входной вектор:
+        //Входной вектор:
+        //x =	
+        //-0.413264
+        //-0.141813
+
+        HML_ShowNumber (f,"Значение функции", "f");
+        //Значение функции:
+        //f=-0.444923
+
+        delete[] x;

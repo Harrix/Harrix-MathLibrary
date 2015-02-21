@@ -1,0 +1,1 @@
+double HML_RightDerivative(double x, double h, double (*Function)(double));

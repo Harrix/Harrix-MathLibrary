@@ -1,0 +1,1 @@
+double HML_RandomNormal(double Mean, double StdDev);

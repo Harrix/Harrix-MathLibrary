@@ -1,1 +1,0 @@
-double MHL_TestFunction_InvertedRosenbrock(double x, double y);

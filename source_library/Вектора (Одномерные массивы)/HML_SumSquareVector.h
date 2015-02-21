@@ -1,0 +1,1 @@
+template <class T> T HML_SumSquareVector(T *VHML_Vector,int VHML_N);

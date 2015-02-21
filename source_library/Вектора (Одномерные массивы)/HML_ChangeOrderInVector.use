@@ -1,0 +1,51 @@
+         int VHML_N=5;//Размер массива
+         int *a;
+         a=new int[VHML_N];
+
+         a[0]=2;
+         a[1]=3;
+         a[2]=1;
+         a[3]=8;
+         a[4]=2;
+
+         int *Order;
+         Order=new int[VHML_N];
+         Order[0]=4;
+         Order[1]=3;
+         Order[2]=1;
+         Order[3]=2;
+         Order[4]=0;
+
+         HML_ShowVector (a,VHML_N,"Вектор", "a");
+         //Вектор:
+         //a =	
+         //2
+         //3
+         //1
+         //8
+         //2
+
+         //Вызов функции
+         HML_ChangeOrderInVector(a,Order,VHML_N);
+
+         //Используем полученный результат
+         HML_ShowVector (Order,VHML_N,"Порядок элементов, к которому нужно привести массив", "Order");
+         //Порядок элементов, к которому нужно привести массив:
+         //Order =	
+         //4
+         //3
+         //1
+         //2
+         //0          
+         
+         HML_ShowVector (a,VHML_N,"Переставленный вектор", "a");
+         //Переставленный вектор:
+         //a =	
+         //2
+         //8
+         //3
+         //1
+         //2          
+         
+         delete [] a;
+         delete [] Order;

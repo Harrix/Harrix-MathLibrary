@@ -1,1 +1,0 @@
-template <class T> void TMHL_FillVector(T *VMHL_ResultVector, int VMHL_N, T x);

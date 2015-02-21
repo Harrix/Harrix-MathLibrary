@@ -1,0 +1,1 @@
+template <class T> int HML_BoolCrossingTwoSegment(T b1,T c1,T b2,T c2);

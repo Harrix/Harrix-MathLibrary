@@ -1,1 +1,0 @@
-int MHL_SumOfDigits(int a);

@@ -1,0 +1,37 @@
+         int *Vector;
+         int N=8;
+         Vector = new int [N];
+         Vector[0]=2;
+         Vector[1]=3;
+         Vector[2]=4;
+         Vector[3]=2;
+         Vector[4]=3;
+         Vector[5]=4;
+         Vector[6]=2;
+         Vector[7]=4;
+
+         int *Order;
+         Order = new int [N];
+
+         int Limit=16;
+
+         int ElementsInPart;
+
+         ElementsInPart = HML_SeparateVectorLimitOnProductElementsTwo(Vector, Order, Limit, N);
+
+         HML_ShowVectorT(Vector,N,"Массив","Vector");
+         //Массив:
+         //Vector =
+         //2	3	4	2	3	4	2	4
+
+         HML_ShowVectorT(Order,N,"Порядок элементов в новых двух группах","Order");
+         //Порядок элементов в новых двух группах:
+         //Order =	
+         //7	5	2	4	1	6	3	0
+
+         HML_ShowNumber(ElementsInPart,"Количество элементов в первой группе","ElementsInPart");
+         //Количество элементов в первой группе:
+         //ElementsInPart=2
+
+         delete [] Vector;
+         delete [] Order;

@@ -1,0 +1,39 @@
+        int i;
+        int VHML_N=10;//Размер массива (число строк)
+        double *a;
+        a=new double[VHML_N];
+        int *b;
+        b=new int[VHML_N];
+        for (i=0;i<VHML_N;i++)
+         {
+         a[i]=HML_RandomUniformInt(10,50);
+         b[i]=HML_RandomUniformInt(10,50);
+         }
+
+        // Например
+        HML_ShowVectorT (a,VHML_N,"Случайный вектор", "a");
+        // Случайный вектор:
+        //a =
+        //31	32	13	26	40	40	47	26	10	18
+
+        HML_ShowVectorT (b,VHML_N,"Сопряженный вектор", "b");
+        //Сопряженный вектор:
+        //b =
+        //31	20	44	32	21	36	46	30	31	15
+
+        //Вызов функции
+        HML_BubbleSortWithConjugateVector(a,b,VHML_N);
+
+        //Используем полученный результат
+        HML_ShowVectorT (a,VHML_N,"Отсортированный вектор", "a");
+        // Отсортированный вектор:
+        //a =
+        //10	13	18	26	26	31	32	40	40	47
+
+        HML_ShowVectorT (b,VHML_N,"Сопряженный вектор", "b");
+        // Сопряженный вектор:
+        //b =
+        //31	44	15	32	30	31	20	21	36	46
+
+        delete [] a;
+        delete [] b;

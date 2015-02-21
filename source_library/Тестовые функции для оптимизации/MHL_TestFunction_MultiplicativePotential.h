@@ -1,1 +1,0 @@
-double MHL_TestFunction_MultiplicativePotential(double x, double y);

@@ -1,0 +1,30 @@
+        int N=100;
+        double *X=new double [N];
+        double *Y=new double [N];
+        for (int i=0;i<N;i++)
+        {
+            X[i] = HML_RandomUniform(0,6);
+            Y[i] = sin(X[i]);
+        }
+        //HML_NoiseInVector(Y,5,N);//добавим помеху
+
+        double x=HML_RandomUniform(0,6);//Для этого числа будем считать оценку регрессию
+
+        double C=0.5;//коэффициент размытости
+
+        //Применим функцию
+        bool b;
+        double y=HML_NonparametricEstimatorOfDerivative(x,X,Y,N,C,3,&b);
+
+        HML_ShowNumber(x,"Входной парметр","x");
+        //Входной парметр:
+        //x=1.48351
+        HML_ShowNumber(y,"Непараметрическая оценка производной","y");
+        //Непараметрическая оценка производной:
+        //y=0.0281603
+        HML_ShowNumber(cos(x),"Действительное значение производной функции в точке","y*");
+        //Действительное значение производной функции в точке:
+        //y*=0.0871789
+
+        delete [] X;
+        delete [] Y;

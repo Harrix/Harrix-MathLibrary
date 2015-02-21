@@ -1,0 +1,9 @@
+        double x=HML_RandomUniform(0,10);
+
+        //Вызов функции
+        double Result=HML_Sinh(x);
+
+        //Используем полученный результат
+        HML_ShowNumber(Result,"Гиперболический синус от x="+HML_NumberToText(x),"равен");
+        //Гиперболический синус от x=0.166321:
+        //равен=0.167089

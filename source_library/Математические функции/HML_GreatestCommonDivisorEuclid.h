@@ -1,0 +1,1 @@
+int HML_GreatestCommonDivisorEuclid(int A,int B);

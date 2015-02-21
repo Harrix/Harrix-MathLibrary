@@ -1,1 +1,0 @@
-template <class T> void TMHL_ColInterchange(T **VMHL_ResultMatrix, int VMHL_N, int k, int l);

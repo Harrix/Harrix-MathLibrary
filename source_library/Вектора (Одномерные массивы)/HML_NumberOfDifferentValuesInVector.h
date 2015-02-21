@@ -1,0 +1,1 @@
+template <class T> int HML_NumberOfDifferentValuesInVector(T *a, int VHML_N);

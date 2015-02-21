@@ -1,0 +1,9 @@
+        int a=HML_RandomUniformInt(100,30000);
+
+        //Вызов функции
+        int SumOfDigits=HML_SumOfDigits(a);
+
+        //Используем полученный результат
+        HML_ShowNumber (SumOfDigits,"Сумма цифр числа a="+HML_NumberToText(a), "равна");
+        //Сумма цифр числа a=2069:
+        //равна=17

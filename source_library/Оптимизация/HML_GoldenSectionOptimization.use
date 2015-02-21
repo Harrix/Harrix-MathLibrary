@@ -1,0 +1,16 @@
+        double Left=-5;
+        double Right=5;
+        double Interval=0.001;
+        double x,f;
+
+        //Вызов функции
+        HML_GoldenSectionOptimization (Left, Right, Func4, Interval, &x, &f);
+
+        //Используем полученный результат
+        HML_ShowNumber(x,"Найденное решение","x");
+        //Найденное решение:
+        //x=0.999934
+
+        HML_ShowNumber(f,"Значение целевой функции в найденном решении","f");
+        //Значение целевой функции в найденном решении:
+        //f=4.37013e-09

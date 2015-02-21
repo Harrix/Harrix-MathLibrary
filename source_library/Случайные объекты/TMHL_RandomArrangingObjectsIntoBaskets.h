@@ -1,1 +1,0 @@
-template <class T> void TMHL_RandomArrangingObjectsIntoBaskets(T *VMHL_ResultVector, int N, int VMHL_N);

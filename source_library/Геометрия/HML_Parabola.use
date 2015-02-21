@@ -1,0 +1,15 @@
+        double a=HML_RandomUniformInt(1,10);
+        double b=HML_RandomUniformInt(1,10);
+        double c=HML_RandomUniformInt(1,10);
+
+        double x=5;
+
+        //Вызов функции
+        double y=HML_Parabola(x,a,b,c);
+
+        //Используем полученный результат
+        HML_ShowText("Уравнение параболы: y="+HML_NumberToText(a)+"*x^2+"+HML_NumberToText(b)+"*x+"+HML_NumberToText(c));
+        //Уравнение параболы: y=4*x^2+5*x+3.
+        HML_ShowNumber(y,"Значение функции параболы в точке x=5","y");
+        //Значение функции параболы в точке x=5:
+        //y=128

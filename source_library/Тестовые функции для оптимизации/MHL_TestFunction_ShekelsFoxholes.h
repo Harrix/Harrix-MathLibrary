@@ -1,1 +1,0 @@
-double MHL_TestFunction_ShekelsFoxholes(double x, double y);

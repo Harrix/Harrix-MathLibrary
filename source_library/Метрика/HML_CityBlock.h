@@ -1,0 +1,1 @@
+template <class T> T HML_CityBlock(T *x, T *y, int VHML_N);

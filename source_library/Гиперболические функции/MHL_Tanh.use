@@ -1,9 +1,0 @@
-        double x=MHL_RandomUniform(0,10);
-
-        //Вызов функции
-        double Result=MHL_Tanh(x);
-
-        //Используем полученный результат
-        MHL_ShowNumber(Result,"Гиперболический тангенс от x="+MHL_NumberToText(x),"равен");
-        //Гиперболический тангенс от x=4.27643:
-        //равен=0.999614

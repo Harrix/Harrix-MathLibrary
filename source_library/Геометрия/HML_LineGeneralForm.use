@@ -1,0 +1,23 @@
+        double A=HML_RandomUniformInt(1,10);
+        double B=HML_RandomUniformInt(1,10);
+        double C=HML_RandomUniformInt(1,10);
+
+        double x=5;
+
+        int solutionis;
+
+        //Вызов функции
+        double y=HML_LineGeneralForm(x,A,B,C,&solutionis);
+
+        //Используем полученный результат
+        HML_ShowText("Уравнение прямой: "+HML_NumberToText(A)+"*x+"+HML_NumberToText(B)+"*y+"+HML_NumberToText(C)+"=0");
+        //Уравнение прямой: 7*x+1*y+7=0.
+        HML_ShowNumber(solutionis,"Найдено ли решение","solutionis");
+        //Найдено ли решение:
+        //solutionis=1
+        if (solutionis!=0)
+        {
+        HML_ShowNumber(y,"Значение функции прямой в точке x=5","y");
+        //Значение функции прямой в точке x=5:
+        //y=-42
+        }

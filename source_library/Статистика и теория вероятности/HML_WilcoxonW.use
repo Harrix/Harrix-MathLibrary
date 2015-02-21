@@ -1,0 +1,34 @@
+        int VHML_Result;
+        
+        int VHML_N1=10;
+        int VHML_N2=10;
+        
+        double *a = new double[VHML_N1];
+        double *b = new double[VHML_N2];
+        HML_RandomIntVector(a,0.,10.,VHML_N1);
+        HML_RandomIntVector(b,0.,10.,VHML_N2);
+        HML_ShowVectorT(a,VHML_N1,"Первая выборка","a");
+        //Первая выборка:
+        //a =	
+        //6	0	6	1	4	9	6	2	4	8
+        
+        HML_ShowVectorT(b,VHML_N2,"Вторая выборка","b");
+        //Вторая выборка:
+        //b =	
+        //8	1	1	6	0	3	1	1	2	3
+        
+        double Q=0.002;
+        //Q=0.2;
+        HML_ShowNumber(Q,"Уровень значимости","Q");
+        //Уровень значимости:
+        //Q=0.002
+        //Вызов функции
+        VHML_Result = HML_WilcoxonW(a, b, VHML_N1, VHML_N2, Q);
+        
+        //Используем результат
+        HML_ShowNumber(VHML_Result,"Итог проверка двух выборок критерием Вилкосена W","VHML_Result");
+        //Итог проверка двух выборок критерием Вилкосена W:
+        //VHML_Result=1
+        
+        delete [] a;
+        delete [] b;

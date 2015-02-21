@@ -1,0 +1,14 @@
+        double x;
+        double f;
+        x=HML_RandomUniform(-2,2);
+
+        //Вызываем функцию
+        f=HML_TestFunction_Wave(x);
+
+        HML_ShowNumber (x,"Вещественная переменная", "x");
+        //Вещественная переменная:
+        //x=0.802021
+
+        HML_ShowNumber (f,"Значение функции", "f");
+        //Значение функции:
+        //f=0.515755

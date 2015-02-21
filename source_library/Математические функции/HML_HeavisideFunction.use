@@ -1,0 +1,8 @@
+        double x=HML_RandomUniform(-50,50);
+
+        double F=HML_HeavisideFunction(x);
+
+        //Используем полученный результат
+        HML_ShowNumber(F,"Функция Хэвисайда при a = "+HML_NumberToText(x),"равна");
+        //Функция Хэвисайда при a = -49.7559:
+        //равна=0

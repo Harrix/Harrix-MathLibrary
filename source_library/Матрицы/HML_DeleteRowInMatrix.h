@@ -1,0 +1,1 @@
+template <class T> void HML_DeleteRowInMatrix(T **VHML_ResultMatrix, int k, int VHML_N, int VHML_M);

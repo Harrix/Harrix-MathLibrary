@@ -1,1 +1,0 @@
-double MHL_TestFunction_RotatedHyperEllipsoid(double *x, int VMHL_N);

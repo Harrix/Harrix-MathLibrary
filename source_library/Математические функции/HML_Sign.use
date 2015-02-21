@@ -1,0 +1,9 @@
+        int a=HML_RandomUniformInt(-5,5);
+
+        //Вызов функции
+        int Result=HML_Sign(a);
+
+        //Используем полученный результат
+        HML_ShowNumber(Result,"Знак числа "+HML_NumberToText(a),"равен");
+        //Знак числа -3:
+        //равен=-1

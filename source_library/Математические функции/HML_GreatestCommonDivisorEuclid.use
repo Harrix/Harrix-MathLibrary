@@ -1,0 +1,15 @@
+        int A=HML_RandomUniformInt(1,100);
+        int B=HML_RandomUniformInt(1,100);
+
+        double Result=HML_GreatestCommonDivisorEuclid(A,B);
+
+        //Используем полученный результат
+        HML_ShowNumber(A,"Число","A");
+        //Число:
+        //A=96
+        HML_ShowNumber(B,"Число","B");
+        //Число:
+        //B=18
+        HML_ShowNumber(Result,"НОД","");
+        //НОД:
+        //=6

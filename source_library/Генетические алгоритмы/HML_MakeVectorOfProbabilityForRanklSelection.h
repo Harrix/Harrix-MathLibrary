@@ -1,0 +1,1 @@
+void HML_MakeVectorOfProbabilityForRanklSelection(double *Rank, double *VHML_ResultVector, int VHML_N);

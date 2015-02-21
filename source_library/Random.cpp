@@ -1,4 +1,4 @@
-void MHL_SeedRandom(void)
+void HML_SeedRandom(void)
 {
 /*
 Инициализатор генератора случайных чисел.
@@ -11,8 +11,8 @@ void MHL_SeedRandom(void)
 //StandardRandomNumberGenerator
 //Инициализатор стандартного генератора случайных чисел
 //В качестве начального значения для ГСЧ используем текущее время
-MHL_Dummy=(unsigned)time(NULL);
-srand(MHL_Dummy);//Стандартная инициализация
+HML_Dummy=(unsigned)time(NULL);
+srand(HML_Dummy);//Стандартная инициализация
 rand();//первый вызов для контроля
 
 //MersenneTwisterRandomNumberGenerator
@@ -21,30 +21,30 @@ rand();//первый вызов для контроля
 //Инициализациz происходит еще при подключении данного файла
 
 //Назначаем генератор по умолчанию как Mersenne Twister
-MHL_TypeOfRandomNumberGenerator = MersenneTwisterRandomNumberGenerator;
+HML_TypeOfRandomNumberGenerator = MersenneTwisterRandomNumberGenerator;
 }
 //---------------------------------------------------------------------------
-double MHL_RandomNumber(void)
+double HML_RandomNumber(void)
 {
 /*
 Генератор случайных чисел (ГСЧ).
 Есть два варианта генератора случайных чисел, который можно переключать
-функцией MHL_SetRandomNumberGenerator.
+функцией HML_SetRandomNumberGenerator.
 Входные параметры:
  Отсутствуют.
 Возвращаемое значение:
  Случайное вещественное число из интервала (0;1) или [0;1) по равномерному закону распределения.
 */
-    if (MHL_TypeOfRandomNumberGenerator==StandardRandomNumberGenerator)
+    if (HML_TypeOfRandomNumberGenerator==StandardRandomNumberGenerator)
         return (double)rand()/(RAND_MAX+1);
-    if (MHL_TypeOfRandomNumberGenerator==MersenneTwisterRandomNumberGenerator)
+    if (HML_TypeOfRandomNumberGenerator==MersenneTwisterRandomNumberGenerator)
         return drand();
 
     return 0;
 }
 //---------------------------------------------------------------------------
 
-void MHL_SetRandomNumberGenerator(TypeOfRandomNumberGenerator T)
+void HML_SetRandomNumberGenerator(TypeOfRandomNumberGenerator T)
 {
 /*
 Функция переназначает генератор случайных чисел.
@@ -55,6 +55,6 @@ void MHL_SetRandomNumberGenerator(TypeOfRandomNumberGenerator T)
 Возвращаемое значение:
  Отсутствует.
 */
-    MHL_TypeOfRandomNumberGenerator = T;
+    HML_TypeOfRandomNumberGenerator = T;
 }
 //---------------------------------------------------------------------------

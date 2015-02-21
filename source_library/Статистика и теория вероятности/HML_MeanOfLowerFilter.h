@@ -1,0 +1,1 @@
+template <class T> T HML_MeanOfLowerFilter(T *x, int VHML_N, T LowerFilter);

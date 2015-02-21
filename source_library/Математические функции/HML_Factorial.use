@@ -1,0 +1,8 @@
+        int a=HML_RandomUniformInt(0,10);
+
+        double Result=HML_Factorial(a);
+
+        //Используем полученный результат
+        HML_ShowNumber(Result,"Факториал числа "+HML_NumberToText(a),"a!");
+        //Факториал числа 3:
+        //a!=6

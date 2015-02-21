@@ -1,1 +1,0 @@
-template <class T> T TMHL_Median(T *x, int VMHL_N);

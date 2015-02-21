@@ -1,0 +1,41 @@
+        int VHML_N=5;//Размер массива (число строк)
+        int *a;
+        a=new int[VHML_N];
+        int *b;
+        b=new int[VHML_N];
+
+        int x=HML_RandomUniformInt(0,2);//заполнитель для вектора a
+        int y=HML_RandomUniformInt(0,2);//заполнитель для вектора b
+        HML_FillVector (a, VHML_N, x);
+        HML_FillVector (b, VHML_N, y);
+
+
+        //Вызов функции
+        int Q=HML_EqualityOfVectors(a,b,VHML_N);
+
+        //Используем полученный результат
+        HML_ShowVector (a,VHML_N,"Вектор", "a");
+        //Вектор:
+        //a =
+        //1
+        //1
+        //1
+        //1
+        //1
+
+        HML_ShowVector (b,VHML_N,"Вектор", "b");
+        //Вектор:
+        //b =
+        //0
+        //0
+        //0
+        //0
+        //0
+
+        HML_ShowNumber (Q,"Равны ли вектора", "Q");
+        // Равны ли вектора:
+        //Q=0
+
+
+        delete [] a;
+        delete [] b;

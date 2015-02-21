@@ -1,0 +1,20 @@
+        double x;
+        double y;
+        double f;
+        x=HML_RandomUniform(-5,5);
+        y=HML_RandomUniform(-5,5);
+
+        //Вызываем функцию
+        f=HML_TestFunction_Katnikov(x,y);
+
+        HML_ShowNumber (x,"Первая вещественная переменная", "x");
+        //Первая вещественная переменная:
+        //x=-1.44256
+
+        HML_ShowNumber (y,"Вторая вещественная переменная", "y");
+        //Вторая вещественная переменная:
+        //y=-3.16906
+
+        HML_ShowNumber (f,"Значение функции", "f");
+        //Значение функции:
+        //f=11.5793

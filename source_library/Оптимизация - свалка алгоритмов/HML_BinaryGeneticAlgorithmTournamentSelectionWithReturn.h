@@ -1,0 +1,1 @@
+int HML_BinaryGeneticAlgorithmTournamentSelectionWithReturn(double *Parameters, double (*FitnessFunction)(int*,int), int *VHML_ResultVector, double *VHML_Result);

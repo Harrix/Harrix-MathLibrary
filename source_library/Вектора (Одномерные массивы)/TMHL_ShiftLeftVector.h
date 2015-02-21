@@ -1,1 +1,0 @@
-template <class T> void TMHL_ShiftLeftVector(T *VMHL_Vector, int VMHL_N);

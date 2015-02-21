@@ -1,0 +1,1 @@
+double HML_TestFunction_Wave(double x);

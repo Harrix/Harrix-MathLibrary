@@ -1,0 +1,35 @@
+        int i,j;
+        int VHML_N=10;//Размер массива (число строк)
+        int VHML_M=3;//Размер массива (число столбцов)
+        double **Matrix;
+        Matrix=new double*[VHML_N];
+        for (i=0;i<VHML_N;i++) Matrix[i]=new double[VHML_M];
+        //Заполним случайными числами
+        for (i=0;i<VHML_N;i++)
+         for (j=0;j<VHML_M;j++)
+          Matrix[i][j]=HML_RandomUniformInt(10,100);
+
+        //Вызов функции
+        double Maximum=HML_MaximumOfMatrix(Matrix,VHML_N,VHML_M);
+
+        //Используем полученный результат
+        HML_ShowMatrix (Matrix,VHML_N,VHML_M,"Случайная матрица", "Matrix");
+        //Случайная матрица:
+        //Matrix =
+        //25	42	79
+        //99	34	34
+        //16	80	41
+        //12	95	78
+        //67	27	14
+        //29	20	93
+        //57	66	17
+        //52	38	42
+        //31	96	27
+        //39	77	50
+
+        HML_ShowNumber(Maximum,"Максимальный элемент","Maximum");
+        //Максимальный элемент:
+        //Maximum=96
+
+        for (i=0;i<VHML_N;i++) delete [] Matrix[i];
+        delete [] Matrix;

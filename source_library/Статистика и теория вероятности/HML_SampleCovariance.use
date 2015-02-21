@@ -1,0 +1,26 @@
+        int VHML_N=10;//Размер массива
+        double *x;
+        x=new double[VHML_N];
+        double *y;
+        y=new double[VHML_N];
+        //Заполним случайными числами
+        HML_RandomRealVector (x,0,10,VHML_N);
+        HML_RandomRealVector (y,0,10,VHML_N);
+
+        //Вызов функции
+        double SampleCovariance=HML_SampleCovariance(x,y,VHML_N);
+
+        //Используем полученный результат
+        HML_ShowVector (x,VHML_N,"Первый массив", "x");
+        // Первый массив:
+        //x =
+        //3.06915
+        //9.92218
+        //2.5592
+        //9.19586
+        //8.23486
+        //1.49231
+        //3.93158
+        //4.97345
+        //6.78223
+        //1.50909

@@ -1,0 +1,1 @@
+template <class T> int HML_CheckElementInVector(T *x, int VHML_N, T a);

@@ -1,1 +1,0 @@
-double MHL_DegToRad(double VMHL_X);

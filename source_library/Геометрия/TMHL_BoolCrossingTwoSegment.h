@@ -1,1 +1,0 @@
-template <class T> int TMHL_BoolCrossingTwoSegment(T b1,T c1,T b2,T c2);

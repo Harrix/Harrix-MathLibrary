@@ -1,0 +1,58 @@
+        int i;
+        int VHML_N=7;//Размер массива (число строк)
+        int VHML_M=3;//Размер массива (число столбцов)
+
+        int *b;
+        b=new int[VHML_N];
+
+        int **a;
+        a=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) a[i]=new int[VHML_M];
+        //Заполним случайными числами
+        HML_RandomIntMatrix(a,10,100,VHML_N,VHML_M);
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Случайная матрица", "a");
+        //Случайная матрица:
+        //a =
+        //49	65	82
+        //92	73	27
+        //10	72	80
+        //87	62	12
+        //82	11	75
+        //15	75	94
+        //56	96	39
+
+        //Первончальный порядок
+        HML_OrdinalVectorZero(b,VHML_N);
+        //Перемешаем
+        HML_MixingVector(b,0.5,VHML_N);
+
+        //Вызов функции
+        HML_MixingRowsInOrder(a,b,VHML_N,VHML_M);
+
+        //Используем полученный результат
+
+        HML_ShowVector (b,VHML_N,"Номера нового порядка", "b");
+        //Номера нового порядка:
+        //b =
+        //5
+        //0
+        //1
+        //4
+        //6
+        //2
+        //3
+
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Случайная матрица с новым порядком строк", "a");
+        //Случайная матрица с новым порядком строк:
+        //a =
+        //92	73	27
+        //10	72	80
+        //15	75	94
+        //56	96	39
+        //87	62	12
+        //49	65	82
+        //82	11	75
+
+        for (i=0;i<VHML_N;i++) delete [] a[i];
+        delete [] a;
+        delete [] b;

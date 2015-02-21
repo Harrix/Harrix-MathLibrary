@@ -1,0 +1,29 @@
+        int i,j;
+        int VHML_N=5;//Размер массива (число строк)
+        int VHML_M=3;//Размер массива (число столбцов)
+        int **a;
+        a=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) a[i]=new int[VHML_M];
+        //Заполним случайными числами
+        for (i=0;i<VHML_N;i++)
+         for (j=0;j<VHML_M;j++)
+          a[i][j]=HML_RandomUniformInt(0,50);
+
+        //Вызов функции
+        int NumberOfDifferent=HML_NumberOfDifferentValuesInMatrix(a,VHML_N,VHML_M);
+
+        //Используем полученный результат
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Случайная матрица", "a");
+        //Случайная матрица:
+        //a =
+        //7	3	27
+        //31	30	10
+        //37	34	49
+        //45	26	12
+        //26	28	0
+
+        HML_ShowNumber (NumberOfDifferent,"Число различных значений в матрице", "NumberOfDifferent");
+        //Число различных значений в матрице:
+        //NumberOfDifferent=14
+        for (i=0;i<VHML_N;i++) delete [] a[i];
+        delete [] a;

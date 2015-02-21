@@ -1,0 +1,22 @@
+        double x;
+        double mu=1;
+        double lambda=1;
+        double f;
+        x=HML_RandomUniform(0,3);
+
+        //Вызов функции
+        f=HML_ProbabilityDensityFunctionOfInverseGaussianDistribution(x,mu,lambda);
+
+        //Используем полученный результат
+        HML_ShowNumber (x,"Входная переменная", "x");
+        //Входная переменная:
+        //x=1.10063
+        HML_ShowNumber (mu,"Параметр mu", "mu");
+        //Параметр mu:
+        //mu=1
+        HML_ShowNumber (lambda,"Параметр lambda", "lambda");
+        //Параметр lambda:
+        //lambda=1
+        HML_ShowNumber (f,"Значение функции", "f");
+        //Значение функции:
+        //f=0.343916

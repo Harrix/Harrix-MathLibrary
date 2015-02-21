@@ -1,1 +1,0 @@
-double MHL_IntegralOfSimpson(double a, double b, double Epsilon,double (*Function)(double));

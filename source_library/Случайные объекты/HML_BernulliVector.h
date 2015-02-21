@@ -1,0 +1,1 @@
+template <class T> void HML_BernulliVector(T *VHML_ResultVector, int VHML_N);

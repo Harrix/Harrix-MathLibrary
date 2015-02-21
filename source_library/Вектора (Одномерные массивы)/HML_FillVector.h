@@ -1,0 +1,1 @@
+template <class T> void HML_FillVector(T *VHML_ResultVector, int VHML_N, T x);

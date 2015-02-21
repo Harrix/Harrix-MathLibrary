@@ -1,0 +1,27 @@
+        int i;
+        int VHML_N=10;//Размер массива (число строк)
+        int VHML_M=5;//Размер массива (число строк)
+        int **a;
+        a=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) a[i]=new int[VHML_M];
+
+        //Вызов функции
+        HML_RandomMatrixOfPermutation(a,VHML_N,VHML_M);
+
+        //Используем полученный результат
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Матрица строк-перестановок", "a");
+        //Матрица строк-перестановок:
+        //a =
+        //3	2	1	4	5
+        //4	1	3	2	5
+        //5	2	3	4	1
+        //5	3	4	2	1
+        //5	4	2	1	3
+        //1	4	3	5	2
+        //5	4	1	3	2
+        //1	4	2	5	3
+        //3	1	2	4	5
+        //5	3	4	2	1
+
+        for (i=0;i<VHML_N;i++) delete [] a[i];
+        delete [] a;

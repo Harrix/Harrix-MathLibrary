@@ -1,1 +1,0 @@
-double MHL_DistributionFunctionOfNormalDistribution(double x, double mu, double sigma, double Epsilon);

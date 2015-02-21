@@ -1,1 +1,0 @@
-template <class T> void TMHL_BernulliVector(T *VMHL_ResultVector, int VMHL_N);

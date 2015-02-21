@@ -1,0 +1,27 @@
+        int i;
+        int VHML_N=10;//Размер массива (число строк)
+        int VHML_M=3;//Размер массива (число столбцов)
+        int **a;
+        a=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) a[i]=new int[VHML_M];
+
+        //Вызов функции
+        HML_RandomBinaryMatrix(a,VHML_N,VHML_M);
+
+        //Используем полученный результат
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Случайная бинарная матрица", "a");
+        //Случайная бинарная матрица:
+        //a =
+        //1	0	1
+        //0	0	0
+        //1	1	1
+        //1	0	0
+        //1	1	0
+        //1	1	0
+        //0	1	1
+        //0	0	1
+        //1	0	0
+        //1	1	0
+
+        for (i=0;i<VHML_N;i++) delete [] a[i];
+        delete [] a;

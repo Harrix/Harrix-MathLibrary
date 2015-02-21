@@ -1,0 +1,88 @@
+\textbf{Входные параметры:}
+ 
+Parameters --- Вектор параметров генетического алгоритма. Каждый элемент обозначает свой параметр:
+ 
+ \begin{itemize}
+ \item [0] --- длина бинарной хромосомы (определяется задачей оптимизации, что мы решаем);
+ 
+ \item [1] --- число вычислений целевой функции (CountOfFitness);
+ 
+ \item [2] --- размер турнирной селекции с возвращением (SizeOfTournament): от 2 до sqrt(CountOfFitness);
+ 
+ \item [3] --- тип скрещивания (TypeOfCros):
+  \begin{itemize}
+       \item 0 --- SinglepointCrossover (Одноточечное скрещивание);
+ 
+       \item 1 --- TwopointCrossover (Двухточечное скрещивание);
+ 
+       \item 2 --- UniformCrossover (Равномерное скрещивание).
+	    \end{itemize}
+ 
+ \item [4] --- тип мутации (TypeOfMutation):
+  \begin{itemize}
+       \item 0 --- Weak (Слабая мутация);
+ 
+       \item 1 --- Average (Средняя мутация);
+ 
+       \item 2 --- Strong (Сильная мутация).
+	    \end{itemize}
+ 
+ \item [5] --- тип формирования нового поколения (TypeOfForm):
+  \begin{itemize}
+       \item 0 --- OnlyOffspringGenerationForming (Только потомки);
+ 
+       \item 1 --- OnlyOffspringWithBestGenerationForming (Только потомки и копия лучшего индивида).
+	    \end{itemize}
+		
+ \end{itemize}
+ 
+FitnessFunction --- указатель на целевую функцию (если решается задача условной оптимизации, то учет ограничений должен быть включен в эту функцию);
+ 
+VHML\_ResultVector --- найденное решение (бинарный вектор);
+ 
+VHML\_Result --- значение целевой функции в точке, определенной вектором VHML\_ResultVector.
+
+\textbf{Возвращаемое значение:} 
+
+ 1 --- завершил работу без ошибок. Всё хорошо.
+ 
+ 0 --- возникли при работе ошибки. Скорее всего в этом случае в VHML\_ResultVector и в VHML\_Result не содержится решение задачи.
+
+ 
+\textbf{О функции:}
+
+Отличается от стандартного генетического алгоритма, тем, что присутствует только турнирная селекция с возвращением, и размер турнира может изменяться.
+
+Алгоритм бинарной оптимизации. Ищет максимум целевой функции FitnessFunction.
+
+Решением является бинарная строка, то есть вектор, состоящий из 0 и 1.
+
+Тип алгоритма: добавочный алгоритм оптимизации.
+
+Подробное описание алгоритма можно найти тут:
+
+\href{https://github.com/Harrix/HarrixOptimizationAlgorithms/blob/master/\_HarrixOptimizationAlgorithms.pdf}{https://github.com/Harrix/HarrixOptimizationAlgorithms}
+
+\textbf{Примерный настройки} (для примера Вы можете поставить такие рабочие настройки):
+
+ Parameters[0]=50;
+ 
+Parameters[1]=100*100;
+
+Parameters[2]=2;
+
+Parameters[3]=2;
+
+Parameters[4]=1;
+
+Parameters[5]=1;
+
+Код целевой функции:
+\begin{lstlisting}[caption=Оптимизируемая функция]
+double Func(int *x,int VHML_N)
+{
+//Сумма всех элементов массива
+return HML_SumVector(x,VHML_N);
+}
+//---------------------------------------------------------------------------
+\end{lstlisting}

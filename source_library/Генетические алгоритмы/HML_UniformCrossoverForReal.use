@@ -1,0 +1,33 @@
+       int VHML_N=10; //Размер массива (число строк)
+       double *Parent1;
+       Parent1=new double[VHML_N];
+       double *Parent2;
+       Parent2=new double[VHML_N];
+       double *Child;
+       Child=new double[VHML_N];
+       HML_RandomRealVector(Parent1,0,1,VHML_N);
+       HML_RandomRealVector(Parent2,0,1,VHML_N);
+
+       //Получим потомка Child
+       HML_UniformCrossoverForReal(Parent1,Parent2,Child,VHML_N);
+
+       //Используем полученный результат
+       HML_ShowVectorT (Parent1,VHML_N,"Первый родитель", "Parent1");
+       //Первый родитель:
+       //Parent1 =
+       //0.872271	0.400017	0.382867	0.0215583	0.195993	0.0210766	0.546082	0.540188	0.448846	0.22661
+
+       HML_ShowVectorT (Parent2,VHML_N,"Второй родитель", "Parent2");
+       //Второй родитель:
+       //Parent2 =
+       //0.972843	0.656896	0.892507	0.438632	0.1083	0.982196	0.376142	0.285289	0.411732	0.681029
+
+       HML_ShowVectorT (Child,VHML_N,"Полученный потомок", "Child");
+       //Полученный потомок:
+       //Полученный потомок:
+       //Child =
+       //0.972843	0.400017	0.382867	0.0215583	0.195993	0.0210766	0.546082	0.285289	0.448846	0.22661
+
+       delete [] Parent2;
+       delete [] Parent1;
+       delete [] Child;

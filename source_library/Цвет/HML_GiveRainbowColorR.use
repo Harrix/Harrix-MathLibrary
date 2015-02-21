@@ -1,0 +1,11 @@
+        double position = 0.6;
+
+        int R=HML_GiveRainbowColorR(position);
+
+        HML_ShowNumber(position,"Позиция из интервала [0;1], которая говорит какой цвет выдать из радуги","position");
+        //Позиция из интервала [0;1], которая говорит какой цвет выдать из градиента:
+        //position=0.1
+
+        HML_ShowNumber(R,"Канал R итогового цвета","R");
+        //Канал R итогового цвета:
+        //R=0

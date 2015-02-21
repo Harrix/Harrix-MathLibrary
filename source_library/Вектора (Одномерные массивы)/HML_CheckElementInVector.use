@@ -1,0 +1,35 @@
+        int i;
+        int VHML_N=10;//Размер массива (число строк)
+        int *a;
+        a=new int[VHML_N];
+        //Заполним случайными числами
+        for (i=0;i<VHML_N;i++)
+         a[i]=HML_RandomUniformInt(0,5);
+        int k=HML_RandomUniformInt(0,5);//искомое число
+
+        //Вызов функции
+        int Search=HML_CheckElementInVector(a,VHML_N,k);
+
+        //Используем полученный результат
+        HML_ShowVector (a,VHML_N,"Вектор", "a");
+        //Вектор:
+        //a =
+        //2
+        //1
+        //2
+        //1
+        //0
+        //1
+        //0
+        //3
+        //0
+        //0
+
+        HML_ShowNumber (k,"Искомое число", "k");
+        //Искомое число:
+        //k=3
+
+        HML_ShowNumber (Search,"находится в векторе a под номером", "Search");
+        //находится в векторе a под номером:
+        //Search=7
+        delete [] a;

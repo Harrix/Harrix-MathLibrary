@@ -1,0 +1,27 @@
+        int VHML_N=10;//Размер массива
+        int *a;
+        a=new int[VHML_N];
+
+        int n=3;
+        int m=50;
+
+        //Вызов функции
+        HML_RandomIntVector(a,n,m,VHML_N);
+
+        //Используем полученный результат
+
+        HML_ShowVector (a,VHML_N,"Массив", "a");
+        //Массив:
+        //a =
+        //6
+        //23
+        //40
+        //19
+        //39
+        //37
+        //48
+        //46
+        //31
+        //42
+
+        delete [] a;

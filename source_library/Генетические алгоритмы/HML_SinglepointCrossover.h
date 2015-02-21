@@ -1,0 +1,1 @@
+template <class T> void HML_SinglepointCrossover(T *Parent1, T *Parent2, T *VHML_ResultVector, int VHML_N);

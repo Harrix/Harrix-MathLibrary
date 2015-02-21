@@ -1,0 +1,1 @@
+template <class T> T HML_Factorial(T x);

@@ -30,8 +30,8 @@
 
 Для полноценной работы по добавлению функций вам потребуются:
 \begin{itemize}
-\item программа для проверки работоспособности новых функций и компиляции DemoHarrixMathLibrary.exe (например, Qt 5.2.1 с Qt Creator 3.0.1 или любая другая версия Qt с пятой версии). Для проверки работоспособности библиотеки без компиляции DemoHarrixMathLibrary.exe подойдет любой другой C++ компилятор;
-\item программа для компиляции *.tex документов в *.pdf для формирования справочных материалов. Автор использует для этого связку MiKTex и TeXstudio (версии MiKTex 2.9 и TeXstudio 2.6.2).
+\item программа для проверки работоспособности новых функций и компиляции DemoHarrixMathLibrary.exe (например, Qt 5.4.0 с Qt Creator 3.3.0 или любая другая версия Qt с пятой версии). Для проверки работоспособности библиотеки без компиляции DemoHarrixMathLibrary.exe подойдет любой другой C++ компилятор;
+\item программа для компиляции *.tex документов в *.pdf для формирования справочных материалов. Автор использует для этого связку MiKTex и TeXstudio (версии MiKTex 2.9 и TeXstudio 2.8.8).
 \end{itemize}
 
 В варианте, который использует автор, в *.tex файлах справок для отображения русских букв используется модуль \textbf{pscyr}. Об его установке (там можно и скачать) можно прочитать в статье \href{http://blog.harrix.org/?p=444}{http://blog.harrix.org/?p=444}.
@@ -40,27 +40,27 @@
 
 Далее приведены некоторые спецификации, принятые в данной библиотеке. Кроме первого пункта правила не являются обязательными: сам автор регулярно их нарушает.
 \begin{itemize}
-\item Основу библиотеки составляют функции и шаблоны функций. Имена функций начинаются с \textbf{MHL\_}, например:
+\item Основу библиотеки составляют функции и шаблоны функций. Имена функций начинаются с \textbf{HML\_}, например:
 \begin{lstlisting}[label=examplename,caption=Пример названия функции]
-void MHL_NormalizationVectorOne(double *VMHL_ResultVector,int VMHL_N);
+void HML_NormalizationVectorOne(double *VHML_ResultVector,int VHML_N);
 \end{lstlisting}
-Имена же шаблонов начинаются с \textbf{TMHL\_}, например:
+Имена шаблонов также начинаются с \textbf{HML\_}, например (раньше названия функций и шаблонов отличались):
 \begin{lstlisting}[label=examplename2,caption=Пример названия шаблона функции]
-template <class T> int TMHL_SearchFirstZero(T *VMHL_Vector, int VMHL_N);
+template <class T> int HML_SearchFirstZero(T *VHML_Vector, int VHML_N);
 \end{lstlisting}
 Код функций в итоге будет располагаться в HarrixMathLibrary.cpp, а реализация шаблонов будет располагаться в HarrixMathLibrary.h. Содержимое файлов mtrand.cpp и mtrand.h трогать не нужно.
-\item Количество элементов в одномерном массиве обозначается стандартной переменной  \textbf{int VMHL\_N}.
-\item Количество элементов в двумерном массиве обозначается стандартными переменными  \textbf{int VMHL\_N} и \textbf{int VMHL\_M}.
-\item Возвращаемое значение функций обозначается переменной \textbf{VMHL\_Result}.
-\item Возвращаемый вектор (над которым производятся вычисления) обозначается указателем \textbf{*VMHL\_ResultVector}.
-\item Возвращаемая матрица (над которой производятся вычисления) обозначается указателем \textbf{**VMHL\_ResultMatrix}.
-\item Если функция в качестве параметра имеет одну числовую переменную, то она обозначается \textbf{VMHL\_X} или \textbf{VMHL\_X1}. Если есть однотипные переменные, то обозначаются \textbf{VMHL\_X2} или \textbf{VMHL\_Y} и так далее (данная рекомендация даже автором редко соблюдается).
-\item Если функция в качестве параметра имеет некий вектор, то он обозначается \textbf{VMHL\_Vector} (данная рекомендация даже автором редко соблюдается).
-\item Если функция в качестве параметра имеет некую матрицу, то она обозначается \textbf{VMHL\_Matrix} (данная рекомендация даже автором редко соблюдается).
-\item То есть если входные переменные не имеют какой-то особый смысл, то название переменных стандартно, но в тоже время все входные и выходные переменные могут начинаться с \textbf{VMHL\_}, чтобы различать их от внутренних, но во отличии от выходных значений это есть \textbf{не обязательное условие}.
+\item Количество элементов в одномерном массиве обозначается стандартной переменной  \textbf{int VHML\_N}.
+\item Количество элементов в двумерном массиве обозначается стандартными переменными  \textbf{int VHML\_N} и \textbf{int VHML\_M}.
+\item Возвращаемое значение функций обозначается переменной \textbf{VHML\_Result}.
+\item Возвращаемый вектор (над которым производятся вычисления) обозначается указателем \textbf{*VHML\_ResultVector}.
+\item Возвращаемая матрица (над которой производятся вычисления) обозначается указателем \textbf{**VHML\_ResultMatrix}.
+\item Если функция в качестве параметра имеет одну числовую переменную, то она обозначается \textbf{VHML\_X} или \textbf{VHML\_X1}. Если есть однотипные переменные, то обозначаются \textbf{VHML\_X2} или \textbf{VHML\_Y} и так далее (данная рекомендация даже автором редко соблюдается).
+\item Если функция в качестве параметра имеет некий вектор, то он обозначается \textbf{VHML\_Vector} (данная рекомендация даже автором редко соблюдается).
+\item Если функция в качестве параметра имеет некую матрицу, то она обозначается \textbf{VHML\_Matrix} (данная рекомендация даже автором редко соблюдается).
+\item То есть если входные переменные не имеют какой-то особый смысл, то название переменных стандартно, но в тоже время все входные и выходные переменные могут начинаться с \textbf{VHML\_}, чтобы различать их от внутренних, но во отличии от выходных значений это есть \textbf{не обязательное условие}.
 \end{itemize}
 
-Далее приведена последовательность действий, которую надо выполнить для добавления новой функции. Допустим мы хотим добавить функцию  \textbf{double MHL\_Func(double VMHL\_X)}.
+Далее приведена последовательность действий, которую надо выполнить для добавления новой функции. Допустим мы хотим добавить функцию  \textbf{double HML\_Func(double VHML\_X)}.
 
 \textbf{Шаг 1.}\label{step1} Вначале нам нужно реализовать саму функцию и проверить ее работоспособность. Если вы хотите работать не через средства, предоставляемые библиотекой, то этот шаг можно пропустить.
 
@@ -76,7 +76,7 @@ template <class T> int TMHL_SearchFirstZero(T *VMHL_Vector, int VMHL_N);
 \end {itemize}
 \item Добавляем в конец файлов \textbf{HarrixMathLibrary.cpp} и \textbf{HarrixMathLibrary.h} функцию, которую хотим добавить. Например, в HarrixMathLibrary.cpp добавляем:
 \begin{lstlisting}[label=examplefunction01, caption=Что добавляем в HarrixMathLibrary.cpp]
-int  MHL_Func(int VMHL_X)
+int  HML_Func(int VHML_X)
 {
 /*
 Умножает число на 2.
@@ -85,12 +85,12 @@ int  MHL_Func(int VMHL_X)
 Возвращаемое значение:
  Число, умноженное на 2.
 */
-  return 2*VMHL_X;
+  return 2*VHML_X;
 }
 \end{lstlisting}
 А в HarrixMathLibrary.h добавляем:
 \begin{lstlisting}[label=examplefunction02, caption=Что добавляем в HarrixMathLibrary.h]
-int  MHL_Func(int VMHL_X);
+int  HML_Func(int VHML_X);
 \end{lstlisting}
 \textbf{Замечание.} В .h файл добавляем до строчки <<\textbf{\#endif // HARRIXMATHLIBRARY\_H}>>.
 
@@ -127,7 +127,7 @@ MainWindow::MainWindow(QWidget *parent) :
     HQt_BeginHtml(Path);
     ui->webView->setUrl(QUrl::fromLocalFile(Path+"index.html"));// и в webViewотображаем index.html (его вообще не трогаем)
 
-    MHL_SeedRandom();//Инициализация датчика случайных чисел
+    HML_SeedRandom();//Инициализация датчика случайных чисел
 
     model = new QStandardItemModel(this);
     model->setObjectName(QString::fromUtf8("model"));
@@ -140,7 +140,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	
 	...
     
-    item = new QStandardItem(QString("TMHL_FillVector"));
+    item = new QStandardItem(QString("HML_FillVector"));
     model->appendRow(item);
 
     model->sort(0);
@@ -164,7 +164,7 @@ MainWindow::MainWindow(QWidget *parent) :
 \end{lstlisting}
 То есть в рассматриваемом примере вы должны добавить:
 \begin{lstlisting}[label=examplefunction05, caption=Что добавить в mainwindow.cpp в примере]
-    item = new QStandardItem(QString("MHL_Func"));
+    item = new QStandardItem(QString("HML_Func"));
     model->appendRow(item);
 \end{lstlisting}
 Добавление данного кода добавить вашу функцию в список, которые будут отображаться в программе при запуске. По сути, удобнее было бы извлекать из обычного текстового файла. Может в будущих версиях так и сделаю, но все равно вам нужно потом писать код демонстрации функции, поэтому занесение в текстовой файл не предусмотрел.
@@ -193,16 +193,16 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
 \end{lstlisting}
 Вместо <<\textbf{[Имя вашей функции]}>> пишите название вашей функции, такое же, что добавляли выше. Вместо комментария <<\textbf{//Сюда нужно добавить код}>> добавьте реализацию демонстрации вашей функции. Например, для рассматриваемого примера код будет выглядеть так:
 \begin{lstlisting}[label=examplefunction08, caption=Добавление демонстрации работы функции на примере]
-    if (NameFunction=="MHL_Func")
+    if (NameFunction=="HML_Func")
     {
         int x=5;
 
         //Вызов функции
-        int y=MHL_Func(x);
+        int y=HML_Func(x);
 
         //Используем полученный результат
-        MHL_ShowNumber (x,"Первоначальное число", "x");
-        MHL_ShowNumber (y,"Умноженное число", "y");
+        HML_ShowNumber (x,"Первоначальное число", "x");
+        HML_ShowNumber (y,"Умноженное число", "y");
         //Первоначальное число:
         //x=5
         //Умноженное число:
@@ -222,80 +222,80 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
 Теперь рассмотрим какие функции используются для вывода результата. Типичными объектами, над которыми выполняются действия по выводу, являются: числа, вектора, матрицы. Их мы стандартизовано и выводим, используя некоторые функции. Так как библиотека HarrixMathLibrary может использоваться на различных системах C++, а вывод информации в каждой системе может быть разным, то функции вывода строились таким образом, чтобы внешне выглядели однотипно в любой системе C++, так как в справке к функциям из библиотеки функции вывода также будут присутствовать. Итак, использование функций внешне должно быть везде одинаковым для всех систем C++.  Поэтому вы можете их переписать под свои нужды. Обратите внимание, что это функции программы DemoHarrixMathLibrary.exe, а не самой библиотеки HarrixMathLibrary.
 
 \begin{itemize}
-\item \textbf{MHL\_NumberToText} --- функция перевода числа в строку; 
-\item \textbf{MHL\_ShowNumber} --- функция вывода числа;
-\item \textbf{MHL\_ShowVector} --- функция вывода вектора (одномерного массива);
-\item \textbf{MHL\_ShowVectorT} --- функция вывода вектора (одномерного массива) в строку одну, то есть это транспонированный вектор;
-\item \textbf{MHL\_ShowMatrix} --- функция вывода матрицы.
-\item \textbf{MHL\_ShowText} --- функция вывода просто текста.
+\item \textbf{HML\_NumberToText} --- функция перевода числа в строку; 
+\item \textbf{HML\_ShowNumber} --- функция вывода числа;
+\item \textbf{HML\_ShowVector} --- функция вывода вектора (одномерного массива);
+\item \textbf{HML\_ShowVectorT} --- функция вывода вектора (одномерного массива) в строку одну, то есть это транспонированный вектор;
+\item \textbf{HML\_ShowMatrix} --- функция вывода матрицы.
+\item \textbf{HML\_ShowText} --- функция вывода просто текста.
 \end{itemize}
 
 Далее функции рассмотрены подробнее.
 
 \begin{itemize}
-\item \textbf{MHL\_ShowNumber} --- функция вывода числа. 
-\begin{lstlisting}[label=examplefunction13, caption=Синтаксис функции MHL\_ShowNumber]
-template <class T> void MHL_ShowNumber (T VMHL_X, QString TitleX, QString NameX);
+\item \textbf{HML\_ShowNumber} --- функция вывода числа. 
+\begin{lstlisting}[label=examplefunction13, caption=Синтаксис функции HML\_ShowNumber]
+template <class T> void HML_ShowNumber (T VHML_X, QString TitleX, QString NameX);
 \end{lstlisting}
 Входные параметры: 
 \begin{itemize}   
-    \item  VMHL\_X --- выводимое число;
+    \item  VHML\_X --- выводимое число;
      \item TitleX --- заголовок выводимого числа;
      \item NameX --- обозначение числа.
 \end{itemize}
 Пример использования функции:
-\begin{lstlisting}[label=examplefunction10, caption=Пример использования MHL\_ShowNumber]
-MHL_ShowNumber (x,"Первоначальное число", "x");
+\begin{lstlisting}[label=examplefunction10, caption=Пример использования HML\_ShowNumber]
+HML_ShowNumber (x,"Первоначальное число", "x");
 //Первоначальное число:
 //x=5
 \end{lstlisting}
 И для этой функции покажем исходный код:
-\begin{lstlisting}[label=examplefunction11, caption=Реализация функции MHL\_ShowNumber]
+\begin{lstlisting}[label=examplefunction11, caption=Реализация функции HML\_ShowNumber]
 //mainwindow.cpp
-template <class T> void MainWindow::MHL_ShowNumber (T VMHL_X, QString TitleX, QString NameX)
+template <class T> void MainWindow::HML_ShowNumber (T VHML_X, QString TitleX, QString NameX)
 {
     /*
-    Функция выводит число VMHL_X в textEdit.
+    Функция выводит число VHML_X в textEdit.
     Входные параметры:
-     VMHL_X - выводимое число;
+     VHML_X - выводимое число;
      TitleX - заголовок выводимого числа;
      NameX - обозначение числа.
     Возвращаемое значение:
      Отсутствует.
     */
-    QString VMHL_Result;
-    VMHL_Result=THQt_ShowNumber (VMHL_X, TitleX, NameX);// из HarrixQtLibrary.h
-    Html=VMHL_Result;
+    QString VHML_Result;
+    VHML_Result=THQt_ShowNumber (VHML_X, TitleX, NameX);// из HarrixQtLibrary.h
+    Html=VHML_Result;
     HQt_AddHtml(Html);
 }
 //---------------------------------------------------------------------------
 
 //HarrixQtLibrary.h
-template <class T> QString THQt_ShowNumber (T VMHL_X, QString TitleX, QString NameX)
+template <class T> QString THQt_ShowNumber (T VHML_X, QString TitleX, QString NameX)
 {
     /*
-    Функция возвращает строку с выводом некоторого числа VMHL_X с HTML кодами. Для добавление в html файл.
+    Функция возвращает строку с выводом некоторого числа VHML_X с HTML кодами. Для добавление в html файл.
     Входные параметры:
-     VMHL_X - выводимое число;
+     VHML_X - выводимое число;
      TitleX - заголовок выводимого числа;
      NameX - обозначение числа.
     Возвращаемое значение:
      Строка с HTML кодами с выводимым числом.
     */
-    QString VMHL_Result;
+    QString VHML_Result;
 
-    VMHL_Result="<p><b>"+TitleX+":</b><br>";
+    VHML_Result="<p><b>"+TitleX+":</b><br>";
 
-    VMHL_Result+=NameX+"=<b><font color=\"#4200ff\">"+QString::number(VMHL_X)+"</font></b></p>\n";
+    VHML_Result+=NameX+"=<b><font color=\"#4200ff\">"+QString::number(VHML_X)+"</font></b></p>\n";
 
-    return VMHL_Result;
+    return VHML_Result;
 }
 //---------------------------------------------------------------------------
 \end{lstlisting}
 
 В предыдущей версии библиотеки для программы демонстрации работы функций использовалась система C++Builder 6. Там эта функции реализовывалась так:
-\begin{lstlisting}[label=examplefunction12, caption=Реализация функции MHL\_ShowNumber в C++Builder 6]
-template <class T> void MHL_ShowNumber (T X, AnsiString A, AnsiString B)
+\begin{lstlisting}[label=examplefunction12, caption=Реализация функции HML\_ShowNumber в C++Builder 6]
+template <class T> void HML_ShowNumber (T X, AnsiString A, AnsiString B)
 {
 Form1->Memo1->Lines->Add(A+":");
 Form1->Memo1->Lines->Add(B+" = "+AnsiString(X));
@@ -305,35 +305,35 @@ Form1->Memo1->Lines->Add("");
 \end{lstlisting}
 Как видим, вид функций по внешнему виду однотипен --- различается только тип строк, который используется.
 
-\item \textbf{MHL\_NumberToText} --- выводит число в строку. 
-\begin{lstlisting}[label=examplefunction16_2, caption=Синтаксис функции MHL\_NumberToText]
-template <class T> QString MainWindow::MHL_NumberToText (T VMHL_X);
+\item \textbf{HML\_NumberToText} --- выводит число в строку. 
+\begin{lstlisting}[label=examplefunction16_2, caption=Синтаксис функции HML\_NumberToText]
+template <class T> QString MainWindow::HML_NumberToText (T VHML_X);
 \end{lstlisting}
 Входные параметры: 
 \begin{itemize}   
-     \item VMHL\_X --- выводимое число.
+     \item VHML\_X --- выводимое число.
 \end{itemize}
 Пример использования функции:
-\begin{lstlisting}[label=examplefunction17, caption=Пример использования MHL\_NumberToText]
-MHL_ShowNumber(Deg,"Угол "+MHL_NumberToText(Rad)+" радиан","равен в градусах");
+\begin{lstlisting}[label=examplefunction17, caption=Пример использования HML\_NumberToText]
+HML_ShowNumber(Deg,"Угол "+HML_NumberToText(Rad)+" радиан","равен в градусах");
 //Угол 3.14159 радиан:
 //равен в градусах=180
 \end{lstlisting}
 
-\item \textbf{MHL\_ShowVector} --- функция вывода вектора (одномерного массива). 
-\begin{lstlisting}[label=examplefunction14, caption=Синтаксис функции MHL\_ShowVector]
-template <class T> void MHL_ShowVector (T *VMHL_Vector, int VMHL_N, QString TitleVector, QString NameVector);
+\item \textbf{HML\_ShowVector} --- функция вывода вектора (одномерного массива). 
+\begin{lstlisting}[label=examplefunction14, caption=Синтаксис функции HML\_ShowVector]
+template <class T> void HML_ShowVector (T *VHML_Vector, int VHML_N, QString TitleVector, QString NameVector);
 \end{lstlisting}
 Входные параметры: 
 \begin{itemize}   
      \item Vector --- указатель на выводимый вектор;
-     \item VMHL\_N --- количество элементов вектора a;
+     \item VHML\_N --- количество элементов вектора a;
      \item TitleVector --- заголовок выводимого вектора;
      \item NameVector --- обозначение вектора.
 \end{itemize}
 Пример использования функции:
-\begin{lstlisting}[label=examplefunction15_2, caption=Пример использования MHL\_ShowVector]
-MHL_ShowVector (a,VMHL_N,"Заполненный вектор", "a");
+\begin{lstlisting}[label=examplefunction15_2, caption=Пример использования HML\_ShowVector]
+HML_ShowVector (a,VHML_N,"Заполненный вектор", "a");
 //Заполненный вектор:
 //a =	
 //5
@@ -349,39 +349,39 @@ MHL_ShowVector (a,VMHL_N,"Заполненный вектор", "a");
 
 \end{lstlisting}
 
-\item \textbf{MHL\_ShowVectorT} --- функция вывода вектора (одномерного массива) в транспонированном виде, то есть в одну строку. 
-\begin{lstlisting}[label=examplefunction14_2, caption=Синтаксис функции MHL\_ShowVectorT]
-template <class T> void MHL_ShowVectorT (T *VMHL_Vector, int VMHL_N, QString TitleVector, QString NameVector);
+\item \textbf{HML\_ShowVectorT} --- функция вывода вектора (одномерного массива) в транспонированном виде, то есть в одну строку. 
+\begin{lstlisting}[label=examplefunction14_2, caption=Синтаксис функции HML\_ShowVectorT]
+template <class T> void HML_ShowVectorT (T *VHML_Vector, int VHML_N, QString TitleVector, QString NameVector);
 \end{lstlisting}
 Входные параметры: 
 \begin{itemize}   
      \item Vector --- указатель на выводимый вектор;
-     \item VMHL\_N --- количество элементов вектора a;
+     \item VHML\_N --- количество элементов вектора a;
      \item TitleVector --- заголовок выводимого вектора;
      \item NameVector --- обозначение вектора.
 \end{itemize}
 Пример использования функции:
-\begin{lstlisting}[label=examplefunction15, caption=Пример использования MHL\_ShowVectorT]
-MHL_ShowVector (a,VMHL_N,"Заполненный вектор", "a");
+\begin{lstlisting}[label=examplefunction15, caption=Пример использования HML\_ShowVectorT]
+HML_ShowVector (a,VHML_N,"Заполненный вектор", "a");
 //Заполненный вектор:
 //a = 5 5 5 5 5 5 5 5 5 5
 \end{lstlisting}
 
-\item \textbf{MHL\_ShowMatrix} --- функция вывода матрицы. 
-\begin{lstlisting}[label=examplefunction16, caption=Синтаксис функции MHL\_ShowMatrix]
-template <class T> void MHL_ShowMatrix (T **VMHL_Matrix, int VMHL_N, int VMHL_M, QString TitleMatrix, QString NameMatrix);
+\item \textbf{HML\_ShowMatrix} --- функция вывода матрицы. 
+\begin{lstlisting}[label=examplefunction16, caption=Синтаксис функции HML\_ShowMatrix]
+template <class T> void HML_ShowMatrix (T **VHML_Matrix, int VHML_N, int VHML_M, QString TitleMatrix, QString NameMatrix);
 \end{lstlisting}
 Входные параметры: 
 \begin{itemize}   
-     \item VMHL\_Matrix --- указатель на выводимую матрицу;
-     \item VMHL\_N --- количество строк в матрице;
-     \item VMHL\_M --- количество столбцов в матрице;
+     \item VHML\_Matrix --- указатель на выводимую матрицу;
+     \item VHML\_N --- количество строк в матрице;
+     \item VHML\_M --- количество столбцов в матрице;
      \item TitleMatrix --- заголовок выводимой матрицы;
      \item NameMatrix --- обозначение матрицы.
 \end{itemize}
 Пример использования функции:
-\begin{lstlisting}[label=examplefunction17_2, caption=Пример использования MHL\_ShowMatrix]
-        MHL_ShowMatrix (Matrix,VMHL_N,VMHL_M,"Матрица", "x");
+\begin{lstlisting}[label=examplefunction17_2, caption=Пример использования HML\_ShowMatrix]
+        HML_ShowMatrix (Matrix,VHML_N,VHML_M,"Матрица", "x");
         //Матрица:
         //x =            
         //0	1	2	3	4
@@ -393,17 +393,17 @@ template <class T> void MHL_ShowMatrix (T **VMHL_Matrix, int VMHL_N, int VMHL_M,
         //6	7	8	9	10  
 \end{lstlisting}
 
-\item \textbf{MHL\_ShowText} --- функция вывода просто текста. 
-\begin{lstlisting}[label=examplefunction14855, caption=Синтаксис функции MHL\_ShowText]
-void MHL_ShowText (QString TitleX);
+\item \textbf{HML\_ShowText} --- функция вывода просто текста. 
+\begin{lstlisting}[label=examplefunction14855, caption=Синтаксис функции HML\_ShowText]
+void HML_ShowText (QString TitleX);
 \end{lstlisting}
 Входные параметры: 
 \begin{itemize}   
      \item TitleX - непосредственно выводимая строка.
 \end{itemize}
 Пример использования функции:
-\begin{lstlisting}[label=examplefunction14855, caption=Пример использования MHL\_ShowText]
-MHL_ShowText ("Выводимый текст");
+\begin{lstlisting}[label=examplefunction14855, caption=Пример использования HML\_ShowText]
+HML_ShowText ("Выводимый текст");
 //Выводимый текст
 
 \end{lstlisting}
@@ -431,14 +431,14 @@ MHL_ShowText ("Выводимый текст");
 Считаем далее, что вы выбрали папку \textbf{<Dir>} в папке source\_library. 
 
 \begin{itemize}
-\item Создайте в папке <Dir> текстовой файл \textbf{<File>.h}, где <File> --- это имя функции, то есть в рассматриваемом примере мы должны создать файл \textbf{MHL\_Func.h}.
+\item Создайте в папке <Dir> текстовой файл \textbf{<File>.h}, где <File> --- это имя функции, то есть в рассматриваемом примере мы должны создать файл \textbf{HML\_Func.h}.
 \item В файл <File>.h мы добавляем объявление нашей функции, например:
-\begin{lstlisting}[label=examplefileh, caption=Содержимое MHL\_Func.h]
-int  MHL_Func(int VMHL_X);
+\begin{lstlisting}[label=examplefileh, caption=Содержимое HML\_Func.h]
+int  HML_Func(int VHML_X);
 \end{lstlisting}
 \item В файл <File>.cpp мы добавляем код нашей функции, например:
-\begin{lstlisting}[label=examplefilecpp, caption=Содержимое MHL\_Func.cpp]
-int  MHL_Func(int VMHL_X)
+\begin{lstlisting}[label=examplefilecpp, caption=Содержимое HML\_Func.cpp]
+int  HML_Func(int VHML_X)
 {
 /*
 Умножает число на 2.
@@ -447,34 +447,34 @@ int  MHL_Func(int VMHL_X)
 Возвращаемое значение:
  Число, умноженное на 2.
 */
-  return 2*VMHL_X;
+  return 2*VHML_X;
 }
 \end{lstlisting}
 
 Если у нас не функция, а шаблон функции, то мы создаем файл <File>.tpp (обратите внимание на расширение файла), например:
-\begin{lstlisting}[label=examplefiletpp, caption=Содержимое TMHL\_FillVector.tpp]
-template <class T> void TMHL_FillVector(T *VMHL_ResultVector, int VMHL_N, T x)
+\begin{lstlisting}[label=examplefiletpp, caption=Содержимое HML\_FillVector.tpp]
+template <class T> void HML_FillVector(T *VHML_ResultVector, int VHML_N, T x)
 {
 /*
 Функция заполняет вектор значениями, равных x.
 Входные параметры:
- VMHL_ResultVector - указатель на преобразуемый массив;
- VMHL_N - количество элементов в массиве;
+ VHML_ResultVector - указатель на преобразуемый массив;
+ VHML_N - количество элементов в массиве;
  x - число, которым заполняется вектор.
 Возвращаемое значение:
  Отсутствует.
 */
-for (int i=0;i<VMHL_N;i++) VMHL_ResultVector[i]=x;
+for (int i=0;i<VHML_N;i++) VHML_ResultVector[i]=x;
 }
 \end{lstlisting}
 
 \item В файл <File>.desc мы добавляем описание нашей функции, например:
-\begin{lstlisting}[label=examplefiledesc, caption=Содержимое MHL\_Func.desc]
+\begin{lstlisting}[label=examplefiledesc, caption=Содержимое HML\_Func.desc]
 Умножает число на 2.
 \end{lstlisting}
 
 \item В файл <File>.tex мы добавляем справку к нашей функции в виде куска tex кода, например:
-\begin{lstlisting}[label=examplefiletex, caption=Содержимое MHL\_Func.tex]
+\begin{lstlisting}[label=examplefiletex, caption=Содержимое HML\_Func.tex]
 \textbf{Входные параметры:}
 
  x --- входной параметр.
@@ -484,15 +484,15 @@ for (int i=0;i<VMHL_N;i++) VMHL_ResultVector[i]=x;
 \end{lstlisting}
 
 \item В файл <File>.use мы добавляем код примера использования функции, например:
-\begin{lstlisting}[label=examplefileuse, caption=Содержимое MHL\_Func.use]
+\begin{lstlisting}[label=examplefileuse, caption=Содержимое HML\_Func.use]
 int x=5;
 
 //Вызов функции
-int y=MHL_Func(x);
+int y=HML_Func(x);
 
 //Используем полученный результат
-MHL_ShowNumber (x,"Первоначальное число", "x");
-MHL_ShowNumber (y,"Умноженное число", "y");
+HML_ShowNumber (x,"Первоначальное число", "x");
+HML_ShowNumber (y,"Умноженное число", "y");
 //Первоначальное число:
 //x=5
 //Умноженное число:
@@ -544,16 +544,16 @@ MHL_ShowNumber (y,"Умноженное число", "y");
 Загрузили файл FuncF.h
 Загрузили файл FuncF.tex
 Загрузили файл FuncF.use
-Загрузили файл MHL_Func.cpp
-Загрузили файл MHL_Func.desc
-Загрузили файл MHL_Func.h
-Загрузили файл MHL_Func.tex
-Загрузили файл MHL_Func.use
-Загрузили файл TMHL_FillVector.desc
-Загрузили файл TMHL_FillVector.h
-Загрузили файл TMHL_FillVector.tex
-Загрузили файл TMHL_FillVector.tpp
-Загрузили файл TMHL_FillVector.use
+Загрузили файл HML_Func.cpp
+Загрузили файл HML_Func.desc
+Загрузили файл HML_Func.h
+Загрузили файл HML_Func.tex
+Загрузили файл HML_Func.use
+Загрузили файл HML_FillVector.desc
+Загрузили файл HML_FillVector.h
+Загрузили файл HML_FillVector.tex
+Загрузили файл HML_FillVector.tpp
+Загрузили файл HML_FillVector.use
 Из 15 файлов нужными нам оказалось 15 файлов в папке
 
 Загрузили файл Description_part2.tex

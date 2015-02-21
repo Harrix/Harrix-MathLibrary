@@ -1,0 +1,21 @@
+        int VHML_N=10;//Размер массива
+        int *a;
+        a=new int[VHML_N];
+        HML_RandomBinaryVector(a,VHML_N);//Случайный бинарный вектор
+        HML_ShowVectorT (a,VHML_N,"Случайный бинарный вектор", "a");
+        //Случайный бинарный вектор:
+        //a =
+        //0	1	1	1	1	0	0	0	1	1
+
+        double ProbabilityOfMutation=0.1;//Вероятность мутации
+
+        //Вызов функции
+        HML_MutationBinaryVector(a,ProbabilityOfMutation,VHML_N);
+
+        //Используем полученный результат
+        HML_ShowVectorT (a,VHML_N,"Мутированный бинарный вектор", "a");
+        //Мутированный бинарный вектор:
+        //a =
+        //0	1	0	1	1	0	0	0	0	1
+
+        delete [] a;

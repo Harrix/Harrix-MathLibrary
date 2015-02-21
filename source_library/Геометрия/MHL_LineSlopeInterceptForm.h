@@ -1,1 +1,0 @@
-double MHL_LineSlopeInterceptForm(double x, double k, double b);

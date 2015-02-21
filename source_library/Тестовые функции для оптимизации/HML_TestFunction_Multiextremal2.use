@@ -1,0 +1,15 @@
+        double x;
+        double f;
+        x=HML_RandomUniform(-2,2);
+        //x=0.954451617;
+
+        //Вызываем функцию
+        f=HML_TestFunction_Multiextremal2(x);
+
+        HML_ShowNumber (x,"Вещественная переменная", "x");
+        //Вещественная переменная:
+        //x=-0.00666742
+
+        HML_ShowNumber (f,"Значение функции", "f");
+        //Значение функции:
+        //f=1.0641

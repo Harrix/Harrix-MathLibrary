@@ -1,0 +1,20 @@
+        double x;
+        double y;
+        double f;
+        x=HML_RandomUniform(-5,5);
+        y=HML_RandomUniform(-5,5);
+
+        //Вызываем функцию
+        f=HML_TestFunction_Multiextremal3(x,y);
+
+        HML_ShowNumber (x,"Первая вещественная переменная", "x");
+        //Первая вещественная переменная:
+        //x=2.68873
+
+        HML_ShowNumber (y,"Вторая вещественная переменная", "y");
+        //Вторая вещественная переменная:
+        //y=0.520861
+
+        HML_ShowNumber (f,"Значение функции", "f");
+        //Значение функции:
+        //f=10.8962

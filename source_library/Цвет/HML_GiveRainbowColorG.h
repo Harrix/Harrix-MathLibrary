@@ -1,0 +1,1 @@
+int HML_GiveRainbowColorG(double position);

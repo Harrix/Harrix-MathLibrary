@@ -1,0 +1,1 @@
+double HML_EuclidNorma(double *a,int VHML_N);

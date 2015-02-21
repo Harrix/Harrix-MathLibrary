@@ -1,0 +1,32 @@
+\textbf{Входные параметры:}
+ 
+Parent1 --- первый родитель;
+ 
+Parent2 --- второй родитель;
+ 
+VHML\_ResultVector --- потомок;
+ 
+VHML\_N --- размер векторов Parent1, Parent2 и VHML\_ResultVector.
+
+\textbf{Возвращаемое значение:}
+
+ Отсутствует.
+ 
+\textbf{ Примечание:}
+
+ Потомок выбирается случайно.
+ 
+По сути ничем не отличается от \hyperref[SetOfOperatorsAlgorithms:SinglepointCrossover]{SinglepointCrossover}, кроме типа векторов, на котором работает оператор.
+ 
+ \textbf{Формула:}
+\begin{align}
+&Crossover \left( \overline{Parent}^1, \overline{Parent}^2, DataOfCros\right)=Random \left(\left\lbrace \overline{Offspring}^1; \overline{Offspring}^2\right\rbrace  \right), \nonumber\\
+&R=Random\left( \left\lbrace 2; 3; \ldots; n\right\rbrace \right); \nonumber \\
+& \overline{Offspring}^1_i=\overline{Parent}^1_i, i=\overline{1,R-1};\nonumber\\
+&  \overline{Offspring}^1_i=\overline{Parent}^2_i, i=\overline{R,n};\nonumber\\
+&\overline{Offspring}^2_i=\overline{Parent}^2_i, i=\overline{1,R-1};\nonumber\\
+& \overline{Offspring}^2_i=\overline{Parent}^1_i, i=\overline{R,n};\nonumber\\
+&\overline{Offspring}^1\in X, \overline{Offspring}^2\in X.\nonumber
+\end{align}
+
+$ DataOfCros $ не содержит каких-либо параметров относительно данного типа скрещивания.

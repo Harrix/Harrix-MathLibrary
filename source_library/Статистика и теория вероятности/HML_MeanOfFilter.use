@@ -1,0 +1,49 @@
+        int i;
+        int VHML_N=10;//Размер массива
+        double *a;
+        a=new double[VHML_N];
+        //Заполним случайными числами
+        for (i=0;i<VHML_N;i++)
+            a[i]=HML_RandomUniform(0,10);
+
+        double LowerFilter=1;
+
+        double UpperFilter=9;
+
+        double Mean=HML_Mean(a,VHML_N);
+
+        //Вызов функции
+        double MeanOfFilter=HML_MeanOfFilter(a,VHML_N, UpperFilter, LowerFilter);
+
+        //Используем полученный результат
+        HML_ShowVector (a,VHML_N,"Массив", "a");
+        //Массив:
+        //a =	
+        //0.0249536
+        //5.65315
+        //4.50364
+        //9.83102
+        //8.18634
+        //6.15052
+        //0.00491235
+        //2.80304
+        //4.85183
+        //3.34549
+
+        HML_ShowNumber (LowerFilter,"Значение нижнего фильтра", "LowerFilter");
+        //Значение нижнего фильтра:
+        //LowerFilter=1
+
+        HML_ShowNumber (UpperFilter,"Значение верхнего фильтра", "UpperFilter");
+        //Значение верхнего фильтра:
+        //UpperFilter=9
+
+        HML_ShowNumber (Mean,"Среднее арифметическое массива", "Mean");
+        //Среднее арифметическое массива:
+        //Mean=4.53549
+
+        HML_ShowNumber (MeanOfFilter,"Среднее арифметическое массива с фильтром", "MeanOfFilter");
+        //Среднее арифметическое массива с фильтром:
+        //MeanOfFilter=5.07057
+
+        delete [] a;

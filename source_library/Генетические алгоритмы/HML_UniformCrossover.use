@@ -1,0 +1,32 @@
+        int VHML_N=10; //Размер массива (число строк)
+        int *Parent1;
+        Parent1=new int[VHML_N];
+        int *Parent2;
+        Parent2=new int[VHML_N];
+        int *Child;
+        Child=new int[VHML_N];
+        HML_RandomBinaryVector(Parent1,VHML_N);
+        HML_RandomBinaryVector(Parent2,VHML_N);
+
+        //Получим потомка Child
+        HML_UniformCrossover(Parent1,Parent2,Child,VHML_N);
+
+        //Используем полученный результат
+        HML_ShowVectorT (Parent1,VHML_N,"Первый родитель", "Parent1");
+        //Первый родитель:
+        //Parent1 =	
+        //1	1	0	1	1	1	1	1	1	0
+        
+        HML_ShowVectorT (Parent2,VHML_N,"Второй родитель", "Parent2");
+        //Второй родитель:
+        //Parent2 =	
+        //0	0	0	0	1	0	1	1	0	0
+        
+        HML_ShowVectorT (Child,VHML_N,"Полученный потомок", "Child");
+        //Полученный потомок:
+        //Child =	
+        //1	1	0	0	1	0	1	1	1	0
+        
+        delete [] Parent2;
+        delete [] Parent1;
+        delete [] Child;

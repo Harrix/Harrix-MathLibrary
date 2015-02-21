@@ -1,0 +1,1 @@
+double HML_TrapeziformFuzzyNumber(double x,double a,double b,double c,double d);

@@ -1,0 +1,2 @@
+void HML_BinaryGrayVectorToRealVector(int *x, int n, double *VHML_ResultVector, double *Left, double *Right, int *Lengthi, int VHML_N);
+void HML_BinaryGrayVectorToRealVector(int *x, double *VHML_ResultVector,int *TempBinaryVector, double *Left, double *Right, int *Lengthi, int VHML_N);

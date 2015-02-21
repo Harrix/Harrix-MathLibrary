@@ -1,0 +1,1 @@
+void HML_RandomRealMatrixInCols(double **VHML_ResultMatrix, double *Left, double *Right, int VHML_N, int VHML_M);

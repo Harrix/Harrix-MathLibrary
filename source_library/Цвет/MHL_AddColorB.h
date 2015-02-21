@@ -1,1 +1,0 @@
-int MHL_AddColorB(int R, int G, int B, double p);

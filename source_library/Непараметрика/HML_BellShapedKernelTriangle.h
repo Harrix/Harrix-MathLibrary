@@ -1,0 +1,1 @@
+double HML_BellShapedKernelTriangle(double z);

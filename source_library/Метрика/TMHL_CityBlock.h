@@ -1,1 +1,0 @@
-template <class T> T TMHL_CityBlock(T *x, T *y, int VMHL_N);

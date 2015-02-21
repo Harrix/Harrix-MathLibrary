@@ -1,1 +1,0 @@
-template <class T> T TMHL_FibonacciNumber(T n);

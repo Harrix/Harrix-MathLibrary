@@ -1,0 +1,1 @@
+double HML_DerivativeOfBellShapedKernelExp(double z);

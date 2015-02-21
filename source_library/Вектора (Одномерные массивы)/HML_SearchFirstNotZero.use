@@ -1,0 +1,31 @@
+        int i;
+        int VHML_N=10;//Размер массива (число строк)
+        int *a;
+        a=new int[VHML_N];
+        //Заполним случайными числами
+        for (i=0;i<VHML_N;i++)
+         a[i]=HML_RandomUniformInt(0,2);
+
+        //Вызов функции
+        int Number=HML_SearchFirstNotZero(a,VHML_N);
+
+        //Используем полученный результат
+        HML_ShowVector (a,VHML_N,"Случайный вектор", "a");
+        //Случайный вектор:
+        //a =
+        //0
+        //0
+        //0
+        //1
+        //0
+        //0
+        //0
+        //1
+        //1
+        //0
+
+        HML_ShowNumber (Number,"Номер первого ненулевого элемента", "Number");
+        //Номер первого ненулевого элемента:
+        //Number=3
+
+        delete [] a;

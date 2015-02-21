@@ -1,0 +1,19 @@
+        double u1=HML_RandomUniformInt(1,10);
+        double q=HML_RandomUniformInt(1,10);
+        int n=HML_RandomUniformInt(1,10);
+
+        double qn=HML_GeometricSeries(u1,q,n);
+
+        //Используем полученный результат
+        HML_ShowNumber(u1,"Первый член последовательности","u1");
+        //Первый член последовательности:
+        //u1=4
+        HML_ShowNumber(q,"Шаг арифметической прогрессии","q");
+        //Шаг арифметической прогрессии:
+        //q=4
+        HML_ShowNumber(n,"Номер последнего члена","n");
+        //Номер последнего члена:
+        //n=6
+        HML_ShowNumber(qn,"n-ый член последовательности","qn");
+        //n-ый член последовательности:
+        //qn=4096

@@ -1,9 +1,0 @@
-        double x=MHL_RandomUniform(0,10);
-
-        //Вызов функции
-        double Result=MHL_Cosech(x);
-
-        //Используем полученный результат
-        MHL_ShowNumber(Result,"Гиперболический косеканс от x="+MHL_NumberToText(x),"равен");
-        //Гиперболический косеканс от x=0.571289:
-        //равен=1.65872

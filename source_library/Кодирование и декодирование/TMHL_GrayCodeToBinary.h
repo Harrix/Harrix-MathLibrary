@@ -1,1 +1,0 @@
-template <class T> void TMHL_GrayCodeToBinary(T *a,int *VMHL_ResultVector, int VMHL_N);

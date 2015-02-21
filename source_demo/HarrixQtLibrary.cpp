@@ -1,5 +1,5 @@
 //HarrixQtLibrary
-//Версия 3.28
+//Версия 3.30
 //Сборник функций для Qt.
 //https://github.com/Harrix/HarrixQtLibrary
 //Библиотека распространяется по лицензии Apache License, Version 2.0.
@@ -27,9 +27,9 @@ int HQt_CountOfColsFromQStringList(QStringList QStringListFromFile)
     */
     QString A=QStringListFromFile.at(0);
 
-    int VMHL_Result_M=A.count("\t")+1;
+    int VHQt_Result_M=A.count("\t")+1;
 
-    return VMHL_Result_M;
+    return VHQt_Result_M;
 }
 //---------------------------------------------------------------------------
 
@@ -49,9 +49,9 @@ int HQt_CountOfRowsFromQStringList(QStringList QStringListFromFile)
 1	2.2
 2.8	9
     */
-    int VMHL_Result_N=QStringListFromFile.count();
+    int VHQt_Result_N=QStringListFromFile.count();
 
-    return VMHL_Result_N;
+    return VHQt_Result_N;
 }
 //---------------------------------------------------------------------------
 int HQt_CountOfRowsFromQStringList(QStringList QStringListFromFile, int k)
@@ -88,16 +88,16 @@ int HQt_CountOfRowsFromQStringList(QStringList QStringListFromFile, int k)
         X=X.trimmed();
     }
 
-    int VMHL_Result_N;
+    int VHQt_Result_N;
     if (X=="-")
-        VMHL_Result_N=i-1;
+        VHQt_Result_N=i-1;
     else
-        VMHL_Result_N=i;
+        VHQt_Result_N=i;
 
-    return VMHL_Result_N;
+    return VHQt_Result_N;
 }
 //---------------------------------------------------------------------------
-int HQt_CountOfRowsFromQStringList(QStringList QStringListFromFile, int *VMHL_ResultVector)
+int HQt_CountOfRowsFromQStringList(QStringList QStringListFromFile, int *VHQt_ResultVector)
 {
     /*
     Функция подсчитывает сколько строк в каждом столбце из текстового файла с матрицей, который скопировали в QStringListFromFile.
@@ -107,7 +107,7 @@ int HQt_CountOfRowsFromQStringList(QStringList QStringListFromFile, int *VMHL_Re
     элементов ставится знак "-".
     Входные параметры:
      QStringListFromFile - непосредственно сам файл;
-     VMHL_ResultVector - сюда количество стро заносится.
+     VHQt_ResultVector - сюда количество стро заносится.
     Возвращаемое значение:
      Число строк в QStringListFromFile (в правильном файле это число равно максимальному числу строк в каком-нибудь столбце).
     Пример содержимого QStringListFromFile:
@@ -119,7 +119,7 @@ int HQt_CountOfRowsFromQStringList(QStringList QStringListFromFile, int *VMHL_Re
     int M=HQt_CountOfColsFromQStringList(QStringListFromFile);
     int N=QStringListFromFile.count();
 
-    for (j=0;j<M;j++) VMHL_ResultVector[j]=0;
+    for (j=0;j<M;j++) VHQt_ResultVector[j]=0;
 
     int *Stop=new int[M];
     for (j=0;j<M;j++) Stop[j]=0;
@@ -135,7 +135,7 @@ int HQt_CountOfRowsFromQStringList(QStringList QStringListFromFile, int *VMHL_Re
             A=A.trimmed();
             if ((X!="-")&&(Stop[j]==0))
             {
-                VMHL_ResultVector[j]++;
+                VHQt_ResultVector[j]++;
             }
             if ((X=="-"))
             {
@@ -150,17 +150,17 @@ int HQt_CountOfRowsFromQStringList(QStringList QStringListFromFile, int *VMHL_Re
 }
 //---------------------------------------------------------------------------
 
-void THQt_ReadColFromQStringList(QStringList QStringListFromFile, int k, QDate *VMHL_VectorResult)
+void THQt_ReadColFromQStringList(QStringList QStringListFromFile, int k, QDate *VHQt_VectorResult)
 {
     /*
     Функция считывает данные какого-то k столбца с датами из QStringList в виде матрицы.
     Входные параметры:
      QStringListFromFile - отсюда берем информацию;
      k - номер столбца, начиная с нуля, который считываем;
-     VMHL_VectorResult - сюда будем записывать результат считывания столбца из матрицы.
+     VHQt_VectorResult - сюда будем записывать результат считывания столбца из матрицы.
     Возвращаемое значение:
      Отсутствует.
-    Пример содержимого VMHL_VectorResult.
+    Пример содержимого VHQt_VectorResult.
 1	2013.04.05	6
 52	2013.02.25	96
 6.4	2013.01.15	4
@@ -189,21 +189,21 @@ void THQt_ReadColFromQStringList(QStringList QStringListFromFile, int k, QDate *
             DBeginDate=QDate::fromString(X, "yyyy.MM.dd");
         else
             DBeginDate=QDate::fromString(X, "dd.MM.yyyy");
-        VMHL_VectorResult[i]=DBeginDate;
+        VHQt_VectorResult[i]=DBeginDate;
     }
 }
 //---------------------------------------------------------------------------
-void THQt_ReadColFromQStringList(QStringList QStringListFromFile, int k, QString *VMHL_VectorResult)
+void THQt_ReadColFromQStringList(QStringList QStringListFromFile, int k, QString *VHQt_VectorResult)
 {
     /*
     Функция считывает данные какого-то k столбца с датами из QStringList в виде матрицы. Для строк.
     Входные параметры:
      QStringListFromFile - отсюда берем информацию;
      k - номер столбца, начиная с нуля, который считываем;
-     VMHL_VectorResult - сюда будем записывать результат считывания столбца из матрицы.
+     VHQt_VectorResult - сюда будем записывать результат считывания столбца из матрицы.
     Возвращаемое значение:
      Отсутствует.
-    Пример содержимого VMHL_VectorResult.
+    Пример содержимого VHQt_VectorResult.
 1	2013.04.05	6
 52	2013.02.25	96
 6.4	2013.01.15	4
@@ -224,7 +224,7 @@ void THQt_ReadColFromQStringList(QStringList QStringListFromFile, int k, QString
         }
         X=A.mid(0,A.indexOf("\t"));
 
-        VMHL_VectorResult[i]=X;
+        VHQt_VectorResult[i]=X;
     }
 }
 //---------------------------------------------------------------------------
@@ -340,7 +340,7 @@ QString HQt_RandomString(int Length)
      Рекомендую так:
      qsrand(QDateTime::currentMSecsSinceEpoch () % 1000000);
     */
-    QString VMHL_Result;
+    QString VHQt_Result;
     static const char alphanum[] =
             "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
             "abcdefghijklmnopqrstuvwxyz";
@@ -354,11 +354,11 @@ QString HQt_RandomString(int Length)
 
     s[Length] = 0;
 
-    VMHL_Result = QString(s);
+    VHQt_Result = QString(s);
 
     delete [] s;
 
-    return VMHL_Result;
+    return VHQt_Result;
 }
 //---------------------------------------------------------------------------
 
@@ -556,7 +556,7 @@ QStringList HQt_BreakdownOfTextWithWordWrap(QString S, int length)
     Примечание:
      Перевод слов производится по алгоритму П.Хpистова в модификации Дымченко и Ваpсанофьева.
     */
-    QStringList VMHL_Result;
+    QStringList VHQt_Result;
 
     QStringList Temp=HQt_CutToWordsWithWordWrap(S);
 
@@ -597,7 +597,7 @@ QStringList HQt_BreakdownOfTextWithWordWrap(QString S, int length)
                         while (Te.length()>mm)
                         {
                             F=Te.mid(0,mm)+nn;
-                            VMHL_Result << F;
+                            VHQt_Result << F;
                             Te=Te.mid(mm);
                         }
                         F=Te;
@@ -607,7 +607,7 @@ QStringList HQt_BreakdownOfTextWithWordWrap(QString S, int length)
 
                 if (dl==false)
                 {
-                    VMHL_Result << F;
+                    VHQt_Result << F;
                     F.clear();
                     F=Temp.at(i);
                 }
@@ -620,7 +620,7 @@ QStringList HQt_BreakdownOfTextWithWordWrap(QString S, int length)
                 while (Te.length()>length-1)
                 {
                     F=Te.mid(0,length-1)+"-";
-                    VMHL_Result << F;
+                    VHQt_Result << F;
                     Te=Te.mid(length-1);
                 }
                 F=Te;
@@ -638,18 +638,18 @@ QStringList HQt_BreakdownOfTextWithWordWrap(QString S, int length)
             while (Te.length()>length-1)
             {
                 F=Te.mid(0,length-1)+"-";
-                VMHL_Result << F;
+                VHQt_Result << F;
                 Te=Te.mid(length-1);
             }
             F=Te;
         }
         else
         {
-            VMHL_Result << F;
+            VHQt_Result << F;
         }
     }
 
-    return VMHL_Result;
+    return VHQt_Result;
 }
 //---------------------------------------------------------------------------
 
@@ -663,15 +663,15 @@ bool HQt_CheckIntolerablePunctuation(QString x)
      true - символ есть непереносимый символ;
      false - не из слова.
     */
-    bool VMHL_Result=false;
+    bool VHQt_Result=false;
 
-    if (x==".") VMHL_Result=true;
-    if (x==",") VMHL_Result=true;
-    if (x==":") VMHL_Result=true;
-    if (x=="!") VMHL_Result=true;
-    if (x=="?") VMHL_Result=true;
+    if (x==".") VHQt_Result=true;
+    if (x==",") VHQt_Result=true;
+    if (x==":") VHQt_Result=true;
+    if (x=="!") VHQt_Result=true;
+    if (x=="?") VHQt_Result=true;
 
-    return VMHL_Result;
+    return VHQt_Result;
 }
 //---------------------------------------------------------------------------
 
@@ -686,144 +686,144 @@ bool HQt_CheckLetterFromWord(QString x)
      true - буква из слова;
      false - не из слова.
     */
-    bool VMHL_Result=false;
+    bool VHQt_Result=false;
 
-    if (x=="А") VMHL_Result=true;
-    if (x=="а") VMHL_Result=true;
-    if (x=="Б") VMHL_Result=true;
-    if (x=="б") VMHL_Result=true;
-    if (x=="В") VMHL_Result=true;
-    if (x=="в") VMHL_Result=true;
-    if (x=="Г") VMHL_Result=true;
-    if (x=="г") VMHL_Result=true;
-    if (x=="Д") VMHL_Result=true;
-    if (x=="д") VMHL_Result=true;
-    if (x=="Е") VMHL_Result=true;
-    if (x=="е") VMHL_Result=true;
-    if (x=="Ё") VMHL_Result=true;
-    if (x=="ё") VMHL_Result=true;
-    if (x=="Ж") VMHL_Result=true;
-    if (x=="ж") VMHL_Result=true;
-    if (x=="З") VMHL_Result=true;
-    if (x=="з") VMHL_Result=true;
-    if (x=="И") VMHL_Result=true;
-    if (x=="и") VMHL_Result=true;
-    if (x=="Й") VMHL_Result=true;
-    if (x=="й") VMHL_Result=true;
-    if (x=="К") VMHL_Result=true;
-    if (x=="к") VMHL_Result=true;
-    if (x=="Л") VMHL_Result=true;
-    if (x=="л") VMHL_Result=true;
-    if (x=="М") VMHL_Result=true;
-    if (x=="м") VMHL_Result=true;
-    if (x=="Н") VMHL_Result=true;
-    if (x=="н") VMHL_Result=true;
-    if (x=="О") VMHL_Result=true;
-    if (x=="о") VMHL_Result=true;
-    if (x=="П") VMHL_Result=true;
-    if (x=="п") VMHL_Result=true;
-    if (x=="Р") VMHL_Result=true;
-    if (x=="р") VMHL_Result=true;
-    if (x=="С") VMHL_Result=true;
-    if (x=="с") VMHL_Result=true;
-    if (x=="Т") VMHL_Result=true;
-    if (x=="т") VMHL_Result=true;
-    if (x=="У") VMHL_Result=true;
-    if (x=="у") VMHL_Result=true;
-    if (x=="Ф") VMHL_Result=true;
-    if (x=="ф") VMHL_Result=true;
-    if (x=="Х") VMHL_Result=true;
-    if (x=="х") VMHL_Result=true;
-    if (x=="Ц") VMHL_Result=true;
-    if (x=="ц") VMHL_Result=true;
-    if (x=="Ч") VMHL_Result=true;
-    if (x=="ч") VMHL_Result=true;
-    if (x=="Ш") VMHL_Result=true;
-    if (x=="ш") VMHL_Result=true;
-    if (x=="Щ") VMHL_Result=true;
-    if (x=="щ") VMHL_Result=true;
-    if (x=="Ъ") VMHL_Result=true;
-    if (x=="ъ") VMHL_Result=true;
-    if (x=="Ы") VMHL_Result=true;
-    if (x=="ы") VMHL_Result=true;
-    if (x=="Ь") VMHL_Result=true;
-    if (x=="ь") VMHL_Result=true;
-    if (x=="Э") VMHL_Result=true;
-    if (x=="э") VMHL_Result=true;
-    if (x=="Ю") VMHL_Result=true;
-    if (x=="ю") VMHL_Result=true;
-    if (x=="Я") VMHL_Result=true;
-    if (x=="я") VMHL_Result=true;
-    if (x=="A") VMHL_Result=true;
-    if (x=="a") VMHL_Result=true;
-    if (x=="B") VMHL_Result=true;
-    if (x=="b") VMHL_Result=true;
-    if (x=="C") VMHL_Result=true;
-    if (x=="c") VMHL_Result=true;
-    if (x=="D") VMHL_Result=true;
-    if (x=="d") VMHL_Result=true;
-    if (x=="E") VMHL_Result=true;
-    if (x=="e") VMHL_Result=true;
-    if (x=="F") VMHL_Result=true;
-    if (x=="f") VMHL_Result=true;
-    if (x=="G") VMHL_Result=true;
-    if (x=="g") VMHL_Result=true;
-    if (x=="H") VMHL_Result=true;
-    if (x=="h") VMHL_Result=true;
-    if (x=="I") VMHL_Result=true;
-    if (x=="i") VMHL_Result=true;
-    if (x=="J") VMHL_Result=true;
-    if (x=="j") VMHL_Result=true;
-    if (x=="K") VMHL_Result=true;
-    if (x=="k") VMHL_Result=true;
-    if (x=="L") VMHL_Result=true;
-    if (x=="l") VMHL_Result=true;
-    if (x=="M") VMHL_Result=true;
-    if (x=="m") VMHL_Result=true;
-    if (x=="N") VMHL_Result=true;
-    if (x=="n") VMHL_Result=true;
-    if (x=="O") VMHL_Result=true;
-    if (x=="o") VMHL_Result=true;
-    if (x=="P") VMHL_Result=true;
-    if (x=="p") VMHL_Result=true;
-    if (x=="Q") VMHL_Result=true;
-    if (x=="q") VMHL_Result=true;
-    if (x=="R") VMHL_Result=true;
-    if (x=="r") VMHL_Result=true;
-    if (x=="S") VMHL_Result=true;
-    if (x=="s") VMHL_Result=true;
-    if (x=="T") VMHL_Result=true;
-    if (x=="t") VMHL_Result=true;
-    if (x=="U") VMHL_Result=true;
-    if (x=="u") VMHL_Result=true;
-    if (x=="V") VMHL_Result=true;
-    if (x=="v") VMHL_Result=true;
-    if (x=="W") VMHL_Result=true;
-    if (x=="w") VMHL_Result=true;
-    if (x=="X") VMHL_Result=true;
-    if (x=="x") VMHL_Result=true;
-    if (x=="Y") VMHL_Result=true;
-    if (x=="y") VMHL_Result=true;
-    if (x=="Z") VMHL_Result=true;
-    if (x=="z") VMHL_Result=true;
-    if (x=="0") VMHL_Result=true;
-    if (x=="1") VMHL_Result=true;
-    if (x=="2") VMHL_Result=true;
-    if (x=="3") VMHL_Result=true;
-    if (x=="4") VMHL_Result=true;
-    if (x=="5") VMHL_Result=true;
-    if (x=="6") VMHL_Result=true;
-    if (x=="7") VMHL_Result=true;
-    if (x=="8") VMHL_Result=true;
-    if (x=="9") VMHL_Result=true;
-    if (x=="_") VMHL_Result=true;
-    if (x==".") VMHL_Result=true;
-    if (x==",") VMHL_Result=true;
-    if (x==":") VMHL_Result=true;
-    if (x=="!") VMHL_Result=true;
-    if (x=="?") VMHL_Result=true;
+    if (x=="А") VHQt_Result=true;
+    if (x=="а") VHQt_Result=true;
+    if (x=="Б") VHQt_Result=true;
+    if (x=="б") VHQt_Result=true;
+    if (x=="В") VHQt_Result=true;
+    if (x=="в") VHQt_Result=true;
+    if (x=="Г") VHQt_Result=true;
+    if (x=="г") VHQt_Result=true;
+    if (x=="Д") VHQt_Result=true;
+    if (x=="д") VHQt_Result=true;
+    if (x=="Е") VHQt_Result=true;
+    if (x=="е") VHQt_Result=true;
+    if (x=="Ё") VHQt_Result=true;
+    if (x=="ё") VHQt_Result=true;
+    if (x=="Ж") VHQt_Result=true;
+    if (x=="ж") VHQt_Result=true;
+    if (x=="З") VHQt_Result=true;
+    if (x=="з") VHQt_Result=true;
+    if (x=="И") VHQt_Result=true;
+    if (x=="и") VHQt_Result=true;
+    if (x=="Й") VHQt_Result=true;
+    if (x=="й") VHQt_Result=true;
+    if (x=="К") VHQt_Result=true;
+    if (x=="к") VHQt_Result=true;
+    if (x=="Л") VHQt_Result=true;
+    if (x=="л") VHQt_Result=true;
+    if (x=="М") VHQt_Result=true;
+    if (x=="м") VHQt_Result=true;
+    if (x=="Н") VHQt_Result=true;
+    if (x=="н") VHQt_Result=true;
+    if (x=="О") VHQt_Result=true;
+    if (x=="о") VHQt_Result=true;
+    if (x=="П") VHQt_Result=true;
+    if (x=="п") VHQt_Result=true;
+    if (x=="Р") VHQt_Result=true;
+    if (x=="р") VHQt_Result=true;
+    if (x=="С") VHQt_Result=true;
+    if (x=="с") VHQt_Result=true;
+    if (x=="Т") VHQt_Result=true;
+    if (x=="т") VHQt_Result=true;
+    if (x=="У") VHQt_Result=true;
+    if (x=="у") VHQt_Result=true;
+    if (x=="Ф") VHQt_Result=true;
+    if (x=="ф") VHQt_Result=true;
+    if (x=="Х") VHQt_Result=true;
+    if (x=="х") VHQt_Result=true;
+    if (x=="Ц") VHQt_Result=true;
+    if (x=="ц") VHQt_Result=true;
+    if (x=="Ч") VHQt_Result=true;
+    if (x=="ч") VHQt_Result=true;
+    if (x=="Ш") VHQt_Result=true;
+    if (x=="ш") VHQt_Result=true;
+    if (x=="Щ") VHQt_Result=true;
+    if (x=="щ") VHQt_Result=true;
+    if (x=="Ъ") VHQt_Result=true;
+    if (x=="ъ") VHQt_Result=true;
+    if (x=="Ы") VHQt_Result=true;
+    if (x=="ы") VHQt_Result=true;
+    if (x=="Ь") VHQt_Result=true;
+    if (x=="ь") VHQt_Result=true;
+    if (x=="Э") VHQt_Result=true;
+    if (x=="э") VHQt_Result=true;
+    if (x=="Ю") VHQt_Result=true;
+    if (x=="ю") VHQt_Result=true;
+    if (x=="Я") VHQt_Result=true;
+    if (x=="я") VHQt_Result=true;
+    if (x=="A") VHQt_Result=true;
+    if (x=="a") VHQt_Result=true;
+    if (x=="B") VHQt_Result=true;
+    if (x=="b") VHQt_Result=true;
+    if (x=="C") VHQt_Result=true;
+    if (x=="c") VHQt_Result=true;
+    if (x=="D") VHQt_Result=true;
+    if (x=="d") VHQt_Result=true;
+    if (x=="E") VHQt_Result=true;
+    if (x=="e") VHQt_Result=true;
+    if (x=="F") VHQt_Result=true;
+    if (x=="f") VHQt_Result=true;
+    if (x=="G") VHQt_Result=true;
+    if (x=="g") VHQt_Result=true;
+    if (x=="H") VHQt_Result=true;
+    if (x=="h") VHQt_Result=true;
+    if (x=="I") VHQt_Result=true;
+    if (x=="i") VHQt_Result=true;
+    if (x=="J") VHQt_Result=true;
+    if (x=="j") VHQt_Result=true;
+    if (x=="K") VHQt_Result=true;
+    if (x=="k") VHQt_Result=true;
+    if (x=="L") VHQt_Result=true;
+    if (x=="l") VHQt_Result=true;
+    if (x=="M") VHQt_Result=true;
+    if (x=="m") VHQt_Result=true;
+    if (x=="N") VHQt_Result=true;
+    if (x=="n") VHQt_Result=true;
+    if (x=="O") VHQt_Result=true;
+    if (x=="o") VHQt_Result=true;
+    if (x=="P") VHQt_Result=true;
+    if (x=="p") VHQt_Result=true;
+    if (x=="Q") VHQt_Result=true;
+    if (x=="q") VHQt_Result=true;
+    if (x=="R") VHQt_Result=true;
+    if (x=="r") VHQt_Result=true;
+    if (x=="S") VHQt_Result=true;
+    if (x=="s") VHQt_Result=true;
+    if (x=="T") VHQt_Result=true;
+    if (x=="t") VHQt_Result=true;
+    if (x=="U") VHQt_Result=true;
+    if (x=="u") VHQt_Result=true;
+    if (x=="V") VHQt_Result=true;
+    if (x=="v") VHQt_Result=true;
+    if (x=="W") VHQt_Result=true;
+    if (x=="w") VHQt_Result=true;
+    if (x=="X") VHQt_Result=true;
+    if (x=="x") VHQt_Result=true;
+    if (x=="Y") VHQt_Result=true;
+    if (x=="y") VHQt_Result=true;
+    if (x=="Z") VHQt_Result=true;
+    if (x=="z") VHQt_Result=true;
+    if (x=="0") VHQt_Result=true;
+    if (x=="1") VHQt_Result=true;
+    if (x=="2") VHQt_Result=true;
+    if (x=="3") VHQt_Result=true;
+    if (x=="4") VHQt_Result=true;
+    if (x=="5") VHQt_Result=true;
+    if (x=="6") VHQt_Result=true;
+    if (x=="7") VHQt_Result=true;
+    if (x=="8") VHQt_Result=true;
+    if (x=="9") VHQt_Result=true;
+    if (x=="_") VHQt_Result=true;
+    if (x==".") VHQt_Result=true;
+    if (x==",") VHQt_Result=true;
+    if (x==":") VHQt_Result=true;
+    if (x=="!") VHQt_Result=true;
+    if (x=="?") VHQt_Result=true;
 
-    return VMHL_Result;
+    return VHQt_Result;
 }
 //---------------------------------------------------------------------------
 
@@ -837,7 +837,7 @@ bool HQt_CheckRus(QString S)
      true - естm буквы русские;
      false - нет букв русских.
     */
-    bool VMHL_Result=false;
+    bool VHQt_Result=false;
 
     QString x;
 
@@ -845,75 +845,75 @@ bool HQt_CheckRus(QString S)
     {
         x=S.at(i);
 
-        if (x=="А") VMHL_Result=true;
-        if (x=="а") VMHL_Result=true;
-        if (x=="Б") VMHL_Result=true;
-        if (x=="б") VMHL_Result=true;
-        if (x=="В") VMHL_Result=true;
-        if (x=="в") VMHL_Result=true;
-        if (x=="Г") VMHL_Result=true;
-        if (x=="г") VMHL_Result=true;
-        if (x=="Д") VMHL_Result=true;
-        if (x=="д") VMHL_Result=true;
-        if (x=="Е") VMHL_Result=true;
-        if (x=="е") VMHL_Result=true;
-        if (x=="Ё") VMHL_Result=true;
-        if (x=="ё") VMHL_Result=true;
-        if (x=="Ж") VMHL_Result=true;
-        if (x=="ж") VMHL_Result=true;
-        if (x=="З") VMHL_Result=true;
-        if (x=="з") VMHL_Result=true;
-        if (x=="И") VMHL_Result=true;
-        if (x=="и") VMHL_Result=true;
-        if (x=="Й") VMHL_Result=true;
-        if (x=="й") VMHL_Result=true;
-        if (x=="К") VMHL_Result=true;
-        if (x=="к") VMHL_Result=true;
-        if (x=="Л") VMHL_Result=true;
-        if (x=="л") VMHL_Result=true;
-        if (x=="М") VMHL_Result=true;
-        if (x=="м") VMHL_Result=true;
-        if (x=="Н") VMHL_Result=true;
-        if (x=="н") VMHL_Result=true;
-        if (x=="О") VMHL_Result=true;
-        if (x=="о") VMHL_Result=true;
-        if (x=="П") VMHL_Result=true;
-        if (x=="п") VMHL_Result=true;
-        if (x=="Р") VMHL_Result=true;
-        if (x=="р") VMHL_Result=true;
-        if (x=="С") VMHL_Result=true;
-        if (x=="с") VMHL_Result=true;
-        if (x=="Т") VMHL_Result=true;
-        if (x=="т") VMHL_Result=true;
-        if (x=="У") VMHL_Result=true;
-        if (x=="у") VMHL_Result=true;
-        if (x=="Ф") VMHL_Result=true;
-        if (x=="ф") VMHL_Result=true;
-        if (x=="Х") VMHL_Result=true;
-        if (x=="х") VMHL_Result=true;
-        if (x=="Ц") VMHL_Result=true;
-        if (x=="ц") VMHL_Result=true;
-        if (x=="Ч") VMHL_Result=true;
-        if (x=="ч") VMHL_Result=true;
-        if (x=="Ш") VMHL_Result=true;
-        if (x=="ш") VMHL_Result=true;
-        if (x=="Щ") VMHL_Result=true;
-        if (x=="щ") VMHL_Result=true;
-        if (x=="Ъ") VMHL_Result=true;
-        if (x=="ъ") VMHL_Result=true;
-        if (x=="Ы") VMHL_Result=true;
-        if (x=="ы") VMHL_Result=true;
-        if (x=="Ь") VMHL_Result=true;
-        if (x=="ь") VMHL_Result=true;
-        if (x=="Э") VMHL_Result=true;
-        if (x=="э") VMHL_Result=true;
-        if (x=="Ю") VMHL_Result=true;
-        if (x=="ю") VMHL_Result=true;
-        if (x=="Я") VMHL_Result=true;
-        if (x=="я") VMHL_Result=true;
+        if (x=="А") VHQt_Result=true;
+        if (x=="а") VHQt_Result=true;
+        if (x=="Б") VHQt_Result=true;
+        if (x=="б") VHQt_Result=true;
+        if (x=="В") VHQt_Result=true;
+        if (x=="в") VHQt_Result=true;
+        if (x=="Г") VHQt_Result=true;
+        if (x=="г") VHQt_Result=true;
+        if (x=="Д") VHQt_Result=true;
+        if (x=="д") VHQt_Result=true;
+        if (x=="Е") VHQt_Result=true;
+        if (x=="е") VHQt_Result=true;
+        if (x=="Ё") VHQt_Result=true;
+        if (x=="ё") VHQt_Result=true;
+        if (x=="Ж") VHQt_Result=true;
+        if (x=="ж") VHQt_Result=true;
+        if (x=="З") VHQt_Result=true;
+        if (x=="з") VHQt_Result=true;
+        if (x=="И") VHQt_Result=true;
+        if (x=="и") VHQt_Result=true;
+        if (x=="Й") VHQt_Result=true;
+        if (x=="й") VHQt_Result=true;
+        if (x=="К") VHQt_Result=true;
+        if (x=="к") VHQt_Result=true;
+        if (x=="Л") VHQt_Result=true;
+        if (x=="л") VHQt_Result=true;
+        if (x=="М") VHQt_Result=true;
+        if (x=="м") VHQt_Result=true;
+        if (x=="Н") VHQt_Result=true;
+        if (x=="н") VHQt_Result=true;
+        if (x=="О") VHQt_Result=true;
+        if (x=="о") VHQt_Result=true;
+        if (x=="П") VHQt_Result=true;
+        if (x=="п") VHQt_Result=true;
+        if (x=="Р") VHQt_Result=true;
+        if (x=="р") VHQt_Result=true;
+        if (x=="С") VHQt_Result=true;
+        if (x=="с") VHQt_Result=true;
+        if (x=="Т") VHQt_Result=true;
+        if (x=="т") VHQt_Result=true;
+        if (x=="У") VHQt_Result=true;
+        if (x=="у") VHQt_Result=true;
+        if (x=="Ф") VHQt_Result=true;
+        if (x=="ф") VHQt_Result=true;
+        if (x=="Х") VHQt_Result=true;
+        if (x=="х") VHQt_Result=true;
+        if (x=="Ц") VHQt_Result=true;
+        if (x=="ц") VHQt_Result=true;
+        if (x=="Ч") VHQt_Result=true;
+        if (x=="ч") VHQt_Result=true;
+        if (x=="Ш") VHQt_Result=true;
+        if (x=="ш") VHQt_Result=true;
+        if (x=="Щ") VHQt_Result=true;
+        if (x=="щ") VHQt_Result=true;
+        if (x=="Ъ") VHQt_Result=true;
+        if (x=="ъ") VHQt_Result=true;
+        if (x=="Ы") VHQt_Result=true;
+        if (x=="ы") VHQt_Result=true;
+        if (x=="Ь") VHQt_Result=true;
+        if (x=="ь") VHQt_Result=true;
+        if (x=="Э") VHQt_Result=true;
+        if (x=="э") VHQt_Result=true;
+        if (x=="Ю") VHQt_Result=true;
+        if (x=="ю") VHQt_Result=true;
+        if (x=="Я") VHQt_Result=true;
+        if (x=="я") VHQt_Result=true;
     }
 
-    return VMHL_Result;
+    return VHQt_Result;
 }
 //---------------------------------------------------------------------------
 
@@ -928,7 +928,7 @@ QStringList HQt_CutToWords(QString S)
     Примечание:
      Если кроме русского и английского языка у вас могут слова других языков, то дополните функцию HQt_CheckLetterFromWord.
     */
-    QStringList VMHL_Result;
+    QStringList VHQt_Result;
 
     QString F;
 
@@ -946,14 +946,14 @@ QStringList HQt_CutToWords(QString S)
             if (type==typebefore)
             {
                 F+=S.at(i);
-                VMHL_Result<<F;
+                VHQt_Result<<F;
             }
             else
             {
-                VMHL_Result<<F;
+                VHQt_Result<<F;
                 F.clear();
                 F=S.at(i);
-                VMHL_Result<<F;
+                VHQt_Result<<F;
             }
         }
         else
@@ -977,7 +977,7 @@ QStringList HQt_CutToWords(QString S)
                     }
                     else
                     {
-                        VMHL_Result<<F;
+                        VHQt_Result<<F;
                         F.clear();
                         F=S.at(i);
                         len=1;
@@ -997,7 +997,7 @@ QStringList HQt_CutToWords(QString S)
                 {
                     if (type!=typebefore)
                     {
-                        VMHL_Result<<F;
+                        VHQt_Result<<F;
                         F.clear();
                         F=S.at(i);
                         len=1;
@@ -1015,7 +1015,7 @@ QStringList HQt_CutToWords(QString S)
 
     }
 
-    return VMHL_Result;
+    return VHQt_Result;
 }
 //---------------------------------------------------------------------------
 
@@ -1032,7 +1032,7 @@ QStringList HQt_CutToWordsWithWordWrap(QString S)
     Примечание:
      Перевод слов производится по алгоритму П. Хpистова в модификации Дымченко и Ваpсанофьева.
     */
-    QStringList VMHL_Result;
+    QStringList VHQt_Result;
 
     QString F;
 
@@ -1050,14 +1050,14 @@ QStringList HQt_CutToWordsWithWordWrap(QString S)
             if (type==typebefore)
             {
                 F+=S.at(i);
-                VMHL_Result<<F;
+                VHQt_Result<<F;
             }
             else
             {
-                VMHL_Result<<F;
+                VHQt_Result<<F;
                 F.clear();
                 F=S.at(i);
-                VMHL_Result<<F;
+                VHQt_Result<<F;
             }
         }
         else
@@ -1081,7 +1081,7 @@ QStringList HQt_CutToWordsWithWordWrap(QString S)
                     }
                     else
                     {
-                        VMHL_Result<<F;
+                        VHQt_Result<<F;
                         F.clear();
                         F=S.at(i);
                         len=1;
@@ -1101,7 +1101,7 @@ QStringList HQt_CutToWordsWithWordWrap(QString S)
                 {
                     if (type!=typebefore)
                     {
-                        VMHL_Result<<F;
+                        VHQt_Result<<F;
                         F.clear();
                         F=S.at(i);
                         len=1;
@@ -1197,7 +1197,7 @@ QStringList HQt_CutToWordsWithWordWrap(QString S)
                             }
                             else
                             {
-                                VMHL_Result<<F;
+                                VHQt_Result<<F;
                                 F.clear();
                                 F=S.at(i);
                                 len=1;
@@ -1218,7 +1218,7 @@ QStringList HQt_CutToWordsWithWordWrap(QString S)
 
     }
 
-    return VMHL_Result;
+    return VHQt_Result;
 }
 //---------------------------------------------------------------------------
 
@@ -1233,73 +1233,73 @@ int HQt_GetTypeCharEng(QString x)
      2 - согласная;
      0 - иначе.
     */
-    int VMHL_Result=0;
+    int VHQt_Result=0;
 
-    if (x=="A") VMHL_Result=1;
-    if (x=="a") VMHL_Result=1;
+    if (x=="A") VHQt_Result=1;
+    if (x=="a") VHQt_Result=1;
 
-    if (x=="B") VMHL_Result=2;
-    if (x=="b") VMHL_Result=2;
-    if (x=="C") VMHL_Result=2;
-    if (x=="c") VMHL_Result=2;
-    if (x=="D") VMHL_Result=2;
-    if (x=="d") VMHL_Result=2;
+    if (x=="B") VHQt_Result=2;
+    if (x=="b") VHQt_Result=2;
+    if (x=="C") VHQt_Result=2;
+    if (x=="c") VHQt_Result=2;
+    if (x=="D") VHQt_Result=2;
+    if (x=="d") VHQt_Result=2;
 
-    if (x=="E") VMHL_Result=1;
-    if (x=="e") VMHL_Result=1;
+    if (x=="E") VHQt_Result=1;
+    if (x=="e") VHQt_Result=1;
 
-    if (x=="F") VMHL_Result=2;
-    if (x=="f") VMHL_Result=2;
-    if (x=="G") VMHL_Result=2;
-    if (x=="g") VMHL_Result=2;
-    if (x=="H") VMHL_Result=2;
-    if (x=="h") VMHL_Result=2;
+    if (x=="F") VHQt_Result=2;
+    if (x=="f") VHQt_Result=2;
+    if (x=="G") VHQt_Result=2;
+    if (x=="g") VHQt_Result=2;
+    if (x=="H") VHQt_Result=2;
+    if (x=="h") VHQt_Result=2;
 
-    if (x=="I") VMHL_Result=1;
-    if (x=="i") VMHL_Result=1;
+    if (x=="I") VHQt_Result=1;
+    if (x=="i") VHQt_Result=1;
 
-    if (x=="J") VMHL_Result=2;
-    if (x=="j") VMHL_Result=2;
-    if (x=="K") VMHL_Result=2;
-    if (x=="k") VMHL_Result=2;
-    if (x=="L") VMHL_Result=2;
-    if (x=="l") VMHL_Result=2;
-    if (x=="M") VMHL_Result=2;
-    if (x=="m") VMHL_Result=2;
-    if (x=="N") VMHL_Result=2;
-    if (x=="n") VMHL_Result=2;
+    if (x=="J") VHQt_Result=2;
+    if (x=="j") VHQt_Result=2;
+    if (x=="K") VHQt_Result=2;
+    if (x=="k") VHQt_Result=2;
+    if (x=="L") VHQt_Result=2;
+    if (x=="l") VHQt_Result=2;
+    if (x=="M") VHQt_Result=2;
+    if (x=="m") VHQt_Result=2;
+    if (x=="N") VHQt_Result=2;
+    if (x=="n") VHQt_Result=2;
 
-    if (x=="O") VMHL_Result=1;
-    if (x=="o") VMHL_Result=1;
+    if (x=="O") VHQt_Result=1;
+    if (x=="o") VHQt_Result=1;
 
-    if (x=="P") VMHL_Result=2;
-    if (x=="p") VMHL_Result=2;
-    if (x=="Q") VMHL_Result=2;
-    if (x=="q") VMHL_Result=2;
-    if (x=="R") VMHL_Result=2;
-    if (x=="r") VMHL_Result=2;
-    if (x=="S") VMHL_Result=2;
-    if (x=="s") VMHL_Result=2;
-    if (x=="T") VMHL_Result=2;
-    if (x=="t") VMHL_Result=2;
+    if (x=="P") VHQt_Result=2;
+    if (x=="p") VHQt_Result=2;
+    if (x=="Q") VHQt_Result=2;
+    if (x=="q") VHQt_Result=2;
+    if (x=="R") VHQt_Result=2;
+    if (x=="r") VHQt_Result=2;
+    if (x=="S") VHQt_Result=2;
+    if (x=="s") VHQt_Result=2;
+    if (x=="T") VHQt_Result=2;
+    if (x=="t") VHQt_Result=2;
 
-    if (x=="U") VMHL_Result=1;
-    if (x=="u") VMHL_Result=1;
+    if (x=="U") VHQt_Result=1;
+    if (x=="u") VHQt_Result=1;
 
-    if (x=="V") VMHL_Result=2;
-    if (x=="v") VMHL_Result=2;
-    if (x=="W") VMHL_Result=2;
-    if (x=="w") VMHL_Result=2;
-    if (x=="X") VMHL_Result=2;
-    if (x=="x") VMHL_Result=2;
+    if (x=="V") VHQt_Result=2;
+    if (x=="v") VHQt_Result=2;
+    if (x=="W") VHQt_Result=2;
+    if (x=="w") VHQt_Result=2;
+    if (x=="X") VHQt_Result=2;
+    if (x=="x") VHQt_Result=2;
 
-    if (x=="Y") VMHL_Result=1;
-    if (x=="y") VMHL_Result=1;
+    if (x=="Y") VHQt_Result=1;
+    if (x=="y") VHQt_Result=1;
 
-    if (x=="Z") VMHL_Result=2;
-    if (x=="z") VMHL_Result=2;
+    if (x=="Z") VHQt_Result=2;
+    if (x=="z") VHQt_Result=2;
 
-    return VMHL_Result;
+    return VHQt_Result;
 }
 //---------------------------------------------------------------------------
 
@@ -1315,90 +1315,90 @@ int HQt_GetTypeCharRus(QString x)
      3 - буква из множества ьъй;
      0 - иначе (английские или какие-то иные).
     */
-    int VMHL_Result=0;
+    int VHQt_Result=0;
 
-    if (x=="А") VMHL_Result=1;
-    if (x=="а") VMHL_Result=1;
+    if (x=="А") VHQt_Result=1;
+    if (x=="а") VHQt_Result=1;
 
-    if (x=="Б") VMHL_Result=2;
-    if (x=="б") VMHL_Result=2;
-    if (x=="В") VMHL_Result=2;
-    if (x=="в") VMHL_Result=2;
-    if (x=="Г") VMHL_Result=2;
-    if (x=="г") VMHL_Result=2;
-    if (x=="Д") VMHL_Result=2;
-    if (x=="д") VMHL_Result=2;
+    if (x=="Б") VHQt_Result=2;
+    if (x=="б") VHQt_Result=2;
+    if (x=="В") VHQt_Result=2;
+    if (x=="в") VHQt_Result=2;
+    if (x=="Г") VHQt_Result=2;
+    if (x=="г") VHQt_Result=2;
+    if (x=="Д") VHQt_Result=2;
+    if (x=="д") VHQt_Result=2;
 
-    if (x=="Е") VMHL_Result=1;
-    if (x=="е") VMHL_Result=1;
-    if (x=="Ё") VMHL_Result=1;
-    if (x=="ё") VMHL_Result=1;
+    if (x=="Е") VHQt_Result=1;
+    if (x=="е") VHQt_Result=1;
+    if (x=="Ё") VHQt_Result=1;
+    if (x=="ё") VHQt_Result=1;
 
-    if (x=="Ж") VMHL_Result=2;
-    if (x=="ж") VMHL_Result=2;
-    if (x=="З") VMHL_Result=2;
-    if (x=="з") VMHL_Result=2;
+    if (x=="Ж") VHQt_Result=2;
+    if (x=="ж") VHQt_Result=2;
+    if (x=="З") VHQt_Result=2;
+    if (x=="з") VHQt_Result=2;
 
-    if (x=="И") VMHL_Result=1;
-    if (x=="и") VMHL_Result=1;
+    if (x=="И") VHQt_Result=1;
+    if (x=="и") VHQt_Result=1;
 
-    if (x=="Й") VMHL_Result=3;
-    if (x=="й") VMHL_Result=3;
+    if (x=="Й") VHQt_Result=3;
+    if (x=="й") VHQt_Result=3;
 
-    if (x=="К") VMHL_Result=2;
-    if (x=="к") VMHL_Result=2;
-    if (x=="Л") VMHL_Result=2;
-    if (x=="л") VMHL_Result=2;
-    if (x=="М") VMHL_Result=2;
-    if (x=="м") VMHL_Result=2;
-    if (x=="Н") VMHL_Result=2;
-    if (x=="н") VMHL_Result=2;
+    if (x=="К") VHQt_Result=2;
+    if (x=="к") VHQt_Result=2;
+    if (x=="Л") VHQt_Result=2;
+    if (x=="л") VHQt_Result=2;
+    if (x=="М") VHQt_Result=2;
+    if (x=="м") VHQt_Result=2;
+    if (x=="Н") VHQt_Result=2;
+    if (x=="н") VHQt_Result=2;
 
-    if (x=="О") VMHL_Result=1;
-    if (x=="о") VMHL_Result=1;
+    if (x=="О") VHQt_Result=1;
+    if (x=="о") VHQt_Result=1;
 
-    if (x=="П") VMHL_Result=2;
-    if (x=="п") VMHL_Result=2;
-    if (x=="Р") VMHL_Result=2;
-    if (x=="р") VMHL_Result=2;
-    if (x=="С") VMHL_Result=2;
-    if (x=="с") VMHL_Result=2;
-    if (x=="Т") VMHL_Result=2;
-    if (x=="т") VMHL_Result=2;
+    if (x=="П") VHQt_Result=2;
+    if (x=="п") VHQt_Result=2;
+    if (x=="Р") VHQt_Result=2;
+    if (x=="р") VHQt_Result=2;
+    if (x=="С") VHQt_Result=2;
+    if (x=="с") VHQt_Result=2;
+    if (x=="Т") VHQt_Result=2;
+    if (x=="т") VHQt_Result=2;
 
-    if (x=="У") VMHL_Result=1;
-    if (x=="у") VMHL_Result=1;
+    if (x=="У") VHQt_Result=1;
+    if (x=="у") VHQt_Result=1;
 
-    if (x=="Ф") VMHL_Result=2;
-    if (x=="ф") VMHL_Result=2;
-    if (x=="Х") VMHL_Result=2;
-    if (x=="х") VMHL_Result=2;
-    if (x=="Ц") VMHL_Result=2;
-    if (x=="ц") VMHL_Result=2;
-    if (x=="Ч") VMHL_Result=2;
-    if (x=="ч") VMHL_Result=2;
-    if (x=="Ш") VMHL_Result=2;
-    if (x=="ш") VMHL_Result=2;
-    if (x=="Щ") VMHL_Result=2;
-    if (x=="щ") VMHL_Result=2;
+    if (x=="Ф") VHQt_Result=2;
+    if (x=="ф") VHQt_Result=2;
+    if (x=="Х") VHQt_Result=2;
+    if (x=="х") VHQt_Result=2;
+    if (x=="Ц") VHQt_Result=2;
+    if (x=="ц") VHQt_Result=2;
+    if (x=="Ч") VHQt_Result=2;
+    if (x=="ч") VHQt_Result=2;
+    if (x=="Ш") VHQt_Result=2;
+    if (x=="ш") VHQt_Result=2;
+    if (x=="Щ") VHQt_Result=2;
+    if (x=="щ") VHQt_Result=2;
 
-    if (x=="Ъ") VMHL_Result=3;
-    if (x=="ъ") VMHL_Result=3;
+    if (x=="Ъ") VHQt_Result=3;
+    if (x=="ъ") VHQt_Result=3;
 
-    if (x=="Ы") VMHL_Result=1;
-    if (x=="ы") VMHL_Result=1;
+    if (x=="Ы") VHQt_Result=1;
+    if (x=="ы") VHQt_Result=1;
 
-    if (x=="Ь") VMHL_Result=3;
-    if (x=="ь") VMHL_Result=3;
+    if (x=="Ь") VHQt_Result=3;
+    if (x=="ь") VHQt_Result=3;
 
-    if (x=="Э") VMHL_Result=1;
-    if (x=="э") VMHL_Result=1;
-    if (x=="Ю") VMHL_Result=1;
-    if (x=="ю") VMHL_Result=1;
-    if (x=="Я") VMHL_Result=1;
-    if (x=="я") VMHL_Result=1;
+    if (x=="Э") VHQt_Result=1;
+    if (x=="э") VHQt_Result=1;
+    if (x=="Ю") VHQt_Result=1;
+    if (x=="ю") VHQt_Result=1;
+    if (x=="Я") VHQt_Result=1;
+    if (x=="я") VHQt_Result=1;
 
-    return VMHL_Result;
+    return VHQt_Result;
 }
 //---------------------------------------------------------------------------
 
@@ -2085,13 +2085,13 @@ bool HQt_IsNumeric(QString x)
      true - является числом;
      false - не является числом.
     */
-    bool VMHL_Result;
+    bool VHQt_Result;
 
     x=x.replace(",",".");
 
-    x.toDouble(&VMHL_Result);
+    x.toDouble(&VHQt_Result);
 
-    return VMHL_Result;
+    return VHQt_Result;
 }
 //---------------------------------------------------------------------------
 
@@ -2104,16 +2104,16 @@ int HQt_MaxCountOfQStringList(QStringList x)
     Возвращаемое значение:
      Длина макимальной по длине строки.
     */
-    int VMHL_Result=0;
+    int VHQt_Result=0;
 
-    VMHL_Result=x.at(0).count();
+    VHQt_Result=x.at(0).count();
 
     for (int i=1;i<x.count();i++)
     {
-        if (x.at(i).count()>VMHL_Result) VMHL_Result=x.at(i).count();
+        if (x.at(i).count()>VHQt_Result) VHQt_Result=x.at(i).count();
     }
 
-    return VMHL_Result;
+    return VHQt_Result;
 }
 //---------------------------------------------------------------------------
 
@@ -2241,11 +2241,11 @@ double HQt_QStringToNumber (QString x)
     Возвращаемое значение:
      Число из строки.
     */
-    double VMHL_Result;
+    double VHQt_Result;
 
-    VMHL_Result=x.toDouble();
+    VHQt_Result=x.toDouble();
 
-    return VMHL_Result;
+    return VHQt_Result;
 }
 //---------------------------------------------------------------------------
 double HQt_QStringToNumber (QString x, bool checkcomma)
@@ -2258,13 +2258,13 @@ double HQt_QStringToNumber (QString x, bool checkcomma)
     Возвращаемое значение:
      Число из строки.
     */
-    double VMHL_Result;
+    double VHQt_Result;
 
     if (checkcomma) x=x.replace(",",".");
 
-    VMHL_Result=x.toDouble();
+    VHQt_Result=x.toDouble();
 
-    return VMHL_Result;
+    return VHQt_Result;
 }
 //---------------------------------------------------------------------------
 
@@ -2293,18 +2293,18 @@ int HQt_SearchQStringInQStringList (QStringList StringList, QString String)
     Возвращаемое значение:
      Номер найденной строки. Если не найдено, то возвращается -1.
     */
-    int VMHL_Result = -1;
+    int VHQt_Result = -1;
     bool in=false;
     int i=0;
 
     while ((i<StringList.count())&&(in!=true))
     {
         if (StringList.at(i)==String)
-            VMHL_Result=i;
+            VHQt_Result=i;
         i++;
     }
 
-    return VMHL_Result;
+    return VHQt_Result;
 }
 //---------------------------------------------------------------------------
 
@@ -2317,11 +2317,11 @@ QString HQt_StringForLaTeX (QString String)
     Возвращаемое значение:
      Обработанная строка.
     */
-    QString VMHL_Result;
+    QString VHQt_Result;
 
-    VMHL_Result=String.replace("_","\\_").replace("#","\\#").replace("~", "$\\sim$");
+    VHQt_Result=String.replace("_","\\_").replace("#","\\#").replace("~", "$\\sim$");
 
-    return VMHL_Result;
+    return VHQt_Result;
 }
 //---------------------------------------------------------------------------
 
@@ -2335,11 +2335,11 @@ QString HQt_StringFromLaTeX (QString String)
     Возвращаемое значение:
      Обработанная строка.
     */
-    QString VMHL_Result;
+    QString VHQt_Result;
 
-    VMHL_Result=String.replace("\\_","_").replace("$","").replace("$\\sim$","~").replace("\\#","#");
+    VHQt_Result=String.replace("\\_","_").replace("$","").replace("$\\sim$","~").replace("\\#","#");
 
-    return VMHL_Result;
+    return VHQt_Result;
 }
 //---------------------------------------------------------------------------
 
@@ -2352,11 +2352,11 @@ QString HQt_StringToLabelForLaTeX (QString String)
     Возвращаемое значение:
      Обработанная строка.
     */
-    QString VMHL_Result;
+    QString VHQt_Result;
 
-    VMHL_Result=String.replace("_","").replace("#","\\#");
+    VHQt_Result=String.replace("_","").replace("#","\\#");
 
-    return VMHL_Result;
+    return VHQt_Result;
 }
 //---------------------------------------------------------------------------
 
@@ -2370,13 +2370,13 @@ QString HQt_TextAfterEqualSign (QString String)
     Возвращаемое значение:
      Текст строки после первого знака =.
     */
-    QString VMHL_Result;
+    QString VHQt_Result;
 
-    VMHL_Result=String.mid(String.indexOf("=")+1);
+    VHQt_Result=String.mid(String.indexOf("=")+1);
 
-    VMHL_Result=VMHL_Result.trimmed();
+    VHQt_Result=VHQt_Result.trimmed();
 
-    return VMHL_Result;
+    return VHQt_Result;
 }
 //---------------------------------------------------------------------------
 
@@ -2390,13 +2390,13 @@ QString HQt_TextBeforeEqualSign (QString String)
     Возвращаемое значение:
      Текст строки до первого знака =.
     */
-    QString VMHL_Result;
+    QString VHQt_Result;
 
-    VMHL_Result=String.mid(0,String.indexOf("="));
+    VHQt_Result=String.mid(0,String.indexOf("="));
 
-    VMHL_Result=VMHL_Result.trimmed();
+    VHQt_Result=VHQt_Result.trimmed();
 
-    return VMHL_Result;
+    return VHQt_Result;
 }
 //---------------------------------------------------------------------------
 

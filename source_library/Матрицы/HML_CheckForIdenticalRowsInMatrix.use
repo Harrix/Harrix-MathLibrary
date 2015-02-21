@@ -1,0 +1,33 @@
+        int i;
+        int VHML_N=10;//Размер массива (число строк)
+        int VHML_M=2;//Размер массива (число столбцов)
+        int **a;
+        a=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) a[i]=new int[VHML_M];
+
+        HML_RandomIntMatrix(a,0,5,VHML_N,VHML_M);//заполним матрицу
+
+        //Вызов функции
+        bool b=HML_CheckForIdenticalRowsInMatrix(a,VHML_N,VHML_M);
+
+        //Используем полученный результат
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Заполненная матрица", "a");
+        //Заполненная матрица:
+        //a =
+        //3	3
+        //0	0
+        //3	0
+        //0	3
+        //3	1
+        //3	2
+        //3	2
+        //2	1
+        //0	3
+        //4	2
+
+        HML_ShowNumber(b,"Есть ли одинаковые строки", "b");
+        //Есть ли одинаковые строки:
+        //b=1
+
+        for (i=0;i<VHML_N;i++) delete [] a[i];
+        delete [] a;

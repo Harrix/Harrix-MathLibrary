@@ -1,8 +1,0 @@
-        int a=MHL_RandomUniformInt(0,10);
-
-        double Result=TMHL_Factorial(a);
-
-        //Используем полученный результат
-        MHL_ShowNumber(Result,"Факториал числа "+MHL_NumberToText(a),"a!");
-        //Факториал числа 3:
-        //a!=6

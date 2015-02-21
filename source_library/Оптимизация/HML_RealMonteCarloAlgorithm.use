@@ -1,0 +1,43 @@
+        int ChromosomeLength=2;//Длина хромосомы
+        int CountOfFitness=50*50;//Число вычислений целевой функции
+
+        int *ParametersOfAlgorithm;
+        ParametersOfAlgorithm=new int[2];
+        ParametersOfAlgorithm[0]=ChromosomeLength;//Длина хромосомы
+        ParametersOfAlgorithm[1]=CountOfFitness;//Число вычислений целевой функции
+
+        double *Left;//массив левых границ изменения каждой вещественной координаты
+        Left=new double[ChromosomeLength];
+        double *Right;//массив правых границ изменения каждой вещественной координаты
+        Right=new double[ChromosomeLength];
+
+        //Заполним массивы
+        //Причем по каждой координате одинаковые значения выставим
+        HML_FillVector(Left,ChromosomeLength,-5.);//Пусть будет интервал [-3;3]
+        HML_FillVector(Right,ChromosomeLength,5.);
+
+        double *Decision;//вещественное решение
+        Decision=new double[ChromosomeLength];
+        double ValueOfFitnessFunction;//значение целевой функции в точке Decision
+        int VHML_Success=0;//Успешен ли будет запуск cГА
+
+        //Запуск алгоритма
+        VHML_Success=HML_RealMonteCarloAlgorithm (ParametersOfAlgorithm,Left,Right,Func2, Decision, &ValueOfFitnessFunction);
+
+        //Используем полученный результат
+        HML_ShowNumber(VHML_Success,"Как прошел запуск","VHML_Success");
+        if (VHML_Success==1)
+         {
+         HML_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
+         //Найденное решение:
+         //Decision =	
+         //1.91864	1.93604
+         HML_ShowNumber(ValueOfFitnessFunction,"Значение целевой функции","ValueOfFitnessFunction");
+         //Значение целевой функции:
+         //ValueOfFitnessFunction=-0.0107109
+         }
+
+        delete [] ParametersOfAlgorithm;
+        delete [] Decision;
+        delete [] Left;
+        delete [] Right;

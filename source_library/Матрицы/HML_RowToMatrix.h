@@ -1,0 +1,1 @@
+template <class T> void HML_RowToMatrix(T **VHML_ResultMatrix, T *b, int k, int VHML_M);

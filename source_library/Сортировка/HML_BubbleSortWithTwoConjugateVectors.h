@@ -1,0 +1,1 @@
+template <class T, class T2, class T3> void HML_BubbleSortWithTwoConjugateVectors(T *VHML_ResultVector, T2 *VHML_ResultVector2, T3 *VHML_ResultVector3, int VHML_N);

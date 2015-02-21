@@ -1,1 +1,0 @@
-template <class T> int TMHL_NumberOfPositiveValues(T *a, int VMHL_N);

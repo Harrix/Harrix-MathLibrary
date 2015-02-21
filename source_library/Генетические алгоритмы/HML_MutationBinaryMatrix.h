@@ -1,0 +1,1 @@
+template <class T> void HML_MutationBinaryMatrix(T **VHML_ResultMatrix, double ProbabilityOfMutation, int VHML_N,int VHML_M);

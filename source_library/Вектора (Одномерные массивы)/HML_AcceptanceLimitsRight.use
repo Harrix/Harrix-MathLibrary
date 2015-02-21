@@ -1,0 +1,56 @@
+        int VHML_N=10;//Размер массива
+        double *a;
+        a=new double[VHML_N];
+        double *Right;
+        Right=new double[VHML_N];
+        HML_FillVector(Right,VHML_N,1.);//Левая граница
+
+        for (int i=0;i<VHML_N;i++) a[i]=HML_RandomUniform(-1.1,1.1);
+        HML_ShowVector (a,VHML_N,"Вектор", "a");
+        //Вектор:
+        //a =	
+        //-0.292555
+        //1.08624
+        //0.491535
+        //0.911258
+        //-0.367329
+        //1.09461
+        //-1.0691
+        //0.767508
+        //0.492846
+        //-0.893972
+
+        //Вызов функции
+        HML_AcceptanceLimitsRight(a,Right,VHML_N);
+
+        //Используем полученный результат
+        HML_ShowVector (Right,VHML_N,"Правые границы", "Right");
+        //Левые границы:
+        //Right =
+        //1
+        //1
+        //1
+        //1
+        //1
+        //1
+        //1
+        //1
+        //1
+        //1
+
+        HML_ShowVector (a,VHML_N,"Отредактированный вектор", "a");
+        //Отредактированный вектор:
+        //a =	
+        //-0.292555
+        //1
+        //0.491535
+        //0.911258
+        //-0.367329
+        //1
+        //-1.0691
+        //0.767508
+        //0.492846
+        //-0.893972
+
+        delete [] a;
+        delete [] Right;

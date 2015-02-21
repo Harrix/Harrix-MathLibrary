@@ -1,0 +1,40 @@
+        int i,j;
+        int VHML_N=6;//Размер массива (число строк)
+        int VHML_M=4;//Размер массива (число столбцов)
+        double **Matrix;
+        Matrix=new double*[VHML_N];
+        for (i=0;i<VHML_N;i++) Matrix[i]=new double[VHML_M];
+        //Заполним случайными числами
+        for (i=0;i<VHML_N;i++)
+         for (j=0;j<VHML_M;j++)
+          Matrix[i][j]=HML_RandomUniformInt(10,100);
+
+        HML_ShowMatrix (Matrix,VHML_N,VHML_M,"Случайная матрица", "Matrix");
+        // Случайная матрица:
+        //Matrix =
+        //70	57	44	95
+        //26	21	60	63
+        //61	55	27	95
+        //10	10	43	92
+        //66	20	51	65
+        //32	52	63	78
+
+        int k=2;//Удалим вторую строку
+
+        //Вызов функции
+        HML_DeleteRowInMatrix(Matrix,k,VHML_N,VHML_M);
+
+        //Используем полученный результат
+
+        HML_ShowMatrix (Matrix,VHML_N,VHML_M,"Матрица с удаленной строкой", "Matrix");
+        // Матрица с удаленной строкой:
+        //Matrix =
+        //70	57	44	95
+        //26	21	60	63
+        //10	10	43	92
+        //66	20	51	65
+        //32	52	63	78
+        //0	0	0	0
+
+        for (i=0;i<VHML_N;i++) delete [] Matrix[i];
+        delete [] Matrix;

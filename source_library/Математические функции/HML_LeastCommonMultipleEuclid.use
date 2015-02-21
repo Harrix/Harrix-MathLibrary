@@ -1,0 +1,15 @@
+        int A=HML_RandomUniformInt(1,100);
+        int B=HML_RandomUniformInt(1,100);
+
+        double Result=HML_LeastCommonMultipleEuclid(A,B);
+
+        //Используем полученный результат
+        HML_ShowNumber(A,"Число","A");
+        //Число:
+        //A=68
+        HML_ShowNumber(B,"Число","B");
+        //Число:
+        //B=67
+        HML_ShowNumber(Result,"НОК","");
+        //НОК:
+        //=4556

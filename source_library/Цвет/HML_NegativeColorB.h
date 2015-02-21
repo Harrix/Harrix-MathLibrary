@@ -1,0 +1,1 @@
+int HML_NegativeColorB(int R, int G, int B);

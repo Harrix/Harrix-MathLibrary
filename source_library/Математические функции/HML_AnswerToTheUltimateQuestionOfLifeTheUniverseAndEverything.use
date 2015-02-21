@@ -1,0 +1,6 @@
+        double Result=HML_AnswerToTheUltimateQuestionOfLifeTheUniverseAndEverything();
+
+        //Используем полученный результат
+        HML_ShowNumber(Result,"Ответ на главный вопрос жизни, вселенной и всего такого","Ответ");
+        //Ответ на главный вопрос жизни, вселенной и всего такого:
+        //Ответ=42

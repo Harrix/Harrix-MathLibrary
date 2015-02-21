@@ -1,0 +1,1 @@
+void HML_NormalizationVectorOne(double *VHML_ResultVector,int VHML_N);

@@ -1,0 +1,1 @@
+double HML_TestFunction_SumVector(int *x, int VHML_N);

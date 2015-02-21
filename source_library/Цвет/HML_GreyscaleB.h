@@ -1,0 +1,1 @@
+int HML_GreyscaleB(int R, int G, int B);

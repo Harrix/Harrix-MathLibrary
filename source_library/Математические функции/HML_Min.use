@@ -1,0 +1,10 @@
+        int a=HML_RandomUniformInt(10,100);
+        int b=HML_RandomUniformInt(10,100);
+
+        //Вызов функции
+        int Max=HML_Min(a,b);
+
+        //Используем полученный результат
+        HML_ShowNumber(Max,"Минимальное среди "+HML_NumberToText(a)+" и "+HML_NumberToText(b),"равно");
+        //Минимальное среди 79 и 18:
+        //равно=18

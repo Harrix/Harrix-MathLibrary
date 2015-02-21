@@ -1,0 +1,8 @@
+        int a=HML_RandomUniformInt(-50,50);
+
+        double Result=HML_Parity(a);
+
+        //Используем полученный результат
+        HML_ShowNumber(Result,"Четность числа "+HML_NumberToText(a),"равна");
+        //Четность числа 2:
+        //равна=1

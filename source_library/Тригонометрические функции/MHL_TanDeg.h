@@ -1,1 +1,0 @@
-double MHL_TanDeg(double x);

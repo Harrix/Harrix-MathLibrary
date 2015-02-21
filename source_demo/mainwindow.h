@@ -26,12 +26,12 @@ public:
     QString Path;
     QString Html;
 
-    void MHL_ShowText (QString TitleX);
-    template <class T> void MHL_ShowVector (T *VMHL_Vector, int VMHL_N, QString TitleVector, QString NameVector);
-    template <class T> void MHL_ShowNumber (T VMHL_X, QString TitleX, QString NameX);
-    template <class T> QString MHL_NumberToText (T VMHL_X);
-    template <class T> void MHL_ShowVectorT (T *VMHL_Vector, int VMHL_N, QString TitleVector, QString NameVector);
-    template <class T> void MHL_ShowMatrix (T **VMHL_Matrix, int VMHL_N, int VMHL_M, QString TitleMatrix, QString NameMatrix);
+    void HML_ShowText (QString TitleX);
+    template <class T> void HML_ShowVector (T *VHML_Vector, int VHML_N, QString TitleVector, QString NameVector);
+    template <class T> void HML_ShowNumber (T VHML_X, QString TitleX, QString NameX);
+    template <class T> QString HML_NumberToText (T VHML_X);
+    template <class T> void HML_ShowVectorT (T *VHML_Vector, int VHML_N, QString TitleVector, QString NameVector);
+    template <class T> void HML_ShowMatrix (T **VHML_Matrix, int VHML_N, int VHML_M, QString TitleMatrix, QString NameMatrix);
 private slots:
 
     void on_listView_clicked(const QModelIndex &index);
@@ -46,8 +46,8 @@ private:
 };
 
 double Func3(double x);
-double Func(int *x,int VMHL_N);
-double Func2(double *x,int VMHL_N);
+double Func(int *x,int VHML_N);
+double Func2(double *x,int VHML_N);
 double Func4(double x);
 
 #endif // MAINWINDOW_H

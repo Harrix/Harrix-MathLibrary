@@ -1,0 +1,9 @@
+        double x=HML_RandomUniform(0,10);
+
+        //Вызов функции
+        double Result=HML_Cosech(x);
+
+        //Используем полученный результат
+        HML_ShowNumber(Result,"Гиперболический косеканс от x="+HML_NumberToText(x),"равен");
+        //Гиперболический косеканс от x=0.571289:
+        //равен=1.65872

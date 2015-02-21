@@ -1,1 +1,0 @@
-template <class T> void TMHL_ZeroVector(T *VMHL_ResultVector,int VMHL_N);

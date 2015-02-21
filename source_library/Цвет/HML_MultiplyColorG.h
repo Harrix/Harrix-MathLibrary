@@ -1,0 +1,1 @@
+int HML_MultiplyColorG(int R, int G, int B, double p);

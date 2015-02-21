@@ -1,1 +1,0 @@
-int MHL_RandomUniformInt(int n, int m);

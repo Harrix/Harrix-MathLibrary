@@ -1,0 +1,9 @@
+        double x=HML_RandomUniform(0,10);
+
+        //Вызов функции
+        double Result=HML_Cotanh(x);
+
+        //Используем полученный результат
+        HML_ShowNumber(Result,"Гиперболический котангенс от x="+HML_NumberToText(x),"равен");
+        //Гиперболический котангенс от x=1.92505:
+        //равен=1.04348

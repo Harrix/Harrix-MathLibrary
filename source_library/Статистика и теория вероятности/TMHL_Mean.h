@@ -1,1 +1,0 @@
-template <class T> T TMHL_Mean(T *x, int VMHL_N);

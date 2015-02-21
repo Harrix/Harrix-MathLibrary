@@ -1,0 +1,44 @@
+        int VHML_N=10;//Размер массива
+        double *x;
+        x=new double[VHML_N];
+        //Заполним массив номерами от 1
+        HML_OrdinalVector(x,VHML_N);
+        HML_ShowVector (x,VHML_N,"Вектор", "x");
+        //Вектор:
+        //x =
+        //1
+        //2
+        //3
+        //4
+        //5
+        //6
+        //7
+        //8
+        //9
+        //10
+
+        double percent=double(HML_RandomUniformInt(0,100));//Процент помехи
+
+        //Вызов функции
+        HML_NoiseInVector(x,percent,VHML_N);
+
+        //Используем полученный результат
+
+        HML_ShowNumber (percent,"Процент помехи", "percent");
+        //Процент помехи:
+        //percent=89
+        HML_ShowVector (x,VHML_N,"Вектор с помехой", "x");
+        //Вектор с помехой:
+        //x =
+        //-1.95828
+        //2.17942
+        //1.76139
+        //4.45956
+        //3.82128
+        //8.0003
+        //6.80982
+        //5.94739
+        //9.03153
+        //8.59053
+
+        delete [] x;

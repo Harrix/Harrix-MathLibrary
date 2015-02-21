@@ -1,0 +1,1 @@
+int HML_Parity(int a);

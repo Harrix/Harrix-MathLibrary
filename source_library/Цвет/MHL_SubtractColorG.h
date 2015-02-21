@@ -1,1 +1,0 @@
-int MHL_SubtractColorG(int R, int G, int B, double p);

@@ -1,0 +1,9 @@
+        int n=10;
+        int k=HML_RandomUniformInt(0,10);
+
+        int C=HML_KCombinations(k,n);
+
+        //Используем полученный результат
+        HML_ShowNumber(C,"Число сочетаний по "+HML_NumberToText(k)+" элементов из " +HML_NumberToText(n),"C");
+        //Число сочетаний по 8 элементов из 10:
+        //C=45

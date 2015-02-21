@@ -1,0 +1,9 @@
+        double x=HML_RandomUniform(0,10);
+
+        //Вызов функции
+        double Result=HML_Cosh(x);
+
+        //Используем полученный результат
+        HML_ShowNumber(Result,"Гиперболический косинус от x="+HML_NumberToText(x),"равен");
+        //Гиперболический косинус от x=4.04968:
+        //равен=28.6983

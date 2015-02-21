@@ -1,1 +1,0 @@
-template <class T> T TMHL_Max(T a, T b);

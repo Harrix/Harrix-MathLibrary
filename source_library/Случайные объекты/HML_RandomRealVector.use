@@ -1,0 +1,26 @@
+        int VHML_N=10;//Размер массива
+        double *a;
+        a=new double[VHML_N];
+
+        double Left=-3;
+        double Right=3;
+
+        //Вызов функции
+        HML_RandomRealVector(a,Left,Right,VHML_N);
+
+        //Используем полученный результат
+        HML_ShowVector (a,VHML_N,"Массив", "a");
+        // Массив:
+        //a =
+        //1.73822
+        //-0.406311
+        //-2.7572
+        //-0.351013
+        //0.367493
+        //1.40991
+        //0.662476
+        //-1.15576
+        //-1.75781
+        //-2.06927
+
+        delete [] a;

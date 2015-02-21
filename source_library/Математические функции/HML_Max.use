@@ -1,0 +1,10 @@
+        int a=HML_RandomUniformInt(10,100);
+        int b=HML_RandomUniformInt(10,100);
+
+        //Вызов функции
+        int Max=HML_Max(a,b);
+
+        //Используем полученный результат
+        HML_ShowNumber(Max,"Максимальное среди "+HML_NumberToText(a)+" и "+HML_NumberToText(b),"равно");
+        //Максимальное среди 73 и 44:
+        //равно=73

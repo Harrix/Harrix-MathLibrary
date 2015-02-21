@@ -1,0 +1,37 @@
+        int VHML_N=5;//Размер массива
+        double *x;
+        x=new double[VHML_N];
+        double *y;
+        y=new double[VHML_N];
+        //Заполним случайными числами
+        HML_RandomRealVector (x,0,10,VHML_N);
+        HML_RandomRealVector (y,0,10,VHML_N);
+
+        //Вызов функции
+        double metric=HML_Euclid(x,y,VHML_N);
+
+        //Используем полученный результат
+        HML_ShowVector (x,VHML_N,"Первый массив", "x");
+        //Первый массив:
+        //x =	
+        //3.15491
+        //4.04266
+        //2.63519
+        //9.94141
+        //3.2193
+
+        HML_ShowVector (y,VHML_N,"Второй массив", "y");
+        //Второй массив:
+        //y =	
+        //9.4516
+        //2.59064
+        //2.56348
+        //4.78271
+        //5.78705
+
+       HML_ShowNumber (metric,"Значение метрики евклидово расстояние", "metric");
+        //Значение метрики евклидово расстояние:
+        //metric=8.65837
+
+        delete [] x;
+        delete [] y;

@@ -1,1 +1,0 @@
-void MHL_NormalizationVectorMaxMin(double *VMHL_ResultVector,int VMHL_N);

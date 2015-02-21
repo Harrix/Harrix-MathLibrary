@@ -1,0 +1,1 @@
+template <class T> T HML_MaximumOfMatrix(T **a, int VHML_N, int VHML_M);

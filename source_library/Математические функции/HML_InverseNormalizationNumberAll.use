@@ -1,0 +1,14 @@
+        double x;
+        double y;
+        x=HML_RandomNumber();
+
+        //Вызов функции
+        y=HML_InverseNormalizationNumberAll(x);
+
+        //Используем полученный результат
+        HML_ShowNumber (x,"Нормированное число", "x");
+        // Нормированное число:
+        //x=0.0491333
+        HML_ShowNumber (y,"Перенормированное число", "y");
+        // Перенормированное число:
+        //y=-9.1764

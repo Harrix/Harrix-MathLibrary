@@ -1,0 +1,21 @@
+        int i;
+        int VHML_N=5;//Размер массива (число строк и столбцов)
+        int **Matrix;
+        Matrix=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) Matrix[i]=new int[VHML_N];
+
+        //Вызов функции
+        HML_IdentityMatrix(Matrix,VHML_N);
+
+        //Используем полученный результат
+        HML_ShowMatrix (Matrix,VHML_N,VHML_N,"Единичная матрица", "Matrix");
+        //Единичная матрица:
+        //Matrix =
+        //1	0	0	0	0
+        //0	1	0	0	0
+        //0	0	1	0	0
+        //0	0	0	1	0
+        //0	0	0	0	1
+
+        for (i=0;i<VHML_N;i++) delete [] Matrix[i];
+        delete [] Matrix;

@@ -1,0 +1,1 @@
+int HML_LeastCommonMultipleEuclid(int A,int B);

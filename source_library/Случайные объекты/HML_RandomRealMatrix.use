@@ -1,0 +1,23 @@
+        int i;
+        int VHML_N=3;//Размер массива (число строк)
+        int VHML_M=3;//Размер массива (число столбцов)
+        double **a;
+        a=new double*[VHML_N];
+        for (i=0;i<VHML_N;i++) a[i]=new double[VHML_M];
+
+        double Left=-3;//левая граница интервала;
+        double Right=3;//правая граница интервала;
+
+        //Вызов функции
+        HML_RandomRealMatrix(a,Left,Right,VHML_N,VHML_M);
+
+        //Используем полученный результат
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Случайная матрица", "a");
+        //Случайная матрица:
+        //a =
+        //1.97571	0.862793	-0.357422
+        //-2.62701	-0.202515	-2.79932
+        //1.38794	1.35535	-2.29449
+
+        for (i=0;i<VHML_N;i++) delete [] a[i];
+        delete [] a;

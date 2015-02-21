@@ -1,0 +1,1 @@
+template <class T> T HML_BinaryToDecimal(T *a, int VHML_N);

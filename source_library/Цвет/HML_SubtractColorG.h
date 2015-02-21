@@ -1,0 +1,1 @@
+int HML_SubtractColorG(int R, int G, int B, double p);

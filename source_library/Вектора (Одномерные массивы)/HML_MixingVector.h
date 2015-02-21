@@ -1,0 +1,1 @@
+template <class T> void HML_MixingVector(T *VHML_ResultVector, double P, int VHML_N);

@@ -1,9 +1,0 @@
-        int a=MHL_RandomUniformInt(100,30000);
-
-        //Вызов функции
-        int SumOfDigits=MHL_SumOfDigits(a);
-
-        //Используем полученный результат
-        MHL_ShowNumber (SumOfDigits,"Сумма цифр числа a="+MHL_NumberToText(a), "равна");
-        //Сумма цифр числа a=2069:
-        //равна=17

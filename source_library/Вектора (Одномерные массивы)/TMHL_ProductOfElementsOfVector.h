@@ -1,1 +1,0 @@
-template <class T> T TMHL_ProductOfElementsOfVector(T *VMHL_Vector,int VMHL_N);

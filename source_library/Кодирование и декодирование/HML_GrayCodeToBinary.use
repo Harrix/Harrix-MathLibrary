@@ -1,0 +1,25 @@
+        int VHML_N=5;//Размер массива
+        int *GrayCode;
+        GrayCode=new int[VHML_N];
+        //Получим случайный Грей код
+        HML_RandomBinaryVector(GrayCode,VHML_N);
+
+        int *BinaryCode;
+        BinaryCode=new int[VHML_N];
+
+        //Вызов функции
+        HML_GrayCodeToBinary(GrayCode,BinaryCode,VHML_N);
+
+        //Используем полученный результат
+        HML_ShowVectorT (GrayCode,VHML_N,"Грей код", "a");
+        //Грей код:
+        //a =
+        //1	1	0	1	1
+
+        HML_ShowVectorT (BinaryCode,VHML_N,"Бинарный код, полученый из кода Грея", "a");
+        //Бинарный код, полученый из кода Грея:
+        //a =
+        //1	0	0	1	0
+
+        delete [] GrayCode;
+        delete [] BinaryCode;

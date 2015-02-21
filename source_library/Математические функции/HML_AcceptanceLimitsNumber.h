@@ -1,0 +1,1 @@
+template <class T> T HML_AcceptanceLimitsNumber(T Number, T Left, T Right);

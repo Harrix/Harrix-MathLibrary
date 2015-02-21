@@ -1,0 +1,47 @@
+        int i;
+        int VHML_N=10;//Размер массива (число строк)
+        double *a;
+        a=new double[VHML_N];
+        //Заполним случайными числами
+        for (i=0;i<VHML_N;i++)
+         a[i]=HML_RandomUniformInt(0,10);
+
+        HML_ShowVector (a,VHML_N,"Случайный вектор", "a");
+        //Случайный вектор:
+        //a =
+        //4
+        //6
+        //3
+        //5
+        //4
+        //7
+        //8
+        //2
+        //1
+        //0
+
+        double Number=HML_RandomUniform(0,10);
+
+        //Вызов функции
+        HML_VectorMultiplyNumber(a,VHML_N,Number);
+
+        //Используем полученный результат
+        HML_ShowNumber (Number,"Случайный множитель", "Number");
+        //Случайный множитель:
+        //Number=3.57941
+
+        HML_ShowVector (a,VHML_N,"Умножили на число Number", "a");
+        //Умножили на число Number:
+        //a =
+        //14.3176
+        //21.4764
+        //10.7382
+        //17.897
+        //14.3176
+        //25.0558
+        //28.6353
+        //7.15881
+        //3.57941
+        //0
+
+        delete [] a;

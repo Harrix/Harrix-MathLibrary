@@ -1,0 +1,19 @@
+        int VHML_N=10;//Размер массива
+        int *a;
+        a=new int[VHML_N];
+
+        int N=HML_RandomUniformInt(0,10);// Размер турнира
+
+        //Вызов функции
+        HML_RandomArrangingObjectsIntoBaskets(a,N,VHML_N);
+
+        //Используем полученный результат
+        HML_ShowNumber (N,"Число предметов", "N");
+        // Число предметов:
+        // N=5
+        HML_ShowVectorT (a,VHML_N,"Случаное расположение по 10 корзинам", "a");
+        // Случаное расположение по 10 корзинам:
+        //a =
+        //0	1	0	0	0	1	1	0	1	1
+
+        delete [] a;

@@ -1,0 +1,1 @@
+double HML_ExpMSxD2(double x);

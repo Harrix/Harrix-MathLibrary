@@ -1,0 +1,1 @@
+void HML_RandomVectorOfProbability(double *VHML_ResultVector, int VHML_N);

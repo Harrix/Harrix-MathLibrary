@@ -1,0 +1,1 @@
+double HML_DerivativeOfBellShapedKernelTriangle(double z);

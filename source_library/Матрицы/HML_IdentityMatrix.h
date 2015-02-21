@@ -1,0 +1,1 @@
+template <class T> void HML_IdentityMatrix(T **VHML_ResultMatrix,int VHML_N);

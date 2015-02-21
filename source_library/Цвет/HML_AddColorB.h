@@ -1,0 +1,1 @@
+int HML_AddColorB(int R, int G, int B, double p);

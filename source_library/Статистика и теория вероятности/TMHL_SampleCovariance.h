@@ -1,1 +1,0 @@
-template <class T> T TMHL_SampleCovariance(T *x, T *y, int VMHL_N);

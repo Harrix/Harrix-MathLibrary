@@ -1,1 +1,0 @@
-template <class T> int TMHL_CheckElementInVector(T *x, int VMHL_N, T a);

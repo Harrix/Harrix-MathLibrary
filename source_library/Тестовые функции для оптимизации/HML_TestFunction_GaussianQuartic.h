@@ -1,0 +1,1 @@
+double HML_TestFunction_GaussianQuartic(double *x, int VHML_N);

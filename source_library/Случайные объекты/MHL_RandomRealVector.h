@@ -1,1 +1,0 @@
-void MHL_RandomRealVector(double *VMHL_ResultVector, double Left, double Right, int VMHL_N);

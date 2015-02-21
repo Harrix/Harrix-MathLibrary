@@ -1,0 +1,1 @@
+template <class T> void HML_MatrixT(T **a, T **VHML_ResultMatrix, int VHML_N, int VHML_M);

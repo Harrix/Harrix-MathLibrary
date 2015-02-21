@@ -21,14 +21,14 @@
 int HQt_CountOfColsFromQStringList(QStringList QStringListFromFile);
 int HQt_CountOfRowsFromQStringList(QStringList QStringListFromFile);
 int HQt_CountOfRowsFromQStringList(QStringList QStringListFromFile, int k);
-int HQt_CountOfRowsFromQStringList(QStringList QStringListFromFile, int *VMHL_ResultVector);
-void THQt_ReadColFromQStringList(QStringList QStringListFromFile, int k, QDate *VMHL_VectorResult);
-void THQt_ReadColFromQStringList(QStringList QStringListFromFile, int k, QString *VMHL_VectorResult);
-template <class T> void THQt_ReadColFromQStringList(QStringList QStringListFromFile, int k, T *VMHL_VectorResult);
-template <class T> void THQt_ReadMatrixFromQStringList(QStringList QStringListFromFile, T **VMHL_MatrixResult);
-template <class T> void THQt_ReadTwoVectorFromQStringList(QStringList QStringListFromFile, T *VMHL_VectorResult1, T *VMHL_VectorResult2);
-template <class T> void THQt_ReadTwoVectorFromQStringList(QStringList QStringListFromFile, T *VMHL_VectorResult1, QDate *VMHL_VectorResult2);
-template <class T> void THQt_ReadVectorFromQStringList(QStringList QStringListFromFile, T *VMHL_VectorResult);
+int HQt_CountOfRowsFromQStringList(QStringList QStringListFromFile, int *VHQt_ResultVector);
+void THQt_ReadColFromQStringList(QStringList QStringListFromFile, int k, QDate *VHQt_VectorResult);
+void THQt_ReadColFromQStringList(QStringList QStringListFromFile, int k, QString *VHQt_VectorResult);
+template <class T> void THQt_ReadColFromQStringList(QStringList QStringListFromFile, int k, T *VHQt_VectorResult);
+template <class T> void THQt_ReadMatrixFromQStringList(QStringList QStringListFromFile, T **VHQt_MatrixResult);
+template <class T> void THQt_ReadTwoVectorFromQStringList(QStringList QStringListFromFile, T *VHQt_VectorResult1, T *VHQt_VectorResult2);
+template <class T> void THQt_ReadTwoVectorFromQStringList(QStringList QStringListFromFile, T *VHQt_VectorResult1, QDate *VHQt_VectorResult2);
+template <class T> void THQt_ReadVectorFromQStringList(QStringList QStringListFromFile, T *VHQt_VectorResult);
 
 //Получение строк-выводов по данным
 QString HQt_BoolToWord(QString Bool);
@@ -115,23 +115,23 @@ void HQt_Delay(int MSecs);
 //*****************************************************************
 //Обработка данных, считанных их файла
 //*****************************************************************
-template <class T> void THQt_ReadColFromQStringList(QStringList QStringListFromFile, int k, T *VMHL_VectorResult)
+template <class T> void THQt_ReadColFromQStringList(QStringList QStringListFromFile, int k, T *VHQt_VectorResult)
 {
     /*
     Функция считывает данные какого-то k столбца из QStringList в виде матрицы.
     Входные параметры:
      QStringListFromFile - отсюда берем информацию;
      k - номер столбца, начиная с нуля, который считываем;
-     VMHL_VectorResult - сюда будем записывать результат считывания столбца из матрицы.
+     VHQt_VectorResult - сюда будем записывать результат считывания столбца из матрицы.
     Возвращаемое значение:
      Количество элементов в столбце. Как только встречает вместо числа символ "-", то функция считает, что вектор закончился.
     Примечание:
      Десятичные числа должны разделяться точкой.
-    Пример содержимого VMHL_VectorResult.
+    Пример содержимого VHQt_VectorResult.
 1	2	6
 52	3	96
 6.4	7	4
-    Второй пример содержимого VMHL_VectorResult.
+    Второй пример содержимого VHQt_VectorResult.
 1	2	6	5
 52	3	96	5
 -	-	4   2
@@ -170,27 +170,27 @@ delete [] X;
         }
         X=A.mid(0,A.indexOf("\t"));
         X=X.trimmed();
-        VMHL_VectorResult[i]=X.toDouble();
+        VHQt_VectorResult[i]=X.toDouble();
     }
 }
 //---------------------------------------------------------------------------
 
-template <class T> void THQt_ReadMatrixFromQStringList(QStringList QStringListFromFile, T **VMHL_MatrixResult)
+template <class T> void THQt_ReadMatrixFromQStringList(QStringList QStringListFromFile, T **VHQt_MatrixResult)
 {
     /*
     Функция считывает данные из QStringList в матрицу.
     Входные параметры:
      QStringListFromFile - отсюда берем информацию;
-     VMHL_MatrixResult - сюда будем записывать результат считывания матрицы.
+     VHQt_MatrixResult - сюда будем записывать результат считывания матрицы.
     Возвращаемое значение:
      Отсутствует.
     Примечание:
      Десятичные числа должны разделяться точкой.
-    Пример содержимого VMHL_VectorResult.
+    Пример содержимого VHQt_VectorResult.
 1	2	6
 52	3	96
 6.4	7	4
-    Второй пример содержимого VMHL_VectorResult.
+    Второй пример содержимого VHQt_VectorResult.
 1	2	6	5
 52	3	96	5
 -	-	4   2
@@ -223,7 +223,7 @@ delete [] X;
 
     for (i=0;i<N;i++)
         for (j=0;j<M;j++)
-            VMHL_MatrixResult[i][j]=0;
+            VHQt_MatrixResult[i][j]=0;
 
     for (i=0;i<N;i++)
     {
@@ -234,25 +234,25 @@ delete [] X;
             X=A.mid(0,A.indexOf("\t"));
             A=A.mid(A.indexOf("\t")+1);
             A=A.trimmed();
-            VMHL_MatrixResult[i][j]=X.toDouble();
+            VHQt_MatrixResult[i][j]=X.toDouble();
         }
     }
 }
 //---------------------------------------------------------------------------
 
-template <class T> void THQt_ReadTwoVectorFromQStringList(QStringList QStringListFromFile, T *VMHL_VectorResult1, T *VMHL_VectorResult2)
+template <class T> void THQt_ReadTwoVectorFromQStringList(QStringList QStringListFromFile, T *VHQt_VectorResult1, T *VHQt_VectorResult2)
 {
     /*
     Функция считывает данные из QStringList в два вектора.
     Входные параметры:
      QStringListFromFile - отсюда берем информацию;
-     VMHL_VectorResult1 - сюда будем записывать результат первого вектора;
-     VMHL_VectorResult2 - сюда будем записывать результат второго вектора.
+     VHQt_VectorResult1 - сюда будем записывать результат первого вектора;
+     VHQt_VectorResult2 - сюда будем записывать результат второго вектора.
     Возвращаемое значение:
      Отсутствует.
     Примечание:
      Десятичные числа должны разделяться точкой.
-    Пример содержимого VMHL_VectorResult.
+    Пример содержимого VHQt_VectorResult.
 1	2
 52	3
 6.4	7
@@ -287,23 +287,23 @@ delete [] x;
         X1=X1.mid(0,X1.lastIndexOf("\t"));
         X2=X2.mid(X2.lastIndexOf("\t"));
 
-        VMHL_VectorResult1[i]=X1.toDouble();
-        VMHL_VectorResult2[i]=X2.toDouble();
+        VHQt_VectorResult1[i]=X1.toDouble();
+        VHQt_VectorResult2[i]=X2.toDouble();
     }
 }
 //---------------------------------------------------------------------------
-template <class T> void THQt_ReadTwoVectorFromQStringList(QStringList QStringListFromFile, T *VMHL_VectorResult1, QDate *VMHL_VectorResult2)
+template <class T> void THQt_ReadTwoVectorFromQStringList(QStringList QStringListFromFile, T *VHQt_VectorResult1, QDate *VHQt_VectorResult2)
 {
     /*
     Функция считывает данные из QStringList в два вектора (второй вектор - это даты).
     Входные параметры:
-     VMHL_VectorResult1 - сюда будем записывать результат первого вектора;
-     VMHL_VectorResult2 - сюда будем записывать результат второго вектора (даты).
+     VHQt_VectorResult1 - сюда будем записывать результат первого вектора;
+     VHQt_VectorResult2 - сюда будем записывать результат второго вектора (даты).
     Возвращаемое значение:
      Отсутствует.
     Примечание:
      Десятичные числа должны разделяться точкой.
-    Пример содержимого VMHL_VectorResult.
+    Пример содержимого VHQt_VectorResult.
 33	21.08.2012
 32	24.07.2012
 31	20.06.2012
@@ -322,7 +322,7 @@ template <class T> void THQt_ReadTwoVectorFromQStringList(QStringList QStringLis
         X2=X2.mid(X2.lastIndexOf("\t"));
         X2=X2.trimmed();
 
-        VMHL_VectorResult1[i]=X1.toDouble();
+        VHQt_VectorResult1[i]=X1.toDouble();
 
         int p1=X2.lastIndexOf(".");
         int p2=X2.indexOf(".");
@@ -333,23 +333,23 @@ template <class T> void THQt_ReadTwoVectorFromQStringList(QStringList QStringLis
         else
             DBeginDate=QDate::fromString(X2, "dd.MM.yyyy");
 
-        VMHL_VectorResult2[i]=DBeginDate;
+        VHQt_VectorResult2[i]=DBeginDate;
     }
 }
 //---------------------------------------------------------------------------
 
-template <class T> void THQt_ReadVectorFromQStringList(QStringList QStringListFromFile, T *VMHL_VectorResult)
+template <class T> void THQt_ReadVectorFromQStringList(QStringList QStringListFromFile, T *VHQt_VectorResult)
 {
     /*
     Функция считывает данные из QStringList в вектор.
     Входные параметры:
      QStringListFromFile - отсюда берем информацию;
-     VMHL_VectorResult - сюда будем записывать результат.
+     VHQt_VectorResult - сюда будем записывать результат.
     Возвращаемое значение:
      Отсутствует.
     Примечание:
      Десятичные числа должны разделяться точкой.
-    Пример содержимого VMHL_VectorResult.
+    Пример содержимого VHQt_VectorResult.
 1
 52
 6.45
@@ -377,7 +377,7 @@ delete [] y;
     {
         A=QStringListFromFile.at(i);
         A=A.trimmed();
-        VMHL_VectorResult[i]=A.toDouble();
+        VHQt_VectorResult[i]=A.toDouble();
     }
 }
 //---------------------------------------------------------------------------

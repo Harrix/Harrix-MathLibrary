@@ -1,0 +1,38 @@
+        int i,j;
+        int VHML_N=5;//Размер массива (число строк)
+        int VHML_M=3;//Размер массива (число столбцов)
+        int **Matrix;
+        Matrix=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) Matrix[i]=new int[VHML_M];
+        int **MatrixT;
+        MatrixT=new int*[VHML_M];
+        for (i=0;i<VHML_M;i++) MatrixT[i]=new int[VHML_N];
+        //Заполним случайными числами
+        for (i=0;i<VHML_N;i++)
+         for (j=0;j<VHML_M;j++)
+          Matrix[i][j]=HML_RandomUniformInt(10,100);
+
+        //Вызов функции
+        HML_MatrixT(Matrix,MatrixT,VHML_N,VHML_M);
+
+        //Используем полученный результат
+        HML_ShowMatrix (Matrix,VHML_N,VHML_M,"Матрица", "Matrix");
+        //Матрица:
+        //Matrix =
+        //26	64	62
+        //70	49	43
+        //50	41	50
+        //76	75	81
+        //26	72	24
+
+        HML_ShowMatrix (MatrixT,VHML_M,VHML_N,"Транспонированная матрица", "MatrixT");
+        // Транспонированная матрица:
+        //MatrixT =
+        //26	70	50	76	26
+        //64	49	41	75	72
+        //62	43	50	81	24
+
+        for (i=0;i<VHML_N;i++) delete [] Matrix[i];
+        delete [] Matrix;
+        for (i=0;i<VHML_M;i++) delete [] MatrixT[i];
+        delete [] MatrixT;

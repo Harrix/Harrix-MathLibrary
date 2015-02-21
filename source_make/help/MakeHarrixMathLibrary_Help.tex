@@ -3,7 +3,7 @@
 \input{packages}
 \input{styles}
 
-\title{MakeHarrixMathLibrary v.2.1}
+\title{MakeHarrixMathLibrary v.2.2}
 \author{А.\,Б. Сергиенко}
 \date{\today}
 
@@ -52,7 +52,7 @@
 \item \textbf{packages.tex} --- дополнительный файл для HarrixMathLibrary\_Help.tex;
 \item \textbf{styles.tex} --- дополнительный файл для HarrixMathLibrary\_Help.tex;
 \item \textbf{biblio.bib} --- файл о библиографических источниках, которые могут быть использованы в справке;
-\item \textbf{utf8gost705u.bst} --- файл оформления справки;
+\item \textbf{utf8gost71u.bst} --- файл оформления справки;
 \item \textbf{\textbackslash images\textbackslash} --- папка с рисунками форматов *.png или *.pdf для HarrixMathLibrary\_Help.tex.
 \end{itemize}
 
@@ -70,8 +70,8 @@
 \begin{itemize}
 \item \textbf{Header.cpp} --- основная информация, подключение заголовочных файлов (в нем текст \textbf{[VERSION}] заменится на номер версии, который вы указываете при сборке);
 \item \textbf{AdditionalVariables.cpp} --- содержит список дополнительных переменных, которые используются внутри функций. Самим использовать их не нужно --- это только внутренние переменные;
-\item \textbf{Random.cpp} --- две основные функции для работы со случайными числами: MHL\_SeedRandom() и MHL\_RandomNumber();
-\item \textbf{Random.h} --- объявлениях этих самых функций: MHL\_SeedRandom() и MHL\_RandomNumber();
+\item \textbf{Random.cpp} --- две основные функции для работы со случайными числами: HML\_SeedRandom() и HML\_RandomNumber();
+\item \textbf{Random.h} --- объявлениях этих самых функций: HML\_SeedRandom() и HML\_RandomNumber();
 \item \textbf{Const.h} --- содержит список констант для работы с библиотеки;
 \item \textbf{Enum.h} --- переменные перечисляемого типа.
 \end{itemize}

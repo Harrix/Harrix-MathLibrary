@@ -1,0 +1,30 @@
+        int i;
+        int VHML_N=7;//Размер массива
+        double *Fitness;
+        Fitness=new double[VHML_N];
+        for (i=0;i<VHML_N;i++)
+         Fitness[i]=HML_RandomNumber();
+
+        int SizeTournament=3;// Размер турнира
+
+        //Вызов функции
+        int Number=HML_TournamentSelectionWithReturn(Fitness,SizeTournament,VHML_N);
+
+        //Используем полученный результат
+
+        HML_ShowVector (Fitness,VHML_N,"Массив пригодностей", "Fitness");
+        //Массив пригодностей:
+        //Fitness =	
+        //0.883148
+        //0.370209
+        //0.0719604
+        //0.311371
+        //0.558594
+        //0.42215
+        //0.011322
+
+        HML_ShowNumber (Number,"Номер выбранного индивида", "Number");
+        //Номер выбранного индивида:
+        //Number=4
+
+        delete [] Fitness;

@@ -1,0 +1,28 @@
+        int i;
+        int VHML_N=10;//Размер массива
+        double *Vector=new double[VHML_N];
+        //Заполним случайными числами
+        for (i=0;i<VHML_N;i++) Vector[i]=HML_RandomNumber();
+
+        //Вызов функции
+        double Number=HML_NumberOfMaximumOfVector(Vector,VHML_N);
+
+        //Используем полученный результат
+        HML_ShowVector (Vector,VHML_N,"Случайный массив", "Vector");
+        //Случайный массив:
+        //Vector =
+        //0.9245
+        //0.221466
+        //0.301544
+        //0.643951
+        //0.881958
+        //0.832764
+        //0.104462
+        //0.0611267
+        //0.943604
+        //0.335205
+
+        HML_ShowNumber(Number,"Номер максимального элемента","Number");//Например, выводим результат
+        // Номер максимального элемента:
+        //Number=8
+        delete [] Vector;

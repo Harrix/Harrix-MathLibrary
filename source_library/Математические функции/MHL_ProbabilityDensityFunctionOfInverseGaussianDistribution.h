@@ -1,1 +1,0 @@
-double MHL_ProbabilityDensityFunctionOfInverseGaussianDistribution (double x, double mu, double lambda);

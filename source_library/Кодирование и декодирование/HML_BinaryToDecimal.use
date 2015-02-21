@@ -1,0 +1,19 @@
+        int VHML_N=8;//Размер массива
+        int *a;
+        a=new int[VHML_N];
+        HML_RandomBinaryVector(a,VHML_N);
+
+        //Вызов функции
+        int x=HML_BinaryToDecimal(a,VHML_N);
+
+        //Используем полученный результат
+        HML_ShowVectorT (a,VHML_N,"Двоичное число", "a");
+        //Двоичное число:
+        //a =
+        //0	1	1	1	1	0	1	0
+
+        HML_ShowNumber (x,"Было закодировано", "x");
+        //Было закодировано:
+        //x=122
+
+        delete [] a;

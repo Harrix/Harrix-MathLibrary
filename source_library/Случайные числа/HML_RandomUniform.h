@@ -1,0 +1,1 @@
+double HML_RandomUniform(double a, double b);

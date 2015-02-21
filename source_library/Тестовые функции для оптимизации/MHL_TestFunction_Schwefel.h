@@ -1,1 +1,0 @@
-double MHL_TestFunction_Schwefel(double *x, int VMHL_N);

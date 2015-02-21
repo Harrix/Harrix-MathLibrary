@@ -1,1 +1,0 @@
-double MHL_Tanh(double x);

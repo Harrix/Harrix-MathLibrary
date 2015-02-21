@@ -1,0 +1,25 @@
+        int i;
+        int VHML_N=HML_RandomUniformInt(3,10);//Размер массива
+        double *a;
+        a=new double[VHML_N];
+        //Заполним случайными числами
+        for (i=0;i<VHML_N;i++)
+         a[i]=HML_RandomUniform(0,10);
+
+        //Вызов функции
+        double Median=HML_Median(a,VHML_N);
+
+        //Используем полученный результат
+        HML_ShowVector (a,VHML_N,"Массив", "a");
+        //Массив:
+        //a =
+        //8.77167
+        //5.89142
+        //6.45966
+        //3.94775
+
+        HML_ShowNumber (Median,"Медиана", "Median");
+        // Медиана:
+        //Median=6.17554
+
+        delete [] a;

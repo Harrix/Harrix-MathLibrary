@@ -1,0 +1,1 @@
+double HML_BinaryFitnessFunction(int*x, int VHML_N);

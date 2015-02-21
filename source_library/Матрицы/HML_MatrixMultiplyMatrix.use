@@ -1,0 +1,49 @@
+        int i;
+        int VHML_N=3;
+        int VHML_M=5;
+        int VHML_S=4;
+        int **a;
+        a=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) a[i]=new int[VHML_M];
+        int **b;
+        b=new int*[VHML_M];
+        for (i=0;i<VHML_M;i++) b[i]=new int[VHML_S];
+        int **c;
+        c=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) c[i]=new int[VHML_S];
+        HML_RandomIntMatrix(a,0,10,VHML_N,VHML_M);
+        HML_RandomIntMatrix(b,0,10,VHML_M,VHML_S);
+
+        //Вызов функции
+        HML_MatrixMultiplyMatrix (a, b, c, VHML_N, VHML_M, VHML_S);
+
+        //Используем полученный результат
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Случайная матрица", "a");
+        //Случайная матрица:
+        //a =
+        //3	0	4	4	5
+        //9	4	3	4	4
+        //8	0	1	9	8
+
+        HML_ShowMatrix (b,VHML_M,VHML_S,"Случайная матрица", "b");
+        // Случайная матрица:
+        //b =
+        //6	6	6	3
+        //4	2	1	2
+        //6	9	6	3
+        //1	1	8	2
+        //6	8	0	9
+
+        HML_ShowMatrix (c,VHML_N,VHML_S,"Произведение", "c");
+        // Произведение:
+        //c =
+        //76	98	74	74
+        //116	125	108	88
+        //111	130	126	117
+
+        for (i=0;i<VHML_N;i++) delete [] a[i];
+        delete [] a;
+        for (i=0;i<VHML_M;i++) delete [] b[i];
+        delete [] b;
+        for (i=0;i<VHML_N;i++) delete [] c[i];
+        delete [] c;

@@ -1,0 +1,1 @@
+void HML_NormalizationVectorMaxMin(double *VHML_ResultVector,int VHML_N);

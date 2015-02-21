@@ -1,0 +1,1 @@
+double HML_RadToDeg(double VHML_X);

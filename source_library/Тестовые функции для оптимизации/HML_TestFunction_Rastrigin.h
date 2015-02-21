@@ -1,0 +1,1 @@
+double HML_TestFunction_Rastrigin(double *x, int VHML_N);

@@ -1,0 +1,37 @@
+        int VHML_N=10;//Размер массива
+        int *x;
+        x=new int[VHML_N];
+        int *y;
+        y=new int[VHML_N];
+        //Заполним массив номерами от 1
+        HML_OrdinalVector(x,VHML_N);
+        //А сопряженный заполним номерами с нуля
+        HML_OrdinalVectorZero(y,VHML_N);
+        HML_ShowVectorT (x,VHML_N,"Вектор", "x");
+        //Вектор:
+        //x =
+        //1	2	3	4	5	6	7	8	9	10
+
+        HML_ShowVectorT (y,VHML_N,"Вектор", "y");
+        //Вектор:
+        //y =
+        //0	1	2	3	4	5	6	7	8	9
+
+        double P=0.4;//Вероятность перемешивания
+
+        //Вызов функции
+        HML_MixingVectorWithConjugateVector(x,y,P,VHML_N);//Перемешаем массив
+
+        //Используем полученный результат
+        HML_ShowVectorT (x,VHML_N,"Перемешанный вектор", "x");
+        // Перемешанный вектор:
+        //x =
+        //9	1	4	8	10	5	7	3	6	2
+
+        HML_ShowVectorT (y,VHML_N,"Сопряженный перемешанный вектор", "y");
+        //Сопряженный перемешанный вектор:
+        //y =
+        //8	0	3	7	9	4	6	2	5	1
+
+        delete [] x;
+        delete [] y;

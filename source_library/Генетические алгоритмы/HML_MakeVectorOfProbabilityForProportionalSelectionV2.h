@@ -1,0 +1,1 @@
+void HML_MakeVectorOfProbabilityForProportionalSelectionV2(double *Fitness, double *VHML_ResultVector, int VHML_N);

@@ -1,0 +1,16 @@
+        int x=HML_RandomUniformInt(0,1000);
+        int Degree;
+
+        //Вызываем функцию
+        Degree=HML_HowManyPowersOfTwo(x);
+
+        //Используем полученный результат
+        HML_ShowNumber(x,"Число","x");
+        //Число:
+        //x=480
+        HML_ShowNumber(Degree,"Его покрывает 2 в степени","Degree");
+        //Его покрывает 2 в степени:
+        //Degree=9
+        HML_ShowNumber(HML_PowerOf(2,Degree),"То есть","2^"+HML_NumberToText(Degree));
+        //То есть:
+        //2^9=512

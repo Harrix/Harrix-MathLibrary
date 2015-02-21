@@ -1,0 +1,18 @@
+        double *x;
+        double f;
+        int VHML_N=2;
+        x=new double[VHML_N];
+        for (int i=0;i<VHML_N;i++) x[i]=HML_RandomUniform(-5,5);
+        f=HML_TestFunction_RotatedHyperEllipsoid(x,VHML_N);
+
+        HML_ShowVector (x,VHML_N,"Входной вектор", "x");
+        //Входной вектор:
+        //x =
+        //-0.933898
+        //-1.2216
+
+        HML_ShowNumber (f,"Значение функции", "f");
+        //Значение функции:
+        //f=5.51833
+
+        delete[] x;

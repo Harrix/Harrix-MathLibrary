@@ -1,0 +1,1 @@
+void HML_BinaryVectorToRealVector(int *x, double *VHML_ResultVector, double *Left, double *Right, int *Lengthi, int VHML_N);

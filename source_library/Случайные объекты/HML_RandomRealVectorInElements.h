@@ -1,0 +1,1 @@
+void HML_RandomRealVectorInElements(double *VHML_ResultVector, double *Left, double *Right, int VHML_N);

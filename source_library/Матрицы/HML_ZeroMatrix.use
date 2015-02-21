@@ -1,0 +1,35 @@
+        int i,j;
+        int VHML_N=10;//Размер массива (число строк)
+        int VHML_M=3;//Размер массива (число столбцов)
+        int **a;
+        a=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) a[i]=new int[VHML_M];
+        //Заполним случайными числами
+        for (i=0;i<VHML_N;i++)
+         for (j=0;j<VHML_M;j++)
+          a[i][j]=HML_RandomUniformInt(10,100);
+
+        //Вызов функции
+        int SumMatrix=HML_SumMatrix(a,VHML_N,VHML_M);
+
+        //Используем полученный результат
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Случайная матрица", "a");
+        //Случайная матрица:
+        //a =
+        //93	11	72
+        //58	74	66
+        //39	16	46
+        //87	23	76
+        //85	60	13
+        //34	43	63
+        //11	99	20
+        //77	93	70
+        //68	32	65
+        //36	74	35
+
+        HML_ShowNumber (SumMatrix,"Её сумма", "SumVector");
+        //Её сумма:
+        //SumVector=1639
+
+        for (i=0;i<VHML_N;i++) delete [] a[i];
+        delete [] a;

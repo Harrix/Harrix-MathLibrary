@@ -1,1 +1,0 @@
-Функция нормирует число из интервала $\left[-\infty;\infty \right] $ в интервал $\left[0;1\right]$. При этом в нуле возвращает $0.5$, в $-\infty$ возвращает $0$, в $\infty$ возвращает $1$. Если $x<y$, то $MHL\_NormalizationNumberAll(x)<MHL\_NormalizationNumberAll(y)$. Под бесконечностью принимается машинная бесконечность.

@@ -1,0 +1,108 @@
+        int i,j;
+        int VHML_N=5;//Размер массива (число строк)
+        int VHML_M=3;//Размер массива (число столбцов)
+        int **a;
+        a=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) a[i]=new int[VHML_M];
+        int **b;
+        b=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) b[i]=new int[VHML_M];
+        int **c;
+        c=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) c[i]=new int[VHML_M];
+        //Заполним случайными числами
+        for (i=0;i<VHML_N;i++)
+         for (j=0;j<VHML_M;j++)
+          {
+          a[i][j]=HML_RandomUniformInt(10,20);
+          b[i][j]=HML_RandomUniformInt(10,20);
+          }
+
+        //Вызов функции
+        HML_MatrixMinusMatrix(a,b,c,VHML_N,VHML_M);
+
+        //Используем полученный результат
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Матрица", "a");
+        //Матрица:
+        //a =
+        //18	19	17
+        //14	12	11
+        //10	16	19
+        //12	18	16
+        //12	16	11
+
+        HML_ShowMatrix (b,VHML_N,VHML_M,"Матрица", "b");
+        //Матрица:
+        //b =
+        //11	19	18
+        //12	10	13
+        //11	14	10
+        //11	17	15
+        //12	16	10
+
+        HML_ShowMatrix (c,VHML_N,VHML_M,"Их разница", "c");
+        //Их разница:
+        //c =
+        //7	0	-1
+        //2	2	-2
+        //-1	2	9
+        //1	1	1
+        //0	0	1
+
+        for (i=0;i<VHML_N;i++) delete [] a[i];
+        delete [] a;
+        for (i=0;i<VHML_N;i++) delete [] b[i];
+        delete [] b;
+        for (i=0;i<VHML_N;i++) delete [] c[i];
+        delete [] c;
+
+        //Для переопределенной функции
+        VHML_N=5;//Размер массива (число строк)
+        VHML_M=3;//Размер массива (число столбцов)
+        a=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) a[i]=new int[VHML_M];
+        b=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) b[i]=new int[VHML_M];
+        //Заполним случайными числами
+        for (i=0;i<VHML_N;i++)
+         for (j=0;j<VHML_M;j++)
+          {
+          a[i][j]=HML_RandomUniformInt(10,20);
+          b[i][j]=HML_RandomUniformInt(10,20);
+          }
+
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Матрица", "a");
+        //Матрица:
+        //a =
+        //11	18	11
+        //19	14	15
+        //14	13	14
+        //19	13	12
+        //19	15	10
+
+        //Вызов функции
+        HML_MatrixMinusMatrix(a,b,VHML_N,VHML_M);
+
+        //Используем полученный результат
+        HML_ShowMatrix (b,VHML_N,VHML_M,"Матрица", "b");
+        //Матрица:
+        //b =
+        //12	13	18
+        //14	12	14
+        //12	14	19
+        //18	16	16
+        //16	17	19
+
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Теперь матрица a", "a");
+        //Теперь матрица a:
+        //a =
+        //-1	5	-7
+        //5	2	1
+        //2	-1	-5
+        //1	-3	-4
+        //3	-2	-9
+
+        for (i=0;i<VHML_N;i++) delete [] a[i];
+        delete [] a;
+        for (i=0;i<VHML_N;i++) delete [] b[i];
+        delete [] b;

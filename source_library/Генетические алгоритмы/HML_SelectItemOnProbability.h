@@ -1,0 +1,1 @@
+int HML_SelectItemOnProbability(double *P, int VHML_N);

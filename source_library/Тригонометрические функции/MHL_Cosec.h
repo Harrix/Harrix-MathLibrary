@@ -1,1 +1,0 @@
-double MHL_Cosec(double x);

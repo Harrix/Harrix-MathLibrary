@@ -1,0 +1,1 @@
+template <class T> int HML_SearchElementInVector (T *X, T x, int VHML_N);

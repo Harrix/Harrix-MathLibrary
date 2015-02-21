@@ -1,0 +1,1 @@
+template <class T> int HML_NumberOfZeroValues(T *a, int VHML_N);

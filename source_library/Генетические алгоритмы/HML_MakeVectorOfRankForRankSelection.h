@@ -1,0 +1,1 @@
+void HML_MakeVectorOfRankForRankSelection(double *Fitness, double *VHML_ResultVector, int VHML_N);

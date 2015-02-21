@@ -1,0 +1,1 @@
+template <class T> void HML_GrayCodeToBinaryFromPart(T *a, T *VHML_ResultVector, int Begin, int n);

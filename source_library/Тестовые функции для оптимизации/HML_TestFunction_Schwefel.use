@@ -1,0 +1,20 @@
+        double *x;
+        double f;
+        int VHML_N=2;
+        x=new double[VHML_N];
+        for (int i=0;i<VHML_N;i++) x[i]=HML_RandomUniform(-500,500);
+
+        //Вызов функции
+        f=HML_TestFunction_Schwefel(x,VHML_N);
+
+        HML_ShowVector (x,VHML_N,"Входной вектор", "x");
+        //Входной вектор:
+        //x =
+        //169.715
+        //410.499
+
+        HML_ShowNumber (f,"Значение функции", "f");
+        //Значение функции:
+        //f=357.17
+
+        delete[] x;

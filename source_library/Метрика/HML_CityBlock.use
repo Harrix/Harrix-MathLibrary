@@ -1,0 +1,41 @@
+        int i;
+        int VHML_N=5;//Размер массива
+        int *x;
+        x=new int[VHML_N];
+        int *y;
+        y=new int[VHML_N];
+        //Заполним случайными числами
+        for (i=0;i<VHML_N;i++)
+         {
+         x[i]=HML_RandomUniformInt(0,5);
+         y[i]=HML_RandomUniformInt(0,5);
+         }
+
+        //Вызов функции
+        int metric=HML_CityBlock(x,y,VHML_N);
+
+        //Используем полученный результат
+        HML_ShowVector (x,VHML_N,"Первый массив", "x");
+        //Первый массив:
+        //x =	 
+        //4
+        //1
+        //3
+        //3
+        //0
+
+        HML_ShowVector (y,VHML_N,"Второй массив", "y");
+        //Второй массив:
+        //y =	 
+        //3
+        //4
+        //1
+        //4
+        //1
+
+        HML_ShowNumber (metric,"Значение метрики манхэттенское расстояние", "metric");
+        // Значение метрики манхэттенское расстояние:
+        //metric=8
+
+        delete [] x;
+        delete [] y;

@@ -1,0 +1,1 @@
+void HML_DependentNoiseInVector(double *VHML_ResultVector, double percent, int VHML_N);

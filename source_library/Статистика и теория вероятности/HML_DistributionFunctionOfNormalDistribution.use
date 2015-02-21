@@ -1,0 +1,22 @@
+        double x;
+        double f;
+        x=HML_RandomUniform(0,3);
+        double mu=3;
+        double sigma=1;
+
+        //Вызов функции
+        f=HML_DistributionFunctionOfNormalizedCenteredNormalDistribution(x,0.001);
+
+        //Используем полученный результат
+        HML_ShowNumber (x,"Входная переменная", "x");
+        //Входная переменная:
+        //x=0.527979
+        HML_ShowNumber (mu,"Параметр mu", "mu");
+        //Параметр mu:
+        //mu=3
+        HML_ShowNumber (sigma,"Параметр sigma", "sigma");
+        //Параметр sigma:
+        //sigma=1
+        HML_ShowNumber (f,"Значение функции распределения нормального распределения", "f");
+        //Значение функции распределения нормального распределения:
+        //f=0.701244

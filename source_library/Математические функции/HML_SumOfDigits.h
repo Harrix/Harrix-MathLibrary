@@ -1,0 +1,1 @@
+int HML_SumOfDigits(int a);

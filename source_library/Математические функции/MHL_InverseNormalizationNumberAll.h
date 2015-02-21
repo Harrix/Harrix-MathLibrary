@@ -1,1 +1,0 @@
-double MHL_InverseNormalizationNumberAll(double x);

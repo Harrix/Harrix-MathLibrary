@@ -1,0 +1,23 @@
+        double a=HML_RandomUniformInt(1,10);
+        double b=HML_RandomUniformInt(1,10);
+        double c=HML_RandomUniformInt(1,10);
+        double x1;
+        double x2;
+
+        int Result=HML_QuadraticEquationCount(a,b,c,&x1,&x2);
+
+        //Используем полученный результат
+        HML_ShowText("Квадратное уравнение: "+HML_NumberToText(a)+"x^2+"+HML_NumberToText(b)+"x+"+HML_NumberToText(c)+"=0");
+        //Квадратное уравнение: 1x^2+4x+4=0.
+        HML_ShowNumber(Result,"Сколько решений найдено","Result");
+        //Сколько решений найдено:
+        //Result=1
+        if (Result>=1)
+        {
+        HML_ShowNumber(x1,"Первый корень квадратного уравнения","x1");
+        //Первый корень квадратного уравнения:
+        //x1=-2
+        HML_ShowNumber(x2,"Второй корень квадратного уравнения","x2");
+        //Второй корень квадратного уравнения:
+        //x2=-2
+        }

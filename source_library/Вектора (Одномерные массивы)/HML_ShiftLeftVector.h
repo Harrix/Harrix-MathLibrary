@@ -1,0 +1,1 @@
+template <class T> void HML_ShiftLeftVector(T *VHML_Vector, int VHML_N);

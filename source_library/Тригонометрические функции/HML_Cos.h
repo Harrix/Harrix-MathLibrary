@@ -1,0 +1,1 @@
+double HML_Cos(double x);

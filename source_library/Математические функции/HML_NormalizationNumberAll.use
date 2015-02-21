@@ -1,0 +1,14 @@
+        double x;
+        double y;
+        y=HML_RandomUniform(-100,100);
+
+        //Вызов функции
+        x=HML_NormalizationNumberAll(y);
+
+        //Используем полученный результат
+        HML_ShowNumber (y,"Число", "y");
+        //Число:
+        //y=-10.4004
+        HML_ShowNumber (x,"Нормированное число", "x");
+        //Нормированное число:
+        //x=0.0438581

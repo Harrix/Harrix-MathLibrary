@@ -1,0 +1,11 @@
+        double x;
+        double Mean=10;//математическое ожидание
+        double StdDev=3;//среднеквадратичное отклонение
+
+        //Вызов функции
+        x=HML_RandomNormal(Mean,StdDev);
+
+        //Используем полученный результат
+        HML_ShowNumber(x,"Случайное число по нормальному закону (Mean="+HML_NumberToText(Mean)+", StdDev="+HML_NumberToText(StdDev)+")","x");
+        //Случайное число по нормальному закону (Mean=10, StdDev=3):
+        //x=10.9968

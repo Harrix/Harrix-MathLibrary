@@ -1,0 +1,53 @@
+        int i,j;
+        int VHML_N=3;//Размер массива (число строк)
+        int VHML_M=3;//Размер массива (число столбцов)
+        int **a;
+        a=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) a[i]=new int[VHML_M];
+        int **n;
+        n=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) n[i]=new int[VHML_M];
+        int **m;
+        m=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) m[i]=new int[VHML_M];
+
+        //Заполним границы изменения каждого элемента
+        for (i=0;i<VHML_N;i++)
+         for (j=0;j<VHML_M;j++)
+          {
+          n[i][j]=i*VHML_N+j-10;
+          m[i][j]=n[i][j]+20;
+          }
+
+        //Вызов функции
+        HML_RandomIntMatrixInElements(a,n,m,VHML_N,VHML_M);
+
+        //Используем полученный результат
+
+        HML_ShowMatrix (n,VHML_N,VHML_M,"Матрица левых границ", "n");
+        //Матрица левых границ:
+        //n =
+        //-10	-9	-8
+        //-7	-6	-5
+        //-4	-3	-2
+
+        HML_ShowMatrix (m,VHML_N,VHML_M,"Матрица правых границ", "m");
+        // Матрица правых границ:
+        //m =
+        //10	11	12
+        //13	14	15
+        //16	17	18
+
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Случайная матрица", "a");
+        // Случайная матрица:
+        //a =
+        //-4	6	-8
+        //-1	1	1
+        //-3	16	4
+
+        for (i=0;i<VHML_N;i++) delete [] a[i];
+        delete [] a;
+        for (i=0;i<VHML_N;i++) delete [] n[i];
+        delete [] n;
+        for (i=0;i<VHML_N;i++) delete [] m[i];
+        delete [] m;

@@ -1,0 +1,1 @@
+template <class T> int HML_SearchFirstZero(T *x, int VHML_N);

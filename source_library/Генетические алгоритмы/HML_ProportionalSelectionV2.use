@@ -1,0 +1,59 @@
+        int i;
+        int VHML_N=10;//Размер массива (число строк)
+        double *Fitness;
+        Fitness=new double[VHML_N];
+        //Заполним вектор случайными значениями пригодностей индивидов
+        //на практике, конечно, пригодности вычисляются, например, в
+        //процессе работы ГА
+        for (i=0;i<VHML_N;i++) Fitness[i]=HML_RandomNumber();
+
+        //Для работы этого варианта пропорциональной селекции нужен
+        //массив вероятностей выбора индивидов для порпоциональной селекции;
+        double *VectorProbability;
+        VectorProbability=new double[VHML_N];
+        //Сформируем этот массив
+        HML_MakeVectorOfProbabilityForProportionalSelectionV2(Fitness,VectorProbability,VHML_N);
+
+        //Вызов функции
+        int Number=HML_ProportionalSelectionV2(VectorProbability,VHML_N);
+
+        //Используем полученный результат
+        HML_ShowVector (Fitness,VHML_N,"Вектор пригодностей индивидов", "a");
+        // Вектор пригодностей индивидов:
+        //a =	
+        //0.681061
+        //0.629517
+        //0.697021
+        //0.140045
+        //0.221649
+        //0.203461
+        //0.702576
+        //0.998077
+        //0.853607
+        //0.19928
+
+        HML_ShowVector (VectorProbability,VHML_N,"Вектор вероятностей выбора индивидов", "VectorProbability");
+        // Вектор вероятностей выбора индивидов:
+        //VectorProbability =	
+        //0.137809
+        //0.124679
+        //0.141874
+        //0
+        //0.0207864
+        //0.0161534
+        //0.143289
+        //0.21856
+        //0.18176
+        //0.0150884
+
+        HML_ShowNumber (HML_SumVector(VectorProbability,VHML_N),"Его сумма", "Sum");
+        // Его сумма:
+        //Sum=1
+                
+        HML_ShowNumber (Number,"Номер выбранного индивида", "Number");
+        
+        // Номер выбранного индивида:
+        //Number=6
+        
+        delete [] Fitness;
+        delete [] VectorProbability;

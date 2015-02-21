@@ -1,1 +1,0 @@
-template <class T> T TMHL_Minkovski(T *x, T *y, int r, int VMHL_N);

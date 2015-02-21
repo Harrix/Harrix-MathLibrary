@@ -1,0 +1,15 @@
+        double x;
+        double abs;
+
+        x=HML_RandomUniform(-10,10);
+
+        //Вызов функции
+        abs=HML_Abs(x);
+
+        //Используем полученный результат
+        HML_ShowNumber (x,"Число", "x");
+        // Число:
+        //x=-6.29578
+        HML_ShowNumber (abs,"Модуль", "abs");
+        // Модуль:
+        //abs=6.29578

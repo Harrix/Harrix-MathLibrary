@@ -1,0 +1,1 @@
+double HML_Parabola(double x, double a, double b, double c);

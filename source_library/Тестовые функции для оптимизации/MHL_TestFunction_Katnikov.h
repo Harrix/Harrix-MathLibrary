@@ -1,1 +1,0 @@
-double MHL_TestFunction_Katnikov(double x, double y);

@@ -1,0 +1,1 @@
+int HML_RandomUniformIntIncluding(int n, int m);

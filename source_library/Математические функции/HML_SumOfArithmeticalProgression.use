@@ -1,0 +1,19 @@
+        double a1=HML_RandomUniformInt(1,10);
+        double d=HML_RandomUniformInt(1,10);
+        int n=HML_RandomUniformInt(1,10);
+
+        double Sum=HML_SumOfArithmeticalProgression(a1,d,n);
+
+        //Используем полученный результат
+        HML_ShowNumber(a1,"Первый член последовательности","a1");
+        //Первый член последовательности:
+        //a1=9
+        HML_ShowNumber(d,"Шаг арифметической прогрессии","d");
+        //Шаг арифметической прогрессии:
+        //d=6
+        HML_ShowNumber(n,"Номер последнего члена","n");
+        //Номер последнего члена:
+        //n=9
+        HML_ShowNumber(Sum,"Сумма первых n членов","Sum");
+        //Сумма первых n членов:
+        //Sum=297

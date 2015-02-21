@@ -1,1 +1,0 @@
-template <class T> void TMHL_ReverseVector(T *VMHL_ResultVector, int VMHL_N);

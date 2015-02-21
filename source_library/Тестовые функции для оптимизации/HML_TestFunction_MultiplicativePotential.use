@@ -1,0 +1,20 @@
+        double x;
+        double y;
+        double f;
+        x=HML_RandomUniform(-5,5);
+        y=HML_RandomUniform(-5,5);
+
+        //Вызываем функцию
+        f=HML_TestFunction_MultiplicativePotential(x,y);
+
+        HML_ShowNumber (x,"Первая вещественная переменная", "x");
+        //Первая вещественная переменная:
+        //x=0.520743
+
+        HML_ShowNumber (y,"Вторая вещественная переменная", "y");
+        //Вторая вещественная переменная:
+        //y=-4.96242
+
+        HML_ShowNumber (f,"Значение функции", "f");
+        //Значение функции:
+        //f=-0.113219

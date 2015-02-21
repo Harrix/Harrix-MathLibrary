@@ -1,0 +1,1 @@
+int HML_DivideColorG(int R, int G, int B, double p);

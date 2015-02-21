@@ -1,1 +1,0 @@
-template <class T> int TMHL_NumberOfNegativeValues(T *a, int VMHL_N);

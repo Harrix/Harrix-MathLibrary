@@ -1,0 +1,29 @@
+        int i;
+        int VHML_N=10;//Размер массива (число строк)
+        int VHML_M=3;//Размер массива (число столбцов)
+        int **a;
+        a=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) a[i]=new int[VHML_M];
+
+        int x=HML_RandomUniformInt(0,10);//заполнитель
+
+        //Вызов функции
+        HML_FillMatrix(a,VHML_N,VHML_M,x);
+
+        //Используем полученный результат
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Заполненная матрица", "a");
+        //Заполненная матрица:
+        //a =	
+        //3	3	3
+        //3	3	3
+        //3	3	3
+        //3	3	3
+        //3	3	3
+        //3	3	3
+        //3	3	3
+        //3	3	3
+        //3	3	3
+        //3	3	3
+
+        for (i=0;i<VHML_N;i++) delete [] a[i];
+        delete [] a;

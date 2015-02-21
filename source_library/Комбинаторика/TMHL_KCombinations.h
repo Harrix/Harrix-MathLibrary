@@ -1,1 +1,0 @@
-template <class T> T TMHL_KCombinations(T k, T n);

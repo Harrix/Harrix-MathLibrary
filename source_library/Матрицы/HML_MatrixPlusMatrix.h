@@ -1,0 +1,2 @@
+template <class T> void HML_MatrixPlusMatrix(T **a, T **b, T **VHML_ResultMatrix, int VHML_N, int VHML_M);
+template <class T> void HML_MatrixPlusMatrix(T **VHML_ResultMatrix, T **b, int VHML_N, int VHML_M);

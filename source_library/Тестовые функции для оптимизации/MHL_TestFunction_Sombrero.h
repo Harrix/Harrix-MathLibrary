@@ -1,1 +1,0 @@
-double MHL_TestFunction_Sombrero(double x, double y);

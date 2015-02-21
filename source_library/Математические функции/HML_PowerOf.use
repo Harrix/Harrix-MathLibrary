@@ -1,0 +1,9 @@
+        double a=HML_RandomUniform(-5,5);
+        int Degree=HML_RandomUniformInt(0,20);
+
+        double Result=HML_PowerOf(a,Degree);
+
+        //Используем полученный результат
+        HML_ShowNumber(Result,"Число "+HML_NumberToText(a)+" в степени "+HML_NumberToText(Degree),"равно");
+        //Число 3.9624 в степени 4:
+        //равно=246.51

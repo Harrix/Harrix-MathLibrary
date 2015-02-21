@@ -1,0 +1,19 @@
+\textbf{Входные параметры:}  
+
+ VHML\_ResultVector --- указатель на массив;
+ 
+ percent --- процент шума;
+ 
+ VHML\_N --- количество элементов в массивах.
+
+\textbf{Возвращаемое значение:}
+
+Отсутствует.
+
+\textbf{Формула:}
+\begin{eqnarray*}
+b=\dfrac{percent\cdot\left( \max{x_i}-\min{x_i}\right)}{100};\\
+x_i=x_i+random \left( -\dfrac{b}{2},\dfrac{b}{2}\right),
+\end{eqnarray*}
+
+где $x_i \in VHML\_ResultVector$, $i=\overline{1,VHML\_N}$.

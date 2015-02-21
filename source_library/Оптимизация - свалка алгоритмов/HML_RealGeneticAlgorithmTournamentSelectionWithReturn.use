@@ -1,0 +1,57 @@
+        int ChromosomeLength=2;//Длина хромосомы
+        int CountOfFitness=50*50;//Число вычислений целевой функции
+        int SizeOfTournament=2;//Размер турнира в турнирной селекции с возвращением 
+        int TypeOfCros=0;//Тип скрещивания
+        int TypeOfMutation=1;//Тип мутации
+        int TypeOfForm=0;//Тип формирования нового поколения
+
+        double *ParametersOfAlgorithm;
+        ParametersOfAlgorithm=new double[7];
+        ParametersOfAlgorithm[0]=ChromosomeLength;//Длина хромосомы
+        ParametersOfAlgorithm[1]=CountOfFitness;//Число вычислений целевой функции
+        ParametersOfAlgorithm[2]=SizeOfTournament;//Размер турнира в турнирной селекции с возвращением 
+        ParametersOfAlgorithm[3]=TypeOfCros;//Тип скрещивания
+        ParametersOfAlgorithm[4]=TypeOfMutation;//Тип мутации
+        ParametersOfAlgorithm[5]=TypeOfForm;//Тип формирования нового поколения
+        ParametersOfAlgorithm[6]=0;//Тип преобразование задачи вещественной оптимизации в задачу бинарной оптимизации
+
+        double *Left;//массив левых границ изменения каждой вещественной координаты
+        Left=new double[ChromosomeLength];
+        double *Right;//массив правых границ изменения каждой вещественной координаты
+        Right=new double[ChromosomeLength];
+        int *NumberOfParts;//на сколько делить каждую координату
+        NumberOfParts=new int[ChromosomeLength];
+
+        //Заполним массивы
+        //Причем по каждой координате одинаковые значения выставим
+        HML_FillVector(Left,ChromosomeLength,-5.);//Пусть будет интервал [-3;3]
+        HML_FillVector(Right,ChromosomeLength,5.);
+        HML_FillVector(NumberOfParts,ChromosomeLength,HML_PowerOf(2,15)-1);//Делим на 32768-1 частей каждую вещественную координату
+
+        double *Decision;//вещественное решение
+        Decision=new double[ChromosomeLength];
+        double ValueOfFitnessFunction;//значение целевой функции в точке Decision
+        int VHML_Success=0;//Успешен ли будет запуск cГА
+
+        //Запуск алгоритма
+        VHML_Success=HML_RealGeneticAlgorithmTournamentSelectionWithReturn (ParametersOfAlgorithm,NumberOfParts,Left,Right,Func2, Decision, &ValueOfFitnessFunction);
+
+        //Используем полученный результат
+        HML_ShowNumber(VHML_Success,"Как прошел запуск","VHML_Success");
+        if (VHML_Success==1)
+         {
+         HML_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
+         //Найденное решение:
+         //Decision =
+         //2.00165	2.00012
+
+         HML_ShowNumber(ValueOfFitnessFunction,"Значение целевой функции","ValueOfFitnessFunction");
+         //Значение целевой функции:
+		 //ValueOfFitnessFunction=-2.73064e-06
+         }
+
+        delete [] ParametersOfAlgorithm;
+        delete [] Decision;
+        delete [] Left;
+        delete [] Right;
+        delete [] NumberOfParts;

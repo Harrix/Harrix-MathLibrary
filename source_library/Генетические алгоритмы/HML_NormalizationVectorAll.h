@@ -1,0 +1,1 @@
+void HML_NormalizationVectorAll(double *x,int VHML_N);

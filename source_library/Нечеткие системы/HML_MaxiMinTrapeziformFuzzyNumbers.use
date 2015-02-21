@@ -1,0 +1,30 @@
+        double *Data=new double[8];
+        Data[0]=HML_RandomUniform(-4,4);
+        Data[1]=Data[0]+HML_RandomUniform(0,2);
+        Data[2]=Data[1]+HML_RandomUniform(0,2);
+        Data[3]=Data[2]+HML_RandomUniform(0,2);
+        Data[4]=HML_RandomUniform(-4,4);
+        Data[5]=Data[4]+HML_RandomUniform(0,2);
+        Data[6]=Data[5]+HML_RandomUniform(0,2);
+        Data[7]=Data[6]+HML_RandomUniform(0,2);
+
+        //Вызов функции
+        double f=HML_MaxiMinTrapeziformFuzzyNumbers (Data);
+
+        //Используем полученный результат
+        HML_ShowVector(Data,8, "Два нечетких трапецевидных числа","Data");
+        //Два нечетких трапецевидных числа:
+        //Data =	
+        //0.989053
+        //1.13038
+        //1.8941
+        //2.04333
+        //-2.00039
+        //-0.915334
+        //0.343752
+        //1.68268
+        
+        HML_ShowNumber(f,"Максимальное значение функции принадлежности объединенного нечеткого числа","f");
+        //Максимальное значение функции принадлежности объединенного нечеткого числа:
+        //f=0.468587
+        delete [] Data;

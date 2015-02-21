@@ -1,8 +1,0 @@
-        double x=MHL_RandomUniform(-50,50);
-
-        double F=TMHL_HeavisideFunction(x);
-
-        //Используем полученный результат
-        MHL_ShowNumber(F,"Функция Хэвисайда при a = "+MHL_NumberToText(x),"равна");
-        //Функция Хэвисайда при a = -49.7559:
-        //равна=0

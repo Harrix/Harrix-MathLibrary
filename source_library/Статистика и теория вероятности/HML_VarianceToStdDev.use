@@ -1,0 +1,10 @@
+        double StdDev;
+        double Variance=6;
+
+        //Вызов функции
+        StdDev=HML_VarianceToStdDev(Variance);
+
+        //Используем полученный результат
+        HML_ShowNumber(StdDev,"Среднеквадратичное уклонение при дисперсии, равной "+HML_NumberToText(Variance),"равно");
+        //Среднеквадратичное уклонение при дисперсии, равной 6:
+        //равно=36

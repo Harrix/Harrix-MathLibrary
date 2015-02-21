@@ -1,1 +1,0 @@
-template <class T> int TMHL_SignNull(T a);

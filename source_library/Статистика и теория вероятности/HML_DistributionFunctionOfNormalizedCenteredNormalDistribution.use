@@ -1,0 +1,15 @@
+        double t;
+        double f;
+        t=HML_RandomUniform(0,3);
+
+        //Вызов функции
+        f=HML_DistributionFunctionOfNormalizedCenteredNormalDistribution(t,0.001);
+
+        //Используем полученный результат
+
+        HML_ShowNumber (t,"Параметр", "t");
+        //Параметр:
+        //t=1.36576
+        HML_ShowNumber (f,"Значение функции", "f");
+        //Значение функции:
+        //f=0.914011

@@ -1,0 +1,20 @@
+        double x;
+        double y;
+        double f;
+        x=HML_RandomUniform(-20,20);
+        y=HML_RandomUniform(-20,20);
+
+        //Вызываем функцию
+        f=HML_TestFunction_Sombrero(x,y);
+
+        HML_ShowNumber (x,"Первая вещественная переменная", "x");
+        //Первая вещественная переменная:
+        //x=-3.26381
+
+        HML_ShowNumber (y,"Вторая вещественная переменная", "y");
+        //Вторая вещественная переменная:
+        //y=-0.836133
+
+        HML_ShowNumber (f,"Значение функции", "f");
+        //Значение функции:
+        //f=0.938425

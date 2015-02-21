@@ -1,0 +1,53 @@
+        int i,j;
+        int VHML_N=3;//Размер массива (число строк)
+        int VHML_M=3;//Размер массива (число столбцов)
+        double **a;
+        a=new double*[VHML_N];
+        for (i=0;i<VHML_N;i++) a[i]=new double[VHML_M];
+        double **Left;
+        Left=new double*[VHML_N];
+        for (i=0;i<VHML_N;i++) Left[i]=new double[VHML_M];
+        double **Right;
+        Right=new double*[VHML_N];
+        for (i=0;i<VHML_N;i++) Right[i]=new double[VHML_M];
+
+        //Возьмем для примера границы интервала равными около номера ячейки в матрице
+        for (i=0;i<VHML_N;i++)
+         for (j=0;j<VHML_M;j++)
+          {
+          Left[i][j]=i*VHML_N+j-0.1;
+          Right[i][j]=Left[i][j]+0.2;
+          }
+
+        //Вызов функции
+        HML_RandomRealMatrixInElements(a,Left,Right,VHML_N,VHML_M);
+
+        //Используем полученный результат
+
+        HML_ShowMatrix (Left,VHML_N,VHML_M,"Матрица левых границ", "Left");
+        // Матрица левых границ:
+        //Left =
+        //-0.1	0.9	1.9
+        //2.9	3.9	4.9
+        //5.9	6.9	7.9
+
+        HML_ShowMatrix (Right,VHML_N,VHML_M,"Матрица правых границ", "Right");
+        // Матрица правых границ:
+        //Right =
+        //0.1	1.1	2.1
+        //3.1	4.1	5.1
+        //6.1	7.1	8.1
+
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Случайная матрица", "a");
+        // Случайная матрица:
+        //a =
+        //0.0829529	1.04504	1.9892
+        //2.90126	3.92388	4.90221
+        //5.96102	6.90623	8.09661
+
+        for (i=0;i<VHML_N;i++) delete [] a[i];
+        delete [] a;
+        for (i=0;i<VHML_N;i++) delete [] Left[i];
+        delete [] Left;
+        for (i=0;i<VHML_N;i++) delete [] Right[i];
+        delete [] Right;

@@ -1,0 +1,1 @@
+template <class T> int HML_Sign(T a);

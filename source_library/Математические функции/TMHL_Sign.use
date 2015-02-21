@@ -1,9 +1,0 @@
-        int a=MHL_RandomUniformInt(-5,5);
-
-        //Вызов функции
-        int Result=TMHL_Sign(a);
-
-        //Используем полученный результат
-        MHL_ShowNumber(Result,"Знак числа "+MHL_NumberToText(a),"равен");
-        //Знак числа -3:
-        //равен=-1

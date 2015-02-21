@@ -1,1 +1,0 @@
-template <class T> void TMHL_NumberInterchange(T *a, T *b);

@@ -1,0 +1,1 @@
+template <class T> T HML_Euclid(T *x, T *y, int VHML_N);

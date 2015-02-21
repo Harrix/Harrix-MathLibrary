@@ -1,1 +1,0 @@
-int MHL_SelectItemOnProbability(double *P, int VMHL_N);

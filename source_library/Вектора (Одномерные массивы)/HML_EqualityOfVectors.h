@@ -1,0 +1,1 @@
+template <class T> bool HML_EqualityOfVectors(T *a, T *b, int VHML_N);

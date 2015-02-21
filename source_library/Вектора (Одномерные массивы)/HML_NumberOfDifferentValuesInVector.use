@@ -1,0 +1,30 @@
+        int i;
+        int VHML_N=10;//Размер массива (число строк)
+        int *a;
+        a=new int[VHML_N];
+        //Заполним случайными числами
+        for (i=0;i<VHML_N;i++)
+         a[i]=HML_RandomUniformInt(0,5);
+
+        //Вызов функции
+        int NumberOfDifferent=HML_NumberOfDifferentValuesInVector(a,VHML_N);
+
+        //Используем полученный результат
+        HML_ShowVector (a,VHML_N,"Случайный вектор", "a");
+        //Случайный вектор:
+        //a =
+        //2
+        //1
+        //1
+        //4
+        //0
+        //2
+        //1
+        //1
+        //2
+        //2
+
+        HML_ShowNumber (NumberOfDifferent,"Число различных значений в векторе", "NumberOfDifferent");
+        //Число различных значений в векторе:
+        //NumberOfDifferent=4
+        delete [] a;

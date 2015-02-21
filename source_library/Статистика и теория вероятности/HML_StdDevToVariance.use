@@ -1,0 +1,10 @@
+        double Variance;
+        double StdDev=6;
+
+        //Вызов функции
+        Variance=HML_StdDevToVariance(StdDev);
+
+        //Используем результат
+        HML_ShowNumber(Variance,"Дисперсия при среднеквадратичном уклонении, равным "+HML_NumberToText(StdDev),"равна");
+        //Дисперсия при среднеквадратичном уклонении, равным 6:
+        //равна=2.44949

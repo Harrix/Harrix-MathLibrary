@@ -1,9 +1,0 @@
-        double x=MHL_RandomUniform(0,10);
-
-        //Вызов функции
-        double Result=MHL_Sech(x);
-
-        //Используем полученный результат
-        MHL_ShowNumber(Result,"Гиперболический секанс от x="+MHL_NumberToText(x),"равен");
-        //Гиперболический секанс от x=0.679932:
-        //равен=0.806323

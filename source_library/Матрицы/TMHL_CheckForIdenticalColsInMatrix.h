@@ -1,1 +1,0 @@
-template <class T> bool TMHL_CheckForIdenticalColsInMatrix(T **VMHL_ResultMatrix, int VMHL_N, int VMHL_M);

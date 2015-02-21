@@ -1,2 +1,0 @@
-template <class T> void TMHL_ChangeOrderInVector(T *VMHL_Vector, T *VMHL_ResultVector, int *Order, int VMHL_N);
-template <class T> void TMHL_ChangeOrderInVector(T *VMHL_Vector, int *Order, int VMHL_N);

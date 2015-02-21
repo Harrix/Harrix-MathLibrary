@@ -1,1 +1,0 @@
-template <class T> T TMHL_Variance(T *x, int VMHL_N);

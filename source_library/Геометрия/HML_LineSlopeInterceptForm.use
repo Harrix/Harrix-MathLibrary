@@ -1,0 +1,14 @@
+        double k=HML_RandomUniformInt(1,10);
+        double b=HML_RandomUniformInt(1,10);
+
+        double x=5;
+
+        //Вызов функции
+        double y=HML_LineSlopeInterceptForm(x,k,b);
+
+        //Используем полученный результат
+        HML_ShowText("Уравнение прямой: y="+HML_NumberToText(k)+"*x+"+HML_NumberToText(b));
+        //Уравнение прямой: y=4*x+1.
+        HML_ShowNumber(y,"Значение функции прямой в точке x=5","y");
+        //Значение функции прямой в точке x=5:
+        //y=21

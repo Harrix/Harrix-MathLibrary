@@ -1,1 +1,0 @@
-double MHL_TestFunction_RastriginWithTurning(double x, double y);

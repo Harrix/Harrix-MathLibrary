@@ -1,0 +1,1 @@
+template <class T> void HML_VectorToVector(T *VHML_Vector, T *VHML_ResultVector, int VHML_N);

@@ -1,1 +1,0 @@
-double MHL_SumGeometricSeries(double u1,double q,int n);

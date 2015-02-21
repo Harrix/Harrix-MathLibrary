@@ -1,0 +1,21 @@
+          int VHML_N=10;//Размер массива
+          double *a;
+          a=new double[VHML_N];
+
+          for (int i=0;i<VHML_N;i++) a[i]=HML_RandomUniformInt(0,6);//Заполняем случайными значениями
+
+          HML_ShowVectorT (a,VHML_N,"Заполненный вектор", "a");
+          //Заполненный вектор:
+          //a =	  
+          //4	3	4	2	2	2	0	0	4	5
+
+          //Вызов функции
+          HML_ShiftRightVector(a,VHML_N);
+
+          //Используем полученный результат
+          HML_ShowVectorT (a,VHML_N,"Заполненный вектор", "a");
+          //Заполненный вектор:
+          //a =	 
+          //5	4	3	4	2	2	2	0	0	4
+
+          delete [] a;

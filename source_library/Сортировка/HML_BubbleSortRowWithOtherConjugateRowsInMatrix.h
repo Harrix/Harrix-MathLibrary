@@ -1,0 +1,1 @@
+template <class T> void HML_BubbleSortRowWithOtherConjugateRowsInMatrix(T **VHML_ResultMatrix,int Row, int VHML_N, int VHML_M);

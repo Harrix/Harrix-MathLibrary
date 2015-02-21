@@ -1,0 +1,1 @@
+template <class T> T HML_Median(T *x, int VHML_N);

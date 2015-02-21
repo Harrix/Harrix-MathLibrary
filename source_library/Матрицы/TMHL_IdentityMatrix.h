@@ -1,1 +1,0 @@
-template <class T> void TMHL_IdentityMatrix(T **VMHL_ResultMatrix,int VMHL_N);

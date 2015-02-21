@@ -1,0 +1,1 @@
+template <class T> T HML_PowerOf(T x, int n);

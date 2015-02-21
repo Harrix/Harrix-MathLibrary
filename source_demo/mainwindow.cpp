@@ -27,7 +27,7 @@ MainWindow::MainWindow(QWidget *parent) :
     HQt_BeginHtml(Path);
     ui->webView->setUrl(QUrl::fromLocalFile(Path+"index.html"));// и в webViewотображаем index.html (его вообще не трогаем)
 
-    MHL_SeedRandom();//Инициализация датчика случайных чисел
+    HML_SeedRandom();//Инициализация датчика случайных чисел
 
     model = new QStandardItemModel(this);
     model->setObjectName(QString::fromUtf8("model"));
@@ -38,988 +38,988 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //Сюда нужно добавить код
 
-    item = new QStandardItem(QString("TMHL_FillVector"));
+    item = new QStandardItem(QString("HML_FillVector"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_MaximumOfVector"));
+    item = new QStandardItem(QString("HML_MaximumOfVector"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_MinimumOfVector"));
+    item = new QStandardItem(QString("HML_MinimumOfVector"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_SumVector"));
+    item = new QStandardItem(QString("HML_SumVector"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_SumSquareVector"));
+    item = new QStandardItem(QString("HML_SumSquareVector"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_ZeroVector"));
+    item = new QStandardItem(QString("HML_ZeroVector"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_VectorToVector"));
+    item = new QStandardItem(QString("HML_VectorToVector"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_DegToRad"));
+    item = new QStandardItem(QString("HML_DegToRad"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_RadToDeg"));
+    item = new QStandardItem(QString("HML_RadToDeg"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_BitNumber"));
+    item = new QStandardItem(QString("HML_BitNumber"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_RandomRealMatrix"));
+    item = new QStandardItem(QString("HML_RandomRealMatrix"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_RandomUniform"));
+    item = new QStandardItem(QString("HML_RandomUniform"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_RandomNormal"));
+    item = new QStandardItem(QString("HML_RandomNormal"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_RandomUniformInt"));
+    item = new QStandardItem(QString("HML_RandomUniformInt"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_RandomRealMatrixInCols"));
+    item = new QStandardItem(QString("HML_RandomRealMatrixInCols"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_RandomRealMatrixInElements"));
+    item = new QStandardItem(QString("HML_RandomRealMatrixInElements"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_RandomRealMatrixInRows"));
+    item = new QStandardItem(QString("HML_RandomRealMatrixInRows"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_RandomRealVector"));
+    item = new QStandardItem(QString("HML_RandomRealVector"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_RandomRealVectorInElements"));
+    item = new QStandardItem(QString("HML_RandomRealVectorInElements"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_RandomVectorOfProbability"));
+    item = new QStandardItem(QString("HML_RandomVectorOfProbability"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_Cos"));
+    item = new QStandardItem(QString("HML_Cos"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_CosDeg"));
+    item = new QStandardItem(QString("HML_CosDeg"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_Cosec"));
+    item = new QStandardItem(QString("HML_Cosec"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_CosecDeg"));
+    item = new QStandardItem(QString("HML_CosecDeg"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_Cotan"));
+    item = new QStandardItem(QString("HML_Cotan"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_CotanDeg"));
+    item = new QStandardItem(QString("HML_CotanDeg"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_Sec"));
+    item = new QStandardItem(QString("HML_Sec"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_SecDeg"));
+    item = new QStandardItem(QString("HML_SecDeg"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_Sin"));
+    item = new QStandardItem(QString("HML_Sin"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_SinDeg"));
+    item = new QStandardItem(QString("HML_SinDeg"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_Tan"));
+    item = new QStandardItem(QString("HML_Tan"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_TanDeg"));
+    item = new QStandardItem(QString("HML_TanDeg"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_OrdinalVector"));
+    item = new QStandardItem(QString("HML_OrdinalVector"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_OrdinalVectorZero"));
+    item = new QStandardItem(QString("HML_OrdinalVectorZero"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_SearchFirstNotZero"));
+    item = new QStandardItem(QString("HML_SearchFirstNotZero"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_SearchFirstZero"));
+    item = new QStandardItem(QString("HML_SearchFirstZero"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_VectorMinusVector"));
+    item = new QStandardItem(QString("HML_VectorMinusVector"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_VectorPlusVector"));
+    item = new QStandardItem(QString("HML_VectorPlusVector"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_VectorMultiplyNumber"));
+    item = new QStandardItem(QString("HML_VectorMultiplyNumber"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_Cosech"));
+    item = new QStandardItem(QString("HML_Cosech"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_Cosh"));
+    item = new QStandardItem(QString("HML_Cosh"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_Cotanh"));
+    item = new QStandardItem(QString("HML_Cotanh"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_Sech"));
+    item = new QStandardItem(QString("HML_Sech"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_Sinh"));
+    item = new QStandardItem(QString("HML_Sinh"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_Tanh"));
+    item = new QStandardItem(QString("HML_Tanh"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_NumberOfMaximumOfVector"));
+    item = new QStandardItem(QString("HML_NumberOfMaximumOfVector"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_NumberOfMinimumOfVector"));
+    item = new QStandardItem(QString("HML_NumberOfMinimumOfVector"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_NumberOfNegativeValues"));
+    item = new QStandardItem(QString("HML_NumberOfNegativeValues"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_NumberOfPositiveValues"));
+    item = new QStandardItem(QString("HML_NumberOfPositiveValues"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_NumberOfZeroValues"));
+    item = new QStandardItem(QString("HML_NumberOfZeroValues"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_FibonacciNumbersVector"));
+    item = new QStandardItem(QString("HML_FibonacciNumbersVector"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_EqualityOfVectors"));
+    item = new QStandardItem(QString("HML_EqualityOfVectors"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_CheckElementInVector"));
+    item = new QStandardItem(QString("HML_CheckElementInVector"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_Max"));
+    item = new QStandardItem(QString("HML_Max"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_Min"));
+    item = new QStandardItem(QString("HML_Min"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_Abs"));
+    item = new QStandardItem(QString("HML_Abs"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_NumberInterchange"));
+    item = new QStandardItem(QString("HML_NumberInterchange"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_Sign"));
+    item = new QStandardItem(QString("HML_Sign"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_SignNull"));
+    item = new QStandardItem(QString("HML_SignNull"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_SumOfDigits"));
+    item = new QStandardItem(QString("HML_SumOfDigits"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_ZeroMatrix"));
+    item = new QStandardItem(QString("HML_ZeroMatrix"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_SumMatrix"));
+    item = new QStandardItem(QString("HML_SumMatrix"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_MaximumOfMatrix"));
+    item = new QStandardItem(QString("HML_MaximumOfMatrix"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_MinimumOfMatrix"));
+    item = new QStandardItem(QString("HML_MinimumOfMatrix"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_FillMatrix"));
+    item = new QStandardItem(QString("HML_FillMatrix"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_MatrixMinusMatrix"));
+    item = new QStandardItem(QString("HML_MatrixMinusMatrix"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_MatrixPlusMatrix"));
+    item = new QStandardItem(QString("HML_MatrixPlusMatrix"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_MatrixMultiplyNumber"));
+    item = new QStandardItem(QString("HML_MatrixMultiplyNumber"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_MatrixT"));
+    item = new QStandardItem(QString("HML_MatrixT"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_MatrixMultiplyMatrix"));
+    item = new QStandardItem(QString("HML_MatrixMultiplyMatrix"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_MatrixMultiplyMatrixT"));
+    item = new QStandardItem(QString("HML_MatrixMultiplyMatrixT"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_MatrixTMultiplyMatrix"));
+    item = new QStandardItem(QString("HML_MatrixTMultiplyMatrix"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_RandomIntMatrix"));
+    item = new QStandardItem(QString("HML_RandomIntMatrix"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_RandomIntMatrixInCols"));
+    item = new QStandardItem(QString("HML_RandomIntMatrixInCols"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_RandomIntMatrixInElements"));
+    item = new QStandardItem(QString("HML_RandomIntMatrixInElements"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_RandomIntMatrixInRows"));
+    item = new QStandardItem(QString("HML_RandomIntMatrixInRows"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_RandomIntVector"));
+    item = new QStandardItem(QString("HML_RandomIntVector"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_RandomIntVectorInElements"));
+    item = new QStandardItem(QString("HML_RandomIntVectorInElements"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_RandomBinaryMatrix"));
+    item = new QStandardItem(QString("HML_RandomBinaryMatrix"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_RandomBinaryVector"));
+    item = new QStandardItem(QString("HML_RandomBinaryVector"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_BernulliVector"));
+    item = new QStandardItem(QString("HML_BernulliVector"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_RandomArrangingObjectsIntoBaskets"));
+    item = new QStandardItem(QString("HML_RandomArrangingObjectsIntoBaskets"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_ColInterchange"));
+    item = new QStandardItem(QString("HML_ColInterchange"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_ColToMatrix"));
+    item = new QStandardItem(QString("HML_ColToMatrix"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_DeleteColInMatrix"));
+    item = new QStandardItem(QString("HML_DeleteColInMatrix"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_DeleteRowInMatrix"));
+    item = new QStandardItem(QString("HML_DeleteRowInMatrix"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_MatrixToCol"));
+    item = new QStandardItem(QString("HML_MatrixToCol"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_MatrixToMatrix"));
+    item = new QStandardItem(QString("HML_MatrixToMatrix"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_MatrixToRow"));
+    item = new QStandardItem(QString("HML_MatrixToRow"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_RowInterchange"));
+    item = new QStandardItem(QString("HML_RowInterchange"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_RowToMatrix"));
+    item = new QStandardItem(QString("HML_RowToMatrix"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_NumberOfDifferentValuesInMatrix"));
+    item = new QStandardItem(QString("HML_NumberOfDifferentValuesInMatrix"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_IdentityMatrix"));
+    item = new QStandardItem(QString("HML_IdentityMatrix"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_MixingVector"));
+    item = new QStandardItem(QString("HML_MixingVector"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_ReverseVector"));
+    item = new QStandardItem(QString("HML_ReverseVector"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_NumberOfDifferentValuesInVector"));
+    item = new QStandardItem(QString("HML_NumberOfDifferentValuesInVector"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_PowerOf"));
+    item = new QStandardItem(QString("HML_PowerOf"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_Parity"));
+    item = new QStandardItem(QString("HML_Parity"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_ArithmeticalProgression"));
+    item = new QStandardItem(QString("HML_ArithmeticalProgression"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_GeometricSeries"));
+    item = new QStandardItem(QString("HML_GeometricSeries"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_GreatestCommonDivisorEuclid"));
+    item = new QStandardItem(QString("HML_GreatestCommonDivisorEuclid"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_LeastCommonMultipleEuclid"));
+    item = new QStandardItem(QString("HML_LeastCommonMultipleEuclid"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_HowManyPowersOfTwo"));
+    item = new QStandardItem(QString("HML_HowManyPowersOfTwo"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_SumGeometricSeries"));
+    item = new QStandardItem(QString("HML_SumGeometricSeries"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_SumOfArithmeticalProgression"));
+    item = new QStandardItem(QString("HML_SumOfArithmeticalProgression"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_FibonacciNumber"));
+    item = new QStandardItem(QString("HML_FibonacciNumber"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_BoolCrossingTwoSegment"));
+    item = new QStandardItem(QString("HML_BoolCrossingTwoSegment"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_AcceptanceLimits"));
+    item = new QStandardItem(QString("HML_AcceptanceLimits"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_NoiseInVector"));
+    item = new QStandardItem(QString("HML_NoiseInVector"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_EuclidNorma"));
+    item = new QStandardItem(QString("HML_EuclidNorma"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_MixingVectorWithConjugateVector"));
+    item = new QStandardItem(QString("HML_MixingVectorWithConjugateVector"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_MixingRowsInOrder"));
+    item = new QStandardItem(QString("HML_MixingRowsInOrder"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_Chebychev"));
+    item = new QStandardItem(QString("HML_Chebychev"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_CityBlock"));
+    item = new QStandardItem(QString("HML_CityBlock"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_Euclid"));
+    item = new QStandardItem(QString("HML_Euclid"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_RightDerivative"));
+    item = new QStandardItem(QString("HML_RightDerivative"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_CenterDerivative"));
+    item = new QStandardItem(QString("HML_CenterDerivative"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_LeftDerivative"));
+    item = new QStandardItem(QString("HML_LeftDerivative"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_IntegralOfTrapezium"));
+    item = new QStandardItem(QString("HML_IntegralOfTrapezium"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_IntegralOfSimpson"));
+    item = new QStandardItem(QString("HML_IntegralOfSimpson"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_IntegralOfRectangle"));
+    item = new QStandardItem(QString("HML_IntegralOfRectangle"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_HeavisideFunction"));
+    item = new QStandardItem(QString("HML_HeavisideFunction"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_ExpMSxD2"));
+    item = new QStandardItem(QString("HML_ExpMSxD2"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_NormalizationNumberAll"));
+    item = new QStandardItem(QString("HML_NormalizationNumberAll"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_InverseNormalizationNumberAll"));
+    item = new QStandardItem(QString("HML_InverseNormalizationNumberAll"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_BinaryMonteCarloAlgorithm"));
+    item = new QStandardItem(QString("HML_BinaryMonteCarloAlgorithm"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_BubbleDescendingSort"));
+    item = new QStandardItem(QString("HML_BubbleDescendingSort"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_BubbleSort"));
+    item = new QStandardItem(QString("HML_BubbleSort"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_BubbleSortInGroups"));
+    item = new QStandardItem(QString("HML_BubbleSortInGroups"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_BubbleSortWithConjugateVector"));
+    item = new QStandardItem(QString("HML_BubbleSortWithConjugateVector"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_BubbleSortWithTwoConjugateVectors"));
+    item = new QStandardItem(QString("HML_BubbleSortWithTwoConjugateVectors"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_DensityOfDistributionOfNormalizedCenteredNormalDistribution"));
+    item = new QStandardItem(QString("HML_DensityOfDistributionOfNormalizedCenteredNormalDistribution"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_DistributionFunctionOfNormalizedCenteredNormalDistribution"));
+    item = new QStandardItem(QString("HML_DistributionFunctionOfNormalizedCenteredNormalDistribution"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_StdDevToVariance"));
+    item = new QStandardItem(QString("HML_StdDevToVariance"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_VarianceToStdDev"));
+    item = new QStandardItem(QString("HML_VarianceToStdDev"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_Mean"));
+    item = new QStandardItem(QString("HML_Mean"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_Median"));
+    item = new QStandardItem(QString("HML_Median"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_SampleCovariance"));
+    item = new QStandardItem(QString("HML_SampleCovariance"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_Variance"));
+    item = new QStandardItem(QString("HML_Variance"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_SinglepointCrossover"));
+    item = new QStandardItem(QString("HML_SinglepointCrossover"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_TwopointCrossover"));
+    item = new QStandardItem(QString("HML_TwopointCrossover"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_UniformCrossover"));
+    item = new QStandardItem(QString("HML_UniformCrossover"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_BinaryToDecimalFromPart"));
+    item = new QStandardItem(QString("HML_BinaryToDecimalFromPart"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_BinaryToDecimal"));
+    item = new QStandardItem(QString("HML_BinaryToDecimal"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_BinaryVectorToRealVector"));
+    item = new QStandardItem(QString("HML_BinaryVectorToRealVector"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_GrayCodeToBinaryFromPart"));
+    item = new QStandardItem(QString("HML_GrayCodeToBinaryFromPart"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_GrayCodeToBinary"));
+    item = new QStandardItem(QString("HML_GrayCodeToBinary"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_BinaryGrayVectorToRealVector"));
+    item = new QStandardItem(QString("HML_BinaryGrayVectorToRealVector"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_RandomVectorOfPermutation"));
+    item = new QStandardItem(QString("HML_RandomVectorOfPermutation"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_RandomMatrixOfPermutation"));
+    item = new QStandardItem(QString("HML_RandomMatrixOfPermutation"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_MutationBinaryMatrix"));
+    item = new QStandardItem(QString("HML_MutationBinaryMatrix"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_TournamentSelectionWithReturn"));
+    item = new QStandardItem(QString("HML_TournamentSelectionWithReturn"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_TournamentSelection"));
+    item = new QStandardItem(QString("HML_TournamentSelection"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_MakeVectorOfRankForRankSelection"));
+    item = new QStandardItem(QString("HML_MakeVectorOfRankForRankSelection"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_NormalizationVectorOne"));
+    item = new QStandardItem(QString("HML_NormalizationVectorOne"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_NormalizationVectorMaxMin"));
+    item = new QStandardItem(QString("HML_NormalizationVectorMaxMin"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_NormalizationVectorAll"));
+    item = new QStandardItem(QString("HML_NormalizationVectorAll"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_MakeVectorOfProbabilityForProportionalSelectionV2"));
+    item = new QStandardItem(QString("HML_MakeVectorOfProbabilityForProportionalSelectionV2"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_SelectItemOnProbability"));
+    item = new QStandardItem(QString("HML_SelectItemOnProbability"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_ProportionalSelection"));
+    item = new QStandardItem(QString("HML_ProportionalSelection"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_ProportionalSelectionV2"));
+    item = new QStandardItem(QString("HML_ProportionalSelectionV2"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_ProportionalSelectionV3"));
+    item = new QStandardItem(QString("HML_ProportionalSelectionV3"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_RankSelection"));
+    item = new QStandardItem(QString("HML_RankSelection"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_StandartBinaryGeneticAlgorithm"));
+    item = new QStandardItem(QString("HML_StandartBinaryGeneticAlgorithm"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_StandartRealGeneticAlgorithm"));
+    item = new QStandardItem(QString("HML_StandartRealGeneticAlgorithm"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_StandartGeneticAlgorithm"));
+    item = new QStandardItem(QString("HML_StandartGeneticAlgorithm"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_TestFunction_Ackley"));
+    item = new QStandardItem(QString("HML_TestFunction_Ackley"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_TestFunction_ParaboloidOfRevolution"));
+    item = new QStandardItem(QString("HML_TestFunction_ParaboloidOfRevolution"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_TestFunction_Rastrigin"));
+    item = new QStandardItem(QString("HML_TestFunction_Rastrigin"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_TestFunction_Rosenbrock"));
+    item = new QStandardItem(QString("HML_TestFunction_Rosenbrock"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_TestFunction_SumVector"));
+    item = new QStandardItem(QString("HML_TestFunction_SumVector"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_Factorial"));
+    item = new QStandardItem(QString("HML_Factorial"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_KCombinations"));
+    item = new QStandardItem(QString("HML_KCombinations"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_ProbabilityOfTournamentSelection"));
+    item = new QStandardItem(QString("HML_ProbabilityOfTournamentSelection"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_MakeVectorOfProbabilityForRanklSelection"));
+    item = new QStandardItem(QString("HML_MakeVectorOfProbabilityForRanklSelection"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_MakeVectorOfRankZeroForRankSelection"));
+    item = new QStandardItem(QString("HML_MakeVectorOfRankZeroForRankSelection"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_RandomUniformIntIncluding"));
+    item = new QStandardItem(QString("HML_RandomUniformIntIncluding"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_BubbleSortRowWithOtherConjugateRowsInMatrix"));
+    item = new QStandardItem(QString("HML_BubbleSortRowWithOtherConjugateRowsInMatrix"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_BubbleSortEveryRowInMatrix"));
+    item = new QStandardItem(QString("HML_BubbleSortEveryRowInMatrix"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_BubbleSortColWithOtherConjugateColsInMatrix"));
+    item = new QStandardItem(QString("HML_BubbleSortColWithOtherConjugateColsInMatrix"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_BubbleSortEveryColInMatrix"));
+    item = new QStandardItem(QString("HML_BubbleSortEveryColInMatrix"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_QuadraticEquation"));
+    item = new QStandardItem(QString("HML_QuadraticEquation"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_BellShapedKernelExp"));
+    item = new QStandardItem(QString("HML_BellShapedKernelExp"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_BellShapedKernelParabola"));
+    item = new QStandardItem(QString("HML_BellShapedKernelParabola"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_BellShapedKernelRectangle"));
+    item = new QStandardItem(QString("HML_BellShapedKernelRectangle"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_BellShapedKernelTriangle"));
+    item = new QStandardItem(QString("HML_BellShapedKernelTriangle"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_DerivativeOfBellShapedKernelExp"));
+    item = new QStandardItem(QString("HML_DerivativeOfBellShapedKernelExp"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_DerivativeOfBellShapedKernelParabola"));
+    item = new QStandardItem(QString("HML_DerivativeOfBellShapedKernelParabola"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_DerivativeOfBellShapedKernelRectangle"));
+    item = new QStandardItem(QString("HML_DerivativeOfBellShapedKernelRectangle"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_DerivativeOfBellShapedKernelTriangle"));
+    item = new QStandardItem(QString("HML_DerivativeOfBellShapedKernelTriangle"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_TrapeziformFuzzyNumber"));
+    item = new QStandardItem(QString("HML_TrapeziformFuzzyNumber"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_TestFunction_Binary"));
+    item = new QStandardItem(QString("HML_TestFunction_Binary"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_ProductOfElementsOfVector"));
+    item = new QStandardItem(QString("HML_ProductOfElementsOfVector"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_MixedMultiLogicVectorOfFullSearch"));
+    item = new QStandardItem(QString("HML_MixedMultiLogicVectorOfFullSearch"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_TestFunction_Real"));
+    item = new QStandardItem(QString("HML_TestFunction_Real"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_SearchElementInVector"));
+    item = new QStandardItem(QString("HML_SearchElementInVector"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_EqualityOfMatrixes"));
+    item = new QStandardItem(QString("HML_EqualityOfMatrixes"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_DependentNoiseInVector"));
+    item = new QStandardItem(QString("HML_DependentNoiseInVector"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_Minkovski"));
+    item = new QStandardItem(QString("HML_Minkovski"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_RealMonteCarloAlgorithm"));
+    item = new QStandardItem(QString("HML_RealMonteCarloAlgorithm"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_DichotomyOptimization"));
+    item = new QStandardItem(QString("HML_DichotomyOptimization"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_FibonacciOptimization"));
+    item = new QStandardItem(QString("HML_FibonacciOptimization"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_GoldenSectionOptimization"));
+    item = new QStandardItem(QString("HML_GoldenSectionOptimization"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_QuadraticFitOptimization"));
+    item = new QStandardItem(QString("HML_QuadraticFitOptimization"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_RealMonteCarloOptimization"));
+    item = new QStandardItem(QString("HML_RealMonteCarloOptimization"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_UniformSearchOptimization"));
+    item = new QStandardItem(QString("HML_UniformSearchOptimization"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_UniformSearchOptimizationN"));
+    item = new QStandardItem(QString("HML_UniformSearchOptimizationN"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_CheckForIdenticalRowsInMatrix"));
+    item = new QStandardItem(QString("HML_CheckForIdenticalRowsInMatrix"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_CheckForIdenticalColsInMatrix"));
+    item = new QStandardItem(QString("HML_CheckForIdenticalColsInMatrix"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_LeftBorderOfWilcoxonWFromTable"));
+    item = new QStandardItem(QString("HML_LeftBorderOfWilcoxonWFromTable"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_RightBorderOfWilcoxonWFromTable"));
+    item = new QStandardItem(QString("HML_RightBorderOfWilcoxonWFromTable"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_ProbabilityDensityFunctionOfInverseGaussianDistribution"));
+    item = new QStandardItem(QString("HML_ProbabilityDensityFunctionOfInverseGaussianDistribution"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_DistributionFunctionOfNormalDistribution"));
+    item = new QStandardItem(QString("HML_DistributionFunctionOfNormalDistribution"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_WilcoxonW"));
+    item = new QStandardItem(QString("HML_WilcoxonW"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_CompareMeanOfVectors"));
+    item = new QStandardItem(QString("HML_CompareMeanOfVectors"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_LineGeneralForm"));
+    item = new QStandardItem(QString("HML_LineGeneralForm"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_LineSlopeInterceptForm"));
+    item = new QStandardItem(QString("HML_LineSlopeInterceptForm"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_LineTwoPoint"));
+    item = new QStandardItem(QString("HML_LineTwoPoint"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_Parabola"));
+    item = new QStandardItem(QString("HML_Parabola"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_BinaryGeneticAlgorithmWDPOfNOfGPS"));
+    item = new QStandardItem(QString("HML_BinaryGeneticAlgorithmWDPOfNOfGPS"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_RealGeneticAlgorithmWDPOfNOfGPS"));
+    item = new QStandardItem(QString("HML_RealGeneticAlgorithmWDPOfNOfGPS"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_BinaryGeneticAlgorithmWDTS"));
+    item = new QStandardItem(QString("HML_BinaryGeneticAlgorithmWDTS"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_RealGeneticAlgorithmWDTS"));
+    item = new QStandardItem(QString("HML_RealGeneticAlgorithmWDTS"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_SinglepointCrossoverWithCopying"));
+    item = new QStandardItem(QString("HML_SinglepointCrossoverWithCopying"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_TwopointCrossoverWithCopying"));
+    item = new QStandardItem(QString("HML_TwopointCrossoverWithCopying"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_BinaryGeneticAlgorithmWCC"));
+    item = new QStandardItem(QString("HML_BinaryGeneticAlgorithmWCC"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_RealGeneticAlgorithmWCC"));
+    item = new QStandardItem(QString("HML_RealGeneticAlgorithmWCC"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_TestFunction_AdditivePotential"));
+    item = new QStandardItem(QString("HML_TestFunction_AdditivePotential"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_TestFunction_MultiplicativePotential"));
+    item = new QStandardItem(QString("HML_TestFunction_MultiplicativePotential"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_BinaryGeneticAlgorithmTournamentSelectionWithReturn"));
+    item = new QStandardItem(QString("HML_BinaryGeneticAlgorithmTournamentSelectionWithReturn"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_RealGeneticAlgorithmTournamentSelectionWithReturn"));
+    item = new QStandardItem(QString("HML_RealGeneticAlgorithmTournamentSelectionWithReturn"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_TestFunction_ReverseGriewank"));
+    item = new QStandardItem(QString("HML_TestFunction_ReverseGriewank"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_TestFunction_HyperEllipsoid"));
+    item = new QStandardItem(QString("HML_TestFunction_HyperEllipsoid"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_TestFunction_RotatedHyperEllipsoid"));
+    item = new QStandardItem(QString("HML_TestFunction_RotatedHyperEllipsoid"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_TestFunction_Wave"));
+    item = new QStandardItem(QString("HML_TestFunction_Wave"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_TestFunction_Multiextremal"));
+    item = new QStandardItem(QString("HML_TestFunction_Multiextremal"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_TestFunction_Multiextremal2"));
+    item = new QStandardItem(QString("HML_TestFunction_Multiextremal2"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_TestFunction_Sombrero"));
+    item = new QStandardItem(QString("HML_TestFunction_Sombrero"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_TestFunction_Himmelblau"));
+    item = new QStandardItem(QString("HML_TestFunction_Himmelblau"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_TestFunction_Katnikov"));
+    item = new QStandardItem(QString("HML_TestFunction_Katnikov"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_TestFunction_Multiextremal3"));
+    item = new QStandardItem(QString("HML_TestFunction_Multiextremal3"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_TestFunction_Multiextremal4"));
+    item = new QStandardItem(QString("HML_TestFunction_Multiextremal4"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_TestFunction_StepFunction"));
+    item = new QStandardItem(QString("HML_TestFunction_StepFunction"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_TestFunction_Rana"));
+    item = new QStandardItem(QString("HML_TestFunction_Rana"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_TestFunction_ShekelsFoxholes"));
+    item = new QStandardItem(QString("HML_TestFunction_ShekelsFoxholes"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_TestFunction_EggHolder"));
+    item = new QStandardItem(QString("HML_TestFunction_EggHolder"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_TestFunction_RastriginWithChange"));
+    item = new QStandardItem(QString("HML_TestFunction_RastriginWithChange"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_TestFunction_RastriginWithTurning"));
+    item = new QStandardItem(QString("HML_TestFunction_RastriginWithTurning"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_TestFunction_Schwefel"));
+    item = new QStandardItem(QString("HML_TestFunction_Schwefel"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_TestFunction_Griewangk"));
+    item = new QStandardItem(QString("HML_TestFunction_Griewangk"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_TestFunction_InvertedGriewangk"));
+    item = new QStandardItem(QString("HML_TestFunction_InvertedGriewangk"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_TestFunction_InvertedRosenbrock"));
+    item = new QStandardItem(QString("HML_TestFunction_InvertedRosenbrock"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_TestFunction_GaussianQuartic"));
+    item = new QStandardItem(QString("HML_TestFunction_GaussianQuartic"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_TestFunction_RastriginNovgorod"));
+    item = new QStandardItem(QString("HML_TestFunction_RastriginNovgorod"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_AlmostZero"));
+    item = new QStandardItem(QString("HML_AlmostZero"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_QuadraticEquationCount"));
+    item = new QStandardItem(QString("HML_QuadraticEquationCount"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_AlmostEqual"));
+    item = new QStandardItem(QString("HML_AlmostEqual"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_UncorrectedVariance"));
+    item = new QStandardItem(QString("HML_UncorrectedVariance"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_AnswerToTheUltimateQuestionOfLifeTheUniverseAndEverything"));
+    item = new QStandardItem(QString("HML_AnswerToTheUltimateQuestionOfLifeTheUniverseAndEverything"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_MeaningOfLife"));
+    item = new QStandardItem(QString("HML_MeaningOfLife"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_SinglepointCrossoverForReal"));
+    item = new QStandardItem(QString("HML_SinglepointCrossoverForReal"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_TwopointCrossoverForReal"));
+    item = new QStandardItem(QString("HML_TwopointCrossoverForReal"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_UniformCrossoverForReal"));
+    item = new QStandardItem(QString("HML_UniformCrossoverForReal"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_MeanOfUpperFilter"));
+    item = new QStandardItem(QString("HML_MeanOfUpperFilter"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_MeanOfLowerFilter"));
+    item = new QStandardItem(QString("HML_MeanOfLowerFilter"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_MeanOfFilter"));
+    item = new QStandardItem(QString("HML_MeanOfFilter"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_ArithmeticalCrossoverForReal"));
+    item = new QStandardItem(QString("HML_ArithmeticalCrossoverForReal"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_TestFunction_Bosom"));
+    item = new QStandardItem(QString("HML_TestFunction_Bosom"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_FlatCrossoverForReal"));
+    item = new QStandardItem(QString("HML_FlatCrossoverForReal"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_GeometricalCrossoverForReal"));
+    item = new QStandardItem(QString("HML_GeometricalCrossoverForReal"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_BLXCrossoverForReal"));
+    item = new QStandardItem(QString("HML_BLXCrossoverForReal"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_LinearCrossoverForReal"));
+    item = new QStandardItem(QString("HML_LinearCrossoverForReal"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_ExtendedLineForReal"));
+    item = new QStandardItem(QString("HML_ExtendedLineForReal"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_BinaryGeneticAlgorithmTwiceGenerations"));
+    item = new QStandardItem(QString("HML_BinaryGeneticAlgorithmTwiceGenerations"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_RealGeneticAlgorithmTwiceGenerations"));
+    item = new QStandardItem(QString("HML_RealGeneticAlgorithmTwiceGenerations"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_SeparateVectorLimitOnProductElements"));
+    item = new QStandardItem(QString("HML_SeparateVectorLimitOnProductElements"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_ChangeOrderInVector"));
+    item = new QStandardItem(QString("HML_ChangeOrderInVector"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_SeparateVectorLimitOnProductElementsTwo"));
+    item = new QStandardItem(QString("HML_SeparateVectorLimitOnProductElementsTwo"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_ShiftLeftVector"));
+    item = new QStandardItem(QString("HML_ShiftLeftVector"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_ShiftRightVector"));
+    item = new QStandardItem(QString("HML_ShiftRightVector"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_PendulumOfMaxwell"));
+    item = new QStandardItem(QString("HML_PendulumOfMaxwell"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_CentroidOfTrapeziformFuzzyNumber"));
+    item = new QStandardItem(QString("HML_CentroidOfTrapeziformFuzzyNumber"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_MaxiMinTrapeziformFuzzyNumbers"));
+    item = new QStandardItem(QString("HML_MaxiMinTrapeziformFuzzyNumbers"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_NonparametricEstimatorOfRegression"));
+    item = new QStandardItem(QString("HML_NonparametricEstimatorOfRegression"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_AcceptanceLimitsNumber"));
+    item = new QStandardItem(QString("HML_AcceptanceLimitsNumber"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_AlphaBlendingColorToColorR"));
+    item = new QStandardItem(QString("HML_AlphaBlendingColorToColorR"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_AlphaBlendingColorToColorG"));
+    item = new QStandardItem(QString("HML_AlphaBlendingColorToColorG"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_AlphaBlendingColorToColorB"));
+    item = new QStandardItem(QString("HML_AlphaBlendingColorToColorB"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_ColorFromGradientR"));
+    item = new QStandardItem(QString("HML_ColorFromGradientR"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_ColorFromGradientG"));
+    item = new QStandardItem(QString("HML_ColorFromGradientG"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_ColorFromGradientB"));
+    item = new QStandardItem(QString("HML_ColorFromGradientB"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_GiveRainbowColorR"));
+    item = new QStandardItem(QString("HML_GiveRainbowColorR"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_GiveRainbowColorG"));
+    item = new QStandardItem(QString("HML_GiveRainbowColorG"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_GiveRainbowColorB"));
+    item = new QStandardItem(QString("HML_GiveRainbowColorB"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_MutationBinaryVector"));
+    item = new QStandardItem(QString("HML_MutationBinaryVector"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_TrapeziformTruncatedFuzzyNumber"));
+    item = new QStandardItem(QString("HML_TrapeziformTruncatedFuzzyNumber"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_NewtonSecondLawForce"));
+    item = new QStandardItem(QString("HML_NewtonSecondLawForce"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_NewtonSecondLawAcceleration"));
+    item = new QStandardItem(QString("HML_NewtonSecondLawAcceleration"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_AcceptanceLimitsLeft"));
+    item = new QStandardItem(QString("HML_AcceptanceLimitsLeft"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_AcceptanceLimitsRight"));
+    item = new QStandardItem(QString("HML_AcceptanceLimitsRight"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_AcceptanceLimitsNumberLeft"));
+    item = new QStandardItem(QString("HML_AcceptanceLimitsNumberLeft"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("TMHL_AcceptanceLimitsNumberRight"));
+    item = new QStandardItem(QString("HML_AcceptanceLimitsNumberRight"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_NonparametricEstimatorOfDerivative"));
+    item = new QStandardItem(QString("HML_NonparametricEstimatorOfDerivative"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_NonparametricEstimatorOfDerivative2"));
+    item = new QStandardItem(QString("HML_NonparametricEstimatorOfDerivative2"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_NonparametricEstimatorOfDerivative4"));
+    item = new QStandardItem(QString("HML_NonparametricEstimatorOfDerivative4"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_NonparametricEstimatorOfDerivative5"));
+    item = new QStandardItem(QString("HML_NonparametricEstimatorOfDerivative5"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_MakingVectorForNonparametricEstimatorOfDerivative3"));
+    item = new QStandardItem(QString("HML_MakingVectorForNonparametricEstimatorOfDerivative3"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_NonparametricEstimatorOfDerivative3"));
+    item = new QStandardItem(QString("HML_NonparametricEstimatorOfDerivative3"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_NonparametricEstimatorOfDerivative6"));
+    item = new QStandardItem(QString("HML_NonparametricEstimatorOfDerivative6"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_MakingVectorForNonparametricEstimatorOfDerivative6"));
+    item = new QStandardItem(QString("HML_MakingVectorForNonparametricEstimatorOfDerivative6"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_NegativeColorR"));
+    item = new QStandardItem(QString("HML_NegativeColorR"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_NegativeColorG"));
+    item = new QStandardItem(QString("HML_NegativeColorG"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_NegativeColorB"));
+    item = new QStandardItem(QString("HML_NegativeColorB"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_GreyscaleR"));
+    item = new QStandardItem(QString("HML_GreyscaleR"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_GreyscaleG"));
+    item = new QStandardItem(QString("HML_GreyscaleG"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_GreyscaleB"));
+    item = new QStandardItem(QString("HML_GreyscaleB"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_DivideColorR"));
+    item = new QStandardItem(QString("HML_DivideColorR"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_DivideColorG"));
+    item = new QStandardItem(QString("HML_DivideColorG"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_DivideColorB"));
+    item = new QStandardItem(QString("HML_DivideColorB"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_SubtractColorR"));
+    item = new QStandardItem(QString("HML_SubtractColorR"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_SubtractColorG"));
+    item = new QStandardItem(QString("HML_SubtractColorG"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_SubtractColorB"));
+    item = new QStandardItem(QString("HML_SubtractColorB"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_MultiplyColorG"));
+    item = new QStandardItem(QString("HML_MultiplyColorG"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_MultiplyColorB"));
+    item = new QStandardItem(QString("HML_MultiplyColorB"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_MultiplyColorR"));
+    item = new QStandardItem(QString("HML_MultiplyColorR"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_AddColorR"));
+    item = new QStandardItem(QString("HML_AddColorR"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_AddColorG"));
+    item = new QStandardItem(QString("HML_AddColorG"));
     model->appendRow(item);
 
-    item = new QStandardItem(QString("MHL_AddColorB"));
+    item = new QStandardItem(QString("HML_AddColorB"));
     model->appendRow(item);
 
     model->sort(0);
@@ -1048,13 +1048,13 @@ void MainWindow::on_lineEdit_4_textChanged(const QString &arg1)
 }
 //---------------------------------------------------------------------------
 
-double Func(int *x,int VMHL_N)
+double Func(int *x,int VHML_N)
 {
     //Сумма всех элементов массива
-    return TMHL_SumVector(x,VMHL_N);
+    return HML_SumVector(x,VHML_N);
 }
 //---------------------------------------------------------------------------
-double Func2(double *x,int VMHL_N)
+double Func2(double *x,int VHML_N)
 {
     //Сумма всех элементов массива
     return -((x[0]-2)*(x[0]-2)+(x[1]-2)*(x[1]-2));
@@ -1081,7 +1081,7 @@ double Func4(double x)
     return (x-1)*(x-1);
 }
 //---------------------------------------------------------------------------
-void MainWindow::MHL_ShowText (QString TitleX)
+void MainWindow::HML_ShowText (QString TitleX)
 {
     /*
     Функция выводит число строку в textEdit.
@@ -1090,98 +1090,98 @@ void MainWindow::MHL_ShowText (QString TitleX)
     Возвращаемое значение:
      Отсутствует.
     */
-    QString VMHL_Result;
-    VMHL_Result=HQt_ShowText (TitleX);// из HarrixQtLibrary.h
-    Html=VMHL_Result;
+    QString VHML_Result;
+    VHML_Result=HQt_ShowText (TitleX);// из HarrixQtLibrary.h
+    Html=VHML_Result;
     HQt_AddHtml(Html);
 }
 //---------------------------------------------------------------------------
-template <class T> void MainWindow::MHL_ShowNumber (T VMHL_X, QString TitleX, QString NameX)
+template <class T> void MainWindow::HML_ShowNumber (T VHML_X, QString TitleX, QString NameX)
 {
     /*
-    Функция выводит число VMHL_X в textEdit.
+    Функция выводит число VHML_X в textEdit.
     Входные параметры:
-     VMHL_X - выводимое число;
+     VHML_X - выводимое число;
      TitleX - заголовок выводимого числа;
      NameX - обозначение числа.
     Возвращаемое значение:
      Отсутствует.
     */
-    QString VMHL_Result;
-    VMHL_Result=THQt_ShowNumber (VMHL_X, TitleX, NameX);// из HarrixQtLibrary.h
-    Html=VMHL_Result;
+    QString VHML_Result;
+    VHML_Result=THQt_ShowNumber (VHML_X, TitleX, NameX);// из HarrixQtLibrary.h
+    Html=VHML_Result;
     HQt_AddHtml(Html);
 }
 //---------------------------------------------------------------------------
-template <class T> QString MainWindow::MHL_NumberToText (T VMHL_X)
+template <class T> QString MainWindow::HML_NumberToText (T VHML_X)
 {
     /*
-    Функция выводит число VMHL_X в строку.
+    Функция выводит число VHML_X в строку.
     Входные параметры:
-     VMHL_X - выводимое число.
+     VHML_X - выводимое число.
     Возвращаемое значение:
      Строка, в которой записано число.
     */
-    QString VMHL_Result;
-    VMHL_Result=THQt_NumberToText (VMHL_X);
-    return VMHL_Result;
+    QString VHML_Result;
+    VHML_Result=THQt_NumberToText (VHML_X);
+    return VHML_Result;
 }
 //---------------------------------------------------------------------------
 
-template <class T> void MainWindow::MHL_ShowVector (T *VMHL_Vector, int VMHL_N, QString TitleVector, QString NameVector)
+template <class T> void MainWindow::HML_ShowVector (T *VHML_Vector, int VHML_N, QString TitleVector, QString NameVector)
 {
     /*
-    Функция выводит вектор VMHL_Vector в textEdit
+    Функция выводит вектор VHML_Vector в textEdit
     Входные параметры:
-     VMHL_Vector - указатель на выводимый вектор;
-     VMHL_N - количество элементов вектора;
+     VHML_Vector - указатель на выводимый вектор;
+     VHML_N - количество элементов вектора;
      TitleVector - заголовок выводимого вектора;
      NameVector - обозначение вектора.
     Возвращаемое значение:
      Отсутствует.
     */
-    QString VMHL_Result;
-    VMHL_Result=THQt_ShowVector (VMHL_Vector,VMHL_N, TitleVector, NameVector);// из HarrixQtLibrary.h
-    Html=VMHL_Result;
+    QString VHML_Result;
+    VHML_Result=THQt_ShowVector (VHML_Vector,VHML_N, TitleVector, NameVector);// из HarrixQtLibrary.h
+    Html=VHML_Result;
     HQt_AddHtml(Html);
 }
 //---------------------------------------------------------------------------
 
-template <class T> void MainWindow::MHL_ShowVectorT (T *VMHL_Vector, int VMHL_N, QString TitleVector, QString NameVector)
+template <class T> void MainWindow::HML_ShowVectorT (T *VHML_Vector, int VHML_N, QString TitleVector, QString NameVector)
 {
     /*
-    Функция выводит вектор VMHL_Vector в textEdit в траснпонированном виде
+    Функция выводит вектор VHML_Vector в textEdit в траснпонированном виде
     Входные параметры:
-     VMHL_Vector - указатель на выводимый вектор;
-     VMHL_N - количество элементов вектора;
+     VHML_Vector - указатель на выводимый вектор;
+     VHML_N - количество элементов вектора;
      TitleVector - заголовок выводимого вектора;
      NameVector - обозначение вектора.
     Возвращаемое значение:
      Отсутствует.
     */
-    QString VMHL_Result;
-    VMHL_Result=THQt_ShowVectorT (VMHL_Vector,VMHL_N, TitleVector, NameVector);// из HarrixQtLibrary.h
-    Html=VMHL_Result;
+    QString VHML_Result;
+    VHML_Result=THQt_ShowVectorT (VHML_Vector,VHML_N, TitleVector, NameVector);// из HarrixQtLibrary.h
+    Html=VHML_Result;
     HQt_AddHtml(Html);
 }
 //---------------------------------------------------------------------------
 
-template <class T> void MainWindow::MHL_ShowMatrix (T **VMHL_Matrix, int VMHL_N, int VMHL_M, QString TitleMatrix, QString NameMatrix)
+template <class T> void MainWindow::HML_ShowMatrix (T **VHML_Matrix, int VHML_N, int VHML_M, QString TitleMatrix, QString NameMatrix)
 {
     /*
-    Функция выводит матрицу VMHL_Matrix в textEdit
+    Функция выводит матрицу VHML_Matrix в textEdit
     Входные параметры:
-     VMHL_Matrix - указатель на указатель на выводимую матрицу;
-     VMHL_N - количество строк в матрице;
-     VMHL_M - количество столбцов в матрице;
+     VHML_Matrix - указатель на указатель на выводимую матрицу;
+     VHML_N - количество строк в матрице;
+     VHML_M - количество столбцов в матрице;
      TitleMatrix - заголовок выводимой матрицы;
      NameMatrix - обозначение матрицы.
     Возвращаемое значение:
      Отсутствует.
     */
-    QString VMHL_Result;
-    VMHL_Result=THQt_ShowMatrix (VMHL_Matrix, VMHL_N ,VMHL_M, TitleMatrix, NameMatrix);// из HarrixQtLibrary.h
-    Html=VMHL_Result;
+    QString VHML_Result;
+    VHML_Result=THQt_ShowMatrix (VHML_Matrix, VHML_N ,VHML_M, TitleMatrix, NameMatrix);// из HarrixQtLibrary.h
+    Html=VHML_Result;
     HQt_AddHtml(Html);
 }
 //---------------------------------------------------------------------------
@@ -1198,19 +1198,19 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
     //Сюда нужно добавить код
 
     //используем результат
-    if (NameFunction=="TMHL_FillVector")
+    if (NameFunction=="HML_FillVector")
     {
-        int VMHL_N=10;//Размер массива
+        int VHML_N=10;//Размер массива
         int *a;
-        a=new int[VMHL_N];
+        a=new int[VHML_N];
 
         int x=5;//заполнитель
 
         //Вызов функции
-        TMHL_FillVector(a,VMHL_N,x);
+        HML_FillVector(a,VHML_N,x);
 
         //Используем полученный результат
-        MHL_ShowVector (a,VMHL_N,"Заполненный вектор", "a");
+        HML_ShowVector (a,VHML_N,"Заполненный вектор", "a");
         //Заполненный вектор:
         // a[0] = 5
         // a[1] = 5
@@ -1225,20 +1225,20 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] a;
     }
 
-    if (NameFunction=="TMHL_MaximumOfVector")
+    if (NameFunction=="HML_MaximumOfVector")
     {
-        int VMHL_N=10;//Размер массива
+        int VHML_N=10;//Размер массива
         double max;
         double *a;
-        a=new double[VMHL_N];
+        a=new double[VHML_N];
 
-        for (int i=0;i<VMHL_N;i++) a[i]=MHL_RandomNumber();//Заполняем случайными значениями
+        for (int i=0;i<VHML_N;i++) a[i]=HML_RandomNumber();//Заполняем случайными значениями
 
         //Вызов функции
-        max=TMHL_MaximumOfVector(a,VMHL_N);
+        max=HML_MaximumOfVector(a,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (a,VMHL_N,"Заполненный вектор", "a");
+        HML_ShowVector (a,VHML_N,"Заполненный вектор", "a");
         //Заполненный вектор:
         //a =
         //0.0988159
@@ -1252,27 +1252,27 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //0.604309
         //0.917114
 
-        MHL_ShowNumber (max,"Максимальное значение в векторе", "max");
+        HML_ShowNumber (max,"Максимальное значение в векторе", "max");
         //Максимальное значение в векторе:
         //max=0.937286
 
         delete [] a;
     }
 
-    if (NameFunction=="TMHL_MinimumOfVector")
+    if (NameFunction=="HML_MinimumOfVector")
     {
-        int VMHL_N=10;//Размер массива
+        int VHML_N=10;//Размер массива
         double min;
         double *a;
-        a=new double[VMHL_N];
+        a=new double[VHML_N];
 
-        for (int i=0;i<VMHL_N;i++) a[i]=MHL_RandomNumber();//Заполняем случайными значениями
+        for (int i=0;i<VHML_N;i++) a[i]=HML_RandomNumber();//Заполняем случайными значениями
 
         //Вызов функции
-        min=TMHL_MinimumOfVector(a,VMHL_N);
+        min=HML_MinimumOfVector(a,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (a,VMHL_N,"Заполненный вектор", "a");
+        HML_ShowVector (a,VHML_N,"Заполненный вектор", "a");
         //Заполненный вектор:
         //a =
         //0.777496
@@ -1286,27 +1286,27 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //0.491394
         //0.0112305
 
-        MHL_ShowNumber (min,"Минимальное значение в векторе", "min");
+        HML_ShowNumber (min,"Минимальное значение в векторе", "min");
         //Максимальное значение в векторе:
         //max=0.0112305
 
         delete [] a;
     }
 
-    if (NameFunction=="TMHL_SumVector")
+    if (NameFunction=="HML_SumVector")
     {
-        int VMHL_N=10;//Размер массива
+        int VHML_N=10;//Размер массива
         double sum;
         double *a;
-        a=new double[VMHL_N];
+        a=new double[VHML_N];
 
-        for (int i=0;i<VMHL_N;i++) a[i]=MHL_RandomNumber();//Заполняем случайными значениями
+        for (int i=0;i<VHML_N;i++) a[i]=HML_RandomNumber();//Заполняем случайными значениями
 
         //Вызов функции
-        sum=TMHL_SumVector(a,VMHL_N);
+        sum=HML_SumVector(a,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (a,VMHL_N,"Заполненный вектор", "a");
+        HML_ShowVector (a,VHML_N,"Заполненный вектор", "a");
         //Заполненный вектор:
         //a =
         //0.886475
@@ -1320,27 +1320,27 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //0.188904
         //0.727936
 
-        MHL_ShowNumber (sum,"Сумма элементов массива", "sum");
+        HML_ShowNumber (sum,"Сумма элементов массива", "sum");
         //Сумма элементов массива:
         //sum=4.68765
 
         delete [] a;
     }
 
-    if (NameFunction=="TMHL_SumSquareVector")
+    if (NameFunction=="HML_SumSquareVector")
     {
-        int VMHL_N=10;//Размер массива
+        int VHML_N=10;//Размер массива
         double sum;
         double *a;
-        a=new double[VMHL_N];
+        a=new double[VHML_N];
 
-        for (int i=0;i<VMHL_N;i++) a[i]=i;//Заполняем значениями
+        for (int i=0;i<VHML_N;i++) a[i]=i;//Заполняем значениями
 
         //Вызов функции
-        sum=TMHL_SumSquareVector(a,VMHL_N);
+        sum=HML_SumSquareVector(a,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (a,VMHL_N,"Заполненный вектор", "a");
+        HML_ShowVector (a,VHML_N,"Заполненный вектор", "a");
         //Заполненный вектор:
         //a =
         //0
@@ -1354,24 +1354,24 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //8
         //9
 
-        MHL_ShowNumber (sum,"Сумма квадратов элементов массива", "sum");
+        HML_ShowNumber (sum,"Сумма квадратов элементов массива", "sum");
         //Сумма квадратов элементов массива:
         //sum=285
 
         delete [] a;
     }
 
-    if (NameFunction=="TMHL_ZeroVector")
+    if (NameFunction=="HML_ZeroVector")
     {
-        int VMHL_N=10;//Размер массива
+        int VHML_N=10;//Размер массива
         double *a;
-        a=new double[VMHL_N];
+        a=new double[VHML_N];
 
         //Вызов функции
-        TMHL_ZeroVector(a,VMHL_N);
+        HML_ZeroVector(a,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (a,VMHL_N,"Зануленный вектор", "a");
+        HML_ShowVector (a,VHML_N,"Зануленный вектор", "a");
         //Зануленный вектор:
         //a =
         //0
@@ -1388,22 +1388,22 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] a;
     }
 
-    if (NameFunction=="TMHL_VectorToVector")
+    if (NameFunction=="HML_VectorToVector")
     {
-        int VMHL_N=10;//Размер массива
+        int VHML_N=10;//Размер массива
 
         double *a;
-        a=new double[VMHL_N];
-        for (int i=0;i<VMHL_N;i++) a[i]=MHL_RandomNumber();//Заполняем случайными значениями
+        a=new double[VHML_N];
+        for (int i=0;i<VHML_N;i++) a[i]=HML_RandomNumber();//Заполняем случайными значениями
 
         double *b;
-        b=new double[VMHL_N];
+        b=new double[VHML_N];
 
         //Вызов функции
-        TMHL_VectorToVector(a,b,VMHL_N);
+        HML_VectorToVector(a,b,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (a,VMHL_N,"Первоначальный вектор", "a");
+        HML_ShowVector (a,VHML_N,"Первоначальный вектор", "a");
         //Первоначальный вектор:
         //a =
         //0.874634
@@ -1417,7 +1417,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //0.186462
         //0.562805
 
-        MHL_ShowVector (b,VMHL_N,"Вектор, в который скопировали первый", "b");
+        HML_ShowVector (b,VHML_N,"Вектор, в который скопировали первый", "b");
         //Вектор, в который скопировали первый:
         //b =
         //0.874634
@@ -1435,108 +1435,108 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] b;
     }
 
-    if (NameFunction=="MHL_DegToRad")
+    if (NameFunction=="HML_DegToRad")
     {
         double Rad;
         double Deg=90;//Угол в градусах
 
         //Вызов функции
-        Rad=MHL_DegToRad(Deg);
+        Rad=HML_DegToRad(Deg);
 
         //Используем полученный результат
-        MHL_ShowNumber(Rad,"Угол "+MHL_NumberToText(Deg)+" градусов","равен в радианах");
+        HML_ShowNumber(Rad,"Угол "+HML_NumberToText(Deg)+" градусов","равен в радианах");
         //Угол 90 градусов:
         //равен в радианах=1.5708
     }
 
-    if (NameFunction=="MHL_RadToDeg")
+    if (NameFunction=="HML_RadToDeg")
     {
         double Deg;
-        double Rad=MHL_PI;//Угол в радианах
+        double Rad=HML_PI;//Угол в радианах
 
         //Вызов функции
-        Deg=MHL_RadToDeg(Rad);
+        Deg=HML_RadToDeg(Rad);
 
         //Используем полученный результат
-        MHL_ShowNumber(Deg,"Угол "+MHL_NumberToText(Rad)+" радиан","равен в градусах");
+        HML_ShowNumber(Deg,"Угол "+HML_NumberToText(Rad)+" радиан","равен в градусах");
         //Угол 3.14159 радиан:
         //равен в градусах=180
     }
 
-    if (NameFunction=="MHL_BitNumber")
+    if (NameFunction=="HML_BitNumber")
     {
         int x;
         double P=0.8;//Угол в радианах
 
         //Вызов функции
-        x=MHL_BitNumber(P);
+        x=HML_BitNumber(P);
 
         //Используем полученный результат
-        MHL_ShowNumber(x,"Из 0 и 1 с вероятностью "+MHL_NumberToText(P),"выбрано");
+        HML_ShowNumber(x,"Из 0 и 1 с вероятностью "+HML_NumberToText(P),"выбрано");
 
         //Вызов функции
-        x=MHL_BitNumber();
+        x=HML_BitNumber();
 
         //Используем полученный результат
-        MHL_ShowNumber(x,"Из 0 и 1 с вероятностью 0.5","выбрано");
+        HML_ShowNumber(x,"Из 0 и 1 с вероятностью 0.5","выбрано");
     }
 
-    if (NameFunction=="MHL_RandomUniform")
+    if (NameFunction=="HML_RandomUniform")
     {
         double x;
 
         //Вызов функции
-        x=MHL_RandomUniform(10,100);
+        x=HML_RandomUniform(10,100);
 
         //Используем полученный результат
-        MHL_ShowNumber(x,"Случайное число из интервала [10;100]","x");
+        HML_ShowNumber(x,"Случайное число из интервала [10;100]","x");
         //Случайное число из интервала [10;100]:
         //x=68.4308
     }
 
-    if (NameFunction=="MHL_RandomRealMatrix")
+    if (NameFunction=="HML_RandomRealMatrix")
     {
         int i;
-        int VMHL_N=3;//Размер массива (число строк)
-        int VMHL_M=3;//Размер массива (число столбцов)
+        int VHML_N=3;//Размер массива (число строк)
+        int VHML_M=3;//Размер массива (число столбцов)
         double **a;
-        a=new double*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) a[i]=new double[VMHL_M];
+        a=new double*[VHML_N];
+        for (i=0;i<VHML_N;i++) a[i]=new double[VHML_M];
 
         double Left=-3;//левая граница интервала;
         double Right=3;//правая граница интервала;
 
         //Вызов функции
-        MHL_RandomRealMatrix(a,Left,Right,VMHL_N,VMHL_M);
+        HML_RandomRealMatrix(a,Left,Right,VHML_N,VHML_M);
 
         //Используем полученный результат
-        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Случайная матрица", "a");
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Случайная матрица", "a");
         //Случайная матрица:
         //a =
         //1.97571	0.862793	-0.357422
         //-2.62701	-0.202515	-2.79932
         //1.38794	1.35535	-2.29449
 
-        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        for (i=0;i<VHML_N;i++) delete [] a[i];
         delete [] a;
     }
 
-    if (NameFunction=="MHL_RandomNormal")
+    if (NameFunction=="HML_RandomNormal")
     {
         double x;
         double Mean=10;//математическое ожидание
         double StdDev=3;//среднеквадратичное отклонение
 
         //Вызов функции
-        x=MHL_RandomNormal(Mean,StdDev);
+        x=HML_RandomNormal(Mean,StdDev);
 
         //Используем полученный результат
-        MHL_ShowNumber(x,"Случайное число по нормальному закону (Mean="+MHL_NumberToText(Mean)+", StdDev="+MHL_NumberToText(StdDev)+")","x");
+        HML_ShowNumber(x,"Случайное число по нормальному закону (Mean="+HML_NumberToText(Mean)+", StdDev="+HML_NumberToText(StdDev)+")","x");
         //Случайное число по нормальному закону (Mean=10, StdDev=3):
         //x=10.9968
     }
 
-    if (NameFunction=="MHL_RandomUniformInt")
+    if (NameFunction=="HML_RandomUniformInt")
     {
         double x;
         int s0=0,s1=0,s2=0,s3=0;
@@ -1544,7 +1544,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //Вызов функции
         for (int i=0;i<1000;i++)
         {
-            x=MHL_RandomUniformInt(0,3);
+            x=HML_RandomUniformInt(0,3);
             if (x==0) s0++;
             if (x==1) s1++;
             if (x==2) s2++;
@@ -1552,11 +1552,11 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         }
 
         //Используем полученный результат
-        MHL_ShowNumber(x,"Случайное целое число из интервала [0;3)","x");
-        MHL_ShowNumber(s0,"Число выпадений 0","s0");
-        MHL_ShowNumber(s1,"Число выпадений 1","s0");
-        MHL_ShowNumber(s2,"Число выпадений 2","s0");
-        MHL_ShowNumber(s3,"Число выпадений 3","s0");
+        HML_ShowNumber(x,"Случайное целое число из интервала [0;3)","x");
+        HML_ShowNumber(s0,"Число выпадений 0","s0");
+        HML_ShowNumber(s1,"Число выпадений 1","s0");
+        HML_ShowNumber(s2,"Число выпадений 2","s0");
+        HML_ShowNumber(s3,"Число выпадений 3","s0");
         //Случайное целое число из интервала [0;3):
         //x=1
         //Число выпадений 0:
@@ -1569,18 +1569,18 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //s0=0
     }
 
-    if (NameFunction=="MHL_RandomRealMatrixInCols")
+    if (NameFunction=="HML_RandomRealMatrixInCols")
     {
         int i;
-        int VMHL_N=3;//Размер массива (число строк)
-        int VMHL_M=3;//Размер массива (число столбцов)
+        int VHML_N=3;//Размер массива (число строк)
+        int VHML_M=3;//Размер массива (число столбцов)
         double **a;
-        a=new double*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) a[i]=new double[VMHL_M];
+        a=new double*[VHML_N];
+        for (i=0;i<VHML_N;i++) a[i]=new double[VHML_M];
         double *Left;
-        Left=new double[VMHL_M];
+        Left=new double[VHML_M];
         double *Right;
-        Right=new double[VMHL_M];
+        Right=new double[VHML_M];
 
         Left[0]=-5;//левая границы интервала изменения 1 столбца
         Right[0]=-4; //правая граница интервала изменения 1 столбца
@@ -1592,91 +1592,91 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         Right[2]=200; //правая граница интервала изменения 3 столбца
 
         //Вызов функции
-        MHL_RandomRealMatrixInCols(a,Left,Right,VMHL_N,VMHL_M);
+        HML_RandomRealMatrixInCols(a,Left,Right,VHML_N,VHML_M);
 
         //Используем полученный результат
-        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Случайная матрица", "a");
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Случайная матрица", "a");
         //Случайная матрица:
         //a =
         //-4.20267	2.20367	148.468
         //-4.42432	2.09418	138.654
         //-4.07089	1.95831	140.198
 
-        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        for (i=0;i<VHML_N;i++) delete [] a[i];
         delete [] a;
         delete [] Left;
         delete [] Right;
     }
 
-    if (NameFunction=="MHL_RandomRealMatrixInElements")
+    if (NameFunction=="HML_RandomRealMatrixInElements")
     {
         int i,j;
-        int VMHL_N=3;//Размер массива (число строк)
-        int VMHL_M=3;//Размер массива (число столбцов)
+        int VHML_N=3;//Размер массива (число строк)
+        int VHML_M=3;//Размер массива (число столбцов)
         double **a;
-        a=new double*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) a[i]=new double[VMHL_M];
+        a=new double*[VHML_N];
+        for (i=0;i<VHML_N;i++) a[i]=new double[VHML_M];
         double **Left;
-        Left=new double*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) Left[i]=new double[VMHL_M];
+        Left=new double*[VHML_N];
+        for (i=0;i<VHML_N;i++) Left[i]=new double[VHML_M];
         double **Right;
-        Right=new double*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) Right[i]=new double[VMHL_M];
+        Right=new double*[VHML_N];
+        for (i=0;i<VHML_N;i++) Right[i]=new double[VHML_M];
 
         //Возьмем для примера границы интервала равными около номера ячейки в матрице
-        for (i=0;i<VMHL_N;i++)
-            for (j=0;j<VMHL_M;j++)
+        for (i=0;i<VHML_N;i++)
+            for (j=0;j<VHML_M;j++)
             {
-                Left[i][j]=i*VMHL_N+j-0.1;
+                Left[i][j]=i*VHML_N+j-0.1;
                 Right[i][j]=Left[i][j]+0.2;
             }
 
         //Вызов функции
-        MHL_RandomRealMatrixInElements(a,Left,Right,VMHL_N,VMHL_M);
+        HML_RandomRealMatrixInElements(a,Left,Right,VHML_N,VHML_M);
 
         //Используем полученный результат
 
-        MHL_ShowMatrix (Left,VMHL_N,VMHL_M,"Матрица левых границ", "Left");
+        HML_ShowMatrix (Left,VHML_N,VHML_M,"Матрица левых границ", "Left");
         // Матрица левых границ:
         //Left =
         //-0.1	0.9	1.9
         //2.9	3.9	4.9
         //5.9	6.9	7.9
 
-        MHL_ShowMatrix (Right,VMHL_N,VMHL_M,"Матрица правых границ", "Right");
+        HML_ShowMatrix (Right,VHML_N,VHML_M,"Матрица правых границ", "Right");
         // Матрица правых границ:
         //Right =
         //0.1	1.1	2.1
         //3.1	4.1	5.1
         //6.1	7.1	8.1
 
-        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Случайная матрица", "a");
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Случайная матрица", "a");
         // Случайная матрица:
         //a =
         //0.0829529	1.04504	1.9892
         //2.90126	3.92388	4.90221
         //5.96102	6.90623	8.09661
 
-        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        for (i=0;i<VHML_N;i++) delete [] a[i];
         delete [] a;
-        for (i=0;i<VMHL_N;i++) delete [] Left[i];
+        for (i=0;i<VHML_N;i++) delete [] Left[i];
         delete [] Left;
-        for (i=0;i<VMHL_N;i++) delete [] Right[i];
+        for (i=0;i<VHML_N;i++) delete [] Right[i];
         delete [] Right;
     }
 
-    if (NameFunction=="MHL_RandomRealMatrixInRows")
+    if (NameFunction=="HML_RandomRealMatrixInRows")
     {
         int i;
-        int VMHL_N=3;//Размер массива (число строк)
-        int VMHL_M=3;//Размер массива (число столбцов)
+        int VHML_N=3;//Размер массива (число строк)
+        int VHML_M=3;//Размер массива (число столбцов)
         double **a;
-        a=new double*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) a[i]=new double[VMHL_M];
+        a=new double*[VHML_N];
+        for (i=0;i<VHML_N;i++) a[i]=new double[VHML_M];
         double *Left;
-        Left=new double[VMHL_N];
+        Left=new double[VHML_N];
         double *Right;
-        Right=new double[VMHL_N];
+        Right=new double[VHML_N];
 
         Left[0]=-5;//левая границы интервала изменения 1 строки
         Right[0]=-4; //правая граница интервала изменения 1 строки
@@ -1688,37 +1688,37 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         Right[2]=200; //правая граница интервала изменения 3 строки
 
         //Вызов функции
-        MHL_RandomRealMatrixInRows(a,Left,Right,VMHL_N,VMHL_M);
+        HML_RandomRealMatrixInRows(a,Left,Right,VHML_N,VHML_M);
 
         //Используем полученный результат
 
-        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Случайная матрица", "a");
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Случайная матрица", "a");
         // Случайная матрица:
         //a =
         //-4.98376	-4.64868	-4.38959
         //1.14386	2.70071	2.76151
         //141.309	192.12	100.122
 
-        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        for (i=0;i<VHML_N;i++) delete [] a[i];
         delete [] a;
         delete [] Left;
         delete [] Right;
     }
 
-    if (NameFunction=="MHL_RandomRealVector")
+    if (NameFunction=="HML_RandomRealVector")
     {
-        int VMHL_N=10;//Размер массива
+        int VHML_N=10;//Размер массива
         double *a;
-        a=new double[VMHL_N];
+        a=new double[VHML_N];
 
         double Left=-3;
         double Right=3;
 
         //Вызов функции
-        MHL_RandomRealVector(a,Left,Right,VMHL_N);
+        HML_RandomRealVector(a,Left,Right,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (a,VMHL_N,"Массив", "a");
+        HML_ShowVector (a,VHML_N,"Массив", "a");
         //a =
         //1.73822
         //-0.406311
@@ -1734,40 +1734,40 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] a;
     }
 
-    if (NameFunction=="MHL_RandomRealVectorInElements")
+    if (NameFunction=="HML_RandomRealVectorInElements")
     {
-        int VMHL_N=2;//Размер массива
+        int VHML_N=2;//Размер массива
         double *a;
-        a=new double[VMHL_N];
+        a=new double[VHML_N];
 
         double *Left;
-        Left=new double[VMHL_N];
+        Left=new double[VHML_N];
         Left[0]=-3;//Левая граница изменения первого элемента массива
         Left[1]=5;//Левая граница изменения второго элемента массива
 
         double *Right;
-        Right=new double[VMHL_N];
+        Right=new double[VHML_N];
         Right[0]=3;//Правая граница изменения первого элемента массива
         Right[1]=10;//Правая граница изменения второго элемента массива
 
         //Вызов функции
-        MHL_RandomRealVectorInElements(a,Left,Right,VMHL_N);
+        HML_RandomRealVectorInElements(a,Left,Right,VHML_N);
 
         //Используем полученный результат
 
-        MHL_ShowVector (Left,VMHL_N,"Массив левых границ", "Left");
+        HML_ShowVector (Left,VHML_N,"Массив левых границ", "Left");
         // Массив левых границ:
         //Left =
         //-3
         //5
 
-        MHL_ShowVector (Right,VMHL_N,"Массив правых границ", "Right");
+        HML_ShowVector (Right,VHML_N,"Массив правых границ", "Right");
         // Массив правых границ:
         //Right =
         //3
         //10
 
-        MHL_ShowVector (a,VMHL_N,"Случайных массив", "a");
+        HML_ShowVector (a,VHML_N,"Случайных массив", "a");
         // Случайных массив:
         //a =
         //1.32111
@@ -1778,18 +1778,18 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] Right;
     }
 
-    if (NameFunction=="MHL_RandomVectorOfProbability")
+    if (NameFunction=="HML_RandomVectorOfProbability")
     {
-        int VMHL_N=10;//Размер массива (число строк)
+        int VHML_N=10;//Размер массива (число строк)
         double *a;
-        a=new double[VMHL_N];
+        a=new double[VHML_N];
 
         //Заполним вектор случайными значениями вероятностей
         //Вызов функции
-        MHL_RandomVectorOfProbability(a, VMHL_N);
+        HML_RandomVectorOfProbability(a, VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (a,VMHL_N,"Вектор вероятностей выбора", "a");
+        HML_ShowVector (a,VHML_N,"Вектор вероятностей выбора", "a");
         // Вектор вероятностей выбора:
         //a =
         //0.0662721
@@ -1803,187 +1803,187 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //0.127822
         //0.114404
 
-        MHL_ShowNumber (TMHL_SumVector(a,VMHL_N),"Его сумма", "Sum");
+        HML_ShowNumber (HML_SumVector(a,VHML_N),"Его сумма", "Sum");
         // Его сумма:
         //Sum=1
     }
 
-    if (NameFunction=="MHL_Cos")
+    if (NameFunction=="HML_Cos")
     {
         double y;
-        double Angle=MHL_PI;//Угол в радинах
+        double Angle=HML_PI;//Угол в радинах
 
         //Вызов функции
-        y=MHL_Cos(Angle);
+        y=HML_Cos(Angle);
 
         //Используем полученный результат
-        MHL_ShowNumber(y,"Косинус угла "+MHL_NumberToText(Angle)+" радианов","равен");
+        HML_ShowNumber(y,"Косинус угла "+HML_NumberToText(Angle)+" радианов","равен");
         //Косинус угла 3.14159 радианов:
         //равен=-1
     }
 
-    if (NameFunction=="MHL_CosDeg")
+    if (NameFunction=="HML_CosDeg")
     {
         double y;
         double Angle=180;//Угол в градусах
 
         //Вызов функции
-        y=MHL_CosDeg(Angle);
+        y=HML_CosDeg(Angle);
 
         //Используем полученный результат
-        MHL_ShowNumber(y,"Косинус угла "+MHL_NumberToText(Angle)+" градусов","равен");
+        HML_ShowNumber(y,"Косинус угла "+HML_NumberToText(Angle)+" градусов","равен");
         //Косинус угла 180 градусов:
         //равен=-1
     }
 
-    if (NameFunction=="MHL_Cosec")
+    if (NameFunction=="HML_Cosec")
     {
         double y;
-        double Angle=MHL_PI/4.;//Угол в радинах
+        double Angle=HML_PI/4.;//Угол в радинах
 
         //Вызов функции
-        y=MHL_Cosec(Angle);
+        y=HML_Cosec(Angle);
 
         //Используем полученный результат
-        MHL_ShowNumber(y,"Косеканс угла "+MHL_NumberToText(Angle)+" радианов","равен");
+        HML_ShowNumber(y,"Косеканс угла "+HML_NumberToText(Angle)+" радианов","равен");
         //Косеканс угла 0.785398 радианов:
         //равен=1.41421
     }
 
-    if (NameFunction=="MHL_CosecDeg")
+    if (NameFunction=="HML_CosecDeg")
     {
         double y;
         double Angle=45;//Угол в градусах
 
         //Вызов функции
-        y=MHL_CosecDeg(Angle);
+        y=HML_CosecDeg(Angle);
 
         //Используем полученный результат
-        MHL_ShowNumber(y,"Косеканс угла "+MHL_NumberToText(Angle)+" градусов","равен");
+        HML_ShowNumber(y,"Косеканс угла "+HML_NumberToText(Angle)+" градусов","равен");
         //Косеканс угла 45 градусов:
         //равен=1.41421
     }
 
-    if (NameFunction=="MHL_Cotan")
+    if (NameFunction=="HML_Cotan")
     {
         double y;
-        double Angle=MHL_PI/4.;//Угол в радинах
+        double Angle=HML_PI/4.;//Угол в радинах
 
         //Вызов функции
-        y=MHL_Cotan(Angle);
+        y=HML_Cotan(Angle);
 
         //Используем полученный результат
-        MHL_ShowNumber(y,"Котангенс угла "+MHL_NumberToText(Angle)+" радианов","равен");
+        HML_ShowNumber(y,"Котангенс угла "+HML_NumberToText(Angle)+" радианов","равен");
         //Котангенс угла 0.785398 радианов:
         //равен=1
     }
 
-    if (NameFunction=="MHL_CotanDeg")
+    if (NameFunction=="HML_CotanDeg")
     {
         double y;
         double Angle=45;//Угол в градусах
 
         //Вызов функции
-        y=MHL_CotanDeg(Angle);
+        y=HML_CotanDeg(Angle);
 
         //Используем полученный результат
-        MHL_ShowNumber(y,"Котангенс угла "+MHL_NumberToText(Angle)+" градусов","равен");
+        HML_ShowNumber(y,"Котангенс угла "+HML_NumberToText(Angle)+" градусов","равен");
         //Котангенс угла 45 градусов:
         //равен=1
     }
 
-    if (NameFunction=="MHL_Sec")
+    if (NameFunction=="HML_Sec")
     {
         double y;
-        double Angle=MHL_PI/4.;//Угол в радинах
+        double Angle=HML_PI/4.;//Угол в радинах
 
         //Вызов функции
-        y=MHL_Sec(Angle);
+        y=HML_Sec(Angle);
 
         //Используем полученный результат
-        MHL_ShowNumber(y,"Секанс угла "+MHL_NumberToText(Angle)+" радианов","равен");
+        HML_ShowNumber(y,"Секанс угла "+HML_NumberToText(Angle)+" радианов","равен");
         //Секанс угла 0.785398 радианов:
         //равен=1.41421
     }
 
-    if (NameFunction=="MHL_SecDeg")
+    if (NameFunction=="HML_SecDeg")
     {
         double y;
         double Angle=45;//Угол в градусах
 
         //Вызов функции
-        y=MHL_SecDeg(Angle);
+        y=HML_SecDeg(Angle);
 
         //Используем полученный результат
-        MHL_ShowNumber(y,"Секанс угла "+MHL_NumberToText(Angle)+" градусов","равен");
+        HML_ShowNumber(y,"Секанс угла "+HML_NumberToText(Angle)+" градусов","равен");
         //Секанс угла 45 градусов:
         //равен=1.41421
     }
 
-    if (NameFunction=="MHL_Sin")
+    if (NameFunction=="HML_Sin")
     {
         double y;
-        double Angle=MHL_PI/2.;//Угол в радинах
+        double Angle=HML_PI/2.;//Угол в радинах
 
         //Вызов функции
-        y=MHL_Sin(Angle);
+        y=HML_Sin(Angle);
 
         //Используем полученный результат
-        MHL_ShowNumber(y,"Синус угла "+MHL_NumberToText(Angle)+" радианов","равен");
+        HML_ShowNumber(y,"Синус угла "+HML_NumberToText(Angle)+" радианов","равен");
         //Синус угла 1.5708 радианов:
         //равен=1
     }
 
-    if (NameFunction=="MHL_SinDeg")
+    if (NameFunction=="HML_SinDeg")
     {
         double y;
         double Angle=90;//Угол в градусах
 
         //Вызов функции
-        y=MHL_SinDeg(Angle);
+        y=HML_SinDeg(Angle);
 
         //Используем полученный результат
-        MHL_ShowNumber(y,"Синус угла "+MHL_NumberToText(Angle)+" градусов","равен");
+        HML_ShowNumber(y,"Синус угла "+HML_NumberToText(Angle)+" градусов","равен");
         //Синус угла 90 градусов:
         //равен=1
     }
 
-    if (NameFunction=="MHL_Tan")
+    if (NameFunction=="HML_Tan")
     {
         double y;
-        double Angle=MHL_PI/4.;//Угол в радинах
+        double Angle=HML_PI/4.;//Угол в радинах
 
         //Вызов функции
-        y=MHL_Tan(Angle);
+        y=HML_Tan(Angle);
 
         //Используем полученный результат
-        MHL_ShowNumber(y,"Тангенс угла "+MHL_NumberToText(Angle)+" радианов","равен");
+        HML_ShowNumber(y,"Тангенс угла "+HML_NumberToText(Angle)+" радианов","равен");
         //Тангенс угла 0.785398 радианов:
         //равен=1
     }
 
-    if (NameFunction=="MHL_TanDeg")
+    if (NameFunction=="HML_TanDeg")
     {
         double y;
         double Angle=45;//Угол в градусах
 
         //Вызов функции
-        y=MHL_TanDeg(Angle);
+        y=HML_TanDeg(Angle);
 
         //Используем полученный результат
-        MHL_ShowNumber(y,"Тангенс угла "+MHL_NumberToText(Angle)+" градусов","равен");
+        HML_ShowNumber(y,"Тангенс угла "+HML_NumberToText(Angle)+" градусов","равен");
         //Тангенс угла 45 градусов:
         //равен=1
     }
 
-    if (NameFunction=="TMHL_OrdinalVector")
+    if (NameFunction=="HML_OrdinalVector")
     {
-        int VMHL_N=10;//Размер массива (число строк)
+        int VHML_N=10;//Размер массива (число строк)
         double *a;
-        a=new double[VMHL_N];
+        a=new double[VHML_N];
 
         //Вызов функции
-        TMHL_OrdinalVector(a,VMHL_N);
+        HML_OrdinalVector(a,VHML_N);
         //Вектор:
         //a =
         //1
@@ -1998,19 +1998,19 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //10
 
         //Используем полученный результат
-        MHL_ShowVector (a,VMHL_N,"Вектор", "a");
+        HML_ShowVector (a,VHML_N,"Вектор", "a");
 
         delete [] a;
     }
 
-    if (NameFunction=="TMHL_OrdinalVectorZero")
+    if (NameFunction=="HML_OrdinalVectorZero")
     {
-        int VMHL_N=10;//Размер массива (число строк)
+        int VHML_N=10;//Размер массива (число строк)
         double *a;
-        a=new double[VMHL_N];
+        a=new double[VHML_N];
 
         //Вызов функции
-        TMHL_OrdinalVectorZero(a,VMHL_N);
+        HML_OrdinalVectorZero(a,VHML_N);
         //Вектор:
         //a =
         //0
@@ -2025,26 +2025,26 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //9
 
         //Используем полученный результат
-        MHL_ShowVector (a,VMHL_N,"Вектор", "a");
+        HML_ShowVector (a,VHML_N,"Вектор", "a");
 
         delete [] a;
     }
 
-    if (NameFunction=="TMHL_SearchFirstNotZero")
+    if (NameFunction=="HML_SearchFirstNotZero")
     {
         int i;
-        int VMHL_N=10;//Размер массива (число строк)
+        int VHML_N=10;//Размер массива (число строк)
         int *a;
-        a=new int[VMHL_N];
+        a=new int[VHML_N];
         //Заполним случайными числами
-        for (i=0;i<VMHL_N;i++)
-            a[i]=MHL_RandomUniformInt(0,2);
+        for (i=0;i<VHML_N;i++)
+            a[i]=HML_RandomUniformInt(0,2);
 
         //Вызов функции
-        int Number=TMHL_SearchFirstNotZero(a,VMHL_N);
+        int Number=HML_SearchFirstNotZero(a,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (a,VMHL_N,"Случайный вектор", "a");
+        HML_ShowVector (a,VHML_N,"Случайный вектор", "a");
         //Случайный вектор:
         //a =
         //0
@@ -2058,28 +2058,28 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //1
         //0
 
-        MHL_ShowNumber (Number,"Номер первого ненулевого элемента", "Number");
+        HML_ShowNumber (Number,"Номер первого ненулевого элемента", "Number");
         //Номер первого ненулевого элемента:
         //Number=3
 
         delete [] a;
     }
 
-    if (NameFunction=="TMHL_SearchFirstZero")
+    if (NameFunction=="HML_SearchFirstZero")
     {
         int i;
-        int VMHL_N=10;//Размер массива (число строк)
+        int VHML_N=10;//Размер массива (число строк)
         int *a;
-        a=new int[VMHL_N];
+        a=new int[VHML_N];
         //Заполним случайными числами
-        for (i=0;i<VMHL_N;i++)
-            a[i]=MHL_RandomUniformInt(0,2);
+        for (i=0;i<VHML_N;i++)
+            a[i]=HML_RandomUniformInt(0,2);
 
         //Вызов функции
-        int Number=TMHL_SearchFirstZero(a,VMHL_N);
+        int Number=HML_SearchFirstZero(a,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (a,VMHL_N,"Случайный вектор", "a");
+        HML_ShowVector (a,VHML_N,"Случайный вектор", "a");
         //Случайный вектор:
         //a =
         //1
@@ -2093,44 +2093,44 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //0
         //1
 
-        MHL_ShowNumber (Number,"Номер первого нулевого элемента", "Number");
+        HML_ShowNumber (Number,"Номер первого нулевого элемента", "Number");
         //Номер первого нулевого элемента:
         //Number=3
 
         delete [] a;
     }
 
-    if (NameFunction=="TMHL_VectorMinusVector")
+    if (NameFunction=="HML_VectorMinusVector")
     {
         int i;
-        int VMHL_N=10;//Размер массива (число строк)
+        int VHML_N=10;//Размер массива (число строк)
         int *a;
-        a=new int[VMHL_N];
+        a=new int[VHML_N];
         int *b;
-        b=new int[VMHL_N];
+        b=new int[VHML_N];
         int *c;
-        c=new int[VMHL_N];
+        c=new int[VHML_N];
         //Заполним случайными числами
-        for (i=0;i<VMHL_N;i++)
-            a[i]=MHL_RandomUniformInt(0,10);
-        for (i=0;i<VMHL_N;i++)
-            b[i]=MHL_RandomUniformInt(0,10);
+        for (i=0;i<VHML_N;i++)
+            a[i]=HML_RandomUniformInt(0,10);
+        for (i=0;i<VHML_N;i++)
+            b[i]=HML_RandomUniformInt(0,10);
 
         //Вызов функции
-        TMHL_VectorMinusVector(a,b,c,VMHL_N);
+        HML_VectorMinusVector(a,b,c,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVectorT (a,VMHL_N,"Случайный вектор", "a");
+        HML_ShowVectorT (a,VHML_N,"Случайный вектор", "a");
         //Случайный вектор:
         //a =
         //0	7	0	0	8	5	0	4	8	2
 
-        MHL_ShowVectorT (b,VMHL_N,"Случайный вектор", "b");
+        HML_ShowVectorT (b,VHML_N,"Случайный вектор", "b");
         //Случайный вектор:
         //b =
         //6	1	3	1	2	7	2	6	1	4
 
-        MHL_ShowVectorT (c,VMHL_N,"Их разница", "c");
+        HML_ShowVectorT (c,VHML_N,"Их разница", "c");
         //Их разница:
         //c =
         //-6	6	-3	-1	6	-2	-2	-2	7	-2
@@ -2140,30 +2140,30 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] c;
 
         //Для  переопределенной функции
-        VMHL_N=10;//Размер массива (число строк)
-        a=new int[VMHL_N];
-        b=new int[VMHL_N];
+        VHML_N=10;//Размер массива (число строк)
+        a=new int[VHML_N];
+        b=new int[VHML_N];
         //Заполним случайными числами
-        for (i=0;i<VMHL_N;i++)
-            a[i]=MHL_RandomUniformInt(0,10);
-        for (i=0;i<VMHL_N;i++)
-            b[i]=MHL_RandomUniformInt(0,10);
+        for (i=0;i<VHML_N;i++)
+            a[i]=HML_RandomUniformInt(0,10);
+        for (i=0;i<VHML_N;i++)
+            b[i]=HML_RandomUniformInt(0,10);
 
-        MHL_ShowVectorT (a,VMHL_N,"Случайный вектор", "a");
+        HML_ShowVectorT (a,VHML_N,"Случайный вектор", "a");
         //Случайный вектор:
         //a =
         //6	9	3	0	2	9	4	2	3	7
 
         //Вызов функции
-        TMHL_VectorMinusVector(a,b,VMHL_N);
+        HML_VectorMinusVector(a,b,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVectorT (b,VMHL_N,"Случайный вектор", "b");
+        HML_ShowVectorT (b,VHML_N,"Случайный вектор", "b");
         //Случайный вектор:
         //b =
         //5	6	3	8	5	0	7	6	4	4
 
-        MHL_ShowVectorT (a,VMHL_N,"Из первого вычли второй", "a");
+        HML_ShowVectorT (a,VHML_N,"Из первого вычли второй", "a");
         //Из первого вычли второй:
         //a =
         //1	3	0	-8	-3	9	-3	-4	-1	3
@@ -2172,38 +2172,38 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] b;
     }
 
-    if (NameFunction=="TMHL_VectorPlusVector")
+    if (NameFunction=="HML_VectorPlusVector")
     {
         int i;
-        int VMHL_N=10;//Размер массива (число строк)
+        int VHML_N=10;//Размер массива (число строк)
         int *a;
-        a=new int[VMHL_N];
+        a=new int[VHML_N];
         int *b;
-        b=new int[VMHL_N];
+        b=new int[VHML_N];
         int *c;
-        c=new int[VMHL_N];
+        c=new int[VHML_N];
         //Заполним случайными числами
-        for (i=0;i<VMHL_N;i++)
-            a[i]=MHL_RandomUniformInt(0,10);
-        for (i=0;i<VMHL_N;i++)
-            b[i]=MHL_RandomUniformInt(0,10);
+        for (i=0;i<VHML_N;i++)
+            a[i]=HML_RandomUniformInt(0,10);
+        for (i=0;i<VHML_N;i++)
+            b[i]=HML_RandomUniformInt(0,10);
 
         //Вызов функции
-        TMHL_VectorPlusVector(a,b,c,VMHL_N);
+        HML_VectorPlusVector(a,b,c,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVectorT (a,VMHL_N,"Случайный вектор", "a");
+        HML_ShowVectorT (a,VHML_N,"Случайный вектор", "a");
         //Случайный вектор:
         //a =
         //2	7	9	2	3	3	3	2	8	8
 
 
-        MHL_ShowVectorT (b,VMHL_N,"Случайный вектор", "b");
+        HML_ShowVectorT (b,VHML_N,"Случайный вектор", "b");
         //Случайный вектор:
         //b =
         //3	7	2	9	5	3	2	7	2	7
 
-        MHL_ShowVectorT (c,VMHL_N,"Их сумма", "c");
+        HML_ShowVectorT (c,VHML_N,"Их сумма", "c");
         //Их сумма:
         //c =
         //5	14	11	11	8	6	5	9	10	15
@@ -2213,30 +2213,30 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] c;
 
         //Для  переопределенной функции
-        VMHL_N=10;//Размер массива (число строк)
-        a=new int[VMHL_N];
-        b=new int[VMHL_N];
+        VHML_N=10;//Размер массива (число строк)
+        a=new int[VHML_N];
+        b=new int[VHML_N];
         //Заполним случайными числами
-        for (i=0;i<VMHL_N;i++)
-            a[i]=MHL_RandomUniformInt(0,10);
-        for (i=0;i<VMHL_N;i++)
-            b[i]=MHL_RandomUniformInt(0,10);
+        for (i=0;i<VHML_N;i++)
+            a[i]=HML_RandomUniformInt(0,10);
+        for (i=0;i<VHML_N;i++)
+            b[i]=HML_RandomUniformInt(0,10);
 
-        MHL_ShowVectorT (a,VMHL_N,"Случайный вектор", "a");
+        HML_ShowVectorT (a,VHML_N,"Случайный вектор", "a");
         //Случайный вектор:
         //a =
         //0	6	7	4	9	3	9	8	5	6
 
         //Вызов функции
-        TMHL_VectorPlusVector(a,b,VMHL_N);
+        HML_VectorPlusVector(a,b,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVectorT (b,VMHL_N,"Случайный вектор", "b");
+        HML_ShowVectorT (b,VHML_N,"Случайный вектор", "b");
         //Случайный вектор:
         //b =
         //1	7	0	5	4	0	9	5	7	7
 
-        MHL_ShowVectorT (a,VMHL_N,"К первому прибавили второй", "a");
+        HML_ShowVectorT (a,VHML_N,"К первому прибавили второй", "a");
         //К первому прибавили второй:
         //a =
         //1	13	7	9	13	3	18	13	12	13
@@ -2246,17 +2246,17 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
 
     }
 
-    if (NameFunction=="TMHL_VectorMultiplyNumber")
+    if (NameFunction=="HML_VectorMultiplyNumber")
     {
         int i;
-        int VMHL_N=10;//Размер массива (число строк)
+        int VHML_N=10;//Размер массива (число строк)
         double *a;
-        a=new double[VMHL_N];
+        a=new double[VHML_N];
         //Заполним случайными числами
-        for (i=0;i<VMHL_N;i++)
-            a[i]=MHL_RandomUniformInt(0,10);
+        for (i=0;i<VHML_N;i++)
+            a[i]=HML_RandomUniformInt(0,10);
 
-        MHL_ShowVector (a,VMHL_N,"Случайный вектор", "a");
+        HML_ShowVector (a,VHML_N,"Случайный вектор", "a");
         //Случайный вектор:
         //a =
         //4
@@ -2270,17 +2270,17 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //1
         //0
 
-        double Number=MHL_RandomUniform(0,10);
+        double Number=HML_RandomUniform(0,10);
 
         //Вызов функции
-        TMHL_VectorMultiplyNumber(a,VMHL_N,Number);
+        HML_VectorMultiplyNumber(a,VHML_N,Number);
 
         //Используем полученный результат
-        MHL_ShowNumber (Number,"Случайный множитель", "Number");
+        HML_ShowNumber (Number,"Случайный множитель", "Number");
         //Случайный множитель:
         //Number=3.57941
 
-        MHL_ShowVector (a,VMHL_N,"Умножили на число Number", "a");
+        HML_ShowVector (a,VHML_N,"Умножили на число Number", "a");
         //Умножили на число Number:
         //a =
         //14.3176
@@ -2297,97 +2297,97 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] a;
     }
 
-    if (NameFunction=="MHL_Cosech")
+    if (NameFunction=="HML_Cosech")
     {
-        double x=MHL_RandomUniform(0,10);
+        double x=HML_RandomUniform(0,10);
 
         //Вызов функции
-        double Result=MHL_Cosech(x);
+        double Result=HML_Cosech(x);
 
         //Используем полученный результат
-        MHL_ShowNumber(Result,"Гиперболический косеканс от x="+MHL_NumberToText(x),"равен");
+        HML_ShowNumber(Result,"Гиперболический косеканс от x="+HML_NumberToText(x),"равен");
         //Гиперболический косеканс от x=0.571289:
         //равен=1.65872
     }
 
-    if (NameFunction=="MHL_Cosh")
+    if (NameFunction=="HML_Cosh")
     {
-        double x=MHL_RandomUniform(0,10);
+        double x=HML_RandomUniform(0,10);
 
         //Вызов функции
-        double Result=MHL_Cosh(x);
+        double Result=HML_Cosh(x);
 
         //Используем полученный результат
-        MHL_ShowNumber(Result,"Гиперболический косинус от x="+MHL_NumberToText(x),"равен");
+        HML_ShowNumber(Result,"Гиперболический косинус от x="+HML_NumberToText(x),"равен");
         //Гиперболический косинус от x=4.04968:
         //равен=28.6983
     }
 
-    if (NameFunction=="MHL_Cotanh")
+    if (NameFunction=="HML_Cotanh")
     {
-        double x=MHL_RandomUniform(0,10);
+        double x=HML_RandomUniform(0,10);
 
         //Вызов функции
-        double Result=MHL_Cotanh(x);
+        double Result=HML_Cotanh(x);
 
         //Используем полученный результат
-        MHL_ShowNumber(Result,"Гиперболический котангенс от x="+MHL_NumberToText(x),"равен");
+        HML_ShowNumber(Result,"Гиперболический котангенс от x="+HML_NumberToText(x),"равен");
         //Гиперболический котангенс от x=1.92505:
         //равен=1.04348
     }
 
-    if (NameFunction=="MHL_Sech")
+    if (NameFunction=="HML_Sech")
     {
-        double x=MHL_RandomUniform(0,10);
+        double x=HML_RandomUniform(0,10);
 
         //Вызов функции
-        double Result=MHL_Sech(x);
+        double Result=HML_Sech(x);
 
         //Используем полученный результат
-        MHL_ShowNumber(Result,"Гиперболический секанс от x="+MHL_NumberToText(x),"равен");
+        HML_ShowNumber(Result,"Гиперболический секанс от x="+HML_NumberToText(x),"равен");
         //Гиперболический секанс от x=0.679932:
         //равен=0.806323
     }
 
-    if (NameFunction=="MHL_Sinh")
+    if (NameFunction=="HML_Sinh")
     {
-        double x=MHL_RandomUniform(0,10);
+        double x=HML_RandomUniform(0,10);
 
         //Вызов функции
-        double Result=MHL_Sinh(x);
+        double Result=HML_Sinh(x);
 
         //Используем полученный результат
-        MHL_ShowNumber(Result,"Гиперболический синус от x="+MHL_NumberToText(x),"равен");
+        HML_ShowNumber(Result,"Гиперболический синус от x="+HML_NumberToText(x),"равен");
         //Гиперболический синус от x=0.166321:
         //равен=0.167089
     }
 
-    if (NameFunction=="MHL_Tanh")
+    if (NameFunction=="HML_Tanh")
     {
-        double x=MHL_RandomUniform(0,10);
+        double x=HML_RandomUniform(0,10);
 
         //Вызов функции
-        double Result=MHL_Tanh(x);
+        double Result=HML_Tanh(x);
 
         //Используем полученный результат
-        MHL_ShowNumber(Result,"Гиперболический тангенс от x="+MHL_NumberToText(x),"равен");
+        HML_ShowNumber(Result,"Гиперболический тангенс от x="+HML_NumberToText(x),"равен");
         //Гиперболический тангенс от x=4.27643:
         //равен=0.999614
     }
 
-    if (NameFunction=="TMHL_NumberOfMaximumOfVector")
+    if (NameFunction=="HML_NumberOfMaximumOfVector")
     {
         int i;
-        int VMHL_N=10;//Размер массива
-        double *Vector=new double[VMHL_N];
+        int VHML_N=10;//Размер массива
+        double *Vector=new double[VHML_N];
         //Заполним случайными числами
-        for (i=0;i<VMHL_N;i++) Vector[i]=MHL_RandomNumber();
+        for (i=0;i<VHML_N;i++) Vector[i]=HML_RandomNumber();
 
         //Вызов функции
-        double Number=TMHL_NumberOfMaximumOfVector(Vector,VMHL_N);
+        double Number=HML_NumberOfMaximumOfVector(Vector,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (Vector,VMHL_N,"Случайный массив", "Vector");
+        HML_ShowVector (Vector,VHML_N,"Случайный массив", "Vector");
         //Случайный массив:
         //Vector =
         //0.9245
@@ -2401,25 +2401,25 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //0.943604
         //0.335205
 
-        MHL_ShowNumber(Number,"Номер максимального элемента","Number");//Например, выводим результат
+        HML_ShowNumber(Number,"Номер максимального элемента","Number");//Например, выводим результат
         // Номер максимального элемента:
         //Number=8
         delete [] Vector;
     }
 
-    if (NameFunction=="TMHL_NumberOfMinimumOfVector")
+    if (NameFunction=="HML_NumberOfMinimumOfVector")
     {
         int i;
-        int VMHL_N=10;//Размер массива
-        double *Vector=new double[VMHL_N];
+        int VHML_N=10;//Размер массива
+        double *Vector=new double[VHML_N];
         //Заполним случайными числами
-        for (i=0;i<VMHL_N;i++) Vector[i]=MHL_RandomNumber();
+        for (i=0;i<VHML_N;i++) Vector[i]=HML_RandomNumber();
 
         //Вызов функции
-        double Number=TMHL_NumberOfMinimumOfVector(Vector,VMHL_N);
+        double Number=HML_NumberOfMinimumOfVector(Vector,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (Vector,VMHL_N,"Случайный массив", "Vector");
+        HML_ShowVector (Vector,VHML_N,"Случайный массив", "Vector");
         //Случайный массив:
         //Vector =
         //0.958344
@@ -2433,27 +2433,27 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //0.616333
         //0.798065
 
-        MHL_ShowNumber(Number,"Номер минимального элемента","Number");//Например, выводим результат
+        HML_ShowNumber(Number,"Номер минимального элемента","Number");//Например, выводим результат
         //Номер минимального элемента:
         //Number=7
         delete [] Vector;
     }
 
-    if (NameFunction=="TMHL_NumberOfNegativeValues")
+    if (NameFunction=="HML_NumberOfNegativeValues")
     {
         int i;
-        int VMHL_N=10;//Размер массива (число строк)
+        int VHML_N=10;//Размер массива (число строк)
         int *a;
-        a=new int[VMHL_N];
+        a=new int[VHML_N];
         //Заполним случайными числами
-        for (i=0;i<VMHL_N;i++)
-            a[i]=MHL_RandomUniformInt(-20,20);
+        for (i=0;i<VHML_N;i++)
+            a[i]=HML_RandomUniformInt(-20,20);
 
         //Вызов функции
-        int NumberOfNegative=TMHL_NumberOfNegativeValues(a,VMHL_N);
+        int NumberOfNegative=HML_NumberOfNegativeValues(a,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (a,VMHL_N,"Случайный вектор", "a");
+        HML_ShowVector (a,VHML_N,"Случайный вектор", "a");
         //Случайный вектор:
         //a =
         //12
@@ -2467,28 +2467,28 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //1
         //-8
 
-        MHL_ShowNumber (NumberOfNegative,"Число отрицательных значений в векторе", "NumberOfNegative");
+        HML_ShowNumber (NumberOfNegative,"Число отрицательных значений в векторе", "NumberOfNegative");
         //Число отрицательных значений в векторе:
         //NumberOfNegative=5
 
         delete [] a;
     }
 
-    if (NameFunction=="TMHL_NumberOfPositiveValues")
+    if (NameFunction=="HML_NumberOfPositiveValues")
     {
         int i;
-        int VMHL_N=10;//Размер массива (число строк)
+        int VHML_N=10;//Размер массива (число строк)
         int *a;
-        a=new int[VMHL_N];
+        a=new int[VHML_N];
         //Заполним случайными числами
-        for (i=0;i<VMHL_N;i++)
-            a[i]=MHL_RandomUniformInt(-20,20);
+        for (i=0;i<VHML_N;i++)
+            a[i]=HML_RandomUniformInt(-20,20);
 
         //Вызов функции
-        int NumberOfNegative=TMHL_NumberOfPositiveValues(a,VMHL_N);
+        int NumberOfNegative=HML_NumberOfPositiveValues(a,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (a,VMHL_N,"Случайный вектор", "a");
+        HML_ShowVector (a,VHML_N,"Случайный вектор", "a");
         //Случайный вектор:
         //a =
         //6
@@ -2502,28 +2502,28 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //-20
         //5
 
-        MHL_ShowNumber (NumberOfNegative,"Число положительных значений в векторе", "NumberOfNegative");
+        HML_ShowNumber (NumberOfNegative,"Число положительных значений в векторе", "NumberOfNegative");
         //Число положительных значений в векторе:
         //NumberOfNegative=6
 
         delete [] a;
     }
 
-    if (NameFunction=="TMHL_NumberOfZeroValues")
+    if (NameFunction=="HML_NumberOfZeroValues")
     {
         int i;
-        int VMHL_N=10;//Размер массива (число строк)
+        int VHML_N=10;//Размер массива (число строк)
         int *a;
-        a=new int[VMHL_N];
+        a=new int[VHML_N];
         //Заполним случайными числами
-        for (i=0;i<VMHL_N;i++)
-            a[i]=MHL_RandomUniformInt(-2,2);
+        for (i=0;i<VHML_N;i++)
+            a[i]=HML_RandomUniformInt(-2,2);
 
         //Вызов функции
-        int NumberOfNegative=TMHL_NumberOfZeroValues(a,VMHL_N);
+        int NumberOfNegative=HML_NumberOfZeroValues(a,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (a,VMHL_N,"Случайный вектор", "a");
+        HML_ShowVector (a,VHML_N,"Случайный вектор", "a");
         //Случайный вектор:
         //a =
         //1
@@ -2537,24 +2537,24 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //0
         //1
 
-        MHL_ShowNumber (NumberOfNegative,"Число нулевых значений в векторе", "NumberOfNegative");
+        HML_ShowNumber (NumberOfNegative,"Число нулевых значений в векторе", "NumberOfNegative");
         //Число нулевых значений в векторе:
         //NumberOfNegative=4
 
         delete [] a;
     }
 
-    if (NameFunction=="TMHL_FibonacciNumbersVector")
+    if (NameFunction=="HML_FibonacciNumbersVector")
     {
-        int VMHL_N=MHL_RandomUniformInt(5,15);//Размер массива
+        int VHML_N=HML_RandomUniformInt(5,15);//Размер массива
         double *x;
-        x=new double[VMHL_N];
+        x=new double[VHML_N];
 
         //Вызов функции
-        TMHL_FibonacciNumbersVector(x,VMHL_N);
+        HML_FibonacciNumbersVector(x,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (x,VMHL_N,"Вектор, заполненый числами Фибоначи", "x");
+        HML_ShowVector (x,VHML_N,"Вектор, заполненый числами Фибоначи", "x");
         //Вектор, заполненый числами Фибоначи:
         //x =
         //1
@@ -2573,25 +2573,25 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] x;
     }
 
-    if (NameFunction=="TMHL_EqualityOfVectors")
+    if (NameFunction=="HML_EqualityOfVectors")
     {
-        int VMHL_N=5;//Размер массива (число строк)
+        int VHML_N=5;//Размер массива (число строк)
         int *a;
-        a=new int[VMHL_N];
+        a=new int[VHML_N];
         int *b;
-        b=new int[VMHL_N];
+        b=new int[VHML_N];
 
-        int x=MHL_RandomUniformInt(0,2);//заполнитель для вектора a
-        int y=MHL_RandomUniformInt(0,2);//заполнитель для вектора b
-        TMHL_FillVector (a, VMHL_N, x);
-        TMHL_FillVector (b, VMHL_N, y);
+        int x=HML_RandomUniformInt(0,2);//заполнитель для вектора a
+        int y=HML_RandomUniformInt(0,2);//заполнитель для вектора b
+        HML_FillVector (a, VHML_N, x);
+        HML_FillVector (b, VHML_N, y);
 
 
         //Вызов функции
-        int Q=TMHL_EqualityOfVectors(a,b,VMHL_N);
+        int Q=HML_EqualityOfVectors(a,b,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (a,VMHL_N,"Вектор", "a");
+        HML_ShowVector (a,VHML_N,"Вектор", "a");
         //Вектор:
         //a =
         //1
@@ -2600,7 +2600,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //1
         //1
 
-        MHL_ShowVector (b,VMHL_N,"Вектор", "b");
+        HML_ShowVector (b,VHML_N,"Вектор", "b");
         //Вектор:
         //b =
         //0
@@ -2609,7 +2609,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //0
         //0
 
-        MHL_ShowNumber (Q,"Равны ли вектора", "Q");
+        HML_ShowNumber (Q,"Равны ли вектора", "Q");
         // Равны ли вектора:
         //Q=0
 
@@ -2618,22 +2618,22 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] b;
     }
 
-    if (NameFunction=="TMHL_CheckElementInVector")
+    if (NameFunction=="HML_CheckElementInVector")
     {
         int i;
-        int VMHL_N=10;//Размер массива (число строк)
+        int VHML_N=10;//Размер массива (число строк)
         int *a;
-        a=new int[VMHL_N];
+        a=new int[VHML_N];
         //Заполним случайными числами
-        for (i=0;i<VMHL_N;i++)
-            a[i]=MHL_RandomUniformInt(0,5);
-        int k=MHL_RandomUniformInt(0,5);//искомое число
+        for (i=0;i<VHML_N;i++)
+            a[i]=HML_RandomUniformInt(0,5);
+        int k=HML_RandomUniformInt(0,5);//искомое число
 
         //Вызов функции
-        int Search=TMHL_CheckElementInVector(a,VMHL_N,k);
+        int Search=HML_CheckElementInVector(a,VHML_N,k);
 
         //Используем полученный результат
-        MHL_ShowVector (a,VMHL_N,"Вектор", "a");
+        HML_ShowVector (a,VHML_N,"Вектор", "a");
         //Вектор:
         //a =
         //2
@@ -2647,145 +2647,145 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //0
         //0
 
-        MHL_ShowNumber (k,"Искомое число", "k");
+        HML_ShowNumber (k,"Искомое число", "k");
         //Искомое число:
         //k=3
 
-        MHL_ShowNumber (Search,"находится в векторе a под номером", "Search");
+        HML_ShowNumber (Search,"находится в векторе a под номером", "Search");
         //находится в векторе a под номером:
         //Search=7
         delete [] a;
     }
 
-    if (NameFunction=="TMHL_Max")
+    if (NameFunction=="HML_Max")
     {
-        int a=MHL_RandomUniformInt(10,100);
-        int b=MHL_RandomUniformInt(10,100);
+        int a=HML_RandomUniformInt(10,100);
+        int b=HML_RandomUniformInt(10,100);
 
         //Вызов функции
-        int Max=TMHL_Max(a,b);
+        int Max=HML_Max(a,b);
 
         //Используем полученный результат
-        MHL_ShowNumber(Max,"Максимальное среди "+MHL_NumberToText(a)+" и "+MHL_NumberToText(b),"равно");
+        HML_ShowNumber(Max,"Максимальное среди "+HML_NumberToText(a)+" и "+HML_NumberToText(b),"равно");
         //Максимальное среди 73 и 44:
         //равно=73
     }
 
-    if (NameFunction=="TMHL_Min")
+    if (NameFunction=="HML_Min")
     {
-        int a=MHL_RandomUniformInt(10,100);
-        int b=MHL_RandomUniformInt(10,100);
+        int a=HML_RandomUniformInt(10,100);
+        int b=HML_RandomUniformInt(10,100);
 
         //Вызов функции
-        int Max=TMHL_Min(a,b);
+        int Max=HML_Min(a,b);
 
         //Используем полученный результат
-        MHL_ShowNumber(Max,"Минимальное среди "+MHL_NumberToText(a)+" и "+MHL_NumberToText(b),"равно");
+        HML_ShowNumber(Max,"Минимальное среди "+HML_NumberToText(a)+" и "+HML_NumberToText(b),"равно");
         //Минимальное среди 79 и 18:
         //равно=18
     }
 
-    if (NameFunction=="TMHL_Abs")
+    if (NameFunction=="HML_Abs")
     {
         double x;
         double absx;
 
-        x=MHL_RandomUniform(-10,10);
+        x=HML_RandomUniform(-10,10);
 
         //Вызов функции
-        absx=TMHL_Abs(x);
+        absx=HML_Abs(x);
 
         //Используем полученный результат
-        MHL_ShowNumber (x,"Число", "x");
+        HML_ShowNumber (x,"Число", "x");
         // Число:
         //x=-6.29578
 
-        MHL_ShowNumber (absx,"Модуль", "absx");
+        HML_ShowNumber (absx,"Модуль", "absx");
         // Модуль:
         //absx=6.29578
     }
 
-    if (NameFunction=="TMHL_NumberInterchange")
+    if (NameFunction=="HML_NumberInterchange")
     {
-        double a=MHL_RandomUniform(-10,10);
-        double b=MHL_RandomUniform(-10,10);
+        double a=HML_RandomUniform(-10,10);
+        double b=HML_RandomUniform(-10,10);
 
-        MHL_ShowNumber(a,"Было","a");
+        HML_ShowNumber(a,"Было","a");
         //Было:
         //a=-3.18237
-        MHL_ShowNumber(b,"Было","b");
+        HML_ShowNumber(b,"Было","b");
         //Было:
         //b=5.36194
 
         //Вызов функции
-        TMHL_NumberInterchange(&a,&b);
+        HML_NumberInterchange(&a,&b);
 
         //Используем полученный результат
-        MHL_ShowNumber(a,"Стало","a");
+        HML_ShowNumber(a,"Стало","a");
         //Стало:
         //a=5.36194
-        MHL_ShowNumber(b,"Стало","b");
+        HML_ShowNumber(b,"Стало","b");
         //Стало:
         //b=-3.18237
     }
 
-    if (NameFunction=="TMHL_Sign")
+    if (NameFunction=="HML_Sign")
     {
-        int a=MHL_RandomUniformInt(-5,5);
+        int a=HML_RandomUniformInt(-5,5);
 
         //Вызов функции
-        int Result=TMHL_Sign(a);
+        int Result=HML_Sign(a);
 
         //Используем полученный результат
-        MHL_ShowNumber(Result,"Знак числа "+MHL_NumberToText(a),"равен");
+        HML_ShowNumber(Result,"Знак числа "+HML_NumberToText(a),"равен");
         //Знак числа -3:
         //равен=-1
     }
 
-    if (NameFunction=="TMHL_SignNull")
+    if (NameFunction=="HML_SignNull")
     {
-        int a=MHL_RandomUniformInt(-5,5);
+        int a=HML_RandomUniformInt(-5,5);
 
         //Вызов функции
-        int Result=TMHL_SignNull(a);
+        int Result=HML_SignNull(a);
 
         //Используем полученный результат
-        MHL_ShowNumber(Result,"Знак числа "+MHL_NumberToText(a),"равен");
+        HML_ShowNumber(Result,"Знак числа "+HML_NumberToText(a),"равен");
         //Знак числа 0:
         //равен=1
     }
 
-    if (NameFunction=="MHL_SumOfDigits")
+    if (NameFunction=="HML_SumOfDigits")
     {
-        int a=MHL_RandomUniformInt(100,30000);
+        int a=HML_RandomUniformInt(100,30000);
 
         //Вызов функции
-        int SumOfDigits=MHL_SumOfDigits(a);
+        int SumOfDigits=HML_SumOfDigits(a);
 
         //Используем полученный результат
-        MHL_ShowNumber (SumOfDigits,"Сумма цифр числа a="+MHL_NumberToText(a), "равна");
+        HML_ShowNumber (SumOfDigits,"Сумма цифр числа a="+HML_NumberToText(a), "равна");
         //Сумма цифр числа a=2069:
         //равна=17
     }
 
-    if (NameFunction=="TMHL_SumMatrix")
+    if (NameFunction=="HML_SumMatrix")
     {
         int i,j;
-        int VMHL_N=10;//Размер массива (число строк)
-        int VMHL_M=3;//Размер массива (число столбцов)
+        int VHML_N=10;//Размер массива (число строк)
+        int VHML_M=3;//Размер массива (число столбцов)
         int **a;
-        a=new int*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) a[i]=new int[VMHL_M];
+        a=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) a[i]=new int[VHML_M];
         //Заполним случайными числами
-        for (i=0;i<VMHL_N;i++)
-            for (j=0;j<VMHL_M;j++)
-                a[i][j]=MHL_RandomUniformInt(10,100);
+        for (i=0;i<VHML_N;i++)
+            for (j=0;j<VHML_M;j++)
+                a[i][j]=HML_RandomUniformInt(10,100);
 
         //Вызов функции
-        int SumMatrix=TMHL_SumMatrix(a,VMHL_N,VMHL_M);
+        int SumMatrix=HML_SumMatrix(a,VHML_N,VHML_M);
 
         //Используем полученный результат
-        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Случайная матрица", "a");
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Случайная матрица", "a");
         //Случайная матрица:
         //a =
         //93	11	72
@@ -2799,28 +2799,28 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //68	32	65
         //36	74	35
 
-        MHL_ShowNumber (SumMatrix,"Её сумма", "SumVector");
+        HML_ShowNumber (SumMatrix,"Её сумма", "SumVector");
         //Её сумма:
         //SumVector=1639
 
-        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        for (i=0;i<VHML_N;i++) delete [] a[i];
         delete [] a;
     }
 
-    if (NameFunction=="TMHL_ZeroMatrix")
+    if (NameFunction=="HML_ZeroMatrix")
     {
         int i;
-        int VMHL_N=MHL_RandomUniformInt(4,10);//Размер массива (число строк)
-        int VMHL_M=MHL_RandomUniformInt(4,10);//Размер массива (число столбцов)
+        int VHML_N=HML_RandomUniformInt(4,10);//Размер массива (число строк)
+        int VHML_M=HML_RandomUniformInt(4,10);//Размер массива (число столбцов)
         int **a;
-        a=new int*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) a[i]=new int[VMHL_M];
+        a=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) a[i]=new int[VHML_M];
 
         //Вызов функции
-        TMHL_ZeroMatrix(a,VMHL_N,VMHL_M);
+        HML_ZeroMatrix(a,VHML_N,VHML_M);
 
         //Используем полученный результат
-        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Зануленая матрица", "a");
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Зануленая матрица", "a");
         //Зануленая матрица:
         //a =
         //0	0	0	0	0	0	0	0
@@ -2828,28 +2828,28 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //0	0	0	0	0	0	0	0
         //0	0	0	0	0	0	0	0
 
-        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        for (i=0;i<VHML_N;i++) delete [] a[i];
         delete [] a;
     }
 
-    if (NameFunction=="TMHL_MaximumOfMatrix")
+    if (NameFunction=="HML_MaximumOfMatrix")
     {
         int i,j;
-        int VMHL_N=10;//Размер массива (число строк)
-        int VMHL_M=3;//Размер массива (число столбцов)
+        int VHML_N=10;//Размер массива (число строк)
+        int VHML_M=3;//Размер массива (число столбцов)
         double **Matrix;
-        Matrix=new double*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) Matrix[i]=new double[VMHL_M];
+        Matrix=new double*[VHML_N];
+        for (i=0;i<VHML_N;i++) Matrix[i]=new double[VHML_M];
         //Заполним случайными числами
-        for (i=0;i<VMHL_N;i++)
-            for (j=0;j<VMHL_M;j++)
-                Matrix[i][j]=MHL_RandomUniformInt(10,100);
+        for (i=0;i<VHML_N;i++)
+            for (j=0;j<VHML_M;j++)
+                Matrix[i][j]=HML_RandomUniformInt(10,100);
 
         //Вызов функции
-        double Maximum=TMHL_MaximumOfMatrix(Matrix,VMHL_N,VMHL_M);
+        double Maximum=HML_MaximumOfMatrix(Matrix,VHML_N,VHML_M);
 
         //Используем полученный результат
-        MHL_ShowMatrix (Matrix,VMHL_N,VMHL_M,"Случайная матрица", "Matrix");
+        HML_ShowMatrix (Matrix,VHML_N,VHML_M,"Случайная матрица", "Matrix");
         //Случайная матрица:
         //Matrix =
         //25	42	79
@@ -2863,32 +2863,32 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //31	96	27
         //39	77	50
 
-        MHL_ShowNumber(Maximum,"Максимальный элемент","Maximum");
+        HML_ShowNumber(Maximum,"Максимальный элемент","Maximum");
         //Максимальный элемент:
         //Maximum=96
 
-        for (i=0;i<VMHL_N;i++) delete [] Matrix[i];
+        for (i=0;i<VHML_N;i++) delete [] Matrix[i];
         delete [] Matrix;
     }
 
-    if (NameFunction=="TMHL_MinimumOfMatrix")
+    if (NameFunction=="HML_MinimumOfMatrix")
     {
         int i,j;
-        int VMHL_N=10;//Размер массива (число строк)
-        int VMHL_M=3;//Размер массива (число столбцов)
+        int VHML_N=10;//Размер массива (число строк)
+        int VHML_M=3;//Размер массива (число столбцов)
         double **Matrix;
-        Matrix=new double*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) Matrix[i]=new double[VMHL_M];
+        Matrix=new double*[VHML_N];
+        for (i=0;i<VHML_N;i++) Matrix[i]=new double[VHML_M];
         //Заполним случайными числами
-        for (i=0;i<VMHL_N;i++)
-            for (j=0;j<VMHL_M;j++)
-                Matrix[i][j]=MHL_RandomUniformInt(10,100);
+        for (i=0;i<VHML_N;i++)
+            for (j=0;j<VHML_M;j++)
+                Matrix[i][j]=HML_RandomUniformInt(10,100);
 
         //Вызов функции
-        double Minimum=TMHL_MinimumOfMatrix(Matrix,VMHL_N,VMHL_M);
+        double Minimum=HML_MinimumOfMatrix(Matrix,VHML_N,VHML_M);
 
         //Используем полученный результат
-        MHL_ShowMatrix (Matrix,VMHL_N,VMHL_M,"Случайная матрица", "Matrix");
+        HML_ShowMatrix (Matrix,VHML_N,VHML_M,"Случайная матрица", "Matrix");
         //Случайная матрица:
         //Matrix =
         //29	64	95
@@ -2902,30 +2902,30 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //44	45	56
         //73	92	16
 
-        MHL_ShowNumber(Minimum,"Минимальный элемент","Minimum");
+        HML_ShowNumber(Minimum,"Минимальный элемент","Minimum");
         //Минимальный элемент:
         //Minimum=13
 
-        for (i=0;i<VMHL_N;i++) delete [] Matrix[i];
+        for (i=0;i<VHML_N;i++) delete [] Matrix[i];
         delete [] Matrix;
     }
 
-    if (NameFunction=="TMHL_FillMatrix")
+    if (NameFunction=="HML_FillMatrix")
     {
         int i;
-        int VMHL_N=10;//Размер массива (число строк)
-        int VMHL_M=3;//Размер массива (число столбцов)
+        int VHML_N=10;//Размер массива (число строк)
+        int VHML_M=3;//Размер массива (число столбцов)
         int **a;
-        a=new int*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) a[i]=new int[VMHL_M];
+        a=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) a[i]=new int[VHML_M];
 
-        int x=MHL_RandomUniformInt(0,10);//заполнитель
+        int x=HML_RandomUniformInt(0,10);//заполнитель
 
         //Вызов функции
-        TMHL_FillMatrix(a,VMHL_N,VMHL_M,x);
+        HML_FillMatrix(a,VHML_N,VHML_M,x);
 
         //Используем полученный результат
-        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Заполненная матрица", "a");
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Заполненная матрица", "a");
         //Заполненная матрица:
         //a =
         //3	3	3
@@ -2939,37 +2939,37 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //3	3	3
         //3	3	3
 
-        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        for (i=0;i<VHML_N;i++) delete [] a[i];
         delete [] a;
     }
 
-    if (NameFunction=="TMHL_MatrixMinusMatrix")
+    if (NameFunction=="HML_MatrixMinusMatrix")
     {
         int i,j;
-        int VMHL_N=5;//Размер массива (число строк)
-        int VMHL_M=3;//Размер массива (число столбцов)
+        int VHML_N=5;//Размер массива (число строк)
+        int VHML_M=3;//Размер массива (число столбцов)
         int **a;
-        a=new int*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) a[i]=new int[VMHL_M];
+        a=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) a[i]=new int[VHML_M];
         int **b;
-        b=new int*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) b[i]=new int[VMHL_M];
+        b=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) b[i]=new int[VHML_M];
         int **c;
-        c=new int*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) c[i]=new int[VMHL_M];
+        c=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) c[i]=new int[VHML_M];
         //Заполним случайными числами
-        for (i=0;i<VMHL_N;i++)
-            for (j=0;j<VMHL_M;j++)
+        for (i=0;i<VHML_N;i++)
+            for (j=0;j<VHML_M;j++)
             {
-                a[i][j]=MHL_RandomUniformInt(10,20);
-                b[i][j]=MHL_RandomUniformInt(10,20);
+                a[i][j]=HML_RandomUniformInt(10,20);
+                b[i][j]=HML_RandomUniformInt(10,20);
             }
 
         //Вызов функции
-        TMHL_MatrixMinusMatrix(a,b,c,VMHL_N,VMHL_M);
+        HML_MatrixMinusMatrix(a,b,c,VHML_N,VHML_M);
 
         //Используем полученный результат
-        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Матрица", "a");
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Матрица", "a");
         //Матрица:
         //a =
         //18	19	17
@@ -2978,7 +2978,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //12	18	16
         //12	16	11
 
-        MHL_ShowMatrix (b,VMHL_N,VMHL_M,"Матрица", "b");
+        HML_ShowMatrix (b,VHML_N,VHML_M,"Матрица", "b");
         //Матрица:
         //b =
         //11	19	18
@@ -2987,7 +2987,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //11	17	15
         //12	16	10
 
-        MHL_ShowMatrix (c,VMHL_N,VMHL_M,"Их разница", "c");
+        HML_ShowMatrix (c,VHML_N,VHML_M,"Их разница", "c");
         //Их разница:
         //c =
         //7	0	-1
@@ -2996,29 +2996,29 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //1	1	1
         //0	0	1
 
-        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        for (i=0;i<VHML_N;i++) delete [] a[i];
         delete [] a;
-        for (i=0;i<VMHL_N;i++) delete [] b[i];
+        for (i=0;i<VHML_N;i++) delete [] b[i];
         delete [] b;
-        for (i=0;i<VMHL_N;i++) delete [] c[i];
+        for (i=0;i<VHML_N;i++) delete [] c[i];
         delete [] c;
 
         //Для переопределенной функции
-        VMHL_N=5;//Размер массива (число строк)
-        VMHL_M=3;//Размер массива (число столбцов)
-        a=new int*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) a[i]=new int[VMHL_M];
-        b=new int*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) b[i]=new int[VMHL_M];
+        VHML_N=5;//Размер массива (число строк)
+        VHML_M=3;//Размер массива (число столбцов)
+        a=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) a[i]=new int[VHML_M];
+        b=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) b[i]=new int[VHML_M];
         //Заполним случайными числами
-        for (i=0;i<VMHL_N;i++)
-            for (j=0;j<VMHL_M;j++)
+        for (i=0;i<VHML_N;i++)
+            for (j=0;j<VHML_M;j++)
             {
-                a[i][j]=MHL_RandomUniformInt(10,20);
-                b[i][j]=MHL_RandomUniformInt(10,20);
+                a[i][j]=HML_RandomUniformInt(10,20);
+                b[i][j]=HML_RandomUniformInt(10,20);
             }
 
-        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Матрица", "a");
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Матрица", "a");
         //Матрица:
         //a =
         //11	18	11
@@ -3028,10 +3028,10 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //19	15	10
 
         //Вызов функции
-        TMHL_MatrixMinusMatrix(a,b,VMHL_N,VMHL_M);
+        HML_MatrixMinusMatrix(a,b,VHML_N,VHML_M);
 
         //Используем полученный результат
-        MHL_ShowMatrix (b,VMHL_N,VMHL_M,"Матрица", "b");
+        HML_ShowMatrix (b,VHML_N,VHML_M,"Матрица", "b");
         //Матрица:
         //b =
         //12	13	18
@@ -3040,7 +3040,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //18	16	16
         //16	17	19
 
-        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Теперь матрица a", "a");
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Теперь матрица a", "a");
         //Теперь матрица a:
         //a =
         //-1	5	-7
@@ -3049,39 +3049,39 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //1	-3	-4
         //3	-2	-9
 
-        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        for (i=0;i<VHML_N;i++) delete [] a[i];
         delete [] a;
-        for (i=0;i<VMHL_N;i++) delete [] b[i];
+        for (i=0;i<VHML_N;i++) delete [] b[i];
         delete [] b;
     }
 
-    if (NameFunction=="TMHL_MatrixPlusMatrix")
+    if (NameFunction=="HML_MatrixPlusMatrix")
     {
         int i,j;
-        int VMHL_N=5;//Размер массива (число строк)
-        int VMHL_M=3;//Размер массива (число столбцов)
+        int VHML_N=5;//Размер массива (число строк)
+        int VHML_M=3;//Размер массива (число столбцов)
         int **a;
-        a=new int*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) a[i]=new int[VMHL_M];
+        a=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) a[i]=new int[VHML_M];
         int **b;
-        b=new int*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) b[i]=new int[VMHL_M];
+        b=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) b[i]=new int[VHML_M];
         int **c;
-        c=new int*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) c[i]=new int[VMHL_M];
+        c=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) c[i]=new int[VHML_M];
         //Заполним случайными числами
-        for (i=0;i<VMHL_N;i++)
-            for (j=0;j<VMHL_M;j++)
+        for (i=0;i<VHML_N;i++)
+            for (j=0;j<VHML_M;j++)
             {
-                a[i][j]=MHL_RandomUniformInt(10,20);
-                b[i][j]=MHL_RandomUniformInt(10,20);
+                a[i][j]=HML_RandomUniformInt(10,20);
+                b[i][j]=HML_RandomUniformInt(10,20);
             }
 
         //Вызов функции
-        TMHL_MatrixPlusMatrix(a,b,c,VMHL_N,VMHL_M);
+        HML_MatrixPlusMatrix(a,b,c,VHML_N,VHML_M);
 
         //Используем полученный результат
-        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Матрица", "a");
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Матрица", "a");
         //Матрица:
         //a =
         //18	15	15
@@ -3090,7 +3090,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //17	18	18
         //19	15	16
 
-        MHL_ShowMatrix (b,VMHL_N,VMHL_M,"Матрица", "b");
+        HML_ShowMatrix (b,VHML_N,VHML_M,"Матрица", "b");
         //Матрица:
         //b =
         //17	15	15
@@ -3099,7 +3099,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //12	16	13
         //15	14	10
 
-        MHL_ShowMatrix (c,VMHL_N,VMHL_M,"Их сумма", "c");
+        HML_ShowMatrix (c,VHML_N,VHML_M,"Их сумма", "c");
         //Их сумма:
         //c =
         //35	30	30
@@ -3108,29 +3108,29 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //29	34	31
         //34	29	26
 
-        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        for (i=0;i<VHML_N;i++) delete [] a[i];
         delete [] a;
-        for (i=0;i<VMHL_N;i++) delete [] b[i];
+        for (i=0;i<VHML_N;i++) delete [] b[i];
         delete [] b;
-        for (i=0;i<VMHL_N;i++) delete [] c[i];
+        for (i=0;i<VHML_N;i++) delete [] c[i];
         delete [] c;
 
         //Для переопределенной функции
-        VMHL_N=5;//Размер массива (число строк)
-        VMHL_M=3;//Размер массива (число столбцов)
-        a=new int*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) a[i]=new int[VMHL_M];
-        b=new int*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) b[i]=new int[VMHL_M];
+        VHML_N=5;//Размер массива (число строк)
+        VHML_M=3;//Размер массива (число столбцов)
+        a=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) a[i]=new int[VHML_M];
+        b=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) b[i]=new int[VHML_M];
         //Заполним случайными числами
-        for (i=0;i<VMHL_N;i++)
-            for (j=0;j<VMHL_M;j++)
+        for (i=0;i<VHML_N;i++)
+            for (j=0;j<VHML_M;j++)
             {
-                a[i][j]=MHL_RandomUniformInt(10,20);
-                b[i][j]=MHL_RandomUniformInt(10,20);
+                a[i][j]=HML_RandomUniformInt(10,20);
+                b[i][j]=HML_RandomUniformInt(10,20);
             }
 
-        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Матрица", "a");
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Матрица", "a");
         //Матрица:
         //a =
         //18	12	12
@@ -3140,10 +3140,10 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //11	19	10
 
         //Вызов функции
-        TMHL_MatrixPlusMatrix(a,b,VMHL_N,VMHL_M);
+        HML_MatrixPlusMatrix(a,b,VHML_N,VHML_M);
 
         //Используем полученный результат
-        MHL_ShowMatrix (b,VMHL_N,VMHL_M,"Матрица", "b");
+        HML_ShowMatrix (b,VHML_N,VHML_M,"Матрица", "b");
         //Матрица:
         //b =
         //10	10	16
@@ -3152,7 +3152,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //13	11	14
         //16	13	11
 
-        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Теперь матрица a", "a");
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Теперь матрица a", "a");
         //Теперь матрица a:
         //a =
         //28	22	28
@@ -3161,26 +3161,26 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //24	21	31
         //27	32	21
 
-        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        for (i=0;i<VHML_N;i++) delete [] a[i];
         delete [] a;
-        for (i=0;i<VMHL_N;i++) delete [] b[i];
+        for (i=0;i<VHML_N;i++) delete [] b[i];
         delete [] b;
     }
 
-    if (NameFunction=="TMHL_MatrixMultiplyNumber")
+    if (NameFunction=="HML_MatrixMultiplyNumber")
     {
         int i,j;
-        int VMHL_N=5;//Размер массива (число строк)
-        int VMHL_M=5;//Размер массива (число столбцов)
+        int VHML_N=5;//Размер массива (число строк)
+        int VHML_M=5;//Размер массива (число столбцов)
         int **Matrix;
-        Matrix=new int*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) Matrix[i]=new int[VMHL_M];
+        Matrix=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) Matrix[i]=new int[VHML_M];
         //Заполним случайными числами
-        for (i=0;i<VMHL_N;i++)
-            for (j=0;j<VMHL_M;j++)
-                Matrix[i][j]=MHL_RandomUniformInt(10,100);
+        for (i=0;i<VHML_N;i++)
+            for (j=0;j<VHML_M;j++)
+                Matrix[i][j]=HML_RandomUniformInt(10,100);
 
-        MHL_ShowMatrix (Matrix,VMHL_N,VMHL_M,"Случайная матрица", "Matrix");
+        HML_ShowMatrix (Matrix,VHML_N,VHML_M,"Случайная матрица", "Matrix");
         //Случайная матрица:
         //Matrix =
         //77	34	14	83	30
@@ -3189,16 +3189,16 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //77	29	96	50	90
         //10	47	40	49	20
 
-        int Number=MHL_RandomUniformInt(-10,10);
+        int Number=HML_RandomUniformInt(-10,10);
 
         //Вызов функции
-        TMHL_MatrixMultiplyNumber(Matrix,VMHL_N,VMHL_M,Number);
+        HML_MatrixMultiplyNumber(Matrix,VHML_N,VHML_M,Number);
 
         //Используем полученный результат
-        MHL_ShowNumber (Number,"Число, на которое умножается матрица","Number");
+        HML_ShowNumber (Number,"Число, на которое умножается матрица","Number");
         //Число, на которое умножается матрица:
         //Number=4
-        MHL_ShowMatrix (Matrix,VMHL_N,VMHL_M,"Матрица умноженное на число", "Matrix");
+        HML_ShowMatrix (Matrix,VHML_N,VHML_M,"Матрица умноженное на число", "Matrix");
         //Матрица умноженное на число:
         //Matrix =
         //308	136	56	332	120
@@ -3207,31 +3207,31 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //308	116	384	200	360
         //40	188	160	196	80
 
-        for (i=0;i<VMHL_N;i++) delete [] Matrix[i];
+        for (i=0;i<VHML_N;i++) delete [] Matrix[i];
         delete [] Matrix;
     }
 
-    if (NameFunction=="TMHL_MatrixT")
+    if (NameFunction=="HML_MatrixT")
     {
         int i,j;
-        int VMHL_N=5;//Размер массива (число строк)
-        int VMHL_M=3;//Размер массива (число столбцов)
+        int VHML_N=5;//Размер массива (число строк)
+        int VHML_M=3;//Размер массива (число столбцов)
         int **Matrix;
-        Matrix=new int*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) Matrix[i]=new int[VMHL_M];
+        Matrix=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) Matrix[i]=new int[VHML_M];
         int **MatrixT;
-        MatrixT=new int*[VMHL_M];
-        for (i=0;i<VMHL_M;i++) MatrixT[i]=new int[VMHL_N];
+        MatrixT=new int*[VHML_M];
+        for (i=0;i<VHML_M;i++) MatrixT[i]=new int[VHML_N];
         //Заполним случайными числами
-        for (i=0;i<VMHL_N;i++)
-            for (j=0;j<VMHL_M;j++)
-                Matrix[i][j]=MHL_RandomUniformInt(10,100);
+        for (i=0;i<VHML_N;i++)
+            for (j=0;j<VHML_M;j++)
+                Matrix[i][j]=HML_RandomUniformInt(10,100);
 
         //Вызов функции
-        TMHL_MatrixT(Matrix,MatrixT,VMHL_N,VMHL_M);
+        HML_MatrixT(Matrix,MatrixT,VHML_N,VHML_M);
 
         //Используем полученный результат
-        MHL_ShowMatrix (Matrix,VMHL_N,VMHL_M,"Матрица", "Matrix");
+        HML_ShowMatrix (Matrix,VHML_N,VHML_M,"Матрица", "Matrix");
         //Матрица:
         //Matrix =
         //26	64	62
@@ -3240,49 +3240,49 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //76	75	81
         //26	72	24
 
-        MHL_ShowMatrix (MatrixT,VMHL_M,VMHL_N,"Транспонированная матрица", "MatrixT");
+        HML_ShowMatrix (MatrixT,VHML_M,VHML_N,"Транспонированная матрица", "MatrixT");
         // Транспонированная матрица:
         //MatrixT =
         //26	70	50	76	26
         //64	49	41	75	72
         //62	43	50	81	24
 
-        for (i=0;i<VMHL_N;i++) delete [] Matrix[i];
+        for (i=0;i<VHML_N;i++) delete [] Matrix[i];
         delete [] Matrix;
-        for (i=0;i<VMHL_M;i++) delete [] MatrixT[i];
+        for (i=0;i<VHML_M;i++) delete [] MatrixT[i];
         delete [] MatrixT;
     }
 
-    if (NameFunction=="TMHL_MatrixMultiplyMatrix")
+    if (NameFunction=="HML_MatrixMultiplyMatrix")
     {
         int i;
-        int VMHL_N=3;
-        int VMHL_M=5;
-        int VMHL_S=4;
+        int VHML_N=3;
+        int VHML_M=5;
+        int VHML_S=4;
         int **a;
-        a=new int*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) a[i]=new int[VMHL_M];
+        a=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) a[i]=new int[VHML_M];
         int **b;
-        b=new int*[VMHL_M];
-        for (i=0;i<VMHL_M;i++) b[i]=new int[VMHL_S];
+        b=new int*[VHML_M];
+        for (i=0;i<VHML_M;i++) b[i]=new int[VHML_S];
         int **c;
-        c=new int*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) c[i]=new int[VMHL_S];
-        TMHL_RandomIntMatrix(a,0,10,VMHL_N,VMHL_M);
-        TMHL_RandomIntMatrix(b,0,10,VMHL_M,VMHL_S);
+        c=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) c[i]=new int[VHML_S];
+        HML_RandomIntMatrix(a,0,10,VHML_N,VHML_M);
+        HML_RandomIntMatrix(b,0,10,VHML_M,VHML_S);
 
         //Вызов функции
-        TMHL_MatrixMultiplyMatrix (a, b, c, VMHL_N, VMHL_M, VMHL_S);
+        HML_MatrixMultiplyMatrix (a, b, c, VHML_N, VHML_M, VHML_S);
 
         //Используем полученный результат
-        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Случайная матрица", "a");
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Случайная матрица", "a");
         //Случайная матрица:
         //a =
         //3	0	4	4	5
         //9	4	3	4	4
         //8	0	1	9	8
 
-        MHL_ShowMatrix (b,VMHL_M,VMHL_S,"Случайная матрица", "b");
+        HML_ShowMatrix (b,VHML_M,VHML_S,"Случайная матрица", "b");
         // Случайная матрица:
         //b =
         //6	6	6	3
@@ -3291,51 +3291,51 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //1	1	8	2
         //6	8	0	9
 
-        MHL_ShowMatrix (c,VMHL_N,VMHL_S,"Произведение", "c");
+        HML_ShowMatrix (c,VHML_N,VHML_S,"Произведение", "c");
         // Произведение:
         //c =
         //76	98	74	74
         //116	125	108	88
         //111	130	126	117
 
-        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        for (i=0;i<VHML_N;i++) delete [] a[i];
         delete [] a;
-        for (i=0;i<VMHL_M;i++) delete [] b[i];
+        for (i=0;i<VHML_M;i++) delete [] b[i];
         delete [] b;
-        for (i=0;i<VMHL_N;i++) delete [] c[i];
+        for (i=0;i<VHML_N;i++) delete [] c[i];
         delete [] c;
     }
 
-    if (NameFunction=="TMHL_MatrixMultiplyMatrixT")
+    if (NameFunction=="HML_MatrixMultiplyMatrixT")
     {
         int i;
-        int VMHL_N=3;
-        int VMHL_M=5;
-        int VMHL_S=4;
+        int VHML_N=3;
+        int VHML_M=5;
+        int VHML_S=4;
         int **a;
-        a=new int*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) a[i]=new int[VMHL_M];
+        a=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) a[i]=new int[VHML_M];
         int **b;
-        b=new int*[VMHL_S];
-        for (i=0;i<VMHL_S;i++) b[i]=new int[VMHL_M];
+        b=new int*[VHML_S];
+        for (i=0;i<VHML_S;i++) b[i]=new int[VHML_M];
         int **c;
-        c=new int*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) c[i]=new int[VMHL_S];
-        TMHL_RandomIntMatrix(a,0,10,VMHL_N,VMHL_M);
-        TMHL_RandomIntMatrix(b,0,10,VMHL_S,VMHL_M);
+        c=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) c[i]=new int[VHML_S];
+        HML_RandomIntMatrix(a,0,10,VHML_N,VHML_M);
+        HML_RandomIntMatrix(b,0,10,VHML_S,VHML_M);
 
         //Вызов функции
-        TMHL_MatrixMultiplyMatrixT (a, b, c, VMHL_N, VMHL_M, VMHL_S);
+        HML_MatrixMultiplyMatrixT (a, b, c, VHML_N, VHML_M, VHML_S);
 
         //Используем полученный результат
-        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Случайная матрица", "a");
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Случайная матрица", "a");
         //Случайная матрица:
         //a =
         //9	8	5	2	1
         //1	9	3	4	8
         //9	9	3	0	3
 
-        MHL_ShowMatrix (b,VMHL_S,VMHL_M,"Случайная матрица", "b");
+        HML_ShowMatrix (b,VHML_S,VHML_M,"Случайная матрица", "b");
         // Случайная матрица:
         //b =
         //3	7	3	0	8
@@ -3343,44 +3343,44 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //0	2	5	6	5
         //8	7	9	2	3
 
-        MHL_ShowMatrix (c,VMHL_N,VMHL_S,"Произведение", "c");
+        HML_ShowMatrix (c,VHML_N,VHML_S,"Произведение", "c");
         // Произведение:
         //c =
         //106	166	58	180
         //139	177	97	130
         //123	180	48	171
 
-        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        for (i=0;i<VHML_N;i++) delete [] a[i];
         delete [] a;
-        for (i=0;i<VMHL_S;i++) delete [] b[i];
+        for (i=0;i<VHML_S;i++) delete [] b[i];
         delete [] b;
-        for (i=0;i<VMHL_N;i++) delete [] c[i];
+        for (i=0;i<VHML_N;i++) delete [] c[i];
         delete [] c;
     }
 
-    if (NameFunction=="TMHL_MatrixTMultiplyMatrix")
+    if (NameFunction=="HML_MatrixTMultiplyMatrix")
     {
         int i;
-        int VMHL_N=3;
-        int VMHL_M=5;
-        int VMHL_S=4;
+        int VHML_N=3;
+        int VHML_M=5;
+        int VHML_S=4;
         int **a;
-        a=new int*[VMHL_M];
-        for (i=0;i<VMHL_M;i++) a[i]=new int[VMHL_N];
+        a=new int*[VHML_M];
+        for (i=0;i<VHML_M;i++) a[i]=new int[VHML_N];
         int **b;
-        b=new int*[VMHL_M];
-        for (i=0;i<VMHL_M;i++) b[i]=new int[VMHL_S];
+        b=new int*[VHML_M];
+        for (i=0;i<VHML_M;i++) b[i]=new int[VHML_S];
         int **c;
-        c=new int*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) c[i]=new int[VMHL_S];
-        TMHL_RandomIntMatrix(a,0,10,VMHL_M,VMHL_N);
-        TMHL_RandomIntMatrix(b,0,10,VMHL_M,VMHL_S);
+        c=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) c[i]=new int[VHML_S];
+        HML_RandomIntMatrix(a,0,10,VHML_M,VHML_N);
+        HML_RandomIntMatrix(b,0,10,VHML_M,VHML_S);
 
         //Вызов функции
-        TMHL_MatrixTMultiplyMatrix (a, b, c, VMHL_N, VMHL_M, VMHL_S);
+        HML_MatrixTMultiplyMatrix (a, b, c, VHML_N, VHML_M, VHML_S);
 
         //Используем полученный результат
-        MHL_ShowMatrix (a,VMHL_M,VMHL_N,"Случайная матрица", "a");
+        HML_ShowMatrix (a,VHML_M,VHML_N,"Случайная матрица", "a");
         // Случайная матрица:
         //a =
         //6	0	1
@@ -3389,7 +3389,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //3	1	5
         //3	8	8
 
-        MHL_ShowMatrix (b,VMHL_M,VMHL_S,"Случайная матрица", "b");
+        HML_ShowMatrix (b,VHML_M,VHML_S,"Случайная матрица", "b");
         // Случайная матрица:
         //b =
         //6	7	1	0
@@ -3398,61 +3398,61 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //9	7	9	3
         //5	7	0	1
 
-        MHL_ShowMatrix (c,VMHL_N,VMHL_S,"Произведение", "c");
+        HML_ShowMatrix (c,VHML_N,VHML_S,"Произведение", "c");
         // Произведение:
         //c =
         //155	162	33	12
         //94	105	9	11
         //154	152	46	23
 
-        for (i=0;i<VMHL_M;i++) delete [] a[i];
+        for (i=0;i<VHML_M;i++) delete [] a[i];
         delete [] a;
-        for (i=0;i<VMHL_M;i++) delete [] b[i];
+        for (i=0;i<VHML_M;i++) delete [] b[i];
         delete [] b;
-        for (i=0;i<VMHL_N;i++) delete [] c[i];
+        for (i=0;i<VHML_N;i++) delete [] c[i];
         delete [] c;
     }
 
-    if (NameFunction=="TMHL_RandomIntMatrix")
+    if (NameFunction=="HML_RandomIntMatrix")
     {
         int i;
-        int VMHL_N=3;//Размер массива (число строк)
-        int VMHL_M=3;//Размер массива (число столбцов)
+        int VHML_N=3;//Размер массива (число строк)
+        int VHML_M=3;//Размер массива (число столбцов)
         int **a;
-        a=new int*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) a[i]=new int[VMHL_M];
+        a=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) a[i]=new int[VHML_M];
 
         int n=-3;//левая граница интервала;
         int m=3;//правая граница интервала;
 
         //Вызов функции
-        TMHL_RandomIntMatrix(a,n,m,VMHL_N,VMHL_M);
+        HML_RandomIntMatrix(a,n,m,VHML_N,VHML_M);
 
         //Используем полученный результат
 
-        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Случайная матрица", "a");
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Случайная матрица", "a");
         // Случайная матрица:
         //a =
         //-1	-1	2
         //2	0	1
         //-3	2	-1ss
 
-        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        for (i=0;i<VHML_N;i++) delete [] a[i];
         delete [] a;
     }
 
-    if (NameFunction=="TMHL_RandomIntMatrixInCols")
+    if (NameFunction=="HML_RandomIntMatrixInCols")
     {
         int i;
-        int VMHL_N=3;//Размер массива (число строк)
-        int VMHL_M=3;//Размер массива (число столбцов)
+        int VHML_N=3;//Размер массива (число строк)
+        int VHML_M=3;//Размер массива (число столбцов)
         int **a;
-        a=new int*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) a[i]=new int[VMHL_M];
+        a=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) a[i]=new int[VHML_M];
         int *n;
-        n=new int[VMHL_M];
+        n=new int[VHML_M];
         int *m;
-        m=new int[VMHL_M];
+        m=new int[VHML_M];
 
         n[0]=-50;//левая границы интервала изменения 1 столбца
         m[0]=-40; //правая граница интервала изменения 1 столбца
@@ -3464,92 +3464,92 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         m[2]=200; //правая граница интервала изменения 3 столбца
 
         //Вызов функции
-        TMHL_RandomIntMatrixInCols(a,n,m,VMHL_N,VMHL_M);
+        HML_RandomIntMatrixInCols(a,n,m,VHML_N,VHML_M);
 
         //Используем полученный результат
 
-        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Случайная матрица", "a");
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Случайная матрица", "a");
         //Случайная матрица:
         //a =
         //-47	2	142
         //-47	1	139
         //-44	0	199
 
-        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        for (i=0;i<VHML_N;i++) delete [] a[i];
         delete [] a;
         delete [] n;
         delete [] m;
     }
 
-    if (NameFunction=="TMHL_RandomIntMatrixInElements")
+    if (NameFunction=="HML_RandomIntMatrixInElements")
     {
         int i,j;
-        int VMHL_N=3;//Размер массива (число строк)
-        int VMHL_M=3;//Размер массива (число столбцов)
+        int VHML_N=3;//Размер массива (число строк)
+        int VHML_M=3;//Размер массива (число столбцов)
         int **a;
-        a=new int*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) a[i]=new int[VMHL_M];
+        a=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) a[i]=new int[VHML_M];
         int **n;
-        n=new int*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) n[i]=new int[VMHL_M];
+        n=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) n[i]=new int[VHML_M];
         int **m;
-        m=new int*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) m[i]=new int[VMHL_M];
+        m=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) m[i]=new int[VHML_M];
 
         //Заполним границы изменения каждого элемента
-        for (i=0;i<VMHL_N;i++)
-            for (j=0;j<VMHL_M;j++)
+        for (i=0;i<VHML_N;i++)
+            for (j=0;j<VHML_M;j++)
             {
-                n[i][j]=i*VMHL_N+j-10;
+                n[i][j]=i*VHML_N+j-10;
                 m[i][j]=n[i][j]+20;
             }
 
         //Вызов функции
-        TMHL_RandomIntMatrixInElements(a,n,m,VMHL_N,VMHL_M);
+        HML_RandomIntMatrixInElements(a,n,m,VHML_N,VHML_M);
 
         //Используем полученный результат
 
-        MHL_ShowMatrix (n,VMHL_N,VMHL_M,"Матрица левых границ", "n");
+        HML_ShowMatrix (n,VHML_N,VHML_M,"Матрица левых границ", "n");
         //Матрица левых границ:
         //n =
         //-10	-9	-8
         //-7	-6	-5
         //-4	-3	-2
 
-        MHL_ShowMatrix (m,VMHL_N,VMHL_M,"Матрица правых границ", "m");
+        HML_ShowMatrix (m,VHML_N,VHML_M,"Матрица правых границ", "m");
         // Матрица правых границ:
         //m =
         //10	11	12
         //13	14	15
         //16	17	18
 
-        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Случайная матрица", "a");
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Случайная матрица", "a");
         // Случайная матрица:
         //a =
         //-4	6	-8
         //-1	1	1
         //-3	16	4
 
-        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        for (i=0;i<VHML_N;i++) delete [] a[i];
         delete [] a;
-        for (i=0;i<VMHL_N;i++) delete [] n[i];
+        for (i=0;i<VHML_N;i++) delete [] n[i];
         delete [] n;
-        for (i=0;i<VMHL_N;i++) delete [] m[i];
+        for (i=0;i<VHML_N;i++) delete [] m[i];
         delete [] m;
     }
 
-    if (NameFunction=="TMHL_RandomIntMatrixInRows")
+    if (NameFunction=="HML_RandomIntMatrixInRows")
     {
         int i;
-        int VMHL_N=3;//Размер массива (число строк)
-        int VMHL_M=3;//Размер массива (число столбцов)
+        int VHML_N=3;//Размер массива (число строк)
+        int VHML_M=3;//Размер массива (число столбцов)
         int **a;
-        a=new int*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) a[i]=new int[VMHL_M];
+        a=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) a[i]=new int[VHML_M];
         int *n;
-        n=new int[VMHL_N];
+        n=new int[VHML_N];
         int *m;
-        m=new int[VMHL_N];
+        m=new int[VHML_N];
 
         n[0]=-50;//левая границы интервала изменения 1 строки
         m[0]=-40; //правая граница интервала изменения 1 строки
@@ -3561,38 +3561,38 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         m[2]=200; //правая граница интервала изменения 3 строки
 
         //Вызов функции
-        TMHL_RandomIntMatrixInRows(a,n,m,VMHL_N,VMHL_M);
+        HML_RandomIntMatrixInRows(a,n,m,VHML_N,VHML_M);
 
         //Используем полученный результат
 
-        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Случайная матрица", "a");
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Случайная матрица", "a");
         // Случайная матрица:
         //a =
         // -42	-42	-45
         //2	2	0
         //113	102	109
 
-        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        for (i=0;i<VHML_N;i++) delete [] a[i];
         delete [] a;
         delete [] n;
         delete [] m;
     }
 
-    if (NameFunction=="TMHL_RandomIntVector")
+    if (NameFunction=="HML_RandomIntVector")
     {
-        int VMHL_N=10;//Размер массива
+        int VHML_N=10;//Размер массива
         int *a;
-        a=new int[VMHL_N];
+        a=new int[VHML_N];
 
         int n=3;
         int m=50;
 
         //Вызов функции
-        TMHL_RandomIntVector(a,n,m,VMHL_N);
+        HML_RandomIntVector(a,n,m,VHML_N);
 
         //Используем полученный результат
 
-        MHL_ShowVector (a,VMHL_N,"Массив", "a");
+        HML_ShowVector (a,VHML_N,"Массив", "a");
         //Массив:
         //a =
         //6
@@ -3609,40 +3609,40 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] a;
     }
 
-    if (NameFunction=="TMHL_RandomIntVectorInElements")
+    if (NameFunction=="HML_RandomIntVectorInElements")
     {
-        int VMHL_N=2;//Размер массива
+        int VHML_N=2;//Размер массива
         int *a;
-        a=new int[VMHL_N];
+        a=new int[VHML_N];
 
         int *n;
-        n=new int[VMHL_N];
+        n=new int[VHML_N];
         n[0]=3;//Левая граница изменения первого элемента массива
         n[1]=-90;//Левая граница изменения второго элемента массива
 
         int *m;
-        m=new int[VMHL_N];
+        m=new int[VHML_N];
         m[0]=40;//Правая граница изменения первого элемента массива
         m[1]=-10;//Правая граница изменения второго элемента массива
 
         //Вызов функции
-        TMHL_RandomIntVectorInElements(a,n,m,VMHL_N);
+        HML_RandomIntVectorInElements(a,n,m,VHML_N);
 
         //Используем полученный результат
 
-        MHL_ShowVector (n,VMHL_N,"Массив левых границ", "n");
+        HML_ShowVector (n,VHML_N,"Массив левых границ", "n");
         //Массив левых границ:
         //n =
         //3
         //-90
 
-        MHL_ShowVector (m,VMHL_N,"Массив правых границ", "m");
+        HML_ShowVector (m,VHML_N,"Массив правых границ", "m");
         // Массив правых границ:
         //m =
         //40
         //-10
 
-        MHL_ShowVector (a,VMHL_N,"Случайных массив", "a");
+        HML_ShowVector (a,VHML_N,"Случайных массив", "a");
         // Случайных массив:
         //a =
         //31
@@ -3653,20 +3653,20 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] m;
     }
 
-    if (NameFunction=="TMHL_RandomBinaryMatrix")
+    if (NameFunction=="HML_RandomBinaryMatrix")
     {
         int i;
-        int VMHL_N=10;//Размер массива (число строк)
-        int VMHL_M=3;//Размер массива (число столбцов)
+        int VHML_N=10;//Размер массива (число строк)
+        int VHML_M=3;//Размер массива (число столбцов)
         int **a;
-        a=new int*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) a[i]=new int[VMHL_M];
+        a=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) a[i]=new int[VHML_M];
 
         //Вызов функции
-        TMHL_RandomBinaryMatrix(a,VMHL_N,VMHL_M);
+        HML_RandomBinaryMatrix(a,VHML_N,VHML_M);
 
         //Используем полученный результат
-        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Случайная бинарная матрица", "a");
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Случайная бинарная матрица", "a");
         //Случайная бинарная матрица:
         //a =
         //1	0	1
@@ -3680,21 +3680,21 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //1	0	0
         //1	1	0
 
-        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        for (i=0;i<VHML_N;i++) delete [] a[i];
         delete [] a;
     }
 
-    if (NameFunction=="TMHL_RandomBinaryVector")
+    if (NameFunction=="HML_RandomBinaryVector")
     {
-        int VMHL_N=10;//Размер массива (число строк)
+        int VHML_N=10;//Размер массива (число строк)
         int *a;
-        a=new int[VMHL_N];
+        a=new int[VHML_N];
 
         //Вызов функции
-        TMHL_RandomBinaryVector(a,VMHL_N);
+        HML_RandomBinaryVector(a,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (a,VMHL_N,"Случайный бинарный вектор", "a");
+        HML_ShowVector (a,VHML_N,"Случайный бинарный вектор", "a");
         //Случайный бинарный вектор:
         //a =
         //1
@@ -3711,17 +3711,17 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] a;
     }
 
-    if (NameFunction=="TMHL_BernulliVector")
+    if (NameFunction=="HML_BernulliVector")
     {
-        int VMHL_N=10;//Размер массива (число строк)
+        int VHML_N=10;//Размер массива (число строк)
         double *a;
-        a=new double[VMHL_N];
+        a=new double[VHML_N];
 
         //Вызов функции
-        TMHL_BernulliVector(a,VMHL_N);
+        HML_BernulliVector(a,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (a,VMHL_N,"Случайный вектор Бернулли", "a");
+        HML_ShowVector (a,VHML_N,"Случайный вектор Бернулли", "a");
         //Случайный вектор Бернулли:
         //a =
         //1
@@ -3736,22 +3736,22 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //1
     }
 
-    if (NameFunction=="TMHL_RandomArrangingObjectsIntoBaskets")
+    if (NameFunction=="HML_RandomArrangingObjectsIntoBaskets")
     {
-        int VMHL_N=10;//Размер массива
+        int VHML_N=10;//Размер массива
         int *a;
-        a=new int[VMHL_N];
+        a=new int[VHML_N];
 
-        int N=MHL_RandomUniformInt(0,10);// Размер турнира
+        int N=HML_RandomUniformInt(0,10);// Размер турнира
 
         //Вызов функции
-        TMHL_RandomArrangingObjectsIntoBaskets(a,N,VMHL_N);
+        HML_RandomArrangingObjectsIntoBaskets(a,N,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowNumber (N,"Число предметов", "N");
+        HML_ShowNumber (N,"Число предметов", "N");
         // Число предметов:
         // N=5
-        MHL_ShowVectorT (a,VMHL_N,"Случаное расположение по 10 корзинам", "a");
+        HML_ShowVectorT (a,VHML_N,"Случаное расположение по 10 корзинам", "a");
         // Случаное расположение по 10 корзинам:
         //a =
         //0	1	0	0	0	1	1	0	1	1
@@ -3759,20 +3759,20 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] a;
     }
 
-    if (NameFunction=="TMHL_ColInterchange")
+    if (NameFunction=="HML_ColInterchange")
     {
         int i,j;
-        int VMHL_N=5;//Размер массива (число строк)
-        int VMHL_M=5;//Размер массива (число столбцов)
+        int VHML_N=5;//Размер массива (число строк)
+        int VHML_M=5;//Размер массива (число столбцов)
         int **Matrix;
-        Matrix=new int*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) Matrix[i]=new int[VMHL_M];
+        Matrix=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) Matrix[i]=new int[VHML_M];
         //Заполним случайными числами
-        for (i=0;i<VMHL_N;i++)
-            for (j=0;j<VMHL_M;j++)
-                Matrix[i][j]=MHL_RandomUniformInt(10,100);
+        for (i=0;i<VHML_N;i++)
+            for (j=0;j<VHML_M;j++)
+                Matrix[i][j]=HML_RandomUniformInt(10,100);
 
-        MHL_ShowMatrix (Matrix,VMHL_N,VMHL_M,"Случайная матрица", "Matrix");
+        HML_ShowMatrix (Matrix,VHML_N,VHML_M,"Случайная матрица", "Matrix");
         // Случайная матрица:
         //Matrix =
         //46	37	90	95	83
@@ -3782,20 +3782,20 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //86	79	20	40	69
 
         // номера перставляемых столбцов
-        int k=MHL_RandomUniformInt(0,5);
-        int l=MHL_RandomUniformInt(0,5);
+        int k=HML_RandomUniformInt(0,5);
+        int l=HML_RandomUniformInt(0,5);
 
         //Вызов функции
-        TMHL_ColInterchange(Matrix,VMHL_N,k,l);
+        HML_ColInterchange(Matrix,VHML_N,k,l);
 
         //Используем полученный результат
-        MHL_ShowNumber (k,"Номер первого столбца","k");
+        HML_ShowNumber (k,"Номер первого столбца","k");
         // Номер первого столбца:
         //k=4
-        MHL_ShowNumber (l,"Номер второго столбца","l");
+        HML_ShowNumber (l,"Номер второго столбца","l");
         // Номер второго столбца:
         //l=0
-        MHL_ShowMatrix (Matrix,VMHL_N,VMHL_M,"Матрица с персетавленными столбцами", "Matrix");
+        HML_ShowMatrix (Matrix,VHML_N,VHML_M,"Матрица с персетавленными столбцами", "Matrix");
         // Матрица с персетавленными столбцами:
         //Matrix =
         //83	37	90	95	46
@@ -3804,25 +3804,25 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //75	54	84	90	20
         //69	79	20	40	86
 
-        for (i=0;i<VMHL_N;i++) delete [] Matrix[i];
+        for (i=0;i<VHML_N;i++) delete [] Matrix[i];
         delete [] Matrix;
     }
 
-    if (NameFunction=="TMHL_ColToMatrix")
+    if (NameFunction=="HML_ColToMatrix")
     {
         int i,j;
-        int VMHL_N=10;//Размер массива (число строк)
-        int VMHL_M=3;//Размер массива (число столбцов)
+        int VHML_N=10;//Размер массива (число строк)
+        int VHML_M=3;//Размер массива (число столбцов)
         int **a;
-        a=new int*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) a[i]=new int[VMHL_M];
+        a=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) a[i]=new int[VHML_M];
         int *b;
-        b=new int[VMHL_N];
+        b=new int[VHML_N];
         //Заполним случайными числами
-        for (i=0;i<VMHL_N;i++)
-            for (j=0;j<VMHL_M;j++)
-                a[i][j]=MHL_RandomUniformInt(10,100);
-        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Случайная матрица", "a");
+        for (i=0;i<VHML_N;i++)
+            for (j=0;j<VHML_M;j++)
+                a[i][j]=HML_RandomUniformInt(10,100);
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Случайная матрица", "a");
         //Случайная матрица:
         //a =
         //13	99	23
@@ -3836,19 +3836,19 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //56	68	89
         //51	89	78
 
-        for (j=0;j<VMHL_N;j++)
-            b[j]=MHL_RandomUniformInt(10,100);
+        for (j=0;j<VHML_N;j++)
+            b[j]=HML_RandomUniformInt(10,100);
 
         int k=1;//Номер столбца, в который мы копируем
 
         //Вызов функции
-        TMHL_ColToMatrix(a,b,VMHL_N,k);
+        HML_ColToMatrix(a,b,VHML_N,k);
 
         //Используем полученный результат
-        MHL_ShowNumber(k,"Номер столбца, в который мы копируем ","k");
+        HML_ShowNumber(k,"Номер столбца, в который мы копируем ","k");
         //Номер столбца, в который мы копируем :
         //k=1
-        MHL_ShowVector (b,VMHL_N,"Вектор","b");
+        HML_ShowVector (b,VHML_N,"Вектор","b");
         //Вектор:
         //b =
         //35
@@ -3862,7 +3862,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //23
         //14
 
-        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Матрица с изменившимся столбцом", "a");
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Матрица с изменившимся столбцом", "a");
         //Матрица с изменившимся столбцом:
         //a =
         //13	35	23
@@ -3876,25 +3876,25 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //56	23	89
         //51	14	78
 
-        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        for (i=0;i<VHML_N;i++) delete [] a[i];
         delete [] a;
         delete [] b;
     }
 
-    if (NameFunction=="TMHL_DeleteRowInMatrix")
+    if (NameFunction=="HML_DeleteRowInMatrix")
     {
         int i,j;
-        int VMHL_N=6;//Размер массива (число строк)
-        int VMHL_M=4;//Размер массива (число столбцов)
+        int VHML_N=6;//Размер массива (число строк)
+        int VHML_M=4;//Размер массива (число столбцов)
         double **Matrix;
-        Matrix=new double*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) Matrix[i]=new double[VMHL_M];
+        Matrix=new double*[VHML_N];
+        for (i=0;i<VHML_N;i++) Matrix[i]=new double[VHML_M];
         //Заполним случайными числами
-        for (i=0;i<VMHL_N;i++)
-            for (j=0;j<VMHL_M;j++)
-                Matrix[i][j]=MHL_RandomUniformInt(10,100);
+        for (i=0;i<VHML_N;i++)
+            for (j=0;j<VHML_M;j++)
+                Matrix[i][j]=HML_RandomUniformInt(10,100);
 
-        MHL_ShowMatrix (Matrix,VMHL_N,VMHL_M,"Случайная матрица", "Matrix");
+        HML_ShowMatrix (Matrix,VHML_N,VHML_M,"Случайная матрица", "Matrix");
         // Случайная матрица:
         //Matrix =
         //70	57	44	95
@@ -3907,11 +3907,11 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         int k=2;//Удалим вторую строку
 
         //Вызов функции
-        TMHL_DeleteRowInMatrix(Matrix,k,VMHL_N,VMHL_M);
+        HML_DeleteRowInMatrix(Matrix,k,VHML_N,VHML_M);
 
         //Используем полученный результат
 
-        MHL_ShowMatrix (Matrix,VMHL_N,VMHL_M,"Матрица с удаленной строкой", "Matrix");
+        HML_ShowMatrix (Matrix,VHML_N,VHML_M,"Матрица с удаленной строкой", "Matrix");
         // Матрица с удаленной строкой:
         //Matrix =
         //70	57	44	95
@@ -3921,24 +3921,24 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //32	52	63	78
         //0	0	0	0
 
-        for (i=0;i<VMHL_N;i++) delete [] Matrix[i];
+        for (i=0;i<VHML_N;i++) delete [] Matrix[i];
         delete [] Matrix;
     }
 
-    if (NameFunction=="TMHL_DeleteColInMatrix")
+    if (NameFunction=="HML_DeleteColInMatrix")
     {
         int i,j;
-        int VMHL_N=6;//Размер массива (число строк)
-        int VMHL_M=4;//Размер массива (число столбцов)
+        int VHML_N=6;//Размер массива (число строк)
+        int VHML_M=4;//Размер массива (число столбцов)
         double **Matrix;
-        Matrix=new double*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) Matrix[i]=new double[VMHL_M];
+        Matrix=new double*[VHML_N];
+        for (i=0;i<VHML_N;i++) Matrix[i]=new double[VHML_M];
         //Заполним случайными числами
-        for (i=0;i<VMHL_N;i++)
-            for (j=0;j<VMHL_M;j++)
-                Matrix[i][j]=MHL_RandomUniformInt(10,100);
+        for (i=0;i<VHML_N;i++)
+            for (j=0;j<VHML_M;j++)
+                Matrix[i][j]=HML_RandomUniformInt(10,100);
 
-        MHL_ShowMatrix (Matrix,VMHL_N,VMHL_M,"Случайная матрица", "Matrix");
+        HML_ShowMatrix (Matrix,VHML_N,VHML_M,"Случайная матрица", "Matrix");
         // Случайная матрица:
         //Matrix =
         //39	52	14	31
@@ -3951,11 +3951,11 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         int k=2;//Удалим второй столбец
 
         //Вызов функции
-        TMHL_DeleteColInMatrix(Matrix,k,VMHL_N,VMHL_M);
+        HML_DeleteColInMatrix(Matrix,k,VHML_N,VHML_M);
 
         //Используем полученный результат
 
-        MHL_ShowMatrix (Matrix,VMHL_N,VMHL_M,"Матрица с удаленным столбцом", "Matrix");
+        HML_ShowMatrix (Matrix,VHML_N,VHML_M,"Матрица с удаленным столбцом", "Matrix");
         // Матрица с удаленным столбцом:
         //Matrix =
         //39	52	31	0
@@ -3965,32 +3965,32 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //52	31	78	0
         //22	20	94	0
 
-        for (i=0;i<VMHL_N;i++) delete [] Matrix[i];
+        for (i=0;i<VHML_N;i++) delete [] Matrix[i];
         delete [] Matrix;
     }
 
-    if (NameFunction=="TMHL_MatrixToCol")
+    if (NameFunction=="HML_MatrixToCol")
     {
         int i,j;
-        int VMHL_N=10;//Размер массива (число строк)
-        int VMHL_M=3;//Размер массива (число столбцов)
+        int VHML_N=10;//Размер массива (число строк)
+        int VHML_M=3;//Размер массива (число столбцов)
         int **a;
-        a=new int*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) a[i]=new int[VMHL_M];
+        a=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) a[i]=new int[VHML_M];
         int *b;
-        b=new int[VMHL_N];
+        b=new int[VHML_N];
         //Заполним случайными числами
-        for (i=0;i<VMHL_N;i++)
-            for (j=0;j<VMHL_M;j++)
-                a[i][j]=MHL_RandomUniformInt(10,100);
+        for (i=0;i<VHML_N;i++)
+            for (j=0;j<VHML_M;j++)
+                a[i][j]=HML_RandomUniformInt(10,100);
 
         int k=1;//Номер копируемого столбца
 
         //Вызов функции
-        TMHL_MatrixToCol(a,b,VMHL_N,k);
+        HML_MatrixToCol(a,b,VHML_N,k);
 
         //Используем полученный результат
-        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Случайная матрица", "a");
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Случайная матрица", "a");
         //Случайная матрица:
         //a =
         //98	39	35
@@ -4004,10 +4004,10 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //62	80	22
         //27	17	58
 
-        MHL_ShowNumber(k,"Номер копируемого столбца ","k");
+        HML_ShowNumber(k,"Номер копируемого столбца ","k");
         //Номер копируемого столбца :
         //k=1
-        MHL_ShowVector (b,VMHL_N,"Вектор, в который скопировали столбец","b");
+        HML_ShowVector (b,VHML_N,"Вектор, в который скопировали столбец","b");
         //Вектор, в который скопировали столбец:
         //b =
         //39
@@ -4021,32 +4021,32 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //80
         //17
 
-        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        for (i=0;i<VHML_N;i++) delete [] a[i];
         delete [] a;
         delete [] b;
     }
 
-    if (NameFunction=="TMHL_MatrixToMatrix")
+    if (NameFunction=="HML_MatrixToMatrix")
     {
         int i,j;
-        int VMHL_N=10;//Размер массива (число строк)
-        int VMHL_M=3;//Размер массива (число столбцов)
+        int VHML_N=10;//Размер массива (число строк)
+        int VHML_M=3;//Размер массива (число столбцов)
         double **a;
-        a=new double*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) a[i]=new double[VMHL_M];
+        a=new double*[VHML_N];
+        for (i=0;i<VHML_N;i++) a[i]=new double[VHML_M];
         double **b;
-        b=new double*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) b[i]=new double[VMHL_M];
+        b=new double*[VHML_N];
+        for (i=0;i<VHML_N;i++) b[i]=new double[VHML_M];
         //Заполним случайными числами
-        for (i=0;i<VMHL_N;i++)
-            for (j=0;j<VMHL_M;j++)
-                a[i][j]=MHL_RandomUniformInt(10,100);
+        for (i=0;i<VHML_N;i++)
+            for (j=0;j<VHML_M;j++)
+                a[i][j]=HML_RandomUniformInt(10,100);
 
         //Вызов функции
-        TMHL_MatrixToMatrix(a,b,VMHL_N,VMHL_M);
+        HML_MatrixToMatrix(a,b,VHML_N,VHML_M);
 
         //Используем полученный результат
-        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Случайная матрица", "a");
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Случайная матрица", "a");
         //Случайная матрица:
         //a =
         //82	55	19
@@ -4060,7 +4060,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //71	49	64
         //11	95	38
 
-        MHL_ShowMatrix (b,VMHL_N,VMHL_M,"Теперь b равна a", "b");
+        HML_ShowMatrix (b,VHML_N,VHML_M,"Теперь b равна a", "b");
         //Теперь b равна a:
         //b =
         //82	55	19
@@ -4074,34 +4074,34 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //71	49	64
         //11	95	38
 
-        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        for (i=0;i<VHML_N;i++) delete [] a[i];
         delete [] a;
-        for (i=0;i<VMHL_N;i++) delete [] b[i];
+        for (i=0;i<VHML_N;i++) delete [] b[i];
         delete [] b;
     }
 
-    if (NameFunction=="TMHL_MatrixToRow")
+    if (NameFunction=="HML_MatrixToRow")
     {
         int i,j;
-        int VMHL_N=10;//Размер массива (число строк)
-        int VMHL_M=3;//Размер массива (число столбцов)
+        int VHML_N=10;//Размер массива (число строк)
+        int VHML_M=3;//Размер массива (число столбцов)
         int **a;
-        a=new int*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) a[i]=new int[VMHL_M];
+        a=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) a[i]=new int[VHML_M];
         int *b;
-        b=new int[VMHL_M];
+        b=new int[VHML_M];
         //Заполним случайными числами
-        for (i=0;i<VMHL_N;i++)
-            for (j=0;j<VMHL_M;j++)
-                a[i][j]=MHL_RandomUniformInt(10,100);
+        for (i=0;i<VHML_N;i++)
+            for (j=0;j<VHML_M;j++)
+                a[i][j]=HML_RandomUniformInt(10,100);
 
         int k=1;//Номер копируемой строки
 
         //Вызов функции
-        TMHL_MatrixToRow(a,b,k,VMHL_M);
+        HML_MatrixToRow(a,b,k,VHML_M);
 
         //Используем полученный результат
-        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Случайная матрица", "a");
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Случайная матрица", "a");
         //Случайная матрица:
         //a =
         //31	57	29
@@ -4115,35 +4115,35 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //38	95	78
         //16	90	69
 
-        MHL_ShowNumber(k,"Номер копируемой строки ","k");
+        HML_ShowNumber(k,"Номер копируемой строки ","k");
         //Номер копируемой строки :
         //k=1
-        MHL_ShowVector (b,VMHL_M,"Вектор, в который скопировали строку","b");
+        HML_ShowVector (b,VHML_M,"Вектор, в который скопировали строку","b");
         //Вектор, в который скопировали строку:
         //b =
         //69
         //75
         //13
 
-        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        for (i=0;i<VHML_N;i++) delete [] a[i];
         delete [] a;
         delete [] b;
     }
 
-    if (NameFunction=="TMHL_RowInterchange")
+    if (NameFunction=="HML_RowInterchange")
     {
         int i,j;
-        int VMHL_N=5;//Размер массива (число строк)
-        int VMHL_M=5;//Размер массива (число столбцов)
+        int VHML_N=5;//Размер массива (число строк)
+        int VHML_M=5;//Размер массива (число столбцов)
         int **Matrix;
-        Matrix=new int*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) Matrix[i]=new int[VMHL_M];
+        Matrix=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) Matrix[i]=new int[VHML_M];
         //Заполним случайными числами
-        for (i=0;i<VMHL_N;i++)
-            for (j=0;j<VMHL_M;j++)
-                Matrix[i][j]=MHL_RandomUniformInt(10,100);
+        for (i=0;i<VHML_N;i++)
+            for (j=0;j<VHML_M;j++)
+                Matrix[i][j]=HML_RandomUniformInt(10,100);
 
-        MHL_ShowMatrix (Matrix,VMHL_N,VMHL_M,"Случайная матрица", "Matrix");
+        HML_ShowMatrix (Matrix,VHML_N,VHML_M,"Случайная матрица", "Matrix");
         //Случайная матрица:
         //Matrix =
         //64	41	93	98	45
@@ -4153,20 +4153,20 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //31	99	64	49	63
 
         // номера перставляемых строк
-        int k=MHL_RandomUniformInt(0,5);
-        int l=MHL_RandomUniformInt(0,5);
+        int k=HML_RandomUniformInt(0,5);
+        int l=HML_RandomUniformInt(0,5);
 
         //Вызов функции
-        TMHL_RowInterchange(Matrix,VMHL_M,k,l);
+        HML_RowInterchange(Matrix,VHML_M,k,l);
 
         //Используем полученный результат
-        MHL_ShowNumber (k,"Номер первой строки","k");
+        HML_ShowNumber (k,"Номер первой строки","k");
         //Номер первой строки:
         //k=4
-        MHL_ShowNumber (l,"Номер второй строки","l");
+        HML_ShowNumber (l,"Номер второй строки","l");
         //Номер второй строки:
         //l=3
-        MHL_ShowMatrix (Matrix,VMHL_N,VMHL_M,"Матрица с персетавленными строками", "Matrix");
+        HML_ShowMatrix (Matrix,VHML_N,VHML_M,"Матрица с персетавленными строками", "Matrix");
         //Матрица с персетавленными строками:
         //Matrix =
         //64	41	93	98	45
@@ -4175,25 +4175,25 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //31	99	64	49	63
         //28	54	39	14	72
 
-        for (i=0;i<VMHL_N;i++) delete [] Matrix[i];
+        for (i=0;i<VHML_N;i++) delete [] Matrix[i];
         delete [] Matrix;
     }
 
-    if (NameFunction=="TMHL_RowToMatrix")
+    if (NameFunction=="HML_RowToMatrix")
     {
         int i,j;
-        int VMHL_N=10;//Размер массива (число строк)
-        int VMHL_M=3;//Размер массива (число столбцов)
+        int VHML_N=10;//Размер массива (число строк)
+        int VHML_M=3;//Размер массива (число столбцов)
         int **a;
-        a=new int*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) a[i]=new int[VMHL_M];
+        a=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) a[i]=new int[VHML_M];
         int *b;
-        b=new int[VMHL_M];
+        b=new int[VHML_M];
         //Заполним случайными числами
-        for (i=0;i<VMHL_N;i++)
-            for (j=0;j<VMHL_M;j++)
-                a[i][j]=MHL_RandomUniformInt(10,100);
-        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Случайная матрица", "a");
+        for (i=0;i<VHML_N;i++)
+            for (j=0;j<VHML_M;j++)
+                a[i][j]=HML_RandomUniformInt(10,100);
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Случайная матрица", "a");
         //Случайная матрица:
         //a =
         //53	15	56
@@ -4207,26 +4207,26 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //29	63	20
         //84	83	98
 
-        for (j=0;j<VMHL_M;j++)
-            b[j]=MHL_RandomUniformInt(10,100);
+        for (j=0;j<VHML_M;j++)
+            b[j]=HML_RandomUniformInt(10,100);
 
         int k=1;//Номер строки, в которую мы копируем
 
         //Вызов функции
-        TMHL_RowToMatrix(a,b,k,VMHL_M);
+        HML_RowToMatrix(a,b,k,VHML_M);
 
         //Используем полученный результат
-        MHL_ShowNumber(k,"Номер строки, в которую мы копируем ","k");
+        HML_ShowNumber(k,"Номер строки, в которую мы копируем ","k");
         //Номер строки, в которую мы копируем :
         //k=1
-        MHL_ShowVector (b,VMHL_M,"Вектор","b");
+        HML_ShowVector (b,VHML_M,"Вектор","b");
         //Вектор:
         //b =
         //92
         //89
         //11
 
-        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Матрица с изменившейся строкой", "a");
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Матрица с изменившейся строкой", "a");
         //Матрица с изменившейся строкой:
         //a =
         //53	15	56
@@ -4240,29 +4240,29 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //29	63	20
         //84	83	98
 
-        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        for (i=0;i<VHML_N;i++) delete [] a[i];
         delete [] a;
         delete [] b;
     }
 
-    if (NameFunction=="TMHL_NumberOfDifferentValuesInMatrix")
+    if (NameFunction=="HML_NumberOfDifferentValuesInMatrix")
     {
         int i,j;
-        int VMHL_N=5;//Размер массива (число строк)
-        int VMHL_M=3;//Размер массива (число столбцов)
+        int VHML_N=5;//Размер массива (число строк)
+        int VHML_M=3;//Размер массива (число столбцов)
         int **a;
-        a=new int*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) a[i]=new int[VMHL_M];
+        a=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) a[i]=new int[VHML_M];
         //Заполним случайными числами
-        for (i=0;i<VMHL_N;i++)
-            for (j=0;j<VMHL_M;j++)
-                a[i][j]=MHL_RandomUniformInt(0,50);
+        for (i=0;i<VHML_N;i++)
+            for (j=0;j<VHML_M;j++)
+                a[i][j]=HML_RandomUniformInt(0,50);
 
         //Вызов функции
-        int NumberOfDifferent=TMHL_NumberOfDifferentValuesInMatrix(a,VMHL_N,VMHL_M);
+        int NumberOfDifferent=HML_NumberOfDifferentValuesInMatrix(a,VHML_N,VHML_M);
 
         //Используем полученный результат
-        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Случайная матрица", "a");
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Случайная матрица", "a");
         //Случайная матрица:
         //a =
         //7	3	27
@@ -4271,26 +4271,26 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //45	26	12
         //26	28	0
 
-        MHL_ShowNumber (NumberOfDifferent,"Число различных значений в матрице", "NumberOfDifferent");
+        HML_ShowNumber (NumberOfDifferent,"Число различных значений в матрице", "NumberOfDifferent");
         //Число различных значений в матрице:
         //NumberOfDifferent=14
-        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        for (i=0;i<VHML_N;i++) delete [] a[i];
         delete [] a;
     }
 
-    if (NameFunction=="TMHL_IdentityMatrix")
+    if (NameFunction=="HML_IdentityMatrix")
     {
         int i;
-        int VMHL_N=5;//Размер массива (число строк и столбцов)
+        int VHML_N=5;//Размер массива (число строк и столбцов)
         int **Matrix;
-        Matrix=new int*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) Matrix[i]=new int[VMHL_N];
+        Matrix=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) Matrix[i]=new int[VHML_N];
 
         //Вызов функции
-        TMHL_IdentityMatrix(Matrix,VMHL_N);
+        HML_IdentityMatrix(Matrix,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowMatrix (Matrix,VMHL_N,VMHL_N,"Единичная матрица", "Matrix");
+        HML_ShowMatrix (Matrix,VHML_N,VHML_N,"Единичная матрица", "Matrix");
         //Единичная матрица:
         //Matrix =
         //1	0	0	0	0
@@ -4299,18 +4299,18 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //0	0	0	1	0
         //0	0	0	0	1
 
-        for (i=0;i<VMHL_N;i++) delete [] Matrix[i];
+        for (i=0;i<VHML_N;i++) delete [] Matrix[i];
         delete [] Matrix;
     }
 
-    if (NameFunction=="TMHL_MixingVector")
+    if (NameFunction=="HML_MixingVector")
     {
-        int VMHL_N=10;//Размер массива
+        int VHML_N=10;//Размер массива
         int *x;
-        x=new int[VMHL_N];
+        x=new int[VHML_N];
         //Заполним массив номерами от 1
-        TMHL_OrdinalVector(x,VMHL_N);
-        MHL_ShowVector (x,VMHL_N,"Вектор", "x");
+        HML_OrdinalVector(x,VHML_N);
+        HML_ShowVector (x,VHML_N,"Вектор", "x");
         //Вектор:
         //x =
         //1
@@ -4327,10 +4327,10 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         double P=0.4;//Вероятность перемешивания
 
         //Вызов функции
-        TMHL_MixingVector(x,P,VMHL_N);//Перемешаем массив
+        HML_MixingVector(x,P,VHML_N);//Перемешаем массив
 
         //Используем полученный результат
-        MHL_ShowVector (x,VMHL_N,"Перемешанный вектор", "x");
+        HML_ShowVector (x,VHML_N,"Перемешанный вектор", "x");
         //Перемешанный вектор:
         //x =
         //4
@@ -4347,17 +4347,17 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] x;
     }
 
-    if (NameFunction=="TMHL_ReverseVector")
+    if (NameFunction=="HML_ReverseVector")
     {
         int i;
-        int VMHL_N=MHL_RandomUniformInt(2,10);//Размер массива (число строк)
+        int VHML_N=HML_RandomUniformInt(2,10);//Размер массива (число строк)
         double *a;
-        a=new double[VMHL_N];
+        a=new double[VHML_N];
         //Заполним случайными числами
-        for (i=0;i<VMHL_N;i++)
-            a[i]=MHL_RandomUniformInt(10,100);
+        for (i=0;i<VHML_N;i++)
+            a[i]=HML_RandomUniformInt(10,100);
 
-        MHL_ShowVector (a,VMHL_N,"Вектор равен", "a");
+        HML_ShowVector (a,VHML_N,"Вектор равен", "a");
         //Вектор равен:
         //a =
         //83
@@ -4368,10 +4368,10 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //73
 
         //Вызов функции
-        TMHL_ReverseVector(a,VMHL_N);
+        HML_ReverseVector(a,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (a,VMHL_N,"Теперь вектор равен", "a");
+        HML_ShowVector (a,VHML_N,"Теперь вектор равен", "a");
         //Теперь вектор равен:
         //a =
         //73
@@ -4384,21 +4384,21 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] a;
     }
 
-    if (NameFunction=="TMHL_NumberOfDifferentValuesInVector")
+    if (NameFunction=="HML_NumberOfDifferentValuesInVector")
     {
         int i;
-        int VMHL_N=10;//Размер массива (число строк)
+        int VHML_N=10;//Размер массива (число строк)
         int *a;
-        a=new int[VMHL_N];
+        a=new int[VHML_N];
         //Заполним случайными числами
-        for (i=0;i<VMHL_N;i++)
-            a[i]=MHL_RandomUniformInt(0,5);
+        for (i=0;i<VHML_N;i++)
+            a[i]=HML_RandomUniformInt(0,5);
 
         //Вызов функции
-        int NumberOfDifferent=TMHL_NumberOfDifferentValuesInVector(a,VMHL_N);
+        int NumberOfDifferent=HML_NumberOfDifferentValuesInVector(a,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (a,VMHL_N,"Случайный вектор", "a");
+        HML_ShowVector (a,VHML_N,"Случайный вектор", "a");
         //Случайный вектор:
         //a =
         //2
@@ -4412,251 +4412,251 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //2
         //2
 
-        MHL_ShowNumber (NumberOfDifferent,"Число различных значений в векторе", "NumberOfDifferent");
+        HML_ShowNumber (NumberOfDifferent,"Число различных значений в векторе", "NumberOfDifferent");
         //Число различных значений в векторе:
         //NumberOfDifferent=4
         delete [] a;
     }
 
-    if (NameFunction=="TMHL_PowerOf")
+    if (NameFunction=="HML_PowerOf")
     {
-        double a=MHL_RandomUniform(-5,5);
-        int Degree=MHL_RandomUniformInt(0,20);
+        double a=HML_RandomUniform(-5,5);
+        int Degree=HML_RandomUniformInt(0,20);
 
-        double Result=TMHL_PowerOf(a,Degree);
+        double Result=HML_PowerOf(a,Degree);
 
         //Используем полученный результат
-        MHL_ShowNumber(Result,"Число "+MHL_NumberToText(a)+" в степени "+MHL_NumberToText(Degree),"равно");
+        HML_ShowNumber(Result,"Число "+HML_NumberToText(a)+" в степени "+HML_NumberToText(Degree),"равно");
         //Число 3.9624 в степени 4:
         //равно=246.51
     }
 
-    if (NameFunction=="MHL_Parity")
+    if (NameFunction=="HML_Parity")
     {
-        int a=MHL_RandomUniformInt(-50,50);
+        int a=HML_RandomUniformInt(-50,50);
 
-        double Result=MHL_Parity(a);
+        double Result=HML_Parity(a);
 
         //Используем полученный результат
-        MHL_ShowNumber(Result,"Четность числа "+MHL_NumberToText(a),"равна");
+        HML_ShowNumber(Result,"Четность числа "+HML_NumberToText(a),"равна");
         //Четность числа 2:
         //равна=1
     }
 
-    if (NameFunction=="MHL_ArithmeticalProgression")
+    if (NameFunction=="HML_ArithmeticalProgression")
     {
-        double a1=MHL_RandomUniformInt(1,10);
-        double d=MHL_RandomUniformInt(1,10);
-        int n=MHL_RandomUniformInt(1,10);
+        double a1=HML_RandomUniformInt(1,10);
+        double d=HML_RandomUniformInt(1,10);
+        int n=HML_RandomUniformInt(1,10);
 
-        double an=MHL_ArithmeticalProgression(a1,d,n);
+        double an=HML_ArithmeticalProgression(a1,d,n);
 
         //Используем полученный результат
-        MHL_ShowNumber(a1,"Первый член последовательности","a1");
+        HML_ShowNumber(a1,"Первый член последовательности","a1");
         //Первый член последовательности:
         //a1=6
-        MHL_ShowNumber(d,"Шаг арифметической прогрессии","d");
+        HML_ShowNumber(d,"Шаг арифметической прогрессии","d");
         //Шаг арифметической прогрессии:
         //d=9
-        MHL_ShowNumber(n,"Номер последнего члена","n");
+        HML_ShowNumber(n,"Номер последнего члена","n");
         //Номер последнего члена:
         //n=4
-        MHL_ShowNumber(an,"n-ый член последовательности","an");
+        HML_ShowNumber(an,"n-ый член последовательности","an");
         //n-ый член последовательности:
         //an=33
     }
 
-    if (NameFunction=="MHL_GeometricSeries")
+    if (NameFunction=="HML_GeometricSeries")
     {
-        double u1=MHL_RandomUniformInt(1,10);
-        double q=MHL_RandomUniformInt(1,10);
-        int n=MHL_RandomUniformInt(1,10);
+        double u1=HML_RandomUniformInt(1,10);
+        double q=HML_RandomUniformInt(1,10);
+        int n=HML_RandomUniformInt(1,10);
 
-        double qn=MHL_GeometricSeries(u1,q,n);
+        double qn=HML_GeometricSeries(u1,q,n);
 
         //Используем полученный результат
-        MHL_ShowNumber(u1,"Первый член последовательности","u1");
+        HML_ShowNumber(u1,"Первый член последовательности","u1");
         //Первый член последовательности:
         //u1=4
-        MHL_ShowNumber(q,"Шаг арифметической прогрессии","q");
+        HML_ShowNumber(q,"Шаг арифметической прогрессии","q");
         //Шаг арифметической прогрессии:
         //q=4
-        MHL_ShowNumber(n,"Номер последнего члена","n");
+        HML_ShowNumber(n,"Номер последнего члена","n");
         //Номер последнего члена:
         //n=6
-        MHL_ShowNumber(qn,"n-ый член последовательности","qn");
+        HML_ShowNumber(qn,"n-ый член последовательности","qn");
         //n-ый член последовательности:
         //qn=4096
     }
 
-    if (NameFunction=="MHL_GreatestCommonDivisorEuclid")
+    if (NameFunction=="HML_GreatestCommonDivisorEuclid")
     {
-        int A=MHL_RandomUniformInt(1,100);
-        int B=MHL_RandomUniformInt(1,100);
+        int A=HML_RandomUniformInt(1,100);
+        int B=HML_RandomUniformInt(1,100);
 
-        double Result=MHL_GreatestCommonDivisorEuclid(A,B);
+        double Result=HML_GreatestCommonDivisorEuclid(A,B);
 
         //Используем полученный результат
-        MHL_ShowNumber(A,"Число","A");
+        HML_ShowNumber(A,"Число","A");
         //Число:
         //A=96
-        MHL_ShowNumber(B,"Число","B");
+        HML_ShowNumber(B,"Число","B");
         //Число:
         //B=18
-        MHL_ShowNumber(Result,"НОД","");
+        HML_ShowNumber(Result,"НОД","");
         //НОД:
         //=6
     }
 
-    if (NameFunction=="MHL_LeastCommonMultipleEuclid")
+    if (NameFunction=="HML_LeastCommonMultipleEuclid")
     {
-        int A=MHL_RandomUniformInt(1,100);
-        int B=MHL_RandomUniformInt(1,100);
+        int A=HML_RandomUniformInt(1,100);
+        int B=HML_RandomUniformInt(1,100);
 
-        double Result=MHL_LeastCommonMultipleEuclid(A,B);
+        double Result=HML_LeastCommonMultipleEuclid(A,B);
 
         //Используем полученный результат
-        MHL_ShowNumber(A,"Число","A");
+        HML_ShowNumber(A,"Число","A");
         //Число:
         //A=68
-        MHL_ShowNumber(B,"Число","B");
+        HML_ShowNumber(B,"Число","B");
         //Число:
         //B=67
-        MHL_ShowNumber(Result,"НОК","");
+        HML_ShowNumber(Result,"НОК","");
         //НОК:
         //=4556
     }
 
-    if (NameFunction=="MHL_HowManyPowersOfTwo")
+    if (NameFunction=="HML_HowManyPowersOfTwo")
     {
-        int x=MHL_RandomUniformInt(0,1000);
+        int x=HML_RandomUniformInt(0,1000);
         int Degree;
 
         //Вызываем функцию
-        Degree=MHL_HowManyPowersOfTwo(x);
+        Degree=HML_HowManyPowersOfTwo(x);
 
         //Используем полученный результат
-        MHL_ShowNumber(x,"Число","x");
+        HML_ShowNumber(x,"Число","x");
         //Число:
         //x=480
-        MHL_ShowNumber(Degree,"Его покрывает 2 в степени","Degree");
+        HML_ShowNumber(Degree,"Его покрывает 2 в степени","Degree");
         //Его покрывает 2 в степени:
         //Degree=9
-        MHL_ShowNumber(TMHL_PowerOf(2,Degree),"То есть","2^"+MHL_NumberToText(Degree));
+        HML_ShowNumber(HML_PowerOf(2,Degree),"То есть","2^"+HML_NumberToText(Degree));
         //То есть:
         //2^9=512
     }
 
-    if (NameFunction=="MHL_SumGeometricSeries")
+    if (NameFunction=="HML_SumGeometricSeries")
     {
-        double u1=MHL_RandomUniformInt(1,5);
-        double q=MHL_RandomUniformInt(1,5);
-        int n=MHL_RandomUniformInt(1,5);
+        double u1=HML_RandomUniformInt(1,5);
+        double q=HML_RandomUniformInt(1,5);
+        int n=HML_RandomUniformInt(1,5);
 
-        double Sum=MHL_SumGeometricSeries(u1,q,n);
+        double Sum=HML_SumGeometricSeries(u1,q,n);
 
         //Используем полученный результат
-        MHL_ShowNumber(u1,"Первый член последовательности","u1");
+        HML_ShowNumber(u1,"Первый член последовательности","u1");
         //Первый член последовательности:
         //u1=4
-        MHL_ShowNumber(q,"Шаг арифметической прогрессии","q");
+        HML_ShowNumber(q,"Шаг арифметической прогрессии","q");
         //Шаг арифметической прогрессии:
         //q=4
-        MHL_ShowNumber(n,"Номер последнего члена","n");
+        HML_ShowNumber(n,"Номер последнего члена","n");
         //Номер последнего члена:
         //n=3
-        MHL_ShowNumber(Sum,"Сумма первых n членов","Sum");
+        HML_ShowNumber(Sum,"Сумма первых n членов","Sum");
         //Сумма первых n членов:
         //Sum=84
     }
 
-    if (NameFunction=="MHL_SumOfArithmeticalProgression")
+    if (NameFunction=="HML_SumOfArithmeticalProgression")
     {
-        double a1=MHL_RandomUniformInt(1,10);
-        double d=MHL_RandomUniformInt(1,10);
-        int n=MHL_RandomUniformInt(1,10);
+        double a1=HML_RandomUniformInt(1,10);
+        double d=HML_RandomUniformInt(1,10);
+        int n=HML_RandomUniformInt(1,10);
 
-        double Sum=MHL_SumOfArithmeticalProgression(a1,d,n);
+        double Sum=HML_SumOfArithmeticalProgression(a1,d,n);
 
         //Используем полученный результат
-        MHL_ShowNumber(a1,"Первый член последовательности","a1");
+        HML_ShowNumber(a1,"Первый член последовательности","a1");
         //Первый член последовательности:
         //a1=9
-        MHL_ShowNumber(d,"Шаг арифметической прогрессии","d");
+        HML_ShowNumber(d,"Шаг арифметической прогрессии","d");
         //Шаг арифметической прогрессии:
         //d=6
-        MHL_ShowNumber(n,"Номер последнего члена","n");
+        HML_ShowNumber(n,"Номер последнего члена","n");
         //Номер последнего члена:
         //n=9
-        MHL_ShowNumber(Sum,"Сумма первых n членов","Sum");
+        HML_ShowNumber(Sum,"Сумма первых n членов","Sum");
         //Сумма первых n членов:
         //Sum=297
     }
 
-    if (NameFunction=="TMHL_FibonacciNumber")
+    if (NameFunction=="HML_FibonacciNumber")
     {
         int n;
         int F;
-        n=MHL_RandomUniformInt(3,20);
+        n=HML_RandomUniformInt(3,20);
 
         //Вызов функции
-        F=TMHL_FibonacciNumber(n);
+        F=HML_FibonacciNumber(n);
 
         //Используем полученный результат
 
-        MHL_ShowNumber (n,"Номер числа", "n");
+        HML_ShowNumber (n,"Номер числа", "n");
         // Номер числа:
         // n=14
-        MHL_ShowNumber (F,"Число Фибоначчи, заданного номера", "F");
+        HML_ShowNumber (F,"Число Фибоначчи, заданного номера", "F");
         // Число Фибоначчи, заданного номера:
         // F=377
     }
 
-    if (NameFunction=="TMHL_BoolCrossingTwoSegment")
+    if (NameFunction=="HML_BoolCrossingTwoSegment")
     {
         double b1,c1,b2,c2;
         int Result;
         //Зададим случайные координаты отрезков
-        b1=MHL_RandomUniform(-3,5);
-        c1=MHL_RandomUniform(-3,5);
-        b2=MHL_RandomUniform(-3,5);
-        c2=MHL_RandomUniform(-3,5);
+        b1=HML_RandomUniform(-3,5);
+        c1=HML_RandomUniform(-3,5);
+        b2=HML_RandomUniform(-3,5);
+        c2=HML_RandomUniform(-3,5);
 
         //Вызов функции
-        Result=TMHL_BoolCrossingTwoSegment(b1,c1,b2,c2);
+        Result=HML_BoolCrossingTwoSegment(b1,c1,b2,c2);
 
         //Используем полученный результат
-        MHL_ShowNumber (b1,"Левый конец первого отрезка", "b1");
+        HML_ShowNumber (b1,"Левый конец первого отрезка", "b1");
         //Левый конец первого отрезка:
         //b1=0.773193
-        MHL_ShowNumber (c1,"Правый конец первого отрезка", "c1");
+        HML_ShowNumber (c1,"Правый конец первого отрезка", "c1");
         //Правый конец первого отрезка:
         //c1=3.22803
-        MHL_ShowNumber (b2,"Левый конец второго отрезка", "b2");
+        HML_ShowNumber (b2,"Левый конец второго отрезка", "b2");
         //Левый конец второго отрезка:
         //b2=4.99121
-        MHL_ShowNumber (c2,"Правый конец второго отрезка", "c2");
+        HML_ShowNumber (c2,"Правый конец второго отрезка", "c2");
         //Правый конец второго отрезка:
         //c2=1.43921
-        MHL_ShowNumber (Result,"Пересекаются ли отрезки", "Result");
+        HML_ShowNumber (Result,"Пересекаются ли отрезки", "Result");
         //Пересекаются ли отрезки:
         //Result=1
     }
 
-    if (NameFunction=="TMHL_AcceptanceLimits")
+    if (NameFunction=="HML_AcceptanceLimits")
     {
-        int VMHL_N=10;//Размер массива
+        int VHML_N=10;//Размер массива
         double *a;
-        a=new double[VMHL_N];
+        a=new double[VHML_N];
         double *Left;
-        Left=new double[VMHL_N];
+        Left=new double[VHML_N];
         double *Right;
-        Right=new double[VMHL_N];
-        TMHL_FillVector(Left,VMHL_N,-1.);//Левая граница
-        TMHL_FillVector(Right,VMHL_N,1.);//Правая граница
+        Right=new double[VHML_N];
+        HML_FillVector(Left,VHML_N,-1.);//Левая граница
+        HML_FillVector(Right,VHML_N,1.);//Правая граница
 
-        for (int i=0;i<VMHL_N;i++) a[i]=MHL_RandomUniform(-1.1,1.1);
-        MHL_ShowVector (a,VMHL_N,"Вектор", "a");
+        for (int i=0;i<VHML_N;i++) a[i]=HML_RandomUniform(-1.1,1.1);
+        HML_ShowVector (a,VHML_N,"Вектор", "a");
         //Вектор:
         //a =
         //-0.199268
@@ -4671,10 +4671,10 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //0.2513
 
         //Вызов функции
-        TMHL_AcceptanceLimits(a,Left,Right,VMHL_N);
+        HML_AcceptanceLimits(a,Left,Right,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (Left,VMHL_N,"Левые границы", "Left");
+        HML_ShowVector (Left,VHML_N,"Левые границы", "Left");
         //Левые границы:
         //Left =
         //-1
@@ -4688,7 +4688,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //-1
         //-1
 
-        MHL_ShowVector (Right,VMHL_N,"Правые границы", "Right");
+        HML_ShowVector (Right,VHML_N,"Правые границы", "Right");
         // Правые границы:
         //Right =
         //1
@@ -4702,7 +4702,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //1
         //1
 
-        MHL_ShowVector (a,VMHL_N,"Отредактированный вектор", "a");
+        HML_ShowVector (a,VHML_N,"Отредактированный вектор", "a");
         //Отредактированный вектор:
         //a =
         //-0.199268
@@ -4721,14 +4721,14 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] Right;
     }
 
-    if (NameFunction=="MHL_NoiseInVector")
+    if (NameFunction=="HML_NoiseInVector")
     {
-        int VMHL_N=10;//Размер массива
+        int VHML_N=10;//Размер массива
         double *x;
-        x=new double[VMHL_N];
+        x=new double[VHML_N];
         //Заполним массив номерами от 1
-        TMHL_OrdinalVector(x,VMHL_N);
-        MHL_ShowVector (x,VMHL_N,"Вектор", "x");
+        HML_OrdinalVector(x,VHML_N);
+        HML_ShowVector (x,VHML_N,"Вектор", "x");
         //Вектор:
         //x =
         //1
@@ -4742,17 +4742,17 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //9
         //10
 
-        double percent=double(MHL_RandomUniformInt(0,100));//Процент помехи
+        double percent=double(HML_RandomUniformInt(0,100));//Процент помехи
 
         //Вызов функции
-        MHL_NoiseInVector(x,percent,VMHL_N);
+        HML_NoiseInVector(x,percent,VHML_N);
 
         //Используем полученный результат
 
-        MHL_ShowNumber (percent,"Процент помехи", "percent");
+        HML_ShowNumber (percent,"Процент помехи", "percent");
         //Процент помехи:
         //percent=89
-        MHL_ShowVector (x,VMHL_N,"Вектор с помехой", "x");
+        HML_ShowVector (x,VHML_N,"Вектор с помехой", "x");
         //Вектор с помехой:
         //x =
         //-1.95828
@@ -4769,19 +4769,19 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] x;
     }
 
-    if (NameFunction=="MHL_EuclidNorma")
+    if (NameFunction=="HML_EuclidNorma")
     {
-        int VMHL_N=5;//Размер массива
+        int VHML_N=5;//Размер массива
         double *x;
-        x=new double[VMHL_N];
+        x=new double[VHML_N];
         //Заполним случайными числами
-        MHL_RandomRealVector (x,0,10,VMHL_N);
+        HML_RandomRealVector (x,0,10,VHML_N);
 
         //Вызов функции
-        double a=MHL_EuclidNorma(x,VMHL_N);
+        double a=HML_EuclidNorma(x,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (x,VMHL_N,"Вектор", "x");
+        HML_ShowVector (x,VHML_N,"Вектор", "x");
         // Вектор:
         //x =
         //2.22504
@@ -4790,30 +4790,30 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //5.7428
         //9.11682
 
-        MHL_ShowNumber (a,"Значение евклидовой нормы вектора", "a");
+        HML_ShowNumber (a,"Значение евклидовой нормы вектора", "a");
         // Значение евклидовой нормы вектора:
         // a=13.1826
 
         delete [] x;
     }
 
-    if (NameFunction=="TMHL_MixingVectorWithConjugateVector")
+    if (NameFunction=="HML_MixingVectorWithConjugateVector")
     {
-        int VMHL_N=10;//Размер массива
+        int VHML_N=10;//Размер массива
         int *x;
-        x=new int[VMHL_N];
+        x=new int[VHML_N];
         int *y;
-        y=new int[VMHL_N];
+        y=new int[VHML_N];
         //Заполним массив номерами от 1
-        TMHL_OrdinalVector(x,VMHL_N);
+        HML_OrdinalVector(x,VHML_N);
         //А сопряженный заполним номерами с нуля
-        TMHL_OrdinalVectorZero(y,VMHL_N);
-        MHL_ShowVectorT (x,VMHL_N,"Вектор", "x");
+        HML_OrdinalVectorZero(y,VHML_N);
+        HML_ShowVectorT (x,VHML_N,"Вектор", "x");
         //Вектор:
         //x =
         //1	2	3	4	5	6	7	8	9	10
 
-        MHL_ShowVectorT (y,VMHL_N,"Вектор", "y");
+        HML_ShowVectorT (y,VHML_N,"Вектор", "y");
         //Вектор:
         //y =
         //0	1	2	3	4	5	6	7	8	9
@@ -4821,15 +4821,15 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         double P=0.4;//Вероятность перемешивания
 
         //Вызов функции
-        TMHL_MixingVectorWithConjugateVector(x,y,P,VMHL_N);//Перемешаем массив
+        HML_MixingVectorWithConjugateVector(x,y,P,VHML_N);//Перемешаем массив
 
         //Используем полученный результат
-        MHL_ShowVectorT (x,VMHL_N,"Перемешанный вектор", "x");
+        HML_ShowVectorT (x,VHML_N,"Перемешанный вектор", "x");
         // Перемешанный вектор:
         //x =
         //9	1	4	8	10	5	7	3	6	2
 
-        MHL_ShowVectorT (y,VMHL_N,"Сопряженный перемешанный вектор", "y");
+        HML_ShowVectorT (y,VHML_N,"Сопряженный перемешанный вектор", "y");
         //Сопряженный перемешанный вектор:
         //y =
         //8	0	3	7	9	4	6	2	5	1
@@ -4838,21 +4838,21 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] y;
     }
 
-    if (NameFunction=="TMHL_MixingRowsInOrder")
+    if (NameFunction=="HML_MixingRowsInOrder")
     {
         int i;
-        int VMHL_N=7;//Размер массива (число строк)
-        int VMHL_M=3;//Размер массива (число столбцов)
+        int VHML_N=7;//Размер массива (число строк)
+        int VHML_M=3;//Размер массива (число столбцов)
 
         int *b;
-        b=new int[VMHL_N];
+        b=new int[VHML_N];
 
         int **a;
-        a=new int*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) a[i]=new int[VMHL_M];
+        a=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) a[i]=new int[VHML_M];
         //Заполним случайными числами
-        TMHL_RandomIntMatrix(a,10,100,VMHL_N,VMHL_M);
-        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Случайная матрица", "a");
+        HML_RandomIntMatrix(a,10,100,VHML_N,VHML_M);
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Случайная матрица", "a");
         //Случайная матрица:
         //a =
         //49	65	82
@@ -4864,16 +4864,16 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //56	96	39
 
         //Первончальный порядок
-        TMHL_OrdinalVectorZero(b,VMHL_N);
+        HML_OrdinalVectorZero(b,VHML_N);
         //Перемешаем
-        TMHL_MixingVector(b,0.5,VMHL_N);
+        HML_MixingVector(b,0.5,VHML_N);
 
         //Вызов функции
-        TMHL_MixingRowsInOrder(a,b,VMHL_N,VMHL_M);
+        HML_MixingRowsInOrder(a,b,VHML_N,VHML_M);
 
         //Используем полученный результат
 
-        MHL_ShowVector (b,VMHL_N,"Номера нового порядка", "b");
+        HML_ShowVector (b,VHML_N,"Номера нового порядка", "b");
         //Номера нового порядка:
         //b =
         //5
@@ -4884,7 +4884,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //2
         //3
 
-        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Случайная матрица с новым порядком строк", "a");
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Случайная матрица с новым порядком строк", "a");
         //Случайная матрица с новым порядком строк:
         //a =
         //92	73	27
@@ -4895,27 +4895,27 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //49	65	82
         //82	11	75
 
-        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        for (i=0;i<VHML_N;i++) delete [] a[i];
         delete [] a;
         delete [] b;
     }
 
-    if (NameFunction=="TMHL_Chebychev")
+    if (NameFunction=="HML_Chebychev")
     {
-        int VMHL_N=5;//Размер массива
+        int VHML_N=5;//Размер массива
         double *x;
-        x=new double[VMHL_N];
+        x=new double[VHML_N];
         double *y;
-        y=new double[VMHL_N];
+        y=new double[VHML_N];
         //Заполним случайными числами
-        MHL_RandomRealVector (x,0,10,VMHL_N);
-        MHL_RandomRealVector (y,0,10,VMHL_N);
+        HML_RandomRealVector (x,0,10,VHML_N);
+        HML_RandomRealVector (y,0,10,VHML_N);
 
         //Вызов функции
-        double metric=TMHL_Chebychev(x,y,VMHL_N);
+        double metric=HML_Chebychev(x,y,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (x,VMHL_N,"Первый массив", "x");
+        HML_ShowVector (x,VHML_N,"Первый массив", "x");
         //Первый массив:
         //x =
         //7.9245
@@ -4924,7 +4924,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //1.12152
         //7.65442
 
-        MHL_ShowVector (y,VMHL_N,"Второй массив", "y");
+        HML_ShowVector (y,VHML_N,"Второй массив", "y");
         //Второй массив:
         //y =
         //0.324097
@@ -4933,7 +4933,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //9.70062
         //5.64117
 
-        MHL_ShowNumber (metric,"Значение метрики расстояние Чебышева", "metric");
+        HML_ShowNumber (metric,"Значение метрики расстояние Чебышева", "metric");
         //Значение метрики расстояние Чебышева:
         //metric=8.5791
 
@@ -4941,26 +4941,26 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] y;
     }
 
-    if (NameFunction=="TMHL_CityBlock")
+    if (NameFunction=="HML_CityBlock")
     {
         int i;
-        int VMHL_N=5;//Размер массива
+        int VHML_N=5;//Размер массива
         int *x;
-        x=new int[VMHL_N];
+        x=new int[VHML_N];
         int *y;
-        y=new int[VMHL_N];
+        y=new int[VHML_N];
         //Заполним случайными числами
-        for (i=0;i<VMHL_N;i++)
+        for (i=0;i<VHML_N;i++)
         {
-            x[i]=MHL_RandomUniformInt(0,5);
-            y[i]=MHL_RandomUniformInt(0,5);
+            x[i]=HML_RandomUniformInt(0,5);
+            y[i]=HML_RandomUniformInt(0,5);
         }
 
         //Вызов функции
-        int metric=TMHL_CityBlock(x,y,VMHL_N);
+        int metric=HML_CityBlock(x,y,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (x,VMHL_N,"Первый массив", "x");
+        HML_ShowVector (x,VHML_N,"Первый массив", "x");
         //Первый массив:
         //x =
         //4
@@ -4969,7 +4969,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //3
         //0
 
-        MHL_ShowVector (y,VMHL_N,"Второй массив", "y");
+        HML_ShowVector (y,VHML_N,"Второй массив", "y");
         //Второй массив:
         //y =
         //3
@@ -4978,7 +4978,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //4
         //1
 
-        MHL_ShowNumber (metric,"Значение метрики манхэттенское расстояние", "metric");
+        HML_ShowNumber (metric,"Значение метрики манхэттенское расстояние", "metric");
         // Значение метрики манхэттенское расстояние:
         //metric=8
 
@@ -4986,22 +4986,22 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] y;
     }
 
-    if (NameFunction=="TMHL_Euclid")
+    if (NameFunction=="HML_Euclid")
     {
-        int VMHL_N=5;//Размер массива
+        int VHML_N=5;//Размер массива
         double *x;
-        x=new double[VMHL_N];
+        x=new double[VHML_N];
         double *y;
-        y=new double[VMHL_N];
+        y=new double[VHML_N];
         //Заполним случайными числами
-        MHL_RandomRealVector (x,0,10,VMHL_N);
-        MHL_RandomRealVector (y,0,10,VMHL_N);
+        HML_RandomRealVector (x,0,10,VHML_N);
+        HML_RandomRealVector (y,0,10,VHML_N);
 
         //Вызов функции
-        double metric=TMHL_Euclid(x,y,VMHL_N);
+        double metric=HML_Euclid(x,y,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (x,VMHL_N,"Первый массив", "x");
+        HML_ShowVector (x,VHML_N,"Первый массив", "x");
         //Первый массив:
         //x =
         //3.15491
@@ -5010,7 +5010,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //9.94141
         //3.2193
 
-        MHL_ShowVector (y,VMHL_N,"Второй массив", "y");
+        HML_ShowVector (y,VHML_N,"Второй массив", "y");
         //Второй массив:
         //y =
         //9.4516
@@ -5019,7 +5019,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //4.78271
         //5.78705
 
-        MHL_ShowNumber (metric,"Значение метрики евклидово расстояние", "metric");
+        HML_ShowNumber (metric,"Значение метрики евклидово расстояние", "metric");
         //Значение метрики евклидово расстояние:
         //metric=8.65837
 
@@ -5027,79 +5027,79 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] y;
     }
 
-    if (NameFunction=="MHL_CenterDerivative")
+    if (NameFunction=="HML_CenterDerivative")
     {
         double x;
         double h;
         double dfdx;
         //Зададим случайные координаты отрезков
-        x=MHL_RandomUniform(-3,5);
+        x=HML_RandomUniform(-3,5);
         h=0.01;//малое приращение x
 
         //Вызов функции
-        dfdx=MHL_CenterDerivative(x,h,Func3);
+        dfdx=HML_CenterDerivative(x,h,Func3);
 
         //Используем полученный результат
-        MHL_ShowNumber (x,"Точка, в которой считается производная", "x");
+        HML_ShowNumber (x,"Точка, в которой считается производная", "x");
         //Точка, в которой считается производная:
         //x=0.843262
-        MHL_ShowNumber (h,"Малое приращение x", "h");
+        HML_ShowNumber (h,"Малое приращение x", "h");
         // Малое приращение x:
         //h=0.01
-        MHL_ShowNumber (dfdx,"Значение производной в точке", "dfdx");
+        HML_ShowNumber (dfdx,"Значение производной в точке", "dfdx");
         // Значение производной в точке:
         //dfdx=1.68652
     }
 
-    if (NameFunction=="MHL_LeftDerivative")
+    if (NameFunction=="HML_LeftDerivative")
     {
         double x;
         double h;
         double dfdx;
         //Зададим случайные координаты отрезков
-        x=MHL_RandomUniform(-3,5);
+        x=HML_RandomUniform(-3,5);
         h=0.01;//малое приращение x
 
         //Вызов функции
-        dfdx=MHL_LeftDerivative(x,h,Func3);
+        dfdx=HML_LeftDerivative(x,h,Func3);
 
         //Используем полученный результат
-        MHL_ShowNumber (x,"Точка, в которой считается производная", "x");
+        HML_ShowNumber (x,"Точка, в которой считается производная", "x");
         // Точка, в которой считается производная:
         //x=1.87964
-        MHL_ShowNumber (h,"Малое приращение x", "h");
+        HML_ShowNumber (h,"Малое приращение x", "h");
         // Малое приращение x:
         //h=0.01
-        MHL_ShowNumber (dfdx,"Значение производной в точке", "dfdx");
+        HML_ShowNumber (dfdx,"Значение производной в точке", "dfdx");
         // Значение производной в точке:
         //dfdx=3.74928
     }
 
-    if (NameFunction=="MHL_RightDerivative")
+    if (NameFunction=="HML_RightDerivative")
     {
         double x;
         double h;
         double dfdx;
         //Зададим случайные координаты отрезков
-        x=MHL_RandomUniform(-3,5);
+        x=HML_RandomUniform(-3,5);
         h=0.01;//малое приращение x
 
         //Вызов функции
-        dfdx=MHL_RightDerivative(x,h,Func3);
+        dfdx=HML_RightDerivative(x,h,Func3);
 
         //Используем полученный результат
-        MHL_ShowNumber (x,"Точка, в которой считается производная", "x");
+        HML_ShowNumber (x,"Точка, в которой считается производная", "x");
         // Точка, в которой считается производная:
         //x=-1.69409
-        MHL_ShowNumber (h,"Малое приращение x", "h");
+        HML_ShowNumber (h,"Малое приращение x", "h");
         // Малое приращение x:
         //h=0.01
-        MHL_ShowNumber (dfdx,"Значение производной в точке", "dfdx");
+        HML_ShowNumber (dfdx,"Значение производной в точке", "dfdx");
         // Значение производной в точке:
         //dfdx=-3.37818
     }
 
-    if (NameFunction=="MHL_IntegralOfTrapezium")
+    if (NameFunction=="HML_IntegralOfTrapezium")
     {
         double a=-2;
         double b=2;
@@ -5107,21 +5107,21 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         double S;
 
         //Вызов функции
-        S=MHL_IntegralOfTrapezium(a,b,Epsilon,Func3);
+        S=HML_IntegralOfTrapezium(a,b,Epsilon,Func3);
 
         //Используем полученный результат
-        MHL_ShowNumber (a,"Левая граница интегрирования", "a");
+        HML_ShowNumber (a,"Левая граница интегрирования", "a");
         //Левая граница интегрирования:
         //a=-2
-        MHL_ShowNumber (b,"Правая граница интегрирования", "b");
+        HML_ShowNumber (b,"Правая граница интегрирования", "b");
         //Правая граница интегрирования:
         //b=2
-        MHL_ShowNumber (S,"Интеграл", "S");
+        HML_ShowNumber (S,"Интеграл", "S");
         //Интеграл:
         //S=5.33594
     }
 
-    if (NameFunction=="MHL_IntegralOfSimpson")
+    if (NameFunction=="HML_IntegralOfSimpson")
     {
         double a=-2;
         double b=2;
@@ -5129,21 +5129,21 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         double S;
 
         //Вызов функции
-        S=MHL_IntegralOfSimpson(a,b,Epsilon,Func3);
+        S=HML_IntegralOfSimpson(a,b,Epsilon,Func3);
 
         //Используем полученный результат
-        MHL_ShowNumber (a,"Левая граница интегрирования", "a");
+        HML_ShowNumber (a,"Левая граница интегрирования", "a");
         // Левая граница интегрирования:
         //a=-2
-        MHL_ShowNumber (b,"Правая граница интегрирования", "b");
+        HML_ShowNumber (b,"Правая граница интегрирования", "b");
         // Правая граница интегрирования:
         //b=2
-        MHL_ShowNumber (S,"Интеграл", "S");
+        HML_ShowNumber (S,"Интеграл", "S");
         // Интеграл:
         //S=5.33333
     }
 
-    if (NameFunction=="MHL_IntegralOfRectangle")
+    if (NameFunction=="HML_IntegralOfRectangle")
     {
         double a=-2;
         double b=2;
@@ -5151,88 +5151,88 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         double S;
 
         //Вызов функции
-        S=MHL_IntegralOfRectangle(a,b,Epsilon,Func3);
+        S=HML_IntegralOfRectangle(a,b,Epsilon,Func3);
 
         //Используем полученный результат
-        MHL_ShowNumber (a,"Левая граница интегрирования", "a");
+        HML_ShowNumber (a,"Левая граница интегрирования", "a");
         //Левая граница интегрирования:
         //a=-2
-        MHL_ShowNumber (b,"Правая граница интегрирования", "b");
+        HML_ShowNumber (b,"Правая граница интегрирования", "b");
         //Правая граница интегрирования:
         //b=2
-        MHL_ShowNumber (S,"Интеграл", "S");
+        HML_ShowNumber (S,"Интеграл", "S");
         // Интеграл:
         //S=5.32812
     }
 
-    if (NameFunction=="TMHL_HeavisideFunction")
+    if (NameFunction=="HML_HeavisideFunction")
     {
-        double x=MHL_RandomUniform(-50,50);
+        double x=HML_RandomUniform(-50,50);
 
-        double F=TMHL_HeavisideFunction(x);
+        double F=HML_HeavisideFunction(x);
 
         //Используем полученный результат
-        MHL_ShowNumber(F,"Функция Хэвисайда при a = "+MHL_NumberToText(x),"равна");
+        HML_ShowNumber(F,"Функция Хэвисайда при a = "+HML_NumberToText(x),"равна");
         //Функция Хэвисайда при a = -49.7559:
         //равна=0
     }
 
-    if (NameFunction=="MHL_ExpMSxD2")
+    if (NameFunction=="HML_ExpMSxD2")
     {
         double t;
         double f;
-        t=MHL_RandomUniform(0,3);
+        t=HML_RandomUniform(0,3);
 
         //Вызов функции
-        f=MHL_ExpMSxD2(t);
+        f=HML_ExpMSxD2(t);
 
         //Используем полученный результат
 
-        MHL_ShowNumber (t,"Параметр", "t");
+        HML_ShowNumber (t,"Параметр", "t");
         //Параметр:
         //t=2.06177
-        MHL_ShowNumber (f,"Значение функции", "f");
+        HML_ShowNumber (f,"Значение функции", "f");
         //Значение функции:
         //f=0.11938
     }
 
-    if (NameFunction=="MHL_NormalizationNumberAll")
+    if (NameFunction=="HML_NormalizationNumberAll")
     {
         double x;
         double y;
-        y=MHL_RandomUniform(-100,100);
+        y=HML_RandomUniform(-100,100);
 
         //Вызов функции
-        x=MHL_NormalizationNumberAll(y);
+        x=HML_NormalizationNumberAll(y);
 
         //Используем полученный результат
-        MHL_ShowNumber (y,"Число", "y");
+        HML_ShowNumber (y,"Число", "y");
         //Число:
         //y=-10.4004
-        MHL_ShowNumber (x,"Нормированное число", "x");
+        HML_ShowNumber (x,"Нормированное число", "x");
         //Нормированное число:
         //x=0.0438581
     }
 
-    if (NameFunction=="MHL_InverseNormalizationNumberAll")
+    if (NameFunction=="HML_InverseNormalizationNumberAll")
     {
         double x;
         double y;
-        x=MHL_RandomNumber();
+        x=HML_RandomNumber();
 
         //Вызов функции
-        y=MHL_InverseNormalizationNumberAll(x);
+        y=HML_InverseNormalizationNumberAll(x);
 
         //Используем полученный результат
-        MHL_ShowNumber (x,"Нормированное число", "x");
+        HML_ShowNumber (x,"Нормированное число", "x");
         // Нормированное число:
         //x=0.0491333
-        MHL_ShowNumber (y,"Перенормированное число", "y");
+        HML_ShowNumber (y,"Перенормированное число", "y");
         // Перенормированное число:
         //y=-9.1764
     }
 
-    if (NameFunction=="MHL_BinaryMonteCarloAlgorithm")
+    if (NameFunction=="HML_BinaryMonteCarloAlgorithm")
     {
         int LengthBinarString=50;//Длина хромосомы
         int CountOfFitness=50*50;//Число вычислений функции пригодности
@@ -5245,24 +5245,24 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         int *Decision;//бинарное решение
         Decision=new int[LengthBinarString];
         double ValueOfFitnessFunction;//значение функции пригодности в точке Decision
-        int VMHL_Success=0;//Успешен ли будет запуск cГА
+        int VHML_Success=0;//Успешен ли будет запуск cГА
 
         //Запуск алгоритма
-        VMHL_Success=MHL_BinaryMonteCarloAlgorithm (ParametersOfBinaryMonteCarloAlgorithm,Func, Decision, &ValueOfFitnessFunction);
+        VHML_Success=HML_BinaryMonteCarloAlgorithm (ParametersOfBinaryMonteCarloAlgorithm,Func, Decision, &ValueOfFitnessFunction);
 
         //Используем полученный результат
-        MHL_ShowNumber(VMHL_Success,"Как прошел запуск","VMHL_Success");
+        HML_ShowNumber(VHML_Success,"Как прошел запуск","VHML_Success");
         //Как прошел запуск:
-        //VMHL_Success=1
+        //VHML_Success=1
 
-        if (VMHL_Success==1)
+        if (VHML_Success==1)
         {
-            MHL_ShowVectorT(Decision,LengthBinarString,"Найденное решение","Decision");
+            HML_ShowVectorT(Decision,LengthBinarString,"Найденное решение","Decision");
             //Найденное решение:
             //Decision =
             //1	0	1	1	1	1	1	0	1	1	1	1	1	1	1	0	0	1	0	0	1	1	1	1	1	0	1	1	0	1	1	0	1	1	1	1	0	0	1	1	1	1	0	1	1	1	0	1	1	1
 
-            MHL_ShowNumber(ValueOfFitnessFunction,"Значение функции пригодности","ValueOfFitnessFunction");
+            HML_ShowNumber(ValueOfFitnessFunction,"Значение функции пригодности","ValueOfFitnessFunction");
             // Значение функции пригодности:
             //ValueOfFitnessFunction=37
         }
@@ -5270,16 +5270,16 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] Decision;
     }
 
-    if (NameFunction=="TMHL_BubbleDescendingSort")
+    if (NameFunction=="HML_BubbleDescendingSort")
     {
         int i;
-        int VMHL_N=10;//Размер массива (число строк)
+        int VHML_N=10;//Размер массива (число строк)
         double *a;
-        a=new double[VMHL_N];
-        for (i=0;i<VMHL_N;i++)
-            a[i]=MHL_RandomNumber();
+        a=new double[VHML_N];
+        for (i=0;i<VHML_N;i++)
+            a[i]=HML_RandomNumber();
 
-        MHL_ShowVector (a,VMHL_N,"Случайный вектор", "a");
+        HML_ShowVector (a,VHML_N,"Случайный вектор", "a");
         // Например
         // Случайный вектор:
         //Случайный вектор:
@@ -5296,10 +5296,10 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //0.88327
 
         //Вызов функции
-        TMHL_BubbleDescendingSort(a,VMHL_N);
+        HML_BubbleDescendingSort(a,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (a,VMHL_N,"Отсортированный вектор", "a");
+        HML_ShowVector (a,VHML_N,"Отсортированный вектор", "a");
         //Отсортированный вектор:
         //a =
         //0.92099
@@ -5316,16 +5316,16 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] a;
     }
 
-    if (NameFunction=="TMHL_BubbleSort")
+    if (NameFunction=="HML_BubbleSort")
     {
         int i;
-        int VMHL_N=10;//Размер массива (число строк)
+        int VHML_N=10;//Размер массива (число строк)
         double *a;
-        a=new double[VMHL_N];
-        for (i=0;i<VMHL_N;i++)
-            a[i]=MHL_RandomNumber();
+        a=new double[VHML_N];
+        for (i=0;i<VHML_N;i++)
+            a[i]=HML_RandomNumber();
 
-        MHL_ShowVector (a,VMHL_N,"Случайный вектор", "a");
+        HML_ShowVector (a,VHML_N,"Случайный вектор", "a");
         // Например
         //Случайный вектор:
         //a =
@@ -5341,10 +5341,10 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //0.0214844
 
         //Вызов функции
-        TMHL_BubbleSort(a,VMHL_N);
+        HML_BubbleSort(a,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (a,VMHL_N,"Отсортированный вектор", "a");
+        HML_ShowVector (a,VHML_N,"Отсортированный вектор", "a");
         // Отсортированный вектор:
         //a =
         //0.0214844
@@ -5361,17 +5361,17 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] a;
     }
 
-    if (NameFunction=="TMHL_BubbleSortInGroups")
+    if (NameFunction=="HML_BubbleSortInGroups")
     {
         int i;
-        int VMHL_N=9;//Размер массива (число строк)
+        int VHML_N=9;//Размер массива (число строк)
         double *a;
-        a=new double[VMHL_N];
-        for (i=0;i<VMHL_N;i++)
-            a[i]=MHL_RandomUniformInt(10,50);
+        a=new double[VHML_N];
+        for (i=0;i<VHML_N;i++)
+            a[i]=HML_RandomUniformInt(10,50);
 
         // Например
-        MHL_ShowVectorT (a,VMHL_N,"Случайный вектор", "a");
+        HML_ShowVectorT (a,VHML_N,"Случайный вектор", "a");
         //Случайный вектор:
         //a =
         //20	42	39	19	27	33	35	44	32
@@ -5379,10 +5379,10 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         int m=3;
 
         //Вызов функции
-        TMHL_BubbleSortInGroups(a,VMHL_N,m);
+        HML_BubbleSortInGroups(a,VHML_N,m);
 
         //Используем полученный результат
-        MHL_ShowVectorT (a,VMHL_N,"Отсортированный вектор по три элемента", "a");
+        HML_ShowVectorT (a,VHML_N,"Отсортированный вектор по три элемента", "a");
         //Отсортированный вектор по три элемента:
         //a =
         //20	39	42	19	27	33	32	35	44
@@ -5390,41 +5390,41 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] a;
     }
 
-    if (NameFunction=="TMHL_BubbleSortWithConjugateVector")
+    if (NameFunction=="HML_BubbleSortWithConjugateVector")
     {
         int i;
-        int VMHL_N=10;//Размер массива (число строк)
+        int VHML_N=10;//Размер массива (число строк)
         double *a;
-        a=new double[VMHL_N];
+        a=new double[VHML_N];
         int *b;
-        b=new int[VMHL_N];
-        for (i=0;i<VMHL_N;i++)
+        b=new int[VHML_N];
+        for (i=0;i<VHML_N;i++)
         {
-            a[i]=MHL_RandomUniformInt(10,50);
-            b[i]=MHL_RandomUniformInt(10,50);
+            a[i]=HML_RandomUniformInt(10,50);
+            b[i]=HML_RandomUniformInt(10,50);
         }
 
         // Например
-        MHL_ShowVectorT (a,VMHL_N,"Случайный вектор", "a");
+        HML_ShowVectorT (a,VHML_N,"Случайный вектор", "a");
         // Случайный вектор:
         //a =
         //31	32	13	26	40	40	47	26	10	18
 
-        MHL_ShowVectorT (b,VMHL_N,"Сопряженный вектор", "b");
+        HML_ShowVectorT (b,VHML_N,"Сопряженный вектор", "b");
         //Сопряженный вектор:
         //b =
         //31	20	44	32	21	36	46	30	31	15
 
         //Вызов функции
-        TMHL_BubbleSortWithConjugateVector(a,b,VMHL_N);
+        HML_BubbleSortWithConjugateVector(a,b,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVectorT (a,VMHL_N,"Отсортированный вектор", "a");
+        HML_ShowVectorT (a,VHML_N,"Отсортированный вектор", "a");
         // Отсортированный вектор:
         //a =
         //10	13	18	26	26	31	32	40	40	47
 
-        MHL_ShowVectorT (b,VMHL_N,"Сопряженный вектор", "b");
+        HML_ShowVectorT (b,VHML_N,"Сопряженный вектор", "b");
         // Сопряженный вектор:
         //b =
         //31	44	15	32	30	31	20	21	36	46
@@ -5433,54 +5433,54 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] b;
     }
 
-    if (NameFunction=="TMHL_BubbleSortWithTwoConjugateVectors")
+    if (NameFunction=="HML_BubbleSortWithTwoConjugateVectors")
     {
         int i;
-        int VMHL_N=10;//Размер массива (число строк)
+        int VHML_N=10;//Размер массива (число строк)
         double *a;
-        a=new double[VMHL_N];
+        a=new double[VHML_N];
         int *b;
-        b=new int[VMHL_N];
+        b=new int[VHML_N];
         int *c;
-        c=new int[VMHL_N];
-        for (i=0;i<VMHL_N;i++)
+        c=new int[VHML_N];
+        for (i=0;i<VHML_N;i++)
         {
-            a[i]=MHL_RandomUniformInt(10,50);
-            b[i]=MHL_RandomUniformInt(10,50);
-            c[i]=MHL_RandomUniformInt(10,50);
+            a[i]=HML_RandomUniformInt(10,50);
+            b[i]=HML_RandomUniformInt(10,50);
+            c[i]=HML_RandomUniformInt(10,50);
         }
 
         // Например
-        MHL_ShowVectorT (a,VMHL_N,"Случайный вектор", "a");
+        HML_ShowVectorT (a,VHML_N,"Случайный вектор", "a");
         //Случайный вектор:
         //a =
         //45	27	11	18	24	25	16	19	34	43
 
-        MHL_ShowVectorT (b,VMHL_N,"Сопряженный вектор", "b");
+        HML_ShowVectorT (b,VHML_N,"Сопряженный вектор", "b");
         //Сопряженный вектор:
         //b =
         //33	32	24	33	32	49	33	43	25	47
 
-        MHL_ShowVectorT (c,VMHL_N,"Сопряженный вектор", "c");
+        HML_ShowVectorT (c,VHML_N,"Сопряженный вектор", "c");
         //Сопряженный вектор:
         //c =
         //15	24	27	43	17	47	25	11	13	26
 
         //Вызов функции
-        TMHL_BubbleSortWithTwoConjugateVectors(a,b,c,VMHL_N);
+        HML_BubbleSortWithTwoConjugateVectors(a,b,c,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVectorT (a,VMHL_N,"Отсортированный вектор", "a");
+        HML_ShowVectorT (a,VHML_N,"Отсортированный вектор", "a");
         //Отсортированный вектор:
         //a =
         //11	16	18	19	24	25	27	34	43	45
 
-        MHL_ShowVectorT (b,VMHL_N,"Сопряженный вектор", "b");
+        HML_ShowVectorT (b,VHML_N,"Сопряженный вектор", "b");
         // Сопряженный вектор:
         //b =
         //24	33	33	43	32	49	32	25	47	33
 
-        MHL_ShowVectorT (c,VMHL_N,"Второй сопряженный вектор", "c");
+        HML_ShowVectorT (c,VHML_N,"Второй сопряженный вектор", "c");
         //Второй сопряженный вектор:
         //c =
         //27	25	43	11	17	47	24	13	26	15
@@ -5490,68 +5490,68 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] c;
     }
 
-    if (NameFunction=="MHL_DensityOfDistributionOfNormalizedCenteredNormalDistribution")
+    if (NameFunction=="HML_DensityOfDistributionOfNormalizedCenteredNormalDistribution")
     {
         double t;
         double f;
-        t=MHL_RandomUniform(0,3);
+        t=HML_RandomUniform(0,3);
 
         //Вызов функции
-        f=MHL_DensityOfDistributionOfNormalizedCenteredNormalDistribution(t);
+        f=HML_DensityOfDistributionOfNormalizedCenteredNormalDistribution(t);
 
         //Используем полученный результат
 
-        MHL_ShowNumber (t,"Параметр", "t");
+        HML_ShowNumber (t,"Параметр", "t");
         // Параметр:
         //t=1.42401
-        MHL_ShowNumber (f,"Значение функции", "f");
+        HML_ShowNumber (f,"Значение функции", "f");
         // Значение функции:
         //f=0.144736
     }
 
-    if (NameFunction=="MHL_StdDevToVariance")
+    if (NameFunction=="HML_StdDevToVariance")
     {
         double Variance;
         double StdDev=6;
 
         //Вызов функции
-        Variance=MHL_StdDevToVariance(StdDev);
+        Variance=HML_StdDevToVariance(StdDev);
 
         //Используем результат
-        MHL_ShowNumber(Variance,"Дисперсия при среднеквадратичном уклонении, равным "+MHL_NumberToText(StdDev),"равна");
+        HML_ShowNumber(Variance,"Дисперсия при среднеквадратичном уклонении, равным "+HML_NumberToText(StdDev),"равна");
         //Дисперсия при среднеквадратичном уклонении, равным 6:
         //равна=2.44949
     }
 
-    if (NameFunction=="MHL_VarianceToStdDev")
+    if (NameFunction=="HML_VarianceToStdDev")
     {
         double StdDev;
         double Variance=6;
 
         //Вызов функции
-        StdDev=MHL_VarianceToStdDev(Variance);
+        StdDev=HML_VarianceToStdDev(Variance);
 
         //Используем полученный результат
-        MHL_ShowNumber(StdDev,"Среднеквадратичное уклонение при дисперсии, равной "+MHL_NumberToText(Variance),"равно");
+        HML_ShowNumber(StdDev,"Среднеквадратичное уклонение при дисперсии, равной "+HML_NumberToText(Variance),"равно");
         //Среднеквадратичное уклонение при дисперсии, равной 6:
         //равно=36
     }
 
-    if (NameFunction=="TMHL_Mean")
+    if (NameFunction=="HML_Mean")
     {
         int i;
-        int VMHL_N=10;//Размер массива
+        int VHML_N=10;//Размер массива
         double *a;
-        a=new double[VMHL_N];
+        a=new double[VHML_N];
         //Заполним случайными числами
-        for (i=0;i<VMHL_N;i++)
-            a[i]=MHL_RandomUniform(0,10);
+        for (i=0;i<VHML_N;i++)
+            a[i]=HML_RandomUniform(0,10);
 
         //Вызов функции
-        double Mean=TMHL_Mean(a,VMHL_N);
+        double Mean=HML_Mean(a,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (a,VMHL_N,"Массив", "a");
+        HML_ShowVector (a,VHML_N,"Массив", "a");
         // Массив:
         //a =
         //4.65149
@@ -5565,28 +5565,28 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //9.5401
         //4.50836
 
-        MHL_ShowNumber (Mean,"Среднее арифметическое массива", "Mean");
+        HML_ShowNumber (Mean,"Среднее арифметическое массива", "Mean");
         //Среднее арифметическое массива:
         //Mean=4.37216
 
         delete [] a;
     }
 
-    if (NameFunction=="TMHL_Median")
+    if (NameFunction=="HML_Median")
     {
         int i;
-        int VMHL_N=MHL_RandomUniformInt(3,10);//Размер массива
+        int VHML_N=HML_RandomUniformInt(3,10);//Размер массива
         double *a;
-        a=new double[VMHL_N];
+        a=new double[VHML_N];
         //Заполним случайными числами
-        for (i=0;i<VMHL_N;i++)
-            a[i]=MHL_RandomUniform(0,10);
+        for (i=0;i<VHML_N;i++)
+            a[i]=HML_RandomUniform(0,10);
 
         //Вызов функции
-        double Median=TMHL_Median(a,VMHL_N);
+        double Median=HML_Median(a,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (a,VMHL_N,"Массив", "a");
+        HML_ShowVector (a,VHML_N,"Массив", "a");
         //Массив:
         //a =
         //8.77167
@@ -5594,29 +5594,29 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //6.45966
         //3.94775
 
-        MHL_ShowNumber (Median,"Медиана", "Median");
+        HML_ShowNumber (Median,"Медиана", "Median");
         // Медиана:
         //Median=6.17554
 
         delete [] a;
     }
 
-    if (NameFunction=="TMHL_SampleCovariance")
+    if (NameFunction=="HML_SampleCovariance")
     {
-        int VMHL_N=10;//Размер массива
+        int VHML_N=10;//Размер массива
         double *x;
-        x=new double[VMHL_N];
+        x=new double[VHML_N];
         double *y;
-        y=new double[VMHL_N];
+        y=new double[VHML_N];
         //Заполним случайными числами
-        MHL_RandomRealVector (x,0,10,VMHL_N);
-        MHL_RandomRealVector (y,0,10,VMHL_N);
+        HML_RandomRealVector (x,0,10,VHML_N);
+        HML_RandomRealVector (y,0,10,VHML_N);
 
         //Вызов функции
-        double SampleCovariance=TMHL_SampleCovariance(x,y,VMHL_N);
+        double SampleCovariance=HML_SampleCovariance(x,y,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (x,VMHL_N,"Первый массив", "x");
+        HML_ShowVector (x,VHML_N,"Первый массив", "x");
         // Первый массив:
         //x =
         //3.06915
@@ -5630,7 +5630,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //6.78223
         //1.50909
 
-        MHL_ShowVector (y,VMHL_N,"Второй массив", "y");
+        HML_ShowVector (y,VHML_N,"Второй массив", "y");
         // Второй массив:
         //y =
         //7.00226
@@ -5644,7 +5644,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //0.3125
         //4.01459
 
-        MHL_ShowNumber (SampleCovariance,"Значение выборочной ковариации", "SampleCovariance");
+        HML_ShowNumber (SampleCovariance,"Значение выборочной ковариации", "SampleCovariance");
         // Значение выборочной ковариации:
         //SampleCovariance=-0.955199
 
@@ -5652,19 +5652,19 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] y;
     }
 
-    if (NameFunction=="TMHL_Variance")
+    if (NameFunction=="HML_Variance")
     {
-        int VMHL_N=10;//Размер массива
+        int VHML_N=10;//Размер массива
         double *x;
-        x=new double[VMHL_N];
+        x=new double[VHML_N];
         //Заполним случайными числами
-        MHL_RandomRealVector (x,0,10,VMHL_N);
+        HML_RandomRealVector (x,0,10,VHML_N);
 
         //Вызов функции
-        double Variance=TMHL_Variance(x,VMHL_N);
+        double Variance=HML_Variance(x,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (x,VMHL_N,"Массив", "x");
+        HML_ShowVector (x,VHML_N,"Массив", "x");
         //Массив:
         //x =
         //4.61365
@@ -5678,40 +5678,40 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //8.45978
         //4.33228
 
-        MHL_ShowNumber (Variance,"Значение выборочной дисперсии", "Variance");
+        HML_ShowNumber (Variance,"Значение выборочной дисперсии", "Variance");
         //Значение выборочной дисперсии:
         //Variance=10.1197
 
         delete [] x;
     }
 
-    if (NameFunction=="TMHL_SinglepointCrossover")
+    if (NameFunction=="HML_SinglepointCrossover")
     {
-        int VMHL_N=10; //Размер массива (число строк)
+        int VHML_N=10; //Размер массива (число строк)
         int *Parent1;
-        Parent1=new int[VMHL_N];
+        Parent1=new int[VHML_N];
         int *Parent2;
-        Parent2=new int[VMHL_N];
+        Parent2=new int[VHML_N];
         int *Child;
-        Child=new int[VMHL_N];
-        TMHL_RandomBinaryVector(Parent1,VMHL_N);
-        TMHL_RandomBinaryVector(Parent2,VMHL_N);
+        Child=new int[VHML_N];
+        HML_RandomBinaryVector(Parent1,VHML_N);
+        HML_RandomBinaryVector(Parent2,VHML_N);
 
         //Получим потомка Child
-        TMHL_SinglepointCrossover(Parent1,Parent2,Child,VMHL_N);
+        HML_SinglepointCrossover(Parent1,Parent2,Child,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVectorT (Parent1,VMHL_N,"Первый родитель", "Parent1");
+        HML_ShowVectorT (Parent1,VHML_N,"Первый родитель", "Parent1");
         //Первый родитель:
         //Parent1 =
         //0	1	1	0	0	1	0	1	1	1
 
-        MHL_ShowVectorT (Parent2,VMHL_N,"Второй родитель", "Parent2");
+        HML_ShowVectorT (Parent2,VHML_N,"Второй родитель", "Parent2");
         //Второй родитель:
         //Parent2 =
         //0	0	0	1	0	1	0	0	0	0
 
-        MHL_ShowVectorT (Child,VMHL_N,"Полученный потомок", "Child");
+        HML_ShowVectorT (Child,VHML_N,"Полученный потомок", "Child");
         //Полученный потомок:
         //Child =
         //0	1	1	0	0	1	0	1	1	1
@@ -5721,33 +5721,33 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] Child;
     }
 
-    if (NameFunction=="TMHL_TwopointCrossover")
+    if (NameFunction=="HML_TwopointCrossover")
     {
-        int VMHL_N=10; //Размер массива (число строк)
+        int VHML_N=10; //Размер массива (число строк)
         int *Parent1;
-        Parent1=new int[VMHL_N];
+        Parent1=new int[VHML_N];
         int *Parent2;
-        Parent2=new int[VMHL_N];
+        Parent2=new int[VHML_N];
         int *Child;
-        Child=new int[VMHL_N];
-        TMHL_RandomBinaryVector(Parent1,VMHL_N);
-        TMHL_RandomBinaryVector(Parent2,VMHL_N);
+        Child=new int[VHML_N];
+        HML_RandomBinaryVector(Parent1,VHML_N);
+        HML_RandomBinaryVector(Parent2,VHML_N);
 
         //Получим потомка Child
-        TMHL_TwopointCrossover(Parent1,Parent2,Child,VMHL_N);
+        HML_TwopointCrossover(Parent1,Parent2,Child,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVectorT (Parent1,VMHL_N,"Первый родитель", "Parent1");
+        HML_ShowVectorT (Parent1,VHML_N,"Первый родитель", "Parent1");
         //Первый родитель:
         //Parent1 =
         //1	1	0	0	1	1	0	0	0	0
 
-        MHL_ShowVectorT (Parent2,VMHL_N,"Второй родитель", "Parent2");
+        HML_ShowVectorT (Parent2,VHML_N,"Второй родитель", "Parent2");
         //Второй родитель:
         //Parent2 =
         //0	1	1	0	0	1	0	0	1	0
 
-        MHL_ShowVectorT (Child,VMHL_N,"Полученный потомок", "Child");
+        HML_ShowVectorT (Child,VHML_N,"Полученный потомок", "Child");
         //Полученный потомок:
         //Child =
         //0	1	1	0	0	1	0	0	1	0
@@ -5757,33 +5757,33 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] Child;
     }
 
-    if (NameFunction=="TMHL_UniformCrossover")
+    if (NameFunction=="HML_UniformCrossover")
     {
-        int VMHL_N=10; //Размер массива (число строк)
+        int VHML_N=10; //Размер массива (число строк)
         int *Parent1;
-        Parent1=new int[VMHL_N];
+        Parent1=new int[VHML_N];
         int *Parent2;
-        Parent2=new int[VMHL_N];
+        Parent2=new int[VHML_N];
         int *Child;
-        Child=new int[VMHL_N];
-        TMHL_RandomBinaryVector(Parent1,VMHL_N);
-        TMHL_RandomBinaryVector(Parent2,VMHL_N);
+        Child=new int[VHML_N];
+        HML_RandomBinaryVector(Parent1,VHML_N);
+        HML_RandomBinaryVector(Parent2,VHML_N);
 
         //Получим потомка Child
-        TMHL_UniformCrossover(Parent1,Parent2,Child,VMHL_N);
+        HML_UniformCrossover(Parent1,Parent2,Child,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVectorT (Parent1,VMHL_N,"Первый родитель", "Parent1");
+        HML_ShowVectorT (Parent1,VHML_N,"Первый родитель", "Parent1");
         //Первый родитель:
         //Parent1 =
         //1	1	0	1	1	1	1	1	1	0
 
-        MHL_ShowVectorT (Parent2,VMHL_N,"Второй родитель", "Parent2");
+        HML_ShowVectorT (Parent2,VHML_N,"Второй родитель", "Parent2");
         //Второй родитель:
         //Parent2 =
         //0	0	0	0	1	0	1	1	0	0
 
-        MHL_ShowVectorT (Child,VMHL_N,"Полученный потомок", "Child");
+        HML_ShowVectorT (Child,VHML_N,"Полученный потомок", "Child");
         //Полученный потомок:
         //Child =
         //1	1	0	0	1	0	1	1	1	0
@@ -5793,92 +5793,92 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] Child;
     }
 
-    if (NameFunction=="TMHL_BinaryToDecimalFromPart")
+    if (NameFunction=="HML_BinaryToDecimalFromPart")
     {
-        int VMHL_N=8;//Размер массива
+        int VHML_N=8;//Размер массива
         int *a;
-        a=new int[VMHL_N];
-        TMHL_RandomBinaryVector(a,VMHL_N);
+        a=new int[VHML_N];
+        HML_RandomBinaryVector(a,VHML_N);
 
         int Begin=2;
 
         //Вызов функции
-        int x=TMHL_BinaryToDecimalFromPart(a,Begin,5);
+        int x=HML_BinaryToDecimalFromPart(a,Begin,5);
 
         //Используем полученный результат
-        MHL_ShowVectorT (a,VMHL_N,"Бинарная строка", "a");
+        HML_ShowVectorT (a,VHML_N,"Бинарная строка", "a");
         //Бинарная строка:
         //a =
         //0	0	1	0	1	0	0	0
 
-        MHL_ShowNumber (Begin,"Двоичное число состоит из 5 символов начиная с", "номера");
+        HML_ShowNumber (Begin,"Двоичное число состоит из 5 символов начиная с", "номера");
         //Двоичное число состоит из 5 символов начиная с:
         //номера=2
 
-        MHL_ShowNumber (x,"Было закодировано", "x");
+        HML_ShowNumber (x,"Было закодировано", "x");
         //Было закодировано:
         //x=20
 
         delete [] a;
     }
 
-    if (NameFunction=="TMHL_BinaryToDecimal")
+    if (NameFunction=="HML_BinaryToDecimal")
     {
-        int VMHL_N=8;//Размер массива
+        int VHML_N=8;//Размер массива
         int *a;
-        a=new int[VMHL_N];
-        TMHL_RandomBinaryVector(a,VMHL_N);
+        a=new int[VHML_N];
+        HML_RandomBinaryVector(a,VHML_N);
 
         //Вызов функции
-        int x=TMHL_BinaryToDecimal(a,VMHL_N);
+        int x=HML_BinaryToDecimal(a,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVectorT (a,VMHL_N,"Двоичное число", "a");
+        HML_ShowVectorT (a,VHML_N,"Двоичное число", "a");
         //Двоичное число:
         //a =
         //0	1	1	1	1	0	1	0
 
-        MHL_ShowNumber (x,"Было закодировано", "x");
+        HML_ShowNumber (x,"Было закодировано", "x");
         //Было закодировано:
         //x=122
 
         delete [] a;
     }
 
-    if (NameFunction=="MHL_BinaryVectorToRealVector")
+    if (NameFunction=="HML_BinaryVectorToRealVector")
     {
         int n=10;//Размер массива
         int *BinaryVector;
         BinaryVector=new int[n];
         //Заполним случайно
-        TMHL_RandomBinaryVector(BinaryVector,n);
+        HML_RandomBinaryVector(BinaryVector,n);
 
-        int VMHL_N=2;//Пусть был закодирован двумерный вектор
+        int VHML_N=2;//Пусть был закодирован двумерный вектор
         double *RealVector;//Вещественный вектор
-        RealVector=new double[VMHL_N];
+        RealVector=new double[VHML_N];
         double *Left;//массив левых границ изменения каждой вещественной координаты
-        Left=new double[VMHL_N];
+        Left=new double[VHML_N];
         double *Right;//массив правых границ изменения каждой вещественной координаты
-        Right=new double[VMHL_N];
+        Right=new double[VHML_N];
         int *Lengthi;//массив значений, сколько на каждую координату отводится бит в бинраной строке;
-        Lengthi=new int[VMHL_N];
+        Lengthi=new int[VHML_N];
 
         //Заполним массивы
         //Причем по каждой коодинтате одинаковые значения выставим
-        TMHL_FillVector(Left,VMHL_N,0.);//Пусть будет интервал [0;1]
-        TMHL_FillVector(Right,VMHL_N,1.);
-        TMHL_FillVector(Lengthi,VMHL_N,5);//По сумме элементов вектор должен равен n (длине бинарной строки)
+        HML_FillVector(Left,VHML_N,0.);//Пусть будет интервал [0;1]
+        HML_FillVector(Right,VHML_N,1.);
+        HML_FillVector(Lengthi,VHML_N,5);//По сумме элементов вектор должен равен n (длине бинарной строки)
 
         //Вызов функции
-        MHL_BinaryVectorToRealVector(BinaryVector,RealVector,Left,Right,Lengthi,VMHL_N);
+        HML_BinaryVectorToRealVector(BinaryVector,RealVector,Left,Right,Lengthi,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVectorT (BinaryVector,n,"Бинарная строка", "BinaryVector");
+        HML_ShowVectorT (BinaryVector,n,"Бинарная строка", "BinaryVector");
         //Бинарная строка:
         //BinaryVector =
         //0	1	0	1	1	1	0	1	0	1
 
-        MHL_ShowVectorT (RealVector,VMHL_N,"Был закодирован вектор", "RealVector");
+        HML_ShowVectorT (RealVector,VHML_N,"Был закодирован вектор", "RealVector");
         //Был закодирован вектор:
         //RealVector =
         //0.34375	0.65625
@@ -5890,34 +5890,34 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] Lengthi;
     }
 
-    if (NameFunction=="TMHL_GrayCodeToBinaryFromPart")
+    if (NameFunction=="HML_GrayCodeToBinaryFromPart")
     {
-        int VMHL_N=8;//Размер массива
+        int VHML_N=8;//Размер массива
         int *VectorWithGrayCode;
-        VectorWithGrayCode=new int[VMHL_N];
+        VectorWithGrayCode=new int[VHML_N];
         //Заполним случайно нулями и единицами
-        TMHL_RandomBinaryVector(VectorWithGrayCode,VMHL_N);
+        HML_RandomBinaryVector(VectorWithGrayCode,VHML_N);
 
         int *VectorWithBinaryCode;
-        VectorWithBinaryCode=new int[VMHL_N];
-        TMHL_FillVector(VectorWithBinaryCode,VMHL_N,-1);
+        VectorWithBinaryCode=new int[VHML_N];
+        HML_FillVector(VectorWithBinaryCode,VHML_N,-1);
 
         int Begin=2;
 
         //Вызов функции
-        TMHL_GrayCodeToBinaryFromPart(VectorWithGrayCode,VectorWithBinaryCode,Begin,5);
+        HML_GrayCodeToBinaryFromPart(VectorWithGrayCode,VectorWithBinaryCode,Begin,5);
 
         //Используем полученный результат
-        MHL_ShowVectorT (VectorWithGrayCode,VMHL_N,"Строка, содержащая код Грея", "a");
+        HML_ShowVectorT (VectorWithGrayCode,VHML_N,"Строка, содержащая код Грея", "a");
         //Строка, содержащая код Грея:
         //a =
         //1	0	0	1	1	1	0	0
 
-        MHL_ShowNumber (Begin,"Двоичное число состоит из 5 символов начиная с", "номера");
+        HML_ShowNumber (Begin,"Двоичное число состоит из 5 символов начиная с", "номера");
         //Двоичное число состоит из 5 символов начиная с:
         //номера=2
 
-        MHL_ShowVectorT (VectorWithBinaryCode,VMHL_N,"Строка, содержащая бинарный код, полученый из кода Грея", "a");
+        HML_ShowVectorT (VectorWithBinaryCode,VHML_N,"Строка, содержащая бинарный код, полученый из кода Грея", "a");
         //Строка, содержащая бинарный код, полученый из кода Грея:
         //a =
         //-1	-1	0	1	0	1	1	-1
@@ -5926,27 +5926,27 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] VectorWithBinaryCode;
     }
 
-    if (NameFunction=="TMHL_GrayCodeToBinary")
+    if (NameFunction=="HML_GrayCodeToBinary")
     {
-        int VMHL_N=5;//Размер массива
+        int VHML_N=5;//Размер массива
         int *GrayCode;
-        GrayCode=new int[VMHL_N];
+        GrayCode=new int[VHML_N];
         //Получим случайный Грей код
-        TMHL_RandomBinaryVector(GrayCode,VMHL_N);
+        HML_RandomBinaryVector(GrayCode,VHML_N);
 
         int *BinaryCode;
-        BinaryCode=new int[VMHL_N];
+        BinaryCode=new int[VHML_N];
 
         //Вызов функции
-        TMHL_GrayCodeToBinary(GrayCode,BinaryCode,VMHL_N);
+        HML_GrayCodeToBinary(GrayCode,BinaryCode,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVectorT (GrayCode,VMHL_N,"Грей код", "a");
+        HML_ShowVectorT (GrayCode,VHML_N,"Грей код", "a");
         //Грей код:
         //a =
         //1	1	0	1	1
 
-        MHL_ShowVectorT (BinaryCode,VMHL_N,"Бинарный код, полученый из кода Грея", "a");
+        HML_ShowVectorT (BinaryCode,VHML_N,"Бинарный код, полученый из кода Грея", "a");
         //Бинарный код, полученый из кода Грея:
         //a =
         //1	0	0	1	0
@@ -5955,41 +5955,41 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] BinaryCode;
     }
 
-    if (NameFunction=="MHL_BinaryGrayVectorToRealVector")
+    if (NameFunction=="HML_BinaryGrayVectorToRealVector")
     {
         int n=10;//Размер массива
         int *BinaryGrayVector;
         BinaryGrayVector=new int[n];
         //Заполним случайно
-        TMHL_RandomBinaryVector(BinaryGrayVector,n);
+        HML_RandomBinaryVector(BinaryGrayVector,n);
 
-        int VMHL_N=2;//Пусть был закодирован двумерный вектор
+        int VHML_N=2;//Пусть был закодирован двумерный вектор
         double *RealVector;//Вещественный вектор
-        RealVector=new double[VMHL_N];
+        RealVector=new double[VHML_N];
         double *Left;//массив левых границ изменения каждой вещественной координаты
-        Left=new double[VMHL_N];
+        Left=new double[VHML_N];
         double *Right;//массив правых границ изменения каждой вещественной координаты
-        Right=new double[VMHL_N];
+        Right=new double[VHML_N];
         int *Lengthi;//массив значений, сколько на каждую координату отводится бит в бинраной строке;
-        Lengthi=new int[VMHL_N];
+        Lengthi=new int[VHML_N];
 
         //Заполним массивы
         //Причем по каждой коодинтате одинаковые значения выставим
-        TMHL_FillVector(Left,VMHL_N,0.);//Пусть будет интервал [0;1]
-        TMHL_FillVector(Right,VMHL_N,1.);
-        TMHL_FillVector(Lengthi,VMHL_N,5);//По сумме элементов вектор должен равен n (длине бинарной строки)
+        HML_FillVector(Left,VHML_N,0.);//Пусть будет интервал [0;1]
+        HML_FillVector(Right,VHML_N,1.);
+        HML_FillVector(Lengthi,VHML_N,5);//По сумме элементов вектор должен равен n (длине бинарной строки)
 
         //Вызов функции
-        MHL_BinaryGrayVectorToRealVector(BinaryGrayVector,n,RealVector,Left,Right,Lengthi,VMHL_N);
+        HML_BinaryGrayVectorToRealVector(BinaryGrayVector,n,RealVector,Left,Right,Lengthi,VHML_N);
 
         //Используем полученный результат
 
-        MHL_ShowVectorT (BinaryGrayVector,n,"Бинарная строка Грея кода", "BinaryVector");
+        HML_ShowVectorT (BinaryGrayVector,n,"Бинарная строка Грея кода", "BinaryVector");
         //Бинарная строка Грея кода:
         //BinaryVector =
         //1	0	1	0	1	0	0	0	1	0
 
-        MHL_ShowVectorT (RealVector,VMHL_N,"Был закодирован вектор", "RealVector");
+        HML_ShowVectorT (RealVector,VHML_N,"Был закодирован вектор", "RealVector");
         //Был закодирован вектор:
         //RealVector =
         //0.78125	0.09375
@@ -6004,34 +6004,34 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         n=10;//Размер массива
         BinaryGrayVector=new int[n];
         //Заполним случайно
-        TMHL_RandomBinaryVector(BinaryGrayVector,n);
+        HML_RandomBinaryVector(BinaryGrayVector,n);
 
-        VMHL_N=2;//Пусть был закодирован двумерный вектор
-        RealVector=new double[VMHL_N];
-        Left=new double[VMHL_N];
-        Right=new double[VMHL_N];
-        Lengthi=new int[VMHL_N];
+        VHML_N=2;//Пусть был закодирован двумерный вектор
+        RealVector=new double[VHML_N];
+        Left=new double[VHML_N];
+        Right=new double[VHML_N];
+        Lengthi=new int[VHML_N];
 
         int *TempBinaryVector;
         TempBinaryVector=new int[n];
 
         //Заполним массивы
         //Причем по каждой коодинтате одинаковые значения выставим
-        TMHL_FillVector(Left,VMHL_N,0.);//Пусть будет интервал [0;1]
-        TMHL_FillVector(Right,VMHL_N,1.);
-        TMHL_FillVector(Lengthi,VMHL_N,5);//По сумме элементов вектор должен равен n (длине бинарной строки)
+        HML_FillVector(Left,VHML_N,0.);//Пусть будет интервал [0;1]
+        HML_FillVector(Right,VHML_N,1.);
+        HML_FillVector(Lengthi,VHML_N,5);//По сумме элементов вектор должен равен n (длине бинарной строки)
 
         //Вызов функции
-        MHL_BinaryGrayVectorToRealVector(BinaryGrayVector,RealVector,TempBinaryVector,Left,Right,Lengthi,VMHL_N);
+        HML_BinaryGrayVectorToRealVector(BinaryGrayVector,RealVector,TempBinaryVector,Left,Right,Lengthi,VHML_N);
 
         //Используем полученный результат
 
-        MHL_ShowVectorT (BinaryGrayVector,n,"Бинарная строка Грея кода", "BinaryVector");
+        HML_ShowVectorT (BinaryGrayVector,n,"Бинарная строка Грея кода", "BinaryVector");
         // Бинарная строка Грея кода:
         //BinaryVector =
         //0	0	1	0	0	1	1	1	0	1
 
-        MHL_ShowVectorT (RealVector,VMHL_N,"Был закодирован вектор", "RealVector");
+        HML_ShowVectorT (RealVector,VHML_N,"Был закодирован вектор", "RealVector");
         //Был закодирован вектор:
         //RealVector =
         //0.21875	0.6875
@@ -6044,17 +6044,17 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] TempBinaryVector;
     }
 
-    if (NameFunction=="TMHL_RandomVectorOfPermutation")
+    if (NameFunction=="HML_RandomVectorOfPermutation")
     {
-        int VMHL_N=10;//Размер массива (число строк)
+        int VHML_N=10;//Размер массива (число строк)
         double *a;
-        a=new double[VMHL_N];
+        a=new double[VHML_N];
 
         //Вызов функции
-        TMHL_RandomVectorOfPermutation(a,VMHL_N);
+        HML_RandomVectorOfPermutation(a,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (a,VMHL_N,"Строка-перестановка", "a");
+        HML_ShowVector (a,VHML_N,"Строка-перестановка", "a");
         //Строка-перестановка:
         //a =
         //1
@@ -6071,20 +6071,20 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] a;
     }
 
-    if (NameFunction=="TMHL_RandomMatrixOfPermutation")
+    if (NameFunction=="HML_RandomMatrixOfPermutation")
     {
         int i;
-        int VMHL_N=10;//Размер массива (число строк)
-        int VMHL_M=5;//Размер массива (число строк)
+        int VHML_N=10;//Размер массива (число строк)
+        int VHML_M=5;//Размер массива (число строк)
         int **a;
-        a=new int*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) a[i]=new int[VMHL_M];
+        a=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) a[i]=new int[VHML_M];
 
         //Вызов функции
-        TMHL_RandomMatrixOfPermutation(a,VMHL_N,VMHL_M);
+        HML_RandomMatrixOfPermutation(a,VHML_N,VHML_M);
 
         //Используем полученный результат
-        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Матрица строк-перестановок", "a");
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Матрица строк-перестановок", "a");
         //Матрица строк-перестановок:
         //a =
         //3	2	1	4	5
@@ -6098,20 +6098,20 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //3	1	2	4	5
         //5	3	4	2	1
 
-        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        for (i=0;i<VHML_N;i++) delete [] a[i];
         delete [] a;
     }
 
-    if (NameFunction=="TMHL_MutationBinaryMatrix")
+    if (NameFunction=="HML_MutationBinaryMatrix")
     {
         int i;
-        int VMHL_N=10;//Размер массива (число строк)
-        int VMHL_M=3;//Размер массива (число столбцов)
+        int VHML_N=10;//Размер массива (число строк)
+        int VHML_M=3;//Размер массива (число столбцов)
         int **a;
-        a=new int*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) a[i]=new int[VMHL_M];
-        TMHL_RandomBinaryMatrix(a,VMHL_N,VMHL_M);//Случайная бинарная матрица
-        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Случайная бинарная матрица", "a");
+        a=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) a[i]=new int[VHML_M];
+        HML_RandomBinaryMatrix(a,VHML_N,VHML_M);//Случайная бинарная матрица
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Случайная бинарная матрица", "a");
         // Случайная бинарная матрица:
         //a =
         //1	0	1
@@ -6128,10 +6128,10 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         double ProbabilityOfMutation=0.1;//Вероятность мутации
 
         //Вызов функции
-        TMHL_MutationBinaryMatrix(a,ProbabilityOfMutation,VMHL_N,VMHL_M);
+        HML_MutationBinaryMatrix(a,ProbabilityOfMutation,VHML_N,VHML_M);
 
         //Используем полученный результат
-        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Мутированная бинарная матрица", "a");
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Мутированная бинарная матрица", "a");
         //Мутированная бинарная матрица:
         //a =
         //1	1	1
@@ -6145,27 +6145,27 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //1	0	1
         //1	1	1
 
-        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        for (i=0;i<VHML_N;i++) delete [] a[i];
         delete [] a;
     }
 
-    if (NameFunction=="MHL_TournamentSelectionWithReturn")
+    if (NameFunction=="HML_TournamentSelectionWithReturn")
     {
         int i;
-        int VMHL_N=7;//Размер массива
+        int VHML_N=7;//Размер массива
         double *Fitness;
-        Fitness=new double[VMHL_N];
-        for (i=0;i<VMHL_N;i++)
-            Fitness[i]=MHL_RandomNumber();
+        Fitness=new double[VHML_N];
+        for (i=0;i<VHML_N;i++)
+            Fitness[i]=HML_RandomNumber();
 
         int SizeTournament=3;// Размер турнира
 
         //Вызов функции
-        int Number=MHL_TournamentSelectionWithReturn(Fitness,SizeTournament,VMHL_N);
+        int Number=HML_TournamentSelectionWithReturn(Fitness,SizeTournament,VHML_N);
 
         //Используем полученный результат
 
-        MHL_ShowVector (Fitness,VMHL_N,"Массив пригодностей", "Fitness");
+        HML_ShowVector (Fitness,VHML_N,"Массив пригодностей", "Fitness");
         //Массив пригодностей:
         //Fitness =
         //0.883148
@@ -6176,30 +6176,30 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //0.42215
         //0.011322
 
-        MHL_ShowNumber (Number,"Номер выбранного индивида", "Number");
+        HML_ShowNumber (Number,"Номер выбранного индивида", "Number");
         //Номер выбранного индивида:
         //Number=4
 
         delete [] Fitness;
     }
 
-    if (NameFunction=="MHL_TournamentSelection")
+    if (NameFunction=="HML_TournamentSelection")
     {
         int i;
-        int VMHL_N=7;//Размер массива
+        int VHML_N=7;//Размер массива
         double *Fitness;
-        Fitness=new double[VMHL_N];
-        for (i=0;i<VMHL_N;i++)
-            Fitness[i]=MHL_RandomNumber();
+        Fitness=new double[VHML_N];
+        for (i=0;i<VHML_N;i++)
+            Fitness[i]=HML_RandomNumber();
 
         int SizeTournament=3;// Размер турнира
 
         //Вызов функции
-        int Number=MHL_TournamentSelection(Fitness,SizeTournament,VMHL_N);
+        int Number=HML_TournamentSelection(Fitness,SizeTournament,VHML_N);
 
         //Используем полученный результат
 
-        MHL_ShowVector (Fitness,VMHL_N,"Массив пригодностей", "Fitness");
+        HML_ShowVector (Fitness,VHML_N,"Массив пригодностей", "Fitness");
         //Массив пригодностей:
         //Fitness =
         //0.858643
@@ -6211,33 +6211,33 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //0.476135
 
 
-        MHL_ShowNumber (SizeTournament,"Размер турнираа", "SizeTournament");
+        HML_ShowNumber (SizeTournament,"Размер турнираа", "SizeTournament");
         // Размер турнираа:
         //SizeTournament=3
 
-        MHL_ShowNumber (Number,"Номер выбранного индивида", "Number");
+        HML_ShowNumber (Number,"Номер выбранного индивида", "Number");
         //Номер выбранного индивида:
         //Number=6
 
         delete [] Fitness;
 
         //Для переопределенной функции
-        VMHL_N=7;//Размер массива
-        Fitness=new double[VMHL_N];
-        for (i=0;i<VMHL_N;i++)
-            Fitness[i]=MHL_RandomNumber();
+        VHML_N=7;//Размер массива
+        Fitness=new double[VHML_N];
+        for (i=0;i<VHML_N;i++)
+            Fitness[i]=HML_RandomNumber();
 
         int *Taken;//Информация о том, в турнире или нет индивид (Служебный массив)
-        Taken=new int[VMHL_N];
+        Taken=new int[VHML_N];
 
         SizeTournament=3;// Размер турнира
 
         //Вызов функции
-        Number=MHL_TournamentSelection(Fitness,SizeTournament,Taken,VMHL_N);
+        Number=HML_TournamentSelection(Fitness,SizeTournament,Taken,VHML_N);
 
         //Используем полученный результат
 
-        MHL_ShowVector (Fitness,VMHL_N,"Массив пригодностей", "Fitness");
+        HML_ShowVector (Fitness,VHML_N,"Массив пригодностей", "Fitness");
         //Массив пригодностей:
         //Fitness =
         //0.598633
@@ -6248,11 +6248,11 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //0.542511
         //0.605499
 
-        MHL_ShowNumber (SizeTournament,"Размер турнира", "SizeTournament");
+        HML_ShowNumber (SizeTournament,"Размер турнира", "SizeTournament");
         //Размер турнира:
         //SizeTournament=3
 
-        MHL_ShowNumber (Number,"Номер выбранного индивида", "Number");
+        HML_ShowNumber (Number,"Номер выбранного индивида", "Number");
         //Номер выбранного индивида:
         //Number=2
 
@@ -6260,24 +6260,24 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] Taken;
     }
 
-    if (NameFunction=="MHL_MakeVectorOfRankForRankSelection")
+    if (NameFunction=="HML_MakeVectorOfRankForRankSelection")
     {
         int i;
-        int VMHL_N=7;//Размер массива (число строк)
+        int VHML_N=7;//Размер массива (число строк)
         double *Fitness;
-        Fitness=new double[VMHL_N];
-        for (i=0;i<VMHL_N;i++)
-            Fitness[i]=MHL_RandomUniformInt(1,10)/10.;
+        Fitness=new double[VHML_N];
+        for (i=0;i<VHML_N;i++)
+            Fitness[i]=HML_RandomUniformInt(1,10)/10.;
 
         double *Rank;
-        Rank=new double[VMHL_N];
+        Rank=new double[VHML_N];
 
         //Вызов функции
-        MHL_MakeVectorOfRankForRankSelection(Fitness,Rank,VMHL_N);
+        HML_MakeVectorOfRankForRankSelection(Fitness,Rank,VHML_N);
 
         //Используем полученный результат
 
-        MHL_ShowVector (Fitness,VMHL_N,"Массив пригодностей", "Fitness");
+        HML_ShowVector (Fitness,VHML_N,"Массив пригодностей", "Fitness");
         //Массив пригодностей:
         //Fitness =
         //0.3
@@ -6288,7 +6288,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //0.1
         //0.6
 
-        MHL_ShowVector (Rank,VMHL_N,"Массив рангов", "Rank");
+        HML_ShowVector (Rank,VHML_N,"Массив рангов", "Rank");
         //Массив рангов:
         //Rank =
         //2
@@ -6303,17 +6303,17 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] Rank;
     }
 
-    if (NameFunction=="MHL_NormalizationVectorOne")
+    if (NameFunction=="HML_NormalizationVectorOne")
     {
         int i;
-        int VMHL_N=10;//Размер массива (число строк)
+        int VHML_N=10;//Размер массива (число строк)
         double *a;
-        a=new double[VMHL_N];
+        a=new double[VHML_N];
         //Заполним случайными числами
-        for (i=0;i<VMHL_N;i++)
-            a[i]=MHL_RandomUniformInt(-100,100);
+        for (i=0;i<VHML_N;i++)
+            a[i]=HML_RandomUniformInt(-100,100);
 
-        MHL_ShowVector (a,VMHL_N,"Случайный вектор", "a");
+        HML_ShowVector (a,VHML_N,"Случайный вектор", "a");
         //Случайный вектор:
         //a =
         //-76
@@ -6328,10 +6328,10 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //7
 
         //Вызов функции
-        MHL_NormalizationVectorOne(a,VMHL_N);
+        HML_NormalizationVectorOne(a,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (a,VMHL_N,"Нормализованный вектор", "a");
+        HML_ShowVector (a,VHML_N,"Нормализованный вектор", "a");
         //Нормализованный вектор:
         //a =
         //0.021838
@@ -6345,24 +6345,24 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //0.0791629
         //0.0973612
 
-        MHL_ShowNumber (TMHL_SumVector(a,VMHL_N),"Его сумма", "Sum");
+        HML_ShowNumber (HML_SumVector(a,VHML_N),"Его сумма", "Sum");
         //Его сумма:
         //Sum=1
 
         delete [] a;
     }
 
-    if (NameFunction=="MHL_NormalizationVectorMaxMin")
+    if (NameFunction=="HML_NormalizationVectorMaxMin")
     {
         int i;
-        int VMHL_N=10;//Размер массива (число строк)
+        int VHML_N=10;//Размер массива (число строк)
         double *a;
-        a=new double[VMHL_N];
+        a=new double[VHML_N];
         //Заполним случайными числами
-        for (i=0;i<VMHL_N;i++)
-            a[i]=MHL_RandomUniformInt(-100,100);
+        for (i=0;i<VHML_N;i++)
+            a[i]=HML_RandomUniformInt(-100,100);
 
-        MHL_ShowVector (a,VMHL_N,"Случайный вектор", "a");
+        HML_ShowVector (a,VHML_N,"Случайный вектор", "a");
         //Случайный вектор:
         //a =
         //38
@@ -6377,10 +6377,10 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //45
 
         //Вызов функции
-        MHL_NormalizationVectorMaxMin(a,VMHL_N);
+        HML_NormalizationVectorMaxMin(a,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (a,VMHL_N,"Нормализованный вектор", "a");
+        HML_ShowVector (a,VHML_N,"Нормализованный вектор", "a");
         //Нормализованный вектор:
         //a =
         //0.751381
@@ -6397,15 +6397,15 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] a;
     }
 
-    if (NameFunction=="MHL_NormalizationVectorAll")
+    if (NameFunction=="HML_NormalizationVectorAll")
     {
-        int VMHL_N=10;//Размер массива (число строк)
+        int VHML_N=10;//Размер массива (число строк)
         double *a;
-        a=new double[VMHL_N];
+        a=new double[VHML_N];
         //Заполним случайными числами
-        MHL_RandomRealVector(a,-100,100,VMHL_N);
+        HML_RandomRealVector(a,-100,100,VHML_N);
 
-        MHL_ShowVector (a,VMHL_N,"Случайный вектор", "a");
+        HML_ShowVector (a,VHML_N,"Случайный вектор", "a");
         //Случайный вектор:
         //a =
         //-41.1987
@@ -6420,10 +6420,10 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //-47.6013
 
         //Вызов функции
-        MHL_NormalizationVectorAll(a,VMHL_N);
+        HML_NormalizationVectorAll(a,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (a,VMHL_N,"Нормализованный вектор", "a");
+        HML_ShowVector (a,VHML_N,"Нормализованный вектор", "a");
         // Нормализованный вектор:
         //a =
         //0.0118487
@@ -6440,27 +6440,27 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] a;
     }
 
-    if (NameFunction=="MHL_MakeVectorOfProbabilityForProportionalSelectionV2")
+    if (NameFunction=="HML_MakeVectorOfProbabilityForProportionalSelectionV2")
     {
         int i;
-        int VMHL_N=10;//Размер массива (число строк)
+        int VHML_N=10;//Размер массива (число строк)
         double *Fitness;
-        Fitness=new double[VMHL_N];
+        Fitness=new double[VHML_N];
         //Заполним вектор случайными значениями пригодностей индивидов
         //на практике, конечно, пригодности вычисляются, например, в
         //процессе работы ГА
-        for (i=0;i<VMHL_N;i++) Fitness[i]=MHL_RandomNumber();
+        for (i=0;i<VHML_N;i++) Fitness[i]=HML_RandomNumber();
 
         //Для работы этого варианта пропорциональной селекции нужен
         //массив вероятностей выбора индивидов для порпоциональной селекции;
         double *VectorProbability;
-        VectorProbability=new double[VMHL_N];
+        VectorProbability=new double[VHML_N];
 
         //Вызов функции
-        MHL_MakeVectorOfProbabilityForProportionalSelectionV2(Fitness,VectorProbability,VMHL_N);
+        HML_MakeVectorOfProbabilityForProportionalSelectionV2(Fitness,VectorProbability,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (Fitness,VMHL_N,"Вектор пригодностей индивидов", "a");
+        HML_ShowVector (Fitness,VHML_N,"Вектор пригодностей индивидов", "a");
         //Вектор пригодностей индивидов:
         //a =
         //0.902191
@@ -6474,7 +6474,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //0.275391
         //0.164215
 
-        MHL_ShowVector (VectorProbability,VMHL_N,"Вектор вероятностей выбора индивидов", "VectorProbability");
+        HML_ShowVector (VectorProbability,VHML_N,"Вектор вероятностей выбора индивидов", "VectorProbability");
         // Вектор вероятностей выбора индивидов:
         //VectorProbability =
         //0.246902
@@ -6488,7 +6488,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //0.0709985
         //0.0397986
 
-        MHL_ShowNumber (TMHL_SumVector(VectorProbability,VMHL_N),"Его сумма", "Sum");
+        HML_ShowNumber (HML_SumVector(VectorProbability,VHML_N),"Его сумма", "Sum");
         //Его сумма:
         //Sum=1
 
@@ -6496,19 +6496,19 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] VectorProbability;
     }
 
-    if (NameFunction=="MHL_SelectItemOnProbability")
+    if (NameFunction=="HML_SelectItemOnProbability")
     {
-        int VMHL_N=10;//Размер массива (число строк)
+        int VHML_N=10;//Размер массива (число строк)
         double *a;
-        a=new double[VMHL_N];
+        a=new double[VHML_N];
         //Заполним вектор случайными значениями вероятностей
-        MHL_RandomVectorOfProbability(a, VMHL_N);
+        HML_RandomVectorOfProbability(a, VHML_N);
 
         //Вызов функции
-        int Number=MHL_SelectItemOnProbability(a,VMHL_N);
+        int Number=HML_SelectItemOnProbability(a,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (a,VMHL_N,"Вектор вероятностей выбора", "a");
+        HML_ShowVector (a,VHML_N,"Вектор вероятностей выбора", "a");
         // Вектор вероятностей выбора:
         //Вектор вероятностей выбора:
         //a =
@@ -6523,31 +6523,31 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //0.0621408
         //0.0852747
 
-        MHL_ShowNumber (Number,"Номер выбранного элемента", "Number");
+        HML_ShowNumber (Number,"Номер выбранного элемента", "Number");
         // Номер выбранного элемента:
         //Number=6
 
         delete [] a;
     }
 
-    if (NameFunction=="MHL_ProportionalSelection")
+    if (NameFunction=="HML_ProportionalSelection")
     {
         int i;
-        int VMHL_N=10;//Размер массива (число строк)
+        int VHML_N=10;//Размер массива (число строк)
         double *Fitness;
-        Fitness=new double[VMHL_N];
+        Fitness=new double[VHML_N];
         //Заполним вектор случайными значениями пригодностей индивидов
         //на практике, конечно, пригодности вычисляются, например, в
         //процессе работы ГА
-        for (i=0;i<VMHL_N;i++) Fitness[i]=MHL_RandomNumber();
+        for (i=0;i<VHML_N;i++) Fitness[i]=HML_RandomNumber();
 
         //Вызов функции
-        int Number=MHL_ProportionalSelection(Fitness,VMHL_N);
+        int Number=HML_ProportionalSelection(Fitness,VHML_N);
 
         //Используем полученный результат
 
         //Например:
-        MHL_ShowVector (Fitness,VMHL_N,"Вектор пригодностей индивидов", "a");
+        HML_ShowVector (Fitness,VHML_N,"Вектор пригодностей индивидов", "a");
         // Вектор пригодностей индивидов:
         //a =
         //0.368073
@@ -6561,36 +6561,36 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //0.505646
         //0.901184
 
-        MHL_ShowNumber (Number,"Номер выбранного индивида", "Number");
+        HML_ShowNumber (Number,"Номер выбранного индивида", "Number");
         //Номер выбранного индивида:
         //Number=5
 
         delete [] Fitness;
     }
 
-    if (NameFunction=="MHL_ProportionalSelectionV2")
+    if (NameFunction=="HML_ProportionalSelectionV2")
     {
         int i;
-        int VMHL_N=10;//Размер массива (число строк)
+        int VHML_N=10;//Размер массива (число строк)
         double *Fitness;
-        Fitness=new double[VMHL_N];
+        Fitness=new double[VHML_N];
         //Заполним вектор случайными значениями пригодностей индивидов
         //на практике, конечно, пригодности вычисляются, например, в
         //процессе работы ГА
-        for (i=0;i<VMHL_N;i++) Fitness[i]=MHL_RandomNumber();
+        for (i=0;i<VHML_N;i++) Fitness[i]=HML_RandomNumber();
 
         //Для работы этого варианта пропорциональной селекции нужен
         //массив вероятностей выбора индивидов для порпоциональной селекции;
         double *VectorProbability;
-        VectorProbability=new double[VMHL_N];
+        VectorProbability=new double[VHML_N];
         //Сформируем этот массив
-        MHL_MakeVectorOfProbabilityForProportionalSelectionV2(Fitness,VectorProbability,VMHL_N);
+        HML_MakeVectorOfProbabilityForProportionalSelectionV2(Fitness,VectorProbability,VHML_N);
 
         //Вызов функции
-        int Number=MHL_ProportionalSelectionV2(VectorProbability,VMHL_N);
+        int Number=HML_ProportionalSelectionV2(VectorProbability,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (Fitness,VMHL_N,"Вектор пригодностей индивидов", "a");
+        HML_ShowVector (Fitness,VHML_N,"Вектор пригодностей индивидов", "a");
         // Вектор пригодностей индивидов:
         //a =
         //0.681061
@@ -6604,7 +6604,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //0.853607
         //0.19928
 
-        MHL_ShowVector (VectorProbability,VMHL_N,"Вектор вероятностей выбора индивидов", "VectorProbability");
+        HML_ShowVector (VectorProbability,VHML_N,"Вектор вероятностей выбора индивидов", "VectorProbability");
         // Вектор вероятностей выбора индивидов:
         //VectorProbability =
         //0.137809
@@ -6618,11 +6618,11 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //0.18176
         //0.0150884
 
-        MHL_ShowNumber (TMHL_SumVector(VectorProbability,VMHL_N),"Его сумма", "Sum");
+        HML_ShowNumber (HML_SumVector(VectorProbability,VHML_N),"Его сумма", "Sum");
         // Его сумма:
         //Sum=1
 
-        MHL_ShowNumber (Number,"Номер выбранного индивида", "Number");
+        HML_ShowNumber (Number,"Номер выбранного индивида", "Number");
 
         // Номер выбранного индивида:
         //Number=6
@@ -6631,22 +6631,22 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] VectorProbability;
     }
 
-    if (NameFunction=="MHL_ProportionalSelectionV3")
+    if (NameFunction=="HML_ProportionalSelectionV3")
     {
         int i;
-        int VMHL_N=10;//Размер массива (число строк)
+        int VHML_N=10;//Размер массива (число строк)
         double *Fitness;
-        Fitness=new double[VMHL_N];
+        Fitness=new double[VHML_N];
         //Заполним вектор случайными значениями пригодностей индивидов
         //на практике, конечно, пригодности вычисляются, например, в
         //процессе работы ГА
-        for (i=0;i<VMHL_N;i++) Fitness[i]=MHL_RandomNumber();
+        for (i=0;i<VHML_N;i++) Fitness[i]=HML_RandomNumber();
 
         //Вызов функции
-        int Number=MHL_ProportionalSelectionV3(Fitness,VMHL_N);
+        int Number=HML_ProportionalSelectionV3(Fitness,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (Fitness,VMHL_N,"Вектор пригодностей индивидов", "a");
+        HML_ShowVector (Fitness,VHML_N,"Вектор пригодностей индивидов", "a");
         // Вектор пригодностей индивидов:
         //a =
         //0.774231
@@ -6660,39 +6660,39 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //0.234528
         //0.0510559
 
-        MHL_ShowNumber (Number,"Номер выбранного индивида", "Number");
+        HML_ShowNumber (Number,"Номер выбранного индивида", "Number");
         // Номер выбранного индивида:
         //Number=0
 
         delete [] Fitness;
     }
 
-    if (NameFunction=="MHL_RankSelection")
+    if (NameFunction=="HML_RankSelection")
     {
         int i;
-        int VMHL_N=7;//Размер массива
+        int VHML_N=7;//Размер массива
         double *Fitness;
-        Fitness=new double[VMHL_N];
-        for (i=0;i<VMHL_N;i++)
-            Fitness[i]=MHL_RandomUniformInt(1,10)/10.;
+        Fitness=new double[VHML_N];
+        for (i=0;i<VHML_N;i++)
+            Fitness[i]=HML_RandomUniformInt(1,10)/10.;
 
         double *Rank;
-        Rank=new double[VMHL_N];
+        Rank=new double[VHML_N];
 
         double *VectorProbability;
-        VectorProbability=new double[VMHL_N];
+        VectorProbability=new double[VHML_N];
 
         //Сформируем вектор рангов
-        MHL_MakeVectorOfRankForRankSelection(Fitness,Rank,VMHL_N);
+        HML_MakeVectorOfRankForRankSelection(Fitness,Rank,VHML_N);
         //Из вектора рангов получим вектор вероятностей выбора
-        MHL_MakeVectorOfProbabilityForProportionalSelectionV2(Rank,VectorProbability,VMHL_N);
+        HML_MakeVectorOfProbabilityForProportionalSelectionV2(Rank,VectorProbability,VHML_N);
 
         //Вызов функции
-        int Number=MHL_RankSelection(VectorProbability,VMHL_N);
+        int Number=HML_RankSelection(VectorProbability,VHML_N);
 
         //Используем полученный результат
 
-        MHL_ShowVector (Fitness,VMHL_N,"Массив пригодностей", "Fitness");
+        HML_ShowVector (Fitness,VHML_N,"Массив пригодностей", "Fitness");
         // Массив пригодностей:
         //Fitness =
         //0.2
@@ -6703,7 +6703,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //0.3
         //0.2
 
-        MHL_ShowVector (Rank,VMHL_N,"Массив рангов", "Rank");
+        HML_ShowVector (Rank,VHML_N,"Массив рангов", "Rank");
         // Массив рангов:
         //Rank =
         //2
@@ -6714,7 +6714,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //4
         //2
 
-        MHL_ShowVector (VectorProbability,VMHL_N,"Массив вероятностей выбора", "VectorProbability");
+        HML_ShowVector (VectorProbability,VHML_N,"Массив вероятностей выбора", "VectorProbability");
         //Массив вероятностей выбора:
         //VectorProbability =
         //0
@@ -6725,7 +6725,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //0.142857
         //0
 
-        MHL_ShowNumber (Number,"Номер выбранного индивида", "Number");
+        HML_ShowNumber (Number,"Номер выбранного индивида", "Number");
         // Номер выбранного индивида:
         //Number=3
 
@@ -6734,7 +6734,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] VectorProbability;
     }
 
-    if (NameFunction=="MHL_StandartBinaryGeneticAlgorithm")
+    if (NameFunction=="HML_StandartBinaryGeneticAlgorithm")
     {
         int ChromosomeLength=50;//Длина хромосомы
         int CountOfFitness=50*50;//Число вычислений целевой функции
@@ -6755,24 +6755,24 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         int *Decision;//бинарное решение
         Decision=new int[ChromosomeLength];
         double ValueOfFitnessFunction;//значение функции пригодности в точке Decision
-        int VMHL_Success=0;//Успешен ли будет запуск cГА
+        int VHML_Success=0;//Успешен ли будет запуск cГА
 
         //Запуск алгоритма
-        VMHL_Success=MHL_StandartBinaryGeneticAlgorithm (ParametersOfStandartBinaryGeneticAlgorithm,Func, Decision, &ValueOfFitnessFunction);
+        VHML_Success=HML_StandartBinaryGeneticAlgorithm (ParametersOfStandartBinaryGeneticAlgorithm,Func, Decision, &ValueOfFitnessFunction);
 
         //Используем полученный результат
-        MHL_ShowNumber(VMHL_Success,"Как прошел запуск","VMHL_Success");
+        HML_ShowNumber(VHML_Success,"Как прошел запуск","VHML_Success");
         //Как прошел запуск:
-        //VMHL_Success=1
+        //VHML_Success=1
 
-        if (VMHL_Success==1)
+        if (VHML_Success==1)
         {
-            MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
+            HML_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
             //Найденное решение:
             //Decision =
             //1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1
 
-            MHL_ShowNumber(ValueOfFitnessFunction,"Значение функции пригодности","ValueOfFitnessFunction");
+            HML_ShowNumber(ValueOfFitnessFunction,"Значение функции пригодности","ValueOfFitnessFunction");
             // Значение функции пригодности:
             //ValueOfFitnessFunction=50
         }
@@ -6781,7 +6781,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] Decision;
     }
 
-    if (NameFunction=="MHL_StandartRealGeneticAlgorithm")
+    if (NameFunction=="HML_StandartRealGeneticAlgorithm")
     {
         int ChromosomeLength=2;//Длина хромосомы
         int CountOfFitness=50*50;//Число вычислений целевой функции
@@ -6809,26 +6809,26 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
 
         //Заполним массивы
         //Причем по каждой коодинтате одинаковые значения выставим
-        TMHL_FillVector(Left,ChromosomeLength,-5.);//Пусть будет интервал [-3;3]
-        TMHL_FillVector(Right,ChromosomeLength,5.);
-        TMHL_FillVector(NumberOfParts,ChromosomeLength,TMHL_PowerOf(2,15)-1);//Делим на 32768-1 частей каждую вещественную координату
+        HML_FillVector(Left,ChromosomeLength,-5.);//Пусть будет интервал [-3;3]
+        HML_FillVector(Right,ChromosomeLength,5.);
+        HML_FillVector(NumberOfParts,ChromosomeLength,HML_PowerOf(2,15)-1);//Делим на 32768-1 частей каждую вещественную координату
 
         double *Decision;//вещественное решение
         Decision=new double[ChromosomeLength];
         double ValueOfFitnessFunction;//значение целевой функции в точке Decision
-        int VMHL_Success=0;//Успешен ли будет запуск cГА
+        int VHML_Success=0;//Успешен ли будет запуск cГА
 
         //Запуск алгоритма
-        VMHL_Success=MHL_StandartRealGeneticAlgorithm (ParametersOfStandartRealGeneticAlgorithm,NumberOfParts,Left,Right,Func2, Decision, &ValueOfFitnessFunction);
+        VHML_Success=HML_StandartRealGeneticAlgorithm (ParametersOfStandartRealGeneticAlgorithm,NumberOfParts,Left,Right,Func2, Decision, &ValueOfFitnessFunction);
 
         //Используем полученный результат
-        MHL_ShowNumber(VMHL_Success,"Как прошел запуск","VMHL_Success");
-        if (VMHL_Success==1)
+        HML_ShowNumber(VHML_Success,"Как прошел запуск","VHML_Success");
+        if (VHML_Success==1)
         {
-            MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
+            HML_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
             //Найденное решение:
             //
-            MHL_ShowNumber(ValueOfFitnessFunction,"Значение целевой функции","ValueOfFitnessFunction");
+            HML_ShowNumber(ValueOfFitnessFunction,"Значение целевой функции","ValueOfFitnessFunction");
             //Значение целевой функции:
             //ValueOfFitnessFunction =
         }
@@ -6840,7 +6840,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] NumberOfParts;
     }
 
-    if (NameFunction=="MHL_StandartGeneticAlgorithm")
+    if (NameFunction=="HML_StandartGeneticAlgorithm")
     {
         int ChromosomeLength=50;//Длина хромосомы
         int CountOfFitness=50*50;//Число вычислений целевой функции
@@ -6861,24 +6861,24 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         int *Decision;//бинарное решение
         Decision=new int[ChromosomeLength];
         double ValueOfFitnessFunction;//значение функции пригодности в точке Decision
-        int VMHL_Success=0;//Успешен ли будет запуск cГА
+        int VHML_Success=0;//Успешен ли будет запуск cГА
 
         //Запуск алгоритма
-        VMHL_Success=MHL_StandartGeneticAlgorithm (ParametersOfStandartBinaryGeneticAlgorithm,Func, Decision, &ValueOfFitnessFunction);
+        VHML_Success=HML_StandartGeneticAlgorithm (ParametersOfStandartBinaryGeneticAlgorithm,Func, Decision, &ValueOfFitnessFunction);
 
         //Используем полученный результат
-        MHL_ShowNumber(VMHL_Success,"Как прошел запуск","VMHL_Success");
+        HML_ShowNumber(VHML_Success,"Как прошел запуск","VHML_Success");
         //Как прошел запуск:
-        //VMHL_Success=1
+        //VHML_Success=1
 
-        if (VMHL_Success==1)
+        if (VHML_Success==1)
         {
-            MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
+            HML_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
             //Найденное решение:
             //Decision =
             //1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1
 
-            MHL_ShowNumber(ValueOfFitnessFunction,"Значение функции пригодности","ValueOfFitnessFunction");
+            HML_ShowNumber(ValueOfFitnessFunction,"Значение функции пригодности","ValueOfFitnessFunction");
             // Значение функции пригодности:
             //ValueOfFitnessFunction=50
         }
@@ -6914,26 +6914,26 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
 
             //Заполним массивы
             //Причем по каждой коодинтате одинаковые значения выставим
-            TMHL_FillVector(Left,ChromosomeLength,-5.);//Пусть будет интервал [-3;3]
-            TMHL_FillVector(Right,ChromosomeLength,5.);
-            TMHL_FillVector(NumberOfParts,ChromosomeLength,TMHL_PowerOf(2,15)-1);//Делим на 32768-1 частей каждую вещественную координату
+            HML_FillVector(Left,ChromosomeLength,-5.);//Пусть будет интервал [-3;3]
+            HML_FillVector(Right,ChromosomeLength,5.);
+            HML_FillVector(NumberOfParts,ChromosomeLength,HML_PowerOf(2,15)-1);//Делим на 32768-1 частей каждую вещественную координату
 
             double *Decision;//вещественное решение
             Decision=new double[ChromosomeLength];
             double ValueOfFitnessFunction;//значение целевой функции в точке Decision
-            int VMHL_Success=0;//Успешен ли будет запуск cГА
+            int VHML_Success=0;//Успешен ли будет запуск cГА
 
             //Запуск алгоритма
-            VMHL_Success=MHL_StandartGeneticAlgorithm (ParametersOfStandartRealGeneticAlgorithm,NumberOfParts,Left,Right,Func2, Decision, &ValueOfFitnessFunction);
+            VHML_Success=HML_StandartGeneticAlgorithm (ParametersOfStandartRealGeneticAlgorithm,NumberOfParts,Left,Right,Func2, Decision, &ValueOfFitnessFunction);
 
             //Используем полученный результат
-            MHL_ShowNumber(VMHL_Success,"Как прошел запуск","VMHL_Success");
-            if (VMHL_Success==1)
+            HML_ShowNumber(VHML_Success,"Как прошел запуск","VHML_Success");
+            if (VHML_Success==1)
             {
-                MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
+                HML_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
                 //Найденное решение:
                 //Decision =
-                MHL_ShowNumber(ValueOfFitnessFunction,"Значение целевой функции","ValueOfFitnessFunction");
+                HML_ShowNumber(ValueOfFitnessFunction,"Значение целевой функции","ValueOfFitnessFunction");
                 //Значение целевой функции:
                 //ValueOfFitnessFunction =
             }
@@ -6946,108 +6946,108 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         }//чтобы не удалять объявления переменных, заключим в скобки
     }
 
-    if (NameFunction=="MHL_TestFunction_Ackley")
+    if (NameFunction=="HML_TestFunction_Ackley")
     {
         double *x;
         double f;
-        int VMHL_N=2;
-        x=new double[VMHL_N];
-        for (int i=0;i<VMHL_N;i++) x[i]=MHL_RandomUniform(-5,5);
-        f=MHL_TestFunction_Ackley(x,VMHL_N);
+        int VHML_N=2;
+        x=new double[VHML_N];
+        for (int i=0;i<VHML_N;i++) x[i]=HML_RandomUniform(-5,5);
+        f=HML_TestFunction_Ackley(x,VHML_N);
 
-        MHL_ShowVector (x,VMHL_N,"Входной вектор", "x");
+        HML_ShowVector (x,VHML_N,"Входной вектор", "x");
         //Входной вектор:
         //x =
         //4.51813
         //-4.19861
 
-        MHL_ShowNumber (f,"Значение функции", "f");
+        HML_ShowNumber (f,"Значение функции", "f");
         //Значение функции:
         //f=13.645
 
         delete[] x;
     }
 
-    if (NameFunction=="MHL_TestFunction_ParaboloidOfRevolution")
+    if (NameFunction=="HML_TestFunction_ParaboloidOfRevolution")
     {
         double *x;
         double f;
-        int VMHL_N=2;
-        x=new double[VMHL_N];
-        for (int i=0;i<VMHL_N;i++) x[i]=MHL_RandomUniform(-2,2);
-        f=MHL_TestFunction_ParaboloidOfRevolution(x,VMHL_N);
+        int VHML_N=2;
+        x=new double[VHML_N];
+        for (int i=0;i<VHML_N;i++) x[i]=HML_RandomUniform(-2,2);
+        f=HML_TestFunction_ParaboloidOfRevolution(x,VHML_N);
 
-        MHL_ShowVector (x,VMHL_N,"Входной вектор", "x");
+        HML_ShowVector (x,VHML_N,"Входной вектор", "x");
         // Входной вектор:
         //x =
         //0.0842285
         //-1.04395
 
-        MHL_ShowNumber (f,"Значение функции", "f");
+        HML_ShowNumber (f,"Значение функции", "f");
         //Значение функции:
         //f=1.09692
 
         delete[] x;
     }
 
-    if (NameFunction=="MHL_TestFunction_Rastrigin")
+    if (NameFunction=="HML_TestFunction_Rastrigin")
     {
         double *x;
         double f;
-        int VMHL_N=2;
-        x=new double[VMHL_N];
-        for (int i=0;i<VMHL_N;i++) x[i]=MHL_RandomUniform(-5,5);
-        f=MHL_TestFunction_Rastrigin(x,VMHL_N);
+        int VHML_N=2;
+        x=new double[VHML_N];
+        for (int i=0;i<VHML_N;i++) x[i]=HML_RandomUniform(-5,5);
+        f=HML_TestFunction_Rastrigin(x,VHML_N);
 
-        MHL_ShowVector (x,VMHL_N,"Входной вектор", "x");
+        HML_ShowVector (x,VHML_N,"Входной вектор", "x");
         // Входной вектор:
         //x =
         //2.62268
         //3.52692
 
-        MHL_ShowNumber (f,"Значение функции", "f");
+        HML_ShowNumber (f,"Значение функции", "f");
         //Значение функции:
         //f=56.3483
 
         delete[] x;
     }
 
-    if (NameFunction=="MHL_TestFunction_Rosenbrock")
+    if (NameFunction=="HML_TestFunction_Rosenbrock")
     {
         double *x;
         double f;
-        int VMHL_N=2;
-        x=new double[VMHL_N];
-        for (int i=0;i<VMHL_N;i++) x[i]=MHL_RandomUniform(-2,2);
-        f=MHL_TestFunction_Rosenbrock(x,VMHL_N);
+        int VHML_N=2;
+        x=new double[VHML_N];
+        for (int i=0;i<VHML_N;i++) x[i]=HML_RandomUniform(-2,2);
+        f=HML_TestFunction_Rosenbrock(x,VHML_N);
 
-        MHL_ShowVector (x,VMHL_N,"Входной вектор", "x");
+        HML_ShowVector (x,VHML_N,"Входной вектор", "x");
         // Входной вектор:
         //x =
         //-1.28491
         //0.342896
 
 
-        MHL_ShowNumber (f,"Значение функции", "f");
+        HML_ShowNumber (f,"Значение функции", "f");
         //Значение функции:
         //f=176.334
 
         delete[] x;
     }
 
-    if (NameFunction=="MHL_TestFunction_SumVector")
+    if (NameFunction=="HML_TestFunction_SumVector")
     {
-        int VMHL_N=10;//Размер массива (число строк)
+        int VHML_N=10;//Размер массива (число строк)
         int *x;
-        x=new int[VMHL_N];
+        x=new int[VHML_N];
         //Получим случайный бинарный вектор
-        TMHL_RandomBinaryVector(x,VMHL_N);
+        HML_RandomBinaryVector(x,VHML_N);
 
         //Вызов функции
-        double f=MHL_TestFunction_SumVector(x,VMHL_N);
+        double f=HML_TestFunction_SumVector(x,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (x,VMHL_N,"Вектор", "x");
+        HML_ShowVector (x,VHML_N,"Вектор", "x");
         //Вектор:
         //x =
         //0
@@ -7061,50 +7061,50 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //0
         //1
 
-        MHL_ShowNumber (f,"Значение функции в точке", "f");
+        HML_ShowNumber (f,"Значение функции в точке", "f");
         //Значение функции в точке:
         //f=5
 
         delete [] x;
     }
 
-    if (NameFunction=="TMHL_Factorial")
+    if (NameFunction=="HML_Factorial")
     {
-        int a=MHL_RandomUniformInt(0,10);
+        int a=HML_RandomUniformInt(0,10);
 
-        double Result=TMHL_Factorial(a);
+        double Result=HML_Factorial(a);
 
         //Используем полученный результат
-        MHL_ShowNumber(Result,"Факториал числа "+MHL_NumberToText(a),"a!");
+        HML_ShowNumber(Result,"Факториал числа "+HML_NumberToText(a),"a!");
         //Факториал числа 3:
         //a!=6
     }
 
-    if (NameFunction=="TMHL_KCombinations")
+    if (NameFunction=="HML_KCombinations")
     {
         int n=10;
-        int k=MHL_RandomUniformInt(0,10);
+        int k=HML_RandomUniformInt(0,10);
 
-        int C=TMHL_KCombinations(k,n);
+        int C=HML_KCombinations(k,n);
 
         //Используем полученный результат
-        MHL_ShowNumber(C,"Число сочетаний по "+MHL_NumberToText(k)+" элементов из " +MHL_NumberToText(n),"C");
+        HML_ShowNumber(C,"Число сочетаний по "+HML_NumberToText(k)+" элементов из " +HML_NumberToText(n),"C");
         //Число сочетаний по 8 элементов из 10:
         //C=45
 
     }
 
-    if (NameFunction=="MHL_ProbabilityOfTournamentSelection")
+    if (NameFunction=="HML_ProbabilityOfTournamentSelection")
     {
         int i;
-        int VMHL_N=10;//размер популяции
-        double *f=new double[VMHL_N];//массив значений целевой функции
-        double *p=new double[VMHL_N];//массив значений веротяностей выбора индивидов
+        int VHML_N=10;//размер популяции
+        double *f=new double[VHML_N];//массив значений целевой функции
+        double *p=new double[VHML_N];//массив значений веротяностей выбора индивидов
         int T=3; // размер турнира
 
-        for (i=0;i<VMHL_N;i++) f[i]=MHL_RandomUniformInt(0,11)/10.;//заполним случайными значениями целевой функции
+        for (i=0;i<VHML_N;i++) f[i]=HML_RandomUniformInt(0,11)/10.;//заполним случайными значениями целевой функции
 
-        MHL_ShowVector (f,VMHL_N,"Вектор значений целевой функции", "f");
+        HML_ShowVector (f,VHML_N,"Вектор значений целевой функции", "f");
         //Вектор значений целевой функции:
         //f =
         //0.9
@@ -7119,10 +7119,10 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //0.4
 
         //Вызов функции
-        double sum = MHL_ProbabilityOfTournamentSelection(f,p,T,VMHL_N);
+        double sum = HML_ProbabilityOfTournamentSelection(f,p,T,VHML_N);
 
         //Используем результат
-        MHL_ShowVector (p,VMHL_N,"Вектор значений вероятностей выбора", "p");
+        HML_ShowVector (p,VHML_N,"Вектор значений вероятностей выбора", "p");
         //Вектор значений вероятностей выбора:
         //p =
         //0.233333
@@ -7136,7 +7136,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //0.127778
         //0.00277778
 
-        MHL_ShowNumber(sum,"Сумма вектора значений вероятностей выбора","sum");
+        HML_ShowNumber(sum,"Сумма вектора значений вероятностей выбора","sum");
         //Сумма вектора значений вероятностей выбора:
         //sum=1
 
@@ -7144,30 +7144,30 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete[] p;
     }
 
-    if (NameFunction=="MHL_MakeVectorOfProbabilityForRanklSelection")
+    if (NameFunction=="HML_MakeVectorOfProbabilityForRanklSelection")
     {
         int i;
-        int VMHL_N=7;//Размер массива (число строк)
+        int VHML_N=7;//Размер массива (число строк)
         double *Fitness;
-        Fitness=new double[VMHL_N];
-        for (i=0;i<VMHL_N;i++)
-            Fitness[i]=MHL_RandomUniformInt(1,10)/10.;
+        Fitness=new double[VHML_N];
+        for (i=0;i<VHML_N;i++)
+            Fitness[i]=HML_RandomUniformInt(1,10)/10.;
 
         double *Rank;
-        Rank=new double[VMHL_N];
+        Rank=new double[VHML_N];
 
         double *VectorProbability;
-        VectorProbability=new double[VMHL_N];
+        VectorProbability=new double[VHML_N];
 
         //Получаем массив рангов
-        MHL_MakeVectorOfRankForRankSelection(Fitness,Rank,VMHL_N);
+        HML_MakeVectorOfRankForRankSelection(Fitness,Rank,VHML_N);
 
         //Вызов функции
-        MHL_MakeVectorOfProbabilityForRanklSelection(Rank,VectorProbability,VMHL_N);
+        HML_MakeVectorOfProbabilityForRanklSelection(Rank,VectorProbability,VHML_N);
 
         //Используем полученный результат
 
-        MHL_ShowVector (Fitness,VMHL_N,"Массив пригодностей", "Fitness");
+        HML_ShowVector (Fitness,VHML_N,"Массив пригодностей", "Fitness");
         //Массив пригодностей:
         //Fitness =
         //0.5
@@ -7178,7 +7178,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //0.7
         //0.9
 
-        MHL_ShowVector (Rank,VMHL_N,"Массив рангов", "Rank");
+        HML_ShowVector (Rank,VHML_N,"Массив рангов", "Rank");
         //Массив рангов:
         //Rank =
         //2
@@ -7189,7 +7189,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //3.5
         //6.5
 
-        MHL_ShowVector (VectorProbability,VMHL_N,"Вектор вероятностей выбора", "VectorProbability");
+        HML_ShowVector (VectorProbability,VHML_N,"Вектор вероятностей выбора", "VectorProbability");
         //Вектор вероятностей выбора:
         //VectorProbability =
         //0.0714286
@@ -7205,24 +7205,24 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] VectorProbability;
     }
 
-    if (NameFunction=="MHL_MakeVectorOfRankZeroForRankSelection")
+    if (NameFunction=="HML_MakeVectorOfRankZeroForRankSelection")
     {
         int i;
-        int VMHL_N=7;//Размер массива (число строк)
+        int VHML_N=7;//Размер массива (число строк)
         double *Fitness;
-        Fitness=new double[VMHL_N];
-        for (i=0;i<VMHL_N;i++)
-            Fitness[i]=MHL_RandomUniformInt(1,10)/10.;
+        Fitness=new double[VHML_N];
+        for (i=0;i<VHML_N;i++)
+            Fitness[i]=HML_RandomUniformInt(1,10)/10.;
 
         double *Rank;
-        Rank=new double[VMHL_N];
+        Rank=new double[VHML_N];
 
         //Вызов функции
-        MHL_MakeVectorOfRankZeroForRankSelection(Fitness,Rank,VMHL_N);
+        HML_MakeVectorOfRankZeroForRankSelection(Fitness,Rank,VHML_N);
 
         //Используем полученный результат
 
-        MHL_ShowVector (Fitness,VMHL_N,"Массив пригодностей", "Fitness");
+        HML_ShowVector (Fitness,VHML_N,"Массив пригодностей", "Fitness");
         //Массив пригодностей:
         //Fitness =
         //0.3
@@ -7233,7 +7233,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //0.9
         //0.4
 
-        MHL_ShowVector (Rank,VMHL_N,"Массив рангов", "Rank");
+        HML_ShowVector (Rank,VHML_N,"Массив рангов", "Rank");
         //Массив рангов:
         //Rank =
         //2
@@ -7248,7 +7248,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] Rank;
     }
 
-    if (NameFunction=="MHL_RandomUniformIntIncluding")
+    if (NameFunction=="HML_RandomUniformIntIncluding")
     {
         double x;
         int s0=0,s1=0,s2=0,s3=0;
@@ -7256,7 +7256,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //Вызов функции
         for (int i=0;i<1000;i++)
         {
-            x=MHL_RandomUniformIntIncluding(0,3);
+            x=HML_RandomUniformIntIncluding(0,3);
             if (x==0) s0++;
             if (x==1) s1++;
             if (x==2) s2++;
@@ -7264,11 +7264,11 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         }
 
         //Используем полученный результат
-        MHL_ShowNumber(x,"Случайное целое число из интервала [0;3]","x");
-        MHL_ShowNumber(s0,"Число выпадений 0","s0");
-        MHL_ShowNumber(s1,"Число выпадений 1","s0");
-        MHL_ShowNumber(s2,"Число выпадений 2","s0");
-        MHL_ShowNumber(s3,"Число выпадений 3","s0");
+        HML_ShowNumber(x,"Случайное целое число из интервала [0;3]","x");
+        HML_ShowNumber(s0,"Число выпадений 0","s0");
+        HML_ShowNumber(s1,"Число выпадений 1","s0");
+        HML_ShowNumber(s2,"Число выпадений 2","s0");
+        HML_ShowNumber(s3,"Число выпадений 3","s0");
         //Случайное целое число из интервала [0;3):
         //x=1
         //Число выпадений 0:
@@ -7282,18 +7282,18 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
 
     }
 
-    if (NameFunction=="TMHL_BubbleSortRowWithOtherConjugateRowsInMatrix")
+    if (NameFunction=="HML_BubbleSortRowWithOtherConjugateRowsInMatrix")
     {
         int i;
-        int VMHL_N=5;//Размер массива (число строк)
-        int VMHL_M=3;//Размер массива (число столбцов)
+        int VHML_N=5;//Размер массива (число строк)
+        int VHML_M=3;//Размер массива (число столбцов)
         int **a;
-        a=new int*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) a[i]=new int[VMHL_M];
+        a=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) a[i]=new int[VHML_M];
 
-        TMHL_RandomIntMatrix(a,0,5,VMHL_N,VMHL_M);
+        HML_RandomIntMatrix(a,0,5,VHML_N,VHML_M);
 
-        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Случайная матрица", "a");
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Случайная матрица", "a");
         //Случайная матрица:
         //a =
         //0	0	1	2	3
@@ -7306,10 +7306,10 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
 
         //Вызов функции
 
-        TMHL_BubbleSortRowWithOtherConjugateRowsInMatrix(a, Row, VMHL_N, VMHL_M);
+        HML_BubbleSortRowWithOtherConjugateRowsInMatrix(a, Row, VHML_N, VHML_M);
 
         //Используем полученный результат
-        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Случайная матрица отсортированная по строке с номером "+MHL_NumberToText(Row), "a");
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Случайная матрица отсортированная по строке с номером "+HML_NumberToText(Row), "a");
         //Случайная матрица отсортированная по строке с номером 2:
         //a =
         //2	0	3	1	0
@@ -7318,22 +7318,22 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //0	4	0	1	3
         //0	4	2	1	4
 
-        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        for (i=0;i<VHML_N;i++) delete [] a[i];
         delete [] a;
     }
 
-    if (NameFunction=="TMHL_BubbleSortEveryRowInMatrix")
+    if (NameFunction=="HML_BubbleSortEveryRowInMatrix")
     {
         int i;
-        int VMHL_N=5;//Размер массива (число строк)
-        int VMHL_M=6;//Размер массива (число столбцов)
+        int VHML_N=5;//Размер массива (число строк)
+        int VHML_M=6;//Размер массива (число столбцов)
         int **a;
-        a=new int*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) a[i]=new int[VMHL_M];
+        a=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) a[i]=new int[VHML_M];
 
-        TMHL_RandomIntMatrix(a,0,5,VMHL_N,VMHL_M);
+        HML_RandomIntMatrix(a,0,5,VHML_N,VHML_M);
 
-        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Случайная матрица", "a");
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Случайная матрица", "a");
         //Случайная матрица:
         //Случайная матрица:
         //a =
@@ -7345,10 +7345,10 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
 
 
         //Вызов функции
-        TMHL_BubbleSortEveryRowInMatrix(a, VMHL_N, VMHL_M);
+        HML_BubbleSortEveryRowInMatrix(a, VHML_N, VHML_M);
 
         //Используем полученный результат
-        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Случайная матрица, где каждая строка отсортировна независимо", "a");
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Случайная матрица, где каждая строка отсортировна независимо", "a");
         //Случайная матрица, где каждая отсортировна независимо:
         //a =
         //1	1	1	2	2	3
@@ -7357,22 +7357,22 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //0	0	1	3	3	4
         //1	1	2	2	3	3
 
-        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        for (i=0;i<VHML_N;i++) delete [] a[i];
         delete [] a;
     }
 
-    if (NameFunction=="TMHL_BubbleSortColWithOtherConjugateColsInMatrix")
+    if (NameFunction=="HML_BubbleSortColWithOtherConjugateColsInMatrix")
     {
         int i;
-        int VMHL_N=5;//Размер массива (число строк)
-        int VMHL_M=3;//Размер массива (число столбцов)
+        int VHML_N=5;//Размер массива (число строк)
+        int VHML_M=3;//Размер массива (число столбцов)
         int **a;
-        a=new int*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) a[i]=new int[VMHL_M];
+        a=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) a[i]=new int[VHML_M];
 
-        TMHL_RandomIntMatrix(a,0,5,VMHL_N,VMHL_M);
+        HML_RandomIntMatrix(a,0,5,VHML_N,VHML_M);
 
-        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Случайная матрица", "a");
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Случайная матрица", "a");
         //Случайная матрица:
         //a =
         //4	0	1
@@ -7385,10 +7385,10 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
 
         //Вызов функции
 
-        TMHL_BubbleSortColWithOtherConjugateColsInMatrix(a, Col, VMHL_N, VMHL_M);
+        HML_BubbleSortColWithOtherConjugateColsInMatrix(a, Col, VHML_N, VHML_M);
 
         //Используем полученный результат
-        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Случайная матрица отсортированная по столбцу с номером "+MHL_NumberToText(Col), "a");
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Случайная матрица отсортированная по столбцу с номером "+HML_NumberToText(Col), "a");
         //Случайная матрица отсортированная по столбцу с номером 0:
         //a =
         //1	3	1
@@ -7397,22 +7397,22 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //4	0	1
         //4	0	4
 
-        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        for (i=0;i<VHML_N;i++) delete [] a[i];
         delete [] a;
     }
 
-    if (NameFunction=="TMHL_BubbleSortEveryColInMatrix")
+    if (NameFunction=="HML_BubbleSortEveryColInMatrix")
     {
         int i;
-        int VMHL_N=5;//Размер массива (число строк)
-        int VMHL_M=6;//Размер массива (число столбцов)
+        int VHML_N=5;//Размер массива (число строк)
+        int VHML_M=6;//Размер массива (число столбцов)
         int **a;
-        a=new int*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) a[i]=new int[VMHL_M];
+        a=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) a[i]=new int[VHML_M];
 
-        TMHL_RandomIntMatrix(a,0,5,VMHL_N,VMHL_M);
+        HML_RandomIntMatrix(a,0,5,VHML_N,VHML_M);
 
-        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Случайная матрица", "a");
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Случайная матрица", "a");
         //Случайная матрица:
         //a =
         //4	1	4	3	0	4
@@ -7422,10 +7422,10 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //3	0	2	4	1	4
 
         //Вызов функции
-        TMHL_BubbleSortEveryColInMatrix(a, VMHL_N, VMHL_M);
+        HML_BubbleSortEveryColInMatrix(a, VHML_N, VHML_M);
 
         //Используем полученный результат
-        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Случайная матрица, где каждый столбец отсортирован независимо", "a");
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Случайная матрица, где каждый столбец отсортирован независимо", "a");
         //Случайная матрица, где каждый столбец отсортирован независимо:
         //a =
         //0	0	1	1	0	0
@@ -7434,212 +7434,212 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //3	2	2	3	1	4
         //4	4	4	4	4	4
 
-        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        for (i=0;i<VHML_N;i++) delete [] a[i];
         delete [] a;
     }
 
-    if (NameFunction=="MHL_QuadraticEquation")
+    if (NameFunction=="HML_QuadraticEquation")
     {
-        double a=MHL_RandomUniformInt(1,10);
-        double b=MHL_RandomUniformInt(1,10);
-        double c=MHL_RandomUniformInt(1,10);
+        double a=HML_RandomUniformInt(1,10);
+        double b=HML_RandomUniformInt(1,10);
+        double c=HML_RandomUniformInt(1,10);
         double x1;
         double x2;
 
-        int Result=MHL_QuadraticEquation(a,b,c,&x1,&x2);;
+        int Result=HML_QuadraticEquation(a,b,c,&x1,&x2);;
 
         //Используем полученный результат
-        MHL_ShowText("Квадратное уравнение: "+MHL_NumberToText(a)+"x^2+"+MHL_NumberToText(b)+"x+"+MHL_NumberToText(c)+"=0");
+        HML_ShowText("Квадратное уравнение: "+HML_NumberToText(a)+"x^2+"+HML_NumberToText(b)+"x+"+HML_NumberToText(c)+"=0");
         //Квадратное уравнение: 1x^2+8x+5:
-        MHL_ShowNumber(Result,"Найдено ли решение","Result");
+        HML_ShowNumber(Result,"Найдено ли решение","Result");
         //Найдено ли решение:
         //Result=1
         if (Result==1)
         {
-            MHL_ShowNumber(x1,"Первый корень квадратного уравнения","x1");
+            HML_ShowNumber(x1,"Первый корень квадратного уравнения","x1");
             //Первый корень квадратного уравнения:
             //x1=-0.683375
-            MHL_ShowNumber(x2,"Первый корень квадратного уравнения","x2");
+            HML_ShowNumber(x2,"Первый корень квадратного уравнения","x2");
             //Первый корень квадратного уравнения:
             //x2=-7.31662
         }
     }
 
-    if (NameFunction=="MHL_BellShapedKernelExp")
+    if (NameFunction=="HML_BellShapedKernelExp")
     {
-        double z=MHL_RandomUniform(-5,5);
+        double z=HML_RandomUniform(-5,5);
 
         //Вызов функции
-        double f=MHL_BellShapedKernelExp(z);
+        double f=HML_BellShapedKernelExp(z);
 
         //Используем полученный результат
-        MHL_ShowNumber(z,"Значение параметра","z");
+        HML_ShowNumber(z,"Значение параметра","z");
         //Значение параметра:
         //z=0.721436
-        MHL_ShowNumber(f,"Значение колоколообразного экспоненциального ядра","f");
+        HML_ShowNumber(f,"Значение колоколообразного экспоненциального ядра","f");
         //Значение колоколообразного экспоненциального ядра:
         //f=0.302588
     }
 
-    if (NameFunction=="MHL_BellShapedKernelParabola")
+    if (NameFunction=="HML_BellShapedKernelParabola")
     {
-        double z=MHL_RandomUniform(-5,5);
+        double z=HML_RandomUniform(-5,5);
 
         //Вызов функции
-        double f=MHL_BellShapedKernelParabola(z);
+        double f=HML_BellShapedKernelParabola(z);
 
         //Используем полученный результат
-        MHL_ShowNumber(z,"Значение параметра","z");
+        HML_ShowNumber(z,"Значение параметра","z");
         //Значение параметра:
         //z=0.33905
-        MHL_ShowNumber(f,"Значение колоколообразного параболического ядра","f");
+        HML_ShowNumber(f,"Значение колоколообразного параболического ядра","f");
         //Значение колоколообразного параболического ядра:
         //f=0.327298
     }
 
-    if (NameFunction=="MHL_BellShapedKernelRectangle")
+    if (NameFunction=="HML_BellShapedKernelRectangle")
     {
-        double z=MHL_RandomUniform(-5,5);
+        double z=HML_RandomUniform(-5,5);
 
         //Вызов функции
-        double f=MHL_BellShapedKernelRectangle(z);
+        double f=HML_BellShapedKernelRectangle(z);
 
         //Используем полученный результат
-        MHL_ShowNumber(z,"Значение параметра","z");
+        HML_ShowNumber(z,"Значение параметра","z");
         //Значение параметра:
         //z=0.669556
-        MHL_ShowNumber(f,"Значение колоколообразного прямоугольного ядра","f");
+        HML_ShowNumber(f,"Значение колоколообразного прямоугольного ядра","f");
         //Значение колоколообразного прямоугольного ядра:
         //f=0.5
     }
 
-    if (NameFunction=="MHL_BellShapedKernelTriangle")
+    if (NameFunction=="HML_BellShapedKernelTriangle")
     {
-        double z=MHL_RandomUniform(-5,5);
+        double z=HML_RandomUniform(-5,5);
 
         //Вызов функции
-        double f=MHL_BellShapedKernelTriangle(z);
+        double f=HML_BellShapedKernelTriangle(z);
 
         //Используем полученный результат
-        MHL_ShowNumber(z,"Значение параметра","z");
+        HML_ShowNumber(z,"Значение параметра","z");
         //Значение параметра:
         //z=0.362854
-        MHL_ShowNumber(f,"Значение колоколообразного треугольного ядра","f");
+        HML_ShowNumber(f,"Значение колоколообразного треугольного ядра","f");
         //Значение колоколообразного треугольного ядра:
         //f=0.637146
     }
 
-    if (NameFunction=="MHL_DerivativeOfBellShapedKernelExp")
+    if (NameFunction=="HML_DerivativeOfBellShapedKernelExp")
     {
-        double z=MHL_RandomUniform(-4,4);
+        double z=HML_RandomUniform(-4,4);
 
         //Вызов функции
-        double f=MHL_DerivativeOfBellShapedKernelExp(z);
+        double f=HML_DerivativeOfBellShapedKernelExp(z);
 
         //Используем полученный результат
-        MHL_ShowNumber(z,"Значение параметра","z");
+        HML_ShowNumber(z,"Значение параметра","z");
         //Значение параметра:
         //z=-1.93701
-        MHL_ShowNumber(f,"Значение производной колоколообразного экспоненциального ядра","f");
+        HML_ShowNumber(f,"Значение производной колоколообразного экспоненциального ядра","f");
         //Значение производной колоколообразного экспоненциального ядра:
         //f=0.192278
     }
 
-    if (NameFunction=="MHL_DerivativeOfBellShapedKernelParabola")
+    if (NameFunction=="HML_DerivativeOfBellShapedKernelParabola")
     {
-        double z=MHL_RandomUniform(-4,4);
+        double z=HML_RandomUniform(-4,4);
 
         //Вызов функции
-        double f=MHL_DerivativeOfBellShapedKernelParabola(z);
+        double f=HML_DerivativeOfBellShapedKernelParabola(z);
 
         //Используем полученный результат
-        MHL_ShowNumber(z,"Значение параметра","z");
+        HML_ShowNumber(z,"Значение параметра","z");
         //Значение параметра:
         //z=1.28394
-        MHL_ShowNumber(f,"Значение производной колоколообразного параболического ядра","f");
+        HML_ShowNumber(f,"Значение производной колоколообразного параболического ядра","f");
         //Значение производной колоколообразного параболического ядра:
         //f=-0.172047
     }
 
-    if (NameFunction=="MHL_DerivativeOfBellShapedKernelRectangle")
+    if (NameFunction=="HML_DerivativeOfBellShapedKernelRectangle")
     {
-        double z=MHL_RandomUniform(-4,4);
+        double z=HML_RandomUniform(-4,4);
 
         //Вызов функции
-        double f=MHL_DerivativeOfBellShapedKernelRectangle(z);
+        double f=HML_DerivativeOfBellShapedKernelRectangle(z);
 
         //Используем полученный результат
-        MHL_ShowNumber(z,"Значение параметра","z");
+        HML_ShowNumber(z,"Значение параметра","z");
         //Значение параметра:
         //z=3.146
-        MHL_ShowNumber(f,"Значение производной колоколообразного прямоугольного ядра","f");
+        HML_ShowNumber(f,"Значение производной колоколообразного прямоугольного ядра","f");
         //Значение производной колоколообразного прямоугольного ядра:
         //f=0
     }
 
-    if (NameFunction=="MHL_DerivativeOfBellShapedKernelTriangle")
+    if (NameFunction=="HML_DerivativeOfBellShapedKernelTriangle")
     {
-        double z=MHL_RandomUniform(-4,4);
+        double z=HML_RandomUniform(-4,4);
 
         //Вызов функции
-        double f=MHL_DerivativeOfBellShapedKernelTriangle(z);
+        double f=HML_DerivativeOfBellShapedKernelTriangle(z);
 
         //Используем полученный результат
-        MHL_ShowNumber(z,"Значение параметра","z");
+        HML_ShowNumber(z,"Значение параметра","z");
         //Значение параметра:
         //z=0.365479
-        MHL_ShowNumber(f,"Значение производной колоколообразного треугольного ядра","f");
+        HML_ShowNumber(f,"Значение производной колоколообразного треугольного ядра","f");
         //Значение производной колоколообразного треугольного ядра:
         //f=-1
     }
 
-    if (NameFunction=="MHL_TrapeziformFuzzyNumber")
+    if (NameFunction=="HML_TrapeziformFuzzyNumber")
     {
-        double a=MHL_RandomUniform(-4,4);
-        double b=a+MHL_RandomUniform(0,2);
-        double c=b+MHL_RandomUniform(0,2);
-        double d=c+MHL_RandomUniform(0,2);
+        double a=HML_RandomUniform(-4,4);
+        double b=a+HML_RandomUniform(0,2);
+        double c=b+HML_RandomUniform(0,2);
+        double d=c+HML_RandomUniform(0,2);
 
-        double x=MHL_RandomUniform(a-1,d+1);
+        double x=HML_RandomUniform(a-1,d+1);
 
         //Вызов функции
-        double f=MHL_TrapeziformFuzzyNumber (x,a,b,c,d);
+        double f=HML_TrapeziformFuzzyNumber (x,a,b,c,d);
 
         //Используем полученный результат
-        MHL_ShowNumber(x,"Значение параметра","x");
+        HML_ShowNumber(x,"Значение параметра","x");
         //Значение параметра:
         //x=-0.932339
-        MHL_ShowNumber(a,"Значение первого параметра трапецевидного нечеткого числа","a");
+        HML_ShowNumber(a,"Значение первого параметра трапецевидного нечеткого числа","a");
         //Значение первого параметра трапецевидного нечеткого числа:
         //a=-1.71997
-        MHL_ShowNumber(b,"Значение второго параметра трапецевидного нечеткого числа","b");
+        HML_ShowNumber(b,"Значение второго параметра трапецевидного нечеткого числа","b");
         //Значение второго параметра трапецевидного нечеткого числа:
         //b=-0.446045
-        MHL_ShowNumber(c,"Значение третьего параметра трапецевидного нечеткого числа","c");
+        HML_ShowNumber(c,"Значение третьего параметра трапецевидного нечеткого числа","c");
         //Значение третьего параметра трапецевидного нечеткого числа:
         //c=-0.0568848
-        MHL_ShowNumber(d,"Значение последнего параметра трапецевидного нечеткого числа","d");
+        HML_ShowNumber(d,"Значение последнего параметра трапецевидного нечеткого числа","d");
         //Значение последнего параметра трапецевидного нечеткого числа:
         //d=0.253784
-        MHL_ShowNumber(f,"Значение функция принадлежности трапециевидного нечеткого числа","f");
+        HML_ShowNumber(f,"Значение функция принадлежности трапециевидного нечеткого числа","f");
         //Значение функция принадлежности трапециевидного нечеткого числа:
         //f=0.618271
     }
 
-    if (NameFunction=="TMHL_ProductOfElementsOfVector")
+    if (NameFunction=="HML_ProductOfElementsOfVector")
     {
-        int VMHL_N=5;//Размер массива
+        int VHML_N=5;//Размер массива
         double p;
         double *a;
-        a=new double[VMHL_N];
+        a=new double[VHML_N];
 
-        for (int i=0;i<VMHL_N;i++) a[i]=MHL_RandomUniformIntIncluding(1,4);//Заполняем случайными значениями
+        for (int i=0;i<VHML_N;i++) a[i]=HML_RandomUniformIntIncluding(1,4);//Заполняем случайными значениями
 
         //Вызов функции
-        p=TMHL_ProductOfElementsOfVector(a,VMHL_N);
+        p=HML_ProductOfElementsOfVector(a,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (a,VMHL_N,"Заполненный вектор", "a");
+        HML_ShowVector (a,VHML_N,"Заполненный вектор", "a");
         //Заполненный вектор:
         //a =
         //4
@@ -7648,14 +7648,14 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //3
         //2
 
-        MHL_ShowNumber (p,"Произведение элементов массива", "p");
+        HML_ShowNumber (p,"Произведение элементов массива", "p");
         //Произведение элементов массива:
         //p=72
 
         delete [] a;
     }
 
-    if (NameFunction=="MHL_MixedMultiLogicVectorOfFullSearch")
+    if (NameFunction=="HML_MixedMultiLogicVectorOfFullSearch")
     {
         int i;
         int N=3;
@@ -7668,9 +7668,9 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         x[1]=2;
         x[2]=3;
 
-        int P=TMHL_ProductOfElementsOfVector(x,N);
+        int P=HML_ProductOfElementsOfVector(x,N);
 
-        MHL_ShowVector(x,N,"Сколько каждого параметра в штуках","x");
+        HML_ShowVector(x,N,"Сколько каждого параметра в штуках","x");
         //Сколько каждого параметра в штуках:
         //x =
         //3
@@ -7679,14 +7679,14 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
 
         for (i=0;i<P;i++)
         {
-            MHL_ShowNumber(i,"<hr>Номер итерации", "i");
+            HML_ShowNumber(i,"<hr>Номер итерации", "i");
             //Номер итерации:
             //i=0
 
             //Вызов функции
-            MHL_MixedMultiLogicVectorOfFullSearch(y,i,x,N);
+            HML_MixedMultiLogicVectorOfFullSearch(y,i,x,N);
 
-            MHL_ShowVectorT(y,N,"Необходимый вектор","y");
+            HML_ShowVectorT(y,N,"Необходимый вектор","y");
             //Необходимый вектор:
             //y =
             //0	0	0
@@ -7696,23 +7696,23 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] y;
     }
 
-    if (NameFunction=="TMHL_SearchElementInVector")
+    if (NameFunction=="HML_SearchElementInVector")
     {
         int i;
-        int VMHL_N=10;//Размер массива (число строк)
+        int VHML_N=10;//Размер массива (число строк)
         int *a;
-        a=new int[VMHL_N];
+        a=new int[VHML_N];
         //Заполним случайными числами
-        for (i=0;i<VMHL_N;i++)
-            a[i]=MHL_RandomUniformInt(0,4);
+        for (i=0;i<VHML_N;i++)
+            a[i]=HML_RandomUniformInt(0,4);
 
         int x=2;
 
         //Вызов функции
-        int Number=TMHL_SearchElementInVector(a,x,VMHL_N);
+        int Number=HML_SearchElementInVector(a,x,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (a,VMHL_N,"Случайный вектор", "a");
+        HML_ShowVector (a,VHML_N,"Случайный вектор", "a");
         //Случайный вектор:
         //a =
         //3
@@ -7726,74 +7726,74 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //3
         //1
 
-        MHL_ShowNumber (x,"Искомое число", "x");
+        HML_ShowNumber (x,"Искомое число", "x");
         //Искомое число:
         //x=2
 
-        MHL_ShowNumber (Number,"Номер первого элемента, равного искомому", "Number");
+        HML_ShowNumber (Number,"Номер первого элемента, равного искомому", "Number");
         //Номер первого элемента, равного искомому:
         //Number=5
 
         delete [] a;
     }
 
-    if (NameFunction=="TMHL_EqualityOfMatrixes")
+    if (NameFunction=="HML_EqualityOfMatrixes")
     {
         int i,j;
-        int VMHL_N=2;//Размер массива (число строк)
-        int VMHL_M=2;//Размер массива (число столбцов)
+        int VHML_N=2;//Размер массива (число строк)
+        int VHML_M=2;//Размер массива (число столбцов)
 
         int **a;
-        a=new int*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) a[i]=new int[VMHL_M];
+        a=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) a[i]=new int[VHML_M];
         //Заполним случайными числами
-        for (i=0;i<VMHL_N;i++)
-            for (j=0;j<VMHL_M;j++)
-                a[i][j]=MHL_RandomUniformInt(0,2);
+        for (i=0;i<VHML_N;i++)
+            for (j=0;j<VHML_M;j++)
+                a[i][j]=HML_RandomUniformInt(0,2);
 
         int **b;
-        b=new int*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) b[i]=new int[VMHL_M];
+        b=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) b[i]=new int[VHML_M];
         //Заполним случайными числами
-        for (i=0;i<VMHL_N;i++)
-            for (j=0;j<VMHL_M;j++)
-                b[i][j]=MHL_RandomUniformInt(0,2);
+        for (i=0;i<VHML_N;i++)
+            for (j=0;j<VHML_M;j++)
+                b[i][j]=HML_RandomUniformInt(0,2);
 
         //Вызов функции
-        bool Equality=TMHL_EqualityOfMatrixes(a,b,VMHL_N,VMHL_M);
+        bool Equality=HML_EqualityOfMatrixes(a,b,VHML_N,VHML_M);
 
         //Используем полученный результат
-        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Случайная матрица", "a");
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Случайная матрица", "a");
         //Случайная матрица:
         //a =
         //1	1
         //0	1
 
-        MHL_ShowMatrix (b,VMHL_N,VMHL_M,"Случайная матрица", "b");
+        HML_ShowMatrix (b,VHML_N,VHML_M,"Случайная матрица", "b");
         //Случайная матрица:
         //b =
         //1	1
         //0	1
 
-        MHL_ShowNumber (Equality,"Равны ли матрицы", "Equality");
+        HML_ShowNumber (Equality,"Равны ли матрицы", "Equality");
         //Равны ли матрицы:
         //Equality=1
 
-        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        for (i=0;i<VHML_N;i++) delete [] a[i];
         delete [] a;
 
-        for (i=0;i<VMHL_N;i++) delete [] b[i];
+        for (i=0;i<VHML_N;i++) delete [] b[i];
         delete [] b;
     }
 
-    if (NameFunction=="MHL_DependentNoiseInVector")
+    if (NameFunction=="HML_DependentNoiseInVector")
     {
-        int VMHL_N=10;//Размер массива
+        int VHML_N=10;//Размер массива
         double *x;
-        x=new double[VMHL_N];
+        x=new double[VHML_N];
         //Заполним массив номерами от 1
-        TMHL_OrdinalVector(x,VMHL_N);
-        MHL_ShowVector (x,VMHL_N,"Вектор", "x");
+        HML_OrdinalVector(x,VHML_N);
+        HML_ShowVector (x,VHML_N,"Вектор", "x");
         //Вектор:
         //x =
         //1
@@ -7807,17 +7807,17 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //9
         //10
 
-        double percent=double(MHL_RandomUniformInt(0,100));//Процент помехи
+        double percent=double(HML_RandomUniformInt(0,100));//Процент помехи
 
         //Вызов функции
-        MHL_DependentNoiseInVector(x,percent,VMHL_N);
+        HML_DependentNoiseInVector(x,percent,VHML_N);
 
         //Используем полученный результат
 
-        MHL_ShowNumber (percent,"Процент помехи", "percent");
+        HML_ShowNumber (percent,"Процент помехи", "percent");
         //Процент помехи:
         //percent=6
-        MHL_ShowVector (x,VMHL_N,"Вектор с зависимой помехой", "x");
+        HML_ShowVector (x,VHML_N,"Вектор с зависимой помехой", "x");
         //Вектор с помехой:
         //Вектор с помехой:
         //x =
@@ -7835,24 +7835,24 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] x;
     }
 
-    if (NameFunction=="TMHL_Minkovski")
+    if (NameFunction=="HML_Minkovski")
     {
-        int VMHL_N=5;//Размер массива
+        int VHML_N=5;//Размер массива
         double *x;
-        x=new double[VMHL_N];
+        x=new double[VHML_N];
         double *y;
-        y=new double[VMHL_N];
+        y=new double[VHML_N];
         //Заполним случайными числами
-        MHL_RandomRealVector (x,0,10,VMHL_N);
-        MHL_RandomRealVector (y,0,10,VMHL_N);
+        HML_RandomRealVector (x,0,10,VHML_N);
+        HML_RandomRealVector (y,0,10,VHML_N);
 
         int r=3;
 
         //Вызов функции
-        double metric=TMHL_Minkovski(x,y,r,VMHL_N);
+        double metric=HML_Minkovski(x,y,r,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (x,VMHL_N,"Первый массив", "x");
+        HML_ShowVector (x,VHML_N,"Первый массив", "x");
         //Первый массив:
         //x =
         //8.2312
@@ -7861,7 +7861,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //7.31995
         //0.139465
 
-        MHL_ShowVector (y,VMHL_N,"Второй массив", "y");
+        HML_ShowVector (y,VHML_N,"Второй массив", "y");
         //Второй массив:
         //y =
         //6.2793
@@ -7870,7 +7870,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //5.29297
         //9.84436
 
-        MHL_ShowNumber (metric,"Значение метрики Минковского", "metric");
+        HML_ShowNumber (metric,"Значение метрики Минковского", "metric");
         //Значение метрики Минковского:
         //metric=9.8044
 
@@ -7878,7 +7878,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] y;
     }
 
-    if (NameFunction=="MHL_RealMonteCarloAlgorithm")
+    if (NameFunction=="HML_RealMonteCarloAlgorithm")
     {
         int ChromosomeLength=2;//Длина хромосомы
         int CountOfFitness=50*50;//Число вычислений целевой функции
@@ -7895,26 +7895,26 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
 
         //Заполним массивы
         //Причем по каждой коодинтате одинаковые значения выставим
-        TMHL_FillVector(Left,ChromosomeLength,-5.);//Пусть будет интервал [-3;3]
-        TMHL_FillVector(Right,ChromosomeLength,5.);
+        HML_FillVector(Left,ChromosomeLength,-5.);//Пусть будет интервал [-3;3]
+        HML_FillVector(Right,ChromosomeLength,5.);
 
         double *Decision;//вещественное решение
         Decision=new double[ChromosomeLength];
         double ValueOfFitnessFunction;//значение целевой функции в точке Decision
-        int VMHL_Success=0;//Успешен ли будет запуск cГА
+        int VHML_Success=0;//Успешен ли будет запуск cГА
 
         //Запуск алгоритма
-        VMHL_Success=MHL_RealMonteCarloAlgorithm (ParametersOfAlgorithm,Left,Right,Func2, Decision, &ValueOfFitnessFunction);
+        VHML_Success=HML_RealMonteCarloAlgorithm (ParametersOfAlgorithm,Left,Right,Func2, Decision, &ValueOfFitnessFunction);
 
         //Используем полученный результат
-        MHL_ShowNumber(VMHL_Success,"Как прошел запуск","VMHL_Success");
-        if (VMHL_Success==1)
+        HML_ShowNumber(VHML_Success,"Как прошел запуск","VHML_Success");
+        if (VHML_Success==1)
         {
-            MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
+            HML_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
             //Найденное решение:
             //Decision =
             //1.91864	1.93604
-            MHL_ShowNumber(ValueOfFitnessFunction,"Значение целtвой функции","ValueOfFitnessFunction");
+            HML_ShowNumber(ValueOfFitnessFunction,"Значение целtвой функции","ValueOfFitnessFunction");
             //Значение целевой функции:
             //ValueOfFitnessFunction=-0.0107109
         }
@@ -7925,7 +7925,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] Right;
     }
 
-    if (NameFunction=="MHL_DichotomyOptimization")
+    if (NameFunction=="HML_DichotomyOptimization")
     {
         double Left=-5;
         double Right=5;
@@ -7934,19 +7934,19 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         double x,f;
 
         //Вызов функции
-        MHL_DichotomyOptimization (Left, Right, Func4, Interval, Epsilon, &x, &f);
+        HML_DichotomyOptimization (Left, Right, Func4, Interval, Epsilon, &x, &f);
 
         //Используем полученный результат
-        MHL_ShowNumber(x,"Найденное решение","x");
+        HML_ShowNumber(x,"Найденное решение","x");
         //Найденное решение:
         //x=0.998335
 
-        MHL_ShowNumber(f,"Значение целевой функции в найденном решении","f");
+        HML_ShowNumber(f,"Значение целевой функции в найденном решении","f");
         //Значение целевой функции в найденном решении:
         //f=2.77073e-06
     }
 
-    if (NameFunction=="MHL_FibonacciOptimization")
+    if (NameFunction=="HML_FibonacciOptimization")
     {
         double Left=-5;
         double Right=5;
@@ -7954,19 +7954,19 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         double x,f;
 
         //Вызов функции
-        MHL_FibonacciOptimization (Left, Right, Func4, Count, &x, &f);
+        HML_FibonacciOptimization (Left, Right, Func4, Count, &x, &f);
 
         //Используем полученный результат
-        MHL_ShowNumber(x,"Найденное решение","x");
+        HML_ShowNumber(x,"Найденное решение","x");
         //Найденное решение:
         //x=1
 
-        MHL_ShowNumber(f,"Значение целевой функции в найденном решении","f");
+        HML_ShowNumber(f,"Значение целевой функции в найденном решении","f");
         //Значение целевой функции в найденном решении:
         //f=3.7817e-12
     }
 
-    if (NameFunction=="MHL_GoldenSectionOptimization")
+    if (NameFunction=="HML_GoldenSectionOptimization")
     {
         double Left=-5;
         double Right=5;
@@ -7974,19 +7974,19 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         double x,f;
 
         //Вызов функции
-        MHL_GoldenSectionOptimization (Left, Right, Func4, Interval, &x, &f);
+        HML_GoldenSectionOptimization (Left, Right, Func4, Interval, &x, &f);
 
         //Используем полученный результат
-        MHL_ShowNumber(x,"Найденное решение","x");
+        HML_ShowNumber(x,"Найденное решение","x");
         //Найденное решение:
         //x=0.999934
 
-        MHL_ShowNumber(f,"Значение целевой функции в найденном решении","f");
+        HML_ShowNumber(f,"Значение целевой функции в найденном решении","f");
         //Значение целевой функции в найденном решении:
         //f=4.37013e-09
     }
 
-    if (NameFunction=="MHL_QuadraticFitOptimization")
+    if (NameFunction=="HML_QuadraticFitOptimization")
     {
         double Left=-5;
         double Right=5;
@@ -7995,19 +7995,19 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         double x,f;
 
         //Вызов функции
-        MHL_QuadraticFitOptimization (Left, Right, Func4, Epsilon,Epsilon2, &x, &f);
+        HML_QuadraticFitOptimization (Left, Right, Func4, Epsilon,Epsilon2, &x, &f);
 
         //Используем полученный результат
-        MHL_ShowNumber(x,"Найденное решение","x");
+        HML_ShowNumber(x,"Найденное решение","x");
         //Найденное решение:
         //x=1
 
-        MHL_ShowNumber(f,"Значение целевой функции в найденном решении","f");
+        HML_ShowNumber(f,"Значение целевой функции в найденном решении","f");
         //Значение целевой функции в найденном решении:
         //f=0
     }
 
-    if (NameFunction=="MHL_RealMonteCarloOptimization")
+    if (NameFunction=="HML_RealMonteCarloOptimization")
     {
         double Left=-5;
         double Right=5;
@@ -8015,19 +8015,19 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         double x,f;
 
         //Вызов функции
-        MHL_RealMonteCarloOptimization (Left, Right, Func4, Count, &x, &f);
+        HML_RealMonteCarloOptimization (Left, Right, Func4, Count, &x, &f);
 
         //Используем полученный результат
-        MHL_ShowNumber(x,"Найденное решение","x");
+        HML_ShowNumber(x,"Найденное решение","x");
         //Найденное решение:
         //x=1.11359
 
-        MHL_ShowNumber(f,"Значение целевой функции в найденном решении","f");
+        HML_ShowNumber(f,"Значение целевой функции в найденном решении","f");
         //Значение целевой функции в найденном решении:
         //f=0.0129019
     }
 
-    if (NameFunction=="MHL_UniformSearchOptimization")
+    if (NameFunction=="HML_UniformSearchOptimization")
     {
         double Left=-5;
         double Right=5;
@@ -8035,19 +8035,19 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         double x,f;
 
         //Вызов функции
-        MHL_UniformSearchOptimization (Left, Right, Func4, Interval, &x, &f);
+        HML_UniformSearchOptimization (Left, Right, Func4, Interval, &x, &f);
 
         //Используем полученный результат
-        MHL_ShowNumber(x,"Найденное решение","x");
+        HML_ShowNumber(x,"Найденное решение","x");
         //Найденное решение:
         //x=1
 
-        MHL_ShowNumber(f,"Значение целевой функции в найденном решении","f");
+        HML_ShowNumber(f,"Значение целевой функции в найденном решении","f");
         //Значение целевой функции в найденном решении:
         //f=2.3863e-29
     }
 
-    if (NameFunction=="MHL_UniformSearchOptimizationN")
+    if (NameFunction=="HML_UniformSearchOptimizationN")
     {
         double Left=-5;
         double Right=5;
@@ -8055,34 +8055,34 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         double x,f;
 
         //Вызов функции
-        MHL_UniformSearchOptimizationN (Left, Right, Func4, Count, &x, &f);
+        HML_UniformSearchOptimizationN (Left, Right, Func4, Count, &x, &f);
 
         //Используем полученный результат
-        MHL_ShowNumber(x,"Найденное решение","x");
+        HML_ShowNumber(x,"Найденное решение","x");
         //Найденное решение:
         //x=1
 
-        MHL_ShowNumber(f,"Значение целевой функции в найденном решении","f");
+        HML_ShowNumber(f,"Значение целевой функции в найденном решении","f");
         //Значение целевой функции в найденном решении:
         //f=0
     }
 
-    if (NameFunction=="TMHL_CheckForIdenticalRowsInMatrix")
+    if (NameFunction=="HML_CheckForIdenticalRowsInMatrix")
     {
         int i;
-        int VMHL_N=10;//Размер массива (число строк)
-        int VMHL_M=2;//Размер массива (число столбцов)
+        int VHML_N=10;//Размер массива (число строк)
+        int VHML_M=2;//Размер массива (число столбцов)
         int **a;
-        a=new int*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) a[i]=new int[VMHL_M];
+        a=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) a[i]=new int[VHML_M];
 
-        TMHL_RandomIntMatrix(a,0,5,VMHL_N,VMHL_M);//заполним матрицу
+        HML_RandomIntMatrix(a,0,5,VHML_N,VHML_M);//заполним матрицу
 
         //Вызов функции
-        bool b=TMHL_CheckForIdenticalRowsInMatrix(a,VMHL_N,VMHL_M);
+        bool b=HML_CheckForIdenticalRowsInMatrix(a,VHML_N,VHML_M);
 
         //Используем полученный результат
-        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Заполненная матрица", "a");
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Заполненная матрица", "a");
         //Заполненная матрица:
         //a =
         //3	3
@@ -8096,321 +8096,321 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //0	3
         //4	2
 
-        MHL_ShowNumber(b,"Есть ли одинаковые строки", "b");
+        HML_ShowNumber(b,"Есть ли одинаковые строки", "b");
         //Есть ли одинаковые строки:
         //b=1
 
-        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        for (i=0;i<VHML_N;i++) delete [] a[i];
         delete [] a;
     }
 
-    if (NameFunction=="TMHL_CheckForIdenticalColsInMatrix")
+    if (NameFunction=="HML_CheckForIdenticalColsInMatrix")
     {
         int i;
-        int VMHL_N=2;//Размер массива (число строк)
-        int VMHL_M=10;//Размер массива (число столбцов)
+        int VHML_N=2;//Размер массива (число строк)
+        int VHML_M=10;//Размер массива (число столбцов)
         int **a;
-        a=new int*[VMHL_N];
-        for (i=0;i<VMHL_N;i++) a[i]=new int[VMHL_M];
+        a=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) a[i]=new int[VHML_M];
 
-        TMHL_RandomIntMatrix(a,0,5,VMHL_N,VMHL_M);//заполним матрицу
+        HML_RandomIntMatrix(a,0,5,VHML_N,VHML_M);//заполним матрицу
 
         //Вызов функции
-        bool b=TMHL_CheckForIdenticalColsInMatrix(a,VMHL_N,VMHL_M);
+        bool b=HML_CheckForIdenticalColsInMatrix(a,VHML_N,VHML_M);
 
         //Используем полученный результат
-        MHL_ShowMatrix (a,VMHL_N,VMHL_M,"Заполненная матрица", "a");
+        HML_ShowMatrix (a,VHML_N,VHML_M,"Заполненная матрица", "a");
         //Заполненная матрица:
         //a =
         //4	4	0	1	0	1	0	0	2	1
         //1	4	4	3	3	4	4	3	0	1
 
-        MHL_ShowNumber(b,"Есть ли одинаковые столбцы", "b");
+        HML_ShowNumber(b,"Есть ли одинаковые столбцы", "b");
         //Есть ли одинаковые столбцы::
         //b=1
 
-        for (i=0;i<VMHL_N;i++) delete [] a[i];
+        for (i=0;i<VHML_N;i++) delete [] a[i];
         delete [] a;
     }
 
-    if (NameFunction=="MHL_LeftBorderOfWilcoxonWFromTable")
+    if (NameFunction=="HML_LeftBorderOfWilcoxonWFromTable")
     {
         int m=20;
-        MHL_ShowNumber(m,"Объем меньшей выборки","m");
+        HML_ShowNumber(m,"Объем меньшей выборки","m");
 
         int n=21;
-        MHL_ShowNumber(n,"Объем большей выборки","n");
+        HML_ShowNumber(n,"Объем большей выборки","n");
 
         double Q=0.05;
-        MHL_ShowNumber(Q,"Уровень значисмости","Q");
+        HML_ShowNumber(Q,"Уровень значисмости","Q");
 
         //Вызов функции
-        double Left=MHL_LeftBorderOfWilcoxonWFromTable(m,n,Q);
+        double Left=HML_LeftBorderOfWilcoxonWFromTable(m,n,Q);
 
         //Использование результата
-        MHL_ShowNumber(Left,"Левая граница интервала критический значений сатистики W для критерия Вилкоксена","Left");
+        HML_ShowNumber(Left,"Левая граница интервала критический значений сатистики W для критерия Вилкоксена","Left");
         //Левая граница интервала критический значений сатистики W для критерия Вилкоксена:
         //Left=356
     }
 
-    if (NameFunction=="MHL_RightBorderOfWilcoxonWFromTable")
+    if (NameFunction=="HML_RightBorderOfWilcoxonWFromTable")
     {
         int m=20;
-        MHL_ShowNumber(m,"Объем меньшей выборки","m");
+        HML_ShowNumber(m,"Объем меньшей выборки","m");
 
         int n=21;
-        MHL_ShowNumber(n,"Объем большей выборки","n");
+        HML_ShowNumber(n,"Объем большей выборки","n");
 
         double Q=0.05;
-        MHL_ShowNumber(Q,"Уровень значисмости","Q");
+        HML_ShowNumber(Q,"Уровень значисмости","Q");
 
         //Вызов функции
-        double Right=MHL_RightBorderOfWilcoxonWFromTable(m,n,Q);
+        double Right=HML_RightBorderOfWilcoxonWFromTable(m,n,Q);
 
         //Использование результата
-        MHL_ShowNumber(Right,"Правая граница интервала критический значений сатистики W для критерия Вилкоксена","Right");
+        HML_ShowNumber(Right,"Правая граница интервала критический значений сатистики W для критерия Вилкоксена","Right");
         //Правая граница интервала критический значений сатистики W для критерия Вилкоксена:
         //Right=484
     }
 
-    if (NameFunction=="MHL_ProbabilityDensityFunctionOfInverseGaussianDistribution")
+    if (NameFunction=="HML_ProbabilityDensityFunctionOfInverseGaussianDistribution")
     {
         double x;
         double mu=1;
         double lambda=1;
         double f;
-        x=MHL_RandomUniform(0,3);
+        x=HML_RandomUniform(0,3);
         //x=0.975;
 
         //Вызов функции
-        f=MHL_ProbabilityDensityFunctionOfInverseGaussianDistribution(x,mu,lambda);
+        f=HML_ProbabilityDensityFunctionOfInverseGaussianDistribution(x,mu,lambda);
 
         //Используем полученный результат
-        MHL_ShowNumber (x,"Входная переменная", "x");
+        HML_ShowNumber (x,"Входная переменная", "x");
         //Входная переменная:
         //x=1.10063
-        MHL_ShowNumber (mu,"Параметр mu", "mu");
+        HML_ShowNumber (mu,"Параметр mu", "mu");
         //Параметр mu:
         //mu=1
-        MHL_ShowNumber (lambda,"Параметр lambda", "lambda");
+        HML_ShowNumber (lambda,"Параметр lambda", "lambda");
         //Параметр lambda:
         //lambda=1
-        MHL_ShowNumber (f,"Значение функции", "f");
+        HML_ShowNumber (f,"Значение функции", "f");
         //Значение функции:
         //f=0.343916
     }
 
-    if (NameFunction=="MHL_DistributionFunctionOfNormalizedCenteredNormalDistribution")
+    if (NameFunction=="HML_DistributionFunctionOfNormalizedCenteredNormalDistribution")
     {
         double t;
         double f;
-        t=MHL_RandomUniform(0,3);
+        t=HML_RandomUniform(0,3);
 
         //Вызов функции
-        f=MHL_DistributionFunctionOfNormalizedCenteredNormalDistribution(t,0.001);
+        f=HML_DistributionFunctionOfNormalizedCenteredNormalDistribution(t,0.001);
 
         //Используем полученный результат
 
-        MHL_ShowNumber (t,"Параметр", "t");
+        HML_ShowNumber (t,"Параметр", "t");
         //Параметр:
         //t=1.36576
-        MHL_ShowNumber (f,"Значение функции", "f");
+        HML_ShowNumber (f,"Значение функции", "f");
         //Значение функции:
         //f=0.914011
     }
 
-    if (NameFunction=="MHL_DistributionFunctionOfNormalDistribution")
+    if (NameFunction=="HML_DistributionFunctionOfNormalDistribution")
     {
         double x;
         double f;
-        x=MHL_RandomUniform(0,3);
+        x=HML_RandomUniform(0,3);
         double mu=3;
         double sigma=1;
 
         //Вызов функции
-        f=MHL_DistributionFunctionOfNormalizedCenteredNormalDistribution(x,0.001);
+        f=HML_DistributionFunctionOfNormalizedCenteredNormalDistribution(x,0.001);
 
         //Используем полученный результат
-        MHL_ShowNumber (x,"Входная переменная", "x");
+        HML_ShowNumber (x,"Входная переменная", "x");
         //Входная переменная:
         //x=0.527979
-        MHL_ShowNumber (mu,"Параметр mu", "mu");
+        HML_ShowNumber (mu,"Параметр mu", "mu");
         //Параметр mu:
         //mu=3
-        MHL_ShowNumber (sigma,"Параметр sigma", "sigma");
+        HML_ShowNumber (sigma,"Параметр sigma", "sigma");
         //Параметр sigma:
         //sigma=1
-        MHL_ShowNumber (f,"Значение функции распределения нормального распределения", "f");
+        HML_ShowNumber (f,"Значение функции распределения нормального распределения", "f");
         //Значение функции распределения нормального распределения:
         //f=0.701244
     }
 
-    if (NameFunction=="MHL_WilcoxonW")
+    if (NameFunction=="HML_WilcoxonW")
     {
-        int VMHL_Result;
+        int VHML_Result;
 
-        int VMHL_N1=10;
-        int VMHL_N2=10;
+        int VHML_N1=10;
+        int VHML_N2=10;
 
-        double *a = new double[VMHL_N1];
-        double *b = new double[VMHL_N2];
-        TMHL_RandomIntVector(a,0.,10.,VMHL_N1);
-        TMHL_RandomIntVector(b,0.,10.,VMHL_N2);
-        MHL_ShowVectorT(a,VMHL_N1,"Первая выборка","a");
+        double *a = new double[VHML_N1];
+        double *b = new double[VHML_N2];
+        HML_RandomIntVector(a,0.,10.,VHML_N1);
+        HML_RandomIntVector(b,0.,10.,VHML_N2);
+        HML_ShowVectorT(a,VHML_N1,"Первая выборка","a");
         //Первая выборка:
         //a =
         //6	0	6	1	4	9	6	2	4	8
 
-        MHL_ShowVectorT(b,VMHL_N2,"Вторая выборка","b");
+        HML_ShowVectorT(b,VHML_N2,"Вторая выборка","b");
         //Вторая выборка:
         //b =
         //8	1	1	6	0	3	1	1	2	3
 
         double Q=0.002;
         //Q=0.2;
-        MHL_ShowNumber(Q,"Уровень значимости","Q");
+        HML_ShowNumber(Q,"Уровень значимости","Q");
         //Уровень значимости:
         //Q=0.002
         //Вызов функции
-        VMHL_Result = MHL_WilcoxonW(a, b, VMHL_N1, VMHL_N2, Q);
+        VHML_Result = HML_WilcoxonW(a, b, VHML_N1, VHML_N2, Q);
 
         //Используем результат
-        MHL_ShowNumber(VMHL_Result,"Итог проверка двух выборок ритерием Вилкосена W","VMHL_Result");
+        HML_ShowNumber(VHML_Result,"Итог проверка двух выборок ритерием Вилкосена W","VHML_Result");
         //Итог проверка двух выборок ритерием Вилкосена W:
-        //VMHL_Result=1
+        //VHML_Result=1
 
         delete [] a;
         delete [] b;
     }
     
-    if (NameFunction=="TMHL_CompareMeanOfVectors")
+    if (NameFunction=="HML_CompareMeanOfVectors")
     {
-        int VMHL_Result;
+        int VHML_Result;
 
-        int VMHL_N1=10;
-        int VMHL_N2=10;
+        int VHML_N1=10;
+        int VHML_N2=10;
 
-        double *a = new double[VMHL_N1];
-        double *b = new double[VMHL_N2];
-        TMHL_RandomIntVector(a,0.,100.,VMHL_N1);
-        TMHL_RandomIntVector(b,0.,20.,VMHL_N2);
-        MHL_ShowVectorT(a,VMHL_N1,"Первая выборка","a");
+        double *a = new double[VHML_N1];
+        double *b = new double[VHML_N2];
+        HML_RandomIntVector(a,0.,100.,VHML_N1);
+        HML_RandomIntVector(b,0.,20.,VHML_N2);
+        HML_ShowVectorT(a,VHML_N1,"Первая выборка","a");
         //Первая выборка:
         //a =
         //15	91	38	78	68	80	68	83	37	97
 
-        MHL_ShowVectorT(b,VMHL_N2,"Вторая выборка","b");
+        HML_ShowVectorT(b,VHML_N2,"Вторая выборка","b");
         //Вторая выборка:
         //b =
         //7	10	0	18	11	4	18	3	12	13
 
         //Вызов функции
-        VMHL_Result = TMHL_CompareMeanOfVectors(a, b, VMHL_N1, VMHL_N2);
+        VHML_Result = HML_CompareMeanOfVectors(a, b, VHML_N1, VHML_N2);
 
         //Используем результат
-        MHL_ShowNumber(VMHL_Result,"У какой выборки больше среднеарифметическое","VMHL_Result");
+        HML_ShowNumber(VHML_Result,"У какой выборки больше среднеарифметическое","VHML_Result");
         //У какой выборки больше среднеарифметическое:
-        //VMHL_Result=1
+        //VHML_Result=1
 
         delete [] a;
         delete [] b;
     }
 
-    if (NameFunction=="MHL_LineGeneralForm")
+    if (NameFunction=="HML_LineGeneralForm")
     {
-        double A=MHL_RandomUniformInt(1,10);
-        double B=MHL_RandomUniformInt(1,10);
-        double C=MHL_RandomUniformInt(1,10);
+        double A=HML_RandomUniformInt(1,10);
+        double B=HML_RandomUniformInt(1,10);
+        double C=HML_RandomUniformInt(1,10);
 
         double x=5;
 
         int solutionis;
 
         //Вызов функции
-        double y=MHL_LineGeneralForm(x,A,B,C,&solutionis);
+        double y=HML_LineGeneralForm(x,A,B,C,&solutionis);
 
         //Используем полученный результат
-        MHL_ShowText("Уравнение прямой: "+MHL_NumberToText(A)+"*x+"+MHL_NumberToText(B)+"*y+"+MHL_NumberToText(C)+"=0");
+        HML_ShowText("Уравнение прямой: "+HML_NumberToText(A)+"*x+"+HML_NumberToText(B)+"*y+"+HML_NumberToText(C)+"=0");
         //Уравнение прямой: 7*x+1*y+7=0.
-        MHL_ShowNumber(solutionis,"Найдено ли решение","solutionis");
+        HML_ShowNumber(solutionis,"Найдено ли решение","solutionis");
         //Найдено ли решение:
         //solutionis=1
         if (solutionis!=0)
         {
-            MHL_ShowNumber(y,"Значение функции прямой в точке x=5","y");
+            HML_ShowNumber(y,"Значение функции прямой в точке x=5","y");
             //Значение функции прямой в точке x=5:
             //y=-42
         }
     }
 
-    if (NameFunction=="MHL_LineSlopeInterceptForm")
+    if (NameFunction=="HML_LineSlopeInterceptForm")
     {
-        double k=MHL_RandomUniformInt(1,10);
-        double b=MHL_RandomUniformInt(1,10);
+        double k=HML_RandomUniformInt(1,10);
+        double b=HML_RandomUniformInt(1,10);
 
         double x=5;
 
         //Вызов функции
-        double y=MHL_LineSlopeInterceptForm(x,k,b);
+        double y=HML_LineSlopeInterceptForm(x,k,b);
 
         //Используем полученный результат
-        MHL_ShowText("Уравнение прямой: y="+MHL_NumberToText(k)+"*x+"+MHL_NumberToText(b));
+        HML_ShowText("Уравнение прямой: y="+HML_NumberToText(k)+"*x+"+HML_NumberToText(b));
         //Уравнение прямой: y=4*x+1.
-        MHL_ShowNumber(y,"Значение функции прямой в точке x=5","y");
+        HML_ShowNumber(y,"Значение функции прямой в точке x=5","y");
         //Значение функции прямой в точке x=5:
         //y=21
     }
 
-    if (NameFunction=="MHL_LineTwoPoint")
+    if (NameFunction=="HML_LineTwoPoint")
     {
-        double x1=MHL_RandomUniformInt(1,10);
-        double y1=MHL_RandomUniformInt(1,10);
-        double x2=MHL_RandomUniformInt(1,10);
-        double y2=MHL_RandomUniformInt(1,10);
+        double x1=HML_RandomUniformInt(1,10);
+        double y1=HML_RandomUniformInt(1,10);
+        double x2=HML_RandomUniformInt(1,10);
+        double y2=HML_RandomUniformInt(1,10);
 
         double x=5;
 
         int solutionis;
 
         //Вызов функции
-        double y=MHL_LineTwoPoint(x,x1,y1,x2,y2,&solutionis);
+        double y=HML_LineTwoPoint(x,x1,y1,x2,y2,&solutionis);
 
         //Используем полученный результат
-        MHL_ShowText("Первая точка: ("+MHL_NumberToText(x1)+"; "+MHL_NumberToText(y1)+")");
+        HML_ShowText("Первая точка: ("+HML_NumberToText(x1)+"; "+HML_NumberToText(y1)+")");
         //Первая точка: (6; 3).
-        MHL_ShowText("Вторая точка: ("+MHL_NumberToText(x2)+"; "+MHL_NumberToText(y2)+")");
+        HML_ShowText("Вторая точка: ("+HML_NumberToText(x2)+"; "+HML_NumberToText(y2)+")");
         //Вторая точка: (3; 3).
-        MHL_ShowNumber(solutionis,"Найдено ли решение","solutionis");
+        HML_ShowNumber(solutionis,"Найдено ли решение","solutionis");
         //Найдено ли решение:
         //solutionis=1
         if (solutionis!=0)
         {
-            MHL_ShowNumber(y,"Значение прямо, проходящей через две указанные точки, в точке x=5","y");
+            HML_ShowNumber(y,"Значение прямо, проходящей через две указанные точки, в точке x=5","y");
             //Значение прямо, проходящей через две указанные точки, в точке x=5:
             //y=32
         }
     }
 
-    if (NameFunction=="MHL_Parabola")
+    if (NameFunction=="HML_Parabola")
     {
-        double a=MHL_RandomUniformInt(1,10);
-        double b=MHL_RandomUniformInt(1,10);
-        double c=MHL_RandomUniformInt(1,10);
+        double a=HML_RandomUniformInt(1,10);
+        double b=HML_RandomUniformInt(1,10);
+        double c=HML_RandomUniformInt(1,10);
 
         double x=5;
 
         //Вызов функции
-        double y=MHL_Parabola(x,a,b,c);
+        double y=HML_Parabola(x,a,b,c);
 
         //Используем полученный результат
-        MHL_ShowText("Уравнение параболы: y="+MHL_NumberToText(a)+"*x^2+"+MHL_NumberToText(b)+"*x+"+MHL_NumberToText(c));
+        HML_ShowText("Уравнение параболы: y="+HML_NumberToText(a)+"*x^2+"+HML_NumberToText(b)+"*x+"+HML_NumberToText(c));
         //Уравнение параболы: y=4*x^2+5*x+3.
-        MHL_ShowNumber(y,"Значение функции параболы в точке x=5","y");
+        HML_ShowNumber(y,"Значение функции параболы в точке x=5","y");
         //Значение функции параболы в точке x=5:
         //y=128
     }
 
-    if (NameFunction=="MHL_BinaryGeneticAlgorithmWDPOfNOfGPS")
+    if (NameFunction=="HML_BinaryGeneticAlgorithmWDPOfNOfGPS")
     {
         int ChromosomeLength=50;//Длина хромосомы
         int CountOfFitness=50*50;//Число вычислений целевой функции
@@ -8433,24 +8433,24 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         int *Decision;//бинарное решение
         Decision=new int[ChromosomeLength];
         double ValueOfFitnessFunction;//значение функции пригодности в точке Decision
-        int VMHL_Success=0;//Успешен ли будет запуск cГА
+        int VHML_Success=0;//Успешен ли будет запуск cГА
 
         //Запуск алгоритма
-        VMHL_Success=MHL_BinaryGeneticAlgorithmWDPOfNOfGPS (ParametersOfAlgorithm,Func, Decision, &ValueOfFitnessFunction);
+        VHML_Success=HML_BinaryGeneticAlgorithmWDPOfNOfGPS (ParametersOfAlgorithm,Func, Decision, &ValueOfFitnessFunction);
 
         //Используем полученный результат
-        MHL_ShowNumber(VMHL_Success,"Как прошел запуск","VMHL_Success");
+        HML_ShowNumber(VHML_Success,"Как прошел запуск","VHML_Success");
         //Как прошел запуск:
-        //VMHL_Success=1
+        //VHML_Success=1
 
-        if (VMHL_Success==1)
+        if (VHML_Success==1)
         {
-            MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
+            HML_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
             //Найденное решение:
             //Decision =
             //1	1	1	1	1	1	1	1	1	1	1	1	0	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	0	1	1	1	1	1	1	1	1	1	1	1	0	1	1	1	1	1	1	1	1
 
-            MHL_ShowNumber(ValueOfFitnessFunction,"Значение функции пригодности","ValueOfFitnessFunction");
+            HML_ShowNumber(ValueOfFitnessFunction,"Значение функции пригодности","ValueOfFitnessFunction");
             //Значение функции пригодности:
             //ValueOfFitnessFunction=47
         }
@@ -8459,7 +8459,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] Decision;
     }
 
-    if (NameFunction=="MHL_RealGeneticAlgorithmWDPOfNOfGPS")
+    if (NameFunction=="HML_RealGeneticAlgorithmWDPOfNOfGPS")
     {
         int ChromosomeLength=2;//Длина хромосомы
         int CountOfFitness=50*50;//Число вычислений целевой функции
@@ -8489,28 +8489,28 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
 
         //Заполним массивы
         //Причем по каждой коодинтате одинаковые значения выставим
-        TMHL_FillVector(Left,ChromosomeLength,-5.);//Пусть будет интервал [-3;3]
-        TMHL_FillVector(Right,ChromosomeLength,5.);
-        TMHL_FillVector(NumberOfParts,ChromosomeLength,TMHL_PowerOf(2,15)-1);//Делим на 32768-1 частей каждую вещественную координату
+        HML_FillVector(Left,ChromosomeLength,-5.);//Пусть будет интервал [-3;3]
+        HML_FillVector(Right,ChromosomeLength,5.);
+        HML_FillVector(NumberOfParts,ChromosomeLength,HML_PowerOf(2,15)-1);//Делим на 32768-1 частей каждую вещественную координату
 
         double *Decision;//вещественное решение
         Decision=new double[ChromosomeLength];
         double ValueOfFitnessFunction;//значение целевой функции в точке Decision
-        int VMHL_Success=0;//Успешен ли будет запуск cГА
+        int VHML_Success=0;//Успешен ли будет запуск cГА
 
         //Запуск алгоритма
-        VMHL_Success=MHL_RealGeneticAlgorithmWDPOfNOfGPS (ParametersOfAlgorithm,NumberOfParts,Left,Right,Func2, Decision, &ValueOfFitnessFunction);
+        VHML_Success=HML_RealGeneticAlgorithmWDPOfNOfGPS (ParametersOfAlgorithm,NumberOfParts,Left,Right,Func2, Decision, &ValueOfFitnessFunction);
 
         //Используем полученный результат
-        MHL_ShowNumber(VMHL_Success,"Как прошел запуск","VMHL_Success");
-        if (VMHL_Success==1)
+        HML_ShowNumber(VHML_Success,"Как прошел запуск","VHML_Success");
+        if (VHML_Success==1)
         {
-            MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
+            HML_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
             //Найденное решение:
             //Decision =
             //2.00226	1.98883
 
-            MHL_ShowNumber(ValueOfFitnessFunction,"Значение целовой функции","ValueOfFitnessFunction");
+            HML_ShowNumber(ValueOfFitnessFunction,"Значение целовой функции","ValueOfFitnessFunction");
             //Значение целовой функции:
             //ValueOfFitnessFunction=-0.000129856
         }
@@ -8522,7 +8522,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] NumberOfParts;
     }
 
-    if (NameFunction=="MHL_RealGeneticAlgorithmWDTS")
+    if (NameFunction=="HML_RealGeneticAlgorithmWDTS")
     {
         int ChromosomeLength=2;//Длина хромосомы
         int CountOfFitness=50*50;//Число вычислений целевой функции
@@ -8550,28 +8550,28 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
 
         //Заполним массивы
         //Причем по каждой коодинтате одинаковые значения выставим
-        TMHL_FillVector(Left,ChromosomeLength,-5.);//Пусть будет интервал [-3;3]
-        TMHL_FillVector(Right,ChromosomeLength,5.);
-        TMHL_FillVector(NumberOfParts,ChromosomeLength,TMHL_PowerOf(2,15)-1);//Делим на 32768-1 частей каждую вещественную координату
+        HML_FillVector(Left,ChromosomeLength,-5.);//Пусть будет интервал [-3;3]
+        HML_FillVector(Right,ChromosomeLength,5.);
+        HML_FillVector(NumberOfParts,ChromosomeLength,HML_PowerOf(2,15)-1);//Делим на 32768-1 частей каждую вещественную координату
 
         double *Decision;//вещественное решение
         Decision=new double[ChromosomeLength];
         double ValueOfFitnessFunction;//значение целевой функции в точке Decision
-        int VMHL_Success=0;//Успешен ли будет запуск cГА
+        int VHML_Success=0;//Успешен ли будет запуск cГА
 
         //Запуск алгоритма
-        VMHL_Success=MHL_RealGeneticAlgorithmWDTS (ParametersOfAlgorithm,NumberOfParts,Left,Right,Func2, Decision, &ValueOfFitnessFunction);
+        VHML_Success=HML_RealGeneticAlgorithmWDTS (ParametersOfAlgorithm,NumberOfParts,Left,Right,Func2, Decision, &ValueOfFitnessFunction);
 
         //Используем полученный результат
-        MHL_ShowNumber(VMHL_Success,"Как прошел запуск","VMHL_Success");
-        if (VMHL_Success==1)
+        HML_ShowNumber(VHML_Success,"Как прошел запуск","VHML_Success");
+        if (VHML_Success==1)
         {
-            MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
+            HML_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
             //Найденное решение:
             //Decision =
             //2.00226	2.00134
 
-            MHL_ShowNumber(ValueOfFitnessFunction,"Значение целовой функции","ValueOfFitnessFunction");
+            HML_ShowNumber(ValueOfFitnessFunction,"Значение целовой функции","ValueOfFitnessFunction");
             //Значение целовой функции:
             //ValueOfFitnessFunction=-6.90296e-06
         }
@@ -8583,7 +8583,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] NumberOfParts;
     }
 
-    if (NameFunction=="MHL_BinaryGeneticAlgorithmWDTS")
+    if (NameFunction=="HML_BinaryGeneticAlgorithmWDTS")
     {
         int ChromosomeLength=50;//Длина хромосомы
         int CountOfFitness=50*50;//Число вычислений целевой функции
@@ -8604,26 +8604,26 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         int *Decision;//бинарное решение
         Decision=new int[ChromosomeLength];
         double ValueOfFitnessFunction;//значение функции пригодности в точке Decision
-        int VMHL_Success=0;//Успешен ли будет запуск cГА
+        int VHML_Success=0;//Успешен ли будет запуск cГА
 
         //Запуск алгоритма
-        VMHL_Success=MHL_BinaryGeneticAlgorithmWDTS (ParametersOfAlgorithm,Func, Decision, &ValueOfFitnessFunction);
+        VHML_Success=HML_BinaryGeneticAlgorithmWDTS (ParametersOfAlgorithm,Func, Decision, &ValueOfFitnessFunction);
 
         //Используем полученный результат
-        MHL_ShowNumber(VMHL_Success,"Как прошел запуск","VMHL_Success");
+        HML_ShowNumber(VHML_Success,"Как прошел запуск","VHML_Success");
         //Как прошел запуск:
-        //VMHL_Success=1
+        //VHML_Success=1
 
-        if (VMHL_Success==1)
+        if (VHML_Success==1)
         {
-            MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
+            HML_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
             //Найденное решение:
             //Найденное решение:
             //Decision =
             //1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	0	1	1	1	1	1	1	1	1	1	1
 
 
-            MHL_ShowNumber(ValueOfFitnessFunction,"Значение функции пригодности","ValueOfFitnessFunction");
+            HML_ShowNumber(ValueOfFitnessFunction,"Значение функции пригодности","ValueOfFitnessFunction");
             //Значение функции пригодности:
             //ValueOfFitnessFunction=49
         }
@@ -8632,33 +8632,33 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] Decision;
     }
 
-    if (NameFunction=="TMHL_SinglepointCrossoverWithCopying")
+    if (NameFunction=="HML_SinglepointCrossoverWithCopying")
     {
-        int VMHL_N=10; //Размер массива (число строк)
+        int VHML_N=10; //Размер массива (число строк)
         int *Parent1;
-        Parent1=new int[VMHL_N];
+        Parent1=new int[VHML_N];
         int *Parent2;
-        Parent2=new int[VMHL_N];
+        Parent2=new int[VHML_N];
         int *Child;
-        Child=new int[VMHL_N];
-        TMHL_RandomBinaryVector(Parent1,VMHL_N);
-        TMHL_RandomBinaryVector(Parent2,VMHL_N);
+        Child=new int[VHML_N];
+        HML_RandomBinaryVector(Parent1,VHML_N);
+        HML_RandomBinaryVector(Parent2,VHML_N);
 
         //Получим потомка Child
-        TMHL_SinglepointCrossoverWithCopying(Parent1,Parent2,Child,VMHL_N);
+        HML_SinglepointCrossoverWithCopying(Parent1,Parent2,Child,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVectorT (Parent1,VMHL_N,"Первый родитель", "Parent1");
+        HML_ShowVectorT (Parent1,VHML_N,"Первый родитель", "Parent1");
         //Первый родитель:
         //Parent1 =
         //0	1	1	0	0	1	0	1	1	1
 
-        MHL_ShowVectorT (Parent2,VMHL_N,"Второй родитель", "Parent2");
+        HML_ShowVectorT (Parent2,VHML_N,"Второй родитель", "Parent2");
         //Второй родитель:
         //Parent2 =
         //0	0	0	1	0	1	0	0	0	0
 
-        MHL_ShowVectorT (Child,VMHL_N,"Полученный потомок", "Child");
+        HML_ShowVectorT (Child,VHML_N,"Полученный потомок", "Child");
         //Полученный потомок:
         //Child =
         //0	1	1	0	0	1	0	1	1	1
@@ -8668,33 +8668,33 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] Child;
     }
 
-    if (NameFunction=="TMHL_TwopointCrossoverWithCopying")
+    if (NameFunction=="HML_TwopointCrossoverWithCopying")
     {
-        int VMHL_N=10; //Размер массива (число строк)
+        int VHML_N=10; //Размер массива (число строк)
         int *Parent1;
-        Parent1=new int[VMHL_N];
+        Parent1=new int[VHML_N];
         int *Parent2;
-        Parent2=new int[VMHL_N];
+        Parent2=new int[VHML_N];
         int *Child;
-        Child=new int[VMHL_N];
-        TMHL_RandomBinaryVector(Parent1,VMHL_N);
-        TMHL_RandomBinaryVector(Parent2,VMHL_N);
+        Child=new int[VHML_N];
+        HML_RandomBinaryVector(Parent1,VHML_N);
+        HML_RandomBinaryVector(Parent2,VHML_N);
 
         //Получим потомка Child
-        TMHL_TwopointCrossoverWithCopying(Parent1,Parent2,Child,VMHL_N);
+        HML_TwopointCrossoverWithCopying(Parent1,Parent2,Child,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVectorT (Parent1,VMHL_N,"Первый родитель", "Parent1");
+        HML_ShowVectorT (Parent1,VHML_N,"Первый родитель", "Parent1");
         //Первый родитель:
         //Parent1 =
         //1	1	0	0	1	1	0	0	0	0
 
-        MHL_ShowVectorT (Parent2,VMHL_N,"Второй родитель", "Parent2");
+        HML_ShowVectorT (Parent2,VHML_N,"Второй родитель", "Parent2");
         //Второй родитель:
         //Parent2 =
         //0	1	1	0	0	1	0	0	1	0
 
-        MHL_ShowVectorT (Child,VMHL_N,"Полученный потомок", "Child");
+        HML_ShowVectorT (Child,VHML_N,"Полученный потомок", "Child");
         //Полученный потомок:
         //Child =
         //0	1	1	0	0	1	0	0	1	0
@@ -8704,7 +8704,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] Child;
     }
 
-    if (NameFunction=="MHL_BinaryGeneticAlgorithmWCC")
+    if (NameFunction=="HML_BinaryGeneticAlgorithmWCC")
     {
         int ChromosomeLength=50;//Длина хромосомы
         int CountOfFitness=50*50;//Число вычислений целевой функции
@@ -8725,24 +8725,24 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         int *Decision;//бинарное решение
         Decision=new int[ChromosomeLength];
         double ValueOfFitnessFunction;//значение функции пригодности в точке Decision
-        int VMHL_Success=0;//Успешен ли будет запуск cГА
+        int VHML_Success=0;//Успешен ли будет запуск cГА
 
         //Запуск алгоритма
-        VMHL_Success=MHL_BinaryGeneticAlgorithmWCC (Parameters,Func, Decision, &ValueOfFitnessFunction);
+        VHML_Success=HML_BinaryGeneticAlgorithmWCC (Parameters,Func, Decision, &ValueOfFitnessFunction);
 
         //Используем полученный результат
-        MHL_ShowNumber(VMHL_Success,"Как прошел запуск","VMHL_Success");
+        HML_ShowNumber(VHML_Success,"Как прошел запуск","VHML_Success");
         //Как прошел запуск:
-        //VMHL_Success=1
+        //VHML_Success=1
 
-        if (VMHL_Success==1)
+        if (VHML_Success==1)
         {
-            MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
+            HML_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
             //Найденное решение:
             //Decision =
             //1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1
 
-            MHL_ShowNumber(ValueOfFitnessFunction,"Значение функции пригодности","ValueOfFitnessFunction");
+            HML_ShowNumber(ValueOfFitnessFunction,"Значение функции пригодности","ValueOfFitnessFunction");
             // Значение функции пригодности:
             //ValueOfFitnessFunction=50
         }
@@ -8751,7 +8751,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] Decision;
     }
 
-    if (NameFunction=="MHL_RealGeneticAlgorithmWCC")
+    if (NameFunction=="HML_RealGeneticAlgorithmWCC")
     {
         int ChromosomeLength=2;//Длина хромосомы
         int CountOfFitness=50*50;//Число вычислений целевой функции
@@ -8779,27 +8779,27 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
 
         //Заполним массивы
         //Причем по каждой координате одинаковые значения выставим
-        TMHL_FillVector(Left,ChromosomeLength,-5.);//Пусть будет интервал [-3;3]
-        TMHL_FillVector(Right,ChromosomeLength,5.);
-        TMHL_FillVector(NumberOfParts,ChromosomeLength,TMHL_PowerOf(2,15)-1);//Делим на 32768-1 частей каждую вещественную координату
+        HML_FillVector(Left,ChromosomeLength,-5.);//Пусть будет интервал [-3;3]
+        HML_FillVector(Right,ChromosomeLength,5.);
+        HML_FillVector(NumberOfParts,ChromosomeLength,HML_PowerOf(2,15)-1);//Делим на 32768-1 частей каждую вещественную координату
 
         double *Decision;//вещественное решение
         Decision=new double[ChromosomeLength];
         double ValueOfFitnessFunction;//значение целевой функции в точке Decision
-        int VMHL_Success=0;//Успешен ли будет запуск cГА
+        int VHML_Success=0;//Успешен ли будет запуск cГА
 
         //Запуск алгоритма
-        VMHL_Success=MHL_RealGeneticAlgorithmWCC (Parameters,NumberOfParts,Left,Right,Func2, Decision, &ValueOfFitnessFunction);
+        VHML_Success=HML_RealGeneticAlgorithmWCC (Parameters,NumberOfParts,Left,Right,Func2, Decision, &ValueOfFitnessFunction);
 
         //Используем полученный результат
-        MHL_ShowNumber(VMHL_Success,"Как прошел запуск","VMHL_Success");
-        if (VMHL_Success==1)
+        HML_ShowNumber(VHML_Success,"Как прошел запуск","VHML_Success");
+        if (VHML_Success==1)
         {
-            MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
+            HML_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
             //Найденное решение:
             //Decision =
             //2.0105	2.00195
-            MHL_ShowNumber(ValueOfFitnessFunction,"Значение целевой функции","ValueOfFitnessFunction");
+            HML_ShowNumber(ValueOfFitnessFunction,"Значение целевой функции","ValueOfFitnessFunction");
             //Значение целевой функции:
             //ValueOfFitnessFunction=-0.000114024
         }
@@ -8811,55 +8811,55 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] NumberOfParts;
     }
 
-    if (NameFunction=="MHL_TestFunction_AdditivePotential")
+    if (NameFunction=="HML_TestFunction_AdditivePotential")
     {
         double x;
         double y;
         double f;
-        x=MHL_RandomUniform(-5,5);
-        y=MHL_RandomUniform(-5,5);
+        x=HML_RandomUniform(-5,5);
+        y=HML_RandomUniform(-5,5);
 
         //Вызываем функцию
-        f=MHL_TestFunction_AdditivePotential(x,y);
+        f=HML_TestFunction_AdditivePotential(x,y);
 
-        MHL_ShowNumber (x,"Первая вещественная переменная", "x");
+        HML_ShowNumber (x,"Первая вещественная переменная", "x");
         //Первая вещественная переменная:
         //x=-2.87701
 
-        MHL_ShowNumber (y,"Вторая вещественная переменная", "y");
+        HML_ShowNumber (y,"Вторая вещественная переменная", "y");
         //Вторая вещественная переменная:
         //y=-0.443955
 
-        MHL_ShowNumber (f,"Значение функции", "f");
+        HML_ShowNumber (f,"Значение функции", "f");
         //Значение функции:
         //f=-0.64441
     }
 
-    if (NameFunction=="MHL_TestFunction_MultiplicativePotential")
+    if (NameFunction=="HML_TestFunction_MultiplicativePotential")
     {
         double x;
         double y;
         double f;
-        x=MHL_RandomUniform(-5,5);
-        y=MHL_RandomUniform(-5,5);
+        x=HML_RandomUniform(-5,5);
+        y=HML_RandomUniform(-5,5);
 
         //Вызываем функцию
-        f=MHL_TestFunction_MultiplicativePotential(x,y);
+        f=HML_TestFunction_MultiplicativePotential(x,y);
 
-        MHL_ShowNumber (x,"Первая вещественная переменная", "x");
+        HML_ShowNumber (x,"Первая вещественная переменная", "x");
         //Первая вещественная переменная:
         //x=0.520743
 
-        MHL_ShowNumber (y,"Вторая вещественная переменная", "y");
+        HML_ShowNumber (y,"Вторая вещественная переменная", "y");
         //Вторая вещественная переменная:
         //y=-4.96242
 
-        MHL_ShowNumber (f,"Значение функции", "f");
+        HML_ShowNumber (f,"Значение функции", "f");
         //Значение функции:
         //f=-0.113219
     }
 
-    if (NameFunction=="MHL_BinaryGeneticAlgorithmTournamentSelectionWithReturn")
+    if (NameFunction=="HML_BinaryGeneticAlgorithmTournamentSelectionWithReturn")
     {
         int ChromosomeLength=50;//Длина хромосомы
         int CountOfFitness=50*50;//Число вычислений целевой функции
@@ -8880,24 +8880,24 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         int *Decision;//бинарное решение
         Decision=new int[ChromosomeLength];
         double ValueOfFitnessFunction;//значение функции пригодности в точке Decision
-        int VMHL_Success=0;//Успешен ли будет запуск cГА
+        int VHML_Success=0;//Успешен ли будет запуск cГА
 
         //Запуск алгоритма
-        VMHL_Success=MHL_BinaryGeneticAlgorithmTournamentSelectionWithReturn (ParametersOfAlgorithm,Func, Decision, &ValueOfFitnessFunction);
+        VHML_Success=HML_BinaryGeneticAlgorithmTournamentSelectionWithReturn (ParametersOfAlgorithm,Func, Decision, &ValueOfFitnessFunction);
 
         //Используем полученный результат
-        MHL_ShowNumber(VMHL_Success,"Как прошел запуск","VMHL_Success");
+        HML_ShowNumber(VHML_Success,"Как прошел запуск","VHML_Success");
         //Как прошел запуск:
-        //VMHL_Success=1
+        //VHML_Success=1
 
-        if (VMHL_Success==1)
+        if (VHML_Success==1)
         {
-            MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
+            HML_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
             //Найденное решение:
             //Decision =
             //1	1	1	1	1	1	1	1	1	1	1	1	0	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	0	1	1	1	1	1	1	1	1	1	1	1	0	1	1	1	1	1	1	1	1
 
-            MHL_ShowNumber(ValueOfFitnessFunction,"Значение функции пригодности","ValueOfFitnessFunction");
+            HML_ShowNumber(ValueOfFitnessFunction,"Значение функции пригодности","ValueOfFitnessFunction");
             //Значение функции пригодности:
             //ValueOfFitnessFunction=47
         }
@@ -8905,7 +8905,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] Decision;
     }
 
-    if (NameFunction=="MHL_RealGeneticAlgorithmTournamentSelectionWithReturn")
+    if (NameFunction=="HML_RealGeneticAlgorithmTournamentSelectionWithReturn")
     {
         int ChromosomeLength=2;//Длина хромосомы
         int CountOfFitness=50*50;//Число вычислений целевой функции
@@ -8933,28 +8933,28 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
 
         //Заполним массивы
         //Причем по каждой координате одинаковые значения выставим
-        TMHL_FillVector(Left,ChromosomeLength,-5.);//Пусть будет интервал [-3;3]
-        TMHL_FillVector(Right,ChromosomeLength,5.);
-        TMHL_FillVector(NumberOfParts,ChromosomeLength,TMHL_PowerOf(2,15)-1);//Делим на 32768-1 частей каждую вещественную координату
+        HML_FillVector(Left,ChromosomeLength,-5.);//Пусть будет интервал [-3;3]
+        HML_FillVector(Right,ChromosomeLength,5.);
+        HML_FillVector(NumberOfParts,ChromosomeLength,HML_PowerOf(2,15)-1);//Делим на 32768-1 частей каждую вещественную координату
 
         double *Decision;//вещественное решение
         Decision=new double[ChromosomeLength];
         double ValueOfFitnessFunction;//значение целевой функции в точке Decision
-        int VMHL_Success=0;//Успешен ли будет запуск cГА
+        int VHML_Success=0;//Успешен ли будет запуск cГА
 
         //Запуск алгоритма
-        VMHL_Success=MHL_RealGeneticAlgorithmTournamentSelectionWithReturn (ParametersOfAlgorithm,NumberOfParts,Left,Right,Func2, Decision, &ValueOfFitnessFunction);
+        VHML_Success=HML_RealGeneticAlgorithmTournamentSelectionWithReturn (ParametersOfAlgorithm,NumberOfParts,Left,Right,Func2, Decision, &ValueOfFitnessFunction);
 
         //Используем полученный результат
-        MHL_ShowNumber(VMHL_Success,"Как прошел запуск","VMHL_Success");
-        if (VMHL_Success==1)
+        HML_ShowNumber(VHML_Success,"Как прошел запуск","VHML_Success");
+        if (VHML_Success==1)
         {
-            MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
+            HML_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
             //Найденное решение:
             //Decision =
             //2.00226	1.98883
 
-            MHL_ShowNumber(ValueOfFitnessFunction,"Значение целовой функции","ValueOfFitnessFunction");
+            HML_ShowNumber(ValueOfFitnessFunction,"Значение целовой функции","ValueOfFitnessFunction");
             //Значение целевой функции:
             //ValueOfFitnessFunction=-0.000129856
         }
@@ -8966,646 +8966,646 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] NumberOfParts;
     }
 
-    if (NameFunction=="MHL_TestFunction_ReverseGriewank")
+    if (NameFunction=="HML_TestFunction_ReverseGriewank")
     {
         double x;
         double y;
         double f;
-        x=MHL_RandomUniform(-10,10);
-        y=MHL_RandomUniform(-10,10);
+        x=HML_RandomUniform(-10,10);
+        y=HML_RandomUniform(-10,10);
 
         //Вызываем функцию
-        f=MHL_TestFunction_ReverseGriewank(x,y);
+        f=HML_TestFunction_ReverseGriewank(x,y);
 
-        MHL_ShowNumber (x,"Первая вещественная переменная", "x");
+        HML_ShowNumber (x,"Первая вещественная переменная", "x");
         //Первая вещественная переменная:
         //x=9.39884
 
-        MHL_ShowNumber (y,"Вторая вещественная переменная", "y");
+        HML_ShowNumber (y,"Вторая вещественная переменная", "y");
         //Вторая вещественная переменная:
         //y=-8.80345
 
-        MHL_ShowNumber (f,"Значение функции", "f");
+        HML_ShowNumber (f,"Значение функции", "f");
         //Значение функции:
         //f=0.26129
     }
 
-    if (NameFunction=="MHL_TestFunction_HyperEllipsoid")
+    if (NameFunction=="HML_TestFunction_HyperEllipsoid")
     {
         double *x;
         double f;
-        int VMHL_N=2;
-        x=new double[VMHL_N];
-        for (int i=0;i<VMHL_N;i++) x[i]=MHL_RandomUniform(-5,5);
-        f=MHL_TestFunction_HyperEllipsoid(x,VMHL_N);
+        int VHML_N=2;
+        x=new double[VHML_N];
+        for (int i=0;i<VHML_N;i++) x[i]=HML_RandomUniform(-5,5);
+        f=HML_TestFunction_HyperEllipsoid(x,VHML_N);
 
-        MHL_ShowVector (x,VMHL_N,"Входной вектор", "x");
+        HML_ShowVector (x,VHML_N,"Входной вектор", "x");
         //Входной вектор:
         //x =
         //1.39903
         //1.96538
 
-        MHL_ShowNumber (f,"Значение функции", "f");
+        HML_ShowNumber (f,"Значение функции", "f");
         //Значение функции:
         //f=17.4082
 
         delete[] x;
     }
 
-    if (NameFunction=="MHL_TestFunction_RotatedHyperEllipsoid")
+    if (NameFunction=="HML_TestFunction_RotatedHyperEllipsoid")
     {
         double *x;
         double f;
-        int VMHL_N=2;
-        x=new double[VMHL_N];
-        for (int i=0;i<VMHL_N;i++) x[i]=MHL_RandomUniform(-5,5);
-        f=MHL_TestFunction_RotatedHyperEllipsoid(x,VMHL_N);
+        int VHML_N=2;
+        x=new double[VHML_N];
+        for (int i=0;i<VHML_N;i++) x[i]=HML_RandomUniform(-5,5);
+        f=HML_TestFunction_RotatedHyperEllipsoid(x,VHML_N);
 
-        MHL_ShowVector (x,VMHL_N,"Входной вектор", "x");
+        HML_ShowVector (x,VHML_N,"Входной вектор", "x");
         //Входной вектор:
         //x =
         //-0.933898
         //-1.2216
 
-        MHL_ShowNumber (f,"Значение функции", "f");
+        HML_ShowNumber (f,"Значение функции", "f");
         //Значение функции:
         //f=5.51833
 
         delete[] x;
     }
 
-    if (NameFunction=="MHL_TestFunction_Wave")
+    if (NameFunction=="HML_TestFunction_Wave")
     {
         double x;
         double f;
-        x=MHL_RandomUniform(-2,2);
+        x=HML_RandomUniform(-2,2);
 
         //Вызываем функцию
-        f=MHL_TestFunction_Wave(x);
+        f=HML_TestFunction_Wave(x);
 
-        MHL_ShowNumber (x,"Вещественная переменная", "x");
+        HML_ShowNumber (x,"Вещественная переменная", "x");
         //Вещественная переменная:
         //x=0.802021
 
-        MHL_ShowNumber (f,"Значение функции", "f");
+        HML_ShowNumber (f,"Значение функции", "f");
         //Значение функции:
         //f=0.515755
     }
 
-    if (NameFunction=="MHL_TestFunction_Multiextremal")
+    if (NameFunction=="HML_TestFunction_Multiextremal")
     {
         double x;
         double f;
-        x=MHL_RandomUniform(-2,2);
+        x=HML_RandomUniform(-2,2);
         //x=0.954451617;
 
         //Вызываем функцию
-        f=MHL_TestFunction_Multiextremal(x);
+        f=HML_TestFunction_Multiextremal(x);
 
-        MHL_ShowNumber (x,"Вещественная переменная", "x");
+        HML_ShowNumber (x,"Вещественная переменная", "x");
         //Вещественная переменная:
         //x=1.112
 
-        MHL_ShowNumber (f,"Значение функции", "f");
+        HML_ShowNumber (f,"Значение функции", "f");
         //Значение функции:
         //f=5.46058
     }
 
-    if (NameFunction=="MHL_TestFunction_Multiextremal2")
+    if (NameFunction=="HML_TestFunction_Multiextremal2")
     {
         double x;
         double f;
-        x=MHL_RandomUniform(-2,2);
+        x=HML_RandomUniform(-2,2);
         x=-0.993263;
 
         //Вызываем функцию
-        f=MHL_TestFunction_Multiextremal2(x);
+        f=HML_TestFunction_Multiextremal2(x);
 
-        MHL_ShowNumber (x,"Вещественная переменная", "x");
+        HML_ShowNumber (x,"Вещественная переменная", "x");
         //Вещественная переменная:
         //x=-0.00666742
 
-        MHL_ShowNumber (f,"Значение функции", "f");
+        HML_ShowNumber (f,"Значение функции", "f");
         //Значение функции:
         //f=1.0641
     }
 
-    if (NameFunction=="MHL_TestFunction_Sombrero")
+    if (NameFunction=="HML_TestFunction_Sombrero")
     {
         double x;
         double y;
         double f;
-        x=MHL_RandomUniform(-20,20);
-        y=MHL_RandomUniform(-20,20);
+        x=HML_RandomUniform(-20,20);
+        y=HML_RandomUniform(-20,20);
 
         //Вызываем функцию
-        f=MHL_TestFunction_Sombrero(x,y);
+        f=HML_TestFunction_Sombrero(x,y);
 
-        MHL_ShowNumber (x,"Первая вещественная переменная", "x");
+        HML_ShowNumber (x,"Первая вещественная переменная", "x");
         //Первая вещественная переменная:
         //x=-3.26381
 
-        MHL_ShowNumber (y,"Вторая вещественная переменная", "y");
+        HML_ShowNumber (y,"Вторая вещественная переменная", "y");
         //Вторая вещественная переменная:
         //y=-0.836133
 
-        MHL_ShowNumber (f,"Значение функции", "f");
+        HML_ShowNumber (f,"Значение функции", "f");
         //Значение функции:
         //f=0.938425
     }
 
-    if (NameFunction=="MHL_TestFunction_Himmelblau")
+    if (NameFunction=="HML_TestFunction_Himmelblau")
     {
         double x;
         double y;
         double f;
-        x=MHL_RandomUniform(-5,5);
-        y=MHL_RandomUniform(-5,5);
+        x=HML_RandomUniform(-5,5);
+        y=HML_RandomUniform(-5,5);
 
         //Вызываем функцию
-        f=MHL_TestFunction_Himmelblau(x,y);
+        f=HML_TestFunction_Himmelblau(x,y);
 
-        MHL_ShowNumber (x,"Первая вещественная переменная", "x");
+        HML_ShowNumber (x,"Первая вещественная переменная", "x");
         //Первая вещественная переменная:
         //x=1.8744
 
-        MHL_ShowNumber (y,"Вторая вещественная переменная", "y");
+        HML_ShowNumber (y,"Вторая вещественная переменная", "y");
         //Вторая вещественная переменная:
         //y=0.39062
 
-        MHL_ShowNumber (f,"Значение функции", "f");
+        HML_ShowNumber (f,"Значение функции", "f");
         //Значение функции:
         //f=75.0844
     }
 
-    if (NameFunction=="MHL_TestFunction_Katnikov")
+    if (NameFunction=="HML_TestFunction_Katnikov")
     {
         double x;
         double y;
         double f;
-        x=MHL_RandomUniform(-5,5);
-        y=MHL_RandomUniform(-5,5);
+        x=HML_RandomUniform(-5,5);
+        y=HML_RandomUniform(-5,5);
 
         //Вызываем функцию
-        f=MHL_TestFunction_Katnikov(x,y);
+        f=HML_TestFunction_Katnikov(x,y);
 
-        MHL_ShowNumber (x,"Первая вещественная переменная", "x");
+        HML_ShowNumber (x,"Первая вещественная переменная", "x");
         //Первая вещественная переменная:
         //x=-1.44256
 
-        MHL_ShowNumber (y,"Вторая вещественная переменная", "y");
+        HML_ShowNumber (y,"Вторая вещественная переменная", "y");
         //Вторая вещественная переменная:
         //y=-3.16906
 
-        MHL_ShowNumber (f,"Значение функции", "f");
+        HML_ShowNumber (f,"Значение функции", "f");
         //Значение функции:
         //f=11.5793
     }
 
-    if (NameFunction=="MHL_TestFunction_Multiextremal3")
+    if (NameFunction=="HML_TestFunction_Multiextremal3")
     {
         double x;
         double y;
         double f;
-        x=MHL_RandomUniform(-5,5);
-        y=MHL_RandomUniform(-5,5);
+        x=HML_RandomUniform(-5,5);
+        y=HML_RandomUniform(-5,5);
 
         //Вызываем функцию
-        f=MHL_TestFunction_Multiextremal3(x,y);
+        f=HML_TestFunction_Multiextremal3(x,y);
 
-        MHL_ShowNumber (x,"Первая вещественная переменная", "x");
+        HML_ShowNumber (x,"Первая вещественная переменная", "x");
         //Первая вещественная переменная:
         //x=2.68873
 
-        MHL_ShowNumber (y,"Вторая вещественная переменная", "y");
+        HML_ShowNumber (y,"Вторая вещественная переменная", "y");
         //Вторая вещественная переменная:
         //y=0.520861
 
-        MHL_ShowNumber (f,"Значение функции", "f");
+        HML_ShowNumber (f,"Значение функции", "f");
         //Значение функции:
         //f=10.8962
     }
 
-    if (NameFunction=="MHL_TestFunction_Multiextremal4")
+    if (NameFunction=="HML_TestFunction_Multiextremal4")
     {
         double x;
         double y;
         double f;
-        x=MHL_RandomUniform(0,4);
-        y=MHL_RandomUniform(0,4);
+        x=HML_RandomUniform(0,4);
+        y=HML_RandomUniform(0,4);
 
         //Вызываем функцию
-        f=MHL_TestFunction_Multiextremal4(x,y);
+        f=HML_TestFunction_Multiextremal4(x,y);
 
-        MHL_ShowNumber (x,"Первая вещественная переменная", "x");
+        HML_ShowNumber (x,"Первая вещественная переменная", "x");
         //Первая вещественная переменная:
         //x=2.6604
 
-        MHL_ShowNumber (y,"Вторая вещественная переменная", "y");
+        HML_ShowNumber (y,"Вторая вещественная переменная", "y");
         //Вторая вещественная переменная:
         //y=2.56989
 
-        MHL_ShowNumber (f,"Значение функции", "f");
+        HML_ShowNumber (f,"Значение функции", "f");
         //Значение функции:
         //f=8.82495
     }
 
-    if (NameFunction=="MHL_TestFunction_StepFunction")
+    if (NameFunction=="HML_TestFunction_StepFunction")
     {
         double *x;
         double f;
-        int VMHL_N=2;
-        x=new double[VMHL_N];
-        for (int i=0;i<VMHL_N;i++) x[i]=MHL_RandomUniform(-5,5);
-        f=MHL_TestFunction_StepFunction(x,VMHL_N);
+        int VHML_N=2;
+        x=new double[VHML_N];
+        for (int i=0;i<VHML_N;i++) x[i]=HML_RandomUniform(-5,5);
+        f=HML_TestFunction_StepFunction(x,VHML_N);
 
-        MHL_ShowVector (x,VMHL_N,"Входной вектор", "x");
+        HML_ShowVector (x,VHML_N,"Входной вектор", "x");
         //Входной вектор:
         //Входной вектор:
         //x =
         //-0.413264
         //-0.141813
 
-        MHL_ShowNumber (f,"Значение функции", "f");
+        HML_ShowNumber (f,"Значение функции", "f");
         //Значение функции:
         //f=-0.444923
 
         delete[] x;
     }
 
-    if (NameFunction=="MHL_TestFunction_Rana")
+    if (NameFunction=="HML_TestFunction_Rana")
     {
         double x;
         double y;
         double f;
-        x=MHL_RandomUniform(-512,512);
-        y=MHL_RandomUniform(-512,512);
+        x=HML_RandomUniform(-512,512);
+        y=HML_RandomUniform(-512,512);
 
         //Вызываем функцию
-        f=MHL_TestFunction_Rana(x,y);
+        f=HML_TestFunction_Rana(x,y);
 
-        MHL_ShowNumber (x,"Первая вещественная переменная", "x");
+        HML_ShowNumber (x,"Первая вещественная переменная", "x");
         //Первая вещественная переменная:
         //x=-169.488
 
-        MHL_ShowNumber (y,"Вторая вещественная переменная", "y");
+        HML_ShowNumber (y,"Вторая вещественная переменная", "y");
         //Вторая вещественная переменная:
         //y=-458.027
 
-        MHL_ShowNumber (f,"Значение функции", "f");
+        HML_ShowNumber (f,"Значение функции", "f");
         //Значение функции:
         //f=145.161
     }
 
-    if (NameFunction=="MHL_TestFunction_ShekelsFoxholes")
+    if (NameFunction=="HML_TestFunction_ShekelsFoxholes")
     {
         double x;
         double y;
         double f;
-        x=MHL_RandomUniform(-50,50);
-        y=MHL_RandomUniform(-50,50);
+        x=HML_RandomUniform(-50,50);
+        y=HML_RandomUniform(-50,50);
 
         //Вызываем функцию
-        f=MHL_TestFunction_ShekelsFoxholes(x,y);
+        f=HML_TestFunction_ShekelsFoxholes(x,y);
 
-        MHL_ShowNumber (x,"Первая вещественная переменная", "x");
+        HML_ShowNumber (x,"Первая вещественная переменная", "x");
         //Первая вещественная переменная:
         //x=-1.42869
 
-        MHL_ShowNumber (y,"Вторая вещественная переменная", "y");
+        HML_ShowNumber (y,"Вторая вещественная переменная", "y");
         //Вторая вещественная переменная:
         //y=-6.40351
 
-        MHL_ShowNumber (f,"Значение функции", "f");
+        HML_ShowNumber (f,"Значение функции", "f");
         //Значение функции:
         //f=496.009
     }
 
-    if (NameFunction=="MHL_TestFunction_EggHolder")
+    if (NameFunction=="HML_TestFunction_EggHolder")
     {
         double x;
         double y;
         double f;
-        x=MHL_RandomUniform(-512,512);
-        y=MHL_RandomUniform(-512,512);
+        x=HML_RandomUniform(-512,512);
+        y=HML_RandomUniform(-512,512);
 
         //Вызываем функцию
-        f=MHL_TestFunction_EggHolder(x,y);
+        f=HML_TestFunction_EggHolder(x,y);
 
-        MHL_ShowNumber (x,"Первая вещественная переменная", "x");
+        HML_ShowNumber (x,"Первая вещественная переменная", "x");
         //Первая вещественная переменная:
         //x=367.682
 
-        MHL_ShowNumber (y,"Вторая вещественная переменная", "y");
+        HML_ShowNumber (y,"Вторая вещественная переменная", "y");
         //Вторая вещественная переменная:
         //y=464.74
 
-        MHL_ShowNumber (f,"Значение функции", "f");
+        HML_ShowNumber (f,"Значение функции", "f");
         //Значение функции:
         //f=-287.643
     }
 
-    if (NameFunction=="MHL_TestFunction_RastriginWithChange")
+    if (NameFunction=="HML_TestFunction_RastriginWithChange")
     {
         double x;
         double y;
         double f;
-        x=MHL_RandomUniform(-16,16);
-        y=MHL_RandomUniform(-16,16);
+        x=HML_RandomUniform(-16,16);
+        y=HML_RandomUniform(-16,16);
 
         //Вызываем функцию
-        f=MHL_TestFunction_RastriginWithChange(x,y);
+        f=HML_TestFunction_RastriginWithChange(x,y);
 
-        MHL_ShowNumber (x,"Первая вещественная переменная", "x");
+        HML_ShowNumber (x,"Первая вещественная переменная", "x");
         //Первая вещественная переменная:
         //x=12.4601
 
-        MHL_ShowNumber (y,"Вторая вещественная переменная", "y");
+        HML_ShowNumber (y,"Вторая вещественная переменная", "y");
         //Вторая вещественная переменная:
         //y=5.36642
 
-        MHL_ShowNumber (f,"Значение функции", "f");
+        HML_ShowNumber (f,"Значение функции", "f");
         //Значение функции:
         //f=31.4576
     }
 
-    if (NameFunction=="MHL_TestFunction_RastriginWithTurning")
+    if (NameFunction=="HML_TestFunction_RastriginWithTurning")
     {
         double x;
         double y;
         double f;
-        x=MHL_RandomUniform(-16,16);
-        y=MHL_RandomUniform(-16,16);
+        x=HML_RandomUniform(-16,16);
+        y=HML_RandomUniform(-16,16);
 
         //Вызываем функцию
-        f=MHL_TestFunction_RastriginWithTurning(x,y);
+        f=HML_TestFunction_RastriginWithTurning(x,y);
 
-        MHL_ShowNumber (x,"Первая вещественная переменная", "x");
+        HML_ShowNumber (x,"Первая вещественная переменная", "x");
         //Первая вещественная переменная:
         //x=-7.1266
 
-        MHL_ShowNumber (y,"Вторая вещественная переменная", "y");
+        HML_ShowNumber (y,"Вторая вещественная переменная", "y");
         //Вторая вещественная переменная:
         //y=11.4531
 
-        MHL_ShowNumber (f,"Значение функции", "f");
+        HML_ShowNumber (f,"Значение функции", "f");
         //Значение функции:
         //f=10.3461
     }
 
-    if (NameFunction=="MHL_TestFunction_Schwefel")
+    if (NameFunction=="HML_TestFunction_Schwefel")
     {
         double *x;
         double f;
-        int VMHL_N=2;
-        x=new double[VMHL_N];
-        for (int i=0;i<VMHL_N;i++) x[i]=MHL_RandomUniform(-500,500);
+        int VHML_N=2;
+        x=new double[VHML_N];
+        for (int i=0;i<VHML_N;i++) x[i]=HML_RandomUniform(-500,500);
 
 
         //Вызов функции
-        f=MHL_TestFunction_Schwefel(x,VMHL_N);
+        f=HML_TestFunction_Schwefel(x,VHML_N);
 
-        MHL_ShowVector (x,VMHL_N,"Входной вектор", "x");
+        HML_ShowVector (x,VHML_N,"Входной вектор", "x");
         //Входной вектор:
         //x =
         //169.715
         //410.499
 
-        MHL_ShowNumber (f,"Значение функции", "f");
+        HML_ShowNumber (f,"Значение функции", "f");
         //Значение функции:
         //f=357.17
 
         delete[] x;
     }
 
-    if (NameFunction=="MHL_TestFunction_Griewangk")
+    if (NameFunction=="HML_TestFunction_Griewangk")
     {
         double *x;
         double f;
-        int VMHL_N=2;
-        x=new double[VMHL_N];
-        for (int i=0;i<VMHL_N;i++) x[i]=MHL_RandomUniform(-16,16);
+        int VHML_N=2;
+        x=new double[VHML_N];
+        for (int i=0;i<VHML_N;i++) x[i]=HML_RandomUniform(-16,16);
 
         //Вызов функции
-        f=MHL_TestFunction_Griewangk(x,VMHL_N);
+        f=HML_TestFunction_Griewangk(x,VHML_N);
 
-        MHL_ShowVector (x,VMHL_N,"Входной вектор", "x");
+        HML_ShowVector (x,VHML_N,"Входной вектор", "x");
         //Входной вектор:
         //x =
         //7.82863
         //12.7969
 
-        MHL_ShowNumber (f,"Значение функции", "f");
+        HML_ShowNumber (f,"Значение функции", "f");
         //Значение функции:
         //f=1.07984
 
         delete[] x;
     }
 
-    if (NameFunction=="MHL_TestFunction_InvertedRosenbrock")
+    if (NameFunction=="HML_TestFunction_InvertedRosenbrock")
     {
         double x;
         double y;
         double f;
-        x=MHL_RandomUniform(-5,5);
-        y=MHL_RandomUniform(-5,5);
+        x=HML_RandomUniform(-5,5);
+        y=HML_RandomUniform(-5,5);
 
         //Вызываем функцию
-        f=MHL_TestFunction_InvertedRosenbrock(x,y);
+        f=HML_TestFunction_InvertedRosenbrock(x,y);
 
-        MHL_ShowNumber (x,"Первая вещественная переменная", "x");
+        HML_ShowNumber (x,"Первая вещественная переменная", "x");
         //Первая вещественная переменная:
         //x=4.95843
 
-        MHL_ShowNumber (y,"Вторая вещественная переменная", "y");
+        HML_ShowNumber (y,"Вторая вещественная переменная", "y");
         //Вторая вещественная переменная:
         //y=4.1078
 
-        MHL_ShowNumber (f,"Значение функции", "f");
+        HML_ShowNumber (f,"Значение функции", "f");
         //Значение функции:
         //f=-0.0375447
     }
 
-    if (NameFunction=="MHL_TestFunction_GaussianQuartic")
+    if (NameFunction=="HML_TestFunction_GaussianQuartic")
     {
         double *x;
         double f;
-        int VMHL_N=2;
-        x=new double[VMHL_N];
-        for (int i=0;i<VMHL_N;i++) x[i]=MHL_RandomUniform(-2,2);
+        int VHML_N=2;
+        x=new double[VHML_N];
+        for (int i=0;i<VHML_N;i++) x[i]=HML_RandomUniform(-2,2);
 
         //Вызов функции
-        f=MHL_TestFunction_GaussianQuartic(x,VMHL_N);
+        f=HML_TestFunction_GaussianQuartic(x,VHML_N);
 
-        MHL_ShowVector (x,VMHL_N,"Входной вектор", "x");
+        HML_ShowVector (x,VHML_N,"Входной вектор", "x");
         //Входной вектор:
         //x =
         //1.82905
         //-1.81438
 
-        MHL_ShowNumber (f,"Значение функции", "f");
+        HML_ShowNumber (f,"Значение функции", "f");
         //Значение функции:
         //f=33.8315
 
         delete[] x;
     }
 
-    if (NameFunction=="MHL_TestFunction_RastriginNovgorod")
+    if (NameFunction=="HML_TestFunction_RastriginNovgorod")
     {
         double *x;
         double f;
-        int VMHL_N=2;
-        x=new double[VMHL_N];
-        for (int i=0;i<VMHL_N;i++) x[i]=MHL_RandomUniform(-2,2);
+        int VHML_N=2;
+        x=new double[VHML_N];
+        for (int i=0;i<VHML_N;i++) x[i]=HML_RandomUniform(-2,2);
 
         //Вызов функции
-        f=MHL_TestFunction_RastriginNovgorod(x,VMHL_N);
+        f=HML_TestFunction_RastriginNovgorod(x,VHML_N);
 
-        MHL_ShowVector (x,VMHL_N,"Входной вектор", "x");
+        HML_ShowVector (x,VHML_N,"Входной вектор", "x");
         //Входной вектор:
         //x =
         //-1.15942
         //1.19803
 
-        MHL_ShowNumber (f,"Значение функции", "f");
+        HML_ShowNumber (f,"Значение функции", "f");
         //Значение функции:
         //f=3.42316
 
         delete[] x;
     }
 
-    if (NameFunction=="TMHL_AlmostZero")
+    if (NameFunction=="HML_AlmostZero")
     {
         double y=0.000000001;
         bool Zero;
 
         //Вызов функции
-        Zero=TMHL_AlmostZero(y);
+        Zero=HML_AlmostZero(y);
 
         //Используем полученный результат
-        MHL_ShowNumber(y,"Проверяемое число","y");
+        HML_ShowNumber(y,"Проверяемое число","y");
         //Проверяемое число:
         //y=1e-09
-        MHL_ShowNumber(Zero,"Является ли почти нулем?","Zero");
+        HML_ShowNumber(Zero,"Является ли почти нулем?","Zero");
         //Является ли почти нулем?:
         //Zero=1
 
         y=0.01;
 
         //Вызов функции
-        Zero=TMHL_AlmostZero(y);
+        Zero=HML_AlmostZero(y);
 
         //Используем полученный результат
-        MHL_ShowNumber(y,"Проверяемое число","y");
+        HML_ShowNumber(y,"Проверяемое число","y");
         //Проверяемое число:
         //y=0.01
-        MHL_ShowNumber(Zero,"Является ли почти нулем?","Zero");
+        HML_ShowNumber(Zero,"Является ли почти нулем?","Zero");
         //Является ли почти нулем?:
         //Zero=0
 
         y=0;
 
         //Вызов функции
-        Zero=TMHL_AlmostZero(y);
+        Zero=HML_AlmostZero(y);
 
         //Используем полученный результат
-        MHL_ShowNumber(y,"Проверяемое число","y");
+        HML_ShowNumber(y,"Проверяемое число","y");
         //Проверяемое число:
         //y=0
-        MHL_ShowNumber(Zero,"Является ли почти нулем?","Zero");
+        HML_ShowNumber(Zero,"Является ли почти нулем?","Zero");
         //Является ли почти нулем?:
         //Zero=1
 
         y=1;
 
         //Вызов функции
-        Zero=TMHL_AlmostZero(y);
+        Zero=HML_AlmostZero(y);
 
         //Используем полученный результат
-        MHL_ShowNumber(y,"Проверяемое число","y");
+        HML_ShowNumber(y,"Проверяемое число","y");
         //Проверяемое число:
         //y=1
-        MHL_ShowNumber(Zero,"Является ли почти нулем?","Zero");
+        HML_ShowNumber(Zero,"Является ли почти нулем?","Zero");
         //Является ли почти нулем?:
         //Zero=0
     }
 
-    if (NameFunction=="MHL_QuadraticEquationCount")
+    if (NameFunction=="HML_QuadraticEquationCount")
     {
-        double a=MHL_RandomUniformInt(1,10);
-        double b=MHL_RandomUniformInt(1,10);
-        double c=MHL_RandomUniformInt(1,10);
+        double a=HML_RandomUniformInt(1,10);
+        double b=HML_RandomUniformInt(1,10);
+        double c=HML_RandomUniformInt(1,10);
         double x1;
         double x2;
 
-        int Result=MHL_QuadraticEquationCount(a,b,c,&x1,&x2);
+        int Result=HML_QuadraticEquationCount(a,b,c,&x1,&x2);
 
         //Используем полученный результат
-        MHL_ShowText("Квадратное уравнение: "+MHL_NumberToText(a)+"x^2+"+MHL_NumberToText(b)+"x+"+MHL_NumberToText(c)+"=0");
+        HML_ShowText("Квадратное уравнение: "+HML_NumberToText(a)+"x^2+"+HML_NumberToText(b)+"x+"+HML_NumberToText(c)+"=0");
         //Квадратное уравнение: 1x^2+4x+4=0.
-        MHL_ShowNumber(Result,"Сколько решений найдено","Result");
+        HML_ShowNumber(Result,"Сколько решений найдено","Result");
         //Сколько решений найдено:
         //Result=1
         if (Result>=1)
         {
-            MHL_ShowNumber(x1,"Первый корень квадратного уравнения","x1");
+            HML_ShowNumber(x1,"Первый корень квадратного уравнения","x1");
             //Первый корень квадратного уравнения:
             //x1=-2
-            MHL_ShowNumber(x2,"Второй корень квадратного уравнения","x2");
+            HML_ShowNumber(x2,"Второй корень квадратного уравнения","x2");
             //Второй корень квадратного уравнения:
             //x2=-2
         }
     }
 
-    if (NameFunction=="TMHL_AlmostEqual")
+    if (NameFunction=="HML_AlmostEqual")
     {
         double x=0;
         double y=0.000000001;
         bool Equal;
 
         //Вызов функции
-        Equal=TMHL_AlmostEqual(x,y);
+        Equal=HML_AlmostEqual(x,y);
 
         //Используем полученный результат
-        MHL_ShowNumber(x,"Проверяемое число","x");
+        HML_ShowNumber(x,"Проверяемое число","x");
         //Проверяемое число:
         //x=0
-        MHL_ShowNumber(y,"Проверяемое число","y");
+        HML_ShowNumber(y,"Проверяемое число","y");
         //Проверяемое число:
         //y=1e-09
-        MHL_ShowNumber(Equal,"Являются ли почти равными?","Equal");
+        HML_ShowNumber(Equal,"Являются ли почти равными?","Equal");
         //Являются ли почти равными?:
         //Equal=1
 
         x=1;
         y=2;
         //Вызов функции
-        Equal=TMHL_AlmostEqual(x,y);
+        Equal=HML_AlmostEqual(x,y);
         //Используем полученный результат
-        MHL_ShowNumber(x,"Проверяемое число","x");
+        HML_ShowNumber(x,"Проверяемое число","x");
         //Проверяемое число:
         //x=1
-        MHL_ShowNumber(y,"Проверяемое число","y");
+        HML_ShowNumber(y,"Проверяемое число","y");
         //Проверяемое число:
         //x=1
-        MHL_ShowNumber(Equal,"Являются ли почти равными?","Equal");
+        HML_ShowNumber(Equal,"Являются ли почти равными?","Equal");
         //Являются ли почти равными?:
         //Equal=0
     }
 
-    if (NameFunction=="TMHL_UncorrectedVariance")
+    if (NameFunction=="HML_UncorrectedVariance")
     {
-        int VMHL_N=10;//Размер массива
+        int VHML_N=10;//Размер массива
         double *x;
-        x=new double[VMHL_N];
+        x=new double[VHML_N];
         //Заполним случайными числами
-        MHL_RandomRealVector (x,0,10,VMHL_N);
+        HML_RandomRealVector (x,0,10,VHML_N);
 
         //Вызов функции
-        double UncorrectedVariance=TMHL_UncorrectedVariance(x,VMHL_N);
+        double UncorrectedVariance=HML_UncorrectedVariance(x,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (x,VMHL_N,"Массив", "x");
+        HML_ShowVector (x,VHML_N,"Массив", "x");
         //Массив:
         //x =
         //7.85789
@@ -9619,60 +9619,60 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //9.4794
         //5.8723
 
-        MHL_ShowNumber (UncorrectedVariance,"Значение выборочной неисправленной дисперсии", "UncorrectedVariance");
+        HML_ShowNumber (UncorrectedVariance,"Значение выборочной неисправленной дисперсии", "UncorrectedVariance");
         //Значение выборочной неисправленной дисперсии:
         //UncorrectedVariance=9.25051
 
         delete [] x;
     }
 
-    if (NameFunction=="MHL_AnswerToTheUltimateQuestionOfLifeTheUniverseAndEverything")
+    if (NameFunction=="HML_AnswerToTheUltimateQuestionOfLifeTheUniverseAndEverything")
     {
-        double Result=MHL_AnswerToTheUltimateQuestionOfLifeTheUniverseAndEverything();
+        double Result=HML_AnswerToTheUltimateQuestionOfLifeTheUniverseAndEverything();
 
         //Используем полученный результат
-        MHL_ShowNumber(Result,"Ответ на главный вопрос жизни, вселенной и всего такого","Ответ");
+        HML_ShowNumber(Result,"Ответ на главный вопрос жизни, вселенной и всего такого","Ответ");
         //Ответ на главный вопрос жизни, вселенной и всего такого:
         //Ответ=42
     }
 
-    if (NameFunction=="MHL_MeaningOfLife")
+    if (NameFunction=="HML_MeaningOfLife")
     {
-        double Result=MHL_MeaningOfLife();
+        double Result=HML_MeaningOfLife();
 
         //Используем полученный результат
-        MHL_ShowNumber(Result,"Смысл жизни","Ответ");
+        HML_ShowNumber(Result,"Смысл жизни","Ответ");
         //Смысл жизни:
         //Ответ=42
     }
 
-    if (NameFunction=="MHL_SinglepointCrossoverForReal")
+    if (NameFunction=="HML_SinglepointCrossoverForReal")
     {
-        int VMHL_N=10; //Размер массива (число строк)
+        int VHML_N=10; //Размер массива (число строк)
         double *Parent1;
-        Parent1=new double[VMHL_N];
+        Parent1=new double[VHML_N];
         double *Parent2;
-        Parent2=new double[VMHL_N];
+        Parent2=new double[VHML_N];
         double *Child;
-        Child=new double[VMHL_N];
-        MHL_RandomRealVector(Parent1,0,1,VMHL_N);
-        MHL_RandomRealVector(Parent2,0,1,VMHL_N);
+        Child=new double[VHML_N];
+        HML_RandomRealVector(Parent1,0,1,VHML_N);
+        HML_RandomRealVector(Parent2,0,1,VHML_N);
 
         //Получим потомка Child
-        MHL_SinglepointCrossoverForReal(Parent1,Parent2,Child,VMHL_N);
+        HML_SinglepointCrossoverForReal(Parent1,Parent2,Child,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVectorT (Parent1,VMHL_N,"Первый родитель", "Parent1");
+        HML_ShowVectorT (Parent1,VHML_N,"Первый родитель", "Parent1");
         //Первый родитель:
         //Parent1 =
         //0.92261	0.684314	0.891158	0.312732	0.640667	0.406768	0.228042	0.180759	0.394544	0.88495
 
-        MHL_ShowVectorT (Parent2,VMHL_N,"Второй родитель", "Parent2");
+        HML_ShowVectorT (Parent2,VHML_N,"Второй родитель", "Parent2");
         //Второй родитель:
         //Parent2 =
         //0.856881	0.134294	0.985216	0.254506	0.456079	0.330734	0.78648	0.257115	0.609472	0.868141
 
-        MHL_ShowVectorT (Child,VMHL_N,"Полученный потомок", "Child");
+        HML_ShowVectorT (Child,VHML_N,"Полученный потомок", "Child");
         //Полученный потомок:
         //Child =
         //0.92261	0.684314	0.891158	0.312732	0.456079	0.330734	0.78648	0.257115	0.609472	0.868141
@@ -9682,33 +9682,33 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] Child;
     }
 
-    if (NameFunction=="MHL_TwopointCrossoverForReal")
+    if (NameFunction=="HML_TwopointCrossoverForReal")
     {
-        int VMHL_N=10; //Размер массива (число строк)
+        int VHML_N=10; //Размер массива (число строк)
         double *Parent1;
-        Parent1=new double[VMHL_N];
+        Parent1=new double[VHML_N];
         double *Parent2;
-        Parent2=new double[VMHL_N];
+        Parent2=new double[VHML_N];
         double *Child;
-        Child=new double[VMHL_N];
-        MHL_RandomRealVector(Parent1,0,1,VMHL_N);
-        MHL_RandomRealVector(Parent2,0,1,VMHL_N);
+        Child=new double[VHML_N];
+        HML_RandomRealVector(Parent1,0,1,VHML_N);
+        HML_RandomRealVector(Parent2,0,1,VHML_N);
 
         //Получим потомка Child
-        MHL_TwopointCrossoverForReal(Parent1,Parent2,Child,VMHL_N);
+        HML_TwopointCrossoverForReal(Parent1,Parent2,Child,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVectorT (Parent1,VMHL_N,"Первый родитель", "Parent1");
+        HML_ShowVectorT (Parent1,VHML_N,"Первый родитель", "Parent1");
         //Первый родитель:
         //Parent1 =
         //0.301053	0.64133	0.815178	0.727049	0.426111	0.119812	0.720018	0.484514	0.948253	0.489644
 
-        MHL_ShowVectorT (Parent2,VMHL_N,"Второй родитель", "Parent2");
+        HML_ShowVectorT (Parent2,VHML_N,"Второй родитель", "Parent2");
         //Второй родитель:
         //Parent2 =
         //0.566543	0.972537	0.575658	0.887848	0.937234	0.772248	0.982688	0.931731	0.480371	0.562743
 
-        MHL_ShowVectorT (Child,VMHL_N,"Полученный потомок", "Child");
+        HML_ShowVectorT (Child,VHML_N,"Полученный потомок", "Child");
         //Полученный потомок:
         //Child =
         //0.301053	0.64133	0.815178	0.887848	0.937234	0.772248	0.982688	0.484514	0.948253	0.489644
@@ -9718,33 +9718,33 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] Child;
     }
 
-    if (NameFunction=="MHL_UniformCrossoverForReal")
+    if (NameFunction=="HML_UniformCrossoverForReal")
     {
-        int VMHL_N=10; //Размер массива (число строк)
+        int VHML_N=10; //Размер массива (число строк)
         double *Parent1;
-        Parent1=new double[VMHL_N];
+        Parent1=new double[VHML_N];
         double *Parent2;
-        Parent2=new double[VMHL_N];
+        Parent2=new double[VHML_N];
         double *Child;
-        Child=new double[VMHL_N];
-        MHL_RandomRealVector(Parent1,0,1,VMHL_N);
-        MHL_RandomRealVector(Parent2,0,1,VMHL_N);
+        Child=new double[VHML_N];
+        HML_RandomRealVector(Parent1,0,1,VHML_N);
+        HML_RandomRealVector(Parent2,0,1,VHML_N);
 
         //Получим потомка Child
-        MHL_UniformCrossoverForReal(Parent1,Parent2,Child,VMHL_N);
+        HML_UniformCrossoverForReal(Parent1,Parent2,Child,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVectorT (Parent1,VMHL_N,"Первый родитель", "Parent1");
+        HML_ShowVectorT (Parent1,VHML_N,"Первый родитель", "Parent1");
         //Первый родитель:
         //Parent1 =
         //0.872271	0.400017	0.382867	0.0215583	0.195993	0.0210766	0.546082	0.540188	0.448846	0.22661
 
-        MHL_ShowVectorT (Parent2,VMHL_N,"Второй родитель", "Parent2");
+        HML_ShowVectorT (Parent2,VHML_N,"Второй родитель", "Parent2");
         //Второй родитель:
         //Parent2 =
         //0.972843	0.656896	0.892507	0.438632	0.1083	0.982196	0.376142	0.285289	0.411732	0.681029
 
-        MHL_ShowVectorT (Child,VMHL_N,"Полученный потомок", "Child");
+        HML_ShowVectorT (Child,VHML_N,"Полученный потомок", "Child");
         //Полученный потомок:
         //Полученный потомок:
         //Child =
@@ -9755,25 +9755,25 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] Child;
     }
 
-    if (NameFunction=="TMHL_MeanOfUpperFilter")
+    if (NameFunction=="HML_MeanOfUpperFilter")
     {
         int i;
-        int VMHL_N=10;//Размер массива
+        int VHML_N=10;//Размер массива
         double *a;
-        a=new double[VMHL_N];
+        a=new double[VHML_N];
         //Заполним случайными числами
-        for (i=0;i<VMHL_N;i++)
-            a[i]=MHL_RandomUniform(0,10);
+        for (i=0;i<VHML_N;i++)
+            a[i]=HML_RandomUniform(0,10);
 
         double UpperFilter=9;
 
-        double Mean=TMHL_Mean(a,VMHL_N);
+        double Mean=HML_Mean(a,VHML_N);
 
         //Вызов функции
-        double MeanOfUpperFilter=TMHL_MeanOfUpperFilter(a,VMHL_N,UpperFilter);
+        double MeanOfUpperFilter=HML_MeanOfUpperFilter(a,VHML_N,UpperFilter);
 
         //Используем полученный результат
-        MHL_ShowVector (a,VMHL_N,"Массив", "a");
+        HML_ShowVector (a,VHML_N,"Массив", "a");
         //Массив:
         //a =
         //4.51301
@@ -9787,40 +9787,40 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //9.3158
         //1.33581
 
-        MHL_ShowNumber (UpperFilter,"Значение верхнего фильтра", "UpperFilter");
+        HML_ShowNumber (UpperFilter,"Значение верхнего фильтра", "UpperFilter");
         //Значение верхнего фильтра:
         //UpperFilter=9
 
-        MHL_ShowNumber (Mean,"Среднее арифметическое массива", "Mean");
+        HML_ShowNumber (Mean,"Среднее арифметическое массива", "Mean");
         //Среднее арифметическое массива:
         ///Mean=6.11094
 
-        MHL_ShowNumber (MeanOfUpperFilter,"Среднее арифметическое массива с верхним фильтром", "MeanOfUpperFilter");
+        HML_ShowNumber (MeanOfUpperFilter,"Среднее арифметическое массива с верхним фильтром", "MeanOfUpperFilter");
         //Среднее арифметическое массива с верхним фильтром:
         //MeanOfUpperFilter=4.69698
 
         delete [] a;
     }
 
-    if (NameFunction=="TMHL_MeanOfLowerFilter")
+    if (NameFunction=="HML_MeanOfLowerFilter")
     {
         int i;
-        int VMHL_N=10;//Размер массива
+        int VHML_N=10;//Размер массива
         double *a;
-        a=new double[VMHL_N];
+        a=new double[VHML_N];
         //Заполним случайными числами
-        for (i=0;i<VMHL_N;i++)
-            a[i]=MHL_RandomUniform(0,10);
+        for (i=0;i<VHML_N;i++)
+            a[i]=HML_RandomUniform(0,10);
 
         double LowerFilter=1;
 
-        double Mean=TMHL_Mean(a,VMHL_N);
+        double Mean=HML_Mean(a,VHML_N);
 
         //Вызов функции
-        double MeanOfLowerFilter=TMHL_MeanOfLowerFilter(a,VMHL_N,LowerFilter);
+        double MeanOfLowerFilter=HML_MeanOfLowerFilter(a,VHML_N,LowerFilter);
 
         //Используем полученный результат
-        MHL_ShowVector (a,VMHL_N,"Массив", "a");
+        HML_ShowVector (a,VHML_N,"Массив", "a");
         //Массив:
         //a =
         //8.20861
@@ -9834,42 +9834,42 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //9.51881
         //6.51128
 
-        MHL_ShowNumber (LowerFilter,"Значение нижнего фильтра", "LowerFilter");
+        HML_ShowNumber (LowerFilter,"Значение нижнего фильтра", "LowerFilter");
         //Значение нижнего фильтра:
         //LowerFilter=1
 
-        MHL_ShowNumber (Mean,"Среднее арифметическое массива", "Mean");
+        HML_ShowNumber (Mean,"Среднее арифметическое массива", "Mean");
         //Среднее арифметическое массива:
         //Mean=5.57397
 
-        MHL_ShowNumber (MeanOfLowerFilter,"Среднее арифметическое массива с нижним фильтром", "MeanOfLowerFilter");
+        HML_ShowNumber (MeanOfLowerFilter,"Среднее арифметическое массива с нижним фильтром", "MeanOfLowerFilter");
         //Среднее арифметическое массива с нижним фильтром:
         //MeanOfLowerFilter=6.18932
 
         delete [] a;
     }
 
-    if (NameFunction=="TMHL_MeanOfFilter")
+    if (NameFunction=="HML_MeanOfFilter")
     {
         int i;
-        int VMHL_N=10;//Размер массива
+        int VHML_N=10;//Размер массива
         double *a;
-        a=new double[VMHL_N];
+        a=new double[VHML_N];
         //Заполним случайными числами
-        for (i=0;i<VMHL_N;i++)
-            a[i]=MHL_RandomUniform(0,10);
+        for (i=0;i<VHML_N;i++)
+            a[i]=HML_RandomUniform(0,10);
 
         double LowerFilter=1;
 
         double UpperFilter=9;
 
-        double Mean=TMHL_Mean(a,VMHL_N);
+        double Mean=HML_Mean(a,VHML_N);
 
         //Вызов функции
-        double MeanOfFilter=TMHL_MeanOfFilter(a,VMHL_N, UpperFilter, LowerFilter);
+        double MeanOfFilter=HML_MeanOfFilter(a,VHML_N, UpperFilter, LowerFilter);
 
         //Используем полученный результат
-        MHL_ShowVector (a,VMHL_N,"Массив", "a");
+        HML_ShowVector (a,VHML_N,"Массив", "a");
         //Массив:
         //a =
         //0.0249536
@@ -9883,51 +9883,51 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //4.85183
         //3.34549
 
-        MHL_ShowNumber (LowerFilter,"Значение нижнего фильтра", "LowerFilter");
+        HML_ShowNumber (LowerFilter,"Значение нижнего фильтра", "LowerFilter");
         //Значение нижнего фильтра:
         //LowerFilter=1
 
-        MHL_ShowNumber (UpperFilter,"Значение верхнего фильтра", "UpperFilter");
+        HML_ShowNumber (UpperFilter,"Значение верхнего фильтра", "UpperFilter");
         //Значение верхнего фильтра:
         //UpperFilter=9
 
-        MHL_ShowNumber (Mean,"Среднее арифметическое массива", "Mean");
+        HML_ShowNumber (Mean,"Среднее арифметическое массива", "Mean");
         //Среднее арифметическое массива:
         //Mean=4.53549
 
-        MHL_ShowNumber (MeanOfFilter,"Среднее арифметическое массива с фильтром", "MeanOfFilter");
+        HML_ShowNumber (MeanOfFilter,"Среднее арифметическое массива с фильтром", "MeanOfFilter");
         //Среднее арифметическое массива с фильтром:
         //MeanOfFilter=5.07057
 
         delete [] a;
     }
 
-    if (NameFunction=="MHL_ArithmeticalCrossoverForReal")
+    if (NameFunction=="HML_ArithmeticalCrossoverForReal")
     {
-        int VMHL_N=10; //Размер массива (число строк)
+        int VHML_N=10; //Размер массива (число строк)
         double *Parent1;
-        Parent1=new double[VMHL_N];
+        Parent1=new double[VHML_N];
         double *Parent2;
-        Parent2=new double[VMHL_N];
+        Parent2=new double[VHML_N];
         double *Child;
-        Child=new double[VMHL_N];
-        MHL_RandomRealVector(Parent1,0,1,VMHL_N);
-        MHL_RandomRealVector(Parent2,0,1,VMHL_N);
+        Child=new double[VHML_N];
+        HML_RandomRealVector(Parent1,0,1,VHML_N);
+        HML_RandomRealVector(Parent2,0,1,VHML_N);
 
         //Получим потомка Child
-        MHL_ArithmeticalCrossoverForReal(Parent1,Parent2,Child,0.5,VMHL_N);
+        HML_ArithmeticalCrossoverForReal(Parent1,Parent2,Child,0.5,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVectorT (Parent1,VMHL_N,"Первый родитель", "Parent1");
+        HML_ShowVectorT (Parent1,VHML_N,"Первый родитель", "Parent1");
         //Первый родитель:
         //Parent1 =
         //0.332926	0.899553	0.469617	0.89417	0.510588	0.261183	0.0920975	0.599565	0.663209	0.544152
-        MHL_ShowVectorT (Parent2,VMHL_N,"Второй родитель", "Parent2");
+        HML_ShowVectorT (Parent2,VHML_N,"Второй родитель", "Parent2");
         //Второй родитель:
         //Parent2 =
         //0.084834	0.633822	0.814498	0.211601	0.753767	0.815395	0.82197	0.817619	0.543505	0.754058
 
-        MHL_ShowVectorT (Child,VMHL_N,"Полученный потомок", "Child");
+        HML_ShowVectorT (Child,VHML_N,"Полученный потомок", "Child");
         //Полученный потомок:
         //Child =
         //0.20888	0.766688	0.642057	0.552885	0.632177	0.538289	0.457034	0.708592	0.603357	0.649105
@@ -9937,58 +9937,58 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] Child;
     }
 
-    if (NameFunction=="MHL_TestFunction_Bosom")
+    if (NameFunction=="HML_TestFunction_Bosom")
     {
         double x;
         double y;
         double f;
-        x=MHL_RandomUniform(-12,12);
-        y=MHL_RandomUniform(-12,12);
+        x=HML_RandomUniform(-12,12);
+        y=HML_RandomUniform(-12,12);
 
         //Вызываем функцию
-        f=MHL_TestFunction_Bosom(x,y);
+        f=HML_TestFunction_Bosom(x,y);
 
-        MHL_ShowNumber (x,"Первая вещественная переменная", "x");
+        HML_ShowNumber (x,"Первая вещественная переменная", "x");
         //Первая вещественная переменная:
         //x=6.33755
 
-        MHL_ShowNumber (y,"Вторая вещественная переменная", "y");
+        HML_ShowNumber (y,"Вторая вещественная переменная", "y");
         //Вторая вещественная переменная:
         //y=10.0335
 
-        MHL_ShowNumber (f,"Значение функции", "f");
+        HML_ShowNumber (f,"Значение функции", "f");
         //Значение функции:
         //f=0.173283
     }
 
-    if (NameFunction=="MHL_FlatCrossoverForReal")
+    if (NameFunction=="HML_FlatCrossoverForReal")
     {
-        int VMHL_N=5; //Размер массива (число строк)
+        int VHML_N=5; //Размер массива (число строк)
         double *Parent1;
-        Parent1=new double[VMHL_N];
+        Parent1=new double[VHML_N];
         double *Parent2;
-        Parent2=new double[VMHL_N];
+        Parent2=new double[VHML_N];
         double *Child;
-        Child=new double[VMHL_N];
-        MHL_RandomRealVector(Parent1,0,1,VMHL_N);
-        MHL_RandomRealVector(Parent2,0,1,VMHL_N);
+        Child=new double[VHML_N];
+        HML_RandomRealVector(Parent1,0,1,VHML_N);
+        HML_RandomRealVector(Parent2,0,1,VHML_N);
 
         //Получим потомка Child
-        MHL_FlatCrossoverForReal(Parent1,Parent2,Child,VMHL_N);
+        HML_FlatCrossoverForReal(Parent1,Parent2,Child,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVectorT (Parent1,VMHL_N,"Первый родитель", "Parent1");
+        HML_ShowVectorT (Parent1,VHML_N,"Первый родитель", "Parent1");
         //Первый родитель:
         //Parent1 =
         //0.53608	0.642251	0.592985	0.496914	0.869165
 
-        MHL_ShowVectorT (Parent2,VMHL_N,"Второй родитель", "Parent2");
+        HML_ShowVectorT (Parent2,VHML_N,"Второй родитель", "Parent2");
         //Второй родитель:
         //Parent2 =
         //0.865619	0.479102	0.872257	0.270094	0.567692
 
 
-        MHL_ShowVectorT (Child,VMHL_N,"Полученный потомок", "Child");
+        HML_ShowVectorT (Child,VHML_N,"Полученный потомок", "Child");
         //Полученный потомок:
         //Child =
         //0.86188	0.559004	0.60677	0.367834	0.737273
@@ -9998,33 +9998,33 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] Child;
     }
 
-    if (NameFunction=="MHL_GeometricalCrossoverForReal")
+    if (NameFunction=="HML_GeometricalCrossoverForReal")
     {
-        int VMHL_N=5; //Размер массива (число строк)
+        int VHML_N=5; //Размер массива (число строк)
         double *Parent1;
-        Parent1=new double[VMHL_N];
+        Parent1=new double[VHML_N];
         double *Parent2;
-        Parent2=new double[VMHL_N];
+        Parent2=new double[VHML_N];
         double *Child;
-        Child=new double[VMHL_N];
-        MHL_RandomRealVector(Parent1,0,1,VMHL_N);
-        MHL_RandomRealVector(Parent2,0,1,VMHL_N);
+        Child=new double[VHML_N];
+        HML_RandomRealVector(Parent1,0,1,VHML_N);
+        HML_RandomRealVector(Parent2,0,1,VHML_N);
 
         //Получим потомка Child
-        MHL_GeometricalCrossoverForReal(Parent1,Parent2,Child,0.5,VMHL_N);
+        HML_GeometricalCrossoverForReal(Parent1,Parent2,Child,0.5,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVectorT (Parent1,VMHL_N,"Первый родитель", "Parent1");
+        HML_ShowVectorT (Parent1,VHML_N,"Первый родитель", "Parent1");
         //Первый родитель:
         //Parent1 =
         //0.237303	0.742526	0.401953	0.794393	0.450861
 
-        MHL_ShowVectorT (Parent2,VMHL_N,"Второй родитель", "Parent2");
+        HML_ShowVectorT (Parent2,VHML_N,"Второй родитель", "Parent2");
         //Второй родитель:
         //Parent2 =
         //0.0427865	0.784436	0.736516	0.875728	0.871102
 
-        MHL_ShowVectorT (Child,VMHL_N,"Полученный потомок", "Child");
+        HML_ShowVectorT (Child,VHML_N,"Полученный потомок", "Child");
         //Полученный потомок:
         //Child =
         //0.100764	0.763194	0.5441	0.83407	0.626694
@@ -10034,33 +10034,33 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] Child;
     }
 
-    if (NameFunction=="MHL_BLXCrossoverForReal")
+    if (NameFunction=="HML_BLXCrossoverForReal")
     {
-        int VMHL_N=5; //Размер массива (число строк)
+        int VHML_N=5; //Размер массива (число строк)
         double *Parent1;
-        Parent1=new double[VMHL_N];
+        Parent1=new double[VHML_N];
         double *Parent2;
-        Parent2=new double[VMHL_N];
+        Parent2=new double[VHML_N];
         double *Child;
-        Child=new double[VMHL_N];
-        MHL_RandomRealVector(Parent1,0,1,VMHL_N);
-        MHL_RandomRealVector(Parent2,0,1,VMHL_N);
+        Child=new double[VHML_N];
+        HML_RandomRealVector(Parent1,0,1,VHML_N);
+        HML_RandomRealVector(Parent2,0,1,VHML_N);
 
         //Получим потомка Child
-        MHL_BLXCrossoverForReal(Parent1,Parent2,Child,0.5,VMHL_N);
+        HML_BLXCrossoverForReal(Parent1,Parent2,Child,0.5,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVectorT (Parent1,VMHL_N,"Первый родитель", "Parent1");
+        HML_ShowVectorT (Parent1,VHML_N,"Первый родитель", "Parent1");
         //Первый родитель:
         //Parent1 =
         //0.00492424	0.904672	0.495609	0.277354	0.157748
 
-        MHL_ShowVectorT (Parent2,VMHL_N,"Второй родитель", "Parent2");
+        HML_ShowVectorT (Parent2,VHML_N,"Второй родитель", "Parent2");
         //Второй родитель:
         //Parent2 =
         //0.0642395	0.216884	0.270904	0.602833	0.0286132
 
-        MHL_ShowVectorT (Child,VMHL_N,"Полученный потомок", "Child");
+        HML_ShowVectorT (Child,VHML_N,"Полученный потомок", "Child");
         //Полученный потомок:
         //Child =
         //0.0163621	0.797608	0.169474	0.73645	0.114127
@@ -10070,33 +10070,33 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] Child;
     }
 
-    if (NameFunction=="MHL_LinearCrossoverForReal")
+    if (NameFunction=="HML_LinearCrossoverForReal")
     {
-        int VMHL_N=5; //Размер массива (число строк)
+        int VHML_N=5; //Размер массива (число строк)
         double *Parent1;
-        Parent1=new double[VMHL_N];
+        Parent1=new double[VHML_N];
         double *Parent2;
-        Parent2=new double[VMHL_N];
+        Parent2=new double[VHML_N];
         double *Child;
-        Child=new double[VMHL_N];
-        MHL_RandomRealVector(Parent1,0,1,VMHL_N);
-        MHL_RandomRealVector(Parent2,0,1,VMHL_N);
+        Child=new double[VHML_N];
+        HML_RandomRealVector(Parent1,0,1,VHML_N);
+        HML_RandomRealVector(Parent2,0,1,VHML_N);
 
         //Получим потомка Child
-        MHL_LinearCrossoverForReal(Parent1,Parent2,Child,VMHL_N);
+        HML_LinearCrossoverForReal(Parent1,Parent2,Child,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVectorT (Parent1,VMHL_N,"Первый родитель", "Parent1");
+        HML_ShowVectorT (Parent1,VHML_N,"Первый родитель", "Parent1");
         //Первый родитель:
         //Parent1 =
         //0.677296	0.808882	0.182892	0.776259	0.82249
 
-        MHL_ShowVectorT (Parent2,VMHL_N,"Второй родитель", "Parent2");
+        HML_ShowVectorT (Parent2,VHML_N,"Второй родитель", "Parent2");
         //Второй родитель:
         //Parent2 =
         //0.91462	0.788695	0.563462	0.214182	0.603119
 
-        MHL_ShowVectorT (Child,VMHL_N,"Полученный потомок", "Child");
+        HML_ShowVectorT (Child,VHML_N,"Полученный потомок", "Child");
         //Полученный потомок:
         //Child =
         //0.558634	0.818976	-0.00739218	1.0573	0.932176
@@ -10106,33 +10106,33 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] Child;
     }
 
-    if (NameFunction=="MHL_ExtendedLineForReal")
+    if (NameFunction=="HML_ExtendedLineForReal")
     {
-        int VMHL_N=5; //Размер массива (число строк)
+        int VHML_N=5; //Размер массива (число строк)
         double *Parent1;
-        Parent1=new double[VMHL_N];
+        Parent1=new double[VHML_N];
         double *Parent2;
-        Parent2=new double[VMHL_N];
+        Parent2=new double[VHML_N];
         double *Child;
-        Child=new double[VMHL_N];
-        MHL_RandomRealVector(Parent1,0,1,VMHL_N);
-        MHL_RandomRealVector(Parent2,0,1,VMHL_N);
+        Child=new double[VHML_N];
+        HML_RandomRealVector(Parent1,0,1,VHML_N);
+        HML_RandomRealVector(Parent2,0,1,VHML_N);
 
         //Получим потомка Child
-        MHL_ExtendedLineForReal(Parent1,Parent2,Child,0.5,VMHL_N);
+        HML_ExtendedLineForReal(Parent1,Parent2,Child,0.5,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVectorT (Parent1,VMHL_N,"Первый родитель", "Parent1");
+        HML_ShowVectorT (Parent1,VHML_N,"Первый родитель", "Parent1");
         //Первый родитель:
         //Parent1 =
         //0.0407698	0.221488	0.912053	0.845252	0.219005
 
-        MHL_ShowVectorT (Parent2,VMHL_N,"Второй родитель", "Parent2");
+        HML_ShowVectorT (Parent2,VHML_N,"Второй родитель", "Parent2");
         //Второй родитель:
         //Parent2 =
         //0.388894	0.841718	0.741151	0.390797	0.0401433
 
-        MHL_ShowVectorT (Child,VMHL_N,"Полученный потомок", "Child");
+        HML_ShowVectorT (Child,VHML_N,"Полученный потомок", "Child");
         //Полученный потомок:
         //Child =
         //0.214832	0.531603	0.826602	0.618024	0.129574
@@ -10142,7 +10142,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] Child;
     }
 
-    if (NameFunction=="MHL_SeparateVectorLimitOnProductElements")
+    if (NameFunction=="HML_SeparateVectorLimitOnProductElements")
     {
         int *Vector;
         int N=8;
@@ -10163,19 +10163,19 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
 
         int ElementsInPart;
 
-        ElementsInPart = MHL_SeparateVectorLimitOnProductElements(Vector, Order, Limit, N);
+        ElementsInPart = HML_SeparateVectorLimitOnProductElements(Vector, Order, Limit, N);
 
-        MHL_ShowVectorT(Vector,N,"Массив","Vector");
+        HML_ShowVectorT(Vector,N,"Массив","Vector");
         //Массив:
         //Vector =
         //2	3	4	2	3	4	2	4
 
-        MHL_ShowVectorT(Order,N,"Порядок элементов в новых двух группах","Order");
+        HML_ShowVectorT(Order,N,"Порядок элементов в новых двух группах","Order");
         //Порядок элементов в новых двух группах:
         //Order =
         //0	3	6	1	4	2	5	7
 
-        MHL_ShowNumber(ElementsInPart,"Количество элементов в первой группе","ElementsInPart");
+        HML_ShowNumber(ElementsInPart,"Количество элементов в первой группе","ElementsInPart");
         //Количество элементов в первой группе:
         //ElementsInPart=3
 
@@ -10183,7 +10183,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] Order;
     }
 
-    if (NameFunction=="MHL_BinaryGeneticAlgorithmTwiceGenerations")
+    if (NameFunction=="HML_BinaryGeneticAlgorithmTwiceGenerations")
     {
         int ChromosomeLength=200;//Длина хромосомы
         int CountOfFitness=40*40;//Число вычислений целевой функции
@@ -10204,24 +10204,24 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         int *Decision;//бинарное решение
         Decision=new int[ChromosomeLength];
         double ValueOfFitnessFunction;//значение функции пригодности в точке Decision
-        int VMHL_Success=0;//Успешен ли будет запуск cГА
+        int VHML_Success=0;//Успешен ли будет запуск cГА
 
         //Запуск алгоритма
-        VMHL_Success=MHL_BinaryGeneticAlgorithmTwiceGenerations (Parameters,Func, Decision, &ValueOfFitnessFunction);
+        VHML_Success=HML_BinaryGeneticAlgorithmTwiceGenerations (Parameters,Func, Decision, &ValueOfFitnessFunction);
 
         //Используем полученный результат
-        MHL_ShowNumber(VMHL_Success,"Как прошел запуск","VMHL_Success");
+        HML_ShowNumber(VHML_Success,"Как прошел запуск","VHML_Success");
         //Как прошел запуск:
-        //VMHL_Success=1
+        //VHML_Success=1
 
-        if (VMHL_Success==1)
+        if (VHML_Success==1)
         {
-            MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
+            HML_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
             //Найденное решение:
             //Decision =
             //1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1
 
-            MHL_ShowNumber(ValueOfFitnessFunction,"Значение функции пригодности","ValueOfFitnessFunction");
+            HML_ShowNumber(ValueOfFitnessFunction,"Значение функции пригодности","ValueOfFitnessFunction");
             // Значение функции пригодности:
             //ValueOfFitnessFunction=50
         }
@@ -10230,7 +10230,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] Decision;
     }
 
-    if (NameFunction=="MHL_RealGeneticAlgorithmTwiceGenerations")
+    if (NameFunction=="HML_RealGeneticAlgorithmTwiceGenerations")
     {
         int ChromosomeLength=2;//Длина хромосомы
         int CountOfFitness=50*50;//Число вычислений целевой функции
@@ -10258,27 +10258,27 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
 
         //Заполним массивы
         //Причем по каждой координате одинаковые значения выставим
-        TMHL_FillVector(Left,ChromosomeLength,-5.);//Пусть будет интервал [-3;3]
-        TMHL_FillVector(Right,ChromosomeLength,5.);
-        TMHL_FillVector(NumberOfParts,ChromosomeLength,TMHL_PowerOf(2,15)-1);//Делим на 32768-1 частей каждую вещественную координату
+        HML_FillVector(Left,ChromosomeLength,-5.);//Пусть будет интервал [-3;3]
+        HML_FillVector(Right,ChromosomeLength,5.);
+        HML_FillVector(NumberOfParts,ChromosomeLength,HML_PowerOf(2,15)-1);//Делим на 32768-1 частей каждую вещественную координату
 
         double *Decision;//вещественное решение
         Decision=new double[ChromosomeLength];
         double ValueOfFitnessFunction;//значение целевой функции в точке Decision
-        int VMHL_Success=0;//Успешен ли будет запуск cГА
+        int VHML_Success=0;//Успешен ли будет запуск cГА
 
         //Запуск алгоритма
-        VMHL_Success=MHL_RealGeneticAlgorithmTwiceGenerations (Parameters,NumberOfParts,Left,Right,Func2, Decision, &ValueOfFitnessFunction);
+        VHML_Success=HML_RealGeneticAlgorithmTwiceGenerations (Parameters,NumberOfParts,Left,Right,Func2, Decision, &ValueOfFitnessFunction);
 
         //Используем полученный результат
-        MHL_ShowNumber(VMHL_Success,"Как прошел запуск","VMHL_Success");
-        if (VMHL_Success==1)
+        HML_ShowNumber(VHML_Success,"Как прошел запуск","VHML_Success");
+        if (VHML_Success==1)
         {
-            MHL_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
+            HML_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
             //Найденное решение:
             //Decision =
             //1.99951	1.99646
-            MHL_ShowNumber(ValueOfFitnessFunction,"Значение целевой функции","ValueOfFitnessFunction");
+            HML_ShowNumber(ValueOfFitnessFunction,"Значение целевой функции","ValueOfFitnessFunction");
             //Значение целевой функции:
             //ValueOfFitnessFunction=-1.27703e-05
         }
@@ -10290,11 +10290,11 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] NumberOfParts;
     }
 
-    if (NameFunction=="TMHL_ChangeOrderInVector")
+    if (NameFunction=="HML_ChangeOrderInVector")
     {
-        int VMHL_N=5;//Размер массива
+        int VHML_N=5;//Размер массива
         int *a;
-        a=new int[VMHL_N];
+        a=new int[VHML_N];
 
         a[0]=2;
         a[1]=3;
@@ -10303,14 +10303,14 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         a[4]=2;
 
         int *Order;
-        Order=new int[VMHL_N];
+        Order=new int[VHML_N];
         Order[0]=4;
         Order[1]=3;
         Order[2]=1;
         Order[3]=2;
         Order[4]=0;
 
-        MHL_ShowVector (a,VMHL_N,"Вектор", "a");
+        HML_ShowVector (a,VHML_N,"Вектор", "a");
         //Вектор:
         //a =
         //2
@@ -10320,10 +10320,10 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //2
 
         //Вызов функции
-        TMHL_ChangeOrderInVector(a,Order,VMHL_N);
+        HML_ChangeOrderInVector(a,Order,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (Order,VMHL_N,"Порядок элементов, к которому нужно привести массив", "Order");
+        HML_ShowVector (Order,VHML_N,"Порядок элементов, к которому нужно привести массив", "Order");
         //Порядок элементов, к которому нужно привести массив:
         //Order =
         //4
@@ -10332,7 +10332,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //2
         //0
 
-        MHL_ShowVector (a,VMHL_N,"Переставленный вектор", "a");
+        HML_ShowVector (a,VHML_N,"Переставленный вектор", "a");
         //Переставленный вектор:
         //a =
         //2
@@ -10345,7 +10345,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] Order;
     }
 
-    if (NameFunction=="MHL_SeparateVectorLimitOnProductElementsTwo")
+    if (NameFunction=="HML_SeparateVectorLimitOnProductElementsTwo")
     {
         int *Vector;
         int N=8;
@@ -10366,19 +10366,19 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
 
         int ElementsInPart;
 
-        ElementsInPart = MHL_SeparateVectorLimitOnProductElementsTwo(Vector, Order, Limit, N);
+        ElementsInPart = HML_SeparateVectorLimitOnProductElementsTwo(Vector, Order, Limit, N);
 
-        MHL_ShowVectorT(Vector,N,"Массив","Vector");
+        HML_ShowVectorT(Vector,N,"Массив","Vector");
         //Массив:
         //Vector =
         //2	3	4	2	3	4	2	4
 
-        MHL_ShowVectorT(Order,N,"Порядок элементов в новых двух группах","Order");
+        HML_ShowVectorT(Order,N,"Порядок элементов в новых двух группах","Order");
         //Порядок элементов в новых двух группах:
         //Order =
         //7	5	2	4	1	6	3	0
 
-        MHL_ShowNumber(ElementsInPart,"Количество элементов в первой группе","ElementsInPart");
+        HML_ShowNumber(ElementsInPart,"Количество элементов в первой группе","ElementsInPart");
         //Количество элементов в первой группе:
         //ElementsInPart=2
 
@@ -10386,15 +10386,15 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] Order;
     }
 
-    if (NameFunction=="TMHL_ShiftLeftVector")
+    if (NameFunction=="HML_ShiftLeftVector")
     {
-        int VMHL_N=10;//Размер массива
+        int VHML_N=10;//Размер массива
         double *a;
-        a=new double[VMHL_N];
+        a=new double[VHML_N];
 
-        for (int i=0;i<VMHL_N;i++) a[i]=MHL_RandomUniformInt(0,6);//Заполняем случайными значениями
+        for (int i=0;i<VHML_N;i++) a[i]=HML_RandomUniformInt(0,6);//Заполняем случайными значениями
 
-        MHL_ShowVector (a,VMHL_N,"Заполненный вектор", "a");
+        HML_ShowVector (a,VHML_N,"Заполненный вектор", "a");
         //Заполненный вектор:
         //a =
         //2
@@ -10409,10 +10409,10 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //3
 
         //Вызов функции
-        TMHL_ShiftLeftVector(a,VMHL_N);
+        HML_ShiftLeftVector(a,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (a,VMHL_N,"Заполненный вектор", "a");
+        HML_ShowVector (a,VHML_N,"Заполненный вектор", "a");
         //Заполненный вектор:
         //a =
         //5
@@ -10429,24 +10429,24 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] a;
     }
 
-    if (NameFunction=="TMHL_ShiftRightVector")
+    if (NameFunction=="HML_ShiftRightVector")
     {
-        int VMHL_N=10;//Размер массива
+        int VHML_N=10;//Размер массива
         double *a;
-        a=new double[VMHL_N];
+        a=new double[VHML_N];
 
-        for (int i=0;i<VMHL_N;i++) a[i]=MHL_RandomUniformInt(0,6);//Заполняем случайными значениями
+        for (int i=0;i<VHML_N;i++) a[i]=HML_RandomUniformInt(0,6);//Заполняем случайными значениями
 
-        MHL_ShowVectorT (a,VMHL_N,"Заполненный вектор", "a");
+        HML_ShowVectorT (a,VHML_N,"Заполненный вектор", "a");
         //Заполненный вектор:
         //a =
         //4	3	4	2	2	2	0	0	4	5
 
         //Вызов функции
-        TMHL_ShiftRightVector(a,VMHL_N);
+        HML_ShiftRightVector(a,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVectorT (a,VMHL_N,"Заполненный вектор", "a");
+        HML_ShowVectorT (a,VHML_N,"Заполненный вектор", "a");
         //Заполненный вектор:
         //a =
         //5	4	3	4	2	2	2	0	0	4
@@ -10454,7 +10454,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] a;
     }
 
-    if (NameFunction=="MHL_PendulumOfMaxwell")
+    if (NameFunction=="HML_PendulumOfMaxwell")
     {
         int i;
         double Data[13];
@@ -10497,7 +10497,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
             Position[i]=Input1;
             TimePosition[i]=dt*i;
 
-            if (MHL_PendulumOfMaxwell(Data)==0) break;
+            if (HML_PendulumOfMaxwell(Data)==0) break;
         }
 
         QString Html=THQt_ShowChartOfLine (TimePosition,Position, int(t/dt), "Положение маятника от времени", "t", "x", "Координаты положения маятника",true,false,false,true,true);
@@ -10507,51 +10507,51 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] TimePosition;
     }
 
-    if (NameFunction=="MHL_CentroidOfTrapeziformFuzzyNumber")
+    if (NameFunction=="HML_CentroidOfTrapeziformFuzzyNumber")
     {
-        double a=MHL_RandomUniform(-4,4);
-        double b=a+MHL_RandomUniform(0,2);
-        double c=b+MHL_RandomUniform(0,2);
-        double d=c+MHL_RandomUniform(0,2);
+        double a=HML_RandomUniform(-4,4);
+        double b=a+HML_RandomUniform(0,2);
+        double c=b+HML_RandomUniform(0,2);
+        double d=c+HML_RandomUniform(0,2);
 
         //Вызов функции
-        double f=MHL_CentroidOfTrapeziformFuzzyNumber (a,b,c,d);
+        double f=HML_CentroidOfTrapeziformFuzzyNumber (a,b,c,d);
 
         //Используем полученный результат
-        MHL_ShowNumber(a,"Значение первого параметра трапецевидного нечеткого числа","a");
+        HML_ShowNumber(a,"Значение первого параметра трапецевидного нечеткого числа","a");
         //Значение первого параметра трапецевидного нечеткого числа:
         //a=3.59917
-        MHL_ShowNumber(b,"Значение второго параметра трапецевидного нечеткого числа","b");
+        HML_ShowNumber(b,"Значение второго параметра трапецевидного нечеткого числа","b");
         //Значение второго параметра трапецевидного нечеткого числа:
         //b=5.46629
-        MHL_ShowNumber(c,"Значение третьего параметра трапецевидного нечеткого числа","c");
+        HML_ShowNumber(c,"Значение третьего параметра трапецевидного нечеткого числа","c");
         //Значение третьего параметра трапецевидного нечеткого числа:
         //c=6.24352
-        MHL_ShowNumber(d,"Значение последнего параметра трапецевидного нечеткого числа","d");
+        HML_ShowNumber(d,"Значение последнего параметра трапецевидного нечеткого числа","d");
         //Значение последнего параметра трапецевидного нечеткого числа:
         //d=6.45975
-        MHL_ShowNumber(f,"Центр тяжести трапециевидного числа","f");
+        HML_ShowNumber(f,"Центр тяжести трапециевидного числа","f");
         //Центр тяжести трапециевидного числа:
         //f=5.36339
     }
 
-    if (NameFunction=="MHL_MaxiMinTrapeziformFuzzyNumbers")
+    if (NameFunction=="HML_MaxiMinTrapeziformFuzzyNumbers")
     {
         double *Data=new double[8];
-        Data[0]=MHL_RandomUniform(-4,4);
-        Data[1]=Data[0]+MHL_RandomUniform(0,2);
-        Data[2]=Data[1]+MHL_RandomUniform(0,2);
-        Data[3]=Data[2]+MHL_RandomUniform(0,2);
-        Data[4]=MHL_RandomUniform(-4,4);
-        Data[5]=Data[4]+MHL_RandomUniform(0,2);
-        Data[6]=Data[5]+MHL_RandomUniform(0,2);
-        Data[7]=Data[6]+MHL_RandomUniform(0,2);
+        Data[0]=HML_RandomUniform(-4,4);
+        Data[1]=Data[0]+HML_RandomUniform(0,2);
+        Data[2]=Data[1]+HML_RandomUniform(0,2);
+        Data[3]=Data[2]+HML_RandomUniform(0,2);
+        Data[4]=HML_RandomUniform(-4,4);
+        Data[5]=Data[4]+HML_RandomUniform(0,2);
+        Data[6]=Data[5]+HML_RandomUniform(0,2);
+        Data[7]=Data[6]+HML_RandomUniform(0,2);
 
         //Вызов функции
-        double f=MHL_MaxiMinTrapeziformFuzzyNumbers (Data);
+        double f=HML_MaxiMinTrapeziformFuzzyNumbers (Data);
 
         //Используем полученный результат
-        MHL_ShowVector(Data,8, "Два нечетких трапецевидных числа","Data");
+        HML_ShowVector(Data,8, "Два нечетких трапецевидных числа","Data");
         //Два нечетких трапецевидных числа:
         //Data =
         //0.989053
@@ -10563,39 +10563,39 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //0.343752
         //1.68268
 
-        MHL_ShowNumber(f,"Максимальное значение функции принадлежности объединенного нечеткого числа","f");
+        HML_ShowNumber(f,"Максимальное значение функции принадлежности объединенного нечеткого числа","f");
         //Максимальное значение функции принадлежности объединенного нечеткого числа:
         //f=0.468587
         delete [] Data;
     }
 
-    if (NameFunction=="MHL_NonparametricEstimatorOfRegression")
+    if (NameFunction=="HML_NonparametricEstimatorOfRegression")
     {
         int N=500;
         double *X=new double [N];
         double *Y=new double [N];
         for (int i=0;i<N;i++)
         {
-            X[i] = MHL_RandomUniform(0,6);
+            X[i] = HML_RandomUniform(0,6);
             Y[i] = sin(X[i]);
         }
-        //MHL_NoiseInVector(Y,5,N);//добавим помеху
+        //HML_NoiseInVector(Y,5,N);//добавим помеху
 
-        double x=MHL_RandomUniform(0,6);//Для этого числа будем считать оценку регрессию
+        double x=HML_RandomUniform(0,6);//Для этого числа будем считать оценку регрессию
 
         double C=0.1;//коэффициент размытости
 
         //Применим функцию
         bool b;
-        double y=MHL_NonparametricEstimatorOfRegression(x,X,Y,N,C,3,&b);
+        double y=HML_NonparametricEstimatorOfRegression(x,X,Y,N,C,3,&b);
 
-        MHL_ShowNumber(x,"Входной парметр","x");
+        HML_ShowNumber(x,"Входной парметр","x");
         //Входной парметр:
         //x=5.7237
-        MHL_ShowNumber(y,"Непараметрическая оценка регрессии","y");
+        HML_ShowNumber(y,"Непараметрическая оценка регрессии","y");
         //Непараметрическая оценка регрессии:
         //y=-0.537582
-        MHL_ShowNumber(sin(x),"Действительное значение функции в точке","y*");
+        HML_ShowNumber(sin(x),"Действительное значение функции в точке","y*");
         //Действительное значение функции в точке:
         //y*=-0.530754
 
@@ -10603,30 +10603,30 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] Y;
     }
 
-    if (NameFunction=="TMHL_AcceptanceLimitsNumber")
+    if (NameFunction=="HML_AcceptanceLimitsNumber")
     {
-        int a    = MHL_RandomUniformInt(-50,50);
+        int a    = HML_RandomUniformInt(-50,50);
         int Left = -40;
         int Right= 30;
 
-        int Result=TMHL_AcceptanceLimitsNumber(a,Left,Right);
+        int Result=HML_AcceptanceLimitsNumber(a,Left,Right);
 
         //Используем полученный результат
-        MHL_ShowNumber(a,"Первоначальное число","a");
+        HML_ShowNumber(a,"Первоначальное число","a");
         //Первоначальное число:
         //a=49
-        MHL_ShowNumber(Left,"Левая граница","Left");
+        HML_ShowNumber(Left,"Левая граница","Left");
         //Левая граница:
         //Left=-40
-        MHL_ShowNumber(Right,"Правая граница","Right");
+        HML_ShowNumber(Right,"Правая граница","Right");
         //Правая граница:
         //Right=30
-        MHL_ShowNumber(Result,"Число в рамках","Result");
+        HML_ShowNumber(Result,"Число в рамках","Result");
         //Число в рамках:
         //Result=30
     }
 
-    if (NameFunction=="MHL_AlphaBlendingColorToColorR")
+    if (NameFunction=="HML_AlphaBlendingColorToColorR")
     {
         double alpha = 0.1;
         int R1 = 25;
@@ -10636,38 +10636,38 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         int G2 = 1;
         int B2 = 89;
 
-        int R=MHL_AlphaBlendingColorToColorR(alpha, R1, G1, B1, R2, G2, B2);
+        int R=HML_AlphaBlendingColorToColorR(alpha, R1, G1, B1, R2, G2, B2);
 
         //Используем полученный результат
-        MHL_ShowNumber(R1,"Канал R первого цвета","R1");
+        HML_ShowNumber(R1,"Канал R первого цвета","R1");
         //Канал R первого цвета:
         //R1=25
-        MHL_ShowNumber(G1,"Канал G первого цвета","G1");
+        HML_ShowNumber(G1,"Канал G первого цвета","G1");
         //Канал G первого цвета:
         //G1=128
-        MHL_ShowNumber(B1,"Канал B первого цвета","B1");
+        HML_ShowNumber(B1,"Канал B первого цвета","B1");
         //Канал B первого цвета:
         //B1=75
-        MHL_ShowNumber(R2,"Канал R второго цвета","R2");
+        HML_ShowNumber(R2,"Канал R второго цвета","R2");
         //Канал R второго цвета:
         //R2=85
-        MHL_ShowNumber(G2,"Канал G второго цвета","G2");
+        HML_ShowNumber(G2,"Канал G второго цвета","G2");
         //Канал G второго цвета:
         //G2=1
-        MHL_ShowNumber(B2,"Канал B второго цвета","B2");
+        HML_ShowNumber(B2,"Канал B второго цвета","B2");
         //Канал B второго цвета:
         //B2=89
 
-        MHL_ShowNumber(alpha,"Степень прозрачности первого цвета","alpha");
+        HML_ShowNumber(alpha,"Степень прозрачности первого цвета","alpha");
         //Степень прозрачности первого цвета:
         //alpha=0.1
 
-        MHL_ShowNumber(R,"Канал R итогового цвета","R");
+        HML_ShowNumber(R,"Канал R итогового цвета","R");
         //Канал R итогового цвета:
         //R=31
     }
 
-    if (NameFunction=="MHL_AlphaBlendingColorToColorG")
+    if (NameFunction=="HML_AlphaBlendingColorToColorG")
     {
         double alpha = 0.1;
         int R1 = 25;
@@ -10677,38 +10677,38 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         int G2 = 1;
         int B2 = 89;
 
-        int G=MHL_AlphaBlendingColorToColorG(alpha, R1, G1, B1, R2, G2, B2);
+        int G=HML_AlphaBlendingColorToColorG(alpha, R1, G1, B1, R2, G2, B2);
 
         //Используем полученный результат
-        MHL_ShowNumber(R1,"Канал R первого цвета","R1");
+        HML_ShowNumber(R1,"Канал R первого цвета","R1");
         //Канал R первого цвета:
         //R1=25
-        MHL_ShowNumber(G1,"Канал G первого цвета","G1");
+        HML_ShowNumber(G1,"Канал G первого цвета","G1");
         //Канал G первого цвета:
         //G1=128
-        MHL_ShowNumber(B1,"Канал B первого цвета","B1");
+        HML_ShowNumber(B1,"Канал B первого цвета","B1");
         //Канал B первого цвета:
         //B1=75
-        MHL_ShowNumber(R2,"Канал R второго цвета","R2");
+        HML_ShowNumber(R2,"Канал R второго цвета","R2");
         //Канал R второго цвета:
         //R2=85
-        MHL_ShowNumber(G2,"Канал G второго цвета","G2");
+        HML_ShowNumber(G2,"Канал G второго цвета","G2");
         //Канал G второго цвета:
         //G2=1
-        MHL_ShowNumber(B2,"Канал B второго цвета","B2");
+        HML_ShowNumber(B2,"Канал B второго цвета","B2");
         //Канал B второго цвета:
         //B2=89
 
-        MHL_ShowNumber(alpha,"Степень прозрачности первого цвета","alpha");
+        HML_ShowNumber(alpha,"Степень прозрачности первого цвета","alpha");
         //Степень прозрачности первого цвета:
         //alpha=0.1
 
-        MHL_ShowNumber(G,"Канал G итогового цвета","G");
+        HML_ShowNumber(G,"Канал G итогового цвета","G");
         //Канал G итогового цвета:
         //G=115
     }
 
-    if (NameFunction=="MHL_AlphaBlendingColorToColorB")
+    if (NameFunction=="HML_AlphaBlendingColorToColorB")
     {
         double alpha = 0.1;
         int R1 = 25;
@@ -10718,38 +10718,38 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         int G2 = 1;
         int B2 = 89;
 
-        int B=MHL_AlphaBlendingColorToColorB(alpha, R1, G1, B1, R2, G2, B2);
+        int B=HML_AlphaBlendingColorToColorB(alpha, R1, G1, B1, R2, G2, B2);
 
         //Используем полученный результат
-        MHL_ShowNumber(R1,"Канал R первого цвета","R1");
+        HML_ShowNumber(R1,"Канал R первого цвета","R1");
         //Канал R первого цвета:
         //R1=25
-        MHL_ShowNumber(G1,"Канал G первого цвета","G1");
+        HML_ShowNumber(G1,"Канал G первого цвета","G1");
         //Канал G первого цвета:
         //G1=128
-        MHL_ShowNumber(B1,"Канал B первого цвета","B1");
+        HML_ShowNumber(B1,"Канал B первого цвета","B1");
         //Канал B первого цвета:
         //B1=75
-        MHL_ShowNumber(R2,"Канал R второго цвета","R2");
+        HML_ShowNumber(R2,"Канал R второго цвета","R2");
         //Канал R второго цвета:
         //R2=85
-        MHL_ShowNumber(G2,"Канал G второго цвета","G2");
+        HML_ShowNumber(G2,"Канал G второго цвета","G2");
         //Канал G второго цвета:
         //G2=1
-        MHL_ShowNumber(B2,"Канал B второго цвета","B2");
+        HML_ShowNumber(B2,"Канал B второго цвета","B2");
         //Канал B второго цвета:
         //B2=89
 
-        MHL_ShowNumber(alpha,"Степень прозрачности первого цвета","alpha");
+        HML_ShowNumber(alpha,"Степень прозрачности первого цвета","alpha");
         //Степень прозрачности первого цвета:
         //alpha=0.1
 
-        MHL_ShowNumber(B,"Канал B итогового цвета","B");
+        HML_ShowNumber(B,"Канал B итогового цвета","B");
         //Канал R итогового цвета:
         //R=31
     }
 
-    if (NameFunction=="MHL_ColorFromGradientR")
+    if (NameFunction=="HML_ColorFromGradientR")
     {
         double position = 0.1;
         int R1 = 25;
@@ -10759,38 +10759,38 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         int G2 = 1;
         int B2 = 89;
 
-        int R=MHL_ColorFromGradientR(position, R1, G1, B1, R2, G2, B2);
+        int R=HML_ColorFromGradientR(position, R1, G1, B1, R2, G2, B2);
 
         //Используем полученный результат
-        MHL_ShowNumber(R1,"Канал R первого цвета","R1");
+        HML_ShowNumber(R1,"Канал R первого цвета","R1");
         //Канал R первого цвета:
         //R1=25
-        MHL_ShowNumber(G1,"Канал G первого цвета","G1");
+        HML_ShowNumber(G1,"Канал G первого цвета","G1");
         //Канал G первого цвета:
         //G1=128
-        MHL_ShowNumber(B1,"Канал B первого цвета","B1");
+        HML_ShowNumber(B1,"Канал B первого цвета","B1");
         //Канал B первого цвета:
         //B1=75
-        MHL_ShowNumber(R2,"Канал R второго цвета","R2");
+        HML_ShowNumber(R2,"Канал R второго цвета","R2");
         //Канал R второго цвета:
         //R2=85
-        MHL_ShowNumber(G2,"Канал G второго цвета","G2");
+        HML_ShowNumber(G2,"Канал G второго цвета","G2");
         //Канал G второго цвета:
         //G2=1
-        MHL_ShowNumber(B2,"Канал B второго цвета","B2");
+        HML_ShowNumber(B2,"Канал B второго цвета","B2");
         //Канал B второго цвета:
         //B2=89
 
-        MHL_ShowNumber(position,"Позиция из интервала [0;1], которая говорит какой цвет выдать из градиента","position");
+        HML_ShowNumber(position,"Позиция из интервала [0;1], которая говорит какой цвет выдать из градиента","position");
         //Позиция из интервала [0;1], которая говорит какой цвет выдать из градиента:
         //position=0.1
 
-        MHL_ShowNumber(R,"Канал R итогового цвета","R");
+        HML_ShowNumber(R,"Канал R итогового цвета","R");
         //Канал R итогового цвета:
         //R=31
     }
 
-    if (NameFunction=="MHL_ColorFromGradientG")
+    if (NameFunction=="HML_ColorFromGradientG")
     {
         double position = 0.1;
         int R1 = 25;
@@ -10800,38 +10800,38 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         int G2 = 1;
         int B2 = 89;
 
-        int G=MHL_ColorFromGradientG(position, R1, G1, B1, R2, G2, B2);
+        int G=HML_ColorFromGradientG(position, R1, G1, B1, R2, G2, B2);
 
         //Используем полученный результат
-        MHL_ShowNumber(R1,"Канал R первого цвета","R1");
+        HML_ShowNumber(R1,"Канал R первого цвета","R1");
         //Канал R первого цвета:
         //R1=25
-        MHL_ShowNumber(G1,"Канал G первого цвета","G1");
+        HML_ShowNumber(G1,"Канал G первого цвета","G1");
         //Канал G первого цвета:
         //G1=128
-        MHL_ShowNumber(B1,"Канал B первого цвета","B1");
+        HML_ShowNumber(B1,"Канал B первого цвета","B1");
         //Канал B первого цвета:
         //B1=75
-        MHL_ShowNumber(R2,"Канал R второго цвета","R2");
+        HML_ShowNumber(R2,"Канал R второго цвета","R2");
         //Канал R второго цвета:
         //R2=85
-        MHL_ShowNumber(G2,"Канал G второго цвета","G2");
+        HML_ShowNumber(G2,"Канал G второго цвета","G2");
         //Канал G второго цвета:
         //G2=1
-        MHL_ShowNumber(B2,"Канал B второго цвета","B2");
+        HML_ShowNumber(B2,"Канал B второго цвета","B2");
         //Канал B второго цвета:
         //B2=89
 
-        MHL_ShowNumber(position,"Позиция из интервала [0;1], которая говорит какой цвет выдать из градиента","position");
+        HML_ShowNumber(position,"Позиция из интервала [0;1], которая говорит какой цвет выдать из градиента","position");
         //Позиция из интервала [0;1], которая говорит какой цвет выдать из градиента:
         //position=0.1
 
-        MHL_ShowNumber(G,"Канал G итогового цвета","G");
+        HML_ShowNumber(G,"Канал G итогового цвета","G");
         //Канал G итогового цвета:
         //G=115
     }
 
-    if (NameFunction=="MHL_ColorFromGradientB")
+    if (NameFunction=="HML_ColorFromGradientB")
     {
         double position = 0.1;
         int R1 = 25;
@@ -10841,89 +10841,89 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         int G2 = 1;
         int B2 = 89;
 
-        int B=MHL_ColorFromGradientB(position, R1, G1, B1, R2, G2, B2);
+        int B=HML_ColorFromGradientB(position, R1, G1, B1, R2, G2, B2);
 
         //Используем полученный результат
-        MHL_ShowNumber(R1,"Канал R первого цвета","R1");
+        HML_ShowNumber(R1,"Канал R первого цвета","R1");
         //Канал R первого цвета:
         //R1=25
-        MHL_ShowNumber(G1,"Канал G первого цвета","G1");
+        HML_ShowNumber(G1,"Канал G первого цвета","G1");
         //Канал G первого цвета:
         //G1=128
-        MHL_ShowNumber(B1,"Канал B первого цвета","B1");
+        HML_ShowNumber(B1,"Канал B первого цвета","B1");
         //Канал B первого цвета:
         //B1=75
-        MHL_ShowNumber(R2,"Канал R второго цвета","R2");
+        HML_ShowNumber(R2,"Канал R второго цвета","R2");
         //Канал R второго цвета:
         //R2=85
-        MHL_ShowNumber(G2,"Канал G второго цвета","G2");
+        HML_ShowNumber(G2,"Канал G второго цвета","G2");
         //Канал G второго цвета:
         //G2=1
-        MHL_ShowNumber(B2,"Канал B второго цвета","B2");
+        HML_ShowNumber(B2,"Канал B второго цвета","B2");
         //Канал B второго цвета:
         //B2=89
 
-        MHL_ShowNumber(position,"Позиция из интервала [0;1], которая говорит какой цвет выдать из градиента","position");
+        HML_ShowNumber(position,"Позиция из интервала [0;1], которая говорит какой цвет выдать из градиента","position");
         //Позиция из интервала [0;1], которая говорит какой цвет выдать из градиента:
         //position=0.1
 
-        MHL_ShowNumber(B,"Канал B итогового цвета","B");
+        HML_ShowNumber(B,"Канал B итогового цвета","B");
         //Канал B итогового цвета:
         //B=76
     }
 
-    if (NameFunction=="MHL_GiveRainbowColorR")
+    if (NameFunction=="HML_GiveRainbowColorR")
     {
         double position = 0.6;
 
-        int R=MHL_GiveRainbowColorR(position);
+        int R=HML_GiveRainbowColorR(position);
 
-        MHL_ShowNumber(position,"Позиция из интервала [0;1], которая говорит какой цвет выдать из радуги","position");
+        HML_ShowNumber(position,"Позиция из интервала [0;1], которая говорит какой цвет выдать из радуги","position");
         //Позиция из интервала [0;1], которая говорит какой цвет выдать из градиента:
         //position=0.1
 
-        MHL_ShowNumber(R,"Канал R итогового цвета","R");
+        HML_ShowNumber(R,"Канал R итогового цвета","R");
         //Канал R итогового цвета:
         //R=0
     }
 
-    if (NameFunction=="MHL_GiveRainbowColorG")
+    if (NameFunction=="HML_GiveRainbowColorG")
     {
         double position = 0.6;
 
-        int G=MHL_GiveRainbowColorG(position);
+        int G=HML_GiveRainbowColorG(position);
 
-        MHL_ShowNumber(position,"Позиция из интервала [0;1], которая говорит какой цвет выдать из радуги","position");
+        HML_ShowNumber(position,"Позиция из интервала [0;1], которая говорит какой цвет выдать из радуги","position");
         //Позиция из интервала [0;1], которая говорит какой цвет выдать из градиента:
         //position=0.1
 
-        MHL_ShowNumber(G,"Канал G итогового цвета","G");
+        HML_ShowNumber(G,"Канал G итогового цвета","G");
         //Канал G итогового цвета:
         //G=103
     }
 
-    if (NameFunction=="MHL_GiveRainbowColorB")
+    if (NameFunction=="HML_GiveRainbowColorB")
     {
         double position = 0.6;
 
-        int B=MHL_GiveRainbowColorB(position);
+        int B=HML_GiveRainbowColorB(position);
 
-        MHL_ShowNumber(position,"Позиция из интервала [0;1], которая говорит какой цвет выдать из радуги","position");
+        HML_ShowNumber(position,"Позиция из интервала [0;1], которая говорит какой цвет выдать из радуги","position");
         //Позиция из интервала [0;1], которая говорит какой цвет выдать из градиента:
         //position=0.1
 
-        MHL_ShowNumber(B,"Канал B итогового цвета","B");
+        HML_ShowNumber(B,"Канал B итогового цвета","B");
         //Канал B итогового цвета:
         //B=255
     }
 
-    if (NameFunction=="TMHL_MutationBinaryVector")
+    if (NameFunction=="HML_MutationBinaryVector")
     {
-        int VMHL_N=10;//Размер массива
+        int VHML_N=10;//Размер массива
         int *a;
-        a=new int[VMHL_N];
-        TMHL_RandomBinaryVector(a,VMHL_N);//Случайный бинарный вектор
-        MHL_ShowVectorT (a,VMHL_N,"Случайный бинарный вектор", "a");
+        a=new int[VHML_N];
+        HML_RandomBinaryVector(a,VHML_N);//Случайный бинарный вектор
+        HML_ShowVectorT (a,VHML_N,"Случайный бинарный вектор", "a");
         //Случайный бинарный вектор:
         //a =
         //0	1	1	1	1	0	0	0	1	1
@@ -10931,10 +10931,10 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         double ProbabilityOfMutation=0.1;//Вероятность мутации
 
         //Вызов функции
-        TMHL_MutationBinaryVector(a,ProbabilityOfMutation,VMHL_N);
+        HML_MutationBinaryVector(a,ProbabilityOfMutation,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVectorT (a,VMHL_N,"Мутированный бинарный вектор", "a");
+        HML_ShowVectorT (a,VHML_N,"Мутированный бинарный вектор", "a");
         //Мутированный бинарный вектор:
         //a =
         //0	1	0	1	1	0	0	0	0	1
@@ -10942,93 +10942,93 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] a;
     }
 
-    if (NameFunction=="MHL_TrapeziformTruncatedFuzzyNumber")
+    if (NameFunction=="HML_TrapeziformTruncatedFuzzyNumber")
     {
-        double a=MHL_RandomUniform(-4,4);
-        double b=a+MHL_RandomUniform(0,2);
-        double c=b+MHL_RandomUniform(0,2);
-        double d=c+MHL_RandomUniform(0,2);
+        double a=HML_RandomUniform(-4,4);
+        double b=a+HML_RandomUniform(0,2);
+        double c=b+HML_RandomUniform(0,2);
+        double d=c+HML_RandomUniform(0,2);
 
-        double x=MHL_RandomUniform(a-1,d+1);
+        double x=HML_RandomUniform(a-1,d+1);
 
         double m=0.5;
 
         //Вызов функции
-        double f=MHL_TrapeziformTruncatedFuzzyNumber (x,a,b,c,d,m);
+        double f=HML_TrapeziformTruncatedFuzzyNumber (x,a,b,c,d,m);
 
         //Используем полученный результат
-        MHL_ShowNumber(x,"Значение параметра","x");
+        HML_ShowNumber(x,"Значение параметра","x");
         //Значение параметра:
         //x=-1.63713
-        MHL_ShowNumber(a,"Значение первого параметра трапецевидного нечеткого числа","a");
+        HML_ShowNumber(a,"Значение первого параметра трапецевидного нечеткого числа","a");
         //Значение первого параметра трапецевидного нечеткого числа:
         //a=-2.75211
-        MHL_ShowNumber(b,"Значение второго параметра трапецевидного нечеткого числа","b");
+        HML_ShowNumber(b,"Значение второго параметра трапецевидного нечеткого числа","b");
         //Значение второго параметра трапецевидного нечеткого числа:
         //b=-2.49458
-        MHL_ShowNumber(c,"Значение третьего параметра трапецевидного нечеткого числа","c");
+        HML_ShowNumber(c,"Значение третьего параметра трапецевидного нечеткого числа","c");
         //Значение третьего параметра трапецевидного нечеткого числа:
         //c=-1.6546
-        MHL_ShowNumber(d,"Значение последнего параметра трапецевидного нечеткого числа","d");
+        HML_ShowNumber(d,"Значение последнего параметра трапецевидного нечеткого числа","d");
         //Значение последнего параметра трапецевидного нечеткого числа:
         //d=-0.0519362
-        MHL_ShowNumber(m,"Усечение проводим по границе","m");
+        HML_ShowNumber(m,"Усечение проводим по границе","m");
         //Усечение проводим по границе:
         //m=0.5
-        MHL_ShowNumber(f,"Значение функция принадлежности усеченного трапециевидного нечеткого числа","f");
+        HML_ShowNumber(f,"Значение функция принадлежности усеченного трапециевидного нечеткого числа","f");
         //Значение функция принадлежности усеченного трапециевидного нечеткого числа:
         //f=0.5
     }
 
-    if (NameFunction=="MHL_NewtonSecondLawForce")
+    if (NameFunction=="HML_NewtonSecondLawForce")
     {
         double a=2.2;
         double m=3;
 
-        double F=MHL_NewtonSecondLawForce(a,m);
+        double F=HML_NewtonSecondLawForce(a,m);
 
         //Используем полученный результат
-        MHL_ShowNumber(a,"Ускорение тела","a");
+        HML_ShowNumber(a,"Ускорение тела","a");
         //Ускорение тела:
         //a=2.2
-        MHL_ShowNumber(m,"Масса тела","m");
+        HML_ShowNumber(m,"Масса тела","m");
         //Масса тела:
         //m=3
-        MHL_ShowNumber(F,"Сила приложенная к телу","F");
+        HML_ShowNumber(F,"Сила приложенная к телу","F");
         //Сила приложенная к телу:
         //F=6.6
     }
 
-    if (NameFunction=="MHL_NewtonSecondLawAcceleration")
+    if (NameFunction=="HML_NewtonSecondLawAcceleration")
     {
         double F=7;
         double m=3;
 
-        double a=MHL_NewtonSecondLawAcceleration(F,m);
+        double a=HML_NewtonSecondLawAcceleration(F,m);
 
         //Используем полученный результат
-        MHL_ShowNumber(a,"Ускорение тела","a");
+        HML_ShowNumber(a,"Ускорение тела","a");
         //Ускорение тела:
         //a=2.33333
-        MHL_ShowNumber(m,"Масса тела","m");
+        HML_ShowNumber(m,"Масса тела","m");
         //Масса тела:
         //m=3
-        MHL_ShowNumber(F,"Сила приложенная к телу","F");
+        HML_ShowNumber(F,"Сила приложенная к телу","F");
         //Сила приложенная к телу:
         //F=7
     }
 
-    if (NameFunction=="TMHL_AcceptanceLimitsLeft")
+    if (NameFunction=="HML_AcceptanceLimitsLeft")
     {
-        int VMHL_N=10;//Размер массива
+        int VHML_N=10;//Размер массива
         double *a;
-        a=new double[VMHL_N];
+        a=new double[VHML_N];
         double *Left;
-        Left=new double[VMHL_N];
-        TMHL_FillVector(Left,VMHL_N,-1.);//Левая граница
+        Left=new double[VHML_N];
+        HML_FillVector(Left,VHML_N,-1.);//Левая граница
 
-        for (int i=0;i<VMHL_N;i++) a[i]=MHL_RandomUniform(-1.1,1.1);
-        MHL_ShowVector (a,VMHL_N,"Вектор", "a");
+        for (int i=0;i<VHML_N;i++) a[i]=HML_RandomUniform(-1.1,1.1);
+        HML_ShowVector (a,VHML_N,"Вектор", "a");
         //Вектор:
         //a =
         //-0.883149
@@ -11043,10 +11043,10 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //0.739566
 
         //Вызов функции
-        TMHL_AcceptanceLimitsLeft(a,Left,VMHL_N);
+        HML_AcceptanceLimitsLeft(a,Left,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (Left,VMHL_N,"Левые границы", "Left");
+        HML_ShowVector (Left,VHML_N,"Левые границы", "Left");
         //Левые границы:
         //Left =
         //-1
@@ -11060,7 +11060,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //-1
         //-1
 
-        MHL_ShowVector (a,VMHL_N,"Отредактированный вектор", "a");
+        HML_ShowVector (a,VHML_N,"Отредактированный вектор", "a");
         //Отредактированный вектор:
         //a =
         //-0.883149
@@ -11078,17 +11078,17 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] Left;
     }
 
-    if (NameFunction=="TMHL_AcceptanceLimitsRight")
+    if (NameFunction=="HML_AcceptanceLimitsRight")
     {
-        int VMHL_N=10;//Размер массива
+        int VHML_N=10;//Размер массива
         double *a;
-        a=new double[VMHL_N];
+        a=new double[VHML_N];
         double *Right;
-        Right=new double[VMHL_N];
-        TMHL_FillVector(Right,VMHL_N,1.);//Левая граница
+        Right=new double[VHML_N];
+        HML_FillVector(Right,VHML_N,1.);//Левая граница
 
-        for (int i=0;i<VMHL_N;i++) a[i]=MHL_RandomUniform(-1.1,1.1);
-        MHL_ShowVector (a,VMHL_N,"Вектор", "a");
+        for (int i=0;i<VHML_N;i++) a[i]=HML_RandomUniform(-1.1,1.1);
+        HML_ShowVector (a,VHML_N,"Вектор", "a");
         //Вектор:
         //a =
         //-0.292555
@@ -11103,10 +11103,10 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //-0.893972
 
         //Вызов функции
-        TMHL_AcceptanceLimitsRight(a,Right,VMHL_N);
+        HML_AcceptanceLimitsRight(a,Right,VHML_N);
 
         //Используем полученный результат
-        MHL_ShowVector (Right,VMHL_N,"Правые границы", "Right");
+        HML_ShowVector (Right,VHML_N,"Правые границы", "Right");
         //Левые границы:
         //Right =
         //1
@@ -11120,7 +11120,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //1
         //1
 
-        MHL_ShowVector (a,VMHL_N,"Отредактированный вектор", "a");
+        HML_ShowVector (a,VHML_N,"Отредактированный вектор", "a");
         //Отредактированный вектор:
         //a =
         //-0.292555
@@ -11138,71 +11138,71 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] Right;
     }
 
-    if (NameFunction=="TMHL_AcceptanceLimitsNumberLeft")
+    if (NameFunction=="HML_AcceptanceLimitsNumberLeft")
     {
-        int a    = MHL_RandomUniformInt(-50,50);
+        int a    = HML_RandomUniformInt(-50,50);
         int Left = -40;
 
-        int Result=TMHL_AcceptanceLimitsNumberLeft(a,Left);
+        int Result=HML_AcceptanceLimitsNumberLeft(a,Left);
 
         //Используем полученный результат
-        MHL_ShowNumber(a,"Первоначальное число","a");
+        HML_ShowNumber(a,"Первоначальное число","a");
         //Первоначальное число:
         //a=49
-        MHL_ShowNumber(Left,"Левая граница","Left");
+        HML_ShowNumber(Left,"Левая граница","Left");
         //Левая граница:
         //Left=-40
-        MHL_ShowNumber(Result,"Число в рамках","Result");
+        HML_ShowNumber(Result,"Число в рамках","Result");
         //Число в рамках:
         //Result=30
     }
 
-    if (NameFunction=="TMHL_AcceptanceLimitsNumberRight")
+    if (NameFunction=="HML_AcceptanceLimitsNumberRight")
     {
-        int a    = MHL_RandomUniformInt(-50,50);
+        int a    = HML_RandomUniformInt(-50,50);
         int Right= 30;
 
-        int Result=TMHL_AcceptanceLimitsNumberRight(a,Right);
+        int Result=HML_AcceptanceLimitsNumberRight(a,Right);
 
         //Используем полученный результат
-        MHL_ShowNumber(a,"Первоначальное число","a");
+        HML_ShowNumber(a,"Первоначальное число","a");
         //Первоначальное число:
         //a=49
-        MHL_ShowNumber(Right,"Правая граница","Right");
+        HML_ShowNumber(Right,"Правая граница","Right");
         //Правая граница:
         //Right=30
-        MHL_ShowNumber(Result,"Число в рамках","Result");
+        HML_ShowNumber(Result,"Число в рамках","Result");
         //Число в рамках:
         //Result=30
     }
 
-    if (NameFunction=="MHL_NonparametricEstimatorOfDerivative")
+    if (NameFunction=="HML_NonparametricEstimatorOfDerivative")
     {
         int N=100;
         double *X=new double [N];
         double *Y=new double [N];
         for (int i=0;i<N;i++)
         {
-            X[i] = MHL_RandomUniform(0,6);
+            X[i] = HML_RandomUniform(0,6);
             Y[i] = sin(X[i]);
         }
-        //MHL_NoiseInVector(Y,5,N);//добавим помеху
+        //HML_NoiseInVector(Y,5,N);//добавим помеху
 
-        double x=MHL_RandomUniform(0,6);//Для этого числа будем считать оценку регрессию
+        double x=HML_RandomUniform(0,6);//Для этого числа будем считать оценку регрессию
 
         double C=0.5;//коэффициент размытости
 
         //Применим функцию
         bool b;
-        double y=MHL_NonparametricEstimatorOfDerivative(x,X,Y,N,C,3,&b);
+        double y=HML_NonparametricEstimatorOfDerivative(x,X,Y,N,C,3,&b);
 
-        MHL_ShowNumber(x,"Входной парметр","x");
+        HML_ShowNumber(x,"Входной парметр","x");
         //Входной парметр:
         //x=1.48351
-        MHL_ShowNumber(y,"Непараметрическая оценка производной","y");
+        HML_ShowNumber(y,"Непараметрическая оценка производной","y");
         //Непараметрическая оценка производной:
         //y=0.0281603
-        MHL_ShowNumber(cos(x),"Действительное значение производной функции в точке","y*");
+        HML_ShowNumber(cos(x),"Действительное значение производной функции в точке","y*");
         //Действительное значение производной функции в точке:
         //y*=0.0871789
 
@@ -11210,33 +11210,33 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] Y;
     }
 
-    if (NameFunction=="MHL_NonparametricEstimatorOfDerivative2")
+    if (NameFunction=="HML_NonparametricEstimatorOfDerivative2")
     {
         int N=100;
         double *X=new double [N];
         double *Y=new double [N];
         for (int i=0;i<N;i++)
         {
-            X[i] = MHL_RandomUniform(0,6);
+            X[i] = HML_RandomUniform(0,6);
             Y[i] = sin(X[i]);
         }
-        //MHL_NoiseInVector(Y,5,N);//добавим помеху
+        //HML_NoiseInVector(Y,5,N);//добавим помеху
 
-        double x=MHL_RandomUniform(0,6);//Для этого числа будем считать оценку регрессию
+        double x=HML_RandomUniform(0,6);//Для этого числа будем считать оценку регрессию
 
         double C=0.3;//коэффициент размытости
 
         //Применим функцию
         bool b;
-        double y=MHL_NonparametricEstimatorOfDerivative4(x,X,Y,N,C,3,&b);
+        double y=HML_NonparametricEstimatorOfDerivative4(x,X,Y,N,C,3,&b);
 
-        MHL_ShowNumber(x,"Входной парметр","x");
+        HML_ShowNumber(x,"Входной парметр","x");
         //Входной парметр:
         //x=3.6964
-        MHL_ShowNumber(y,"Непараметрическая оценка производной","y");
+        HML_ShowNumber(y,"Непараметрическая оценка производной","y");
         //Непараметрическая оценка производной:
         //y=-0.76092
-        MHL_ShowNumber(cos(x),"Действительное значение производной функции в точке","y*");
+        HML_ShowNumber(cos(x),"Действительное значение производной функции в точке","y*");
         //Действительное значение производной функции в точке:
         //y*=-0.850004
 
@@ -11244,33 +11244,33 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] Y;
     }
 
-    if (NameFunction=="MHL_NonparametricEstimatorOfDerivative4")
+    if (NameFunction=="HML_NonparametricEstimatorOfDerivative4")
     {
         int N=100;
         double *X=new double [N];
         double *Y=new double [N];
         for (int i=0;i<N;i++)
         {
-            X[i] = MHL_RandomUniform(0,6);
+            X[i] = HML_RandomUniform(0,6);
             Y[i] = sin(X[i]);
         }
-        //MHL_NoiseInVector(Y,5,N);//добавим помеху
+        //HML_NoiseInVector(Y,5,N);//добавим помеху
 
-        double x=MHL_RandomUniform(0,6);//Для этого числа будем считать оценку регрессию
+        double x=HML_RandomUniform(0,6);//Для этого числа будем считать оценку регрессию
 
         double C=0.5;//коэффициент размытости
 
         //Применим функцию
         bool b;
-        double y=MHL_NonparametricEstimatorOfDerivative4(x,X,Y,N,C,3,&b);
+        double y=HML_NonparametricEstimatorOfDerivative4(x,X,Y,N,C,3,&b);
 
-        MHL_ShowNumber(x,"Входной парметр","x");
+        HML_ShowNumber(x,"Входной парметр","x");
         //Входной парметр:
         //x=5.53702
-        MHL_ShowNumber(y,"Непараметрическая оценка производной","y");
+        HML_ShowNumber(y,"Непараметрическая оценка производной","y");
         //Непараметрическая оценка производной:
         //y=0.761896
-        MHL_ShowNumber(cos(x),"Действительное значение производной функции в точке","y*");
+        HML_ShowNumber(cos(x),"Действительное значение производной функции в точке","y*");
         //Действительное значение производной функции в точке:
         //y*=0.734294
 
@@ -11278,33 +11278,33 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] Y;
     }
 
-    if (NameFunction=="MHL_NonparametricEstimatorOfDerivative5")
+    if (NameFunction=="HML_NonparametricEstimatorOfDerivative5")
     {
         int N=100;
         double *X=new double [N];
         double *Y=new double [N];
         for (int i=0;i<N;i++)
         {
-            X[i] = MHL_RandomUniform(0,6);
+            X[i] = HML_RandomUniform(0,6);
             Y[i] = sin(X[i]);
         }
-        //MHL_NoiseInVector(Y,5,N);//добавим помеху
+        //HML_NoiseInVector(Y,5,N);//добавим помеху
 
-        double x=MHL_RandomUniform(0,6);//Для этого числа будем считать оценку регрессию
+        double x=HML_RandomUniform(0,6);//Для этого числа будем считать оценку регрессию
 
         double C=0.5;//коэффициент размытости
 
         //Применим функцию
         bool b;
-        double y=MHL_NonparametricEstimatorOfDerivative5(x,X,Y,N,C,3,&b);
+        double y=HML_NonparametricEstimatorOfDerivative5(x,X,Y,N,C,3,&b);
 
-        MHL_ShowNumber(x,"Входной парметр","x");
+        HML_ShowNumber(x,"Входной парметр","x");
         //Входной парметр:
         //x=3.09027
-        MHL_ShowNumber(y,"Непараметрическая оценка производной","y");
+        HML_ShowNumber(y,"Непараметрическая оценка производной","y");
         //Непараметрическая оценка производной:
         //y=-0.975845
-        MHL_ShowNumber(cos(x),"Действительное значение производной функции в точке","y*");
+        HML_ShowNumber(cos(x),"Действительное значение производной функции в точке","y*");
         //Действительное значение производной функции в точке:
         //y*=-0.998683
 
@@ -11312,14 +11312,14 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] Y;
     }
 
-    if (NameFunction=="MHL_MakingVectorForNonparametricEstimatorOfDerivative3")
+    if (NameFunction=="HML_MakingVectorForNonparametricEstimatorOfDerivative3")
     {
         int N=20;
         double *X=new double [N];
         double *Y=new double [N];
         for (int i=0;i<N;i++)
         {
-            X[i] = MHL_RandomUniform(0,6);
+            X[i] = HML_RandomUniform(0,6);
             Y[i] = sin(X[i]);
         }
 
@@ -11328,9 +11328,9 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         double C=0.6;//коэффициент размытости
 
         //Применим функцию
-        MHL_MakingVectorForNonparametricEstimatorOfDerivative3(dY,X,Y,N,C,3);
+        HML_MakingVectorForNonparametricEstimatorOfDerivative3(dY,X,Y,N,C,3);
 
-        MHL_ShowVector(dY, N, "Полученный вектор", "dY");
+        HML_ShowVector(dY, N, "Полученный вектор", "dY");
         //Полученный вектор:
         //dY =
         //0.433703
@@ -11359,7 +11359,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] dY;
     }
 
-    if (NameFunction=="MHL_NonparametricEstimatorOfDerivative3")
+    if (NameFunction=="HML_NonparametricEstimatorOfDerivative3")
     {
         int N=100;
         double *X=new double [N];
@@ -11367,28 +11367,28 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         double *dY=new double [N];
         for (int i=0;i<N;i++)
         {
-            X[i] = MHL_RandomUniform(0,6);
+            X[i] = HML_RandomUniform(0,6);
             Y[i] = sin(X[i]);
         }
-        //MHL_NoiseInVector(Y,5,N);//добавим помеху
+        //HML_NoiseInVector(Y,5,N);//добавим помеху
 
-        double x=MHL_RandomUniform(0,6);//Для этого числа будем считать оценку регрессию
+        double x=HML_RandomUniform(0,6);//Для этого числа будем считать оценку регрессию
 
         double C=0.3;//коэффициент размытости
 
-        MHL_MakingVectorForNonparametricEstimatorOfDerivative3(dY,X,Y,N,C,3);
+        HML_MakingVectorForNonparametricEstimatorOfDerivative3(dY,X,Y,N,C,3);
 
         //Применим функцию
         bool b;
-        double y=MHL_NonparametricEstimatorOfDerivative3(x,X,dY,N,C,3,&b);
+        double y=HML_NonparametricEstimatorOfDerivative3(x,X,dY,N,C,3,&b);
 
-        MHL_ShowNumber(x,"Входной парметр","x");
+        HML_ShowNumber(x,"Входной парметр","x");
         //Входной парметр:
         //x=4.00877
-        MHL_ShowNumber(y,"Непараметрическая оценка производной","y");
+        HML_ShowNumber(y,"Непараметрическая оценка производной","y");
         //Непараметрическая оценка производной:
         //y=-0.532728
-        MHL_ShowNumber(cos(x),"Действительное значение производной функции в точке","y*");
+        HML_ShowNumber(cos(x),"Действительное значение производной функции в точке","y*");
         //Действительное значение производной функции в точке:
         //y*=-0.646979
 
@@ -11397,14 +11397,14 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] dY;
     }
 
-    if (NameFunction=="MHL_MakingVectorForNonparametricEstimatorOfDerivative6")
+    if (NameFunction=="HML_MakingVectorForNonparametricEstimatorOfDerivative6")
     {
         int N=20;
         double *X=new double [N];
         double *Y=new double [N];
         for (int i=0;i<N;i++)
         {
-            X[i] = MHL_RandomUniform(0,6);
+            X[i] = HML_RandomUniform(0,6);
             Y[i] = sin(X[i]);
         }
 
@@ -11413,9 +11413,9 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         double C=0.6;//коэффициент размытости
 
         //Применим функцию
-        MHL_MakingVectorForNonparametricEstimatorOfDerivative6(dY,X,Y,N,C,3);
+        HML_MakingVectorForNonparametricEstimatorOfDerivative6(dY,X,Y,N,C,3);
 
-        MHL_ShowVector(dY, N, "Полученный вектор", "dY");
+        HML_ShowVector(dY, N, "Полученный вектор", "dY");
         //Полученный вектор:
         //dY =
         //-0.515422
@@ -11444,7 +11444,7 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] dY;
     }
 
-    if (NameFunction=="MHL_NonparametricEstimatorOfDerivative6")
+    if (NameFunction=="HML_NonparametricEstimatorOfDerivative6")
     {
         int N=100;
         double *X=new double [N];
@@ -11452,28 +11452,28 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         double *dY=new double [N];
         for (int i=0;i<N;i++)
         {
-            X[i] = MHL_RandomUniform(0,6);
+            X[i] = HML_RandomUniform(0,6);
             Y[i] = sin(X[i]);
         }
-        //MHL_NoiseInVector(Y,5,N);//добавим помеху
+        //HML_NoiseInVector(Y,5,N);//добавим помеху
 
-        double x=MHL_RandomUniform(0,6);//Для этого числа будем считать оценку регрессию
+        double x=HML_RandomUniform(0,6);//Для этого числа будем считать оценку регрессию
 
         double C=0.3;//коэффициент размытости
 
-        MHL_MakingVectorForNonparametricEstimatorOfDerivative6(dY,X,Y,N,C,3);
+        HML_MakingVectorForNonparametricEstimatorOfDerivative6(dY,X,Y,N,C,3);
 
         //Применим функцию
         bool b;
-        double y=MHL_NonparametricEstimatorOfDerivative6(x,X,dY,N,C,3,&b);
+        double y=HML_NonparametricEstimatorOfDerivative6(x,X,dY,N,C,3,&b);
 
-        MHL_ShowNumber(x,"Входной парметр","x");
+        HML_ShowNumber(x,"Входной парметр","x");
         //Входной парметр:
         //x=5.29326
-        MHL_ShowNumber(y,"Непараметрическая оценка производной","y");
+        HML_ShowNumber(y,"Непараметрическая оценка производной","y");
         //Непараметрическая оценка производной:
         //y=0.732548
-        MHL_ShowNumber(cos(x),"Действительное значение производной функции в точке","y*");
+        HML_ShowNumber(cos(x),"Действительное значение производной функции в точке","y*");
         //Действительное значение производной функции в точке:
         //y*=0.548749
 
@@ -11482,151 +11482,151 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         delete [] dY;
     }
 
-    if (NameFunction=="MHL_NegativeColorR")
+    if (NameFunction=="HML_NegativeColorR")
     {
         int R1 = 25;
         int G1 = 128;
         int B1 = 75;
 
-        int R=MHL_NegativeColorR(R1, G1, B1);
+        int R=HML_NegativeColorR(R1, G1, B1);
 
         //Используем полученный результат
-        MHL_ShowNumber(R1,"Канал R первого цвета","R1");
+        HML_ShowNumber(R1,"Канал R первого цвета","R1");
         //Канал R первого цвета:
         //R1=25
-        MHL_ShowNumber(G1,"Канал G первого цвета","G1");
+        HML_ShowNumber(G1,"Канал G первого цвета","G1");
         //Канал G первого цвета:
         //G1=128
-        MHL_ShowNumber(B1,"Канал B первого цвета","B1");
+        HML_ShowNumber(B1,"Канал B первого цвета","B1");
         //Канал B первого цвета:
         //B1=75
 
-        MHL_ShowNumber(R,"Канал R итогового цвета","R");
+        HML_ShowNumber(R,"Канал R итогового цвета","R");
         //Канал R итогового цвета:
         //R=230
     }
 
-    if (NameFunction=="MHL_NegativeColorG")
+    if (NameFunction=="HML_NegativeColorG")
     {
         int R1 = 25;
         int G1 = 128;
         int B1 = 75;
 
-        int G=MHL_NegativeColorG(R1, G1, B1);
+        int G=HML_NegativeColorG(R1, G1, B1);
 
         //Используем полученный результат
-        MHL_ShowNumber(R1,"Канал R первого цвета","R1");
+        HML_ShowNumber(R1,"Канал R первого цвета","R1");
         //Канал R первого цвета:
         //R1=25
-        MHL_ShowNumber(G1,"Канал G первого цвета","G1");
+        HML_ShowNumber(G1,"Канал G первого цвета","G1");
         //Канал G первого цвета:
         //G1=128
-        MHL_ShowNumber(B1,"Канал B первого цвета","B1");
+        HML_ShowNumber(B1,"Канал B первого цвета","B1");
         //Канал B первого цвета:
         //B1=75
 
-        MHL_ShowNumber(G,"Канал G итогового цвета","G");
+        HML_ShowNumber(G,"Канал G итогового цвета","G");
         //Канал G итогового цвета:
         //G=127
     }
 
-    if (NameFunction=="MHL_NegativeColorB")
+    if (NameFunction=="HML_NegativeColorB")
     {
         int R1 = 25;
         int G1 = 128;
         int B1 = 75;
 
-        int B=MHL_NegativeColorB(R1, G1, B1);
+        int B=HML_NegativeColorB(R1, G1, B1);
 
         //Используем полученный результат
-        MHL_ShowNumber(R1,"Канал R первого цвета","R1");
+        HML_ShowNumber(R1,"Канал R первого цвета","R1");
         //Канал R первого цвета:
         //R1=25
-        MHL_ShowNumber(G1,"Канал G первого цвета","G1");
+        HML_ShowNumber(G1,"Канал G первого цвета","G1");
         //Канал G первого цвета:
         //G1=128
-        MHL_ShowNumber(B1,"Канал B первого цвета","B1");
+        HML_ShowNumber(B1,"Канал B первого цвета","B1");
         //Канал B первого цвета:
         //B1=75
 
-        MHL_ShowNumber(B,"Канал B итогового цвета","B");
+        HML_ShowNumber(B,"Канал B итогового цвета","B");
         //Канал R итогового цвета:
         //R=230
     }
 
-    if (NameFunction=="MHL_GreyscaleR")
+    if (NameFunction=="HML_GreyscaleR")
     {
         int R1 = 25;
         int G1 = 128;
         int B1 = 75;
 
-        int R=MHL_GreyscaleR(R1, G1, B1);
+        int R=HML_GreyscaleR(R1, G1, B1);
 
         //Используем полученный результат
-        MHL_ShowNumber(R1,"Канал R первого цвета","R1");
+        HML_ShowNumber(R1,"Канал R первого цвета","R1");
         //Канал R первого цвета:
         //R1=25
-        MHL_ShowNumber(G1,"Канал G первого цвета","G1");
+        HML_ShowNumber(G1,"Канал G первого цвета","G1");
         //Канал G первого цвета:
         //G1=128
-        MHL_ShowNumber(B1,"Канал B первого цвета","B1");
+        HML_ShowNumber(B1,"Канал B первого цвета","B1");
         //Канал B первого цвета:
         //B1=75
 
-        MHL_ShowNumber(R,"Канал R итогового цвета","R");
+        HML_ShowNumber(R,"Канал R итогового цвета","R");
         //Канал R итогового цвета:
         //R=76
     }
 
-    if (NameFunction=="MHL_GreyscaleG")
+    if (NameFunction=="HML_GreyscaleG")
     {
         int R1 = 25;
         int G1 = 128;
         int B1 = 75;
 
-        int G=MHL_GreyscaleG(R1, G1, B1);
+        int G=HML_GreyscaleG(R1, G1, B1);
 
         //Используем полученный результат
-        MHL_ShowNumber(R1,"Канал R первого цвета","R1");
+        HML_ShowNumber(R1,"Канал R первого цвета","R1");
         //Канал R первого цвета:
         //R1=25
-        MHL_ShowNumber(G1,"Канал G первого цвета","G1");
+        HML_ShowNumber(G1,"Канал G первого цвета","G1");
         //Канал G первого цвета:
         //G1=128
-        MHL_ShowNumber(B1,"Канал B первого цвета","B1");
+        HML_ShowNumber(B1,"Канал B первого цвета","B1");
         //Канал B первого цвета:
         //B1=75
 
-        MHL_ShowNumber(G,"Канал G итогового цвета","G");
+        HML_ShowNumber(G,"Канал G итогового цвета","G");
         //Канал G итогового цвета:
         //G=76
     }
 
-    if (NameFunction=="MHL_GreyscaleB")
+    if (NameFunction=="HML_GreyscaleB")
     {
         int R1 = 25;
         int G1 = 128;
         int B1 = 75;
 
-        int B=MHL_GreyscaleB(R1, G1, B1);
+        int B=HML_GreyscaleB(R1, G1, B1);
 
         //Используем полученный результат
-        MHL_ShowNumber(R1,"Канал R первого цвета","R1");
+        HML_ShowNumber(R1,"Канал R первого цвета","R1");
         //Канал R первого цвета:
         //R1=25
-        MHL_ShowNumber(G1,"Канал G первого цвета","G1");
+        HML_ShowNumber(G1,"Канал G первого цвета","G1");
         //Канал G первого цвета:
         //G1=128
-        MHL_ShowNumber(B1,"Канал B первого цвета","B1");
+        HML_ShowNumber(B1,"Канал B первого цвета","B1");
         //Канал B первого цвета:
         //B1=75
 
-        MHL_ShowNumber(B,"Канал B итогового цвета","B");
+        HML_ShowNumber(B,"Канал B итогового цвета","B");
         //Канал B итогового цвета:
         //B=76
     }
 
-    if (NameFunction=="MHL_DivideColorR")
+    if (NameFunction=="HML_DivideColorR")
     {
         int R1 = 25;
         int G1 = 128;
@@ -11634,25 +11634,25 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
 
         double p=2;
 
-        int R=MHL_DivideColorR(R1, G1, B1, p);
+        int R=HML_DivideColorR(R1, G1, B1, p);
 
         //Используем полученный результат
-        MHL_ShowNumber(R1,"Канал R первого цвета","R1");
+        HML_ShowNumber(R1,"Канал R первого цвета","R1");
         //Канал R первого цвета:
         //R1=25
-        MHL_ShowNumber(G1,"Канал G первого цвета","G1");
+        HML_ShowNumber(G1,"Канал G первого цвета","G1");
         //Канал G первого цвета:
         //G1=128
-        MHL_ShowNumber(B1,"Канал B первого цвета","B1");
+        HML_ShowNumber(B1,"Канал B первого цвета","B1");
         //Канал B первого цвета:
         //B1=75
 
-        MHL_ShowNumber(R,"Канал R итогового цвета","R");
+        HML_ShowNumber(R,"Канал R итогового цвета","R");
         //Канал R итогового цвета:
         //R=12
     }
 
-    if (NameFunction=="MHL_DivideColorG")
+    if (NameFunction=="HML_DivideColorG")
     {
         int R1 = 25;
         int G1 = 128;
@@ -11660,25 +11660,25 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
 
         double p=2;
 
-        int G=MHL_DivideColorG(R1, G1, B1, p);
+        int G=HML_DivideColorG(R1, G1, B1, p);
 
         //Используем полученный результат
-        MHL_ShowNumber(R1,"Канал R первого цвета","R1");
+        HML_ShowNumber(R1,"Канал R первого цвета","R1");
         //Канал R первого цвета:
         //R1=25
-        MHL_ShowNumber(G1,"Канал G первого цвета","G1");
+        HML_ShowNumber(G1,"Канал G первого цвета","G1");
         //Канал G первого цвета:
         //G1=128
-        MHL_ShowNumber(B1,"Канал B первого цвета","B1");
+        HML_ShowNumber(B1,"Канал B первого цвета","B1");
         //Канал B первого цвета:
         //B1=75
 
-        MHL_ShowNumber(G,"Канал G итогового цвета","G");
+        HML_ShowNumber(G,"Канал G итогового цвета","G");
         //Канал G итогового цвета:
         //G=64
     }
 
-    if (NameFunction=="MHL_DivideColorB")
+    if (NameFunction=="HML_DivideColorB")
     {
         int R1 = 25;
         int G1 = 128;
@@ -11686,25 +11686,25 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
 
         double p=2;
 
-        int B=MHL_DivideColorB(R1, G1, B1, p);
+        int B=HML_DivideColorB(R1, G1, B1, p);
 
         //Используем полученный результат
-        MHL_ShowNumber(R1,"Канал R первого цвета","R1");
+        HML_ShowNumber(R1,"Канал R первого цвета","R1");
         //Канал R первого цвета:
         //R1=25
-        MHL_ShowNumber(G1,"Канал G первого цвета","G1");
+        HML_ShowNumber(G1,"Канал G первого цвета","G1");
         //Канал G первого цвета:
         //G1=128
-        MHL_ShowNumber(B1,"Канал B первого цвета","B1");
+        HML_ShowNumber(B1,"Канал B первого цвета","B1");
         //Канал B первого цвета:
         //B1=75
 
-        MHL_ShowNumber(B,"Канал R итогового цвета","B");
+        HML_ShowNumber(B,"Канал R итогового цвета","B");
         //Канал B итогового цвета:
         //B=37
     }
 
-    if (NameFunction=="MHL_SubtractColorR")
+    if (NameFunction=="HML_SubtractColorR")
     {
         int R1 = 25;
         int G1 = 128;
@@ -11712,25 +11712,25 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
 
         double p=50;
 
-        int R=MHL_SubtractColorR(R1, G1, B1, p);
+        int R=HML_SubtractColorR(R1, G1, B1, p);
 
         //Используем полученный результат
-        MHL_ShowNumber(R1,"Канал R первого цвета","R1");
+        HML_ShowNumber(R1,"Канал R первого цвета","R1");
         //Канал R первого цвета:
         //R1=25
-        MHL_ShowNumber(G1,"Канал G первого цвета","G1");
+        HML_ShowNumber(G1,"Канал G первого цвета","G1");
         //Канал G первого цвета:
         //G1=128
-        MHL_ShowNumber(B1,"Канал B первого цвета","B1");
+        HML_ShowNumber(B1,"Канал B первого цвета","B1");
         //Канал B первого цвета:
         //B1=75
 
-        MHL_ShowNumber(R,"Канал R итогового цвета","R");
+        HML_ShowNumber(R,"Канал R итогового цвета","R");
         //Канал R итогового цвета:
         //R=0
     }
 
-    if (NameFunction=="MHL_SubtractColorG")
+    if (NameFunction=="HML_SubtractColorG")
     {
         int R1 = 25;
         int G1 = 128;
@@ -11738,25 +11738,25 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
 
         double p=50;
 
-        int G=MHL_SubtractColorG(R1, G1, B1, p);
+        int G=HML_SubtractColorG(R1, G1, B1, p);
 
         //Используем полученный результат
-        MHL_ShowNumber(R1,"Канал R первого цвета","R1");
+        HML_ShowNumber(R1,"Канал R первого цвета","R1");
         //Канал R первого цвета:
         //R1=25
-        MHL_ShowNumber(G1,"Канал G первого цвета","G1");
+        HML_ShowNumber(G1,"Канал G первого цвета","G1");
         //Канал G первого цвета:
         //G1=128
-        MHL_ShowNumber(B1,"Канал B первого цвета","B1");
+        HML_ShowNumber(B1,"Канал B первого цвета","B1");
         //Канал B первого цвета:
         //B1=75
 
-        MHL_ShowNumber(G,"Канал G итогового цвета","G");
+        HML_ShowNumber(G,"Канал G итогового цвета","G");
         //Канал G итогового цвета:
         //G=78
     }
 
-    if (NameFunction=="MHL_SubtractColorB")
+    if (NameFunction=="HML_SubtractColorB")
     {
         int R1 = 25;
         int G1 = 128;
@@ -11764,25 +11764,25 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
 
         double p=50;
 
-        int B=MHL_SubtractColorB(R1, G1, B1, p);
+        int B=HML_SubtractColorB(R1, G1, B1, p);
 
         //Используем полученный результат
-        MHL_ShowNumber(R1,"Канал R первого цвета","R1");
+        HML_ShowNumber(R1,"Канал R первого цвета","R1");
         //Канал R первого цвета:
         //R1=25
-        MHL_ShowNumber(G1,"Канал G первого цвета","G1");
+        HML_ShowNumber(G1,"Канал G первого цвета","G1");
         //Канал G первого цвета:
         //G1=128
-        MHL_ShowNumber(B1,"Канал B первого цвета","B1");
+        HML_ShowNumber(B1,"Канал B первого цвета","B1");
         //Канал B первого цвета:
         //B1=75
 
-        MHL_ShowNumber(B,"Канал B итогового цвета","B");
+        HML_ShowNumber(B,"Канал B итогового цвета","B");
         //Канал B итогового цвета:
         //B=25
     }
 
-    if (NameFunction=="MHL_MultiplyColorB")
+    if (NameFunction=="HML_MultiplyColorB")
     {
         int R1 = 25;
         int G1 = 128;
@@ -11790,25 +11790,25 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
 
         double p=2;
 
-        int B=MHL_MultiplyColorB(R1, G1, B1, p);
+        int B=HML_MultiplyColorB(R1, G1, B1, p);
 
         //Используем полученный результат
-        MHL_ShowNumber(R1,"Канал R первого цвета","R1");
+        HML_ShowNumber(R1,"Канал R первого цвета","R1");
         //Канал R первого цвета:
         //R1=25
-        MHL_ShowNumber(G1,"Канал G первого цвета","G1");
+        HML_ShowNumber(G1,"Канал G первого цвета","G1");
         //Канал G первого цвета:
         //G1=128
-        MHL_ShowNumber(B1,"Канал B первого цвета","B1");
+        HML_ShowNumber(B1,"Канал B первого цвета","B1");
         //Канал B первого цвета:
         //B1=75
 
-        MHL_ShowNumber(B,"Канал B итогового цвета","B");
+        HML_ShowNumber(B,"Канал B итогового цвета","B");
         //Канал B итогового цвета:
         //B=150
     }
 
-    if (NameFunction=="MHL_MultiplyColorG")
+    if (NameFunction=="HML_MultiplyColorG")
     {
         int R1 = 25;
         int G1 = 128;
@@ -11816,25 +11816,25 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
 
         double p=2;
 
-        int G=MHL_MultiplyColorG(R1, G1, B1, p);
+        int G=HML_MultiplyColorG(R1, G1, B1, p);
 
         //Используем полученный результат
-        MHL_ShowNumber(R1,"Канал R первого цвета","R1");
+        HML_ShowNumber(R1,"Канал R первого цвета","R1");
         //Канал R первого цвета:
         //R1=25
-        MHL_ShowNumber(G1,"Канал G первого цвета","G1");
+        HML_ShowNumber(G1,"Канал G первого цвета","G1");
         //Канал G первого цвета:
         //G1=128
-        MHL_ShowNumber(B1,"Канал B первого цвета","B1");
+        HML_ShowNumber(B1,"Канал B первого цвета","B1");
         //Канал B первого цвета:
         //B1=75
 
-        MHL_ShowNumber(G,"Канал G итогового цвета","G");
+        HML_ShowNumber(G,"Канал G итогового цвета","G");
         //Канал G итогового цвета:
         //G=255
     }
 
-    if (NameFunction=="MHL_MultiplyColorR")
+    if (NameFunction=="HML_MultiplyColorR")
     {
         int R1 = 25;
         int G1 = 128;
@@ -11842,25 +11842,25 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
 
         double p=2;
 
-        int R=MHL_MultiplyColorR(R1, G1, B1, p);
+        int R=HML_MultiplyColorR(R1, G1, B1, p);
 
         //Используем полученный результат
-        MHL_ShowNumber(R1,"Канал R первого цвета","R1");
+        HML_ShowNumber(R1,"Канал R первого цвета","R1");
         //Канал R первого цвета:
         //R1=25
-        MHL_ShowNumber(G1,"Канал G первого цвета","G1");
+        HML_ShowNumber(G1,"Канал G первого цвета","G1");
         //Канал G первого цвета:
         //G1=128
-        MHL_ShowNumber(B1,"Канал B первого цвета","B1");
+        HML_ShowNumber(B1,"Канал B первого цвета","B1");
         //Канал B первого цвета:
         //B1=75
 
-        MHL_ShowNumber(R,"Канал R итогового цвета","R");
+        HML_ShowNumber(R,"Канал R итогового цвета","R");
         //Канал R итогового цвета:
         //R=50
     }
 
-    if (NameFunction=="MHL_AddColorR")
+    if (NameFunction=="HML_AddColorR")
     {
         int R1 = 25;
         int G1 = 128;
@@ -11868,25 +11868,25 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
 
         double p=50;
 
-        int R=MHL_AddColorR(R1, G1, B1, p);
+        int R=HML_AddColorR(R1, G1, B1, p);
 
         //Используем полученный результат
-        MHL_ShowNumber(R1,"Канал R первого цвета","R1");
+        HML_ShowNumber(R1,"Канал R первого цвета","R1");
         //Канал R первого цвета:
         //R1=25
-        MHL_ShowNumber(G1,"Канал G первого цвета","G1");
+        HML_ShowNumber(G1,"Канал G первого цвета","G1");
         //Канал G первого цвета:
         //G1=128
-        MHL_ShowNumber(B1,"Канал B первого цвета","B1");
+        HML_ShowNumber(B1,"Канал B первого цвета","B1");
         //Канал B первого цвета:
         //B1=75
 
-        MHL_ShowNumber(R,"Канал R итогового цвета","R");
+        HML_ShowNumber(R,"Канал R итогового цвета","R");
         //Канал R итогового цвета:
         //R=75
     }
 
-    if (NameFunction=="MHL_AddColorG")
+    if (NameFunction=="HML_AddColorG")
     {
         int R1 = 25;
         int G1 = 128;
@@ -11894,25 +11894,25 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
 
         double p=50;
 
-        int G=MHL_AddColorG(R1, G1, B1, p);
+        int G=HML_AddColorG(R1, G1, B1, p);
 
         //Используем полученный результат
-        MHL_ShowNumber(R1,"Канал R первого цвета","R1");
+        HML_ShowNumber(R1,"Канал R первого цвета","R1");
         //Канал R первого цвета:
         //R1=25
-        MHL_ShowNumber(G1,"Канал G первого цвета","G1");
+        HML_ShowNumber(G1,"Канал G первого цвета","G1");
         //Канал G первого цвета:
         //G1=128
-        MHL_ShowNumber(B1,"Канал B первого цвета","B1");
+        HML_ShowNumber(B1,"Канал B первого цвета","B1");
         //Канал B первого цвета:
         //B1=75
 
-        MHL_ShowNumber(G,"Канал G итогового цвета","G");
+        HML_ShowNumber(G,"Канал G итогового цвета","G");
         //Канал G итогового цвета:
         //G=178
     }
 
-    if (NameFunction=="MHL_AddColorB")
+    if (NameFunction=="HML_AddColorB")
     {
         int R1 = 25;
         int G1 = 128;
@@ -11920,20 +11920,20 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
 
         double p=50;
 
-        int B=MHL_AddColorB(R1, G1, B1, p);
+        int B=HML_AddColorB(R1, G1, B1, p);
 
         //Используем полученный результат
-        MHL_ShowNumber(R1,"Канал R первого цвета","R1");
+        HML_ShowNumber(R1,"Канал R первого цвета","R1");
         //Канал R первого цвета:
         //R1=25
-        MHL_ShowNumber(G1,"Канал G первого цвета","G1");
+        HML_ShowNumber(G1,"Канал G первого цвета","G1");
         //Канал G первого цвета:
         //G1=128
-        MHL_ShowNumber(B1,"Канал B первого цвета","B1");
+        HML_ShowNumber(B1,"Канал B первого цвета","B1");
         //Канал B первого цвета:
         //B1=75
 
-        MHL_ShowNumber(B,"Канал B итогового цвета","B");
+        HML_ShowNumber(B,"Канал B итогового цвета","B");
         //Канал B итогового цвета:
         //B=125
     }

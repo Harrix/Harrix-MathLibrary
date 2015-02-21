@@ -1,0 +1,103 @@
+        int ChromosomeLength=50;//Длина хромосомы
+        int CountOfFitness=50*50;//Число вычислений целевой функции
+        int TypeOfSel=1;//Тип селекции
+        int TypeOfCros=0;//Тип скрещивания
+        int TypeOfMutation=1;//Тип мутации
+        int TypeOfForm=0;//Тип формирования нового поколения
+
+        int *ParametersOfStandartBinaryGeneticAlgorithm;
+        ParametersOfStandartBinaryGeneticAlgorithm=new int[6];
+        ParametersOfStandartBinaryGeneticAlgorithm[0]=ChromosomeLength;//Длина хромосомы
+        ParametersOfStandartBinaryGeneticAlgorithm[1]=CountOfFitness;//Число вычислений целевой функции
+        ParametersOfStandartBinaryGeneticAlgorithm[2]=TypeOfSel;//Тип селекции
+        ParametersOfStandartBinaryGeneticAlgorithm[3]=TypeOfCros;//Тип скрещивания
+        ParametersOfStandartBinaryGeneticAlgorithm[4]=TypeOfMutation;//Тип мутации
+        ParametersOfStandartBinaryGeneticAlgorithm[5]=TypeOfForm;//Тип формирования нового поколения
+
+        int *Decision;//бинарное решение
+        Decision=new int[ChromosomeLength];
+        double ValueOfFitnessFunction;//значение функции пригодности в точке Decision
+        int VHML_Success=0;//Успешен ли будет запуск cГА
+
+        //Запуск алгоритма
+        VHML_Success=HML_StandartGeneticAlgorithm (ParametersOfStandartBinaryGeneticAlgorithm,Func, Decision, &ValueOfFitnessFunction);
+
+        //Используем полученный результат
+        HML_ShowNumber(VHML_Success,"Как прошел запуск","VHML_Success");
+        //Как прошел запуск:
+        //VHML_Success=1
+
+        if (VHML_Success==1)
+         {
+         HML_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
+         //Найденное решение:
+         //Decision =
+         //1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1
+
+         HML_ShowNumber(ValueOfFitnessFunction,"Значение функции пригодности","ValueOfFitnessFunction");
+         // Значение функции пригодности:
+         //ValueOfFitnessFunction=50
+         }
+
+        delete [] ParametersOfStandartBinaryGeneticAlgorithm;
+        delete [] Decision;
+
+        //Для переопределенной функции
+        {//чтобы не удалять объявления переменных, заключим в скобки
+            int ChromosomeLength=2;//Длина хромосомы
+            int CountOfFitness=50*50;//Число вычислений целевой функции
+            int TypeOfSel=1;//Тип селекции
+            int TypeOfCros=0;//Тип скрещивания
+            int TypeOfMutation=1;//Тип мутации
+            int TypeOfForm=0;//Тип формирования нового поколения
+
+            int *ParametersOfStandartRealGeneticAlgorithm;
+            ParametersOfStandartRealGeneticAlgorithm=new int[7];
+            ParametersOfStandartRealGeneticAlgorithm[0]=ChromosomeLength;//Длина хромосомы
+            ParametersOfStandartRealGeneticAlgorithm[1]=CountOfFitness;//Число вычислений целевой функции
+            ParametersOfStandartRealGeneticAlgorithm[2]=TypeOfSel;//Тип селекции
+            ParametersOfStandartRealGeneticAlgorithm[3]=TypeOfCros;//Тип скрещивания
+            ParametersOfStandartRealGeneticAlgorithm[4]=TypeOfMutation;//Тип мутации
+            ParametersOfStandartRealGeneticAlgorithm[5]=TypeOfForm;//Тип формирования нового поколения
+            ParametersOfStandartRealGeneticAlgorithm[6]=0;//Тип формирования нового поколения
+
+            double *Left;//массив левых границ изменения каждой вещественной координаты
+            Left=new double[ChromosomeLength];
+            double *Right;//массив правых границ изменения каждой вещественной координаты
+            Right=new double[ChromosomeLength];
+            int *NumberOfParts;//на сколько делить каждую координату
+            NumberOfParts=new int[ChromosomeLength];
+
+            //Заполним массивы
+            //Причем по каждой координате одинаковые значения выставим
+            HML_FillVector(Left,ChromosomeLength,-5.);//Пусть будет интервал [-3;3]
+            HML_FillVector(Right,ChromosomeLength,5.);
+            HML_FillVector(NumberOfParts,ChromosomeLength,HML_PowerOf(2,15)-1);//Делим на 32768-1 частей каждую вещественную координату
+
+            double *Decision;//вещественное решение
+            Decision=new double[ChromosomeLength];
+            double ValueOfFitnessFunction;//значение целевой функции в точке Decision
+            int VHML_Success=0;//Успешен ли будет запуск cГА
+
+            //Запуск алгоритма
+            VHML_Success=HML_StandartGeneticAlgorithm (ParametersOfStandartRealGeneticAlgorithm,NumberOfParts,Left,Right,Func2, Decision, &ValueOfFitnessFunction);
+
+            //Используем полученный результат
+            HML_ShowNumber(VHML_Success,"Как прошел запуск","VHML_Success");
+            if (VHML_Success==1)
+             {
+             HML_ShowVectorT(Decision,ChromosomeLength,"Найденное решение","Decision");
+             //Найденное решение:
+             //Decision =	
+			 //2.00348	2.00226
+			 HML_ShowNumber(ValueOfFitnessFunction,"Значение целевой функции","ValueOfFitnessFunction");
+			 //Значение целевой функции:
+			 //ValueOfFitnessFunction=-1.72034e-05
+             }
+
+            delete [] ParametersOfStandartRealGeneticAlgorithm;
+            delete [] Decision;
+            delete [] Left;
+            delete [] Right;
+            delete [] NumberOfParts;
+        }//чтобы не удалять объявления переменных, заключим в скобки

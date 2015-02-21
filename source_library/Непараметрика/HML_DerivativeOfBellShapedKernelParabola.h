@@ -1,0 +1,1 @@
+double HML_DerivativeOfBellShapedKernelParabola(double z);

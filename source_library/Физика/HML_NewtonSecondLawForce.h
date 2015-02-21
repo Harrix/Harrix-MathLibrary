@@ -1,0 +1,1 @@
+double HML_NewtonSecondLawForce(double a, double m);

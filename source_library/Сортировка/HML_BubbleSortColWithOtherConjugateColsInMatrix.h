@@ -1,0 +1,1 @@
+template <class T> void HML_BubbleSortColWithOtherConjugateColsInMatrix(T **VHML_ResultMatrix,int Col, int VHML_N, int VHML_M);

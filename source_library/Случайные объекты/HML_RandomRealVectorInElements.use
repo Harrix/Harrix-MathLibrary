@@ -1,0 +1,40 @@
+        int VHML_N=2;//Размер массива
+        double *a;
+        a=new double[VHML_N];
+
+        double *Left;
+        Left=new double[VHML_N];
+        Left[0]=-3;//Левая граница изменения первого элемента массива
+        Left[1]=5;//Левая граница изменения второго элемента массива
+
+        double *Right;
+        Right=new double[VHML_N];
+        Right[0]=3;//Правая граница изменения первого элемента массива
+        Right[1]=10;//Правая граница изменения второго элемента массива
+
+        //Вызов функции
+        HML_RandomRealVectorInElements(a,Left,Right,VHML_N);
+
+        //Используем полученный результат
+
+        HML_ShowVector (Left,VHML_N,"Массив левых границ", "Left");
+        // Массив левых границ:
+        //Left =
+        //-3
+        //5
+
+        HML_ShowVector (Right,VHML_N,"Массив правых границ", "Right");
+        // Массив правых границ:
+        //Right =
+        //3
+        //10
+
+        HML_ShowVector (a,VHML_N,"Случайных массив", "a");
+        // Случайных массив:
+        //a =
+        //1.32111
+        //6.5625
+
+        delete [] a;
+        delete [] Left;
+        delete [] Right;

@@ -1,1 +1,0 @@
-template <class T> int TMHL_SearchFirstNotZero(T *x, int VMHL_N);

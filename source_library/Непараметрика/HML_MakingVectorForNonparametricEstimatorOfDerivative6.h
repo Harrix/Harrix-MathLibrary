@@ -1,0 +1,1 @@
+void HML_MakingVectorForNonparametricEstimatorOfDerivative6(double *VHML_ResultVector, double *X, double *Y, int VHML_N, double C, int V);

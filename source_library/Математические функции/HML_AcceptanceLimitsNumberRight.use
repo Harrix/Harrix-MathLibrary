@@ -1,0 +1,15 @@
+        int a    = HML_RandomUniformInt(-50,50);
+        int Right= 30;
+
+        int Result=HML_AcceptanceLimitsNumberRight(a,Right);
+
+        //Используем полученный результат
+        HML_ShowNumber(a,"Первоначальное число","a");
+        //Первоначальное число:
+        //a=49
+        HML_ShowNumber(Right,"Правая граница","Right");
+        //Правая граница:
+        //Right=30
+        HML_ShowNumber(Result,"Число в рамках","Result");
+        //Число в рамках:
+        //Result=30

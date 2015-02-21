@@ -1,0 +1,37 @@
+        int VHML_N=5;//Размер массива
+        double *x;
+        x=new double[VHML_N];
+        double *y;
+        y=new double[VHML_N];
+        //Заполним случайными числами
+        HML_RandomRealVector (x,0,10,VHML_N);
+        HML_RandomRealVector (y,0,10,VHML_N);
+
+        //Вызов функции
+        double metric=HML_Chebychev(x,y,VHML_N);
+
+        //Используем полученный результат
+        HML_ShowVector (x,VHML_N,"Первый массив", "x");
+        //Первый массив:
+        //x =	
+        //7.9245
+        //7.28699
+        //6.24054
+        //1.12152
+        //7.65442
+
+        HML_ShowVector (y,VHML_N,"Второй массив", "y");
+        //Второй массив:
+        //y =	
+        //0.324097
+        //3.12164
+        //4.47266
+        //9.70062
+        //5.64117
+
+        HML_ShowNumber (metric,"Значение метрики расстояние Чебышева", "metric");
+        //Значение метрики расстояние Чебышева:
+        //metric=8.5791
+
+        delete [] x;
+        delete [] y;

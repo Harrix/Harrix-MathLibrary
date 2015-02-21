@@ -1,0 +1,1 @@
+void HML_DichotomyOptimization (double Left, double Right, double (*Function)(double), double Interval, double Epsilon, double *VHML_Result_X,double *VHML_Result_Y);

@@ -1,0 +1,1 @@
+template <class T> void HML_MatrixToCol(T **a, T *VHML_ResultVector, int VHML_N, int k);

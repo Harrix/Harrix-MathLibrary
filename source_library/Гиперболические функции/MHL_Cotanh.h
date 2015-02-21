@@ -1,1 +1,0 @@
-double MHL_Cotanh(double x);

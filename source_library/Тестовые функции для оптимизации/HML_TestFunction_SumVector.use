@@ -1,0 +1,29 @@
+        int VHML_N=10;//Размер массива (число строк)
+        int *x;
+        x=new int[VHML_N];
+        //Получим случайный бинарный вектор
+        HML_RandomBinaryVector(x,VHML_N);
+
+        //Вызов функции
+        double f=HML_TestFunction_SumVector(x,VHML_N);
+
+        //Используем полученный результат
+        HML_ShowVector (x,VHML_N,"Вектор", "x");
+        //Вектор:
+        //x =	
+        //0
+        //0
+        //1
+        //0
+        //0
+        //1
+        //1
+        //1
+        //0
+        //1
+        
+        HML_ShowNumber (f,"Значение функции в точке", "f");
+        //Значение функции в точке:
+        //f=5
+                
+        delete [] x;

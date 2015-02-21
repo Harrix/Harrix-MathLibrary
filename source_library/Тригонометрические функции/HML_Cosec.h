@@ -1,0 +1,1 @@
+double HML_Cosec(double x);

@@ -1,1 +1,0 @@
-double MHL_TestFunction_Rana(double x, double y);

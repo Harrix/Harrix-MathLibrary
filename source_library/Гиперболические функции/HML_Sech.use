@@ -1,0 +1,9 @@
+        double x=HML_RandomUniform(0,10);
+
+        //Вызов функции
+        double Result=HML_Sech(x);
+
+        //Используем полученный результат
+        HML_ShowNumber(Result,"Гиперболический секанс от x="+HML_NumberToText(x),"равен");
+        //Гиперболический секанс от x=0.679932:
+        //равен=0.806323

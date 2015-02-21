@@ -1,0 +1,63 @@
+        int i;
+        int VHML_N=7;//Размер массива
+        double *Fitness;
+        Fitness=new double[VHML_N];
+        for (i=0;i<VHML_N;i++)
+         Fitness[i]=HML_RandomUniformInt(1,10)/10.;
+
+        double *Rank;
+        Rank=new double[VHML_N];
+
+        double *VectorProbability;
+        VectorProbability=new double[VHML_N];
+
+        //Сформируем вектор рангов
+        HML_MakeVectorOfRankForRankSelection(Fitness,Rank,VHML_N);
+        //Из вектора рангов получим вектор вероятностей выбора
+        HML_MakeVectorOfProbabilityForProportionalSelectionV2(Rank,VectorProbability,VHML_N);
+
+        //Вызов функции
+        int Number=HML_RankSelection(VectorProbability,VHML_N);
+
+        //Используем полученный результат
+
+        HML_ShowVector (Fitness,VHML_N,"Массив пригодностей", "Fitness");
+        // Массив пригодностей:
+        //Fitness =	
+        //0.2
+        //0.2
+        //0.6
+        //0.8
+        //0.4
+        //0.3
+        //0.2
+
+        HML_ShowVector (Rank,VHML_N,"Массив рангов", "Rank");
+        // Массив рангов:
+        //Rank =	
+        //2
+        //2
+        //6
+        //7
+        //5
+        //4
+        //2
+
+        HML_ShowVector (VectorProbability,VHML_N,"Массив вероятностей выбора", "VectorProbability");
+        //Массив вероятностей выбора:
+        //VectorProbability =	
+        //0
+        //0
+        //0.285714
+        //0.357143
+        //0.214286
+        //0.142857
+        //0
+
+        HML_ShowNumber (Number,"Номер выбранного индивида", "Number");
+        // Номер выбранного индивида:
+        //Number=3
+
+        delete [] Fitness;
+        delete [] Rank;
+        delete [] VectorProbability;

@@ -1,0 +1,26 @@
+        double x1=HML_RandomUniformInt(1,10);
+        double y1=HML_RandomUniformInt(1,10);
+        double x2=HML_RandomUniformInt(1,10);
+        double y2=HML_RandomUniformInt(1,10);
+
+        double x=5;
+
+        int solutionis;
+
+        //Вызов функции
+        double y=HML_LineTwoPoint(x,x1,y1,x2,y2,&solutionis);
+
+        //Используем полученный результат
+        HML_ShowText("Первая точка: ("+HML_NumberToText(x1)+"; "+HML_NumberToText(y1)+")");
+        //Первая точка: (6; 3).
+        HML_ShowText("Вторая точка: ("+HML_NumberToText(x2)+"; "+HML_NumberToText(y2)+")");
+        //Вторая точка: (3; 3).
+        HML_ShowNumber(solutionis,"Найдено ли решение","solutionis");
+        //Найдено ли решение:
+        //solutionis=1
+        if (solutionis!=0)
+        {
+        HML_ShowNumber(y,"Значение прямо, проходящей через две указанные точки, в точке x=5","y");
+        //Значение прямо, проходящей через две указанные точки, в точке x=5:
+        //y=32
+        }

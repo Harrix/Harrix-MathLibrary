@@ -1,1 +1,0 @@
-template <class T> int TMHL_NumberOfDifferentValuesInVector(T *a, int VMHL_N);

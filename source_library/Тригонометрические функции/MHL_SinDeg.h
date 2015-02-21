@@ -1,1 +1,0 @@
-double MHL_SinDeg(double x);

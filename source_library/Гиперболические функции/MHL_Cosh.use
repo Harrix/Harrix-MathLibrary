@@ -1,9 +1,0 @@
-        double x=MHL_RandomUniform(0,10);
-
-        //Вызов функции
-        double Result=MHL_Cosh(x);
-
-        //Используем полученный результат
-        MHL_ShowNumber(Result,"Гиперболический косинус от x="+MHL_NumberToText(x),"равен");
-        //Гиперболический косинус от x=4.04968:
-        //равен=28.6983

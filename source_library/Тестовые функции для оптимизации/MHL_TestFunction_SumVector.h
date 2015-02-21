@@ -1,1 +1,0 @@
-double MHL_TestFunction_SumVector(int *x, int VMHL_N);

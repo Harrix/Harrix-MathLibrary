@@ -1,1 +1,0 @@
-template <class T> T TMHL_Factorial(T x);
