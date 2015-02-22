@@ -236,13 +236,13 @@ void MainWindow::on_pushButton_clicked()
                 //Вставим гиперссылки на использованные функции
                 QString TempRef=Temp;
                 {
-                QRegExp regExp(" (MHL\\\\_[a-zA-Z0-9]*)([ .,!?:…$])");
+                QRegExp regExp(" (HML\\\\_[a-zA-Z0-9]*)([ .,!?:…$])");
                 TempRef=TempRef.replace(regExp," \\hyperref[\\1]{\\1}\\2");
-                TempRef=TempRef.replace("\\hyperref[MHL\\_","\\hyperref[MHL_");
+                TempRef=TempRef.replace("\\hyperref[HML\\_","\\hyperref[HML_");
 
-                QRegExp regExp2(" (TMHL\\\\_[a-zA-Z0-9]*)([ .,!?:…$])");
+                QRegExp regExp2(" (THML\\\\_[a-zA-Z0-9]*)([ .,!?:…$])");
                 TempRef=TempRef.replace(regExp2," \\hyperref[\\1]{\\1}\\2");
-                TempRef=TempRef.replace("\\hyperref[TMHL\\_","\\hyperref[TMHL_");
+                TempRef=TempRef.replace("\\hyperref[THML\\_","\\hyperref[THML_");
                 }
 
                 ResultTexList += "\\item \\textbf{\\hyperref[" + nameof_func + "]{" + nameof_func_ + "}} --- " + TempRef+"\n";
@@ -338,13 +338,9 @@ void MainWindow::on_pushButton_clicked()
                 //Вставим гиперссылки на использованные функции
                 QString TempRef=Temp;
                 {
-                QRegExp regExp(" (MHL\\\\_[a-zA-Z0-9]*)([ .,!?:…$])");
+                QRegExp regExp(" (HML\\\\_[a-zA-Z0-9]*)([ .,!?:…$])");
                 TempRef=TempRef.replace(regExp," \\hyperref[\\1]{\\1}\\2");
-                TempRef=TempRef.replace("\\hyperref[MHL\\_","\\hyperref[MHL_");
-
-                QRegExp regExp2(" (TMHL\\\\_[a-zA-Z0-9]*)([ .,!?:…$])");
-                TempRef=TempRef.replace(regExp2," \\hyperref[\\1]{\\1}\\2");
-                TempRef=TempRef.replace("\\hyperref[TMHL\\_","\\hyperref[TMHL_");
+                TempRef=TempRef.replace("\\hyperref[HML\\_","\\hyperref[HML_");
                 }
 
                 ResultTexFunctions+=TempRef+"\n\n";

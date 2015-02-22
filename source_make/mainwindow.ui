@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MakeHarrixMathLibrary v.2.2 - Сборка библиотеки</string>
+   <string>MakeHarrixMathLibrary v.2.3 - Сборка библиотеки</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout">
