@@ -1,0 +1,1 @@
+template <class T> void HML_Swap(T &a, T &b);

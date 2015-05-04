@@ -9,7 +9,7 @@
         //b=5.36194
 
         //Вызов функции
-        HML_NumberInterchange(&a,&b);
+        HML_NumberInterchange(a,b);
 
         //Используем полученный результат
         HML_ShowNumber(a,"Стало","a");

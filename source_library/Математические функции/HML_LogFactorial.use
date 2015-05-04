@@ -1,0 +1,8 @@
+        double a=HML_RandomUniformInt(0,100);
+
+        double Result=HML_LogFactorial(a);
+
+        //Используем полученный результат
+        HML_ShowNumber(Result,"Логарифм факториала числа "+HML_NumberToText(a),"log(a!)");
+        //Логарифм факториала числа 51:
+        //log(a!)=152.41

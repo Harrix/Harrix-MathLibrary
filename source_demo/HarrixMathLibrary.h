@@ -185,12 +185,30 @@ template <class T> T HML_HeavisideFunction(T x);
 int HML_HowManyPowersOfTwo(int x);
 double HML_InverseNormalizationNumberAll(double x);
 int HML_LeastCommonMultipleEuclid(int A,int B);
+template <class T> T HML_LogFactorial(T x);
 template <class T> T HML_Max(T a, T b);
+template <class T> T HML_Max(T a, T b, T c);
+template <class T> T HML_Max(T a, T b, T c, T d);
+template <class T> T HML_Max(T a, T b, T c, T d, T e);
+template <class T> T HML_Max(T a, T b, T c, T d, T e, T f);
+template <class T> T HML_Max(T a, T b, T c, T d, T e, T f, T g);
+template <class T> T HML_Max(T a, T b, T c, T d, T e, T f, T g, T h);
+template <class T> T HML_Max(T a, T b, T c, T d, T e, T f, T g, T h, T i);
+template <class T> T HML_Max(T a, T b, T c, T d, T e, T f, T g, T h, T i, T j);
 double HML_MeaningOfLife();
 template <class T> T HML_Min(T a, T b);
+template <class T> T HML_Min(T a, T b, T c);
+template <class T> T HML_Min(T a, T b, T c, T d);
+template <class T> T HML_Min(T a, T b, T c, T d, T e);
+template <class T> T HML_Min(T a, T b, T c, T d, T e, T f);
+template <class T> T HML_Min(T a, T b, T c, T d, T e, T f, T g);
+template <class T> T HML_Min(T a, T b, T c, T d, T e, T f, T g, T h);
+template <class T> T HML_Min(T a, T b, T c, T d, T e, T f, T g, T h, T i);
+template <class T> T HML_Min(T a, T b, T c, T d, T e, T f, T g, T h, T i, T j);
 void HML_MixedMultiLogicVectorOfFullSearch(int *VHML_Vector, int I, int *HowMuchInElements, int VHML_N);
 double HML_NormalizationNumberAll(double x);
 template <class T> void HML_NumberInterchange(T *a, T *b);
+template <class T> void HML_NumberInterchange(T &a, T &b);
 int HML_Parity(int a);
 template <class T> T HML_PowerOf(T x, int n);
 double HML_ProbabilityDensityFunctionOfInverseGaussianDistribution (double x, double mu, double lambda);
@@ -199,10 +217,12 @@ template <class T> int HML_SignNull(T a);
 double HML_SumGeometricSeries(double u1,double q,int n);
 double HML_SumOfArithmeticalProgression(double a1,double d,int n);
 int HML_SumOfDigits(int a);
+template <class T> void HML_Swap(T &a, T &b);
 
 //Матрицы
 template <class T> bool HML_CheckForIdenticalColsInMatrix(T **VHML_ResultMatrix, int VHML_N, int VHML_M);
 template <class T> bool HML_CheckForIdenticalRowsInMatrix(T **VHML_ResultMatrix, int VHML_N, int VHML_M);
+template <class T> void HML_ColInMatrixMultiplyNumber(T **VHML_ResultMatrix, int k, int VHML_N, T Number);
 template <class T> void HML_ColInterchange(T **VHML_ResultMatrix, int VHML_N, int k, int l);
 template <class T> void HML_ColToMatrix(T **VHML_ResultMatrix, T *b, int VHML_N, int k);
 template <class T> void HML_DeleteColInMatrix(T **VHML_ResultMatrix, int k, int VHML_N, int VHML_M);
@@ -226,6 +246,7 @@ template <class T> T HML_MaximumOfMatrix(T **a, int VHML_N, int VHML_M);
 template <class T> T HML_MinimumOfMatrix(T **a, int VHML_N, int VHML_M);
 template <class T> void HML_MixingRowsInOrder(T **VHML_ResultMatrix, int *b, int VHML_N, int VHML_M);
 template <class T> int HML_NumberOfDifferentValuesInMatrix(T **a, int VHML_N, int VHML_M);
+template <class T> void HML_RowInMatrixMultiplyNumber(T **VHML_ResultMatrix, int k, int VHML_M, T Number);
 template <class T> void HML_MatrixToRow(T **a, T *VHML_ResultVector, int k, int VHML_M);
 template <class T> void HML_RowToMatrix(T **VHML_ResultMatrix, T *b, int k, int VHML_M);
 template <class T> T HML_SumMatrix(T **a,int VHML_N,int VHML_M);
@@ -1817,6 +1838,24 @@ else
  return 1;
 }
 //---------------------------------------------------------------------------
+template <class T> T HML_LogFactorial(T x)
+{
+/*
+Функция вычисляет логарифм факториала числа.
+Входные параметры:
+ x - число.
+Возвращаемое значение:
+ Логарифм факториала числа.
+*/
+    if (x<1) x=1;
+    T S = log(1.);
+
+    for (int i=1;i<=x;i++)
+      S += log((double) i);
+
+    return S;
+}
+//---------------------------------------------------------------------------
 template <class T> T HML_Max(T a, T b)
 {
 /*
@@ -1831,6 +1870,193 @@ if (a>b)
  return a;
 else
  return b;
+}
+//---------------------------------------------------------------------------
+template <class T> T HML_Max(T a, T b, T c)
+{
+/*
+Функция возвращает максимальный элемент из трех.
+Входные параметры:
+ a - первый элемент;
+ b - первый элемент;
+ c - третий элемент.
+Возвращаемое значение:
+ Максимальный элемент.
+*/
+T max = a;
+
+if (b>max) max = b;
+if (c>max) max = c;
+
+return max;
+}
+//---------------------------------------------------------------------------
+template <class T> T HML_Max(T a, T b, T c, T d)
+{
+/*
+Функция возвращает максимальный элемент из четырех.
+Входные параметры:
+ a - первый элемент;
+ b - первый элемент;
+ c - третий элемент
+ и так далее.
+Возвращаемое значение:
+ Максимальный элемент.
+*/
+T max = a;
+
+if (b>max) max = b;
+if (c>max) max = c;
+if (d>max) max = d;
+
+return max;
+}
+//---------------------------------------------------------------------------
+template <class T> T HML_Max(T a, T b, T c, T d, T e)
+{
+/*
+Функция возвращает максимальный элемент из пяти.
+Входные параметры:
+ a - первый элемент;
+ b - первый элемент;
+ c - третий элемент
+ и так далее.
+Возвращаемое значение:
+ Максимальный элемент.
+*/
+T max = a;
+
+if (b>max) max = b;
+if (c>max) max = c;
+if (d>max) max = d;
+if (e>max) max = e;
+
+return max;
+}
+//---------------------------------------------------------------------------
+template <class T> T HML_Max(T a, T b, T c, T d, T e, T f)
+{
+/*
+Функция возвращает максимальный элемент из шести.
+Входные параметры:
+ a - первый элемент;
+ b - первый элемент;
+ c - третий элемент
+ и так далее.
+Возвращаемое значение:
+ Максимальный элемент.
+*/
+T max = a;
+
+if (b>max) max = b;
+if (c>max) max = c;
+if (d>max) max = d;
+if (e>max) max = e;
+if (f>max) max = f;
+
+return max;
+}
+//---------------------------------------------------------------------------
+template <class T> T HML_Max(T a, T b, T c, T d, T e, T f, T g)
+{
+/*
+Функция возвращает максимальный элемент из семи.
+Входные параметры:
+ a - первый элемент;
+ b - первый элемент;
+ c - третий элемент
+ и так далее.
+Возвращаемое значение:
+ Максимальный элемент.
+*/
+T max = a;
+
+if (b>max) max = b;
+if (c>max) max = c;
+if (d>max) max = d;
+if (e>max) max = e;
+if (f>max) max = f;
+if (g>max) max = g;
+
+return max;
+}
+//---------------------------------------------------------------------------
+template <class T> T HML_Max(T a, T b, T c, T d, T e, T f, T g, T h)
+{
+/*
+Функция возвращает максимальный элемент из восьми.
+Входные параметры:
+ a - первый элемент;
+ b - первый элемент;
+ c - третий элемент
+ и так далее.
+Возвращаемое значение:
+ Максимальный элемент.
+*/
+T max = a;
+
+if (b>max) max = b;
+if (c>max) max = c;
+if (d>max) max = d;
+if (e>max) max = e;
+if (f>max) max = f;
+if (g>max) max = g;
+if (h>max) max = h;
+
+return max;
+}
+//---------------------------------------------------------------------------
+template <class T> T HML_Max(T a, T b, T c, T d, T e, T f, T g, T h, T i)
+{
+/*
+Функция возвращает максимальный элемент из девяти.
+Входные параметры:
+ a - первый элемент;
+ b - первый элемент;
+ c - третий элемент
+ и так далее.
+Возвращаемое значение:
+ Максимальный элемент.
+*/
+T max = a;
+
+if (b>max) max = b;
+if (c>max) max = c;
+if (d>max) max = d;
+if (e>max) max = e;
+if (f>max) max = f;
+if (g>max) max = g;
+if (h>max) max = h;
+if (i>max) max = i;
+
+return max;
+}
+//---------------------------------------------------------------------------
+template <class T> T HML_Max(T a, T b, T c, T d, T e, T f, T g, T h, T i, T j)
+{
+/*
+Функция возвращает максимальный элемент из десяти.
+Входные параметры:
+ a - первый элемент;
+ b - первый элемент;
+ c - третий элемент
+ и так далее.
+Возвращаемое значение:
+ Максимальный элемент.
+*/
+T max = a;
+
+if (b>max) max = b;
+if (c>max) max = c;
+if (d>max) max = d;
+if (e>max) max = e;
+if (f>max) max = f;
+if (g>max) max = g;
+if (h>max) max = h;
+if (i>max) max = i;
+if (j>max) max = j;
+
+return max;
 }
 //---------------------------------------------------------------------------
 template <class T> T HML_Min(T a, T b)
@@ -1849,6 +2075,193 @@ else
  return b;
 }
 //---------------------------------------------------------------------------
+template <class T> T HML_Min(T a, T b, T c)
+{
+/*
+Функция возвращает минимальный элемент из трех.
+Входные параметры:
+ a - первый элемент;
+ b - первый элемент;
+ c - третий элемент.
+Возвращаемое значение:
+ Минимальный элемент.
+*/
+T min = a;
+
+if (b<min) min = b;
+if (c<min) min = c;
+
+return min;
+}
+//---------------------------------------------------------------------------
+template <class T> T HML_Min(T a, T b, T c, T d)
+{
+/*
+Функция возвращает минимальный элемент из четырех.
+Входные параметры:
+ a - первый элемент;
+ b - первый элемент;
+ c - третий элемент
+ и так далее.
+Возвращаемое значение:
+ Минимальный элемент.
+*/
+T min = a;
+
+if (b<min) min = b;
+if (c<min) min = c;
+if (d<min) min = d;
+
+return min;
+}
+//---------------------------------------------------------------------------
+template <class T> T HML_Min(T a, T b, T c, T d, T e)
+{
+/*
+Функция возвращает минимальный элемент из пяти.
+Входные параметры:
+ a - первый элемент;
+ b - первый элемент;
+ c - третий элемент
+ и так далее.
+Возвращаемое значение:
+ Минимальный элемент.
+*/
+T min = a;
+
+if (b<min) min = b;
+if (c<min) min = c;
+if (d<min) min = d;
+if (e<min) min = e;
+
+return min;
+}
+//---------------------------------------------------------------------------
+template <class T> T HML_Min(T a, T b, T c, T d, T e, T f)
+{
+/*
+Функция возвращает минимальный элемент из шести.
+Входные параметры:
+ a - первый элемент;
+ b - первый элемент;
+ c - третий элемент
+ и так далее.
+Возвращаемое значение:
+ Минимальный элемент.
+*/
+T min = a;
+
+if (b<min) min = b;
+if (c<min) min = c;
+if (d<min) min = d;
+if (e<min) min = e;
+if (f<min) min = f;
+
+return min;
+}
+//---------------------------------------------------------------------------
+template <class T> T HML_Min(T a, T b, T c, T d, T e, T f, T g)
+{
+/*
+Функция возвращает минимальный элемент из семи.
+Входные параметры:
+ a - первый элемент;
+ b - первый элемент;
+ c - третий элемент
+ и так далее.
+Возвращаемое значение:
+ Минимальный элемент.
+*/
+T min = a;
+
+if (b<min) min = b;
+if (c<min) min = c;
+if (d<min) min = d;
+if (e<min) min = e;
+if (f<min) min = f;
+if (g<min) min = g;
+
+return min;
+}
+//---------------------------------------------------------------------------
+template <class T> T HML_Min(T a, T b, T c, T d, T e, T f, T g, T h)
+{
+/*
+Функция возвращает минимальный элемент из восьми.
+Входные параметры:
+ a - первый элемент;
+ b - первый элемент;
+ c - третий элемент
+ и так далее.
+Возвращаемое значение:
+ Минимальный элемент.
+*/
+T min = a;
+
+if (b<min) min = b;
+if (c<min) min = c;
+if (d<min) min = d;
+if (e<min) min = e;
+if (f<min) min = f;
+if (g<min) min = g;
+if (h<min) min = h;
+
+return min;
+}
+//---------------------------------------------------------------------------
+template <class T> T HML_Min(T a, T b, T c, T d, T e, T f, T g, T h, T i)
+{
+/*
+Функция возвращает минимальный элемент из девяти.
+Входные параметры:
+ a - первый элемент;
+ b - первый элемент;
+ c - третий элемент
+ и так далее.
+Возвращаемое значение:
+ Минимальный элемент.
+*/
+T min = a;
+
+if (b<min) min = b;
+if (c<min) min = c;
+if (d<min) min = d;
+if (e<min) min = e;
+if (f<min) min = f;
+if (g<min) min = g;
+if (h<min) min = h;
+if (i<min) min = i;
+
+return min;
+}
+//---------------------------------------------------------------------------
+template <class T> T HML_Min(T a, T b, T c, T d, T e, T f, T g, T h, T i, T j)
+{
+/*
+Функция возвращает минимальный элемент из десяти.
+Входные параметры:
+ a - первый элемент;
+ b - первый элемент;
+ c - третий элемент
+ и так далее.
+Возвращаемое значение:
+ Минимальный элемент.
+*/
+T min = a;
+
+if (b<min) min = b;
+if (c<min) min = c;
+if (d<min) min = d;
+if (e<min) min = e;
+if (f<min) min = f;
+if (g<min) min = g;
+if (h<min) min = h;
+if (i<min) min = i;
+if (j<min) min = j;
+
+return min;
+}
+//---------------------------------------------------------------------------
 template <class T> void HML_NumberInterchange(T *a, T *b)
 {
 /*
@@ -1863,6 +2276,22 @@ T x;
 x=*b;
 *b=*a;
 *a=x;
+}
+//---------------------------------------------------------------------------
+template <class T> void HML_NumberInterchange(T &a, T &b)
+{
+/*
+Функция меняет местами значения двух чисел.
+Входные параметры:
+ a - первое число;
+ b - второе число.
+Возвращаемое значение:
+ Отсутствует.
+*/
+T x;
+x = b;
+b = a;
+a = x;
 }
 //---------------------------------------------------------------------------
 template <class T> T HML_PowerOf(T x, int n)
@@ -1915,6 +2344,22 @@ if (a>=0)
  return 1;
 else
  return -1;
+}
+//---------------------------------------------------------------------------
+template <class T> void HML_Swap(T &a, T &b)
+{
+/*
+Функция меняет местами значения двух чисел.
+Входные параметры:
+ a - первое число;
+ b - второе число.
+Возвращаемое значение:
+ Отсутствует.
+*/
+T x;
+x = b;
+b = a;
+a = x;
 }
 //---------------------------------------------------------------------------
 //*****************************************************************
@@ -1978,6 +2423,22 @@ template <class T> bool HML_CheckForIdenticalRowsInMatrix(T **VHML_ResultMatrix,
             }
         }
     return VHML_Result;
+}
+//---------------------------------------------------------------------------
+template <class T> void HML_ColInMatrixMultiplyNumber(T **VHML_ResultMatrix, int k, int VHML_N, T Number)
+{
+/*
+Функция умножает столбец матрицы на число.
+Входные параметры:
+ VHML_ResultMatrix - указатель на исходную матрицу (в ней и сохраняется результат);
+ k - номер столбца, который умножают на число;
+ VHML_N - размер матрицы (число строк);
+ Number - число, на которое умножается столбец матрицы.
+Возвращаемое значение:
+ Отсутствует.
+*/
+ for (int i=0;i<VHML_N;i++)
+  VHML_ResultMatrix[i][k]*=Number;
 }
 //---------------------------------------------------------------------------
 template <class T> void HML_ColInterchange(T **VHML_ResultMatrix, int VHML_N, int k, int l)
@@ -2432,6 +2893,22 @@ for (int i=0;i<VHML_N;i++)
    }
 delete [] b;
 return VHML_Result;
+}
+//---------------------------------------------------------------------------
+template <class T> void HML_RowInMatrixMultiplyNumber(T **VHML_ResultMatrix, int k, int VHML_M, T Number)
+{
+/*
+Функция умножает строку матрицы на число.
+Входные параметры:
+ VHML_ResultMatrix - указатель на исходную матрицу (в ней и сохраняется результат);
+ k - номер строки, которую умножают на число;
+ VHML_M - размер матрицы (число столбцов);
+ Number - число, на которое умножается строка матрицы.
+Возвращаемое значение:
+ Отсутствует.
+*/
+ for (int j=0;j<VHML_M;j++)
+  VHML_ResultMatrix[k][j]*=Number;
 }
 //---------------------------------------------------------------------------
 template <class T> void HML_RowInterchange(T **VHML_ResultMatrix, int VHML_M, int k, int l)

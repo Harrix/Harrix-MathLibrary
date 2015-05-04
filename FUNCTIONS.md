@@ -738,10 +738,24 @@ double HML_InverseNormalizationNumberAll(double x);
 int HML_LeastCommonMultipleEuclid(int A,int B);
 ```
 
-- Функция возвращает максимальный элемент из двух.
+- Функция вычисляет логарифм факториала числа.
+
+```cpp
+template <class T> T HML_LogFactorial(T x);
+```
+
+- Функция возвращает максимальный элемент из двух (до десяти).
 
 ```cpp
 template <class T> T HML_Max(T a, T b);
+template <class T> T HML_Max(T a, T b, T c);
+template <class T> T HML_Max(T a, T b, T c, T d);
+template <class T> T HML_Max(T a, T b, T c, T d, T e);
+template <class T> T HML_Max(T a, T b, T c, T d, T e, T f);
+template <class T> T HML_Max(T a, T b, T c, T d, T e, T f, T g);
+template <class T> T HML_Max(T a, T b, T c, T d, T e, T f, T g, T h);
+template <class T> T HML_Max(T a, T b, T c, T d, T e, T f, T g, T h, T i);
+template <class T> T HML_Max(T a, T b, T c, T d, T e, T f, T g, T h, T i, T j);
 ```
 
 - Функция возвращает смысл жизни.
@@ -750,10 +764,18 @@ template <class T> T HML_Max(T a, T b);
 double HML_MeaningOfLife();
 ```
 
-- Функция возвращает минимальный элемент из двух.
+- Функция возвращает минимальный элемент из двух (до десяти элементов).
 
 ```cpp
 template <class T> T HML_Min(T a, T b);
+template <class T> T HML_Min(T a, T b, T c);
+template <class T> T HML_Min(T a, T b, T c, T d);
+template <class T> T HML_Min(T a, T b, T c, T d, T e);
+template <class T> T HML_Min(T a, T b, T c, T d, T e, T f);
+template <class T> T HML_Min(T a, T b, T c, T d, T e, T f, T g);
+template <class T> T HML_Min(T a, T b, T c, T d, T e, T f, T g, T h);
+template <class T> T HML_Min(T a, T b, T c, T d, T e, T f, T g, T h, T i);
+template <class T> T HML_Min(T a, T b, T c, T d, T e, T f, T g, T h, T i, T j);
 ```
 
 - Функция генерирует определенный вектор k-значной логики, где каждый элемент может принимать разное максимальное значение, в полном переборе вариантов. Генерируется I вектор в этом полном переборе.
@@ -772,6 +794,7 @@ double HML_NormalizationNumberAll(double x);
 
 ```cpp
 template <class T> void HML_NumberInterchange(T *a, T *b);
+template <class T> void HML_NumberInterchange(T &a, T &b);
 ```
 
 - Функция проверяет четность целого числа.
@@ -822,6 +845,12 @@ double HML_SumOfArithmeticalProgression(double a1,double d,int n);
 int HML_SumOfDigits(int a);
 ```
 
+- Функция меняет местами значения двух чисел.
+
+```cpp
+template <class T> void HML_Swap(T &a, T &b);
+```
+
 Матрицы
 ----------------
 
@@ -835,6 +864,12 @@ template <class T> bool HML_CheckForIdenticalColsInMatrix(T **VHML_ResultMatrix,
 
 ```cpp
 template <class T> bool HML_CheckForIdenticalRowsInMatrix(T **VHML_ResultMatrix, int VHML_N, int VHML_M);
+```
+
+- Функция умножает столбец матрицы на число.
+
+```cpp
+template <class T> void HML_ColInMatrixMultiplyNumber(T **VHML_ResultMatrix, int k, int VHML_N, T Number);
 ```
 
 - Функция переставляет столбцы матрицы.
@@ -963,6 +998,12 @@ template <class T> void HML_MixingRowsInOrder(T **VHML_ResultMatrix, int *b, int
 
 ```cpp
 template <class T> int HML_NumberOfDifferentValuesInMatrix(T **a, int VHML_N, int VHML_M);
+```
+
+- Функция умножает строку матрицы на число.
+
+```cpp
+template <class T> void HML_RowInMatrixMultiplyNumber(T **VHML_ResultMatrix, int k, int VHML_M, T Number);
 ```
 
 - Функция переставляет строки матрицы.

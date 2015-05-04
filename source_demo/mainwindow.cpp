@@ -1022,6 +1022,19 @@ MainWindow::MainWindow(QWidget *parent) :
     item = new QStandardItem(QString("HML_AddColorB"));
     model->appendRow(item);
 
+    item = new QStandardItem(QString("HML_Swap"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("HML_LogFactorial"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("HML_RowInMatrixMultiplyNumber"));
+    model->appendRow(item);
+
+    item = new QStandardItem(QString("HML_ColInMatrixMultiplyNumber"));
+    model->appendRow(item);
+
+
     model->sort(0);
 
     //соединение модели списка с конкретным списком
@@ -2661,12 +2674,13 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
     {
         int a=HML_RandomUniformInt(10,100);
         int b=HML_RandomUniformInt(10,100);
+        int c=HML_RandomUniformInt(10,100);
 
         //Вызов функции
-        int Max=HML_Max(a,b);
+        int Max=HML_Max(a,b,c);
 
         //Используем полученный результат
-        HML_ShowNumber(Max,"Максимальное среди "+HML_NumberToText(a)+" и "+HML_NumberToText(b),"равно");
+        HML_ShowNumber(Max,"Максимальное среди "+HML_NumberToText(a)+" и "+HML_NumberToText(b)+" и "+HML_NumberToText(c),"равно");
         //Максимальное среди 73 и 44:
         //равно=73
     }
@@ -2718,7 +2732,31 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         //b=5.36194
 
         //Вызов функции
-        HML_NumberInterchange(&a,&b);
+        HML_NumberInterchange(a,b);
+
+        //Используем полученный результат
+        HML_ShowNumber(a,"Стало","a");
+        //Стало:
+        //a=5.36194
+        HML_ShowNumber(b,"Стало","b");
+        //Стало:
+        //b=-3.18237
+    }
+
+    if (NameFunction=="HML_Swap")
+    {
+        double a=HML_RandomUniform(-10,10);
+        double b=HML_RandomUniform(-10,10);
+
+        HML_ShowNumber(a,"Было","a");
+        //Было:
+        //a=-3.18237
+        HML_ShowNumber(b,"Было","b");
+        //Было:
+        //b=5.36194
+
+        //Вызов функции
+        HML_Swap(a,b);
 
         //Используем полученный результат
         HML_ShowNumber(a,"Стало","a");
@@ -11936,6 +11974,105 @@ void MainWindow::on_listView_clicked(const QModelIndex &index)
         HML_ShowNumber(B,"Канал B итогового цвета","B");
         //Канал B итогового цвета:
         //B=125
+    }
+
+    if (NameFunction=="HML_LogFactorial")
+    {
+        double a=HML_RandomUniformInt(0,100);
+
+        double Result=HML_LogFactorial(a);
+
+        //Используем полученный результат
+        HML_ShowNumber(Result,"Логарифм факториала числа "+HML_NumberToText(a),"log(a!)");
+        //Логарифм факториала числа 51:
+        //log(a!)=152.41
+    }
+
+    if (NameFunction=="HML_RowInMatrixMultiplyNumber")
+    {
+        int i,j;
+        int VHML_N=5;//Размер массива (число строк)
+        int VHML_M=5;//Размер массива (число столбцов)
+        int **Matrix;
+        Matrix=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) Matrix[i]=new int[VHML_M];
+        //Заполним случайными числами
+        for (i=0;i<VHML_N;i++)
+         for (j=0;j<VHML_M;j++)
+          Matrix[i][j]=HML_RandomUniformInt(10,100);
+
+        HML_ShowMatrix (Matrix,VHML_N,VHML_M,"Случайная матрица", "Matrix");
+        //Случайная матрица:
+        //Matrix =
+        //51	85	33	78	38
+        //32	18	87	88	85
+        //98	22	79	44	76
+        //10	86	53	99	43
+        //10	78	14	29	35
+
+        int Number=HML_RandomUniformInt(-10,10);
+
+        //Вызов функции
+        HML_RowInMatrixMultiplyNumber(Matrix,2,VHML_M,Number);
+
+        //Используем полученный результат
+        HML_ShowNumber (Number,"Число, на которое умножается третья строка","Number");
+        //Число, на которое умножается матрица:
+        //Number=2
+        HML_ShowMatrix (Matrix,VHML_N,VHML_M,"Матрица, где третья строка умноженнилась на число", "Matrix");
+        //Матрица, где третья строка умноженнилась на число:
+        //Matrix =
+        //51	85	33	78	38
+        //32	18	87	88	85
+        //196	44	158	88	152
+        //10	86	53	99	43
+        //10	78	14	29	35
+
+        for (i=0;i<VHML_N;i++) delete [] Matrix[i];
+        delete [] Matrix;
+    }
+
+    if (NameFunction=="HML_ColInMatrixMultiplyNumber")
+    {
+        int i,j;
+        int VHML_N=5;//Размер массива (число строк)
+        int VHML_M=5;//Размер массива (число столбцов)
+        int **Matrix;
+        Matrix=new int*[VHML_N];
+        for (i=0;i<VHML_N;i++) Matrix[i]=new int[VHML_M];
+        //Заполним случайными числами
+        for (i=0;i<VHML_N;i++)
+         for (j=0;j<VHML_M;j++)
+          Matrix[i][j]=HML_RandomUniformInt(10,100);
+
+        HML_ShowMatrix (Matrix,VHML_N,VHML_M,"Случайная матрица", "Matrix");
+        //Случайная матрица:
+        //Matrix =
+        //92	42	98	88	70
+        //62	68	66	47	45
+        //49	47	39	36	18
+        //49	96	55	66	20
+        //30	66	96	10	55
+        int Number=HML_RandomUniformInt(-10,10);
+
+        //Вызов функции
+        HML_ColInMatrixMultiplyNumber(Matrix,2,VHML_M,Number);
+
+        //Используем полученный результат
+        HML_ShowNumber (Number,"Число, на которое умножается третий столбец","Number");
+        //Число, на которое умножается матрица:
+        //Number=2
+        HML_ShowMatrix (Matrix,VHML_N,VHML_M,"Матрица, где третий столбец умножается на число", "Matrix");
+        //Матрица, где третий столбец умножается на число:
+        //Matrix =
+        //92	42	490	88	70
+        //62	68	330	47	45
+        //49	47	195	36	18
+        //49	96	275	66	20
+        //30	66	480	10	55
+
+        for (i=0;i<VHML_N;i++) delete [] Matrix[i];
+        delete [] Matrix;
     }
 
 }

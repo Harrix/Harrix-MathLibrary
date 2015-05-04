@@ -1,0 +1,1 @@
+template <class T> void HML_RowInMatrixMultiplyNumber(T **VHML_ResultMatrix, int k, int VHML_M, T Number);

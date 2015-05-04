@@ -1,0 +1,20 @@
+        double a=HML_RandomUniform(-10,10);
+        double b=HML_RandomUniform(-10,10);
+
+        HML_ShowNumber(a,"Было","a");
+        //Было:
+        //a=-3.18237
+        HML_ShowNumber(b,"Было","b");
+        //Было:
+        //b=5.36194
+
+        //Вызов функции
+        HML_Swap(a,b);
+
+        //Используем полученный результат
+        HML_ShowNumber(a,"Стало","a");
+        //Стало:
+        //a=5.36194
+        HML_ShowNumber(b,"Стало","b");
+        //Стало:
+        //b=-3.18237
