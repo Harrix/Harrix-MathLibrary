@@ -25,10 +25,7 @@ template <class T> T HML_Max(T a, T b, T c)
 Возвращаемое значение:
  Максимальный элемент.
 */
-T max = a;
-
-if (b>max) max = b;
-if (c>max) max = c;
+T max = HML_Max(HML_Max(a,b),c);
 
 return max;
 }
@@ -45,11 +42,7 @@ template <class T> T HML_Max(T a, T b, T c, T d)
 Возвращаемое значение:
  Максимальный элемент.
 */
-T max = a;
-
-if (b>max) max = b;
-if (c>max) max = c;
-if (d>max) max = d;
+T max = HML_Max(HML_Max(a,b,c),d);
 
 return max;
 }
@@ -66,12 +59,7 @@ template <class T> T HML_Max(T a, T b, T c, T d, T e)
 Возвращаемое значение:
  Максимальный элемент.
 */
-T max = a;
-
-if (b>max) max = b;
-if (c>max) max = c;
-if (d>max) max = d;
-if (e>max) max = e;
+T max = HML_Max(HML_Max(a,b,c,d),e);
 
 return max;
 }
@@ -88,13 +76,7 @@ template <class T> T HML_Max(T a, T b, T c, T d, T e, T f)
 Возвращаемое значение:
  Максимальный элемент.
 */
-T max = a;
-
-if (b>max) max = b;
-if (c>max) max = c;
-if (d>max) max = d;
-if (e>max) max = e;
-if (f>max) max = f;
+T max = HML_Max(HML_Max(a,b,c,d,e),f);
 
 return max;
 }
@@ -111,14 +93,7 @@ template <class T> T HML_Max(T a, T b, T c, T d, T e, T f, T g)
 Возвращаемое значение:
  Максимальный элемент.
 */
-T max = a;
-
-if (b>max) max = b;
-if (c>max) max = c;
-if (d>max) max = d;
-if (e>max) max = e;
-if (f>max) max = f;
-if (g>max) max = g;
+T max = HML_Max(HML_Max(a,b,c,d,e,f),g);
 
 return max;
 }
@@ -135,15 +110,7 @@ template <class T> T HML_Max(T a, T b, T c, T d, T e, T f, T g, T h)
 Возвращаемое значение:
  Максимальный элемент.
 */
-T max = a;
-
-if (b>max) max = b;
-if (c>max) max = c;
-if (d>max) max = d;
-if (e>max) max = e;
-if (f>max) max = f;
-if (g>max) max = g;
-if (h>max) max = h;
+T max = HML_Max(HML_Max(a,b,c,d,e,f,g),h);
 
 return max;
 }
@@ -160,16 +127,7 @@ template <class T> T HML_Max(T a, T b, T c, T d, T e, T f, T g, T h, T i)
 Возвращаемое значение:
  Максимальный элемент.
 */
-T max = a;
-
-if (b>max) max = b;
-if (c>max) max = c;
-if (d>max) max = d;
-if (e>max) max = e;
-if (f>max) max = f;
-if (g>max) max = g;
-if (h>max) max = h;
-if (i>max) max = i;
+T max = HML_Max(HML_Max(a,b,c,d,e,f,g,h),i);
 
 return max;
 }
@@ -186,17 +144,7 @@ template <class T> T HML_Max(T a, T b, T c, T d, T e, T f, T g, T h, T i, T j)
 Возвращаемое значение:
  Максимальный элемент.
 */
-T max = a;
-
-if (b>max) max = b;
-if (c>max) max = c;
-if (d>max) max = d;
-if (e>max) max = e;
-if (f>max) max = f;
-if (g>max) max = g;
-if (h>max) max = h;
-if (i>max) max = i;
-if (j>max) max = j;
+T max = HML_Max(HML_Max(a,b,c,d,e,f,g,h,i),j);
 
 return max;
 }

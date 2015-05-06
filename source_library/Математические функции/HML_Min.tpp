@@ -25,10 +25,7 @@ template <class T> T HML_Min(T a, T b, T c)
 Возвращаемое значение:
  Минимальный элемент.
 */
-T min = a;
-
-if (b<min) min = b;
-if (c<min) min = c;
+T min = HML_Min(HML_Min(a,b),c);
 
 return min;
 }
@@ -45,11 +42,7 @@ template <class T> T HML_Min(T a, T b, T c, T d)
 Возвращаемое значение:
  Минимальный элемент.
 */
-T min = a;
-
-if (b<min) min = b;
-if (c<min) min = c;
-if (d<min) min = d;
+T min = HML_Min(HML_Min(a,b,c),d);
 
 return min;
 }
@@ -66,12 +59,7 @@ template <class T> T HML_Min(T a, T b, T c, T d, T e)
 Возвращаемое значение:
  Минимальный элемент.
 */
-T min = a;
-
-if (b<min) min = b;
-if (c<min) min = c;
-if (d<min) min = d;
-if (e<min) min = e;
+T min = HML_Min(HML_Min(a,b,c,d),e);
 
 return min;
 }
@@ -88,13 +76,7 @@ template <class T> T HML_Min(T a, T b, T c, T d, T e, T f)
 Возвращаемое значение:
  Минимальный элемент.
 */
-T min = a;
-
-if (b<min) min = b;
-if (c<min) min = c;
-if (d<min) min = d;
-if (e<min) min = e;
-if (f<min) min = f;
+T min = HML_Min(HML_Min(a,b,c,d,e),f);
 
 return min;
 }
@@ -111,14 +93,7 @@ template <class T> T HML_Min(T a, T b, T c, T d, T e, T f, T g)
 Возвращаемое значение:
  Минимальный элемент.
 */
-T min = a;
-
-if (b<min) min = b;
-if (c<min) min = c;
-if (d<min) min = d;
-if (e<min) min = e;
-if (f<min) min = f;
-if (g<min) min = g;
+T min = HML_Min(HML_Min(a,b,c,d,e,f),g);
 
 return min;
 }
@@ -135,15 +110,7 @@ template <class T> T HML_Min(T a, T b, T c, T d, T e, T f, T g, T h)
 Возвращаемое значение:
  Минимальный элемент.
 */
-T min = a;
-
-if (b<min) min = b;
-if (c<min) min = c;
-if (d<min) min = d;
-if (e<min) min = e;
-if (f<min) min = f;
-if (g<min) min = g;
-if (h<min) min = h;
+T min = HML_Min(HML_Min(a,b,c,d,e,f,g),h);
 
 return min;
 }
@@ -160,16 +127,7 @@ template <class T> T HML_Min(T a, T b, T c, T d, T e, T f, T g, T h, T i)
 Возвращаемое значение:
  Минимальный элемент.
 */
-T min = a;
-
-if (b<min) min = b;
-if (c<min) min = c;
-if (d<min) min = d;
-if (e<min) min = e;
-if (f<min) min = f;
-if (g<min) min = g;
-if (h<min) min = h;
-if (i<min) min = i;
+T min = HML_Min(HML_Min(a,b,c,d,e,f,g,h),i);
 
 return min;
 }
@@ -186,17 +144,7 @@ template <class T> T HML_Min(T a, T b, T c, T d, T e, T f, T g, T h, T i, T j)
 Возвращаемое значение:
  Минимальный элемент.
 */
-T min = a;
-
-if (b<min) min = b;
-if (c<min) min = c;
-if (d<min) min = d;
-if (e<min) min = e;
-if (f<min) min = f;
-if (g<min) min = g;
-if (h<min) min = h;
-if (i<min) min = i;
-if (j<min) min = j;
+T min = HML_Min(HML_Min(a,b,c,d,e,f,g,h,i),j);
 
 return min;
 }

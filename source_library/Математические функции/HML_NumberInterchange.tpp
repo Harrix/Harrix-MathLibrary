@@ -24,8 +24,7 @@ template <class T> void HML_NumberInterchange(T &a, T &b)
 Возвращаемое значение:
  Отсутствует.
 */
-T x;
-x = b;
+T x = b;
 b = a;
 a = x;
 }
