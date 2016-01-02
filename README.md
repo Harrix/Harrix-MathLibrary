@@ -7,7 +7,7 @@ HarrixMathLibrary
 
 [https://github.com/Harrix/HarrixMathLibrary](https://github.com/Harrix/HarrixMathLibrary)
 
-Библиотека распространяется по лицензии [Apache License, Version 2.0](https://github.com/Harrix/HarrixMathLibrary/blob/master/LICENSE.txt).
+Библиотека распространяется по лицензии [MIT](https://github.com/Harrix/HarrixMathLibrary/blob/master/LICENSE).
 
 Для справки по установке, использованию и всем функциям перейдите в папку [**_library**](https://github.com/Harrix/HarrixMathLibrary/blob/master/_library) и откройте файл [**HarrixMathLibrary_Help.pdf**](https://github.com/Harrix/HarrixMathLibrary/blob/master/_library/HarrixMathLibrary_Help.pdf). Там же находятся файлы последней версии библиотеки.
 
