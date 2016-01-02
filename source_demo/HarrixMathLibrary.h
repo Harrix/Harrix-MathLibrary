@@ -4,6 +4,8 @@
 #include <time.h>
 #include <math.h>
 
+namespace MyNamespace {
+
 // КОНСТАНТЫ
 const double HML_TAU=0.61803398874989484820;
 const double HML_E=2.71828182845904523536;
@@ -3770,5 +3772,6 @@ return HML_SampleCovariance(x,x,VHML_N);
 //*****************************************************************
 //Цвет
 //*****************************************************************
+}
 
 #endif // HARRIXMATHLIBRARY_H

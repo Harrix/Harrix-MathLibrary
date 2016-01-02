@@ -37,6 +37,7 @@ QString HQt_BoolToWord(bool Bool);
 QString HQt_BoolToWord(bool Bool, QString No, QString Yes);
 QString HQt_BoolToWord(int Bool);
 QString HQt_BoolToWord(int Bool, QString No, QString Yes);
+QString HQt_RandomRussianLetter();
 QString HQt_RandomString(int Length);
 QString HQt_TryingReduceString(QString text, int MaxSize);
 QString HQt_TryingReduceString(QString text);
@@ -55,6 +56,7 @@ QStringList HQt_CutToWords(QString S);
 QStringList HQt_CutToWordsWithWordWrap(QString S);
 int HQt_GetTypeCharEng(QString x);
 int HQt_GetTypeCharRus(QString x);
+QString HQt_RussianLetter(int i);
 
 //Работа с датами
 int HQt_DaysBetweenDates(QDate BeginDate, QDate EndDate);

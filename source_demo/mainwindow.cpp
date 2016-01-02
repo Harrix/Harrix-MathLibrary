@@ -16,6 +16,8 @@
 #include "HarrixQtLibraryForQWebView.h"
 #include "HarrixQtLibrary.h"
 
+using namespace MyNamespace;
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)

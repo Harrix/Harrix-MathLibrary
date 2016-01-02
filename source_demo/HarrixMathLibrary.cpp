@@ -7,6 +7,8 @@
 #include "HarrixMathLibrary.h"
 #include "mtrand.h"//генератор случайных чисел Mersenne Twister
 
+using namespace MyNamespace;
+
 //ДЛЯ ГЕНЕРАТОРОВ СЛУЧАЙНЫХ ЧИСЕЛ
 unsigned int HML_Dummy;//Результат инициализации стандартного генератора случайных чисел
 TypeOfRandomNumberGenerator HML_TypeOfRandomNumberGenerator;//тип генератора случайных чисел
@@ -723,7 +725,7 @@ void HML_NormalizationVectorOne(double *VHML_ResultVector,int VHML_N)
  Отсутствует.
 */
 //вначале отнормируем в интервал
-HML_NormalizationVectorMaxMin (VHML_ResultVector,VHML_N);
+MyNamespace::HML_NormalizationVectorMaxMin (VHML_ResultVector,VHML_N);
 //Вычислим сумму вектора
 double sum=HML_SumVector(VHML_ResultVector,VHML_N);
 if (sum==0)
