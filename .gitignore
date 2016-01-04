@@ -35,3 +35,4 @@ Makefile*
 
 #Harrix configuration
 *_build*
+*release*
