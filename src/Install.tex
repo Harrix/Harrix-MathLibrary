@@ -1,0 +1,221 @@
+\newpage
+\section{Установка}\label{section_install}
+
+Если вы хотите только пользоваться библиотекой, то вам нужна из всего проекта только папки \textbf{\_library}, в которой располагается собранная библиотека и справка по ней, и папка \textbf{demo}, в которой находится программа с демонстрацией работы функций. Все остальные папки вам потребуются, если вы хотите добавлять новые функции.
+
+\subsection{Общий алгоритм подключения}
+
+\begin{itemize}
+\item Скопируем себе папку \textbf{\_library} с готовой последней версией библиотеки на сайте проекта \href{https://github.com/Harrix/HarrixMathLibrary}{https://github.com/Harrix/HarrixMathLibrary}.
+
+\item Скопируем файлы \textbf{HarrixMathLibrary.cpp}, \textbf{HarrixMathLibrary.h}, \textbf{mtrand.cpp}, \textbf{mtrand.h} в папку с Вашим проектом на C++.
+
+\item Пропишем в проекте:
+\begin{lstlisting}[label=install_01,caption=Подключение библиотеки]
+#include "HarrixMathLibrary.h"
+\end{lstlisting}
+
+\item Если планируем использовать функции, использующие случайные числа (если не знаем, то тоже сделаем), то в начале программы вызовем:
+\begin{lstlisting}[label=install_02,caption=Инициализация генератора случайных чисел]
+HML_SeedRandom();//Инициализировали генератор случайных чисел
+\end{lstlisting}
+
+\item Теперь библиотека готова к работе, и можем ее использовать. Например:
+\begin{lstlisting}[label=install_03,caption=Пример использования]
+double x;
+x=HML_RandomNumber();
+double degree=HML_DegToRad(60);
+\end{lstlisting}
+\end{itemize}
+
+
+\subsection{Подключение к Qt на примере Qt 5.4.0}
+
+Рассматривается на примере создания Qt Gui Application в Qt 5.4.0 for Desktop (MinGW 4.91) с использованием Qt Creator 3.0.0.
+
+\begin{itemize}
+\item Скопируем себе папку \textbf{\_library} с готовой последней версией библиотеки на сайте проекта \href{https://github.com/Harrix/HarrixMathLibrary}{https://github.com/Harrix/HarrixMathLibrary}.
+
+\item Скопируем файлы \textbf{HarrixMathLibrary.cpp}, \textbf{HarrixMathLibrary.h}, \textbf{mtrand.cpp}, \textbf{mtrand.h} в папку с Вашим проектом на C++ там, где находится файл проекта *.pro.
+
+\item Добавим к проекту файлы \textbf{HarrixMathLibrary.cpp}, \textbf{HarrixMathLibrary.h}, \textbf{mtrand.cpp}, \textbf{mtrand.h}. Для этого по проекту в Qt Creator щелкнем правой кнопкой и вызовем команду \textbf{Add Existings Files...}, где выберем наши файлы.
+
+\item Пропишем в главном файле исходников проекта \textbf{mainwindow.cpp}:
+\begin{lstlisting}[label=install_01_qt,caption=Подключение библиотеки]
+#include "HarrixMathLibrary.h"
+\end{lstlisting}
+
+\item Если планируем использовать функции, использующие случайные числа (если не знаем, то тоже сделаем), то в начале программы в конструкторе \textbf{MainWindow::MainWindow} вызовем:
+\begin{lstlisting}[label=install_02_qt,caption=Инициализация генератора случайных чисел]
+HML_SeedRandom();//Инициализировали генератор случайных чисел
+\end{lstlisting}
+
+То есть получится код:
+\begin{lstlisting}[label=install_03_qt,caption=Пример файла mainwindow.cpp с подключенной библиотекой]
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
+
+#include "HarrixMathLibrary.h"
+
+MainWindow::MainWindow(QWidget *parent) :
+    QMainWindow(parent),
+    ui(new Ui::MainWindow)
+{
+    ui->setupUi(this);
+    HML_SeedRandom();//Инициализировали генератор случайных чисел    
+}
+
+MainWindow::~MainWindow()
+{
+    delete ui;
+}
+\end{lstlisting}
+
+\item Теперь библиотека готова к работе, и можем ее использовать. Например, добавим textEdit, pushButton и напишем слот кнопки:
+\begin{lstlisting}[label=install_04_qt,caption=Пример использования]
+void MainWindow::on_pushButton_clicked()
+{
+    double x;
+    x=HML_RandomNumber();
+    double degree=HML_DegToRad(60);
+}
+\end{lstlisting}
+\end{itemize}
+
+\subsection{Подключение к C++ Builder на примере C++ Builder 6.0}
+\begin{itemize}
+\item Скопируем себе папку \textbf{\_library} с готовой последней версией библиотеки на сайте проекта \href{https://github.com/Harrix/HarrixMathLibrary}{https://github.com/Harrix/HarrixMathLibrary}.
+
+\item Скопируем файлы \textbf{HarrixMathLibrary.cpp}, \textbf{HarrixMathLibrary.h}, \textbf{mtrand.cpp}, \textbf{mtrand.h} в папку с проектом на C++.
+
+\item Пропишем проекте в файле \textbf{.cpp} главной формы (часто это \textbf{Unit1.cpp}) строчку \textbf{\#include "HarrixMathLibrary.h"}:
+\begin{lstlisting}[label=install_code_01,caption=Подключение библиотеки]
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "Unit1.h"
+#include "HarrixMathLibrary.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TForm1 *Form1;
+...
+\end{lstlisting}
+
+\item Добавим в проект файлы \textbf{HarrixMathLibrary.cpp} и \textbf{mtrand.cpp} через команду: \textbf{Project} $\rightarrow$ \textbf{Add to Project\dots}.
+
+\item Если планируем использовать функции, использующие случайные числа (если не знаем, то тоже сделаем), то в конструкторе главной формы инициализируем генератор случайных чисел:
+\begin{lstlisting}[label=install_code_02,caption=Инициализация генератора случайных чисел]
+__fastcall TForm1::TForm1(TComponent* Owner)
+        : TForm(Owner)
+{
+HML_SeedRandom();//Инициализировали генератор случайных чисел
+...
+}
+//---------------------------------------------------------------------------
+\end{lstlisting}
+
+\item Теперь библиотека готова к работе, и можем ее использовать. Например, создадим кнопку Button1, текстовое поле Memo1 и в клике на Button1 пропишем:
+\begin{lstlisting}[label=install_code_03,caption=Пример использования]
+void __fastcall TForm1::Button1Click(TObject *Sender)
+{
+double x=HML_RandomNumber();//получим случайное число
+Memo1->Lines->Add("x = "+AnsiString(x));//выведем его
+}
+//---------------------------------------------------------------------------
+\end{lstlisting}
+\end{itemize}
+
+\subsection{Подключение к C++ Builder на примере C++Builder XE4}
+\begin{itemize}
+\item Скопируем себе папку \textbf{\_library} с готовой последней версией библиотеки на сайте проекта \href{https://github.com/Harrix/HarrixMathLibrary}{https://github.com/Harrix/HarrixMathLibrary}.
+
+\item Скопируем файлы \textbf{HarrixMathLibrary.cpp}, \textbf{HarrixMathLibrary.h}, \textbf{mtrand.cpp}, \textbf{mtrand.h} в папку с проектом на C++.
+
+\item Пропишем проекте в файле \textbf{.cpp} главной формы (часто это \textbf{Unit1.cpp}) строчку \textbf{\#include "HarrixMathLibrary.h"}:
+\begin{lstlisting}[label=install_code_04,caption=Подключение библиотеки]
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "Unit1.h"
+#include "HarrixMathLibrary.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TForm1 *Form1;
+//---------------------------------------------------------------------------
+...
+\end{lstlisting}
+
+\item Добавим в проект файлы \textbf{HarrixMathLibrary.cpp} и \textbf{mtrand.cpp} через команду: \textbf{Project} $\rightarrow$ \textbf{Add to Project\dots}.
+
+\item Если планируем использовать функции, использующие случайные числа (если не знаем, то тоже сделаем), то в конструкторе главной формы инициализируем генератор случайных чисел:
+\begin{lstlisting}[label=install_code_05,caption=Инициализация генератора случайных чисел]
+__fastcall TForm1::TForm1(TComponent* Owner)
+	: TForm(Owner)
+{
+HML_SeedRandom();//Инициализировали генератор случайных чисел
+...
+}
+//---------------------------------------------------------------------------
+\end{lstlisting}
+
+\item Теперь библиотека готова к работе, и можем ее использовать. Например, создадим кнопку Button1, текстовое поле Memo1 и в клике на Button1 пропишем:
+\begin{lstlisting}[label=install_code_06,caption=Пример использования]
+void __fastcall TForm1::Button1Click(TObject *Sender)
+{
+double x=HML_RandomNumber();//получим случайное число
+Memo1->Lines->Add("x = "+AnsiString(x));//выведем его
+}
+//---------------------------------------------------------------------------
+\end{lstlisting}
+\end{itemize}
+
+\subsection{Подключение к Microsoft Visual Studio на примере Visual Studio 2013}
+
+Используется СLR приложение Windows Forms Application (точнее пустой проект, к которому прикреплена форма) на Visual C++.
+
+\begin{itemize}
+\item Скопируем себе папку \textbf{\_library} с готовой последней версией библиотеки на сайте проекта \href{https://github.com/Harrix/HarrixMathLibrary}{https://github.com/Harrix/HarrixMathLibrary}.
+
+\item Скопируем файлы \textbf{HarrixMathLibrary.cpp}, \textbf{HarrixMathLibrary.h}, \textbf{mtrand.cpp}, \textbf{mtrand.h} в папку с проектом *.vcxproj на C++.
+
+\item Пропишем проекте в файле \textbf{.h} главной формы (у меня это \textbf{MyForm.h}) строчку \textbf{\#include "HarrixMathLibrary.h"}:
+\begin{lstlisting}[label=install_code_07,caption=Подключение библиотеки]
+#pragma once
+#include "HarrixMathLibrary.h"
+...
+\end{lstlisting}
+
+\item Добавим в проект файлы \textbf{HarrixMathLibrary.cpp} и \textbf{mtrand.cpp} через правый клик по проекту: \textbf{Добавить} $\rightarrow$ \textbf{Существующий элемент Shift+Alt+A}.
+
+\item Если планируем использовать функции, использующие случайные числа (если не знаем, то тоже сделаем), то в конструкторе главной формы инициализируем генератор случайных чисел:
+\begin{lstlisting}[label=install_code_08,caption=Инициализация генератора случайных чисел]
+	public ref class MyForm : public System::Windows::Forms::Form
+	{
+	public:
+		MyForm(void)
+		{
+			HML_SeedRandom();//Инициализировали генератор случайных чисел
+			InitializeComponent();
+			//
+			//TODO: добавьте код конструктора
+			//
+		}
+...
+\end{lstlisting}
+
+\item Теперь библиотека готова к работе, и можем ее использовать. Например, создадим кнопку button1 и listBox1 и в клике на button1 пропишем:
+\begin{lstlisting}[label=install_code_09,caption=Пример использования]
+private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+ 		double x=HML_RandomNumber();//получим случайное число
+ 		listBox1->Items->Add("x = " + x.ToString());//выведем его
+ 		 }
+\end{lstlisting}
+\end{itemize}
+
+Как видите, алгоритм подключения почти одинаков.

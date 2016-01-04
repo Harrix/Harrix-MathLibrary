@@ -1,0 +1,607 @@
+\newpage
+\section{Как добавлять новые функции в библиотеку}\label{section_addnew}
+
+Данная глава предназначена для тех, кто хочет добавлять в библиотеку новые функции и развивать данный продукт.
+
+\textbf{Ваши действия:}
+
+\begin{itemize}
+\item \hyperref[step0]{Шаг 0}. Прочитать некоторую справочную информацию.
+\item \hyperref[step1]{Шаг 1}. Написать и проверить свою функцию в папке \textbf{source\_demo}.
+\item \hyperref[step2]{Шаг 2}. Раскидать в функцию по файлам в папке исходников \textbf{source\_library}.
+\item \hyperref[step3]{Шаг 3}. Собрать библиотеку в папке \textbf{make}.
+\item \hyperref[step4]{Шаг 4}. Раскидать файлы собранной библиотеки из папки \textbf{temp\_library} по папкам библиотеки и перекомпилировать некоторые программы и справки.
+\end{itemize}
+
+\textbf{Шаг 0.} \label{step0} Справочная информация.
+
+Вначале надо сориентироваться в структуре библиотеки:
+\begin{itemize}
+\item \textbf{\_library} --- основная папка, в которой располагается готовая библиотека и данная справка;
+\item \textbf{demo} --- папка, в которой находится программа DemoHarrixMathLibrary.exe с демонстрацией работы функций;
+\item \textbf{make} --- в этой папке находится программа MakeHarrixMathLibrary.exe для собрания готовых файлов библиотеки из исходных материалов из папки source\_library. Также там находится справка по этой программе;
+\item \textbf{source\_demo} --- папка с исходными кодами DemoHarrixMathLibrary.exe из папки demo;
+\item \textbf{source\_library} --- папка исходных материалов библиотеки. Сами эти файлы библиотекой не являются, так как они потом собираются MakeHarrixMathLibrary.exe; 
+\item \textbf{source\_make} --- папка с исходными кодами MakeHarrixMathLibrary.exe из папки make;
+\item \textbf{LICENSE.txt} и \textbf{NOTICE.txt} --- файлы Apache лицензии;
+\item \textbf{FUNCTIONS.md} --- список функций библиотеки.
+\item \textbf{README.md} --- файл информации о проекте в системе GitHub.
+\end{itemize}
+
+Для полноценной работы по добавлению функций вам потребуются:
+\begin{itemize}
+\item программа для проверки работоспособности новых функций и компиляции DemoHarrixMathLibrary.exe (например, Qt 5.4.0 с Qt Creator 3.3.0 или любая другая версия Qt с пятой версии). Для проверки работоспособности библиотеки без компиляции DemoHarrixMathLibrary.exe подойдет любой другой C++ компилятор;
+\item программа для компиляции *.tex документов в *.pdf для формирования справочных материалов. Автор использует для этого связку MiKTex и TeXstudio (версии MiKTex 2.9 и TeXstudio 2.8.8).
+\end{itemize}
+
+В варианте, который использует автор, в *.tex файлах справок для отображения русских букв используется модуль \textbf{pscyr}. Об его установке (там можно и скачать) можно прочитать в статье \href{http://blog.harrix.org/?p=444}{http://blog.harrix.org/?p=444}.
+
+Подробное описание установки и настройки связки MiKTeX + TeXstudio + pscyr можно прочитать в статье \href{http://blog.harrix.org/?p=849}{http://blog.harrix.org/?p=849}.
+
+Далее приведены некоторые спецификации, принятые в данной библиотеке. Кроме первого пункта правила не являются обязательными: сам автор регулярно их нарушает.
+\begin{itemize}
+\item Основу библиотеки составляют функции и шаблоны функций. Имена функций начинаются с \textbf{HML\_}, например:
+\begin{lstlisting}[label=examplename,caption=Пример названия функции]
+void HML_NormalizationVectorOne(double *VHML_ResultVector,int VHML_N);
+\end{lstlisting}
+Имена шаблонов также начинаются с \textbf{HML\_}, например (раньше названия функций и шаблонов отличались):
+\begin{lstlisting}[label=examplename2,caption=Пример названия шаблона функции]
+template <class T> int HML_SearchFirstZero(T *VHML_Vector, int VHML_N);
+\end{lstlisting}
+Код функций в итоге будет располагаться в HarrixMathLibrary.cpp, а реализация шаблонов будет располагаться в HarrixMathLibrary.h. Содержимое файлов mtrand.cpp и mtrand.h трогать не нужно.
+\item Количество элементов в одномерном массиве обозначается стандартной переменной  \textbf{int VHML\_N}.
+\item Количество элементов в двумерном массиве обозначается стандартными переменными  \textbf{int VHML\_N} и \textbf{int VHML\_M}.
+\item Возвращаемое значение функций обозначается переменной \textbf{VHML\_Result}.
+\item Возвращаемый вектор (над которым производятся вычисления) обозначается указателем \textbf{*VHML\_ResultVector}.
+\item Возвращаемая матрица (над которой производятся вычисления) обозначается указателем \textbf{**VHML\_ResultMatrix}.
+\item Если функция в качестве параметра имеет одну числовую переменную, то она обозначается \textbf{VHML\_X} или \textbf{VHML\_X1}. Если есть однотипные переменные, то обозначаются \textbf{VHML\_X2} или \textbf{VHML\_Y} и так далее (данная рекомендация даже автором редко соблюдается).
+\item Если функция в качестве параметра имеет некий вектор, то он обозначается \textbf{VHML\_Vector} (данная рекомендация даже автором редко соблюдается).
+\item Если функция в качестве параметра имеет некую матрицу, то она обозначается \textbf{VHML\_Matrix} (данная рекомендация даже автором редко соблюдается).
+\item То есть если входные переменные не имеют какой-то особый смысл, то название переменных стандартно, но в тоже время все входные и выходные переменные могут начинаться с \textbf{VHML\_}, чтобы различать их от внутренних, но во отличии от выходных значений это есть \textbf{не обязательное условие}.
+\end{itemize}
+
+Далее приведена последовательность действий, которую надо выполнить для добавления новой функции. Допустим мы хотим добавить функцию  \textbf{double HML\_Func(double VHML\_X)}.
+
+\textbf{Шаг 1.}\label{step1} Вначале нам нужно реализовать саму функцию и проверить ее работоспособность. Если вы хотите работать не через средства, предоставляемые библиотекой, то этот шаг можно пропустить.
+
+\begin{itemize}
+\item Заходим в папку \textbf{source\_demo} и открываем проект \textbf{DemoHarrixMathLibrary.pro} в Qt Creator.
+\item Компилируем проект и в папку с скомпиированным приложением (в режиме Release) из папки \textbf{demo} скопируем файлы:
+\begin{itemize}
+\item  папка images;
+\item  index.html;
+\item  jquery.js;
+\item  jsxgraphcore.js;
+\item  style.css.
+\end {itemize}
+\item Добавляем в конец файлов \textbf{HarrixMathLibrary.cpp} и \textbf{HarrixMathLibrary.h} функцию, которую хотим добавить. Например, в HarrixMathLibrary.cpp добавляем:
+\begin{lstlisting}[label=examplefunction01, caption=Что добавляем в HarrixMathLibrary.cpp]
+int  HML_Func(int VHML_X)
+{
+/*
+Умножает число на 2.
+Входные параметры:
+  x - число, которое будет умножаться.
+Возвращаемое значение:
+ Число, умноженное на 2.
+*/
+  return 2*VHML_X;
+}
+\end{lstlisting}
+А в HarrixMathLibrary.h добавляем:
+\begin{lstlisting}[label=examplefunction02, caption=Что добавляем в HarrixMathLibrary.h]
+int  HML_Func(int VHML_X);
+\end{lstlisting}
+\textbf{Замечание.} В .h файл добавляем до строчки <<\textbf{\#endif // HARRIXMATHLIBRARY\_H}>>.
+
+\textbf{Замечание.} Если вы добавляете шаблон функции, то его реализацию надо добавлять в HarrixMathLibrary.h.
+\item Теперь перейдем в проекте DemoHarrixMathLibrary.pro в файл \textbf{mainwindow.cpp}.
+\item Вначале этого файла идет следующий код:
+\begin{lstlisting}[label=examplefunction03, caption=mainwindow.cpp]
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
+#include <QDebug>
+#include <QFile>
+#include <QDesktopServices>
+#include <QUrl>
+#include <QDir>
+#include <QStandardItemModel>
+#include <QSortFilterProxyModel>
+
+#include <stdlib.h>
+#include <time.h>
+#include <math.h>
+
+#include "HarrixMathLibrary.h"
+#include "HarrixQtLibraryForQWebView.h"
+#include "HarrixQtLibrary.h"
+
+MainWindow::MainWindow(QWidget *parent) :
+    QMainWindow(parent),
+    ui(new Ui::MainWindow)
+{
+    ui->setupUi(this);
+
+    DS=QDir::separator();//какой разделитель используется в пути между папками
+    Path=QGuiApplication::applicationDirPath()+DS;//путь к папке, где находится приложение
+    HQt_BeginHtml(Path);
+    ui->webView->setUrl(QUrl::fromLocalFile(Path+"index.html"));// и в webViewотображаем index.html (его вообще не трогаем)
+
+    HML_SeedRandom();//Инициализация датчика случайных чисел
+
+    model = new QStandardItemModel(this);
+    model->setObjectName(QString::fromUtf8("model"));
+
+    QStandardItem *item;//элемент списка
+
+    //добавление новых элементов
+    
+    //Сюда нужно добавить код
+	
+	...
+    
+    item = new QStandardItem(QString("HML_FillVector"));
+    model->appendRow(item);
+
+    model->sort(0);
+
+    //соединение модели списка с конкретным списком
+
+    proxyModelView = new QSortFilterProxyModel(this);
+    proxyModelView->setSourceModel(model);
+    proxyModelView->setObjectName(QString::fromUtf8("proxyModelView"));
+
+    ui->listView->setModel(proxyModelView);
+
+    ui->listView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+}
+\end{lstlisting}
+
+\item Там, где написан комментарий <<\textbf{//Сюда нужно добавить код}>> необходимо добавить две строчки:
+\begin{lstlisting}[label=examplefunction04, caption=Что добавить в mainwindow.cpp]
+    item = new QStandardItem(QString("[Имя вашей функции]"));
+    model->appendRow(item);
+\end{lstlisting}
+То есть в рассматриваемом примере вы должны добавить:
+\begin{lstlisting}[label=examplefunction05, caption=Что добавить в mainwindow.cpp в примере]
+    item = new QStandardItem(QString("HML_Func"));
+    model->appendRow(item);
+\end{lstlisting}
+Добавление данного кода добавить вашу функцию в список, которые будут отображаться в программе при запуске. По сути, удобнее было бы извлекать из обычного текстового файла. Может в будущих версиях так и сделаю, но все равно вам нужно потом писать код демонстрации функции, поэтому занесение в текстовой файл не предусмотрел.
+\item Далее найдем функцию \textbf{MainWindow::on\_listView\_clicked}:
+\begin{lstlisting}[label=examplefunction06, caption=MainWindow::on\_listView\_clicked]
+void MainWindow::on_listView_clicked(const QModelIndex &index)
+{
+    HQt_BeginHtml (Path);
+
+    QString NameFunction;//Какая функция вызывается
+
+    //выдергиваем текст
+    NameFunction=index.data(Qt::DisplayRole).toString();
+
+    //Сюда нужно добавить код
+	
+	...
+}
+\end{lstlisting}
+\item Там, где написан комментарий <<\textbf{//Сюда нужно добавить код}>> добавляете код следующего типа:
+\begin{lstlisting}[label=examplefunction07, caption=Добавление демонстрации работы функции]
+    if (NameFunction=="[Имя вашей функции]")
+    {
+	//Реализация демонстрации функции
+    }
+\end{lstlisting}
+Вместо <<\textbf{[Имя вашей функции]}>> пишите название вашей функции, такое же, что добавляли выше. Вместо комментария <<\textbf{//Сюда нужно добавить код}>> добавьте реализацию демонстрации вашей функции. Например, для рассматриваемого примера код будет выглядеть так:
+\begin{lstlisting}[label=examplefunction08, caption=Добавление демонстрации работы функции на примере]
+    if (NameFunction=="HML_Func")
+    {
+        int x=5;
+
+        //Вызов функции
+        int y=HML_Func(x);
+
+        //Используем полученный результат
+        HML_ShowNumber (x,"Первоначальное число", "x");
+        HML_ShowNumber (y,"Умноженное число", "y");
+        //Первоначальное число:
+        //x=5
+        //Умноженное число:
+        //y=10
+    }
+\end{lstlisting}
+\item Рассмотрим немного этот код. После вызова функции идет комментарий <<\textbf{//Используем полученный результат}>>. После него надо вывести в webView нужную информацию. Для этого лучше использовать стандартные функции, список который написан ниже.
+\item  После вывода функций в виде комментариев показывается тот текст, который может продемонстрироваться при вызове функции. У нас это код:
+\begin{lstlisting}[label=examplefunction09, caption=Закомментированный результат работы функции]
+        //Первоначальное число:
+        //x=5
+        //Умноженное число:
+        //y=10
+\end{lstlisting}
+\end{itemize}
+
+Теперь рассмотрим какие функции используются для вывода результата. Типичными объектами, над которыми выполняются действия по выводу, являются: числа, вектора, матрицы. Их мы стандартизовано и выводим, используя некоторые функции. Так как библиотека HarrixMathLibrary может использоваться на различных системах C++, а вывод информации в каждой системе может быть разным, то функции вывода строились таким образом, чтобы внешне выглядели однотипно в любой системе C++, так как в справке к функциям из библиотеки функции вывода также будут присутствовать. Итак, использование функций внешне должно быть везде одинаковым для всех систем C++.  Поэтому вы можете их переписать под свои нужды. Обратите внимание, что это функции программы DemoHarrixMathLibrary.exe, а не самой библиотеки HarrixMathLibrary.
+
+\begin{itemize}
+\item \textbf{HML\_NumberToText} --- функция перевода числа в строку; 
+\item \textbf{HML\_ShowNumber} --- функция вывода числа;
+\item \textbf{HML\_ShowVector} --- функция вывода вектора (одномерного массива);
+\item \textbf{HML\_ShowVectorT} --- функция вывода вектора (одномерного массива) в строку одну, то есть это транспонированный вектор;
+\item \textbf{HML\_ShowMatrix} --- функция вывода матрицы.
+\item \textbf{HML\_ShowText} --- функция вывода просто текста.
+\end{itemize}
+
+Далее функции рассмотрены подробнее.
+
+\begin{itemize}
+\item \textbf{HML\_ShowNumber} --- функция вывода числа. 
+\begin{lstlisting}[label=examplefunction13, caption=Синтаксис функции HML\_ShowNumber]
+template <class T> void HML_ShowNumber (T VHML_X, QString TitleX, QString NameX);
+\end{lstlisting}
+Входные параметры: 
+\begin{itemize}   
+    \item  VHML\_X --- выводимое число;
+     \item TitleX --- заголовок выводимого числа;
+     \item NameX --- обозначение числа.
+\end{itemize}
+Пример использования функции:
+\begin{lstlisting}[label=examplefunction10, caption=Пример использования HML\_ShowNumber]
+HML_ShowNumber (x,"Первоначальное число", "x");
+//Первоначальное число:
+//x=5
+\end{lstlisting}
+И для этой функции покажем исходный код:
+\begin{lstlisting}[label=examplefunction11, caption=Реализация функции HML\_ShowNumber]
+//mainwindow.cpp
+template <class T> void MainWindow::HML_ShowNumber (T VHML_X, QString TitleX, QString NameX)
+{
+    /*
+    Функция выводит число VHML_X в textEdit.
+    Входные параметры:
+     VHML_X - выводимое число;
+     TitleX - заголовок выводимого числа;
+     NameX - обозначение числа.
+    Возвращаемое значение:
+     Отсутствует.
+    */
+    QString VHML_Result;
+    VHML_Result=THQt_ShowNumber (VHML_X, TitleX, NameX);// из HarrixQtLibrary.h
+    Html=VHML_Result;
+    HQt_AddHtml(Html);
+}
+//---------------------------------------------------------------------------
+
+//HarrixQtLibrary.h
+template <class T> QString THQt_ShowNumber (T VHML_X, QString TitleX, QString NameX)
+{
+    /*
+    Функция возвращает строку с выводом некоторого числа VHML_X с HTML кодами. Для добавление в html файл.
+    Входные параметры:
+     VHML_X - выводимое число;
+     TitleX - заголовок выводимого числа;
+     NameX - обозначение числа.
+    Возвращаемое значение:
+     Строка с HTML кодами с выводимым числом.
+    */
+    QString VHML_Result;
+
+    VHML_Result="<p><b>"+TitleX+":</b><br>";
+
+    VHML_Result+=NameX+"=<b><font color=\"#4200ff\">"+QString::number(VHML_X)+"</font></b></p>\n";
+
+    return VHML_Result;
+}
+//---------------------------------------------------------------------------
+\end{lstlisting}
+
+В предыдущей версии библиотеки для программы демонстрации работы функций использовалась система C++Builder 6. Там эта функции реализовывалась так:
+\begin{lstlisting}[label=examplefunction12, caption=Реализация функции HML\_ShowNumber в C++Builder 6]
+template <class T> void HML_ShowNumber (T X, AnsiString A, AnsiString B)
+{
+Form1->Memo1->Lines->Add(A+":");
+Form1->Memo1->Lines->Add(B+" = "+AnsiString(X));
+Form1->Memo1->Lines->Add("");
+}
+//---------------------------------------------------------------------------
+\end{lstlisting}
+Как видим, вид функций по внешнему виду однотипен --- различается только тип строк, который используется.
+
+\item \textbf{HML\_NumberToText} --- выводит число в строку. 
+\begin{lstlisting}[label=examplefunction16_2, caption=Синтаксис функции HML\_NumberToText]
+template <class T> QString MainWindow::HML_NumberToText (T VHML_X);
+\end{lstlisting}
+Входные параметры: 
+\begin{itemize}   
+     \item VHML\_X --- выводимое число.
+\end{itemize}
+Пример использования функции:
+\begin{lstlisting}[label=examplefunction17, caption=Пример использования HML\_NumberToText]
+HML_ShowNumber(Deg,"Угол "+HML_NumberToText(Rad)+" радиан","равен в градусах");
+//Угол 3.14159 радиан:
+//равен в градусах=180
+\end{lstlisting}
+
+\item \textbf{HML\_ShowVector} --- функция вывода вектора (одномерного массива). 
+\begin{lstlisting}[label=examplefunction14, caption=Синтаксис функции HML\_ShowVector]
+template <class T> void HML_ShowVector (T *VHML_Vector, int VHML_N, QString TitleVector, QString NameVector);
+\end{lstlisting}
+Входные параметры: 
+\begin{itemize}   
+     \item Vector --- указатель на выводимый вектор;
+     \item VHML\_N --- количество элементов вектора a;
+     \item TitleVector --- заголовок выводимого вектора;
+     \item NameVector --- обозначение вектора.
+\end{itemize}
+Пример использования функции:
+\begin{lstlisting}[label=examplefunction15_2, caption=Пример использования HML\_ShowVector]
+HML_ShowVector (a,VHML_N,"Заполненный вектор", "a");
+//Заполненный вектор:
+//a =	
+//5
+//5
+//5
+//5
+//5
+//5
+//5
+//5
+//5
+//5
+
+\end{lstlisting}
+
+\item \textbf{HML\_ShowVectorT} --- функция вывода вектора (одномерного массива) в транспонированном виде, то есть в одну строку. 
+\begin{lstlisting}[label=examplefunction14_2, caption=Синтаксис функции HML\_ShowVectorT]
+template <class T> void HML_ShowVectorT (T *VHML_Vector, int VHML_N, QString TitleVector, QString NameVector);
+\end{lstlisting}
+Входные параметры: 
+\begin{itemize}   
+     \item Vector --- указатель на выводимый вектор;
+     \item VHML\_N --- количество элементов вектора a;
+     \item TitleVector --- заголовок выводимого вектора;
+     \item NameVector --- обозначение вектора.
+\end{itemize}
+Пример использования функции:
+\begin{lstlisting}[label=examplefunction15, caption=Пример использования HML\_ShowVectorT]
+HML_ShowVector (a,VHML_N,"Заполненный вектор", "a");
+//Заполненный вектор:
+//a = 5 5 5 5 5 5 5 5 5 5
+\end{lstlisting}
+
+\item \textbf{HML\_ShowMatrix} --- функция вывода матрицы. 
+\begin{lstlisting}[label=examplefunction16, caption=Синтаксис функции HML\_ShowMatrix]
+template <class T> void HML_ShowMatrix (T **VHML_Matrix, int VHML_N, int VHML_M, QString TitleMatrix, QString NameMatrix);
+\end{lstlisting}
+Входные параметры: 
+\begin{itemize}   
+     \item VHML\_Matrix --- указатель на выводимую матрицу;
+     \item VHML\_N --- количество строк в матрице;
+     \item VHML\_M --- количество столбцов в матрице;
+     \item TitleMatrix --- заголовок выводимой матрицы;
+     \item NameMatrix --- обозначение матрицы.
+\end{itemize}
+Пример использования функции:
+\begin{lstlisting}[label=examplefunction17_2, caption=Пример использования HML\_ShowMatrix]
+        HML_ShowMatrix (Matrix,VHML_N,VHML_M,"Матрица", "x");
+        //Матрица:
+        //x =            
+        //0	1	2	3	4
+        //1	2	3	4	5
+        //2	3	4	5	6
+        //3	4	5	6	7
+        //4	5	6	7	8
+        //5	6	7	8	9
+        //6	7	8	9	10  
+\end{lstlisting}
+
+\item \textbf{HML\_ShowText} --- функция вывода просто текста. 
+\begin{lstlisting}[label=examplefunction14855, caption=Синтаксис функции HML\_ShowText]
+void HML_ShowText (QString TitleX);
+\end{lstlisting}
+Входные параметры: 
+\begin{itemize}   
+     \item TitleX - непосредственно выводимая строка.
+\end{itemize}
+Пример использования функции:
+\begin{lstlisting}[label=examplefunction14855, caption=Пример использования HML\_ShowText]
+HML_ShowText ("Выводимый текст");
+//Выводимый текст
+
+\end{lstlisting}
+
+
+\end{itemize}
+
+Итак, мы добавили в DemoHarrixMathLibrary.pro нашу функцию и проверили ее работоспособность. 
+
+\textbf{Шаг 2.}\label{step2} Теперь нам нужно добавить нашу функцию в исходники. Все исходные материалы располагаются в папке \textbf{source\_library}. В ней располагаются некоторые файлы, которые нам не особы интересны (подробнее в файле справке к программе MakeHarrixMathLibrary.exe в файле \textbf{make\textbackslash MakeHarrixMathLibrary\_Help.pdf}) и папки (например, \textbf{Вектора (Одномерные массивы)}). Каждая такая папка является разделом функций в библиотеке. Вам нужно выбрать папку, в которую вы будете добавлять свою функцию или создать свою собственную, если ничто не подходит по смыслу.
+
+Каждая функция или шаблон функции в разделе (выбранной вами папке) предоставляется следующими файлами:
+\begin{itemize}
+\item \textbf{<File>.cpp} или \textbf{<File>.tpp} --- код функции;
+\item \textbf{<File>.h} --- заголовочный файл функции;
+\item \textbf{<File>.tex} --- справка по функции;
+\item \textbf{<File>.desc} --- описание функции;
+\item \textbf{<File>.use} --- пример использования функции;
+\item \textbf{<File>\_<name>.pdf} --- множество рисунков, необходимых для справки по функции (необязательные файлы);
+\item \textbf{<File>\_<name>.png} --- множество рисунков, необходимых для справки по функции (необязательные файлы);
+\end{itemize}
+
+Без файлов <File>.cpp (или <File>.tpp), <File>.h, <File>.tex, <File>.desc, <File>.use библиотека соберется, но с ошибками, то есть каждая функция должна быть представима минимум 5 файлами (могут быть дополнительно рисунки).
+
+Считаем далее, что вы выбрали папку \textbf{<Dir>} в папке source\_library. 
+
+\begin{itemize}
+\item Создайте в папке <Dir> текстовой файл \textbf{<File>.h}, где <File> --- это имя функции, то есть в рассматриваемом примере мы должны создать файл \textbf{HML\_Func.h}.
+\item В файл <File>.h мы добавляем объявление нашей функции, например:
+\begin{lstlisting}[label=examplefileh, caption=Содержимое HML\_Func.h]
+int  HML_Func(int VHML_X);
+\end{lstlisting}
+\item В файл <File>.cpp мы добавляем код нашей функции, например:
+\begin{lstlisting}[label=examplefilecpp, caption=Содержимое HML\_Func.cpp]
+int  HML_Func(int VHML_X)
+{
+/*
+Умножает число на 2.
+Входные параметры:
+  x - число, которое будет умножаться.
+Возвращаемое значение:
+ Число, умноженное на 2.
+*/
+  return 2*VHML_X;
+}
+\end{lstlisting}
+
+Если у нас не функция, а шаблон функции, то мы создаем файл <File>.tpp (обратите внимание на расширение файла), например:
+\begin{lstlisting}[label=examplefiletpp, caption=Содержимое HML\_FillVector.tpp]
+template <class T> void HML_FillVector(T *VHML_ResultVector, int VHML_N, T x)
+{
+/*
+Функция заполняет вектор значениями, равных x.
+Входные параметры:
+ VHML_ResultVector - указатель на преобразуемый массив;
+ VHML_N - количество элементов в массиве;
+ x - число, которым заполняется вектор.
+Возвращаемое значение:
+ Отсутствует.
+*/
+for (int i=0;i<VHML_N;i++) VHML_ResultVector[i]=x;
+}
+\end{lstlisting}
+
+\item В файл <File>.desc мы добавляем описание нашей функции, например:
+\begin{lstlisting}[label=examplefiledesc, caption=Содержимое HML\_Func.desc]
+Умножает число на 2.
+\end{lstlisting}
+
+\item В файл <File>.tex мы добавляем справку к нашей функции в виде куска tex кода, например:
+\begin{lstlisting}[label=examplefiletex, caption=Содержимое HML\_Func.tex]
+\textbf{Входные параметры:}
+
+ x --- входной параметр.
+
+\textbf{Возвращаемое значение:}
+Число умноженное на 2.
+\end{lstlisting}
+
+\item В файл <File>.use мы добавляем код примера использования функции, например:
+\begin{lstlisting}[label=examplefileuse, caption=Содержимое HML\_Func.use]
+int x=5;
+
+//Вызов функции
+int y=HML_Func(x);
+
+//Используем полученный результат
+HML_ShowNumber (x,"Первоначальное число", "x");
+HML_ShowNumber (y,"Умноженное число", "y");
+//Первоначальное число:
+//x=5
+//Умноженное число:
+//y=10
+\end{lstlisting}
+
+\item Если хотите использовать рисунки в tex справке к функции, то в папку <Dir> скопируйте рисунки вида  \textbf{<File>\_<name>.pdf} и \textbf{<File>\_<name>.png}
+
+\item Если мы используем дополнительную переменную перечисляемого типа, то добавляем ее в файл \textbf{Enum.h} в папке \textbf{source\_library}.
+
+\item Если мы хотим использовать глобальную константу, то добавляем ее в файл \textbf{Const.h} в папке \textbf{source\_library}.
+
+\item Если мы хотим использовать глобальную переменную, то добавляем ее в файл \textbf{AdditionalVariables.cpp} в папке \textbf{source\_library}.
+
+\end{itemize}
+
+\textbf{Замечание.} Если вы хотите переопределить функцию какую-нибудь, то вы добавляете переопределенные функции, их объявления в уже существующие файлы, а не создаете новые.
+
+\textbf{Замечание.} Данная библиотека не предназначена для включения в себя классов по своей идеологии. Например, если добавите класс, то количество функций будет не верно посчитано. В общем, добавляйте только функции и шаблоны-функций.
+
+Итак, мы добавили в папку source\_library нашу функцию. Теперь нужно перестроить библиотеку и провести замену файлов.
+
+\textbf{Шаг 3.}\label{step3} Сборка библиотеки. Перейдем в папку \textbf{make} в корне файлов библиотеки. В ней есть программа MakeHarrixMathLibrary.exe и справка к ней MakeHarrixMathLibrary\_Help.pdf. 
+
+\begin{itemize}
+\item Включим программу \textbf{MakeHarrixMathLibrary.exe}.
+\item Ставим номер версии библиотеки в поле ввода. Обычно просто увеличиваем на 1.
+\item Нажмем кнопку \textbf{Собрать библиотеку}.
+\item В окне программы будет отчет об собрании библиотеки, например:
+\begin{lstlisting}[label=examplereport, caption=Пример отчета о сборке библиотеки]
+Начало формирования файлов библиотеки...
+Загрузили файл Header.cpp
+Загрузили файл AdditionalVariables.cpp
+Загрузили файл Random.cpp
+Загрузили файл Const.h
+Загрузили файл Random.cpp
+Загрузили файл Enum.h
+Загрузили файл Install.tex
+Загрузили файл Random.tex
+Загрузили файл Addnew.tex
+
+Было найдено 1 папок - разделов библиотеки
+
+Рассматриваем папку Вектора (Одномерные массивы)
+Было найдено 15 файлов в папке
+
+Загрузили файл FuncF.cpp
+Загрузили файл FuncF.desc
+Загрузили файл FuncF.h
+Загрузили файл FuncF.tex
+Загрузили файл FuncF.use
+Загрузили файл HML_Func.cpp
+Загрузили файл HML_Func.desc
+Загрузили файл HML_Func.h
+Загрузили файл HML_Func.tex
+Загрузили файл HML_Func.use
+Загрузили файл HML_FillVector.desc
+Загрузили файл HML_FillVector.h
+Загрузили файл HML_FillVector.tex
+Загрузили файл HML_FillVector.tpp
+Загрузили файл HML_FillVector.use
+Из 15 файлов нужными нам оказалось 15 файлов в папке
+
+Загрузили файл Description_part2.tex
+Загрузили файл Description_part1.tex
+Загрузили файл Title.tex
+
+Сохранили файл HarrixMathLibrary.cpp
+Сохранили файл HarrixMathLibrary.h
+Сохранили файл HarrixMathLibrary_Help.tex
+
+Скопировали файл names.tex
+Скопировали файл packages.tex
+Скопировали файл styles.tex
+
+Ошибки не были зафиксированы.
+Конец формирования файлов библиотеки.
+Потребовалось времени: 1 мин. 9 сек. 550 миллисек.
+\end{lstlisting}
+
+Если ошибок нет, то все прошло нормально.
+\item Также нам будет продемонстрирована папка \textbf{temp\_library} с сформированными файлами библиотеки.
+\end{itemize}
+
+Итак, мы собрали файлы библиотеки.
+
+\textbf{Шаг 4.}\label{step4} Разберем файлы из папки \textbf{temp\_library}.
+
+\begin{itemize}
+\item Скопируем файлы \textbf{HarrixMathLibrary.cpp}, \textbf{HarrixMathLibrary.h}, \textbf{mtrand.cpp}, \textbf{mtrand.h} в папку \textbf{\_library}.
+
+\item Скопируем файл \textbf{FUNCTIONS.md} в корневую папку.
+
+\item Откройте файл \textbf{HarrixMathLibrary\_Help.tex } в \LaTeX \ программе (автор использует TeXstudio) и скомпилируйте его.
+
+В итоге в папке temp\_library появится файл \textbf{HarrixMathLibrary\_Help.pdf}. Скопируйте этот файл в папку \textbf{\_library}.
+
+\item Теперь разберемся с программой для демонстрации. Как мы помним, в ней в самом начале мы проверяли свою функцию. 
+\begin{itemize}
+\item Скопируем файлы \textbf{HarrixMathLibrary.cpp}, \textbf{HarrixMathLibrary.h}, \textbf{mtrand.cpp}, \textbf{mtrand.h} в папку \textbf{source\_demo}.
+\item  Откройте \textbf{DemoHarrixMathLibrary.pro} из папки source\_demo в Qt Creator и скомпилируйте приложение (в режиме Release).
+\item Найдите папку, в которую скомпилировался проект. Это может быть папка проектов Qt, или папка появится в корневой папке библиотеки HarrixMathLibrary.
+\item Скопируйте файл \textbf{DemoHarrixMathLibrary.exe} в папку \textbf{demo}.
+\item В папке \textbf{demo} возможно придется обновить набор dll, если Вы используете версию Qt гораздо более новую, чем в данной сборке библиотеке.
+\end{itemize}
+\item Удалим папку \textbf{temp\_library} после всех наших действий.
+\item  Если папка с скомпилированным файлом DemoHarrixMathLibrary.exe появилась в корневой папке библиотеки, то удалите ее (например, build-DemoHarrixMathLibrary-Desktop\_Qt\_5\_2\_0\_MinGW\_32bit-Release).
+\item Отредактируйте на своё усмотрение файл CHANGELOG.md, где напишите о новых изменениях.
+\item В файле \textbf{README.md} поменяйте номер версии библиотеки.
+\end{itemize}
+
+Вот, вроде и всё. Мы добавили новую функцию и обновили все файлы и папки библиотеки.
